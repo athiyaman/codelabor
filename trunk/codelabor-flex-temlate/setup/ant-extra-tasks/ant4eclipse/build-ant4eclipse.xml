@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="test-ant4eclipse" default="test">
+	<property environment="env" />
+	<property file="../../custom.properties"/>	
+	<property file="${project.dir}/setup/ant-extra-tasks/extra-task.properties" />
+	<property file="${project.dir}/setup/common.properties" />
+	
+	<ant antfile="${project.dir}/setup/build-info.xml"/>
+	
+	<typedef resource="net/sf/ant4eclipse/antlib.xml"/>
+	
+	<target name="test">
+		<getSourcepath
+			pathId="source.path"
+			allowMultipleFolders="true"
+			property="source.path" 
+			workspace="${workspace.dir}" 
+			projectName="${project.name}"/>
+		<echo level="info" message="getSourcepath: ${source.path}"/>
+		<getEclipseClasspath
+			pathId="class.path"
+			property="class.path"
+		    workspace="${workspace.dir}"
+		    projectName="${project.name}" />
+		<echo level="info" message="getEclipseClasspath: ${class.path}"/> 
+	</target>
+</project>

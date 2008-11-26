@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="check-dependency" default="install-extra-task">
+	<property environment="env" />
+	<property file="../../custom.properties"/>	
+	<property file="${project.dir}/setup/custom.properties"/>
+	<property file="${project.dir}/setup/ant-extra-tasks/ant4eclipse/extra-task.properties" />
+	<property file="${project.dir}/setup/common.properties" />
+	
+	<ant antfile="${project.dir}/setup/build-info.xml"/>
+
+	<available
+		classname="${extra.task.properties.file.name}"
+		property="extra.task.available"/>
+	<echo level="info">
+		Rest AntHome
+		Eclipse > Preference > Ant > Runtime > Classpath
+	</echo>
+	
+	<target name="install-extra-task" unless="extra.task.available">
+		<copy
+			file="${extra.task.jar.dir}/${extra.task.file.name}"
+			todir="${ant.library.dir}"
+			failonerror="${option.copy.failonerror}"
+			includeEmptyDirs="${option.copy.includeEmptyDirs}"
+			verbose="true"/>
+	</target>
+</project>
