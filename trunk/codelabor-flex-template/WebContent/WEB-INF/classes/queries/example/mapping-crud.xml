@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//TITAN//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<table-mapping>
+		<table name="CRUD" class="org.codelabor.example.dtos.CrudDTO">
+			<field-mapping>
+				<dbms-column>ID</dbms-column>
+				<class-attribute>id</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>FIELD1</dbms-column>
+				<class-attribute>field1</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>FIELD2</dbms-column>
+				<class-attribute>field2</class-attribute>
+			</field-mapping>
+			<primary-key>
+				<dbms-column>ID</dbms-column>
+			</primary-key>
+		</table>
+	</table-mapping>
+	<queries>
+		<query id="example.select.crud" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* example.select.crud */
+				ID, FIELD1, FIELD2 				
+				FROM CRUD
+				WHERE ID=?				
+			]]></statement>
+			<param type="VARCHAR" />
+		</query>
+		<query id="example.select.crud.list" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* example.select.crud */
+				ID, FIELD1, FIELD2 				
+				FROM CRUD
+			]]></statement>
+		</query>
+		<query id="example.select.crud.list.by.field1" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* example.select.crudByField1 */
+				ID, FIELD1, FIELD2 				
+				FROM CRUD
+				WHERE FIELD1 LIKE ?		
+			]]></statement>
+			<param type="VARCHAR" />
+		</query>
+		<query id="example.delete.crud" isDynamic="false">
+			<statement><![CDATA[
+				DELETE /* example.delete.crud */
+				FROM CRUD
+				WHERE ID = ?	
+			]]></statement>
+			<param type="VARCHAR" />
+		</query>		
+	</queries>
+</queryservice>

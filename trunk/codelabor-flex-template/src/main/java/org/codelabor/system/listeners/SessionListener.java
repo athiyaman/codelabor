@@ -1,0 +1,186 @@
+package org.codelabor.system.listeners;
+
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionAttributeListener;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+import org.codelabor.system.Constants;
+import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.dtos.MessageDTO;
+import org.codelabor.system.services.LoginService;
+import org.codelabor.system.utils.MessageUtil;
+
+public class SessionListener extends BaseListener implements
+		HttpSessionListener, HttpSessionAttributeListener,
+		HttpSessionActivationListener {
+
+	private static LoginService loginService;
+
+	public void attributeAdded(HttpSessionBindingEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("thread: ").append(Thread.currentThread());
+			stringBuilder.append(", ");
+			stringBuilder.append("instance: ").append(this.hashCode());
+			stringBuilder.append(", ");
+
+			stringBuilder.append("name: ");
+			stringBuilder.append(event.getName());
+			stringBuilder.append(", ");
+			stringBuilder.append("value: ");
+			stringBuilder.append(event.getValue());
+			stringBuilder.append(", ");
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+
+		if (event.getName().equals(Constants.SESSION_LOGIN_INFO_KEY)) {
+			HttpSession session = event.getSession();
+			LoginDTO loginDTO = (LoginDTO) session
+					.getAttribute(Constants.SESSION_LOGIN_INFO_KEY);
+			loginDTO.setSessionId(session.getId());
+			try {
+				loginService.login(loginDTO);
+				loginDTO = loginService.selectLogin(loginDTO);
+				session
+						.setAttribute(Constants.SESSION_LOGIN_INFO_KEY,
+								loginDTO);
+			} catch (Exception e) {
+				e.printStackTrace();
+				MessageDTO messageDTO = MessageUtil.exceptionToMessageDTO(e);
+				if (log.isErrorEnabled()) {
+					log.error(messageDTO.getUserMessage(), e);
+				}
+			}
+		}
+	}
+
+	public void attributeRemoved(HttpSessionBindingEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("thread: ").append(Thread.currentThread());
+			stringBuilder.append(", ");
+			stringBuilder.append("instance: ").append(this.hashCode());
+			stringBuilder.append(", ");
+
+			stringBuilder.append("name: ");
+			stringBuilder.append(event.getName());
+			stringBuilder.append(", ");
+			stringBuilder.append("value: ");
+			stringBuilder.append(event.getValue());
+			stringBuilder.append(", ");
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+
+		if (event.getName().equals(Constants.SESSION_LOGIN_INFO_KEY)) {
+			LoginDTO loginDTO = new LoginDTO();
+			loginDTO.setSessionId(event.getSession().getId());
+			try {
+				loginService.logout(loginDTO);
+			} catch (Exception e) {
+				e.printStackTrace();
+				MessageDTO messageDTO = MessageUtil.exceptionToMessageDTO(e);
+				if (log.isErrorEnabled()) {
+					log.error(messageDTO.getUserMessage(), e);
+				}
+			}
+		}
+	}
+
+	public void attributeReplaced(HttpSessionBindingEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("name: ");
+			stringBuilder.append(event.getName());
+			stringBuilder.append(", ");
+			stringBuilder.append("value: ");
+			stringBuilder.append(event.getValue());
+			stringBuilder.append(", ");
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+	public void sessionCreated(HttpSessionEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+	public void sessionDestroyed(HttpSessionEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+	public void sessionDidActivate(HttpSessionEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+	public void sessionWillPassivate(HttpSessionEvent event) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("session id: ");
+			stringBuilder.append(event.getSession().getId());
+			stringBuilder.append(", ");
+			stringBuilder.append("soruce: ");
+			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+	public LoginService getLoginService() {
+		return loginService;
+	}
+
+	public void setLoginService(LoginService loginService) {
+		SessionListener.loginService = loginService;
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("thread: ").append(Thread.currentThread());
+			stringBuilder.append(", ");
+			stringBuilder.append("instance: ").append(this.hashCode());
+			stringBuilder.append(", ");
+			stringBuilder.append("loginService: ");
+			stringBuilder.append(loginService);
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+}
