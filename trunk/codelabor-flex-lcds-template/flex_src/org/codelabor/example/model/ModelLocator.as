@@ -11,6 +11,7 @@ package org.codelabor.example.model
 	{
 		// model 
 		public var empList:ArrayCollection = new ArrayCollection();
+		public var loginUserId:String = new String("tester");
 		
 		private static var instance:ModelLocator;
 
