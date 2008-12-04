@@ -25,7 +25,6 @@ public class InisafeSSOHttpFilter extends InisafeSSOFilter {
 				httpRequest));
 		loginDTO.setUserId(CookieManager.getCookieValue("InitechEamUIP",
 				httpRequest));
-
 		httpRequest.getSession().setAttribute(Constants.SESSION_LOGIN_INFO_KEY,
 				loginDTO);
 	}
