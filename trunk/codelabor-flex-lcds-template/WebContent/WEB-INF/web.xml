@@ -27,7 +27,7 @@
 	<!-- SSO filter -->
 	<filter>
 		<filter-name>ssoFilter</filter-name>
-		<filter-class>org.codelabor.system.filters.InisafeSSOFlexFilter</filter-class>
+		<filter-class>org.codelabor.system.filters.InisafeSSOFilter</filter-class>
 		<init-param>
 			<param-name>nlsLoginURL</param-name>
 			<param-value>http://iris.korail.go.kr/nls/login</param-value>
@@ -68,11 +68,10 @@
     	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<!-- Session Listener -->
+	<!-- Login Http Session Listener -->
 	<listener>
-		<listener-class>org.codelabor.system.listeners.SessionListener</listener-class>
+		<listener-class>org.codelabor.system.listeners.LoginHttpSessionListener</listener-class>
 	</listener>		
-
 
 	<!-- MessageBroker Servlet -->
 	<servlet>
