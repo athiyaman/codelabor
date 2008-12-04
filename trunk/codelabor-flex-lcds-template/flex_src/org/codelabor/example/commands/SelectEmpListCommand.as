@@ -7,7 +7,6 @@ package org.codelabor.example.commands
 	import mx.controls.Alert;
 	import mx.rpc.IResponder;
 	
-	import org.codelabor.example.events.SelectEmpListEvent;
 	import org.codelabor.example.model.ModelLocator;
 	import org.codelabor.example.business.EmpManagerDelegate;
 
@@ -22,7 +21,6 @@ package org.codelabor.example.commands
 
 		public function execute(event:CairngormEvent):void
 		{
-			var selectEmpListEvent:SelectEmpListEvent = event as SelectEmpListEvent;
 			var selectEmpListDelegate:EmpManagerDelegate = new EmpManagerDelegate(this);
 			selectEmpListDelegate.selectEmpList();
 		}
