@@ -176,20 +176,23 @@ public class SniffFilter extends BaseFilterImpl {
 
 		// session
 		HttpSession session = ((HttpServletRequest) request).getSession();
-		attribEnum = session.getAttributeNames();
-		stringBuilder.append("[session attribute]");
-		stringBuilder.append(System.getProperty("line.separator"));
-		stringBuilder.append("-------------------------------");
-		while (attribEnum.hasMoreElements()) {
-			String attribName = attribEnum.nextElement();
-			Object attribObject = session.getAttribute(attribName);
+		if (session != null) {
+			attribEnum = session.getAttributeNames();
+			stringBuilder.append("[session attribute]");
 			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append(attribName).append(": ").append(attribObject);
+			stringBuilder.append("-------------------------------");
+			while (attribEnum.hasMoreElements()) {
+				String attribName = attribEnum.nextElement();
+				Object attribObject = session.getAttribute(attribName);
+				stringBuilder.append(System.getProperty("line.separator"));
+				stringBuilder.append(attribName).append(": ").append(
+						attribObject);
+			}
+			stringBuilder.append(System.getProperty("line.separator"));
+			stringBuilder.append("-------------------------------");
+			stringBuilder.append(System.getProperty("line.separator"));
+			stringBuilder.append(System.getProperty("line.separator"));
 		}
-		stringBuilder.append(System.getProperty("line.separator"));
-		stringBuilder.append("-------------------------------");
-		stringBuilder.append(System.getProperty("line.separator"));
-		stringBuilder.append(System.getProperty("line.separator"));
 
 		if (request instanceof HttpServletRequest) {
 			stringBuilder.append("[http servlet request attribute]");
