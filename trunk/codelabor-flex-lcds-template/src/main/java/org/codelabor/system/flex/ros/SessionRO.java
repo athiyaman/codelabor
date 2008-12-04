@@ -13,6 +13,7 @@ public class SessionRO {
 		if (session != null) {
 			loginDTO = (LoginDTO) session
 					.getAttribute(Constants.SESSION_LOGIN_INFO_KEY);
+			System.out.print("loginDTO: " + loginDTO);
 		}
 		return loginDTO;
 	}

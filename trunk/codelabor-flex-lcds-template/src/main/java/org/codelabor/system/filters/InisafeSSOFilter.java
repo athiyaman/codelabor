@@ -89,7 +89,7 @@ public class InisafeSSOFilter extends BaseFilterImpl {
 				LoginDTO loginDTO = new LoginDTO();
 				loginDTO.setUserId(CookieManager.getCookieValue(
 						"InitechEamUID", httpRequest));
-				loginDTO.setUserId(CookieManager.getCookieValue(
+				loginDTO.setIpAddress(CookieManager.getCookieValue(
 						"InitechEamUIP", httpRequest));
 				httpRequest.getSession().setAttribute(
 						Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
