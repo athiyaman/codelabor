@@ -10,9 +10,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.system.Constants;
-import org.codelabor.system.dtos.LoginDTO;
-
 import com.initech.eam.nls.CookieManager;
 import com.initech.eam.smartenforcer.SECode;
 
@@ -20,7 +17,7 @@ import com.initech.eam.smartenforcer.SECode;
  * @author SangJae Shin
  * 
  */
-public class InisafeSSOFilter extends BaseFilterImpl {
+public abstract class InisafeSSOFilter extends BaseFilterImpl {
 
 	private String nlsLoginURL;
 	private String nlsErrorURL;
@@ -44,19 +41,8 @@ public class InisafeSSOFilter extends BaseFilterImpl {
 			sessionTime = Integer.parseInt(sessionTimeString);
 	}
 
-	protected void doAfterAuthentication(ServletRequest request,
-			ServletResponse response) {
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
-
-		LoginDTO loginDTO = new LoginDTO();
-		loginDTO.setUserId(CookieManager.getCookieValue("InitechEamUID",
-				httpRequest));
-		loginDTO.setUserId(CookieManager.getCookieValue("InitechEamUIP",
-				httpRequest));
-
-		httpRequest.getSession().setAttribute(Constants.SESSION_LOGIN_INFO_KEY,
-				loginDTO);
-	}
+	protected abstract void doAfterAuthentication(ServletRequest request,
+			ServletResponse response);
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
