@@ -21,6 +21,7 @@ package org.codelabor.example.commands
 
 		public function execute(event:CairngormEvent):void
 		{
+			Alert.show("execute");
 			var sessionDelegate:SessionDelegate = new SessionDelegate(this);
 			sessionDelegate.getLoginUserId();
 		}
