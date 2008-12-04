@@ -20,7 +20,7 @@ import com.initech.eam.smartenforcer.SECode;
  * @author SangJae Shin
  * 
  */
-public class InisafeSSOFilter extends BaseFilterImpl {
+public class InisafeSSOHttpFilter extends BaseFilterImpl {
 
 	private String nlsLoginURL;
 	private String nlsErrorURL;
