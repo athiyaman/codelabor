@@ -15,7 +15,7 @@ import flex.messaging.FlexContext;
  * @author SangJae Shin
  * 
  */
-public class InisafeSSOFlexFilter extends InisafeSSOHttpFilter {
+public class InisafeSSOFlexFilter extends InisafeSSOFilter {
 
 	@Override
 	protected void doAfterAuthentication(ServletRequest request,
