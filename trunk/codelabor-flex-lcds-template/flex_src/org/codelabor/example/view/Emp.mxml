@@ -42,7 +42,7 @@
 	</mx:Script>
 	
 	<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="790">
-		<mx:Label text="{model.loginUserId}"/>
+		<mx:Label text="user id: {model.loginUserId}"/>
 		<mx:HBox width="100%">
 			<mx:Label text="DEPTNO"/>
 			<mx:TextInput id="searchTextInput" width="100" />
