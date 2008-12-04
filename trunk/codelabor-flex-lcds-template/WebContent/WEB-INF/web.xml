@@ -27,7 +27,7 @@
 	<!-- SSO filter -->
 	<filter>
 		<filter-name>ssoFilter</filter-name>
-		<filter-class>org.codelabor.system.filters.InisafeSSOFilter</filter-class>
+		<filter-class>org.codelabor.system.filters.InisafeSSOFlexFilter</filter-class>
 		<init-param>
 			<param-name>nlsLoginURL</param-name>
 			<param-value>http://iris.korail.go.kr/nls/login</param-value>
