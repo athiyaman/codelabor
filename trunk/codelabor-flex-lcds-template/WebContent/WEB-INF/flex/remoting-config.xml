@@ -2,6 +2,12 @@
 <service id="remoting-service" 
     class="flex.messaging.services.RemotingService">
     
+	<destination id="sessionRO">
+		<properties>
+			<source>org.codelabor.system.flex.ros.SessionRO</source>
+		</properties>
+	</destination>    
+    
 	<destination id="empManagerMockRO">
 		<properties>
 			<source>org.codelabor.example.managers.EmpManagerMock</source>
