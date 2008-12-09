@@ -14,8 +14,6 @@ import javax.servlet.http.HttpSession;
 import org.codelabor.system.Constants;
 import org.codelabor.system.dtos.LoginDTO;
 
-import com.initech.eam.nls.CookieManager;
-
 /**
  * @author SangJae Shin
  * 
@@ -41,10 +39,9 @@ public class AuthenticationFilter extends BaseFilterImpl {
 
 		if (!isAuthenticated(httpRequest, httpResponse)) {
 			LoginDTO loginDTO = new LoginDTO();
-			loginDTO.setUserId(CookieManager.getCookieValue("InitechEamUID",
-					httpRequest));
-			loginDTO.setIpAddress(CookieManager.getCookieValue("InitechEamUIP",
-					httpRequest));
+			// TODO fetch user id
+			loginDTO.setUserId("tester");
+			loginDTO.setIpAddress(httpRequest.getRemoteAddr());
 			httpRequest.getSession().setAttribute(
 					Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
 			filterChain.doFilter(request, response);
