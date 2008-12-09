@@ -53,14 +53,19 @@ public class AuthenticationFilter extends BaseFilterImpl {
 
 	public boolean isAuthenticated(HttpServletRequest request,
 			HttpServletResponse response) {
+		boolean isAuthenticated = false;
 		HttpSession session = request.getSession(false);
-		if (session != null)
-			if (session.getAttribute(Constants.SESSION_LOGIN_INFO_KEY) != null)
-				return true;
-			else
-				return false;
-		else {
-			return false;
+		if (session != null) {
+			if (session.getAttribute(Constants.SESSION_LOGIN_INFO_KEY) != null) {
+				isAuthenticated = true;
+			}
 		}
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("isAuthenticated: ").append(isAuthenticated);
+		if (log.isDebugEnabled()) {
+			log.debug(stringBuilder.toString());
+		}
+
+		return isAuthenticated;
 	}
 }
