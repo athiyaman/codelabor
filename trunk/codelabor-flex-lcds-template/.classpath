@@ -12,7 +12,6 @@
 	<classpathentry kind="var" path="JEUS_LIB/datasource/ojdbc14.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/datasource/db2jcc_license_cu.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/datasource/db2jcc.jar"/>
-	<classpathentry kind="var" path="JEUS_LIB/datasource/db2jcc4.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jaxb-api.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jaxb-impl.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jaxb-libs.jar"/>
@@ -20,6 +19,6 @@
 	<classpathentry kind="var" path="JEUS_LIB/system/jeusjaxb.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jeusutil.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jmxri.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_10"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
