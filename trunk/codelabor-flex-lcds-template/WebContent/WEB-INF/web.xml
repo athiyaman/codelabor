@@ -26,35 +26,11 @@
 	
 	<!-- SSO filter -->
 	<filter>
-		<filter-name>ssoFilter</filter-name>
-		<filter-class>org.codelabor.system.filters.InisafeSSOFilter</filter-class>
-		<init-param>
-			<param-name>nlsLoginURL</param-name>
-			<param-value>http://iris.korail.go.kr/nls/login</param-value>
-		</init-param>
-		<init-param>
-			<param-name>nlsErrorURL</param-name>
-			<param-value>http://iris.korail.go.kr/nls/login/error.jsp</param-value>
-		</init-param>
-		<init-param>
-			<param-name>ascpURL</param-name>
-			<param-value>http://dummy.korail.go.kr:8088/codelabor-flex-lcds-template</param-value>		
-		</init-param>
-		<init-param>
-			<param-name>ssoDomain</param-name>
-			<param-value>.korail.go.kr</param-value>		
-		</init-param>
-		<init-param>
-			<param-name>reuseTime</param-name>
-			<param-value>5</param-value>		
-		</init-param>
-		<init-param>
-			<param-name>sessionTime</param-name>
-			<param-value>600000000</param-value>		
-		</init-param>
+		<filter-name>authenticationFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.AuthenticationFilter</filter-class>
 	</filter>
 	<filter-mapping>
-		<filter-name>ssoFilter</filter-name>
+		<filter-name>authenticationFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
