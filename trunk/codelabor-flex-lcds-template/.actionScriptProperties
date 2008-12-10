@@ -5,6 +5,9 @@
     <libraryPath defaultLinkType="3">
       <libraryPathEntry kind="4" path=""/>
       <libraryPathEntry kind="1" linkType="1" path="flex_libs"/>
+      <libraryPathEntry kind="3" linkType="1" path="WebContent/WEB-INF/flex/libs/fds.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="WebContent/WEB-INF/flex/libs/player/playerfds.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="WebContent/WEB-INF/flex/locale/{locale}"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
