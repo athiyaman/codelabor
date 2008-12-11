@@ -3,15 +3,52 @@
 	<display-name>
 	codelabor-flex-lcds-template</display-name>
 
+	<!-- Flex class path -->
 	<context-param>
 		<param-name>flex.class.path</param-name>
 		<param-value>/WEB-INF/flex/hotfixes,/WEB-INF/flex/jars</param-value>
 	</context-param>
+	
+	<!-- Spring support -->
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/**/applicationContext*.xml</param-value>
+	</context-param>
+	
+	<!-- Sniff filter -->
+	<filter>
+		<filter-name>sniffFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.SniffFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>sniffFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- SSO filter -->
+	<filter>
+		<filter-name>authenticationFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.AuthenticationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>authenticationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<!-- Http Flex Session attribute and binding listener support -->
 	<listener>
 		<listener-class>flex.messaging.HttpFlexSession</listener-class>
 	</listener>
+	
+	<!-- Spring support -->
+	<listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Login Http Session Listener -->
+	<listener>
+		<listener-class>org.codelabor.system.listeners.LoginHttpSessionListener</listener-class>
+	</listener>		
 
 	<!-- MessageBroker Servlet -->
 	<servlet>
@@ -36,22 +73,14 @@
 <display-name>codelabor-flex-lcds-template</display-name>
 
 	<welcome-file-list>
+		<!-- 
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
+		 -->
+		<welcome-file>main.html</welcome-file>
 	</welcome-file-list>
-
-	<!-- for WebSphere deployment, please uncomment -->
-	<!--
-		<resource-ref>
-		<description>Flex Messaging WorkManager</description>
-		<res-ref-name>wm/MessagingWorkManager</res-ref-name>
-		<res-type>com.ibm.websphere.asynchbeans.WorkManager</res-type>
-		<res-auth>Container</res-auth>
-		<res-sharing-scope>Shareable</res-sharing-scope>
-	</resource-ref>
-	-->
 </web-app>
