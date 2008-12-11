@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:control="org.codelabor.example.control.*"
+	xmlns:business="org.codelabor.example.business.*"
+	xmlns:view="org.codelabor.example.view.*" 
+	layout="absolute" width="100%" height="100%"
+	creationComplete="loadLoginUserInfo()">
 	
+	<mx:Script>
+		<![CDATA[
+		import org.codelabor.example.events.LoadLoginUserInfoEvent;
+		
+		private function loadLoginUserInfo() : void {
+			new LoadLoginUserInfoEvent().dispatch();
+		}
+		]]>
+	</mx:Script>
+	<business:Services id="Services" />
+	<control:Controller id="Controller" />
+	<view:Emp x="10" y="30" width="800" height="300">
+	</view:Emp>
 </mx:Application>
