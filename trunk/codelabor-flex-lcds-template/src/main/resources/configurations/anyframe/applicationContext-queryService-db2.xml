@@ -26,7 +26,7 @@
 	</bean>
 	
 	<bean id="pagingSQLGenerator" 
-		class="anyframe.core.query.impl.util.DB2PagingSQLGenerator"/>
+		class="anyframe.core.query.impl.util.test.DB2PagingSQLGenerator"/>
 	
 	<bean id="sqlLoader" 
 		class="anyframe.core.query.impl.SQLLoader">
