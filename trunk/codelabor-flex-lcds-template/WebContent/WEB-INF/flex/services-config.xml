@@ -86,15 +86,15 @@
         </channel-definition>
 
         <!-- NIO based endpoints -->
-        <!-- 
         <channel-definition id="my-rtmp" class="mx.messaging.channels.RTMPChannel">
             <endpoint url="rtmp://{server.name}:2038" class="flex.messaging.endpoints.RTMPEndpoint"/>
             <properties>
                 <idle-timeout-minutes>20</idle-timeout-minutes>
+                <!-- for deployment on WebSphere, must be mapped to a WorkManager available in the web application's jndi context.
                 <websphere-workmanager-jndi-name>java:comp/env/wm/MessagingWorkManager</websphere-workmanager-jndi-name>
+                -->
             </properties>
         </channel-definition>
-         -->
 
         <channel-definition id="my-nio-amf" class="mx.messaging.channels.AMFChannel">
             <endpoint url="http://{server.name}:2880/nioamf" class="flex.messaging.endpoints.NIOAMFEndpoint"/>
