@@ -14,6 +14,8 @@
   <applications>
     <application path="main.mxml"/>
   </applications>
-  <modules/>
+  <modules>
+    <module application="flex_src/main.mxml" destPath="org/codelabor/example/view/Emp.swf" optimize="true" sourcePath="flex_src/org/codelabor/example/view/Emp.mxml"/>
+  </modules>
   <buildCSSFiles/>
 </actionScriptProperties>
