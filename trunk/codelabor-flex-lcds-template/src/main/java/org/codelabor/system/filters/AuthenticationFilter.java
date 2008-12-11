@@ -44,8 +44,9 @@ public class AuthenticationFilter extends BaseFilterImpl {
 			loginDTO.setIpAddress(httpRequest.getRemoteAddr());
 			httpRequest.getSession().setAttribute(
 					Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
-			filterChain.doFilter(request, response);
+
 		}
+		filterChain.doFilter(request, response);
 	}
 
 	public boolean isAuthenticated(HttpServletRequest request,
