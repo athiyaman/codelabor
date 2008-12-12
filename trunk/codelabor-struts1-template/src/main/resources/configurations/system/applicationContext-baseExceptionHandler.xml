@@ -4,7 +4,7 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:config="http://www.sds.samsung.com/schema/service"
+	xmlns:config="http://www.anyframejava.org/schema/service"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
