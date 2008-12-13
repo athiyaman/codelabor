@@ -13,12 +13,12 @@
 		<property name="loginService" ref="loginService" />
 	</bean>	
 	<bean id="baseAction" 
-		class="org.codelabor.system.actions.BaseAction">
+		class="org.codelabor.system.struts.actions.BaseAction">
 		<property name="messageSource" ref="messageSource" />
 		<property name="propertiesService" ref="propertiesService" />
 	</bean>
 	<bean id="baseActionSupport" 
-		class="org.codelabor.system.actions.BaseActionSupport"
+		class="org.codelabor.system.struts.actions.BaseActionSupport"
 		parent="baseAction">
 	</bean>	
 	<bean id="baseDispatchAction" 
