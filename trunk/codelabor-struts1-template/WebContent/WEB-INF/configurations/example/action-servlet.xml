@@ -8,14 +8,14 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-	<bean name="/example/login" class="org.codelabor.common.actions.mn.LoginAction"
+	<bean name="/example/login" class="org.codelabor.example.struts.actions.LoginAction"
 		parent="baseDispatchAction">
-	</bean>		
-	<bean name="/example/crud" class="org.codelabor.example.actions.CrudAction"
+	</bean>	
+	<bean name="/example/crud" class="org.codelabor.example.struts.actions.CrudAction"
 		parent="baseDispatchAction">
 		<property name="crudService" ref="example.crudService"/>
 	</bean>		
-	<bean name="/example/error" class="org.codelabor.example.actions.ErrorAction"
+	<bean name="/example/error" class="org.codelabor.example.struts.actions.ErrorAction"
 		parent="baseDispatchAction">
 		<property name="errorService" ref="errorService"/>
 	</bean>
