@@ -37,8 +37,9 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  * @author SangJae Shin
  * 
  */
-public class LoginHttpSessionListener implements HttpSessionListener,
-		HttpSessionAttributeListener, HttpSessionActivationListener {
+public class LoginHttpSessionListener extends BaseListener implements
+		HttpSessionListener, HttpSessionAttributeListener,
+		HttpSessionActivationListener {
 
 	protected Log log = LogFactory.getLog(this.getClass());
 
