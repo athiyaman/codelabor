@@ -31,12 +31,8 @@
     	<forward name="error" path="/pages/system/error.jsp"/>
     	<forward name="home" path="/layouts/framesetLayout.jsp"/>
     	<forward name="admin" path="/layouts/admin/framesetLayout.jsp"/>
-    	<forward name="common" path="/layouts/common/framesetLayout.jsp"/>
     	<forward name="example" path="/layouts/example/framesetLayout.jsp"/>
     	<forward name="system" path="/layouts/system/framesetLayout.jsp"/>
-    	<forward name="re" path="/layouts/re/framesetLayout.jsp"/>
-    	<forward name="tx" path="/layouts/tx/framesetLayout.jsp"/>
-    	<forward name="we" path="/layouts/we/framesetLayout.jsp"/>
     </global-forwards>
 
 	<controller
@@ -47,12 +43,8 @@
 
 	<message-resources parameter="messages.MessageResources" />
 	<message-resources parameter="messages.system.MessageResources" key="system"/>
-	<message-resources parameter="messages.common.MessageResources" key="common"/>
 	<message-resources parameter="messages.admin.MessageResources" key="admin"/>
 	<message-resources parameter="messages.example.MessageResources" key="example"/>
-	<message-resources parameter="messages.re.MessageResources" key="re"/>
-	<message-resources parameter="messages.tx.MessageResources" key="tx"/>
-	<message-resources parameter="messages.we.MessageResources" key="we"/>
 	
 	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
 		<set-property property="contextConfigLocation"

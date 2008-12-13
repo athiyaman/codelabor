@@ -8,18 +8,18 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-	<bean name="/example/login" class="anyframe.government.common.actions.mn.LoginAction"
+	<bean name="/example/login" class="org.codelabor.common.actions.mn.LoginAction"
 		parent="baseDispatchAction">
 	</bean>		
-	<bean name="/example/crud" class="anyframe.government.example.actions.CrudAction"
+	<bean name="/example/crud" class="org.codelabor.example.actions.CrudAction"
 		parent="baseDispatchAction">
 		<property name="crudService" ref="example.crudService"/>
 	</bean>		
-	<bean name="/example/error" class="anyframe.government.example.actions.ErrorAction"
+	<bean name="/example/error" class="org.codelabor.example.actions.ErrorAction"
 		parent="baseDispatchAction">
 		<property name="errorService" ref="errorService"/>
 	</bean>
-	<bean name="/example/uploadFile" class="anyframe.government.system.actions.UploadAction"
+	<bean name="/example/uploadFile" class="org.codelabor.system.actions.UploadAction"
 		parent="baseDispatchAction">
 		<property name="repositoryPath" value="D:\anyframe\upload"/>
 		<property name="fileManager" ref="fileManager" />
@@ -27,7 +27,7 @@
 		<property name="uniqueFileNameGenerationService"
 			ref="uniqueFileNameGenerationService" />
 	</bean>
-	<bean name="/example/downloadFile" class="anyframe.government.system.actions.DownloadAction"
+	<bean name="/example/downloadFile" class="org.codelabor.system.actions.DownloadAction"
 		parent="baseAction">
 		<property name="fileManager" ref="fileManager"/>
 	</bean>

@@ -29,7 +29,7 @@
 			<forward name="delete" path="/example/crud.do?method=list" />
 		</action>
 		<action path="/example/crud2"
-			type="anyframe.government.example.actions.Crud2Action" scope="request"
+			type="org.codelabor.example.actions.Crud2Action" scope="request"
 			parameter="method">
 			<forward name="prepareCreate" path="/pages/example/crud2/createForm.jsp" />
 			<forward name="processCreate" path="/example/crud2.do?method=list" />
@@ -40,18 +40,18 @@
 			<forward name="delete" path="/example/crud2.do?method=list" />
 		</action>		
 		<action path="/example/prepareSynchronizedToken"
-			type="anyframe.government.example.actions.SynchronizedTokenPrepareAction"
+			type="org.codelabor.example.actions.SynchronizedTokenPrepareAction"
 			scope="request">
 			<forward name="success" path="/pages/example/synchronized-token/form.jsp" />
 		</action>
 		<action path="/example/processSynchronizedToken" name="tokenForm"
-			type="anyframe.government.example.actions.SynchronizedTokenProcessAction"
+			type="org.codelabor.example.actions.SynchronizedTokenProcessAction"
 			scope="request" input="/pages/example/synchronized-token/form.jsp"
 			validate="false">
 			<forward name="success" path="/pages/example/synchronized-token/result.jsp" />
 		</action>
 		<action path="/example/login" name="loginForm"
-			type="anyframe.government.common.actions.mn.LoginAction" scope="request"
+			type="org.codelabor.common.actions.mn.LoginAction" scope="request"
 			input="/pages/example/login/login.jsp" parameter="method">
 			<forward name="processLogin" path="/pages/example/login/welcome.jsp" />
 			<forward name="processLogout" path="/pages/example/login/goodbye.jsp" />

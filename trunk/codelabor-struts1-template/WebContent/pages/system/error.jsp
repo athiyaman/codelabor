@@ -86,8 +86,8 @@ page=
 			<th>Message</th>
 			<td>
 			${actionException.message}
-			<logic:present name="anyframe.government.system.COMMON_EXCEPTION">
-				<bean:define id="commonException" name="anyframe.government.system.COMMON_EXCEPTION"/>
+			<logic:present name="org.codelabor.system.COMMON_EXCEPTION">
+				<bean:define id="commonException" name="org.codelabor.system.COMMON_EXCEPTION"/>
 				<ul>
 				<li>Code: ${commonException.messageCode}</li>
 				<li>Reason: ${commonException.messages.reason}</li>

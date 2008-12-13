@@ -8,25 +8,25 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-	<bean id="sessionListener" class="anyframe.government.system.listeners.SessionListener"
+	<bean id="sessionListener" class="org.codelabor.system.listeners.SessionListener"
 		parent="baseListener">
 		<property name="loginService" ref="loginService" />
 	</bean>	
 	<bean id="baseAction" 
-		class="anyframe.government.system.actions.BaseAction">
+		class="org.codelabor.system.actions.BaseAction">
 		<property name="messageSource" ref="messageSource" />
 		<property name="propertiesService" ref="propertiesService" />
 	</bean>
 	<bean id="baseActionSupport" 
-		class="anyframe.government.system.actions.BaseActionSupport"
+		class="org.codelabor.system.actions.BaseActionSupport"
 		parent="baseAction">
 	</bean>	
 	<bean id="baseDispatchAction" 
-		class="anyframe.government.system.actions.BaseDispatchAction"
+		class="org.codelabor.system.actions.BaseDispatchAction"
 		parent="baseAction">
 	</bean>
 	<bean id="baseDispatchActionSupport" 
-		class="anyframe.government.system.actions.BaseDispatchActionSupport"
+		class="org.codelabor.system.actions.BaseDispatchActionSupport"
 		parent="baseAction">
 	</bean>
 </beans>

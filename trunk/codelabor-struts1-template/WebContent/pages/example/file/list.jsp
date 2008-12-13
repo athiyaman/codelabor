@@ -45,8 +45,8 @@ page=
 				<th>content type</th>
 				<th>file size</th>
 			</tr>
-			<logic:present name="anyframe.government.system.FILE_LIST">
-			<logic:iterate name="anyframe.government.system.FILE_LIST"
+			<logic:present name="org.codelabor.system.FILE_LIST">
+			<logic:iterate name="org.codelabor.system.FILE_LIST"
 				id="fileDTO">
 				<tr class="b">
 					<td>
