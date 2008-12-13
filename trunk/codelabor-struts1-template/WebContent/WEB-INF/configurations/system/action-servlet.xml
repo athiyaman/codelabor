@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<bean id="sessionListener" class="org.codelabor.system.listeners.SessionListener"
+		parent="baseListener">
+		<property name="loginService" ref="loginService" />
+	</bean>	
+	<bean id="baseAction" 
+		class="org.codelabor.system.actions.BaseAction">
+		<property name="messageSource" ref="messageSource" />
+		<property name="propertiesService" ref="propertiesService" />
+	</bean>
+	<bean id="baseActionSupport" 
+		class="org.codelabor.system.actions.BaseActionSupport"
+		parent="baseAction">
+	</bean>	
+	<bean id="baseDispatchAction" 
+		class="org.codelabor.system.actions.BaseDispatchAction"
+		parent="baseAction">
+	</bean>
+	<bean id="baseDispatchActionSupport" 
+		class="org.codelabor.system.actions.BaseDispatchActionSupport"
+		parent="baseAction">
+	</bean>
+</beans>
