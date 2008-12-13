@@ -19,7 +19,7 @@
 		parent="baseDispatchAction">
 		<property name="errorService" ref="errorService"/>
 	</bean>
-	<bean name="/example/uploadFile" class="org.codelabor.system.actions.UploadAction"
+	<bean name="/example/uploadFile" class="org.codelabor.system.struts.actions.UploadAction"
 		parent="baseDispatchAction">
 		<property name="repositoryPath" value="D:\anyframe\upload"/>
 		<property name="fileManager" ref="fileManager" />
@@ -27,7 +27,7 @@
 		<property name="uniqueFileNameGenerationService"
 			ref="uniqueFileNameGenerationService" />
 	</bean>
-	<bean name="/example/downloadFile" class="org.codelabor.system.actions.DownloadAction"
+	<bean name="/example/downloadFile" class="org.codelabor.system.struts.actions.DownloadAction"
 		parent="baseAction">
 		<property name="fileManager" ref="fileManager"/>
 	</bean>

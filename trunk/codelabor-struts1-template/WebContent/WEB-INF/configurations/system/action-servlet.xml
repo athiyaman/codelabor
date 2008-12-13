@@ -22,11 +22,11 @@
 		parent="baseAction">
 	</bean>	
 	<bean id="baseDispatchAction" 
-		class="org.codelabor.system.actions.BaseDispatchAction"
+		class="org.codelabor.system.struts.actions.BaseDispatchAction"
 		parent="baseAction">
 	</bean>
 	<bean id="baseDispatchActionSupport" 
-		class="org.codelabor.system.actions.BaseDispatchActionSupport"
+		class="org.codelabor.system.struts.actions.BaseDispatchActionSupport"
 		parent="baseAction">
 	</bean>
 </beans>
