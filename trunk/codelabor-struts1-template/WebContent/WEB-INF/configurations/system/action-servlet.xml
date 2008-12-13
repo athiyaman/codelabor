@@ -8,9 +8,6 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd			
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-	<bean name="/system/login" class="org.codelabor.system.struts.actions.LoginAction"
-		parent="baseDispatchAction">
-	</bean>			
 	<bean id="loginHttpSessionListener" class="org.codelabor.system.listeners.LoginHttpSessionListener"
 		parent="baseListener">
 		<property name="loginService" ref="loginService" />

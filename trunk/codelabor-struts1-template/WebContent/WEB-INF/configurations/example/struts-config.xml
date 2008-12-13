@@ -4,6 +4,11 @@
           "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
+		<form-bean name="loginForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="userId" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="uploadForm" type="org.codelabor.system.forms.UploadForm"/>	
 		<form-bean name="tokenForm" type="org.apache.struts.action.DynaActionForm">
 			<form-property name="field1" type="java.lang.String" />
 			<form-property name="field2" type="java.lang.String" />
@@ -17,6 +22,13 @@
 		</form-bean>
 	</form-beans>
 	<action-mappings>
+		<action path="/example/login" name="loginForm"
+			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
+			input="/pages/example/login/login.jsp" parameter="method">
+			<forward name="processLogin" path="/pages/example/login/welcome.jsp" />
+			<forward name="processLogout" path="/pages/example/login/goodbye.jsp" />
+			<forward name="prepareLogin" path="/pages/example/login/login.jsp" />
+		</action>	
 		<action path="/example/crud"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method" name="crudForm" validate="false">
