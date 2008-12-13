@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page 
+	language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+	isErrorPage="true" 
+	import="org.codelabor.system.exceptions.org.codelabor.system.exceptions.CommonException,org.codelabor.system.Constants"%>
 <%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
-<%@ page isErrorPage="true" 
-import="org.codelabor.system.exceptions.CommonException, 
-org.codelabor.system.Constants"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
