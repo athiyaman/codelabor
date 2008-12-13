@@ -24,8 +24,6 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.Constants;
 import org.codelabor.system.dtos.LoginDTO;
 import org.codelabor.system.dtos.MessageDTO;
@@ -40,7 +38,6 @@ public class LoginHttpSessionListener extends BaseListener implements
 		HttpSessionListener, HttpSessionAttributeListener,
 		HttpSessionActivationListener {
 
-	protected Log log = LogFactory.getLog(this.getClass());
 	private LoginService loginService;
 
 	public void attributeAdded(HttpSessionBindingEvent event) {

@@ -24,14 +24,11 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.Constants;
 import org.codelabor.system.dtos.LoginDTO;
 import org.codelabor.system.dtos.MessageDTO;
 import org.codelabor.system.services.LoginService;
 import org.codelabor.system.utils.MessageUtil;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * @author SangJae Shin
@@ -41,7 +38,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 		HttpSessionListener, HttpSessionAttributeListener,
 		HttpSessionActivationListener {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	private LoginService loginService;
 
 	public void attributeAdded(HttpSessionBindingEvent event) {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -71,10 +68,6 @@ public class LoginHttpSessionListener extends BaseListener implements
 					.getAttribute(Constants.SESSION_LOGIN_INFO_KEY);
 			loginDTO.setSessionId(session.getId());
 			try {
-				LoginService loginService = (LoginService) WebApplicationContextUtils
-						.getWebApplicationContext(
-								event.getSession().getServletContext())
-						.getBean("loginService");
 				loginService.login(loginDTO);
 				loginDTO = loginService.selectLogin(loginDTO);
 				session
@@ -116,10 +109,6 @@ public class LoginHttpSessionListener extends BaseListener implements
 			LoginDTO loginDTO = new LoginDTO();
 			loginDTO.setSessionId(event.getSession().getId());
 			try {
-				LoginService loginService = (LoginService) WebApplicationContextUtils
-						.getWebApplicationContext(
-								event.getSession().getServletContext())
-						.getBean("loginService");
 				loginService.logout(loginDTO);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -194,6 +183,24 @@ public class LoginHttpSessionListener extends BaseListener implements
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
+			log.debug(stringBuilder.toString());
+		}
+	}
+
+	public LoginService getLoginService() {
+		return loginService;
+	}
+
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
+		StringBuilder stringBuilder = new StringBuilder();
+		if (log.isDebugEnabled()) {
+			stringBuilder.append("thread: ").append(Thread.currentThread());
+			stringBuilder.append(", ");
+			stringBuilder.append("instance: ").append(this.hashCode());
+			stringBuilder.append(", ");
+			stringBuilder.append("loginService: ");
+			stringBuilder.append(loginService);
 			log.debug(stringBuilder.toString());
 		}
 	}
