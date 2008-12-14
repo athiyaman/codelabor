@@ -1,6 +1,6 @@
 package org.codelabor.example.struts.actions;
 
-public abstract class LoginAction extends
+public class LoginAction extends
 		org.codelabor.system.struts.actions.LoginAction {
 
 	@Override
