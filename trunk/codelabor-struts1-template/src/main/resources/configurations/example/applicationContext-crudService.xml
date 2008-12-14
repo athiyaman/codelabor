@@ -12,7 +12,7 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	<bean 
 		id="example.crudService" 
-		class="anyframe.government.example.services.impl.CrudServiceImpl"
+		class="org.codelabor.example.services.impl.CrudServiceImpl"
 		parent="baseService">
 		<property name="idGenerationService">
 			<ref bean="crudIdGenerationService"/>
