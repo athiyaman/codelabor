@@ -12,7 +12,7 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	<bean 
 		id="errorService" 
-		class="anyframe.government.example.services.impl.ErrorServiceImpl"
+		class="org.codelabor.example.services.ErrorServiceImpl"
 		parent="baseService">
 	</bean>
 </beans>
