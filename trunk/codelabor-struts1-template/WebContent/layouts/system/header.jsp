@@ -24,7 +24,7 @@ page=
 
 </head>
 <body>
-<div id="banner"><a id="bannerLeft" href="#">LIVEANY</a> <a
+<div id="banner"><a id="bannerLeft" href="#">CODELABOR Struts1 Template</a> <a
 	id="bannerRight" href="#">[System]</a>
 <div class="clear">
 <hr />
