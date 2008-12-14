@@ -22,14 +22,15 @@
 		</form-bean>
 	</form-beans>
 	<action-mappings>
-		<action path="/example/login" name="loginForm"
+		<action path="/layoutExample" forward="defaultLayout" />
+		<action path="/login" name="loginForm"
 			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
 			input="/pages/example/login/login.jsp" parameter="method">
 			<forward name="processLogin" path="/pages/example/login/welcome.jsp" />
 			<forward name="processLogout" path="/pages/example/login/goodbye.jsp" />
 			<forward name="prepareLogin" path="/pages/example/login/login.jsp" />
 		</action>	
-		<action path="/example/crud"
+		<action path="/crud"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method" name="crudForm" validate="false">
 			<forward name="prepareCreate" path="/pages/example/crud/createForm.jsp" />
@@ -40,7 +41,7 @@
 			<forward name="processUpdate" path="/example/crud.do?method=list" />
 			<forward name="delete" path="/example/crud.do?method=list" />
 		</action>
-		<action path="/example/crud2"
+		<action path="/crud2"
 			type="org.codelabor.example.struts.actions.Crud2Action" scope="request"
 			parameter="method">
 			<forward name="prepareCreate" path="/pages/example/crud2/createForm.jsp" />
@@ -51,25 +52,25 @@
 			<forward name="processUpdate" path="/example/crud2.do?method=list" />
 			<forward name="delete" path="/example/crud2.do?method=list" />
 		</action>		
-		<action path="/example/prepareSynchronizedToken"
+		<action path="/prepareSynchronizedToken"
 			type="org.codelabor.example.struts.actions.SynchronizedTokenPrepareAction"
 			scope="request">
 			<forward name="success" path="/pages/example/synchronized-token/form.jsp" />
 		</action>
-		<action path="/example/processSynchronizedToken" name="tokenForm"
+		<action path="/processSynchronizedToken" name="tokenForm"
 			type="org.codelabor.example.struts.actions.SynchronizedTokenProcessAction"
 			scope="request" input="/pages/example/synchronized-token/form.jsp"
 			validate="false">
 			<forward name="success" path="/pages/example/synchronized-token/result.jsp" />
 		</action>
-		<action path="/example/login" name="loginForm"
+		<action path="/login" name="loginForm"
 			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
 			input="/pages/example/login/login.jsp" parameter="method">
 			<forward name="processLogin" path="/pages/example/login/welcome.jsp" />
 			<forward name="processLogout" path="/pages/example/login/goodbye.jsp" />
 			<forward name="prepareLogin" path="/pages/example/login/login.jsp" />
 		</action>
-		<action path="/example/uploadFile" name="uploadForm"
+		<action path="/uploadFile" name="uploadForm"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method">
 			<forward name="list" path="/pages/example/file/list.jsp" />
@@ -77,17 +78,38 @@
 			<forward name="upload" path="/example/uploadFile.do?method=list" />
 			<forward name="delete" path="/example/uploadFile.do?method=list" />
 		</action>
-		<action path="/example/downloadFile"
+		<action path="/downloadFile"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"/>
-		<action path="/example/error"
+		<action path="/error"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method">
 		</action>
 	</action-mappings>
-	<controller />
+	<controller
+		processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"
+		contentType="text/html;charset=UTF-8" locale="true" inputForward="true"
+		nocache="false">
+	</controller>
+	<message-resources parameter="messages.MessageResources" />
+	<message-resources parameter="messages.example.MessageResources"
+		key="example" />	
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/configurations/example/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>	
 	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
 		<set-property property="pathnames"
 			value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/configurations/example/validation.xml" />
 		<set-property property="stopOnFirstError" value="false" />
 	</plug-in>
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/configurations/action-servlet.xml,
+			/WEB-INF/configurations/applicationContext.xml,
+			/WEB-INF/configurations/system/action-servlet.xml,
+			/WEB-INF/configurations/system/applicationContext.xml,		
+			/WEB-INF/configurations/example/action-servlet.xml,
+			/WEB-INF/configurations/example/applicationContext.xml" />
+	</plug-in>	
 </struts-config>
