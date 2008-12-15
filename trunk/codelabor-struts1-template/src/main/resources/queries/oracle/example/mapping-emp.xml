@@ -8,7 +8,7 @@
 			<statement><![CDATA[
 			DELETE /* example.delete.emp */
 			FROM 
-				EMP 
+				EXAMPLE_EMP 
 			WHERE 
 				EMPNO = ?
 			]]></statement>
@@ -18,7 +18,7 @@
 			<statement><![CDATA[
 			DELETE /* example.delete.emp.list */
 			FROM 
-				EMP 
+				EXAMPLE_EMP 
 			]]></statement>
 		</query>		
 		
@@ -27,7 +27,7 @@
 			<statement><![CDATA[
 			INSERT /* example.insert.emp */ 
 			INTO 
-				EMP (
+				EXAMPLE_EMP (
 					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
 				) VALUES (
 					?, ?, ?, ?, ?, ?, ?, ?
@@ -49,7 +49,7 @@
 				SELECT /* example.select.emp */
 					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO				
 				FROM 
-					EMP
+					EXAMPLE_EMP
 				WHERE 
 					EMPNO = ?
 			]]></statement>
@@ -70,7 +70,7 @@
 				SELECT /* example.select.emp.list */
 					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO				
 				FROM 
-					EMP
+					EXAMPLE_EMP
 			]]></statement>
 			<result class="org.codelabor.example.dtos.EmpDTO" length="10">
 				<result-mapping column="EMPNO" attribute="empNo"/>
@@ -89,7 +89,7 @@
 					EMPNO, ENAME, JOB, MGR, HIREDATE, 				
 					SAL, COMM, DEPTNO				
 				FROM 
-					EMP
+					EXAMPLE_EMP
 				WHERE 
 					DEPTNO = ?			
 			]]></statement>
@@ -109,7 +109,7 @@
 		<!-- update -->
 		<query id="example.update.emp" isDynamic="false">
 			<statement><![CDATA[
-			UPDATE /* example.update.emp */ EMP  
+			UPDATE /* example.update.emp */ EXAMPLE_EMP  
 			SET 
 				ENAME = ?, JOB = ?, MGR = ?, HIREDATE = ?, SAL = ?, COMM = ?, DEPTNO = ? 
 			WHERE
