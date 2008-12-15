@@ -70,8 +70,6 @@
 		<url-pattern>/messagebroker/*</url-pattern>
 	</servlet-mapping>
 
-<display-name>codelabor-flex-lcds-template</display-name>
-
 	<welcome-file-list>
 		<!-- 
 		<welcome-file>index.html</welcome-file>
