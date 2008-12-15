@@ -29,6 +29,9 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jmxri.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/datasource/db2jcc.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path"/>
         <property name="context-root" value="codelabor-struts1-template"/>
     </wb-module>
