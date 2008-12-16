@@ -10,12 +10,12 @@
 <style type="text/css" media="all">
 <!--
 @import
-url(<html:rewrite module=""
+url(<html:rewrite 
 page=
 "/css/maven-base.css"
 />);
 @import
-url(<html:rewrite module=""
+url(<html:rewrite 
 page=
 "/css/maven-theme.css"
 />);

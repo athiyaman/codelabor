@@ -13,27 +13,25 @@
 	<hr/>
 	<h3>CRUD Example</h3>
 	<ul>
-		<li><html:link action="/dept?method=prepare" module="example" target="_blank">dept service</html:link></li>
-		<li><html:link action="/emp?method=prepare" module="example" target="_blank">emp service</html:link></li>
-		<li><html:link action="/salGrade?method=prepare" module="/example" target="_blank">salGrade service</html:link></li>
+		<li><html:link action="/emp?method=prepare" target="_blank">emp service</html:link></li>
 	</ul>
 	
 	<h3>File Example</h3>
 	<ul>
-		<li><html:link action="/file?method=prepare" module="example" target="_blank">file upload (file system)</html:link></li>
-		<li><html:link action="/file?method=prepare" module="example" target="_blank">file download (file system)</html:link></li>
-		<li><html:link action="/file?method=prepare" module="example" target="_blank">file upload (RDBMS LOB)</html:link></li>
-		<li><html:link action="/file?method=prepare" module="example" target="_blank">file download (RDBMS LOB)</html:link></li>
+		<li><html:link action="/file?method=prepare" target="_blank">file upload (file system)</html:link></li>
+		<li><html:link action="/file?method=prepare" target="_blank">file download (file system)</html:link></li>
+		<li><html:link action="/file?method=prepare" target="_blank">file upload (RDBMS LOB)</html:link></li>
+		<li><html:link action="/file?method=prepare" target="_blank">file download (RDBMS LOB)</html:link></li>
 	</ul>	
 	
 	<h3>Login Example</h3>
 	<ul>
-		<li><html:link action="/login?method=prepare" module="example" target="_blank">login</html:link></li>
+		<li><html:link action="/login?method=prepare" target="_blank">login</html:link></li>
 	</ul>
 
 	<h3>Switch Example</h3>
 	<ul>
-		<li><html:link action="/login?method=prepare" module="example" target="_blank">switch (common)</html:link></li>
+		<li><html:link action="/login?method=prepare" target="_blank">switch (common)</html:link></li>
 	</ul>
 </body>
 </html>
