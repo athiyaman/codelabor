@@ -29,7 +29,7 @@
 			<forward name="processLogin" path="/example/login/welcome.jsp" />
 			<forward name="processLogout" path="/example/login/goodbye.jsp" />
 			<forward name="prepareLogin" path="/example/login/login.jsp" />
-		</action>	
+		</action>
 		<action path="/crud"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method" name="crudForm" validate="false">
@@ -63,13 +63,7 @@
 			validate="false">
 			<forward name="success" path="/example/synchronized-token/result.jsp" />
 		</action>
-		<action path="/login" name="loginForm"
-			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
-			input="/example/login/login.jsp" parameter="method">
-			<forward name="processLogin" path="/example/login/welcome.jsp" />
-			<forward name="processLogout" path="/example/login/goodbye.jsp" />
-			<forward name="prepareLogin" path="/example/login/login.jsp" />
-		</action>
+
 		<action path="/uploadFile" name="uploadForm"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method">
