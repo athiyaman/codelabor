@@ -5,7 +5,6 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
-<%@ page errorPage="/pages/system/error.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,26 +23,26 @@ page=
 />);
 -->
 </style>
-<title>404 Not Found</title>
+<title>500</title>
 </head>
 <body>
 <div id="bodyColumn">
 <div id="contentBox">
 <div class="section">
-<h2>HTTP Status : 404</h2>
+<h2>HTTP Status : 500</h2>
 <p></p>
 <html:errors />
 
-
 <div class="section">
-<h3>404 Not Found</h3>
+<h3>500 Internal Server Error</h3>
 <p></p>
 <table class="bodyTable">
 	<tbody>
 		<tr class="b">
 			<th>Description</th>
 			<td>
-				Check Access Log
+				Add page directive like this:<br/>
+				&lt;%@ page errorPage="/system/error.jsp" %&gt;
 			</td>
 		</tr>
 	</tbody>

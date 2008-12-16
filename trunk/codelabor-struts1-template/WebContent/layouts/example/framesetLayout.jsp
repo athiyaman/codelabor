@@ -19,7 +19,7 @@
 		<html-el:frame frameName="menu" frameborder="0" scrolling="no"
 			noresize="true" page="/layouts/example/menu.jsp" />
 		<html-el:frame frameName="body" frameborder="0" noresize="true"
-			page="/pages/example/index.jsp" />
+			page="/example/index.jsp" />
 	</frameset>
 </frameset>
 </html>

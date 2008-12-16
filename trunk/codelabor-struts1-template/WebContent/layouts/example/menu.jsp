@@ -43,11 +43,11 @@ page=
 
 <h5><a>Error Handling</a></h5>
 <ul>
-	<li><html:link page="/pages/example/error-handling/notExistPage.jsp"
+	<li><html:link page="/example/error-handling/notExistPage.jsp"
 		target="body">does not exist</html:link></li>
-	<li><html:link page="/pages/example/error-handling/jspError.jsp"
+	<li><html:link page="/example/error-handling/jspError.jsp"
 		target="body">jsp (no page directive)</html:link></li>
-	<li><html:link page="/pages/example/error-handling/jspErrorWithDirective.jsp"
+	<li><html:link page="/example/error-handling/jspErrorWithDirective.jsp"
 		target="body">jsp (page directive)</html:link></li>
 	<li><html:link action="/example/error?method=forwardErrorPage"
 		target="body">action (action error)</html:link></li>

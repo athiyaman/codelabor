@@ -5,8 +5,6 @@
 <struts-config>
 	<form-beans>
 	</form-beans>
-	<global-exceptions>
-	</global-exceptions>
 	<action-mappings>
 	</action-mappings>
 </struts-config>

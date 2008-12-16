@@ -11,46 +11,45 @@
 			key="errors.rollback" 
 			type="org.codelabor.system.exceptions.RollbackCommonException"
 			handler="org.codelabor.system.exceptions.CommonExceptionHandler"
-			path="/pages/system/error.jsp">
+			path="/system/error.jsp">
 		</exception>
 		<exception 
 			key="errors.norollback" 
 			type="org.codelabor.system.exceptions.NoRollbackCommonException"
 			handler="org.codelabor.system.exceptions.CommonExceptionHandler"
-			path="/pages/system/error.jsp">
+			path="/system/error.jsp">
 		</exception>		    
 		<exception 
 			key="errors.unexpected" 
 			type="java.lang.Exception"
 			handler="org.codelabor.system.exceptions.CommonExceptionHandler"
-			path="/pages/system/error.jsp">
+			path="/system/error.jsp">
 		</exception>
     </global-exceptions>
 
     <global-forwards>
-    	<forward name="error" path="/pages/system/error.jsp"/>
+    	<forward name="error" path="/system/error.jsp"/>
     	<forward name="home" path="/layouts/framesetLayout.jsp"/>
     	<forward name="admin" path="/layouts/admin/framesetLayout.jsp"/>
     	<forward name="example" path="/layouts/example/framesetLayout.jsp"/>
     	<forward name="system" path="/layouts/system/framesetLayout.jsp"/>
     </global-forwards>
 
-	<controller
-		processorClass="org.springframework.web.struts.DelegatingRequestProcessor"
-		contentType="text/html;charset=UTF-8" locale="true"
-		inputForward="true" nocache="false">
-	</controller>
-
 	<message-resources parameter="messages.MessageResources" />
 	<message-resources parameter="messages.system.MessageResources" key="system"/>
 	<message-resources parameter="messages.admin.MessageResources" key="admin"/>
 	<message-resources parameter="messages.example.MessageResources" key="example"/>
 	
-	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
-		<set-property property="contextConfigLocation"
-			value="/WEB-INF/configurations/system/action-servlet.xml,
-			/WEB-INF/configurations/example/action-servlet.xml,
-			classpath*:**/applicationContext*.xml" />
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/configurations/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>		
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/configurations/validation.xml" />
+		<set-property property="stopOnFirstError" value="false" />
 	</plug-in>	
+
 </struts-config>
 

@@ -18,19 +18,10 @@
 	    	    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
 	    <init-param>
 	      	<param-name>config</param-name>
-	      	<param-value>/WEB-INF/configurations/struts-config.xml</param-value>
-	    </init-param>
-	    <init-param>
-	      	<param-name>config/example</param-name>
-	      	<param-value>/WEB-INF/configurations/example/struts-config.xml</param-value>
-	    </init-param>
-	    <init-param>
-	      	<param-name>config/system</param-name>
-	      	<param-value>/WEB-INF/configurations/system/struts-config.xml</param-value>
-	    </init-param>
-	    <init-param>
-	      	<param-name>config/admin</param-name>
-	      	<param-value>/WEB-INF/configurations/admin/struts-config.xml</param-value>
+	      	<param-value>/WEB-INF/configurations/struts-config.xml,
+	      	/WEB-INF/configurations/example/struts-config.xml,
+	      	/WEB-INF/configurations/system/struts-config.xml,
+	      	/WEB-INF/configurations/admin/struts-config.xml</param-value>
 	    </init-param>	    
 	    <load-on-startup>1</load-on-startup>
 	</servlet>
@@ -51,10 +42,10 @@
 	
  	<error-page>
 		<error-code>404</error-code>
-		<location>/pages/system/httpStatus404.jsp</location>
+		<location>/system/httpStatus404.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/pages/system/httpStatus500.jsp</location>
+		<location>/system/httpStatus500.jsp</location>
 	</error-page>	
 </web-app>
