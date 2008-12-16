@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <services-config>
 
-	<factories>
-		<factory id="springFactory" 
-		class="org.codelabor.system.flex.factories.SpringFactory"/>
-	</factories>
-
     <services>
         <service-include file-path="remoting-config.xml" />
         <service-include file-path="proxy-config.xml" />
@@ -14,10 +9,9 @@
     </services>
 
     <security>
-	<login-command class="flex.messaging.security.TomcatLoginCommand" server="Tomcat"/>        
+		<login-command class="flex.messaging.security.TomcatLoginCommand" server="Tomcat"/>        
         <!-- Uncomment the correct app server
-        <login-command class="flex.messaging.security.TomcatLoginCommand" server="JBoss">
-	<login-command class="flex.messaging.security.JRunLoginCommand" server="JRun"/>        
+        <login-command class="flex.messaging.security.JRunLoginCommand" server="JRun"/>
         <login-command class="flex.messaging.security.WeblogicLoginCommand" server="Weblogic"/>
         <login-command class="flex.messaging.security.WebSphereLoginCommand" server="WebSphere"/>
         -->
