@@ -8,36 +8,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/mail.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jaxb-api.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jaxb-impl.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jaxb-libs.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jeus.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jeusjaxb.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jeusmbean.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jeusutil.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/system/jmxri.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/var/JEUS_LIB/datasource/db2jcc.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="codelabor-flex-lcds-template"/>
         <property name="java-output-path" value="WebContent/WEB-INF/classes"/>
     </wb-module>
