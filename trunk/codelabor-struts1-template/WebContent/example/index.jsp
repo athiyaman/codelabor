@@ -13,7 +13,7 @@
 	<hr/>
 	<h3>CRUD Example</h3>
 	<ul>
-		<li><html:link action="/emp?method=prepare" target="_blank">emp service</html:link></li>
+		<li><html:link action="/crud?method=list" target="_blank">crud service</html:link></li>
 	</ul>
 	
 	<h3>File Example</h3>
