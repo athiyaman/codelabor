@@ -18,7 +18,13 @@ public class BaseDispatchActionSupport extends DispatchActionSupport {
 	public BaseDispatchActionSupport() {
 		super();
 		webApplicationContext = getWebApplicationContext();
-		propertiesService = (IPropertiesService) webApplicationContext.getBean("propertiesService");
-		messageSource = (MessageSource) webApplicationContext.getBean("messageSource");
+		if (webApplicationContext == null)
+			System.out.println("null");
+		else
+			System.out.println("not null");
+		propertiesService = (IPropertiesService) webApplicationContext
+				.getBean("propertiesService");
+		messageSource = (MessageSource) webApplicationContext
+				.getBean("messageSource");
 	}
 }
