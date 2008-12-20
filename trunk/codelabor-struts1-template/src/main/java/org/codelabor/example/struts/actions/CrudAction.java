@@ -10,17 +10,18 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.DynaActionForm;
-
 import org.codelabor.example.dtos.CrudDTO;
 import org.codelabor.example.services.CrudService;
-import org.codelabor.system.struts.actions.BaseDispatchAction;
+import org.codelabor.system.spring.actions.BaseDispatchActionSupport;
 
-public class CrudAction extends BaseDispatchAction {
+public class CrudAction extends BaseDispatchActionSupport {
 
-	private CrudService crudService;
+	protected CrudService crudService;
 
-	public void setCrudService(CrudService crudService) {
-		this.crudService = crudService;
+	public CrudAction() {
+		super();
+		crudService = (CrudService) webApplicationContext
+				.getBean("crudService");
 	}
 
 	public ActionForward prepareCreate(ActionMapping mapping, ActionForm form,
@@ -37,7 +38,6 @@ public class CrudAction extends BaseDispatchAction {
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		String crudId = ((String[]) dynaActionform.get("id"))[0];
 
-		// String crudId = request.getParameter("id");
 		Map<String, ?> crudMap = this.crudService.read(crudId);
 		request.setAttribute("crudMap", crudMap);
 		return mapping.findForward("prepareUpdate");
@@ -70,8 +70,6 @@ public class CrudAction extends BaseDispatchAction {
 		crudDTO.setField1((String) dynaActionform.get("field1"));
 		crudDTO.setField2((String) dynaActionform.get("field2"));
 
-		// crudDTO.setField1(request.getParameter("field1"));
-		// crudDTO.setField2(request.getParameter("field1"));
 		int affectedRowCount = this.crudService.create(crudDTO);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("processCreate");
@@ -86,9 +84,6 @@ public class CrudAction extends BaseDispatchAction {
 		crudDTO.setField1((String) dynaActionform.get("field1"));
 		crudDTO.setField2((String) dynaActionform.get("field2"));
 
-		// crudDTO.setId(request.getParameter("id"));
-		// crudDTO.setField1(request.getParameter("field1"));
-		// crudDTO.setField2(request.getParameter("field2"));
 		int affectedRowCount = this.crudService.update(crudDTO);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("processUpdate");
@@ -103,5 +98,4 @@ public class CrudAction extends BaseDispatchAction {
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("delete");
 	}
-
 }
