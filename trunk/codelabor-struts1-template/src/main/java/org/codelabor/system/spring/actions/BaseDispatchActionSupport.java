@@ -11,37 +11,14 @@ import anyframe.core.properties.IPropertiesService;
 public class BaseDispatchActionSupport extends DispatchActionSupport {
 
 	protected Log log = LogFactory.getLog(this.getClass());
-
-	protected IPropertiesService propertiesService;
-
 	protected MessageSource messageSource;
+	protected IPropertiesService propertiesService;
+	protected WebApplicationContext webApplicationContext;
 
-	protected String loggerName = this.getClass().getName();
-
-	protected WebApplicationContext webApplicationContext = getWebApplicationContext();
-
-	public IPropertiesService getPropertiesService() {
-		return propertiesService;
-	}
-
-	public void setPropertiesService(IPropertiesService propertiesService) {
-		this.propertiesService = propertiesService;
-	}
-
-	public MessageSource getMessageSource() {
-		return messageSource;
-	}
-
-	public void setMessageSource(MessageSource messageSource) {
-		this.messageSource = messageSource;
-	}
-
-	public String getLoggerName() {
-		return loggerName;
-	}
-
-	public void setLoggerName(String loggerName) {
-		this.loggerName = loggerName;
-		this.log = LogFactory.getLog(loggerName);
+	public BaseDispatchActionSupport() {
+		super();
+		webApplicationContext = getWebApplicationContext();
+		propertiesService = (IPropertiesService) webApplicationContext.getBean("propertiesService");
+		messageSource = (MessageSource) webApplicationContext.getBean("messageSource");
 	}
 }
