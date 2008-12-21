@@ -73,45 +73,45 @@ page=
 		classLoaderMessage = classLoader.toString();
 %>
 <div id="bodyColumn">
-<div id="contentBox">
-<div class="section">
-<h2>Resource Finder</h2>
-<form>
-<table class="bodyTable">
-	<caption></caption>
-	<tbody>
-		<tr class="b">
-			<th>legend</th>
-			<td>java.lang.String.class</td>
-		</tr>
-		<tr class="b">
-			<th>name</th>
-			<td><input type="text" name="resource_name"
-				value="<%=resourceNameWidhExtention%>" /> <input type="submit"
-				name="submit_button" value="search" /></td>
-		</tr>
-		<tr class="b">
-			<th>class file</th>
-			<td><%=classUrlMessage%></td>
-		</tr>
-		<tr class="b">
-			<th>class loader</th>
-			<td><%=classLoaderMessage%></td>
-		</tr>
-	</tbody>
-</table>
-</form>
-</div>
-</div>
-</div>
-<div class="clear">
-<hr />
-</div>
-<div id="footer">
-<div class="xright">&#169; 2007 The SYSTEMiER Framework</div>
-<div class="clear">
-<hr />
-</div>
+	<div id="contentBox">
+		<div class="section">
+		<h2>Resource Finder</h2>
+		<form>
+		<table class="bodyTable">
+			<caption></caption>
+			<tbody>
+				<tr class="b">
+					<th>legend</th>
+					<td>java.lang.String.class</td>
+				</tr>
+				<tr class="b">
+					<th>name</th>
+					<td><input type="text" name="resource_name"
+						value="<%=resourceNameWidhExtention%>" /> <input type="submit"
+						name="submit_button" value="search" /></td>
+				</tr>
+				<tr class="b">
+					<th>class file</th>
+					<td><%=classUrlMessage%></td>
+				</tr>
+				<tr class="b">
+					<th>class loader</th>
+					<td><%=classLoaderMessage%></td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+		</div>
+	</div>
+	<div class="clear">
+		<hr />
+	</div>
+	<div id="footer">
+		<div class="xright">CODELABOR Template / Powered by Anyframe</div>
+		<div class="clear">
+			<hr />
+		</div>
+	</div>
 </div>
 </body>
 </html>
