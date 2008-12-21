@@ -29,7 +29,7 @@
 				FROM CRUD
 				WHERE ID=?				
 			]]></statement>
-			<param type="VARCHAR" />
+			<param type="INTEGER" />
 			<result class="org.codelabor.example.dtos.CrudDTO">
 				<result-mapping column="ID" attribute="id"/>
 				<result-mapping column="FIELD1" attribute="field1"/>
@@ -68,7 +68,7 @@
 				FROM CRUD
 				WHERE ID = ?	
 			]]></statement>
-			<param type="VARCHAR" />
+			<param type="INTEGER" />
 		</query>		
 	</queries>
 </queryservice>
