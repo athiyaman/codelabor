@@ -4,18 +4,18 @@
 	
 	<!-- Spring support -->
 	<context-param>
-	    <param-name>contextConfigLocation</param-name>
-	    <param-value>/WEB-INF/**/applicationContext*.xml</param-value>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
 	
 	<!-- Spring support -->
 	<listener>
-    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
 	<servlet>
 	    <servlet-name>action</servlet-name>
-	    	    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+			<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
 	    <init-param>
 	      	<param-name>config</param-name>
 	      	<param-value>/WEB-INF/configurations/struts-config.xml,
