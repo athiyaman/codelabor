@@ -23,15 +23,15 @@ page=
 </head>
 <body>
 <div id="bodyColumn">
-<div id="contentBox">
-<div class="section">
-	<h2>Index</h2>
-</div>
-</div>
-</div>
-<div class="clear">
-<hr />
-</div>
+	<div id="contentBox">
+		<div class="section">
+			<h2>Index</h2>
+			<p></p>
+		</div>
+	</div>
+	<div class="clear">
+		<hr />
+	</div>
 </div>	
 </body>
 </html>
