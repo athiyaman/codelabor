@@ -47,7 +47,9 @@
 	</plug-in>		
 	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
 		<set-property property="pathnames"
-			value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/configurations/validation.xml" />
+			value="/org/apache/struts/validator/validator-rules.xml,
+			/WEB-INF/configurations/validation.xml,
+			/WEB-INF/configurations/example/validation.xml" />
 		<set-property property="stopOnFirstError" value="false" />
 	</plug-in>	
 
