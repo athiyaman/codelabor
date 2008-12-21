@@ -36,10 +36,6 @@ page=
 	<table class="bodyTable">
 		<tbody>
 			<tr class="b">
-				<th>id</th>
-				<td>自動生成</td>
-			</tr>
-			<tr class="b">
 				<th>field1</th>
 				<td><html:text property="field1" /></td>
 			</tr>
