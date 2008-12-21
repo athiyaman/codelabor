@@ -22,15 +22,15 @@
 		</form-bean>
 	</form-beans>
 	<action-mappings>
-		<action path="/layoutExample" forward="defaultLayout" />
-		<action path="/login" name="loginForm"
+		<action path="/example/layoutExample" forward="defaultLayout" />
+		<action path="/example/login" name="loginForm"
 			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
 			input="/example/login/login.jsp" parameter="method">
 			<forward name="processLogin" path="/example/login/welcome.jsp" />
 			<forward name="processLogout" path="/example/login/goodbye.jsp" />
 			<forward name="prepareLogin" path="/example/login/login.jsp" />
 		</action>
-		<action path="/crud"
+		<action path="/example/crud"
 			type="org.codelabor.example.struts.actions.CrudAction" scope="request"
 			parameter="method" name="crudForm" validate="false">
 			<forward name="prepareCreate" path="/example/crud/createForm.jsp" />
@@ -41,18 +41,18 @@
 			<forward name="processUpdate" path="/example/crud.do?method=list" />
 			<forward name="delete" path="/example/crud.do?method=list" />
 		</action>
-		<action path="/prepareSynchronizedToken"
+		<action path="/example/prepareSynchronizedToken"
 			type="org.codelabor.example.struts.actions.SynchronizedTokenPrepareAction"
 			scope="request">
 			<forward name="success" path="/example/synchronized-token/form.jsp" />
 		</action>
-		<action path="/processSynchronizedToken" name="tokenForm"
+		<action path="/example/processSynchronizedToken" name="tokenForm"
 			type="org.codelabor.example.struts.actions.SynchronizedTokenProcessAction"
 			scope="request" input="/example/synchronized-token/form.jsp"
 			validate="false">
 			<forward name="success" path="/example/synchronized-token/result.jsp" />
 		</action>
-		<action path="/uploadFile" name="uploadForm"
+		<action path="/example/uploadFile" name="uploadForm"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method">
 			<forward name="list" path="/example/file/list.jsp" />
@@ -60,9 +60,9 @@
 			<forward name="upload" path="/example/uploadFile.do?method=list" />
 			<forward name="delete" path="/example/uploadFile.do?method=list" />
 		</action>
-		<action path="/downloadFile"
+		<action path="/example/downloadFile"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"/>
-		<action path="/error"
+		<action path="/example/error"
 			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
 			parameter="method">
 		</action>
