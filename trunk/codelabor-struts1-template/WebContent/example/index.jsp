@@ -6,27 +6,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css" media="all">
+<!--
+@import
+url(<html:rewrite
+page=
+"/css/maven-base.css"
+/>);
+@import
+url(<html:rewrite
+page=
+"/css/maven-theme.css"
+/>);
+-->
+</style>
 <title>Example Index</title>
 </head>
 <body>
-	<h1>Example Index</h1>
-	<hr/>
+<div id="bodyColumn">
+<div id="contentBox">
+<div class="section">
+	<h2>Example Index</h2>
 	<h3>CRUD Example</h3>
 	<ul>
-		<li><html:link action="/crud?method=list" target="_blank">crud service</html:link></li>
+		<li><html:link action="/example/crud?method=list" target="_blank">crud service</html:link></li>
 	</ul>
 	
 	<h3>File Example</h3>
 	<ul>
-		<li><html:link action="/file?method=prepare" target="_blank">file upload (file system)</html:link></li>
-		<li><html:link action="/file?method=prepare" target="_blank">file download (file system)</html:link></li>
-		<li><html:link action="/file?method=prepare" target="_blank">file upload (RDBMS LOB)</html:link></li>
-		<li><html:link action="/file?method=prepare" target="_blank">file download (RDBMS LOB)</html:link></li>
+		<li><html:link action="/example/file?method=prepare" target="_blank">file upload (file system)</html:link></li>
+		<li><html:link action="/example/file?method=prepare" target="_blank">file download (file system)</html:link></li>
+		<li><html:link action="/example/file?method=prepare" target="_blank">file upload (RDBMS LOB)</html:link></li>
+		<li><html:link action="/example/file?method=prepare" target="_blank">file download (RDBMS LOB)</html:link></li>
 	</ul>	
 	
 	<h3>Login Example</h3>
 	<ul>
-		<li><html:link action="/login?method=prepare" target="_blank">login</html:link></li>
+		<li><html:link action="/example/login?method=prepare" target="_blank">login</html:link></li>
 	</ul>
+</div>
+</div>
+</div>
+<div class="clear">
+<hr />
+</div>
+</div>	
 </body>
 </html>
