@@ -28,10 +28,5 @@
 	<ul>
 		<li><html:link action="/login?method=prepare" target="_blank">login</html:link></li>
 	</ul>
-
-	<h3>Switch Example</h3>
-	<ul>
-		<li><html:link action="/login?method=prepare" target="_blank">switch (common)</html:link></li>
-	</ul>
 </body>
 </html>
