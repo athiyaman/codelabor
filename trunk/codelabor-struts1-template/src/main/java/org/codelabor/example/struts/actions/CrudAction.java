@@ -10,18 +10,16 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.DynaActionForm;
+import org.apache.struts.actions.DispatchAction;
 import org.codelabor.example.dtos.CrudDTO;
 import org.codelabor.example.services.CrudService;
-import org.codelabor.system.spring.actions.BaseDispatchActionSupport;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
-public class CrudAction extends BaseDispatchActionSupport {
-
-	protected CrudService crudService;
+public class CrudAction extends DispatchAction {
 
 	public CrudAction() {
 		super();
-		crudService = (CrudService) webApplicationContext
-				.getBean("crudService");
 	}
 
 	public ActionForward prepareCreate(ActionMapping mapping, ActionForm form,
@@ -34,11 +32,15 @@ public class CrudAction extends BaseDispatchActionSupport {
 	public ActionForward prepareUpdate(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		CrudService crudService = (CrudService) ctx
+				.getBean("example.crudService");
 
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		String crudId = ((String[]) dynaActionform.get("id"))[0];
 
-		Map<String, ?> crudMap = this.crudService.read(crudId);
+		Map<String, ?> crudMap = crudService.read(crudId);
 		request.setAttribute("crudMap", crudMap);
 		return mapping.findForward("prepareUpdate");
 	}
@@ -47,7 +49,12 @@ public class CrudAction extends BaseDispatchActionSupport {
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
-		List crudMapList = this.crudService.list();
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		CrudService crudService = (CrudService) ctx
+				.getBean("example.crudService");
+
+		List crudMapList = crudService.list();
 		request.setAttribute("crudMapList", crudMapList);
 		return mapping.findForward("list");
 	}
@@ -56,8 +63,13 @@ public class CrudAction extends BaseDispatchActionSupport {
 	public ActionForward read(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		CrudService crudService = (CrudService) ctx
+				.getBean("example.crudService");
+
 		String crudId = request.getParameter("id");
-		Map<String, ?> crudMap = this.crudService.read(crudId);
+		Map<String, ?> crudMap = crudService.read(crudId);
 		request.setAttribute("crudMap", crudMap);
 		return mapping.findForward("read");
 	}
@@ -65,12 +77,17 @@ public class CrudAction extends BaseDispatchActionSupport {
 	public ActionForward processCreate(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		CrudService crudService = (CrudService) ctx
+				.getBean("example.crudService");
+
 		CrudDTO crudDTO = new CrudDTO();
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		crudDTO.setField1((String) dynaActionform.get("field1"));
 		crudDTO.setField2((String) dynaActionform.get("field2"));
 
-		int affectedRowCount = this.crudService.create(crudDTO);
+		int affectedRowCount = crudService.create(crudDTO);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("processCreate");
 	}
@@ -78,13 +95,18 @@ public class CrudAction extends BaseDispatchActionSupport {
 	public ActionForward processUpdate(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		CrudService crudService = (CrudService) ctx
+				.getBean("example.crudService");
+
 		CrudDTO crudDTO = new CrudDTO();
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		crudDTO.setId(((String[]) dynaActionform.get("id"))[0]);
 		crudDTO.setField1((String) dynaActionform.get("field1"));
 		crudDTO.setField2((String) dynaActionform.get("field2"));
 
-		int affectedRowCount = this.crudService.update(crudDTO);
+		int affectedRowCount = crudService.update(crudDTO);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("processUpdate");
 	}
@@ -92,9 +114,14 @@ public class CrudAction extends BaseDispatchActionSupport {
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		CrudService crudService = (CrudService) ctx
+				.getBean("example.crudService");
+
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		String[] crudIdList = (String[]) dynaActionform.get("id");
-		int affectedRowCount = this.crudService.delete(crudIdList);
+		int affectedRowCount = crudService.delete(crudIdList);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("delete");
 	}
