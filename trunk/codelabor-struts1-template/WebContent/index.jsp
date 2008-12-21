@@ -5,9 +5,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css" media="all">
+<!--
+@import
+url(<html:rewrite
+page=
+"/css/maven-base.css"
+/>);
+@import
+url(<html:rewrite
+page=
+"/css/maven-theme.css"
+/>);
+-->
+</style>
 <title>Index</title>
 </head>
 <body>
-Index
+<div id="bodyColumn">
+<div id="contentBox">
+<div class="section">
+	<h2>Index</h2>
+</div>
+</div>
+</div>
+<div class="clear">
+<hr />
+</div>
+</div>	
 </body>
 </html>
