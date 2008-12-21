@@ -35,7 +35,6 @@ page=
 <html:link forward="home" target="_top">Home</html:link> |
 <html:link forward="admin" target="_top">Admin</html:link> | 
 <html:link forward="system" target="_top">System</html:link> |
-<html:link forward="common" target="_top">Common</html:link> |
 <html:link forward="example" target="_top">Example</html:link>
 </div>
 <div class="clear">
