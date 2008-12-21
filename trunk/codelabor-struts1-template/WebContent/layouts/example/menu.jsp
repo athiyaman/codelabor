@@ -28,7 +28,6 @@ page=
 <h5><a>CRUD</a></h5>
 <ul>
 	<li><html:link action="/example/crud?method=list" target="body">crud service</html:link></li>
-	<li><html:link action="/example/crud2?method=list" target="body">crud service2</html:link></li>
 </ul>
 
 <h5><a>Synchronized Token</a></h5>
