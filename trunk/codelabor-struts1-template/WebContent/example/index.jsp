@@ -24,32 +24,31 @@ page=
 </head>
 <body>
 <div id="bodyColumn">
-<div id="contentBox">
-<div class="section">
-	<h2>Example Index</h2>
-	<h3>CRUD Example</h3>
-	<ul>
-		<li><html:link action="/example/crud?method=list" target="_blank">crud service</html:link></li>
-	</ul>
-	
-	<h3>File Example</h3>
-	<ul>
-		<li><html:link action="/example/file?method=prepare" target="_blank">file upload (file system)</html:link></li>
-		<li><html:link action="/example/file?method=prepare" target="_blank">file download (file system)</html:link></li>
-		<li><html:link action="/example/file?method=prepare" target="_blank">file upload (RDBMS LOB)</html:link></li>
-		<li><html:link action="/example/file?method=prepare" target="_blank">file download (RDBMS LOB)</html:link></li>
-	</ul>	
-	
-	<h3>Login Example</h3>
-	<ul>
-		<li><html:link action="/example/login?method=prepare" target="_blank">login</html:link></li>
-	</ul>
-</div>
-</div>
-</div>
-<div class="clear">
-<hr />
-</div>
+	<div id="contentBox">
+		<div class="section">
+			<h2>Example Index</h2>
+			<h3>CRUD Example</h3>
+			<ul>
+				<li><html:link action="/example/crud?method=list" target="_blank">crud service</html:link></li>
+			</ul>
+			
+			<h3>File Example</h3>
+			<ul>
+				<li><html:link action="/example/file?method=prepare" target="_blank">file upload (file system)</html:link></li>
+				<li><html:link action="/example/file?method=prepare" target="_blank">file download (file system)</html:link></li>
+				<li><html:link action="/example/file?method=prepare" target="_blank">file upload (RDBMS LOB)</html:link></li>
+				<li><html:link action="/example/file?method=prepare" target="_blank">file download (RDBMS LOB)</html:link></li>
+			</ul>	
+			
+			<h3>Login Example</h3>
+			<ul>
+				<li><html:link action="/example/login?method=prepare" target="_blank">login</html:link></li>
+			</ul>
+		</div>
+	</div>	
+	<div class="clear">
+		<hr />
+	</div>
 </div>	
 </body>
 </html>
