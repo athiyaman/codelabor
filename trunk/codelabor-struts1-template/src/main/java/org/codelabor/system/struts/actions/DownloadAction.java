@@ -12,26 +12,19 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
-import org.springframework.context.MessageSource;
-
-import anyframe.core.properties.IPropertiesService;
 import org.codelabor.system.dtos.FileDTO;
 import org.codelabor.system.exceptions.ParameterNotFoundException;
 import org.codelabor.system.managers.FileManager;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class DownloadAction extends org.apache.struts.actions.DownloadAction {
-
-	protected Log log = LogFactory.getLog(this.getClass());
-
-	protected FileManager fileManager;
-
-	protected MessageSource messageSource;
-
-	protected IPropertiesService propertiesService;
 
 	private static final String contentType = "Application/octet-stream";
 
 	private static final String responseHeaderName = "Content-Disposition";
+
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form,
@@ -47,6 +40,9 @@ public class DownloadAction extends org.apache.struts.actions.DownloadAction {
 		}
 
 		StreamInfo streamInfo = null;
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		FileDTO fileDTO = fileManager.selectFile(fileId);
 		if (log.isDebugEnabled()) {
@@ -78,30 +74,6 @@ public class DownloadAction extends org.apache.struts.actions.DownloadAction {
 		stringBuilder.append("attachment; filename=").append(realFileName);
 		response.setHeader(responseHeaderName, stringBuilder.toString());
 		return streamInfo;
-	}
-
-	public FileManager getFileManager() {
-		return fileManager;
-	}
-
-	public void setFileManager(FileManager fileManager) {
-		this.fileManager = fileManager;
-	}
-
-	public MessageSource getMessageSource() {
-		return messageSource;
-	}
-
-	public void setMessageSource(MessageSource messageSource) {
-		this.messageSource = messageSource;
-	}
-
-	public IPropertiesService getPropertiesService() {
-		return propertiesService;
-	}
-
-	public void setPropertiesService(IPropertiesService propertiesService) {
-		this.propertiesService = propertiesService;
 	}
 
 	public class ByteArrayStreamInfo implements StreamInfo {
