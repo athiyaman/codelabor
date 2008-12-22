@@ -34,12 +34,7 @@
     	<forward name="example" path="/layouts/example/framesetLayout.jsp"/>
     	<forward name="system" path="/layouts/system/framesetLayout.jsp"/>
     </global-forwards>
-
 	<message-resources parameter="messages.MessageResources" />
-	<message-resources parameter="messages.system.MessageResources" key="system"/>
-	<message-resources parameter="messages.admin.MessageResources" key="admin"/>
-	<message-resources parameter="messages.example.MessageResources" key="example"/>
-	
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config"
 			value="/WEB-INF/configurations/tiles-defs.xml" />

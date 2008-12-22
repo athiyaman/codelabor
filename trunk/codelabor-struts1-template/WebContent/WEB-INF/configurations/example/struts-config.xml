@@ -22,7 +22,7 @@
 		</form-bean>
 	</form-beans>
 	<action-mappings>
-		<action path="/example/layout" forward="example.default.layout" />
+		<action path="/example/layout" forward="example" />
 		<action path="/example/login" name="loginForm"
 			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
 			input="/example/login/login.jsp" parameter="method">
@@ -67,6 +67,9 @@
 			parameter="method">
 		</action>
 	</action-mappings>
+	<message-resources 
+		parameter="messages.example.MessageResources"
+		key="example" />	
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config"
 			value="/WEB-INF/configurations/example/tiles-defs.xml" />
