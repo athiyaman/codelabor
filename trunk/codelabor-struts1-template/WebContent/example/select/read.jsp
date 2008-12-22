@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
-<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -28,43 +27,49 @@ page=
 <div id="bodyColumn">
 	<div id="contentBox">
 		<div class="section">
-		<h2>Select Example</h2>
-		<p></p>
-		<div class="section">
-			<h3>List</h3>
+			<h2>Select Example</h2>
 			<p></p>
-			<table class="bodyTable">
-				<tbody>
-					<tr class="a">
-						<th>empNo</th>
-						<th>ename</th>
-						<th>job</th>
-						<th>mgr</th>
-						<th>hireDate</th>
-						<th>sal</th>
-						<th>comm</th>
-						<th>deptNo</th>
-					</tr>
-					<logic:present name="empDTOList">
-					<logic:iterate name="empDTOList" id="empDTO">
+			<div class="section">
+				<h3>Detail View</h3>
+				<p></p>
+				<table class="bodyTable">
+					<tbody>
 						<tr class="b">
-							<td>
-							<html:link action="/example/emp?method=read" paramId="empNo"
-								paramName="empDTO" paramProperty="id">${empDTO.empNo}</html:link>
-							</td>
-							<td>${empDTO.ename}</td>
-							<td>${empDTO.job}</td>
-							<td>${empDTO.mgr}</td>
-							<td>${empDTO.hireDate}</td>
-							<td>${empDTO.sal}</td>
-							<td>${empDTO.comm}</td>
-							<td>${empDTO.deptNo}</td>
+							<th>empNo</th>
+							<td>${empDTO.empNo}</td>
 						</tr>
-					</logic:iterate>
-					</logic:present>
-				</tbody>
-			</table>
-			<hr />
+						<tr class="b">
+							<th>ename</th>
+							<td>${empDTO.ename}</td>
+						</tr>
+						<tr class="b">
+							<th>job</th>
+							<td>${empDTO.job}</td>
+						</tr>
+						<tr class="b">
+							<th>mgr</th>
+							<td>${empDTO.mgr}</td>
+						</tr>
+						<tr class="b">
+							<th>hireDate</th>
+							<td>${empDTO.hireDate}</td>
+						</tr>
+						<tr class="b">
+							<th>sal</th>
+							<td>${empDTO.sal}</td>
+						</tr>
+						<tr class="b">
+							<th>comm</th>
+							<td>${empDTO.comm}</td>
+						</tr>
+						<tr class="b">
+							<th>deptNo</th>
+							<td>${empDTO.deptNo}</td>
+						</tr>		
+					</tbody>
+				</table>
+				<hr />
+				<html:link action="/example/crud?method=list">list</html:link> 
 			</div>
 		</div>
 	</div>
