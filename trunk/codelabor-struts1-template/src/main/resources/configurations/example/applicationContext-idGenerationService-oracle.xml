@@ -17,10 +17,10 @@
 	<bean name="crudIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSourceSpy" />
+		<property name="dataSource" ref="dataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT CRUD_ID_SEQUENCE.NEXTVAL FROM DUAL</query>
+			<query>SELECT CRUD_ID_SEQUENCE.NEXTVAL FROM DUAL</query>			
 		</config:configuration>
-	</bean>
+	</bean>	
 	
 </beans>
