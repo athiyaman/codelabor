@@ -58,8 +58,6 @@ public abstract class LoginAction extends BaseDispatchAction {
 			stringBuilder.append(Constants.SESSION_LOGIN_INFO_KEY).append(": ");
 			stringBuilder.append(session
 					.getAttribute(Constants.SESSION_LOGIN_INFO_KEY));
-			stringBuilder.append(", ");
-			stringBuilder.append("loginDTO: ").append(loginDTO);
 			log.debug(stringBuilder.toString());
 		}
 		return mapping.findForward("processLogin");
