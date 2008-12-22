@@ -33,8 +33,8 @@
 		<action path="/example/emp"
 			type="org.codelabor.example.struts.actions.EmpAction" scope="request"
 			parameter="method" validate="false">
-			<forward name="read" path="/example/emp/read.jsp" />
-			<forward name="list" path="/example/emp/list.jsp" />
+			<forward name="read" path="/example/select/read.jsp" />
+			<forward name="list" path="/example/select/list.jsp" />
 		</action>		
 		<action path="/example/crud"
 			type="org.codelabor.example.struts.actions.CrudAction" scope="request"
