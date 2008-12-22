@@ -74,7 +74,7 @@ page=
 <h3>Upload (FILE SYSTEM)</h3>
 <p></p>
 <html:form
-	action="/example/uploadFile?method=upload"
+	action="/example/uploadFile?method=upload&repositoryType=FILE_SYSTEM"
 	method="POST" enctype="multipart/form-data">
 	<input type="file" name="file[0]" />
 	<input type="file" name="file[1]" />
@@ -88,7 +88,7 @@ page=
 <h3>Upload (DATABASE)</h3>
 <p></p>
 <html:form
-	action="/example/uploadFile?method=upload"
+	action="/example/uploadFile?method=upload&repositoryType=DATABASE"
 	method="POST" enctype="multipart/form-data">
 	<input type="file" name="file[0]" />
 	<input type="file" name="file[1]" />
