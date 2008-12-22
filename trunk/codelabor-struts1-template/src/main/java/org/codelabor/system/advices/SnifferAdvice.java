@@ -176,7 +176,8 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 		stringBuilder.append(System.getProperty("line.separator"));
 		stringBuilder.append("method: ").append(methodName);
 		stringBuilder.append(System.getProperty("line.separator"));
-		stringBuilder.append("elapsed time: ").append(stopWatch.prettyPrint());
+		stringBuilder.append("total time (millis): ").append(
+				stopWatch.getTotalTimeMillis());
 
 		log.debug(stringBuilder.toString());
 		return returnValue;
