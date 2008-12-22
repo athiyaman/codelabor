@@ -29,4 +29,6 @@ public interface EmpManager {
 	public List<EmpDTO> selectEmpList() throws Exception;
 
 	public List<EmpDTO> selectEmpListByDeptNo(int deptNo) throws Exception;
+
+	public EmpDTO selectEmp(int empNo) throws Exception;
 }

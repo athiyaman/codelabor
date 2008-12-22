@@ -48,4 +48,6 @@ public interface EmpDAO {
 
 	public List<EmpDTO> selectEmp(Map<String, String> searchCondition)
 			throws Exception;
+
+	public EmpDTO selectEmp(int empNo) throws Exception;
 }

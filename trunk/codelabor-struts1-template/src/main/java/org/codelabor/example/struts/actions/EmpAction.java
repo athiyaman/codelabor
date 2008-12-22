@@ -48,7 +48,7 @@ public class EmpAction extends DispatchAction {
 		} else {
 
 		}
-		EmpDTO empDTO = empManager.selectEmpListByDeptNo(empNo).get(0);
+		EmpDTO empDTO = empManager.selectEmp(empNo);
 		request.setAttribute("empDTO", empDTO);
 		return mapping.findForward("read");
 	}

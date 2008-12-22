@@ -107,11 +107,11 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List selectEmp(Map searchCondition) throws Exception {
+	public List selectEmp(Map<String, String> searchCondition) throws Exception {
 		log.debug("deptNo: " + searchCondition.get("deptNo"));
 		String selectQueryId = "example.select.emp.list.by.dept.no";
-		Object[] params = new Object[] { Integer
-				.parseInt((String) searchCondition.get("deptNo")) };
+		Object[] params = new Object[] { Integer.parseInt(searchCondition
+				.get("deptNo")) };
 		return new ArrayList(queryService.find(selectQueryId, params));
 	}
 
@@ -129,6 +129,14 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 			log.debug(stringBuilder.toString());
 		}
 		return affectedRowCountDTO;
+	}
+
+	@SuppressWarnings("unchecked")
+	public EmpDTO selectEmp(int empNo) throws Exception {
+		log.debug("empNo: " + empNo);
+		String selectQueryId = "example.select.emp";
+		Object[] params = new Object[] { empNo };
+		return ((List<EmpDTO>) queryService.find(selectQueryId, params)).get(0);
 	}
 
 }
