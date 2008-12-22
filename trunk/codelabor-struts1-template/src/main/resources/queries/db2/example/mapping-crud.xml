@@ -21,7 +21,19 @@
 			</primary-key>
 		</table>
 	</table-mapping>
+	
 	<queries>
+		<!-- delete -->
+		<query id="example.delete.crud" isDynamic="false">
+			<statement><![CDATA[
+				DELETE /* example.delete.crud */
+				FROM CRUD
+				WHERE ID = ?	
+			]]></statement>
+			<param type="INTEGER" />
+		</query>	
+			
+		<!-- select -->
 		<query id="example.select.crud" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.crud */
@@ -62,13 +74,6 @@
 				<result-mapping column="FIELD2" attribute="field2"/>
 			</result>			
 		</query>
-		<query id="example.delete.crud" isDynamic="false">
-			<statement><![CDATA[
-				DELETE /* example.delete.crud */
-				FROM CRUD
-				WHERE ID = ?	
-			]]></statement>
-			<param type="INTEGER" />
-		</query>		
+	
 	</queries>
 </queryservice>
