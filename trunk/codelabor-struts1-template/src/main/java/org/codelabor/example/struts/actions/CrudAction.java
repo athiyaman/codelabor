@@ -36,7 +36,7 @@ public class CrudAction extends BaseDispatchAction {
 		CrudService crudService = (CrudService) ctx.getBean("crudService");
 
 		DynaActionForm dynaActionform = (DynaActionForm) form;
-		String crudId = (String) dynaActionform.get("id");
+		String crudId = ((String[]) dynaActionform.get("id"))[0];
 
 		CrudDTO crudDTO = crudService.read(Integer.parseInt(crudId));
 		request.setAttribute("crudDTO", crudDTO);
@@ -101,7 +101,8 @@ public class CrudAction extends BaseDispatchAction {
 
 		CrudDTO crudDTO = new CrudDTO();
 		DynaActionForm dynaActionform = (DynaActionForm) form;
-		crudDTO.setId(((Integer) dynaActionform.get("id")));
+		crudDTO.setId(Integer
+				.parseInt((((String[]) dynaActionform.get("id"))[0])));
 		crudDTO.setField1((String) dynaActionform.get("field1"));
 		crudDTO.setField2((String) dynaActionform.get("field2"));
 
