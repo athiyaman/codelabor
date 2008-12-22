@@ -29,7 +29,14 @@ page=
 	<div id="contentBox">
 		<div class="section">
 			<h2><bean:message key="heading.goodbye" bundle="example"/></h2>
-			<p><bean:message key="prompt.loginInfo" bundle="example"/>: ${sessionKeyLoginInfo}</p>
+						<table class="bodyTable">
+				<tbody>
+					<tr class="b">
+						<th><bean:message key="prompt.loginInfo" bundle="example"/></th>
+						<td>${sessionScope["org.codelabor.system.SESSION_LOGIN_INFO"]}</td>
+					</tr>
+				</tbody>
+			</table>
 			<p><html:link action="/example/login?method=prepare"><bean:message key="button.login" bundle="example"/></html:link></p>
 		</div>
 	</div>

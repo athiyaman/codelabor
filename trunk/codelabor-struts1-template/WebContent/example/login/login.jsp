@@ -36,11 +36,11 @@ page=
 				<table class="bodyTable">
 					<tbody>
 						<tr class="b">
-							<td><bean:message key="prompt.id" bundle="example" /></td>
+							<th><bean:message key="prompt.id" bundle="example" /></th>
 							<td><html:text property="userId" bundle="example" /></td>
 						</tr>
 						<tr class="b">
-							<td><bean:message key="prompt.password" bundle="example" /></td>
+							<th><bean:message key="prompt.password" bundle="example" /></th>
 							<td><html:password property="password" bundle="example"
 								redisplay="false" /></td>
 						</tr>

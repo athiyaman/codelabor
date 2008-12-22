@@ -41,11 +41,11 @@ page
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
-								<td>field1</td>
+								<th>field1</th>
 								<td><html:text property="field1" /></td>
 							</tr>
 							<tr class="b">
-								<td>field2</td>
+								<th>field2</th>
 								<td><html:text property="field2" /></td>
 							</tr>
 						</tbody>
