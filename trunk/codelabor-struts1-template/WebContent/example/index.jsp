@@ -26,6 +26,8 @@ page=
 <div id="bodyColumn">
 	<div id="contentBox">
 		<div class="section">
+			<h2>Example Index</h2>
+			<p></p>		
 		</div>
 	</div>	
 	<div class="clear">
