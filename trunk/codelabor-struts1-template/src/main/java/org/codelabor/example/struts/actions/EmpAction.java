@@ -28,8 +28,8 @@ public class EmpAction extends DispatchAction {
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		EmpManager empManager = (EmpManager) ctx.getBean("empManager");
 
-		List empMapList = empManager.selectEmpList();
-		request.setAttribute("empMapList", empMapList);
+		List empDTOList = empManager.selectEmpList();
+		request.setAttribute("empDTOList", empDTOList);
 		return mapping.findForward("list");
 	}
 
