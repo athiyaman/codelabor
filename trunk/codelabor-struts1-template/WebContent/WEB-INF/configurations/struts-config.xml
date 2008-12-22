@@ -27,6 +27,7 @@
 		</exception>
     </global-exceptions>
     <global-forwards>
+    	<forward name="error" path="/system/error.jsp"/>
     </global-forwards>
 	<action-mappings>
 		<action
