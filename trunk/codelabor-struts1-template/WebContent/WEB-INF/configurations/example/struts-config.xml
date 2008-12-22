@@ -30,6 +30,12 @@
 			<forward name="processLogout" path="/example/login/goodbye.jsp" />
 			<forward name="prepareLogin" path="/example/login/login.jsp" />
 		</action>
+		<action path="/example/emp"
+			type="org.codelabor.example.struts.actions.EmpAction" scope="request"
+			parameter="method" validate="false">
+			<forward name="read" path="/example/crud/read.jsp" />
+			<forward name="list" path="/example/crud/list.jsp" />
+		</action>		
 		<action path="/example/crud"
 			type="org.codelabor.example.struts.actions.CrudAction" scope="request"
 			parameter="method" name="crudForm" validate="false">
