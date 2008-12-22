@@ -19,12 +19,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.upload.FormFile;
 import org.codelabor.system.RepositoryType;
 import org.codelabor.system.dtos.FileDTO;
@@ -37,9 +34,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class UploadAction extends DispatchAction {
-
-	protected Log log = LogFactory.getLog(this.getClass());
+public class UploadAction extends BaseDispatchAction {
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
