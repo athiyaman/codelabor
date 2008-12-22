@@ -23,7 +23,7 @@
 	</form-beans>
 	<action-mappings>
 		<action
-		   path="/example/layout"
+		   path="/example/home"
 		   forward="/layouts/example/framesetLayout.jsp">
 		</action>		
 		<action path="/example/login" name="loginForm"
