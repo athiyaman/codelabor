@@ -17,10 +17,10 @@ public class CrudServiceTest extends BaseTestCase {
 
 	public void testRead() {
 		try {
-			String crudId = "0";
+			int crudId = 0;
 			CrudDTO crudDTO = crudService.read(crudId);
 			assertNotNull(crudDTO);
-			assertEquals("0", crudDTO.getId());
+			assertEquals(0, crudDTO.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -63,7 +63,7 @@ public class CrudServiceTest extends BaseTestCase {
 	public void testUpdate() {
 		try {
 			CrudDTO crudDTO = new CrudDTO();
-			crudDTO.setId("0");
+			crudDTO.setId(0);
 			crudDTO.setField1("TEST VALUE (U)");
 			crudDTO.setField2("TEST VALUE (U)");
 			int affectedRowCount = crudService.update(crudDTO);
@@ -75,7 +75,7 @@ public class CrudServiceTest extends BaseTestCase {
 
 	public void testDelete() {
 		try {
-			String[] crudIdList = new String[] { "1", "2", "3" };
+			int[] crudIdList = new int[] { 1, 2, 3 };
 			int affectedRowCount = crudService.delete(crudIdList);
 			assertTrue(affectedRowCount == 3);
 		} catch (Exception e) {
