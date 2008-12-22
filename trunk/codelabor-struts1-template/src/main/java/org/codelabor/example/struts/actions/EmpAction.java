@@ -33,7 +33,6 @@ public class EmpAction extends DispatchAction {
 		return mapping.findForward("list");
 	}
 
-	@SuppressWarnings("unchecked")
 	public ActionForward read(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
@@ -43,10 +42,8 @@ public class EmpAction extends DispatchAction {
 
 		String empNoParam = request.getParameter("empNo");
 		int empNo = 0;
-		if (empNoParam != null || empNoParam.length() > 0) {
+		if (empNoParam != null && empNoParam.length() > 0) {
 			empNo = Integer.parseInt(empNoParam);
-		} else {
-
 		}
 		EmpDTO empDTO = empManager.selectEmp(empNo);
 		request.setAttribute("empDTO", empDTO);

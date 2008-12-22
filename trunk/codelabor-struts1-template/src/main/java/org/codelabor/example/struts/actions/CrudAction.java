@@ -1,7 +1,6 @@
 package org.codelabor.example.struts.actions;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +27,6 @@ public class CrudAction extends DispatchAction {
 		return mapping.findForward("prepareCreate");
 	}
 
-	@SuppressWarnings("unchecked")
 	public ActionForward prepareUpdate(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
@@ -39,8 +37,8 @@ public class CrudAction extends DispatchAction {
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		String crudId = ((String[]) dynaActionform.get("id"))[0];
 
-		Map<String, ?> crudMap = crudService.read(crudId);
-		request.setAttribute("crudMap", crudMap);
+		CrudDTO crudDTO = crudService.read(crudId);
+		request.setAttribute("crudDTO", crudDTO);
 		return mapping.findForward("prepareUpdate");
 	}
 
@@ -52,12 +50,11 @@ public class CrudAction extends DispatchAction {
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		CrudService crudService = (CrudService) ctx.getBean("crudService");
 
-		List crudMapList = crudService.list();
-		request.setAttribute("crudMapList", crudMapList);
+		List crudDTOList = crudService.list();
+		request.setAttribute("crudDTOList", crudDTOList);
 		return mapping.findForward("list");
 	}
 
-	@SuppressWarnings("unchecked")
 	public ActionForward read(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
@@ -66,8 +63,8 @@ public class CrudAction extends DispatchAction {
 		CrudService crudService = (CrudService) ctx.getBean("crudService");
 
 		String crudId = request.getParameter("id");
-		Map<String, ?> crudMap = crudService.read(crudId);
-		request.setAttribute("crudMap", crudMap);
+		CrudDTO crudDTO = crudService.read(crudId);
+		request.setAttribute("crudDTO", crudDTO);
 		return mapping.findForward("read");
 	}
 

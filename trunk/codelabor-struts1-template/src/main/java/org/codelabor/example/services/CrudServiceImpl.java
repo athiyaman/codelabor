@@ -18,7 +18,6 @@
 package org.codelabor.example.services;
 
 import java.util.List;
-import java.util.Map;
 
 import org.codelabor.example.dtos.CrudDTO;
 import org.codelabor.system.exceptions.CommonException;
@@ -61,46 +60,46 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Map> list() throws CommonException {
-		List<Map> crudMapList = null;
+	public List<CrudDTO> list() throws CommonException {
+		List<CrudDTO> crudDTOList = null;
 		try {
 			String queryId = "example.select.crud.list";
 			Object[] param = new Object[] {};
-			crudMapList = (List<Map>) queryService.find(queryId, param);
+			crudDTOList = (List<CrudDTO>) queryService.find(queryId, param);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RollbackCommonException(messageSource, "error.crud.list");
 		}
-		return crudMapList;
+		return crudDTOList;
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Map> list(String filed1Pattern) throws CommonException {
-		List<Map> crudMapList = null;
+	public List<CrudDTO> list(String filed1Pattern) throws CommonException {
+		List<CrudDTO> crudDTOList = null;
 		try {
 			String queryId = "example.select.crud.list.by.field1";
 			Object[] param = new Object[] { filed1Pattern };
-			crudMapList = (List<Map>) queryService.find(queryId, param);
+			crudDTOList = (List<CrudDTO>) queryService.find(queryId, param);
 		} catch (Exception e) {
 			throw new RollbackCommonException(messageSource, "error.crud.list");
 		}
-		return crudMapList;
+		return crudDTOList;
 	}
 
 	@SuppressWarnings("unchecked")
-	public Map read(String crudId) throws CommonException {
-		Map crudMap = null;
+	public CrudDTO read(String crudId) throws CommonException {
+		CrudDTO crudDTO = null;
 		try {
 			String queryId = "example.select.crud";
 			Object[] param = new Object[] { crudId };
-			List<Map> crudMapList = (List<Map>) queryService.find(queryId,
-					param);
-			crudMap = crudMapList.get(0);
+			List<CrudDTO> crudDTOList = (List<CrudDTO>) queryService.find(
+					queryId, param);
+			crudDTO = crudDTOList.get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RollbackCommonException(messageSource, "error.crud.read");
 		}
-		return crudMap;
+		return crudDTO;
 	}
 
 	public int update(CrudDTO crudDTO) throws CommonException {
