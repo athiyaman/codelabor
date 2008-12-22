@@ -59,7 +59,7 @@
 			<forward name="success" path="/example/synchronized-token/result.jsp" />
 		</action>
 		<action path="/example/uploadFile" name="uploadForm"
-			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			type="org.codelabor.system.struts.actions.UploadAction" scope="request"
 			parameter="method">
 			<forward name="list" path="/example/file/list.jsp" />
 			<forward name="read" path="/example/file/read.jsp" />
@@ -67,9 +67,9 @@
 			<forward name="delete" path="/example/uploadFile.do?method=list" />
 		</action>
 		<action path="/example/downloadFile"
-			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"/>
+			type="org.codelabor.system.struts.actions.DownloadAction" scope="request"/>
 		<action path="/example/error"
-			type="org.springframework.web.struts.DelegatingActionProxy" scope="request"
+			type="org.codelabor.example.struts.actions.ErrorAction" scope="request"
 			parameter="method">
 		</action>
 	</action-mappings>
