@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	<bean id="commonExceptionHandler"
-		class="org.codelabor.system.exceptions.CommonExceptionHandler"
+		class="org.codelabor.system.struts.handler.CommonExceptionHandler"
 		parent="baseExceptionHandler">
 	</bean>
 </beans>

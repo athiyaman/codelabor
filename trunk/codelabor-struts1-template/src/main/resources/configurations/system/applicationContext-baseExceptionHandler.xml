@@ -12,7 +12,7 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	<bean 
 		id="baseExceptionHandler" 
-		class="org.codelabor.system.exceptions.BaseExceptionHandler">
+		class="org.codelabor.system.struts.handler.BaseExceptionHandler">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="propertiesService" ref="propertiesService"/>		
 	</bean>
