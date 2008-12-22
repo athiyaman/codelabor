@@ -10,19 +10,19 @@
 		<exception 
 			key="errors.rollback" 
 			type="org.codelabor.system.exceptions.RollbackCommonException"
-			handler="org.codelabor.system.exceptions.CommonExceptionHandler"
+			handler="org.codelabor.system.struts.handlers.CommonExceptionHandler"
 			path="/system/error.jsp">
 		</exception>
 		<exception 
 			key="errors.norollback" 
 			type="org.codelabor.system.exceptions.NoRollbackCommonException"
-			handler="org.codelabor.system.exceptions.CommonExceptionHandler"
+			handler="org.codelabor.system.struts.handlers.CommonExceptionHandler"
 			path="/system/error.jsp">
 		</exception>		    
 		<exception 
 			key="errors.unexpected" 
 			type="java.lang.Exception"
-			handler="org.codelabor.system.exceptions.CommonExceptionHandler"
+			handler="org.codelabor.system.struts.handlers.CommonExceptionHandler"
 			path="/system/error.jsp">
 		</exception>
     </global-exceptions>

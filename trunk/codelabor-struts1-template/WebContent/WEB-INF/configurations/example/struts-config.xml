@@ -22,7 +22,7 @@
 		</form-bean>
 	</form-beans>
 	<action-mappings>
-		<action path="/example/layoutExample" forward="defaultLayout" />
+		<action path="/example/layout" forward="example.default.layout" />
 		<action path="/example/login" name="loginForm"
 			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
 			input="/example/login/login.jsp" parameter="method">
@@ -77,4 +77,5 @@
 			/WEB-INF/configurations/example/validation.xml" />
 		<set-property property="stopOnFirstError" value="false" />
 	</plug-in>	
+
 </struts-config>

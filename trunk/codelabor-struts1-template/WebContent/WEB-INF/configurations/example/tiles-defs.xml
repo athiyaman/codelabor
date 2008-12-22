@@ -4,7 +4,7 @@
    "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
 
 <tiles-definitions>
-	<definition name="defaultLayout" path="/layouts/example/tilesLayout.jsp">
+	<definition name="example.default.layout" path="/layouts/example/tilesLayout.jsp">
 		<put name="title" value="Default Title" type="string"></put>
 		<put name="header" value="/layouts/example/header.jsp" type="page"></put>
 		<put name="body" value="/layouts/example/body.jsp" type="page"></put>
