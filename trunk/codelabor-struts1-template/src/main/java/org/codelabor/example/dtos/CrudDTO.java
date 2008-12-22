@@ -28,15 +28,15 @@ public class CrudDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 6961199407361036224L;
-	private String id;
+	private int id;
 	private String field1;
 	private String field2;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
