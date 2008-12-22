@@ -69,7 +69,7 @@ page=
 					</tbody>
 				</table>
 				<hr />
-				<html:link action="/example/crud?method=list">list</html:link> 
+				<html:link action="/example/emp?method=list">list</html:link> 
 			</div>
 		</div>
 	</div>

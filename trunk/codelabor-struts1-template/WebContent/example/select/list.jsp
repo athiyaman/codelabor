@@ -50,7 +50,7 @@ page=
 						<tr class="b">
 							<td>
 							<html:link action="/example/emp?method=read" paramId="empNo"
-								paramName="empDTO" paramProperty="id">${empDTO.empNo}</html:link>
+								paramName="empDTO" paramProperty="empNo">${empDTO.empNo}</html:link>
 							</td>
 							<td>${empDTO.ename}</td>
 							<td>${empDTO.job}</td>
