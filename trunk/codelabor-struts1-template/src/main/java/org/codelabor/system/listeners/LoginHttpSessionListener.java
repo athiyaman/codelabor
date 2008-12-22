@@ -29,6 +29,8 @@ import org.codelabor.system.dtos.LoginDTO;
 import org.codelabor.system.dtos.MessageDTO;
 import org.codelabor.system.services.LoginService;
 import org.codelabor.system.utils.MessageUtil;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * @author SangJae Shin
@@ -38,9 +40,11 @@ public class LoginHttpSessionListener extends BaseListener implements
 		HttpSessionListener, HttpSessionAttributeListener,
 		HttpSessionActivationListener {
 
-	private LoginService loginService;
-
 	public void attributeAdded(HttpSessionBindingEvent event) {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(event.getSession()
+						.getServletContext());
+		LoginService loginService = (LoginService) ctx.getBean("loginService");
 		StringBuilder stringBuilder = new StringBuilder();
 		if (log.isDebugEnabled()) {
 			stringBuilder.append("thread: ").append(Thread.currentThread());
@@ -84,6 +88,10 @@ public class LoginHttpSessionListener extends BaseListener implements
 	}
 
 	public void attributeRemoved(HttpSessionBindingEvent event) {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(event.getSession()
+						.getServletContext());
+		LoginService loginService = (LoginService) ctx.getBean("loginService");
 		StringBuilder stringBuilder = new StringBuilder();
 		if (log.isDebugEnabled()) {
 			stringBuilder.append("thread: ").append(Thread.currentThread());
@@ -183,24 +191,6 @@ public class LoginHttpSessionListener extends BaseListener implements
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			log.debug(stringBuilder.toString());
-		}
-	}
-
-	public LoginService getLoginService() {
-		return loginService;
-	}
-
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
-		StringBuilder stringBuilder = new StringBuilder();
-		if (log.isDebugEnabled()) {
-			stringBuilder.append("thread: ").append(Thread.currentThread());
-			stringBuilder.append(", ");
-			stringBuilder.append("instance: ").append(this.hashCode());
-			stringBuilder.append(", ");
-			stringBuilder.append("loginService: ");
-			stringBuilder.append(loginService);
 			log.debug(stringBuilder.toString());
 		}
 	}
