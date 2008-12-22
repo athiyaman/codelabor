@@ -10,7 +10,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT EMP_NO_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
+			<query>SELECT EMP_NO_SEQUENCE.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
 	
@@ -19,7 +19,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSourceSpy" />
 		<config:configuration big-decimals="true">
-			<query>SELECT CRUD_ID_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
+			<query>SELECT CRUD_ID_SEQUENCE.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
 	
