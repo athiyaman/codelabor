@@ -93,4 +93,14 @@ public class EmpManagerMock implements EmpManager {
 	public List<EmpDTO> selectEmpList() throws Exception {
 		return empList;
 	}
+
+	public EmpDTO selectEmp(int empNo) throws Exception {
+		EmpDTO returnEmpDTO = null;
+		for (EmpDTO empDTO : empList) {
+			if (empNo == empDTO.getEmpNo()) {
+				returnEmpDTO = empDTO;
+			}
+		}
+		return returnEmpDTO;
+	}
 }
