@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,9 +27,9 @@ page=
 	<div id="contentBox">
 		<div class="section">
 			<h2>Index</h2>
-			<p></p>
+			<p></p>		
 		</div>
-	</div>
+	</div>	
 	<div class="clear">
 		<hr />
 	</div>
