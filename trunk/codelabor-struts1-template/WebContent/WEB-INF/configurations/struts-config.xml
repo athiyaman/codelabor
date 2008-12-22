@@ -26,14 +26,14 @@
 			path="/system/error.jsp">
 		</exception>
     </global-exceptions>
-
     <global-forwards>
-    	<forward name="error" path="/system/error.jsp"/>
-    	<forward name="home" path="/layouts/framesetLayout.jsp"/>
-    	<forward name="admin" path="/layouts/admin/framesetLayout.jsp"/>
-    	<forward name="example" path="/layouts/example/framesetLayout.jsp"/>
-    	<forward name="system" path="/layouts/system/framesetLayout.jsp"/>
     </global-forwards>
+	<action-mappings>
+		<action
+		   path="/home"
+		   forward="/layouts/framesetLayout.jsp">
+		</action>
+	</action-mappings>    
 	<message-resources parameter="messages.MessageResources" />
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config"

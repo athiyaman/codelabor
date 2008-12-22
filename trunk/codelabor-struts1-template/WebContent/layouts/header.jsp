@@ -32,10 +32,10 @@ page=
 </div>
 <div id="breadcrumbs">
 <div class="xright">
-<html:link forward="home" target="_top">Home</html:link> |
-<html:link forward="admin" target="_top">Admin</html:link> | 
-<html:link forward="system" target="_top">System</html:link> |
-<html:link forward="example" target="_top">Example</html:link>
+<html:link action="/home.do" target="_top">Home</html:link> |
+<html:link action="/admin/home.do" target="_top">Admin</html:link> | 
+<html:link action="/system/home.do" target="_top">System</html:link> |
+<html:link action="/example/home.do" target="_top">Example</html:link>
 </div>
 <div class="clear">
 <hr />
