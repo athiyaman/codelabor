@@ -22,7 +22,10 @@
 		</form-bean>
 	</form-beans>
 	<action-mappings>
-		<action path="/example/layout" forward="example" />
+		<action
+		   path="/example/layout"
+		   forward="/layouts/example/framesetLayout.jsp">
+		</action>		
 		<action path="/example/login" name="loginForm"
 			type="org.codelabor.example.struts.actions.LoginAction" scope="request"
 			input="/example/login/login.jsp" parameter="method">
