@@ -42,19 +42,19 @@ page=
 						<th>field1</th>
 						<th>field2</th>
 					</tr>
-					<logic:present name="crudMapList">
-					<logic:iterate name="crudMapList" id="crudMap">
+					<logic:present name="crudDTOList">
+					<logic:iterate name="crudDTOList" id="crudDTO">
 						<tr class="b">
 							<td>
-								<html:multibox property="id" value="${crudMap.id}">
+								<html:multibox property="id" value="${crudDTO.id}">
 								</html:multibox>
 							</td>
 							<td>
 							<html:link action="/example/crud?method=read" paramId="id"
-								paramName="crudMap" paramProperty="id">${crudMap.id}</html:link>
+								paramName="crudDTO" paramProperty="id">${crudDTO.id}</html:link>
 							</td>
-							<td>${crudMap.field1}</td>
-							<td>${crudMap.field2}</td>
+							<td>${crudDTO.field1}</td>
+							<td>${crudDTO.field2}</td>
 						</tr>
 					</logic:iterate>
 					</logic:present>

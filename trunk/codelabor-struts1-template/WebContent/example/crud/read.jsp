@@ -36,23 +36,23 @@ page=
 	<tbody>
 		<tr class="b">
 			<th>id</th>
-			<td>${crudMap.id}</td>
+			<td>${crudDTO.id}</td>
 		</tr>
 		<tr class="b">
 			<th>field1</th>
-			<td>${crudMap.field1}</td>
+			<td>${crudDTO.field1}</td>
 		</tr>
 		<tr class="b">
 			<th>field2</th>
-			<td>${crudMap.field2}</td>
+			<td>${crudDTO.field2}</td>
 		</tr>
 	</tbody>
 </table>
 <hr />
 <html:link action="/example/crud?method=list">list</html:link> <html:link
-	action="/example/crud?method=prepareUpdate" paramId="id" paramName="crudMap"
+	action="/example/crud?method=prepareUpdate" paramId="id" paramName="crudDTO"
 	paramProperty="id">update</html:link> <html:link
-	action="/example/crud?method=delete" paramId="id" paramName="crudMap"
+	action="/example/crud?method=delete" paramId="id" paramName="crudDTO"
 	paramProperty="id">delete</html:link></div>
 </div>
 </div>

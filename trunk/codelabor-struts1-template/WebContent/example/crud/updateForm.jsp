@@ -37,15 +37,15 @@ page=
 		<tbody>
 			<tr class="b">
 				<th>id</th>
-				<td><html:text property="id" value="${crudMap.id}" readonly="true"/></td>
+				<td><html:text property="id" value="${crudDTO.id}" readonly="true"/></td>
 			</tr>
 			<tr class="b">
 				<th>field1</th>
-				<td><html:text property="field1" value="${crudMap.field1}"/></td>
+				<td><html:text property="field1" value="${crudDTO.field1}"/></td>
 			</tr>
 			<tr class="b">
 				<th>field2</th>
-				<td><html:text property="field2" value="${crudMap.field2}"/></td>
+				<td><html:text property="field2" value="${crudDTO.field2}"/></td>
 			</tr>
 		</tbody>
 	</table>
