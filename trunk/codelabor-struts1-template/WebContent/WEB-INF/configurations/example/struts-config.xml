@@ -8,7 +8,7 @@
 			<form-property name="userId" type="java.lang.String" />
 			<form-property name="password" type="java.lang.String" />
 		</form-bean>
-		<form-bean name="uploadForm" type="org.codelabor.system.forms.UploadForm"/>	
+		<form-bean name="uploadForm" type="org.codelabor.system.struts.forms.UploadForm"/>	
 		<form-bean name="tokenForm" type="org.apache.struts.action.DynaActionForm">
 			<form-property name="field1" type="java.lang.String" />
 			<form-property name="field2" type="java.lang.String" />
