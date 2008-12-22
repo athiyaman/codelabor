@@ -25,6 +25,10 @@ page=
 <body class="composite">
 <div id="leftColumn">
 <div id="navcolumn">
+<h5><a>Select</a></h5>
+<ul>
+	<li><html:link action="/example/emp?method=list" target="body">emp manager</html:link></li>
+</ul>
 <h5><a>CRUD</a></h5>
 <ul>
 	<li><html:link action="/example/crud?method=list" target="body">crud service</html:link></li>
