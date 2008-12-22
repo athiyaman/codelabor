@@ -33,7 +33,7 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 	public int create(CrudDTO crudDTO) throws CommonException {
 		int affectedRowCount = 0;
 		try {
-			String crudId = idGenerationService.getNextStringId();
+			int crudId = idGenerationService.getNextIntegerId();
 			crudDTO.setId(crudId);
 			affectedRowCount = queryService.create(crudDTO);
 		} catch (Exception e) {
@@ -44,11 +44,11 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 		return affectedRowCount;
 	}
 
-	public int delete(String[] crudIdList) throws CommonException {
+	public int delete(int[] crudIdList) throws CommonException {
 		int affectedRowCount = 0;
 		try {
 			String queryId = "example.delete.crud";
-			for (String crudId : crudIdList) {
+			for (int crudId : crudIdList) {
 				affectedRowCount += queryService.remove(queryId,
 						new Object[] { crudId });
 			}
@@ -87,7 +87,7 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public CrudDTO read(String crudId) throws CommonException {
+	public CrudDTO read(int crudId) throws CommonException {
 		CrudDTO crudDTO = null;
 		try {
 			String queryId = "example.select.crud";

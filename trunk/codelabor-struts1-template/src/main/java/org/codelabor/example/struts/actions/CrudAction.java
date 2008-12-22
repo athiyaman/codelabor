@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.DynaActionForm;
 import org.codelabor.example.dtos.CrudDTO;
 import org.codelabor.example.services.CrudService;
+import org.codelabor.system.exceptions.ParameterNotFoundException;
 import org.codelabor.system.struts.actions.BaseDispatchAction;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -35,9 +36,9 @@ public class CrudAction extends BaseDispatchAction {
 		CrudService crudService = (CrudService) ctx.getBean("crudService");
 
 		DynaActionForm dynaActionform = (DynaActionForm) form;
-		String crudId = ((String[]) dynaActionform.get("id"))[0];
+		String crudId = (String) dynaActionform.get("id");
 
-		CrudDTO crudDTO = crudService.read(crudId);
+		CrudDTO crudDTO = crudService.read(Integer.parseInt(crudId));
 		request.setAttribute("crudDTO", crudDTO);
 		return mapping.findForward("prepareUpdate");
 	}
@@ -62,7 +63,13 @@ public class CrudAction extends BaseDispatchAction {
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		CrudService crudService = (CrudService) ctx.getBean("crudService");
 
-		String crudId = request.getParameter("id");
+		String crudIdParam = request.getParameter("id");
+		int crudId = 0;
+		if (crudIdParam != null && crudIdParam.length() > 0) {
+			crudId = Integer.parseInt(crudIdParam);
+		} else {
+			throw new ParameterNotFoundException();
+		}
 		CrudDTO crudDTO = crudService.read(crudId);
 		request.setAttribute("crudDTO", crudDTO);
 		return mapping.findForward("read");
@@ -94,7 +101,7 @@ public class CrudAction extends BaseDispatchAction {
 
 		CrudDTO crudDTO = new CrudDTO();
 		DynaActionForm dynaActionform = (DynaActionForm) form;
-		crudDTO.setId(((String[]) dynaActionform.get("id"))[0]);
+		crudDTO.setId(((Integer) dynaActionform.get("id")));
 		crudDTO.setField1((String) dynaActionform.get("field1"));
 		crudDTO.setField2((String) dynaActionform.get("field2"));
 
@@ -111,7 +118,12 @@ public class CrudAction extends BaseDispatchAction {
 		CrudService crudService = (CrudService) ctx.getBean("crudService");
 
 		DynaActionForm dynaActionform = (DynaActionForm) form;
-		String[] crudIdList = (String[]) dynaActionform.get("id");
+		String[] crudIdStringList = (String[]) dynaActionform.get("id");
+		int[] crudIdList = new int[crudIdStringList.length];
+		for (int i = 0; i < crudIdStringList.length; i++) {
+			crudIdList[i] = Integer.parseInt(crudIdStringList[i]);
+		}
+
 		int affectedRowCount = crudService.delete(crudIdList);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("delete");

@@ -32,9 +32,9 @@ public interface CrudService {
 
 	public int update(CrudDTO crudDTO) throws CommonException;
 
-	public int delete(String[] crudIdList) throws CommonException;
+	public int delete(int[] crudIdList) throws CommonException;
 
-	public CrudDTO read(String crudId) throws CommonException;
+	public CrudDTO read(int crudId) throws CommonException;
 
 	public List<CrudDTO> list(String filed1Pattern) throws CommonException;
 
