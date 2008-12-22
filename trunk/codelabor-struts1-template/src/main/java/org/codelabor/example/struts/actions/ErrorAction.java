@@ -10,17 +10,12 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
-
 import org.codelabor.example.services.ErrorService;
 import org.codelabor.system.struts.actions.BaseDispatchAction;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class ErrorAction extends BaseDispatchAction {
-
-	private ErrorService errorService;
-
-	public void setErrorService(ErrorService errorService) {
-		this.errorService = errorService;
-	}
 
 	public ActionForward throwException(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -55,6 +50,10 @@ public class ErrorAction extends BaseDispatchAction {
 			ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ActionForward forward = null;
+
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		ErrorService errorService = (ErrorService) ctx.getBean("errorService");
 		errorService.noRollbackMethod();
 		return forward;
 	}
@@ -63,6 +62,9 @@ public class ErrorAction extends BaseDispatchAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ActionForward forward = null;
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		ErrorService errorService = (ErrorService) ctx.getBean("errorService");
 		errorService.rollbackMethod();
 		return forward;
 	}
