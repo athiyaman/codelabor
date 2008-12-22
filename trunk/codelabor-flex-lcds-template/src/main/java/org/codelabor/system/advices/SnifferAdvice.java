@@ -17,14 +17,7 @@
 
 package org.codelabor.system.advices;
 
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.codelabor.system.exceptions.CommonException;
-import org.springframework.core.Ordered;
-import org.springframework.util.StopWatch;
-
-import anyframe.common.exception.BaseException;
-import anyframe.common.exception.message.Message;
 
 /**
  * @author SangJae Shin
@@ -176,7 +169,8 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 		stringBuilder.append(System.getProperty("line.separator"));
 		stringBuilder.append("method: ").append(methodName);
 		stringBuilder.append(System.getProperty("line.separator"));
-		stringBuilder.append("elapsed time: ").append(stopWatch.prettyPrint());
+		stringBuilder.append("total time (millis): ").append(
+				stopWatch.getTotalTimeMillis());
 
 		log.debug(stringBuilder.toString());
 		return returnValue;
