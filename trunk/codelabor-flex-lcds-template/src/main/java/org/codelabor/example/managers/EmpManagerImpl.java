@@ -49,4 +49,8 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 	public List<EmpDTO> selectEmpList() throws Exception {
 		return empDAO.selectEmp();
 	}
+
+	public EmpDTO selectEmp(int empNo) throws Exception {
+		return empDAO.selectEmp(empNo);
+	}
 }

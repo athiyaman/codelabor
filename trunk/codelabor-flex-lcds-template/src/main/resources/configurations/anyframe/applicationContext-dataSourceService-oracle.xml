@@ -13,5 +13,5 @@
 	    <property name="jndiName" value="oracleXADataSource"/>
 		<property name="jndiTemplate" ref="jndiTemplateJeus"/>
 	</bean>
-	 -->
+	-->	 
 </beans>

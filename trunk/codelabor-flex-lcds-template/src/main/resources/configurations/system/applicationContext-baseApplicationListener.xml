@@ -6,7 +6,7 @@
 	<!-- 
 	<bean 
 		id="baseApplicationListener" 
-		class="org.codelabor.system.listeners.BaseApplicationListener"
+		class="org.codelabor.system.spring.listeners.BaseApplicationListener"
 		parent="baseListener">
 	</bean>
 	 -->		

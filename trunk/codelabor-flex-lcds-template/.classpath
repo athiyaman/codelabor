@@ -17,6 +17,6 @@
 	<classpathentry kind="var" path="JEUS_LIB/system/jeusjaxb.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jeusmbean.jar"/>
 	<classpathentry kind="var" path="JEUS_LIB/system/jeusutil.jar"/>
-	<classpathentry kind="var" path="JEUS_LIB/system/mail.jar"/>
+	<classpathentry kind="var" path="JEUS_LIB/system/mail.jar"/>	
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

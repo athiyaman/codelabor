@@ -21,7 +21,19 @@
 			</primary-key>
 		</table>
 	</table-mapping>
+	
 	<queries>
+		<!-- delete -->
+		<query id="example.delete.crud" isDynamic="false">
+			<statement><![CDATA[
+				DELETE /* example.delete.crud */
+				FROM CRUD
+				WHERE ID = ?	
+			]]></statement>
+			<param type="INTEGER" />
+		</query>	
+			
+		<!-- select -->
 		<query id="example.select.crud" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.crud */
@@ -29,31 +41,39 @@
 				FROM CRUD
 				WHERE ID=?				
 			]]></statement>
-			<param type="VARCHAR" />
+			<param type="INTEGER" />
+			<result class="org.codelabor.example.dtos.CrudDTO">
+				<result-mapping column="ID" attribute="id"/>
+				<result-mapping column="FIELD1" attribute="field1"/>
+				<result-mapping column="FIELD2" attribute="field2"/>
+			</result>			
 		</query>
 		<query id="example.select.crud.list" isDynamic="false">
 			<statement><![CDATA[
-				SELECT /* example.select.crud */
+				SELECT /* example.select.crud.list */
 				ID, FIELD1, FIELD2 				
 				FROM CRUD
 			]]></statement>
+			<result class="org.codelabor.example.dtos.CrudDTO">
+				<result-mapping column="ID" attribute="id"/>
+				<result-mapping column="FIELD1" attribute="field1"/>
+				<result-mapping column="FIELD2" attribute="field2"/>
+			</result>			
 		</query>
 		<query id="example.select.crud.list.by.field1" isDynamic="false">
 			<statement><![CDATA[
-				SELECT /* example.select.crudByField1 */
+				SELECT /* example.select.crud.list.by.field1 */
 				ID, FIELD1, FIELD2 				
 				FROM CRUD
 				WHERE FIELD1 LIKE ?		
 			]]></statement>
 			<param type="VARCHAR" />
+			<result class="org.codelabor.example.dtos.CrudDTO">
+				<result-mapping column="ID" attribute="id"/>
+				<result-mapping column="FIELD1" attribute="field1"/>
+				<result-mapping column="FIELD2" attribute="field2"/>
+			</result>			
 		</query>
-		<query id="example.delete.crud" isDynamic="false">
-			<statement><![CDATA[
-				DELETE /* example.delete.crud */
-				FROM CRUD
-				WHERE ID = ?	
-			]]></statement>
-			<param type="VARCHAR" />
-		</query>		
+	
 	</queries>
 </queryservice>
