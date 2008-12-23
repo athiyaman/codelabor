@@ -8,6 +8,16 @@
 		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
 	
+	<!-- Sniff filter -->
+	<filter>
+		<filter-name>sniffFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.SniffFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>sniffFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 	<!-- Spring support -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
