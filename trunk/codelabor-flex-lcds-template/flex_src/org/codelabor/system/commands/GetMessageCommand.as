@@ -29,6 +29,7 @@ package org.codelabor.system.commands
 		
 		public function result(data:Object):void
 		{
+			model.message = data.result as String;
 		}
 		
 		public function fault(info:Object):void

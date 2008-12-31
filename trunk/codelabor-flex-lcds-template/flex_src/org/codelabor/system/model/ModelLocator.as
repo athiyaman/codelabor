@@ -12,6 +12,7 @@ package org.codelabor.system.model
 		// model 
 		public var empList:ArrayCollection = new ArrayCollection();
 		public var loginUserId:String = new String("tester");
+		public var message:String = new String();
 		
 		private static var instance:ModelLocator;
 
