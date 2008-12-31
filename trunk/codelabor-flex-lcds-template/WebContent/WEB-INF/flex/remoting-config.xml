@@ -26,7 +26,14 @@
 			<factory>springFactory</factory>
 			<source>queryService</source>
 		</properties>
-	</destination>	 
+	</destination>
+	
+	<destination id="messageSourceRO">
+		<properties>
+			<factory>springFactory</factory>
+			<source>messageSource</source>
+		</properties>
+	</destination>			 
 
     <adapters>
         <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
