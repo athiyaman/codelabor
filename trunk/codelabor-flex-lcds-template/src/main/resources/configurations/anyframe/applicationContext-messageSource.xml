@@ -15,6 +15,7 @@
 				<value>anyframe/core/query/messages/query</value>				
 				
 				<!-- example message -->
+				<value>messages/example/example</value>
 				<value>messages/example/crudService</value>
 				<value>messages/example/empService</value>
 				<value>messages/example/errorService</value>
