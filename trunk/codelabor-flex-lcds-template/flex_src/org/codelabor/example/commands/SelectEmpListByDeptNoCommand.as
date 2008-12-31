@@ -9,7 +9,7 @@ package org.codelabor.example.commands
 	
 	import org.codelabor.example.business.EmpManagerDelegate;
 	import org.codelabor.example.events.SelectEmpListByDeptNoEvent;
-	import org.codelabor.example.model.ModelLocator;
+	import org.codelabor.system.model.ModelLocator;
 
 	public class SelectEmpListByDeptNoCommand implements ICommand, IResponder
 	{

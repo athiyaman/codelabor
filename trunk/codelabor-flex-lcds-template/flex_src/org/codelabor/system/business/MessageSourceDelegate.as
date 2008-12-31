@@ -1,4 +1,4 @@
-package org.codelabor.example.business
+package org.codelabor.system.business
 {
 	import com.adobe.cairngorm.business.ServiceLocator;
 	

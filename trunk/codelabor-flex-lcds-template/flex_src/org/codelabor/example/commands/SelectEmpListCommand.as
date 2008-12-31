@@ -8,7 +8,7 @@ package org.codelabor.example.commands
 	import mx.rpc.IResponder;
 	
 	import org.codelabor.example.business.EmpManagerDelegate;
-	import org.codelabor.example.model.ModelLocator;
+	import org.codelabor.system.model.ModelLocator;
 
 	public class SelectEmpListCommand implements ICommand, IResponder
 	{
