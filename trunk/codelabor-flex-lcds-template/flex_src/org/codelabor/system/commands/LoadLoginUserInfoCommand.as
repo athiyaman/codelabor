@@ -1,4 +1,4 @@
-package org.codelabor.example.commands
+package org.codelabor.system.commands
 {
 	import com.adobe.cairngorm.commands.ICommand;
 	import com.adobe.cairngorm.control.CairngormEvent;
@@ -7,8 +7,8 @@ package org.codelabor.example.commands
 	import mx.controls.Alert;
 	import mx.rpc.IResponder;
 	
-	import org.codelabor.example.model.ModelLocator;
-	import org.codelabor.example.business.SessionDelegate;
+	import org.codelabor.system.model.ModelLocator;
+	import org.codelabor.system.business.SessionDelegate;
 
 	public class LoadLoginUserInfoCommand implements ICommand, IResponder
 	{

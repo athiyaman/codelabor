@@ -1,4 +1,4 @@
-package org.codelabor.example.control
+package org.codelabor.system.control
 {
 	import mx.controls.Alert;
 	import com.adobe.cairngorm.control.FrontController;
