@@ -2,4 +2,6 @@
 <cairngorm:ServiceLocator xmlns:mx="http://www.adobe.com/2006/mxml" 
 	                      xmlns:cairngorm="com.adobe.cairngorm.business.*" >
 	<mx:RemoteObject id="queryServiceRO" destination="queryServiceRO"/>
+	<mx:RemoteObject id="messageResourceRO" destination="messageSourceRO"/>
+	<mx:RemoteObject id="sessionRO" destination="sessionRO"/>	
 </cairngorm:ServiceLocator>
