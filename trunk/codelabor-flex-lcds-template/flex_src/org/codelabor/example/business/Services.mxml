@@ -5,5 +5,5 @@
 	<mx:RemoteObject id="empManagerRO" destination="empManagerRO"/>
 	<mx:RemoteObject id="sessionRO" destination="sessionRO"/>
 	<mx:RemoteObject id="queryServiceRO" destination="queryServiceRO"/>
-	<mx:RemoteObject id="messageResourceRO" destination="messageResourceRO"/>
+	<mx:RemoteObject id="messageResourceRO" destination="messageSourceRO"/>
 </cairngorm:ServiceLocator>
