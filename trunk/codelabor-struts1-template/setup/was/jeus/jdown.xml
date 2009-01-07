@@ -28,7 +28,7 @@
 						<exec 
 						 	dir="${jeus.home.dir}/bin" 
 						 	executable="jeusadmin.bat">
-						 	<arg line="${jeus.node.name} jeusexit -U${jeus.username} -P${jeus.password}"/>
+						 	<arg line="${env.COMPUTERNAME} jeusexit -U${jeus.username} -P${jeus.password}"/>
 						</exec>	
 					</then>
 					<elseif>
@@ -37,7 +37,7 @@
 							<exec 
 							 	dir="${jeus.home.dir}/bin" 
 							 	executable="jeusadmin.cmd">
-							 	<arg line="${jeus.node.name} -U${jeus.username} -P${jeus.password} jeusexit"/>
+							 	<arg line="${env.COMPUTERNAME} -U${jeus.username} -P${jeus.password} jeusexit"/>
 							</exec>										
 						</then>
 					</elseif>
