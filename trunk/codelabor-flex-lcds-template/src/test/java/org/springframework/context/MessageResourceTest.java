@@ -1,7 +1,5 @@
 package org.springframework.context;
 
-import java.util.Locale;
-
 import org.codelabor.system.test.BaseTestCase;
 import org.junit.Test;
 
@@ -21,8 +19,7 @@ public class MessageResourceTest extends BaseTestCase {
 			// test
 			String expectedMessage = "[Properties Service] Fail to refresh file properties [{0}].";
 			String message = messageSource.getMessage(
-					"error.properties.refresh.files", new Object[] {}, Locale
-							.getDefault());
+					"error.properties.refresh.files", null, null);
 			// assert
 			assertEquals(expectedMessage, message);
 			log.debug(message);
