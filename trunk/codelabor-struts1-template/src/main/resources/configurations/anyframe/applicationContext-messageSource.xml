@@ -15,6 +15,17 @@
 				<value>anyframe/core/query/messages/query</value>				
 				
 				<!-- example message -->
+				<value>messages/example/example</value>
+				<value>messages/example/crudService</value>
+				<value>messages/example/empService</value>
+				<value>messages/example/errorService</value>
+
+				<!-- system message -->
+				<value>messages/system/accessLogService</value>
+				<value>messages/system/httpAdapterService</value>
+				<value>messages/system/loginService</value>
+				<value>messages/system/mailService</value>
+				
 			</list>
 		</property>
 	</bean>	
