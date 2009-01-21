@@ -33,7 +33,7 @@ public class CrudAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		CrudService crudService = (CrudService) ctx.getBean("crudService");
+		CrudService crudService = (CrudService) ctx.getBean("example.crudService");
 
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		String crudId = ((String[]) dynaActionform.get("id"))[0];
@@ -49,7 +49,7 @@ public class CrudAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		CrudService crudService = (CrudService) ctx.getBean("crudService");
+		CrudService crudService = (CrudService) ctx.getBean("example.crudService");
 
 		List crudDTOList = crudService.list();
 		request.setAttribute("crudDTOList", crudDTOList);
@@ -61,7 +61,7 @@ public class CrudAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		CrudService crudService = (CrudService) ctx.getBean("crudService");
+		CrudService crudService = (CrudService) ctx.getBean("example.crudService");
 
 		String crudIdParam = request.getParameter("id");
 		int crudId = 0;
@@ -80,7 +80,7 @@ public class CrudAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		CrudService crudService = (CrudService) ctx.getBean("crudService");
+		CrudService crudService = (CrudService) ctx.getBean("example.crudService");
 
 		CrudDTO crudDTO = new CrudDTO();
 		DynaActionForm dynaActionform = (DynaActionForm) form;
@@ -97,7 +97,7 @@ public class CrudAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		CrudService crudService = (CrudService) ctx.getBean("crudService");
+		CrudService crudService = (CrudService) ctx.getBean("example.crudService");
 
 		CrudDTO crudDTO = new CrudDTO();
 		DynaActionForm dynaActionform = (DynaActionForm) form;
@@ -116,7 +116,7 @@ public class CrudAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		CrudService crudService = (CrudService) ctx.getBean("crudService");
+		CrudService crudService = (CrudService) ctx.getBean("example.crudService");
 
 		DynaActionForm dynaActionform = (DynaActionForm) form;
 		String[] crudIdStringList = (String[]) dynaActionform.get("id");
