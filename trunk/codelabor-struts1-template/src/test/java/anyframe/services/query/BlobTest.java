@@ -39,7 +39,7 @@ public class BlobTest extends BaseTestCase {
 				.getBean("queryService");
 		uuidGenerationService = (IIdGenerationService) applicationContext
 				.getBean("uniqueFileNameGenerationService");
-		sequenceIdGenerationService = (SequenceIdGenerationService) applicationContext
+		sequenceIdGenerationService = (IIdGenerationService) applicationContext
 				.getBean("sequenceFileIdGenerationService");
 
 		// prepare data
