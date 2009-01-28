@@ -6,7 +6,7 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
 	<bean id="queryService" 
-		class="anyframe.core.query.impl.ExtendedQueryServiceImpl">
+		class="anyframe.core.query.impl.QueryServiceImpl">
 		<property name="jdbcTemplate">
 			<ref bean="pagingJdbcTemplate"/>
 		</property>		
@@ -21,16 +21,16 @@
 	</bean>	
 	
 	<bean id="pagingJdbcTemplate" 
-		class="anyframe.core.query.impl.util.PagingJdbcTemplate">
+		class="anyframe.core.query.impl.jdbc.PagingJdbcTemplate">
 	  	<constructor-arg ref="dataSource"/>
 	</bean>
 	
 	<bean id="pagingSQLGenerator" 
-		class="anyframe.core.query.impl.util.DB2PagingSQLGenerator"/>
+		class="anyframe.core.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
 	
 	<bean id="sqlLoader" 
-		class="anyframe.core.query.impl.SQLLoader">
-		<property name="skipError" value="false"/>	
+		class="anyframe.core.query.impl.config.loader.SQLLoader">
+			
 		<config:configuration>
 	        <filename>classpath*:queries/db2/**/mapping-*.xml</filename>
 	   	    <nullcheck type="VARCHAR" default-value=""/> 

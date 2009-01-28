@@ -7,7 +7,7 @@
 
 	<!-- 
 	<bean id="queryService" 
-		class="anyframe.core.query.impl.ExtendedQueryServiceImpl">
+		class="anyframe.core.query.impl.QueryServiceImpl">
 		<property name="jdbcTemplate">
 			<ref bean="pagingJdbcTemplate"/>
 		</property>		
@@ -22,7 +22,7 @@
 	</bean>	
 	
 	<bean id="pagingJdbcTemplate" 
-		class="anyframe.core.query.impl.util.PagingJdbcTemplate">
+		class="anyframe.core.query.impl.jdbc.PagingJdbcTemplate">
 	  	<constructor-arg ref="dataSource"/>
 	</bean>
 	
@@ -30,8 +30,8 @@
 		class="anyframe.core.query.impl.util.OraclePagingSQLGenerator"/>
 	 
 	<bean id="sqlLoader" 
-		class="anyframe.core.query.impl.SQLLoader">
-		<property name="skipError" value="false"/>	
+		class="anyframe.core.query.impl.config.loader.SQLLoader">
+			
 		<config:configuration>
 	        <filename>classpath*:queries/oracle/**/mapping-*.xml</filename>
 	   	    <nullcheck type="VARCHAR" default-value=""/> 
