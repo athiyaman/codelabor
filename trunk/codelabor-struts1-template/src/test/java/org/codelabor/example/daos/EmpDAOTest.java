@@ -282,7 +282,7 @@ public class EmpDAOTest extends BaseTestCase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		assertEquals(10, empDTOList.size());
+		assertEquals(14, empDTOList.size());
 	}
 
 	public void testSelectEmpMap() {

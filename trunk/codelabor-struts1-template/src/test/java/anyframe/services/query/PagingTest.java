@@ -37,7 +37,7 @@ public class PagingTest extends BaseTestCase {
 
 			// assert
 			assertEquals(14, totalCount);
-			assertEquals(10, resultList.size());
+			assertEquals(14, resultList.size());
 
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
@@ -91,7 +91,7 @@ public class PagingTest extends BaseTestCase {
 
 			// assert
 			assertEquals(14, totalCount);
-			assertEquals(5, resultList.size());
+			assertEquals(4, resultList.size());
 
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
