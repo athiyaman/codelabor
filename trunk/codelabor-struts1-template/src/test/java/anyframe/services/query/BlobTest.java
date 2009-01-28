@@ -18,7 +18,6 @@ import org.codelabor.system.utils.ChannelUtil;
 import org.junit.Test;
 
 import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.idgen.impl.SequenceIdGenerationService;
 import anyframe.core.query.IQueryService;
 
 public class BlobTest extends BaseTestCase {
