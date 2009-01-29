@@ -31,7 +31,6 @@
 	 
 	<bean id="sqlLoader" 
 		class="anyframe.core.query.impl.config.loader.SQLLoader">
-			
 		<config:configuration>
 	        <filename>classpath*:queries/oracle/**/mapping-*.xml</filename>
 	   	    <nullcheck type="VARCHAR" default-value=""/> 

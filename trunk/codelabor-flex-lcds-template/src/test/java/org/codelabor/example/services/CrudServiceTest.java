@@ -2,6 +2,8 @@ package org.codelabor.example.services;
 
 import java.util.List;
 
+import junit.framework.Assert;
+
 import org.codelabor.example.dtos.CrudDTO;
 import org.codelabor.system.test.BaseTestCase;
 
@@ -77,7 +79,7 @@ public class CrudServiceTest extends BaseTestCase {
 		try {
 			int[] crudIdList = new int[] { 1, 2, 3 };
 			int affectedRowCount = crudService.delete(crudIdList);
-			assertTrue(affectedRowCount == 3);
+			Assert.assertEquals(3, affectedRowCount);
 		} catch (Exception e) {
 			fail();
 		}

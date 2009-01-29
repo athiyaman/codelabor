@@ -76,6 +76,7 @@ public class PagingTest extends BaseTestCase {
 		String selectQueryId = "example.select.emp.list";
 		Object[] params = new Object[] {};
 		try {
+			// last page - 1
 			int pageIndex = 2;
 			int pageSize = 5;
 			Map resultMap = queryService.findWithRowCount(selectQueryId,
@@ -83,6 +84,22 @@ public class PagingTest extends BaseTestCase {
 			List resultList = (List) resultMap.get(IQueryService.LIST);
 			int totalCount = ((Long) resultMap.get(IQueryService.COUNT))
 					.intValue();
+			log.info("pageIndex: " + pageIndex);
+			log.info("pageSize: " + pageSize);
+			log.info("totalCount: " + totalCount);
+			log.info("resultList.size(): " + resultList.size());
+			log.info("resultList: " + resultList);
+
+			// assert
+			assertEquals(14, totalCount);
+			assertEquals(5, resultList.size());
+
+			// last page
+			pageIndex = 3;
+			resultMap = queryService.findWithRowCount(selectQueryId, params,
+					pageIndex, pageSize);
+			resultList = (List) resultMap.get(IQueryService.LIST);
+			totalCount = ((Long) resultMap.get(IQueryService.COUNT)).intValue();
 			log.info("pageIndex: " + pageIndex);
 			log.info("pageSize: " + pageSize);
 			log.info("totalCount: " + totalCount);
