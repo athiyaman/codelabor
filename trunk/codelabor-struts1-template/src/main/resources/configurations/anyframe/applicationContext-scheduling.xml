@@ -7,30 +7,16 @@
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref local="helloWorldApplicationTrigger"/>
 				<ref local="helloWorldServiceTrigger"/>
 			</list>
 		</property>		
 	</bean>	
 	
-	<bean id="helloWorldApplicationTrigger" 
-		class="org.springframework.scheduling.quartz.SimpleTriggerBean">
-		<property name="jobDetail" ref="helloWorldApplicationJobDetail" />
-		<property name="repeatInterval" value="1000"/>
-		<property name="repeatCount" value="5"/>
-	</bean>
-		
 	<bean id="helloWorldServiceTrigger" 
 		class="org.springframework.scheduling.quartz.SimpleTriggerBean">
 		<property name="jobDetail" ref="helloWorldServiceJobDetail" />
 		<property name="repeatInterval" value="1000"/>
 		<property name="repeatCount" value="5"/>
-	</bean>
-	
-	<bean id="helloWorldApplicationJobDetail" 
-		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="helloWorldApplication"/>
-		<property name="targetMethod" value="sayHello"/>
 	</bean>
 	
 	<bean id="helloWorldServiceJobDetail" 
