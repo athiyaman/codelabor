@@ -83,6 +83,15 @@
 				<result-mapping column="DEPTNO" attribute="deptNo"/>
 			</result>			
 		</query>	
+		<query id="example.select.emp.list2" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* example.select.emp.list2 */
+					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO				
+				FROM 
+					EXAMPLE_EMP
+			]]></statement>
+			<result mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
+		</query>		
 		<query id="example.select.emp.list.by.dept.no" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.emp.list.by.dept.no */
