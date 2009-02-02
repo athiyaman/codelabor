@@ -55,4 +55,27 @@ public class CrudDTO implements Serializable {
 	public void setField2(String field2) {
 		this.field2 = field2;
 	}
+
+	/**
+	 * Constructs a <code>String</code> with all attributes
+	 * in name = value format.
+	 *
+	 * @return a <code>String</code> representation 
+	 * of this object.
+	 */
+	public String toString()
+	{
+	    final String TAB = "    ";
+	
+	    StringBuilder retValue = new StringBuilder();
+	    
+	    retValue.append("CrudDTO ( ")
+	        .append(super.toString()).append(TAB)
+	        .append("field1 = ").append(this.field1).append(TAB)
+	        .append("field2 = ").append(this.field2).append(TAB)
+	        .append("id = ").append(this.id).append(TAB)
+	        .append(" )");
+	    
+	    return retValue.toString();
+	}
 }
