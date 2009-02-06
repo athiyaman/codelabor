@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="configure-database" default="all">
+	<typedef resource="net/sf/antcontrib/antlib.xml"/>	
+
+	<property environment="env"/>
+	<property file="../../custom.properties"/>		
+	<property file="${project.dir}/setup/database/database.properties"/>	
+	<property file="${project.dir}/setup/database/${database.product.name}/database.properties"/>	
+	<property file="${project.dir}/setup/common.properties"/>	
+	
+	<ant antfile="${project.dir}/setup/build-info.xml"/>
+
+	<condition property="jdbc.driver.installed">
+		<available 
+			classname="${database.jdbc.driver}"
+			classpath="${database.jdbc.classpath}"/>
+	</condition>
+
+	<target name="all" depends="warn, configure"/>
+	
+	<target name="warn" unless="jdbc.driver.installed">
+		<echo level="warn" message="jdbc driver is not installed."/>
+		<echo level="warn" message="check property: database.jdbc.classpath"/>
+	</target>
+	
+	<target name="configure" if="jdbc.driver.installed">
+		<echo level="info" message="configure database"/>
+		<echo level="info" message="${database.jdbc.url}"/>
+		<for 
+			list="${database.sql.list}" 
+			param="database.sql"
+			trim="true">
+			<sequential>
+				<sql
+					driver="${database.jdbc.driver}"
+					url="${database.jdbc.url}"
+					userid="${database.userid}"
+					password="${database.password}"
+					onerror="${option.sql.onerror}">
+					<transaction src="@{database.sql}"/>
+					<classpath>
+						<pathelement path="${database.jdbc.classpath}"/>
+					</classpath>
+				</sql>			
+			</sequential>
+		</for>
+	</target>
+</project>
