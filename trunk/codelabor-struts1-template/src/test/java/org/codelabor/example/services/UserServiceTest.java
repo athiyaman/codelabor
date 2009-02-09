@@ -26,12 +26,6 @@ public class UserServiceTest extends BaseTestCase {
 			UserDTO userDTO = new UserDTO();
 			userDTO.setUserId("bomber");
 			userDTO.setUserName("Shin Sang Jea");
-			/*
-			MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-			byte[] plainPassword = (new String("1234")).getBytes();
-			byte[] hashedPassword = messageDigest.digest(plainPassword);
-			userDTO.setUserPassword(new String(hashedPassword));
-			*/
 			userDTO.setUserPassword("4321");
 
 			List<String> roleIdList = new ArrayList<String>();
