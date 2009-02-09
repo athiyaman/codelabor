@@ -35,7 +35,7 @@ public class UserServiceTest extends BaseTestCase {
 			Assert.assertEquals(2, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.assertFalse(true);
+			fail();
 		}
 	}
 
@@ -56,7 +56,7 @@ public class UserServiceTest extends BaseTestCase {
 			Assert.assertEquals(1, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.assertFalse(true);
+			fail();
 		}
 	}
 
@@ -67,7 +67,7 @@ public class UserServiceTest extends BaseTestCase {
 			Assert.assertEquals(1, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.assertFalse(true);
+			fail();
 		}
 	}
 }
