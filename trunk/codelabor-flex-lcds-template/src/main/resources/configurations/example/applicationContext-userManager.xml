@@ -4,10 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean 
-		id="app1Service" 
-		class="org.codelabor.example.services.App1ServiceImpl"
-		parent="baseService">
-		<property name="biz1Manager" ref="biz1Manager"/>
-		<property name="biz2Manager" ref="biz2Manager"/>
+		id="example.userManager" 
+		class="org.codelabor.example.managers.UserManagerImpl"
+		parent="baseManager">
+		<property name="userDAO" ref="example.userDAO"/>
 	</bean>
 </beans>
