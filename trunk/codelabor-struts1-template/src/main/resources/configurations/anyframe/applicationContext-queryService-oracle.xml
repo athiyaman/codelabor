@@ -27,7 +27,7 @@
 	</bean>
 	
 	<bean id="pagingSQLGenerator" 
-		class="anyframe.core.query.impl.util.OraclePagingSQLGenerator"/>
+		class="anyframe.core.query.impl.jdbc.generator.OraclePagingSQLGenerator"/>
 	 
 	<bean id="sqlLoader" 
 		class="anyframe.core.query.impl.config.loader.SQLLoader">
