@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -32,10 +31,10 @@ url(
 </div>
 <div id="breadcrumbs">
 <div class="xright">
-<html:link action="/home.do" target="_top">Home</html:link> |
-<html:link action="/admin/home.do" target="_top">Admin</html:link> | 
-<html:link action="/system/home.do" target="_top">System</html:link> |
-<html:link action="/example/home.do" target="_top">Example</html:link>
+<a href="<c:url value="/home.do"/>" target="_top">Home</a> |
+<a href="<c:url value="/admin/home.do"/>" target="_top">Admin</a> | 
+<a href="<c:url value="/system/home.do"/>" target="_top">System</a> |
+<a href="<c:url value="/example/home.do"/>" target="_top">Example</a>
 </div>
 <div class="clear">
 <hr />

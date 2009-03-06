@@ -31,10 +31,10 @@ url(
 </div>
 <div id="breadcrumbs">
 <div class="xright">
-<html:link action="/home.do" target="_top">Home</html:link> |
-<html:link action="/admin/home.do" target="_top">Admin</html:link> | 
-<html:link action="/system/home.do" target="_top">System</html:link> |
-<html:link action="/example/home.do" target="_top">Example</html:link>
+<a href="<c:url value="/home.do"/>" target="_top">Home</a> |
+<a href="<c:url value="/admin/home.do"/>" target="_top">Admin</a> | 
+<a href="<c:url value="/system/home.do"/>" target="_top">System</a> |
+<a href="<c:url value="/example/home.do"/>" target="_top">Example</a>
 </div>
 <div class="clear">
 <hr />
