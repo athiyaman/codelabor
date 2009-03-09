@@ -3,7 +3,7 @@
 	language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 	isErrorPage="true"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
@@ -14,15 +14,13 @@
 <style type="text/css" media="all">
 <!--
 @import
-url(<html:rewrite
-page=
-"/css/maven-base.css"
-/>);
+url(
+<c:url value="/css/maven-base.css"/>
+);
 @import
-url(<html:rewrite
-page=
-"/css/maven-theme.css"
-/>);
+url(
+<c:url value="/css/maven-theme.css"/>
+);
 -->
 </style>
 <title>Error</title>
