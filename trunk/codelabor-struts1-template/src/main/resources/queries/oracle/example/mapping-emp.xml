@@ -91,7 +91,6 @@
 					EXAMPLE_EMP
 			]]></statement>
 			<result
-				class="org.codelabor.example.dtos.EmpDTO" 
 				mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
 		</query>		
 		<query id="example.select.emp.list.by.dept.no" isDynamic="false">
