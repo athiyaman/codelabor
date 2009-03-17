@@ -42,11 +42,11 @@
 		<action path="/example/crud"
 			type="org.codelabor.example.struts.actions.CrudAction" scope="request"
 			parameter="method" name="crudForm" validate="false">
-			<forward name="prepareCreate" path="/example/crud/createForm.jsp" />
+			<forward name="prepareCreate" path="/example/crud/create.jsp" />
 			<forward name="processCreate" path="/example/crud.do?method=list" />
 			<forward name="read" path="/example/crud/read.jsp" />
 			<forward name="list" path="/example/crud/list.jsp" />
-			<forward name="prepareUpdate" path="/example/crud/updateForm.jsp" />
+			<forward name="prepareUpdate" path="/example/crud/update.jsp" />
 			<forward name="processUpdate" path="/example/crud.do?method=list" />
 			<forward name="delete" path="/example/crud.do?method=list" />
 		</action>
