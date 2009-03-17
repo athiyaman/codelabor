@@ -6,11 +6,11 @@
 	<bean 
 		id="biz1Manager" 
 		class="org.codelabor.example.managers.Biz1ManagerImpl">
-		<property name="queryService" ref="queryService"/>
+		<property name="queryService" ref="oracleQueryService"/>
 	</bean>
 	<bean 
 		id="biz2Manager" 
 		class="org.codelabor.example.managers.Biz2ManagerImpl">
-		<property name="queryService" ref="queryService"/>
+		<property name="queryService" ref="oracleQueryService"/>
 	</bean>		
 </beans>

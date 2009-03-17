@@ -8,7 +8,7 @@
 	<bean name="httpAdapterIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
 			<query>SELECT BPM_ID_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
 		</config:configuration>
@@ -17,7 +17,7 @@
 	<bean name="accessLogSeqGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
 			<query>SELECT ACCESS_LOG_SEQ_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
 		</config:configuration>
@@ -26,7 +26,7 @@
 	<bean name="sequenceFileIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
 			<query>SELECT FILE_ID_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
 		</config:configuration>
@@ -35,7 +35,7 @@
 	<bean name="uniqueFileNameGenerationService"
 		class="anyframe.core.idgen.impl.TableIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="oracleDataSource" />
 		<property name="strategy" ref="fileNameStrategy" />
 		<config:configuration 
 			block-size="1" table="ID" key-table="UNIQUE_FILE_NAME" />
