@@ -3,7 +3,7 @@ package org.springframework.context;
 import org.codelabor.system.test.BaseTestCase;
 import org.junit.Test;
 
-public class MessageResourceTest extends BaseTestCase {
+public class MessageSourceTest extends BaseTestCase {
 
 	private MessageSource messageSource;
 
