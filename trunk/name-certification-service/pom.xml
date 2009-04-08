@@ -31,11 +31,11 @@
   <distributionManagement>
     <repository>
   		<id>codelabor.internal</id>
-  		<url>http://viper.codelabor.org:9080/archiva/repository/internal/</url>
+  		<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
   	</repository>
   	<snapshotRepository>
   		<id>codelabor.snapshots</id>
-  		<url>http://viper.codelabor.org:9080/archiva/repository/snapshots/</url>
+  		<url>http://viper.codelabor.org:8080/archiva/repository/snapshots/</url>
   	</snapshotRepository>
   </distributionManagement>
 </project>
