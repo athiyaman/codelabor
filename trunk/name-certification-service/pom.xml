@@ -5,6 +5,14 @@
   <name>name-certification-service</name>
   <version>1.0.0</version>
   <url>http://maven.apache.org</url>
+  <licenses>
+  </licenses>
+  <scm>
+  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/name-certification-service</connection>
+  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/name-certification-service</developerConnection>
+  	<tag>HEAD</tag>
+  	<url>http://codelabor.googlecode.com</url>
+  </scm>
   <organization>
   	<name>CODELABOR</name>
   	<url>http://codelabor.org</url>
