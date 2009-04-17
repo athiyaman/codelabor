@@ -19,8 +19,7 @@ public class NameCertificationServiceTest extends
 		try {
 			NameCertificationStatus status = nameCertificationService
 					.certificate("홍길동", "1111111111111", false);
-			//assertEquals(NameCertificationStatus.CERTIFICATED, status);
-			assertEquals(NameCertificationStatus.NOT_CERTIFICATED, status);
+			assertEquals(NameCertificationStatus.CERTIFICATED, status);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
