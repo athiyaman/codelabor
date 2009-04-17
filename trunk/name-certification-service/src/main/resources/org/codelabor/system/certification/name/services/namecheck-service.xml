@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="namecheckService"
 	class="org.codelabor.system.certification.name.services.NameCheckNameCertificationServiceImpl">
-		<property name="siteCode" value="D154"/>
-		<property name="sitePassword" value="34386846"/>
+		<property name="siteCode" value="SITECODE"/>
+		<property name="sitePassword" value="SITEPASSWORD"/>
 		<property name="timeOut" value="30000"/>
 	</bean>
 </beans>
