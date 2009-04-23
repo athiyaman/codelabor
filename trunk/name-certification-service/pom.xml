@@ -5,6 +5,20 @@
   <name>name-certification-service</name>
   <version>1.0.0</version>
   <url>http://codelabor.googlecode.com</url>
+  <developers>
+  	<developer>
+  		<id>bomber</id>
+  		<name>Shin Sang Jae</name>
+  		<email>codelabor@gmail.com</email>
+  		<url>http://codelabor.org</url>
+  		<organization>CODELABOR</organization>
+  		<organizationUrl>http://codelabor.org</organizationUrl>
+  		<timezone>+9</timezone>
+  		<roles>
+  			<role>developer</role>
+  		</roles>
+  	</developer>
+  </developers>
   <licenses>
   </licenses>
   <scm>
@@ -52,7 +66,6 @@
         </configuration>
       </plugin>
     </plugins>
-
   </build>
   <distributionManagement>
     <repository>
