@@ -22,6 +22,28 @@ public class CodeDTO {
 	public void setDistinguishedName(String distinguishedName) {
 		this.distinguishedName = distinguishedName;
 	}
+	/**
+	 * Constructs a <code>String</code> with all attributes
+	 * in name = value format.
+	 *
+	 * @return a <code>String</code> representation 
+	 * of this object.
+	 */
+	public String toString()
+	{
+	    final String TAB = "    ";
+	
+	    StringBuilder retValue = new StringBuilder();
+	    
+	    retValue.append("CodeDTO ( ")
+	        .append(super.toString()).append(TAB)
+	        .append("authorizationCode = ").append(this.authorizationCode).append(TAB)
+	        .append("distinguishedName = ").append(this.distinguishedName).append(TAB)
+	        .append("referenceCode = ").append(this.referenceCode).append(TAB)
+	        .append(" )");
+	    
+	    return retValue.toString();
+	}
 	
 	
 }
