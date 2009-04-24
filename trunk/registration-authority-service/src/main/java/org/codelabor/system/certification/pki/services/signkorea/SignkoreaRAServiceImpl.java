@@ -24,24 +24,27 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 		userInfo.user_name = name;
 		userInfo.ssn = registrationNumber;
 		StringBuilder dnBuilder = new StringBuilder();
-		if (isTest) {
-			dnBuilder.append(Constants.testDistinguishedNamePrefix);
-		}
-		if (isNew) { // reissue
-			dnBuilder.append(Constants.defaultDistinguishedName);
-		} else { // issue
-			dnBuilder.append(dn);
-		}
-		userInfo.dn = dnBuilder.toString();
 	
 		switch (certificateType) {
 		case PLATINUM_PRIVATE:
 			userInfo.cert_kind = "PPB";
+			if (isTest) {
+				dnBuilder.append(Constants.testPrivateDNPrefix);
+			}			
 			break;
 		case PLATINUM_CORPORATION:
 			userInfo.cert_kind = "PCB";
+			if (isTest) {
+				dnBuilder.append(Constants.testCorporationDNPrefix);
+			}			
 			break;
+		}
+		if (isNew) { // issue
+			dnBuilder.append(Constants.defaultDN);
+		} else { // reissue
+			dnBuilder.append(dn);
 		}		
+		userInfo.dn = dnBuilder.toString();
 		return userInfo;
 	}	
 	
@@ -72,6 +75,7 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 			case EXPIRED:
 			case REGISTERED_BUT_NOT_ISSUED:
 			default:
+				userInfo.dn = status.dn;
 				returnCode = lrac.re_addUser(userInfo, raServerIp, raServerPort);
 				break;
 			}
@@ -82,7 +86,6 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 		codeDTO.setAuthorizationCode(userInfo.auth_code);
 		codeDTO.setDistinguishedName(status.dn);
 		codeDTO.setSerial(status.serial);
-		
 		return codeDTO;
 	}
 	
