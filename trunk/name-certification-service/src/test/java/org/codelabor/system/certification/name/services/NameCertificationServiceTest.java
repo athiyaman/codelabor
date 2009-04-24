@@ -15,7 +15,7 @@ public class NameCertificationServiceTest extends
 	protected NameCertificationService nameCertificationService;
 
 	@Test
-	public void testCertificate() {
+	public void certificate() {
 		try {
 			NameCertificationStatus status = nameCertificationService
 					.certificate("홍길동", "1111111111111", false);
