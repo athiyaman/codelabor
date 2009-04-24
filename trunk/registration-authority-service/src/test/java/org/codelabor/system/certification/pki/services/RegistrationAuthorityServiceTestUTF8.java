@@ -17,7 +17,7 @@ AbstractJUnit4SpringContextTests {
 	@Test
 	public void enroll() {
 		try {
-			CodeDTO code = raService.enroll("신상재", "7504181117115", null, CertificateType.PLATINUM_PRIVATE, true);
+			CodeDTO code = raService.enroll(new String("신상재".getBytes(), "EUC-KR"), "7504181117115", null, CertificateType.PLATINUM_PRIVATE, true);
 			System.out.println(code);
 		} catch (Exception e) {
 			e.printStackTrace();
