@@ -1,5 +1,7 @@
 package org.codelabor.system.certification.pki.services;
 
+import org.codelabor.system.certification.pki.CertificateType;
+import org.codelabor.system.certification.pki.dtos.CodeDTO;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,6 +16,11 @@ AbstractJUnit4SpringContextTests {
 
 	@Test
 	public void enroll() {
-		
+		try {
+			CodeDTO code = raService.enroll("신상재", "7504181117115", null, CertificateType.PLATINUM_PRIVATE, true);
+			System.out.println(code);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

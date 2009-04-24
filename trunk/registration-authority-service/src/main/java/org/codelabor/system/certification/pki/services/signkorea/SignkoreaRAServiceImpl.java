@@ -1,7 +1,8 @@
 package org.codelabor.system.certification.pki.services.signkorea;
 
-import org.codelabor.system.certification.pki.CertificateStatus;
+import org.codelabor.system.certification.pki.CertStatus;
 import org.codelabor.system.certification.pki.CertificateType;
+import org.codelabor.system.certification.pki.ReturnCodeTranslator;
 import org.codelabor.system.certification.pki.dtos.CodeDTO;
 import org.codelabor.system.certification.pki.services.QueryStatusException;
 import org.codelabor.system.certification.pki.services.RegistrationAuthorityService;
@@ -13,22 +14,25 @@ import com.signkorea.Lra.SKLracUserInfo;
 public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 	private boolean isTest;
 	private String raServerIp;
-	private int raServerPort;	
+
+
+	private int raServerPort;
+	private ReturnCodeTranslator returnCodeTranslator;
 	
 	private SKLracUserInfo populate(String name, String registrationNumber, String dn, CertificateType certificateType, boolean isNew, boolean isTest) {
 		SKLracUserInfo userInfo = new SKLracUserInfo();
 		userInfo.user_name = name;
 		userInfo.ssn = registrationNumber;
-		StringBuffer dnBuffer = new StringBuffer();
+		StringBuilder dnBuilder = new StringBuilder();
 		if (isTest) {
-			dnBuffer.append(Constants.testDistinguishedNamePrefix);
+			dnBuilder.append(Constants.testDistinguishedNamePrefix);
 		}
 		if (isNew) { // reissue
-			dnBuffer.append(Constants.defaultDistinguishedName);
+			dnBuilder.append(Constants.defaultDistinguishedName);
 		} else { // issue
-			dnBuffer.append(dn);
+			dnBuilder.append(dn);
 		}
-		userInfo.dn = dnBuffer.toString();
+		userInfo.dn = dnBuilder.toString();
 	
 		switch (certificateType) {
 		case PLATINUM_PRIVATE:
@@ -48,7 +52,7 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 		SKLrac lrac = new SKLrac();
 		
 		int returnCode = 0;
-		CertificateStatus certificateStatus;
+		CertStatus certificateStatus;
 		
 		if (certificateType.equals(CertificateType.PLATINUM_CORPORATION) && isNew) {
 			lrac.addUser(userInfo, raServerIp, raServerPort);
@@ -57,16 +61,16 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 		} else {
 			returnCode = lrac.QueryStatus(userInfo, raServerIp, raServerPort, status);
 			if (returnCode != 0) throw new QueryStatusException();
-			certificateStatus = CertificateStatus.valueOf(status.status);
+			certificateStatus = returnCodeTranslator.translate(status.status);
 			switch (certificateStatus) {
-			case NOT_EXIST:
+			case NOT_REGISTERED:
 				returnCode = lrac.addUser(userInfo, raServerIp, raServerPort);
 				break;			
 			case VALID:
-			case INVALID:
-			case LOCKED:
+			case REVOKED:
+			case SUSPENDED:
 			case EXPIRED:
-			case NON_ISSUED:
+			case REGISTERED_BUT_NOT_ISSUED:
 			default:
 				returnCode = lrac.re_addUser(userInfo, raServerIp, raServerPort);
 				break;
@@ -77,6 +81,8 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 		codeDTO.setReferenceCode(userInfo.auth_reference);
 		codeDTO.setAuthorizationCode(userInfo.auth_code);
 		codeDTO.setDistinguishedName(status.dn);
+		codeDTO.setSerial(status.serial);
+		
 		return codeDTO;
 	}
 	
@@ -99,4 +105,8 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 	public void setRaServerPort(int raServerPort) {
 		this.raServerPort = raServerPort;
 	}
+	
+	public void setReturnCodeTranslator(ReturnCodeTranslator returnCodeTranslator) {
+		this.returnCodeTranslator = returnCodeTranslator;
+	}	
 }

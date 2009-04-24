@@ -4,6 +4,7 @@ public class CodeDTO {
 	private String referenceCode;
 	private String authorizationCode;
 	private String distinguishedName;
+	private String serial;
 	public String getReferenceCode() {
 		return referenceCode;
 	}
@@ -29,6 +30,7 @@ public class CodeDTO {
 	 * @return a <code>String</code> representation 
 	 * of this object.
 	 */
+	@Override
 	public String toString()
 	{
 	    final String TAB = "    ";
@@ -40,9 +42,16 @@ public class CodeDTO {
 	        .append("authorizationCode = ").append(this.authorizationCode).append(TAB)
 	        .append("distinguishedName = ").append(this.distinguishedName).append(TAB)
 	        .append("referenceCode = ").append(this.referenceCode).append(TAB)
+	        .append("serial = ").append(this.serial).append(TAB)
 	        .append(" )");
 	    
 	    return retValue.toString();
+	}
+	public String getSerial() {
+		return serial;
+	}
+	public void setSerial(String serial) {
+		this.serial = serial;
 	}
 	
 	
