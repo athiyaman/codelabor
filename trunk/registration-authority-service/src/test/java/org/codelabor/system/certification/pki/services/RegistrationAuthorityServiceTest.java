@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 
 @ContextConfiguration(locations = { "registration-authority-service.xml" })
-public class RegistrationAuthorityServiceTestUTF8 extends
+public class RegistrationAuthorityServiceTest extends
 AbstractJUnit4SpringContextTests {
 	@Autowired
 	protected RegistrationAuthorityService raService;
@@ -17,7 +17,7 @@ AbstractJUnit4SpringContextTests {
 	@Test
 	public void enroll() {
 		try {
-			CodeDTO code = raService.enroll(new String("신상재".getBytes(), "EUC-KR"), "7504181117115", null, CertificateType.PLATINUM_PRIVATE, true);
+			CodeDTO code = raService.enroll("ȫ�浿", "1111111111111", null, CertificateType.PLATINUM_PRIVATE, true);
 			System.out.println(code);
 		} catch (Exception e) {
 			e.printStackTrace();
