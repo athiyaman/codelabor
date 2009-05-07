@@ -19,7 +19,7 @@ public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 	private int raServerPort;
 	private ReturnCodeTranslator returnCodeTranslator;
 	
-	private SKLracUserInfo populate(String name, String registrationNumber, String dn, CertificateType certificateType, boolean isNew, boolean isTest) {
+	private SKLracUserInfo populate(String name, String registrationNumber, String dn, CertificateType certificateType, boolean isNew, boolean isTest) throws Exception {
 		SKLracUserInfo userInfo = new SKLracUserInfo();
 		userInfo.user_name = name;
 		userInfo.ssn = registrationNumber;
