@@ -18,7 +18,9 @@ AbstractJUnit4SpringContextTests {
 	public void enroll() {
 		try {
 			CodeDTO code = raService.enroll("ȫ�浿", "1111111111111", null, CertificateType.PLATINUM_PRIVATE, true);
-			System.out.println(code);
+			System.out.println("reference code: "+code.getReferenceCode());
+			System.out.println("distinguished name: "+code.getDistinguishedName());
+			System.out.println("authorization code:"+code.getAuthorizationCode());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
