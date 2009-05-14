@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.codelabor.system.RepositoryType;
 import org.codelabor.system.daos.FileDAO;
-import org.codelabor.system.dtos.fieldTO;
+import org.codelabor.system.dtos.FileDTO;
 
 /**
  * @author SangJae Shin
@@ -39,24 +39,24 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 		return FileDAO.deleteFile(fileIdList);
 	}
 
-	public int insertFile(fieldTO fieldTO) throws Exception {
+	public int insertFile(FileDTO fieldTO) throws Exception {
 		return FileDAO.insertFile(fieldTO);
 	}
 
-	public int insertFile(List<fieldTO> fieldTOList) throws Exception {
-		return FileDAO.insertFile(fieldTOList);
+	public int insertFile(List<FileDTO> fileDTOList) throws Exception {
+		return FileDAO.insertFile(fileDTOList);
 	}
 
-	public List<fieldTO> selectFile(RepositoryType repositoryType)
+	public List<FileDTO> selectFile(RepositoryType repositoryType)
 			throws Exception {
 		return FileDAO.selectFile(repositoryType);
 	}
 
-	public List<fieldTO> selectFile() throws Exception {
+	public List<FileDTO> selectFile() throws Exception {
 		return FileDAO.selectFile();
 	}
 
-	public fieldTO selectFile(int fileId) throws Exception {
+	public FileDTO selectFile(int fileId) throws Exception {
 		return FileDAO.selectFile(fileId);
 	}
 
