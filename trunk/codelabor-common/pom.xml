@@ -3,7 +3,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-common</artifactId>
   <name>codelabor-common</name>
-  <version>1.0.0</version>
+  <version>1.1-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <developers>
   	<developer>
