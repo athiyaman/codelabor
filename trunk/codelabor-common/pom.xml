@@ -5,6 +5,20 @@
   <name>codelabor-common</name>
   <version>1.0.0</version>
   <url>http://maven.apache.org</url>
+  <developers>
+  	<developer>
+  		<id>bomber</id>
+  		<name>Shin Sang Jae</name>
+  		<email>codelabor@gmail.com</email>
+  		<url>http://codelabor.org</url>
+  		<organization>CODELABOR</organization>
+  		<organizationUrl>http://codelabor.org</organizationUrl>
+  	</developer>
+  </developers>
+  <organization>
+  	<name>CODELABOR</name>
+  	<url>http://codelabor.org</url>
+  </organization>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
