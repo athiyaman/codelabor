@@ -23,7 +23,7 @@ import java.io.Serializable;
  * @author SangJae Shin
  * 
  */
-public class fieldTO implements Serializable {
+public class FileDTO implements Serializable {
 	/**
 	 * 
 	 */
