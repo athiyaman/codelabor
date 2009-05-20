@@ -106,7 +106,7 @@
     </repository>
     <site>
     	<id>website.codelabor-system</id>
-    	<url>scp://viper.codelabor.org</url>
+		<url>scp://viper.codelabor.org</url>
     </site>
   </distributionManagement>
 </project>
