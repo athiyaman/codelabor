@@ -11,6 +11,10 @@ import javax.servlet.ServletResponse;
 
 import org.codelabor.system.utils.RequestUtil;
 
+/**
+ * @author SangJae Shin
+ * 
+ */
 public class SniffServlet implements Servlet {
 
 	public void service(ServletRequest request, ServletResponse response)
