@@ -1,4 +1,4 @@
-package org.codelabor.ros;
+package org.codelabor.system.ros;
 
 import org.codelabor.system.Constants;
 import org.codelabor.system.dtos.LoginDTO;
