@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.SniffUtil;
 
 /**
  * @author SangJae Shin
@@ -22,34 +22,7 @@ public class SniffServlet implements Servlet {
 		PrintWriter writer = response.getWriter();
 
 		try {
-			writer.write("<h3>server</h3>");
-			writer.write(RequestUtil.getServerDTO(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>remote</h3>");
-			writer.write(RequestUtil.getRemoteDTO(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>local</h3>");
-			writer.write(RequestUtil.getLocalDTO(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>session</h3>");
-			writer.write(RequestUtil.getSessionMap(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>request parameters</h3>");
-			writer.write(RequestUtil.getParameterMap(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>request attribute</h3>");
-			writer.write(RequestUtil.getRequestMap(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>http servlet request attribute</h3>");
-			writer.write(RequestUtil.getHttpServletRequestMap(request)
-					.toString());
-			writer.write("<hr/>");
-			writer.write("<h3>locale</h3>");
-			writer.write(RequestUtil.getLocaleList(request).toString());
-			writer.write("<hr/>");
-			writer.write("<h3>etc</h3>");
-			writer.write(RequestUtil.getEtcDTO(request).toString());
-			writer.write("<hr/>");
+			writer.write(SniffUtil.toHTML(request));
 
 		} catch (Exception e) {
 			e.printStackTrace();
