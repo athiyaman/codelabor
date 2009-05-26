@@ -15,10 +15,19 @@ public abstract class UploadServlet implements Servlet {
 	protected String repositoryPath = "/";
 
 	public void init(ServletConfig config) throws ServletException {
-		repositoryType = RepositoryType.valueOf(config
-				.getInitParameter("repositoryType"));
-		repositoryPath = config.getInitParameter("repositoryPath");
-		isRename = Boolean.parseBoolean(config.getInitParameter("isRename"));
+		String _repositoryType = config.getInitParameter("repositoryType");
+		String _repositoryPath = config.getInitParameter("repositoryPath");
+		String _isRename = config.getInitParameter("isRename");
+
+		if (_repositoryType != null && _repositoryType.length() > 0) {
+			repositoryType = RepositoryType.valueOf(_repositoryType);
+		}
+		if (_repositoryPath != null && _repositoryPath.length() > 0) {
+			repositoryPath = _repositoryPath;
+		}
+		if (_isRename != null && _isRename.length() > 0) {
+			isRename = Boolean.parseBoolean(_isRename);
+		}
 	}
 
 	public String getUniqueFileName() {
