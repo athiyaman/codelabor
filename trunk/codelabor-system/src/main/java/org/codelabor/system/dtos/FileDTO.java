@@ -111,7 +111,7 @@ public class FileDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("fieldTO ( ").append(super.toString()).append(TAB)
+		retValue.append("FileDTO ( ").append(super.toString()).append(TAB)
 				.append("bytes = ").append(this.bytes).append(TAB).append(
 						"contentType = ").append(this.contentType).append(TAB)
 				.append("fileId = ").append(this.fileId).append(TAB).append(

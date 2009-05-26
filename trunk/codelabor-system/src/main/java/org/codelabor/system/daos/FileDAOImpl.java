@@ -39,10 +39,10 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	}
 
 	public int insertFile(List<FileDTO> insertFileDTOList) throws Exception {
-		int FileDTOCount = insertFileDTOList.size();
+		int fileDTOCount = insertFileDTOList.size();
 		int affectedRowCount = 0;
 		if (insertFileDTOList != null && insertFileDTOList.size() > 0) {
-			for (int i = 0; i < FileDTOCount; i++) {
+			for (int i = 0; i < fileDTOCount; i++) {
 				affectedRowCount += this.insertFile(insertFileDTOList.get(i));
 			}
 		}
