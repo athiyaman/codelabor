@@ -1,11 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?><project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-gluecode</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
   <name>codelabor-gluecode</name>
+  <version>1.0-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <developers>
     <developer>
@@ -20,7 +18,7 @@
   <organization>
     <name>CODELABOR</name>
     <url>http://codelabor.org</url>
-  </organization>  
+  </organization>
   <build>
     <plugins>
       <plugin>
@@ -32,7 +30,7 @@
         </configuration>
       </plugin>
     </plugins>
-  </build>  
+  </build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -44,12 +42,12 @@
       <groupId>org.codelabor</groupId>
       <artifactId>codelabor-system</artifactId>
       <version>1.0-SNAPSHOT</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring</artifactId>
       <version>2.0.2</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>adobe</groupId>
       <artifactId>flex-messaging-remoting</artifactId>
@@ -69,7 +67,7 @@
       <groupId>softforum.xecure</groupId>
       <artifactId>xecure-web</artifactId>
       <version>7.2.2.0</version>
-    </dependency>    
+    </dependency>
   </dependencies>
   <distributionManagement>
     <repository>
@@ -77,8 +75,8 @@
       <url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
     </repository>
     <site>
-    	<id>website.codelabor-gluecode</id>
-		<url>scp://viper.codelabor.org</url>
+      <id>website.codelabor-gluecode</id>
+      <url>scp://viper.codelabor.org</url>
     </site>
-  </distributionManagement>  
+  </distributionManagement>
 </project>
