@@ -1,5 +1,7 @@
 package org.codelabor.system.servlets;
 
+import java.util.UUID;
+
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -25,5 +27,9 @@ public abstract class UploadServlet implements Servlet {
 		if (_isRename != null && _isRename.length() > 0) {
 			isRename = Boolean.parseBoolean(_isRename);
 		}
+	}
+
+	protected String getUniqueFileName() {
+		return UUID.randomUUID().toString();
 	}
 }
