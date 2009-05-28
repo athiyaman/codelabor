@@ -41,9 +41,9 @@ public class UploadServlet implements Servlet {
 	protected IIdGenerationService uniqueFileNameGenerationService;
 
 	// configuration
-	protected boolean isRename = true;
-	protected String repositoryPath = "/";
-	protected RepositoryType repositoryType = RepositoryType.FILE_SYSTEM;
+	protected boolean isRename;
+	protected String repositoryPath;
+	protected RepositoryType repositoryType;
 
 	public void init(ServletConfig config) throws ServletException {
 		servletConfig = config;
@@ -69,17 +69,6 @@ public class UploadServlet implements Servlet {
 
 	protected String getUniqueFileName() throws Exception {
 		return uniqueFileNameGenerationService.getNextStringId();
-	}
-
-	public void destroy() {
-	}
-
-	public ServletConfig getServletConfig() {
-		return this.servletConfig;
-	}
-
-	public String getServletInfo() {
-		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -135,5 +124,16 @@ public class UploadServlet implements Servlet {
 		UploadUtil.processUploadFile(repositoryType, item.getInputStream(),
 				fileDTO);
 
+	}
+
+	public void destroy() {
+	}
+
+	public ServletConfig getServletConfig() {
+		return this.servletConfig;
+	}
+
+	public String getServletInfo() {
+		return null;
 	}
 }
