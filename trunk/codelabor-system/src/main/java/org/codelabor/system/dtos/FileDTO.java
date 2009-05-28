@@ -47,15 +47,15 @@ public class FileDTO implements Serializable {
 
 	protected String contentType;
 
-	protected int fileSize;
+	protected long fileSize;
 
 	protected byte[] bytes;
 
-	public int getFileSize() {
+	public long getFileSize() {
 		return fileSize;
 	}
 
-	public void setFileSize(int fileSize) {
+	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}
 
