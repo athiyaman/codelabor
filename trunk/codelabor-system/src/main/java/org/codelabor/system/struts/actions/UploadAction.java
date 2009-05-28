@@ -4,14 +4,7 @@ import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
 import static org.codelabor.system.Constants.FILE_KEY;
 import static org.codelabor.system.Constants.FILE_LIST_KEY;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -27,7 +20,7 @@ import org.codelabor.system.RepositoryType;
 import org.codelabor.system.dtos.FileDTO;
 import org.codelabor.system.managers.FileManager;
 import org.codelabor.system.struts.forms.UploadForm;
-import org.codelabor.system.utils.ChannelUtil;
+import org.codelabor.system.utils.UploadUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -121,109 +114,38 @@ public class UploadAction extends BaseDispatchAction {
 
 	protected FileDTO saveFile(RepositoryType repositoryType, FormFile formFile)
 			throws Exception {
+		// get service
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		IPropertiesService propertiesService = (IPropertiesService) ctx
 				.getBean("propertiesService");
 		IIdGenerationService uniqueFileNameGenerationService = (IIdGenerationService) ctx
 				.getBean("uniqueFileNameGenerationService");
-		StringBuilder stringBuilder = new StringBuilder();
-
-		// prepare io
-		InputStream inputStream = null;
-		OutputStream outputStream = null;
-		ReadableByteChannel inputChannel = null;
-		WritableByteChannel outputChannel = null;
 
 		// set file properties
 		String realFileName = formFile.getFileName();
 		int fileSize = formFile.getFileSize();
 		String contentType = formFile.getContentType();
-
-		// generate unique file name
+		InputStream inputStream = formFile.getInputStream();
 		String uniqueFileName = uniqueFileNameGenerationService
 				.getNextStringId();
 
-		// debug
-		if (log.isDebugEnabled()) {
-			stringBuilder = new StringBuilder();
-			stringBuilder.append("realFileName: ").append(realFileName);
-			stringBuilder.append("uniqueFileName: ").append(uniqueFileName);
-			stringBuilder.append(", contentType: ").append(contentType);
-			stringBuilder.append(", fileSize: ").append(fileSize);
-			log.debug(stringBuilder.toString());
-		}
+		// set configuration
+		String repositoryPath = propertiesService.getString(
+				"file.default.repository.path", System.getProperty("user.dir"));
 
-		// set vo
+		// set dto
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setRealFileName(realFileName);
 		fileDTO.setUniqueFileName(uniqueFileName);
 		fileDTO.setFileSize(fileSize);
 		fileDTO.setContentType(contentType);
-
-		switch (repositoryType) {
-		case FILE_SYSTEM:
-			// prepare repository
-			String repositoryPath = propertiesService.getString(
-					"file.default.repository.path", System
-							.getProperty("user.dir"));
-			File repository = new File(repositoryPath);
-
-			if (log.isDebugEnabled()) {
-				stringBuilder = new StringBuilder();
-				stringBuilder.append("repositoryPath: ").append(repositoryPath);
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append(", repositoryType: ").append(
-						repositoryType);
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append(", repository.exists(): ").append(
-						repository.exists());
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append("repository.isDirectory(): ").append(
-						repository.isDirectory());
-				log.debug(stringBuilder.toString());
-			}
-
-			// prepare stream
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(repositoryPath);
-			if (!repositoryPath.endsWith(File.separator)) {
-				stringBuilder.append(File.separator);
-			}
-			stringBuilder.append(uniqueFileName);
-			inputStream = formFile.getInputStream();
-			outputStream = new FileOutputStream(stringBuilder.toString());
-
-			// copy channel
-			inputChannel = Channels.newChannel(inputStream);
-			outputChannel = Channels.newChannel(outputStream);
-			ChannelUtil.copy(inputChannel, outputChannel);
-
-			// set vo
-			fileDTO.setRepositoryPath(repositoryPath);
-			break;
-		case DATABASE:
-			// prepare steam
-			inputStream = formFile.getInputStream();
-			outputStream = new ByteArrayOutputStream();
-
-			// copy channel
-			inputChannel = Channels.newChannel(inputStream);
-			outputChannel = Channels.newChannel(outputStream);
-			ChannelUtil.copy(inputChannel, outputChannel);
-
-			// set vo
-			fileDTO.setBytes(((ByteArrayOutputStream) outputStream)
-					.toByteArray());
-			break;
+		fileDTO.setRepositoryPath(repositoryPath);
+		if (log.isDebugEnabled()) {
+			log.debug(fileDTO);
 		}
 
-		// close io
-		inputChannel.close();
-		outputChannel.close();
-		inputStream.close();
-		outputStream.close();
-
+		UploadUtil.processUploadFile(repositoryType, inputStream, fileDTO);
 		return fileDTO;
 	}
 
