@@ -17,6 +17,7 @@
 
 package org.codelabor.system.listeners;
 
+import org.apache.commons.fileupload.ProgressListener;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -24,7 +25,7 @@ import org.apache.commons.logging.LogFactory;
  * @author SangJae Shin
  * 
  */
-public class FileUploadProgressListener {
+public class FileUploadProgressListener implements ProgressListener {
 	private long megaBytes = -1;
 	private final Log log = LogFactory.getLog(FileUploadProgressListener.class);
 

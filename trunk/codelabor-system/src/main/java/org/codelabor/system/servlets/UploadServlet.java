@@ -1,5 +1,6 @@
 package org.codelabor.system.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,14 +15,16 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.RepositoryType;
 import org.codelabor.system.dtos.FileDTO;
+import org.codelabor.system.listeners.FileUploadProgressListener;
 import org.codelabor.system.managers.FileManager;
 import org.codelabor.system.utils.UploadUtil;
 import org.springframework.web.context.WebApplicationContext;
@@ -33,6 +36,8 @@ import anyframe.core.properties.IPropertiesService;
 public class UploadServlet implements Servlet {
 	private final Log log = LogFactory.getLog(UploadServlet.class);
 	private ServletConfig servletConfig;
+	private FileCleaningTracker fileCleaningTracker;
+	private FileUploadProgressListener fileUploadProgressListener;
 
 	// service
 	protected WebApplicationContext ctx;
@@ -42,13 +47,20 @@ public class UploadServlet implements Servlet {
 
 	// configuration
 	protected boolean isRename;
-	protected String repositoryPath;
+	protected int sizeThreshold;
+	protected long fileSizeMax;
+	protected long requestSizeMax;
+	protected String realRepositoryPath;
+	protected String tempRepositoryPath;
 	protected RepositoryType repositoryType;
 
 	public void init(ServletConfig config) throws ServletException {
 		servletConfig = config;
 		ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(config.getServletContext());
+		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
+				.getServletContext());
+		fileUploadProgressListener = new FileUploadProgressListener();
 
 		// set service
 		fileManager = (FileManager) ctx.getBean("fileManager");
@@ -60,10 +72,21 @@ public class UploadServlet implements Servlet {
 		// set configuration
 		isRename = propertiesService.getBoolean("file.default.rename.flag",
 				true);
-		repositoryPath = propertiesService.getString(
-				"file.default.repository.path", System.getProperty("user.dir"));
+		sizeThreshold = propertiesService.getInt(
+				"file.default.file.size.threshold",
+				DiskFileItemFactory.DEFAULT_SIZE_THRESHOLD);
+		fileSizeMax = propertiesService.getLong("file.default.file.size.max",
+				1024 * 10);
+		requestSizeMax = propertiesService.getLong(
+				"file.default.request.size.max", 1024 * 100);
+		realRepositoryPath = propertiesService.getString(
+				"file.default.real.repository.path", System
+						.getProperty("user.dir"));
+		tempRepositoryPath = propertiesService.getString(
+				"file.default.temp.repository.path", System
+						.getProperty("java.io.tmpdir"));
 		repositoryType = RepositoryType.valueOf(propertiesService.getString(
-				"file.default.repository.type", RepositoryType.FILE_SYSTEM
+				"file.default.real.repository.type", RepositoryType.FILE_SYSTEM
 						.toString()));
 	}
 
@@ -76,10 +99,17 @@ public class UploadServlet implements Servlet {
 			throws ServletException, IOException {
 		boolean isMultipart = ServletFileUpload
 				.isMultipartContent((HttpServletRequest) request);
-		Map paramMap = new HashMap();
+		Map<String, String> paramMap = new HashMap<String, String>();
 		if (isMultipart) {
-			FileItemFactory factory = new DiskFileItemFactory();
+			DiskFileItemFactory factory = new DiskFileItemFactory();
+			factory.setSizeThreshold(sizeThreshold);
+			factory.setRepository(new File(tempRepositoryPath));
+			factory.setFileCleaningTracker(fileCleaningTracker);
+
 			ServletFileUpload upload = new ServletFileUpload(factory);
+			upload.setFileSizeMax(fileSizeMax);
+			upload.setSizeMax(requestSizeMax);
+			upload.setProgressListener(fileUploadProgressListener);
 			try {
 				List<FileItem> items = upload
 						.parseRequest((HttpServletRequest) request);
@@ -100,7 +130,7 @@ public class UploadServlet implements Servlet {
 				e.printStackTrace();
 			}
 		} else {
-
+			// TODO
 		}
 		if (log.isDebugEnabled()) {
 			log.debug(paramMap);
@@ -116,14 +146,12 @@ public class UploadServlet implements Servlet {
 		fileDTO.setUniqueFileName(getUniqueFileName());
 		fileDTO.setFileSize(item.getSize());
 		fileDTO.setContentType(item.getContentType());
-		fileDTO.setRepositoryPath(repositoryPath);
+		fileDTO.setRepositoryPath(realRepositoryPath);
 		if (log.isDebugEnabled()) {
 			log.debug(fileDTO);
 		}
-
 		UploadUtil.processUploadFile(repositoryType, item.getInputStream(),
 				fileDTO);
-
 	}
 
 	public void destroy() {

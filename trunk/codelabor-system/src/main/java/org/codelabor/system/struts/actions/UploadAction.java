@@ -84,7 +84,7 @@ public class UploadAction extends BaseDispatchAction {
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
 			repositoryType = propertiesService.getString(
-					"file.default.repository.type", "FILE_SYSTEM");
+					"file.default.real.repository.type", "FILE_SYSTEM");
 		}
 		RepositoryType.valueOf(repositoryType);
 
@@ -132,7 +132,7 @@ public class UploadAction extends BaseDispatchAction {
 
 		// set configuration
 		String repositoryPath = propertiesService.getString(
-				"file.default.repository.path", System.getProperty("user.dir"));
+				"file.default.real.repository.path", System.getProperty("user.dir"));
 
 		// set dto
 		FileDTO fileDTO = new FileDTO();
