@@ -2,7 +2,6 @@ package org.codelabor.system.servlets;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +25,7 @@ import org.codelabor.system.RepositoryType;
 import org.codelabor.system.dtos.FileDTO;
 import org.codelabor.system.listeners.FileUploadProgressListener;
 import org.codelabor.system.managers.FileManager;
+import org.codelabor.system.utils.RequestUtil;
 import org.codelabor.system.utils.UploadUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -99,7 +99,7 @@ public class UploadServlet implements Servlet {
 			throws ServletException, IOException {
 		boolean isMultipart = ServletFileUpload
 				.isMultipartContent((HttpServletRequest) request);
-		Map<String, String> paramMap = new HashMap<String, String>();
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 		if (isMultipart) {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			factory.setSizeThreshold(sizeThreshold);
@@ -118,11 +118,14 @@ public class UploadServlet implements Servlet {
 				while (iter.hasNext()) {
 					FileItem item = iter.next();
 					log.debug(item);
+					FileDTO fileDTO = null;
 					if (item.isFormField()) {
 						paramMap.put(item.getFieldName(), item.getString());
 					} else {
-						processUploadFile(item);
+						fileDTO = processUploadFile(item);
 					}
+					if (fileDTO != null)
+						fileManager.insertFile(fileDTO);
 				}
 			} catch (FileUploadException e) {
 				e.printStackTrace();
@@ -130,16 +133,25 @@ public class UploadServlet implements Servlet {
 				e.printStackTrace();
 			}
 		} else {
-			// TODO
+			// paramMap = RequestUtil.getParameterMap(request);
 		}
+		try {
+			processParameters(paramMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	protected void processParameters(Map<String, Object> paramMap)
+			throws Exception {
 		if (log.isDebugEnabled()) {
 			log.debug(paramMap);
 		}
 	}
 
-	protected void processUploadFile(FileItem item) throws Exception {
-		if (item.getName() == null)
-			return;
+	protected FileDTO processUploadFile(FileItem item) throws Exception {
+		if (item.getName() == null || item.getName().length() == 0)
+			return null;
 		// boolean isInmomory = item.isInMemory();
 
 		// set dto
@@ -152,8 +164,8 @@ public class UploadServlet implements Servlet {
 		if (log.isDebugEnabled()) {
 			log.debug(fileDTO);
 		}
-		UploadUtil.processUploadFile(repositoryType, item.getInputStream(),
-				fileDTO);
+		UploadUtil.processFile(repositoryType, item.getInputStream(), fileDTO);
+		return fileDTO;
 	}
 
 	public void destroy() {

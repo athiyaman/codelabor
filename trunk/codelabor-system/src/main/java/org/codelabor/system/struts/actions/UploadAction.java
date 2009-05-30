@@ -145,7 +145,7 @@ public class UploadAction extends BaseDispatchAction {
 			log.debug(fileDTO);
 		}
 
-		UploadUtil.processUploadFile(repositoryType, inputStream, fileDTO);
+		UploadUtil.processFile(repositoryType, inputStream, fileDTO);
 		return fileDTO;
 	}
 

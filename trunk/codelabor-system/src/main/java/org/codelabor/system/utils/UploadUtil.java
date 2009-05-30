@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,7 +18,17 @@ import org.codelabor.system.dtos.FileDTO;
 public class UploadUtil {
 	static private final Log log = LogFactory.getLog(UploadUtil.class);
 
-	static public void processUploadFile(RepositoryType repositoryType,
+	static public void processFile(RepositoryType repositoryType,
+			InputStream inputStream, List<FileDTO> fileDTOList)
+			throws Exception {
+		for (int i = 0; i < fileDTOList.size(); i++) {
+			FileDTO tempFileDTO = fileDTOList.get(i);
+			processFile(repositoryType, inputStream, tempFileDTO);
+			fileDTOList.add(i, tempFileDTO);
+		}
+	}
+
+	static public void processFile(RepositoryType repositoryType,
 			InputStream inputStream, FileDTO fileDTO) throws Exception {
 		// prepare io
 		OutputStream outputStream = null;
@@ -34,14 +45,11 @@ public class UploadUtil {
 				stringBuilder = new StringBuilder();
 				stringBuilder.append("repositoryPath: ").append(
 						fileDTO.getRepositoryPath());
-				stringBuilder.append(System.getProperty("line.separator"));
 				stringBuilder.append(", repositoryType: ").append(
 						repositoryType);
-				stringBuilder.append(System.getProperty("line.separator"));
 				stringBuilder.append(", repository.exists(): ").append(
 						repository.exists());
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append("repository.isDirectory(): ").append(
+				stringBuilder.append(", repository.isDirectory(): ").append(
 						repository.isDirectory());
 				log.debug(stringBuilder.toString());
 			}
