@@ -10,7 +10,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT BPM_ID_SEQUENCE.NEXTVAL FROM DUAL</query>
+			<query>SELECT BPM_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
 	
@@ -19,7 +19,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT ACCESS_LOG_SEQUENCE.NEXTVAL FROM DUAL</query>
+			<query>SELECT ACCESS_LOG_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>	
 
@@ -28,7 +28,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT FILE_ID_SEQUENCE.NEXTVAL FROM DUAL</query>
+			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
 	

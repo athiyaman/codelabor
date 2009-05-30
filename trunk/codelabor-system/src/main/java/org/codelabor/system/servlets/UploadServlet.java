@@ -138,6 +138,8 @@ public class UploadServlet implements Servlet {
 	}
 
 	protected void processUploadFile(FileItem item) throws Exception {
+		if (item.getName() == null)
+			return;
 		// boolean isInmomory = item.isInMemory();
 
 		// set dto
