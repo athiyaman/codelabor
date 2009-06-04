@@ -33,8 +33,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class UploadFileServlet implements Servlet {
-	private final Log log = LogFactory.getLog(UploadFileServlet.class);
+public class FileUploadServlet implements Servlet {
+	private final Log log = LogFactory.getLog(FileUploadServlet.class);
 	private ServletConfig servletConfig;
 	private FileCleaningTracker fileCleaningTracker;
 	private FileUploadProgressListener fileUploadProgressListener;
