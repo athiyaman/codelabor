@@ -34,7 +34,7 @@ import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
 public class UploadFileServlet implements Servlet {
-	private final Log log = LogFactory.getLog(UploadServlet.class);
+	private final Log log = LogFactory.getLog(UploadFileServlet.class);
 	private ServletConfig servletConfig;
 	private FileCleaningTracker fileCleaningTracker;
 	private FileUploadProgressListener fileUploadProgressListener;
