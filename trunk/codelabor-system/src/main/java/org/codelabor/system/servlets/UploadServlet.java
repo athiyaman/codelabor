@@ -46,6 +46,7 @@ public class UploadServlet implements Servlet {
 	protected IIdGenerationService uniqueFileNameGenerationService;
 
 	// configuration
+	protected String characterEncoding;
 	protected boolean isRename;
 	protected int sizeThreshold;
 	protected long fileSizeMax;
@@ -70,6 +71,8 @@ public class UploadServlet implements Servlet {
 				.getBean("uniqueFileNameGenerationService");
 
 		// set configuration
+		characterEncoding = propertiesService.getString(
+				"file.default.character.encoding", "UTF-8");
 		isRename = propertiesService.getBoolean("file.default.rename.flag",
 				true);
 		sizeThreshold = propertiesService.getInt(
@@ -97,9 +100,20 @@ public class UploadServlet implements Servlet {
 	@SuppressWarnings("unchecked")
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
+
 		boolean isMultipart = ServletFileUpload
 				.isMultipartContent((HttpServletRequest) request);
+
+		String _repositoryType = request.getParameter("repositoryType");
+		if (_repositoryType != null && _repositoryType.length() > 0) {
+			repositoryType = RepositoryType.valueOf(_repositoryType);
+		}
+
+		log.debug("characterEncoding from request: "
+				+ request.getCharacterEncoding());
+		log.debug("characterEncoding from properties: " + characterEncoding);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+
 		if (isMultipart) {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			factory.setSizeThreshold(sizeThreshold);
@@ -109,6 +123,7 @@ public class UploadServlet implements Servlet {
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			upload.setFileSizeMax(fileSizeMax);
 			upload.setSizeMax(requestSizeMax);
+			upload.setHeaderEncoding(characterEncoding);
 			upload.setProgressListener(fileUploadProgressListener);
 			try {
 				List<FileItem> items = upload
@@ -120,7 +135,8 @@ public class UploadServlet implements Servlet {
 					log.debug(item);
 					FileDTO fileDTO = null;
 					if (item.isFormField()) {
-						paramMap.put(item.getFieldName(), item.getString());
+						paramMap.put(item.getFieldName(), item
+								.getString(characterEncoding));
 					} else {
 						fileDTO = processUploadFile(item);
 					}
@@ -133,7 +149,7 @@ public class UploadServlet implements Servlet {
 				e.printStackTrace();
 			}
 		} else {
-			// paramMap = RequestUtil.getParameterMap(request);
+			paramMap = RequestUtil.getParameterMap(request);
 		}
 		try {
 			processParameters(paramMap);
