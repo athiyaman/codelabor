@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -156,6 +157,13 @@ public class FileUploadServlet implements Servlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		StringBuffer stringBuffer = new StringBuffer();
+		// stringBuffer.append(((HttpServletRequest) request).getContextPath());
+		stringBuffer.append("example/file/servlet/list.jsp");
+		log.debug("dispatch path: " + stringBuffer.toString());
+		RequestDispatcher dispatcher = servletConfig.getServletContext()
+				.getRequestDispatcher(stringBuffer.toString());
+		dispatcher.forward(request, response);
 	}
 
 	protected void processParameters(Map<String, Object> paramMap)

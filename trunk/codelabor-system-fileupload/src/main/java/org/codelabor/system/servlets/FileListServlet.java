@@ -14,7 +14,6 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -113,7 +112,7 @@ public class FileListServlet implements Servlet {
 			e.printStackTrace();
 		}
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(((HttpServletRequest) request).getContextPath());
+		// stringBuffer.append(((HttpServletRequest) request).getContextPath());
 		stringBuffer.append("example/file/servlet/list.jsp");
 		log.debug("dispatch path: " + stringBuffer.toString());
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
