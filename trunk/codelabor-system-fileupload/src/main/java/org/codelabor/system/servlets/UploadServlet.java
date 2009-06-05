@@ -24,10 +24,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemIterator;
+import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.util.Streams;
 import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -63,7 +66,7 @@ public class UploadServlet extends HttpServlet {
 	protected FileUploadProgressListener fileUploadProgressListener;
 
 	enum Parameter {
-		upload, download, list, read, delete
+		upload, uploadStream, download, list, read, delete
 	};
 
 	// service
@@ -139,6 +142,9 @@ public class UploadServlet extends HttpServlet {
 			case upload:
 				this.upload(request, response);
 				break;
+			case uploadStream:
+				this.uploadStream(request, response);
+				break;
 			case download:
 				this.download(request, response);
 				break;
@@ -171,13 +177,28 @@ public class UploadServlet extends HttpServlet {
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setRealFileName(item.getName());
 		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setFileSize(item.getSize());
 		fileDTO.setContentType(item.getContentType());
 		fileDTO.setRepositoryPath(realRepositoryPath);
 		if (log.isDebugEnabled()) {
 			log.debug(fileDTO);
 		}
 		UploadUtil.processFile(repositoryType, item.getInputStream(), fileDTO);
+		return fileDTO;
+	}
+
+	protected FileDTO processUploadFile(FileItemStream item) throws Exception {
+		if (item.getName() == null || item.getName().length() == 0)
+			return null;
+		// set DTO
+		FileDTO fileDTO = new FileDTO();
+		fileDTO.setRealFileName(item.getName());
+		fileDTO.setUniqueFileName(getUniqueFileName());
+		fileDTO.setContentType(item.getContentType());
+		fileDTO.setRepositoryPath(realRepositoryPath);
+		if (log.isDebugEnabled()) {
+			log.debug(fileDTO);
+		}
+		UploadUtil.processFile(repositoryType, item.openStream(), fileDTO);
 		return fileDTO;
 	}
 
@@ -192,6 +213,55 @@ public class UploadServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	protected void uploadStream(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+		String _repositoryType = request.getParameter("repositoryType");
+		if (_repositoryType != null && _repositoryType.length() > 0) {
+			repositoryType = RepositoryType.valueOf(_repositoryType);
+		}
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+
+		if (isMultipart) {
+			ServletFileUpload upload = new ServletFileUpload();
+			upload.setFileSizeMax(fileSizeMax);
+			upload.setSizeMax(requestSizeMax);
+			upload.setHeaderEncoding(characterEncoding);
+			upload.setProgressListener(fileUploadProgressListener);
+			try {
+				FileItemIterator iter = upload.getItemIterator(request);
+
+				while (iter.hasNext()) {
+					FileItemStream item = iter.next();
+					log.debug(item);
+					FileDTO fileDTO = null;
+					if (item.isFormField()) {
+						paramMap.put(item.getFieldName(), Streams.asString(item
+								.openStream(), characterEncoding));
+					} else {
+						fileDTO = processUploadFile(item);
+					}
+					if (fileDTO != null)
+						fileManager.insertFile(fileDTO);
+				}
+			} catch (FileUploadException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			paramMap = RequestUtil.getParameterMap(request);
+		}
+		try {
+			processParameters(paramMap);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		dispatch(request, response, forwardPathUpload);
+
+	}
+
 	@SuppressWarnings("unchecked")
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -201,10 +271,6 @@ public class UploadServlet extends HttpServlet {
 		if (_repositoryType != null && _repositoryType.length() > 0) {
 			repositoryType = RepositoryType.valueOf(_repositoryType);
 		}
-
-		log.debug("characterEncoding from request: "
-				+ request.getCharacterEncoding());
-		log.debug("characterEncoding from properties: " + characterEncoding);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
 		if (isMultipart) {

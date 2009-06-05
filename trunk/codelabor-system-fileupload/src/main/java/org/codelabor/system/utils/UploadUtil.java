@@ -35,6 +35,7 @@ public class UploadUtil {
 		ReadableByteChannel inputChannel = null;
 		WritableByteChannel outputChannel = null;
 
+		int fileSize = 0;
 		StringBuilder stringBuilder = new StringBuilder();
 		switch (repositoryType) {
 		case FILE_SYSTEM:
@@ -66,7 +67,7 @@ public class UploadUtil {
 			// copy channel
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			ChannelUtil.copy(inputChannel, outputChannel);
+			fileSize = ChannelUtil.copy(inputChannel, outputChannel);
 			break;
 		case DATABASE:
 			// prepare steam
@@ -75,7 +76,7 @@ public class UploadUtil {
 			// copy channel
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			ChannelUtil.copy(inputChannel, outputChannel);
+			fileSize = ChannelUtil.copy(inputChannel, outputChannel);
 
 			// set vo
 			fileDTO.setBytes(((ByteArrayOutputStream) outputStream)
@@ -83,6 +84,7 @@ public class UploadUtil {
 			fileDTO.setRepositoryPath(null);
 			break;
 		}
+		fileDTO.setFileSize(fileSize);
 
 		// close io
 		inputChannel.close();
