@@ -46,6 +46,10 @@ public class UploadServlet implements Servlet {
 	protected FileCleaningTracker fileCleaningTracker;
 	protected FileUploadProgressListener fileUploadProgressListener;
 
+	enum Parameter {
+		upload, download, list, read, delete
+	};
+
 	// service
 	protected WebApplicationContext ctx;
 	protected FileManager fileManager;
@@ -113,14 +117,23 @@ public class UploadServlet implements Servlet {
 
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
-		String parameterValue = request.getParameter("parameterName");
-		try {
-			Class.forName(this.getClass().getName())
-					.getDeclaredMethod(parameterValue, ServletRequest.class,
-							ServletResponse.class).invoke(this, request,
-							response);
-		} catch (Exception e) {
-			e.printStackTrace();
+		String parameterValue = request.getParameter(parameterName);
+		switch (Parameter.valueOf(parameterValue)) {
+		case upload:
+			this.upload(request, response);
+			break;
+		case download:
+			this.download(request, response);
+			break;
+		case list:
+			this.list(request, response);
+			break;
+		case delete:
+			this.list(request, response);
+			break;
+		case read:
+			this.read(request, response);
+			break;
 		}
 	}
 
