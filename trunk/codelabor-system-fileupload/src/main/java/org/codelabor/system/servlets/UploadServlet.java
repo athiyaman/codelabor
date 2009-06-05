@@ -1,5 +1,7 @@
 package org.codelabor.system.servlets;
 
+import static org.codelabor.system.Constants.FILE_LIST_KEY;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -37,11 +39,12 @@ import anyframe.core.properties.IPropertiesService;
 public class UploadServlet implements Servlet {
 	private final Log log = LogFactory.getLog(UploadServlet.class);
 	private ServletConfig servletConfig;
-	private String forwardPathUpload;
-	private String forwardPathList;
-	private String forwardPathDownload;
-	private FileCleaningTracker fileCleaningTracker;
-	private FileUploadProgressListener fileUploadProgressListener;
+	protected String parameterName;
+	protected String forwardPathUpload;
+	protected String forwardPathList;
+	protected String forwardPathDownload;
+	protected FileCleaningTracker fileCleaningTracker;
+	protected FileUploadProgressListener fileUploadProgressListener;
 
 	// service
 	protected WebApplicationContext ctx;
@@ -60,8 +63,9 @@ public class UploadServlet implements Servlet {
 	protected RepositoryType repositoryType;
 
 	public void init(ServletConfig config) throws ServletException {
-		// forward path
+		// set init param
 		servletConfig = config;
+		parameterName = config.getInitParameter("parameterName");
 		forwardPathUpload = config.getInitParameter("forwardPathUpload");
 		forwardPathList = config.getInitParameter("forwardPathList");
 		forwardPathDownload = config.getInitParameter("forwardPathDelete");
@@ -107,10 +111,57 @@ public class UploadServlet implements Servlet {
 		return uniqueFileNameGenerationService.getNextStringId();
 	}
 
-	@SuppressWarnings("unchecked")
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
+		String parameterValue = request.getParameter("parameterName");
+		try {
+			Class.forName(this.getClass().getName())
+					.getDeclaredMethod(parameterValue, ServletRequest.class,
+							ServletResponse.class).invoke(this, request,
+							response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
+	protected void processParameters(Map<String, Object> paramMap)
+			throws Exception {
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
+	}
+
+	protected FileDTO processUploadFile(FileItem item) throws Exception {
+		if (item.getName() == null || item.getName().length() == 0)
+			return null;
+		// set dto
+		FileDTO fileDTO = new FileDTO();
+		fileDTO.setRealFileName(item.getName());
+		fileDTO.setUniqueFileName(getUniqueFileName());
+		fileDTO.setFileSize(item.getSize());
+		fileDTO.setContentType(item.getContentType());
+		fileDTO.setRepositoryPath(realRepositoryPath);
+		if (log.isDebugEnabled()) {
+			log.debug(fileDTO);
+		}
+		UploadUtil.processFile(repositoryType, item.getInputStream(), fileDTO);
+		return fileDTO;
+	}
+
+	protected void dispatch(ServletRequest request, ServletResponse response,
+			String path) throws ServletException, IOException {
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(((HttpServletRequest) request).getContextPath());
+		stringBuffer.append(path);
+		log.debug("dispatch path: " + stringBuffer.toString());
+		RequestDispatcher dispatcher = servletConfig.getServletContext()
+				.getRequestDispatcher(stringBuffer.toString());
+		dispatcher.forward(request, response);
+	}
+
+	@SuppressWarnings("unchecked")
+	protected void upload(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
 		boolean isMultipart = ServletFileUpload
 				.isMultipartContent((HttpServletRequest) request);
 
@@ -166,45 +217,70 @@ public class UploadServlet implements Servlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(((HttpServletRequest) request).getContextPath());
-		stringBuffer.append(forwardPathUpload);
-		RequestDispatcher dispatcher = servletConfig.getServletContext()
-				.getRequestDispatcher(stringBuffer.toString());
-		dispatcher.forward(request, response);
+		dispatch(request, response, forwardPathUpload);
 	}
 
-	protected void processParameters(Map<String, Object> paramMap)
-			throws Exception {
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
+	protected void list(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+		List<FileDTO> fileDTOList = null;
+		String repositoryType = request.getParameter("repositoryType");
+		try {
+			if (repositoryType == null) {
+				fileDTOList = fileManager.selectFile();
+			} else {
+				switch (RepositoryType.valueOf(repositoryType)) {
+				case DATABASE:
+					fileDTOList = fileManager
+							.selectFile(RepositoryType.DATABASE);
+					break;
+				case FILE_SYSTEM:
+					fileDTOList = fileManager
+							.selectFile(RepositoryType.FILE_SYSTEM);
+					break;
+				default:
+					fileDTOList = fileManager.selectFile();
+					break;
+				}
+			}
+			request.setAttribute(FILE_LIST_KEY, fileDTOList);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		dispatch(request, response, forwardPathList);
 	}
 
-	protected FileDTO processUploadFile(FileItem item) throws Exception {
-		if (item.getName() == null || item.getName().length() == 0)
-			return null;
-		// set dto
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(item.getName());
-		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setFileSize(item.getSize());
-		fileDTO.setContentType(item.getContentType());
-		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		UploadUtil.processFile(repositoryType, item.getInputStream(), fileDTO);
-		return fileDTO;
+	protected void download(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
-	public void destroy() {
+	protected void delete(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void read(ServletRequest request, ServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
 	public ServletConfig getServletConfig() {
 		return this.servletConfig;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.Servlet#destroy()
+	 */
+	public void destroy() {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.Servlet#getServletInfo()
+	 */
 	public String getServletInfo() {
 		return null;
 	}
