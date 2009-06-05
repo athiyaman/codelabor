@@ -14,6 +14,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,6 +31,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 public class FileListServlet implements Servlet {
 	private final Log log = LogFactory.getLog(FileUploadServlet.class);
 	private ServletConfig servletConfig;
+	private String forwardPath;
 
 	// service
 	protected WebApplicationContext ctx;
@@ -41,8 +43,6 @@ public class FileListServlet implements Servlet {
 	 * @see javax.servlet.Servlet#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
-
 	}
 
 	/*
@@ -51,8 +51,7 @@ public class FileListServlet implements Servlet {
 	 * @see javax.servlet.Servlet#getServletConfig()
 	 */
 	public ServletConfig getServletConfig() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.servletConfig;
 	}
 
 	/*
@@ -61,7 +60,6 @@ public class FileListServlet implements Servlet {
 	 * @see javax.servlet.Servlet#getServletInfo()
 	 */
 	public String getServletInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -72,6 +70,7 @@ public class FileListServlet implements Servlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		servletConfig = config;
+		forwardPath = config.getInitParameter("successPath");
 		ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(config.getServletContext());
 
@@ -112,8 +111,8 @@ public class FileListServlet implements Servlet {
 			e.printStackTrace();
 		}
 		StringBuffer stringBuffer = new StringBuffer();
-		// stringBuffer.append(((HttpServletRequest) request).getContextPath());
-		stringBuffer.append("example/file/servlet/list.jsp");
+		stringBuffer.append(((HttpServletRequest) request).getContextPath());
+		stringBuffer.append(forwardPath);
 		log.debug("dispatch path: " + stringBuffer.toString());
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
 				.getRequestDispatcher(stringBuffer.toString());

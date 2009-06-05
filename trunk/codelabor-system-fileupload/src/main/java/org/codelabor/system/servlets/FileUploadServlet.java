@@ -37,6 +37,7 @@ import anyframe.core.properties.IPropertiesService;
 public class FileUploadServlet implements Servlet {
 	private final Log log = LogFactory.getLog(FileUploadServlet.class);
 	private ServletConfig servletConfig;
+	private String forwardPath;
 	private FileCleaningTracker fileCleaningTracker;
 	private FileUploadProgressListener fileUploadProgressListener;
 
@@ -58,6 +59,7 @@ public class FileUploadServlet implements Servlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		servletConfig = config;
+		forwardPath = config.getInitParameter("successPath");
 		ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(config.getServletContext());
 		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
@@ -158,9 +160,8 @@ public class FileUploadServlet implements Servlet {
 			e.printStackTrace();
 		}
 		StringBuffer stringBuffer = new StringBuffer();
-		// stringBuffer.append(((HttpServletRequest) request).getContextPath());
-		stringBuffer.append("example/file/servlet/list.jsp");
-		log.debug("dispatch path: " + stringBuffer.toString());
+		stringBuffer.append(((HttpServletRequest) request).getContextPath());
+		stringBuffer.append(forwardPath);
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
 				.getRequestDispatcher(stringBuffer.toString());
 		dispatcher.forward(request, response);
@@ -176,8 +177,6 @@ public class FileUploadServlet implements Servlet {
 	protected FileDTO processUploadFile(FileItem item) throws Exception {
 		if (item.getName() == null || item.getName().length() == 0)
 			return null;
-		// boolean isInmomory = item.isInMemory();
-
 		// set dto
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setRealFileName(item.getName());

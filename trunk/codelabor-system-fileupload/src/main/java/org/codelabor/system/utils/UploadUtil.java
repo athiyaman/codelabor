@@ -67,9 +67,6 @@ public class UploadUtil {
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
 			ChannelUtil.copy(inputChannel, outputChannel);
-
-			// set vo
-			fileDTO.setRepositoryPath(fileDTO.getRepositoryPath());
 			break;
 		case DATABASE:
 			// prepare steam
@@ -83,6 +80,7 @@ public class UploadUtil {
 			// set vo
 			fileDTO.setBytes(((ByteArrayOutputStream) outputStream)
 					.toByteArray());
+			fileDTO.setRepositoryPath(null);
 			break;
 		}
 
