@@ -51,11 +51,12 @@ public class UploadServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
-	private static final String contentType = "Application/octet-stream";
-	private static final String responseHeaderName = "Content-Disposition";
-
 	private final Log log = LogFactory.getLog(UploadServlet.class);
-	private ServletConfig servletConfig;
+
+	protected static final String contentType = "Application/octet-stream";
+	protected static final String responseHeaderName = "Content-Disposition";
+
+	protected ServletConfig servletConfig;
 	protected String parameterName;
 	protected String forwardPathUpload;
 	protected String forwardPathDownload;
