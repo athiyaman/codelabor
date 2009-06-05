@@ -31,11 +31,11 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 
 	private FileDAO fileDAO;
 
-	public int deleteFile(int fileId) throws Exception {
+	public int deleteFile(String fileId) throws Exception {
 		return fileDAO.deleteFile(fileId);
 	}
 
-	public int deleteFile(int[] fileIdList) throws Exception {
+	public int deleteFile(String[] fileIdList) throws Exception {
 		return fileDAO.deleteFile(fileIdList);
 	}
 
@@ -56,7 +56,7 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 		return fileDAO.selectFile();
 	}
 
-	public FileDTO selectFile(int fileId) throws Exception {
+	public FileDTO selectFile(String fileId) throws Exception {
 		return fileDAO.selectFile(fileId);
 	}
 

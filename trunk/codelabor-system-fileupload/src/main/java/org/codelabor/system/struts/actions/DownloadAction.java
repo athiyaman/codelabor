@@ -13,7 +13,6 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.codelabor.system.dtos.FileDTO;
-import org.codelabor.system.exceptions.ParameterNotFoundException;
 import org.codelabor.system.managers.FileManager;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -31,13 +30,7 @@ public class DownloadAction extends org.apache.struts.actions.DownloadAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		StringBuilder stringBuilder = null;
-		int fileId = 0;
-		String _fileId = request.getParameter("fileId");
-		if (_fileId != null) {
-			fileId = Integer.parseInt(_fileId);
-		} else {
-			throw new ParameterNotFoundException();
-		}
+		String fileId = request.getParameter("fileId");
 
 		StreamInfo streamInfo = null;
 		WebApplicationContext ctx = WebApplicationContextUtils

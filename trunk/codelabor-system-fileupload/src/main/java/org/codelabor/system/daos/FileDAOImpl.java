@@ -30,11 +30,11 @@ import org.codelabor.system.dtos.FileDTO;
 public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	public int insertFile(FileDTO fileDTO) throws Exception {
-		int fileId = idGenerationService.getNextIntegerId();
+		int nextId = idGenerationService.getNextIntegerId();
 		if (log.isDebugEnabled()) {
-			log.debug("fileId: " + fileId);
+			log.debug("fileId: " + nextId);
 		}
-		fileDTO.setFileId(fileId);
+		fileDTO.setFileId(String.valueOf(nextId));
 		return queryService.create(fileDTO);
 	}
 
@@ -49,15 +49,15 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return affectedRowCount;
 	}
 
-	public int deleteFile(int fileId) throws Exception {
+	public int deleteFile(String fileId) throws Exception {
 		String queryId = "system.delete.file";
 		Object[] param = new Object[] { fileId };
 		return queryService.remove(queryId, param);
 	}
 
-	public int deleteFile(int[] fileIdList) throws Exception {
+	public int deleteFile(String[] fileIdList) throws Exception {
 		int affectedRowCount = 0;
-		for (int fileId : fileIdList) {
+		for (String fileId : fileIdList) {
 			affectedRowCount += this.deleteFile(fileId);
 		}
 		return affectedRowCount;
@@ -82,7 +82,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public FileDTO selectFile(int fileId) throws Exception {
+	public FileDTO selectFile(String fileId) throws Exception {
 		String queryId = "system.select.file";
 		Object[] param = new Object[] { fileId };
 		Collection<FileDTO> fileCol = queryService.find(queryId, param);

@@ -14,17 +14,17 @@ public class UploadForm extends BaseForm {
 	 * 
 	 */
 	private static final long serialVersionUID = -163569058243568483L;
-	protected int[] fileId = {};
+	protected String[] fileId = {};
 	protected List<FormFile> formFileList = new Vector<FormFile>();
 
 	public UploadForm() {
 	}
 
-	public int[] getFileId() {
+	public String[] getFileId() {
 		return fileId;
 	}
 
-	public void setFileId(int[] fileId) {
+	public void setFileId(String[] fileId) {
 		this.fileId = fileId;
 	}
 

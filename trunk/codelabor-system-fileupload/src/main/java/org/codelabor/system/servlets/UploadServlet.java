@@ -1,20 +1,27 @@
 package org.codelabor.system.servlets;
 
+import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
+import static org.codelabor.system.Constants.FILE_KEY;
 import static org.codelabor.system.Constants.FILE_LIST_KEY;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -36,13 +43,22 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class UploadServlet implements Servlet {
+public class UploadServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6060491747750865553L;
+	private static final String contentType = "Application/octet-stream";
+	private static final String responseHeaderName = "Content-Disposition";
+
 	private final Log log = LogFactory.getLog(UploadServlet.class);
 	private ServletConfig servletConfig;
 	protected String parameterName;
 	protected String forwardPathUpload;
-	protected String forwardPathList;
 	protected String forwardPathDownload;
+	protected String forwardPathList;
+	protected String forwardPathRead;
+	protected String forwardPathDelete;
 	protected FileCleaningTracker fileCleaningTracker;
 	protected FileUploadProgressListener fileUploadProgressListener;
 
@@ -57,17 +73,18 @@ public class UploadServlet implements Servlet {
 	protected IIdGenerationService uniqueFileNameGenerationService;
 
 	// configuration
-	protected String characterEncoding;
-	protected boolean isRename;
-	protected int sizeThreshold;
-	protected long fileSizeMax;
-	protected long requestSizeMax;
-	protected String realRepositoryPath;
-	protected String tempRepositoryPath;
-	protected RepositoryType repositoryType;
+	protected String characterEncoding = "UTF-8";
+	protected boolean isRename = true;
+	protected int sizeThreshold = DiskFileItemFactory.DEFAULT_SIZE_THRESHOLD;
+	protected long fileSizeMax = 1024 * 1024 * 10;
+	protected long requestSizeMax = 1024 * 1024 * 100;
+	protected String realRepositoryPath = System.getProperty("user.dir");
+	protected String tempRepositoryPath = System.getProperty("java.io.tmpdir");
+	protected RepositoryType repositoryType = RepositoryType.FILE_SYSTEM;
 
+	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// set init param
+		// get init param
 		servletConfig = config;
 		parameterName = config.getInitParameter("parameterName");
 		forwardPathUpload = config.getInitParameter("forwardPathUpload");
@@ -83,29 +100,27 @@ public class UploadServlet implements Servlet {
 		uniqueFileNameGenerationService = (IIdGenerationService) ctx
 				.getBean("uniqueFileNameGenerationService");
 
-		// set configuration
+		// overwrite configuration
 		characterEncoding = propertiesService.getString(
-				"file.default.character.encoding", "UTF-8");
+				"file.default.character.encoding", characterEncoding);
 		isRename = propertiesService.getBoolean("file.default.rename.flag",
-				true);
+				isRename);
 		sizeThreshold = propertiesService.getInt(
-				"file.default.file.size.threshold",
-				DiskFileItemFactory.DEFAULT_SIZE_THRESHOLD);
+				"file.default.file.size.threshold", sizeThreshold);
 		fileSizeMax = propertiesService.getLong("file.default.file.size.max",
-				1024 * 10);
+				fileSizeMax);
 		requestSizeMax = propertiesService.getLong(
-				"file.default.request.size.max", 1024 * 100);
+				"file.default.request.size.max", requestSizeMax);
 		realRepositoryPath = propertiesService.getString(
-				"file.default.real.repository.path", System
-						.getProperty("user.dir"));
+				"file.default.real.repository.path", realRepositoryPath);
 		tempRepositoryPath = propertiesService.getString(
-				"file.default.temp.repository.path", System
-						.getProperty("java.io.tmpdir"));
-		repositoryType = RepositoryType.valueOf(propertiesService.getString(
-				"file.default.real.repository.type", RepositoryType.FILE_SYSTEM
-						.toString()));
+				"file.default.temp.repository.path", tempRepositoryPath);
+		repositoryType = RepositoryType
+				.valueOf(propertiesService.getString(
+						"file.default.real.repository.type", repositoryType
+								.toString()));
 
-		// file listener / tracker
+		// set file listener / tracker
 		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
 				.getServletContext());
 		fileUploadProgressListener = new FileUploadProgressListener();
@@ -115,25 +130,30 @@ public class UploadServlet implements Servlet {
 		return uniqueFileNameGenerationService.getNextStringId();
 	}
 
-	public void service(ServletRequest request, ServletResponse response)
+	@Override
+	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String parameterValue = request.getParameter(parameterName);
-		switch (Parameter.valueOf(parameterValue)) {
-		case upload:
-			this.upload(request, response);
-			break;
-		case download:
-			this.download(request, response);
-			break;
-		case list:
-			this.list(request, response);
-			break;
-		case delete:
-			this.list(request, response);
-			break;
-		case read:
-			this.read(request, response);
-			break;
+		try {
+			String parameterValue = request.getParameter(parameterName);
+			switch (Parameter.valueOf(parameterValue)) {
+			case upload:
+				this.upload(request, response);
+				break;
+			case download:
+				this.download(request, response);
+				break;
+			case list:
+				this.list(request, response);
+				break;
+			case delete:
+				this.list(request, response);
+				break;
+			case read:
+				this.read(request, response);
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -147,7 +167,7 @@ public class UploadServlet implements Servlet {
 	protected FileDTO processUploadFile(FileItem item) throws Exception {
 		if (item.getName() == null || item.getName().length() == 0)
 			return null;
-		// set dto
+		// set DTO
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setRealFileName(item.getName());
 		fileDTO.setUniqueFileName(getUniqueFileName());
@@ -161,10 +181,10 @@ public class UploadServlet implements Servlet {
 		return fileDTO;
 	}
 
-	protected void dispatch(ServletRequest request, ServletResponse response,
-			String path) throws ServletException, IOException {
+	protected void dispatch(HttpServletRequest request,
+			HttpServletResponse response, String path) throws Exception {
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(((HttpServletRequest) request).getContextPath());
+		stringBuffer.append((request).getContextPath());
 		stringBuffer.append(path);
 		log.debug("dispatch path: " + stringBuffer.toString());
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
@@ -173,10 +193,9 @@ public class UploadServlet implements Servlet {
 	}
 
 	@SuppressWarnings("unchecked")
-	protected void upload(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
-		boolean isMultipart = ServletFileUpload
-				.isMultipartContent((HttpServletRequest) request);
+	protected void upload(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
 		String _repositoryType = request.getParameter("repositoryType");
 		if (_repositoryType != null && _repositoryType.length() > 0) {
@@ -200,8 +219,7 @@ public class UploadServlet implements Servlet {
 			upload.setHeaderEncoding(characterEncoding);
 			upload.setProgressListener(fileUploadProgressListener);
 			try {
-				List<FileItem> items = upload
-						.parseRequest((HttpServletRequest) request);
+				List<FileItem> items = upload.parseRequest(request);
 				Iterator<FileItem> iter = items.iterator();
 
 				while (iter.hasNext()) {
@@ -233,8 +251,8 @@ public class UploadServlet implements Servlet {
 		dispatch(request, response, forwardPathUpload);
 	}
 
-	protected void list(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
+	protected void list(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 		List<FileDTO> fileDTOList = null;
 		String repositoryType = request.getParameter("repositoryType");
 		try {
@@ -262,21 +280,85 @@ public class UploadServlet implements Servlet {
 		dispatch(request, response, forwardPathList);
 	}
 
-	protected void download(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
+	protected void download(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		StringBuilder stringBuilder = null;
+		String fileId = request.getParameter("fileId");
 
+		FileDTO fileDTO;
+		fileDTO = fileManager.selectFile(fileId);
+		if (log.isDebugEnabled()) {
+			stringBuilder = new StringBuilder();
+			stringBuilder.append(fileDTO);
+			log.debug(stringBuilder.toString());
+		}
+
+		String repositoryPath = fileDTO.getRepositoryPath();
+		String uniqueFileName = fileDTO.getUniqueFileName();
+		String realFileName = fileDTO.getRealFileName();
+		InputStream inputStream = null;
+		if (repositoryPath != null && repositoryPath.length() > 0) {
+			// FILE_SYSTEM
+			stringBuilder = new StringBuilder();
+			stringBuilder.append(repositoryPath);
+			if (!repositoryPath.endsWith(File.separator)) {
+				stringBuilder.append(File.separator);
+			}
+			stringBuilder.append(uniqueFileName);
+			File file = new File(stringBuilder.toString());
+			inputStream = new FileInputStream(file);
+		} else {
+			// DATABASE
+			byte[] bytes = fileDTO.getBytes();
+			inputStream = new ByteArrayInputStream(bytes);
+		}
+		response.setContentType(contentType);
+		stringBuilder = new StringBuilder();
+		stringBuilder.append("attachment; filename=").append(realFileName);
+		response.setHeader(responseHeaderName, stringBuilder.toString());
+
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(
+				inputStream);
+		ServletOutputStream servletOutputStream = response.getOutputStream();
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
+				servletOutputStream);
+		int bytesRead;
+		byte buffer[] = new byte[2048];
+		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {
+			bufferedOutputStream.write(buffer, 0, bytesRead);
+		}
+		// flush stream
+		bufferedOutputStream.flush();
+
+		// close stream
+		inputStream.close();
+		bufferdInputStream.close();
+		servletOutputStream.close();
+		bufferedOutputStream.close();
 	}
 
-	protected void delete(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
-
+	protected void delete(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		int affectedRowCount = 0;
+		String[] fileIdList = request.getParameterValues("fileId");
+		try {
+			affectedRowCount = fileManager.deleteFile(fileIdList);
+			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		dispatch(request, response, forwardPathDelete);
 	}
 
-	protected void read(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
-
+	protected void read(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String fileId = request.getParameter("fileId");
+		FileDTO fileDTO = fileManager.selectFile(fileId);
+		request.setAttribute(FILE_KEY, fileDTO);
+		dispatch(request, response, forwardPathRead);
 	}
 
+	@Override
 	public ServletConfig getServletConfig() {
 		return this.servletConfig;
 	}
@@ -286,6 +368,7 @@ public class UploadServlet implements Servlet {
 	 * 
 	 * @see javax.servlet.Servlet#destroy()
 	 */
+	@Override
 	public void destroy() {
 	}
 
@@ -294,6 +377,7 @@ public class UploadServlet implements Servlet {
 	 * 
 	 * @see javax.servlet.Servlet#getServletInfo()
 	 */
+	@Override
 	public String getServletInfo() {
 		return null;
 	}

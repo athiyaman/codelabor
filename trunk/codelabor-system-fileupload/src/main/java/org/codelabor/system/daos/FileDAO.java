@@ -28,9 +28,9 @@ import org.codelabor.system.dtos.FileDTO;
  */
 public interface FileDAO {
 
-	public int deleteFile(int fileId) throws Exception;
+	public int deleteFile(String fileId) throws Exception;
 
-	public int deleteFile(int[] fileIdList) throws Exception;
+	public int deleteFile(String[] fileIdList) throws Exception;
 
 	public int insertFile(FileDTO fileDTO) throws Exception;
 
@@ -41,6 +41,6 @@ public interface FileDAO {
 
 	public List<FileDTO> selectFile() throws Exception;
 
-	public FileDTO selectFile(int fileId) throws Exception;
+	public FileDTO selectFile(String fileId) throws Exception;
 
 }

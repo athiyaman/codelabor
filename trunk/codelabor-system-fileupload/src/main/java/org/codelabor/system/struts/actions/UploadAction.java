@@ -61,7 +61,7 @@ public class UploadAction extends BaseDispatchAction {
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
-		FileDTO fileDTO = fileManager.selectFile(Integer.parseInt(fileId));
+		FileDTO fileDTO = fileManager.selectFile(fileId);
 		request.setAttribute(FILE_KEY, fileDTO);
 		return mapping.findForward("read");
 	}
@@ -132,7 +132,8 @@ public class UploadAction extends BaseDispatchAction {
 
 		// set configuration
 		String repositoryPath = propertiesService.getString(
-				"file.default.real.repository.path", System.getProperty("user.dir"));
+				"file.default.real.repository.path", System
+						.getProperty("user.dir"));
 
 		// set dto
 		FileDTO fileDTO = new FileDTO();
@@ -174,7 +175,7 @@ public class UploadAction extends BaseDispatchAction {
 		int affectedRowCount = 0;
 		if (form != null) {
 			UploadForm uploadForm = (UploadForm) form;
-			int[] fileIdList = uploadForm.getFileId();
+			String[] fileIdList = uploadForm.getFileId();
 			affectedRowCount = fileManager.deleteFile(fileIdList);
 			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
 		}

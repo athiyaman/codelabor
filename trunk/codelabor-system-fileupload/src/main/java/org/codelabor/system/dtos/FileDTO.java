@@ -29,7 +29,7 @@ public class FileDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -8079212665085519859L;
 
-	protected int fileId;
+	protected String fileId;
 
 	protected String realFileName;
 
@@ -67,11 +67,11 @@ public class FileDTO implements Serializable {
 		this.bytes = bytes;
 	}
 
-	public int getFileId() {
+	public String getFileId() {
 		return fileId;
 	}
 
-	public void setFileId(int fileId) {
+	public void setFileId(String fileId) {
 		this.fileId = fileId;
 	}
 
