@@ -146,7 +146,7 @@ public class UploadServlet extends HttpServlet {
 				this.list(request, response);
 				break;
 			case delete:
-				this.list(request, response);
+				this.delete(request, response);
 				break;
 			case read:
 				this.read(request, response);
