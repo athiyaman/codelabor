@@ -34,29 +34,21 @@ import org.apache.commons.logging.LogFactory;
  * @author SangJae Shin
  * 
  */
-public class BaseFilterImpl implements Filter {
+public abstract class BaseFilterImpl implements Filter {
 
 	protected Log log = LogFactory.getLog(this.getClass());
 	protected ServletContext servletContext;
 
 	public void destroy() {
+		log.debug("destroy()");
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
-		StringBuilder stringBuilder = new StringBuilder();
-
-		stringBuilder.append("doFilter()");
-
-		if (log.isDebugEnabled()) {
-			log.debug(stringBuilder.toString());
-		}
-
-		filterChain.doFilter(request, response);
-	}
+	public abstract void doFilter(ServletRequest request,
+			ServletResponse response, FilterChain filterChain)
+			throws IOException, ServletException;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
+		log.debug("init()");
 		this.servletContext = filterConfig.getServletContext();
 	}
-
 }
