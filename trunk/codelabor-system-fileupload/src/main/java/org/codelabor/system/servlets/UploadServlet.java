@@ -91,8 +91,10 @@ public class UploadServlet extends HttpServlet {
 		servletConfig = config;
 		parameterName = config.getInitParameter("parameterName");
 		forwardPathUpload = config.getInitParameter("forwardPathUpload");
+		forwardPathDownload = config.getInitParameter("forwardPathDownload");
 		forwardPathList = config.getInitParameter("forwardPathList");
-		forwardPathDownload = config.getInitParameter("forwardPathDelete");
+		forwardPathRead = config.getInitParameter("forwardPathRead");
+		forwardPathDelete = config.getInitParameter("forwardPathDelete");
 
 		// set service
 		ctx = WebApplicationContextUtils
