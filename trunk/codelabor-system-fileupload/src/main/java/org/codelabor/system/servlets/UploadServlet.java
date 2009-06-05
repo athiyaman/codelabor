@@ -34,10 +34,12 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class FileUploadServlet implements Servlet {
-	private final Log log = LogFactory.getLog(FileUploadServlet.class);
+public class UploadServlet implements Servlet {
+	private final Log log = LogFactory.getLog(UploadServlet.class);
 	private ServletConfig servletConfig;
-	private String forwardPath;
+	private String forwardPathUpload;
+	private String forwardPathList;
+	private String forwardPathDownload;
 	private FileCleaningTracker fileCleaningTracker;
 	private FileUploadProgressListener fileUploadProgressListener;
 
@@ -58,15 +60,15 @@ public class FileUploadServlet implements Servlet {
 	protected RepositoryType repositoryType;
 
 	public void init(ServletConfig config) throws ServletException {
+		// forward path
 		servletConfig = config;
-		forwardPath = config.getInitParameter("successPath");
-		ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(config.getServletContext());
-		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
-				.getServletContext());
-		fileUploadProgressListener = new FileUploadProgressListener();
+		forwardPathUpload = config.getInitParameter("forwardPathUpload");
+		forwardPathList = config.getInitParameter("forwardPathList");
+		forwardPathDownload = config.getInitParameter("forwardPathDelete");
 
 		// set service
+		ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(config.getServletContext());
 		fileManager = (FileManager) ctx.getBean("fileManager");
 		propertiesService = (IPropertiesService) ctx
 				.getBean("propertiesService");
@@ -94,6 +96,11 @@ public class FileUploadServlet implements Servlet {
 		repositoryType = RepositoryType.valueOf(propertiesService.getString(
 				"file.default.real.repository.type", RepositoryType.FILE_SYSTEM
 						.toString()));
+
+		// file listener / tracker
+		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
+				.getServletContext());
+		fileUploadProgressListener = new FileUploadProgressListener();
 	}
 
 	protected String getUniqueFileName() throws Exception {
@@ -161,7 +168,7 @@ public class FileUploadServlet implements Servlet {
 		}
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(((HttpServletRequest) request).getContextPath());
-		stringBuffer.append(forwardPath);
+		stringBuffer.append(forwardPathUpload);
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
 				.getRequestDispatcher(stringBuffer.toString());
 		dispatcher.forward(request, response);

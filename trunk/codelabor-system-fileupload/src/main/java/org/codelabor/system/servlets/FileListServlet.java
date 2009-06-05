@@ -29,7 +29,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  * 
  */
 public class FileListServlet implements Servlet {
-	private final Log log = LogFactory.getLog(FileUploadServlet.class);
+	private final Log log = LogFactory.getLog(UploadServlet.class);
 	private ServletConfig servletConfig;
 	private String forwardPath;
 
