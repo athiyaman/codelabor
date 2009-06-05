@@ -170,7 +170,7 @@ public class UploadServlet extends HttpServlet {
 		}
 	}
 
-	protected FileDTO processUploadFile(FileItem item) throws Exception {
+	protected FileDTO processFile(FileItem item) throws Exception {
 		if (item.getName() == null || item.getName().length() == 0)
 			return null;
 		// set DTO
@@ -186,7 +186,7 @@ public class UploadServlet extends HttpServlet {
 		return fileDTO;
 	}
 
-	protected FileDTO processUploadFile(FileItemStream item) throws Exception {
+	protected FileDTO processFile(FileItemStream item) throws Exception {
 		if (item.getName() == null || item.getName().length() == 0)
 			return null;
 		// set DTO
@@ -240,7 +240,7 @@ public class UploadServlet extends HttpServlet {
 						paramMap.put(item.getFieldName(), Streams.asString(item
 								.openStream(), characterEncoding));
 					} else {
-						fileDTO = processUploadFile(item);
+						fileDTO = processFile(item);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
@@ -296,7 +296,7 @@ public class UploadServlet extends HttpServlet {
 						paramMap.put(item.getFieldName(), item
 								.getString(characterEncoding));
 					} else {
-						fileDTO = processUploadFile(item);
+						fileDTO = processFile(item);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
