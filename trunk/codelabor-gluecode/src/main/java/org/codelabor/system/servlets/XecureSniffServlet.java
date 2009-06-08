@@ -12,6 +12,11 @@ import org.codelabor.system.utils.SniffUtil;
 import xecure.servlet.XecureHttpServlet;
 
 public class XecureSniffServlet extends XecureHttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -716194662373559921L;
+
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter writer = response.getWriter();
