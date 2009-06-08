@@ -7,7 +7,7 @@
 		id="fileUploadController"
 		class="org.codelabor.system.spring.controllers.CreatePostController">
 		<property name="commandName" value="fileDTO"/>
-		<property name="commandClass" value="org.codelabor.example.dtos.PostDTO"/>
+		<property name="commandClass" value="org.codelabor.system.dtos.PostDTO"/>
 		<property name="formView" value="example/file/spring-mvc/list"/>
 		<property name="successView" value="example/file/spring-mvc/list"/>
 	</bean>
