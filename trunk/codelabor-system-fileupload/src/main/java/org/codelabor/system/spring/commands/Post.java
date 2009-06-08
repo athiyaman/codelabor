@@ -1,19 +1,13 @@
-package org.codelabor.system.spring.dtos;
+package org.codelabor.system.spring.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
-
-public class PostDTO {
+public class Post extends File {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8992970774637965899L;
 	private String subject;
 	private String description;
 	private String writer;
-	private List<MultipartFile> file = new ArrayList<MultipartFile>();
-
-	public List<MultipartFile> getFile() {
-		return file;
-	}
 
 	public String getSubject() {
 		return subject;
@@ -37,10 +31,6 @@ public class PostDTO {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public void setFile(List<MultipartFile> file) {
-		this.file = file;
 	}
 
 }

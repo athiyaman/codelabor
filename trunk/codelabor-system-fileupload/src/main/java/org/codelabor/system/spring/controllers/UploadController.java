@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.system.managers.FileManager;
-import org.codelabor.system.spring.dtos.PostDTO;
+import org.codelabor.system.spring.commands.Post;
 import org.springframework.validation.BindException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,9 +25,9 @@ public class UploadController extends SimpleFormController {
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
-		PostDTO postDTO = (PostDTO) command;
+		Post post = (Post) command;
 
-		List<MultipartFile> uploadedFileList = postDTO.getFile();
+		List<MultipartFile> uploadedFileList = post.getFile();
 		Iterator<MultipartFile> iter = uploadedFileList.iterator();
 		while (iter.hasNext()) {
 			MultipartFile uploadedFile = iter.next();

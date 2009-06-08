@@ -9,7 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.system.spring.dtos.PostDTO;
+import org.codelabor.system.spring.commands.Post;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindException;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,7 +20,7 @@ public class CreatePostController extends SimpleFormController {
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
-		PostDTO postDTO = (PostDTO) command;
+		Post postDTO = (Post) command;
 		logger.debug("subject: " + postDTO.getSubject());
 		logger.debug("description: " + postDTO.getDescription());
 		logger.debug("writer: " + postDTO.getWriter());
