@@ -29,26 +29,18 @@ import anyframe.core.properties.IPropertiesService;
 
 public class FileUploadAction extends BaseDispatchAction {
 
-	protected WebApplicationContext ctx;
-	protected FileManager fileManager;
-	protected IPropertiesService propertiesService;
-	protected IIdGenerationService uniqueFileNameGenerationService;
-
 	public FileUploadAction() {
 		super();
-		ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
-		fileManager = (FileManager) ctx.getBean("fileManager");
-		propertiesService = (IPropertiesService) ctx
-				.getBean("propertiesService");
-		uniqueFileNameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFileNameGenerationService");
 
 	}
 
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(getServlet()
+						.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		List<FileDTO> fileDTOList = null;
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
@@ -71,6 +63,10 @@ public class FileUploadAction extends BaseDispatchAction {
 	public ActionForward read(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(getServlet()
+						.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFile(fileId);
 		request.setAttribute(FILE_KEY, fileDTO);
@@ -80,7 +76,12 @@ public class FileUploadAction extends BaseDispatchAction {
 	public ActionForward upload(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(getServlet()
+						.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+		IPropertiesService propertiesService = (IPropertiesService) ctx
+				.getBean("propertiesService");
 		// get parameter
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
@@ -115,6 +116,13 @@ public class FileUploadAction extends BaseDispatchAction {
 
 	protected FileDTO saveFile(RepositoryType repositoryType, FormFile formFile)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(getServlet()
+						.getServletContext());
+		IPropertiesService propertiesService = (IPropertiesService) ctx
+				.getBean("propertiesService");
+		IIdGenerationService uniqueFileNameGenerationService = (IIdGenerationService) ctx
+				.getBean("uniqueFileNameGenerationService");
 		// set file properties
 		String realFileName = formFile.getFileName();
 		int fileSize = formFile.getFileSize();
@@ -162,6 +170,10 @@ public class FileUploadAction extends BaseDispatchAction {
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(getServlet()
+						.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		int affectedRowCount = 0;
 		if (form != null) {
 			FileUploadForm uploadForm = (FileUploadForm) form;
