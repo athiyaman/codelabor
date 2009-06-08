@@ -29,12 +29,6 @@ public class CreatePostController extends SimpleFormController {
 		Iterator<MultipartFile> iter = uploadedFileList.iterator();
 		while (iter.hasNext()) {
 			MultipartFile uploadedFile = iter.next();
-			logger.debug("--------------------");
-			logger.debug("name: " + uploadedFile.getName());
-			logger.debug("originalFileName: "
-					+ uploadedFile.getOriginalFilename());
-			logger.debug("contentType: " + uploadedFile.getContentType());
-			logger.debug("size: " + uploadedFile.getSize());
 
 			if (uploadedFile.getOriginalFilename().length() == 0)
 				continue;

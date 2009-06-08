@@ -31,8 +31,8 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	public int insertFile(FileDTO fileDTO) throws Exception {
 		int nextId = idGenerationService.getNextIntegerId();
-		if (log.isDebugEnabled()) {
-			log.debug("fileId: " + nextId);
+		if (logger.isDebugEnabled()) {
+			logger.debug("fileId: " + nextId);
 		}
 		fileDTO.setFileId(String.valueOf(nextId));
 		return queryService.create(fileDTO);
