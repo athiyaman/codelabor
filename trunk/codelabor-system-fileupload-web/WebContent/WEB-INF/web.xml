@@ -5,9 +5,7 @@
 	<!-- Spring support -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>
-		classpath*:configurations/**/applicationContext*.xml
-		</param-value>
+		<param-value>classpath*:configurations/**/applicationContext*.xml</param-value>
 	</context-param>
 	
 	<!-- Spring support -->
@@ -105,7 +103,6 @@
 		</init-param>   	
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.form</url-pattern>
