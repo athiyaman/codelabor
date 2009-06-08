@@ -207,12 +207,9 @@ public class UploadServlet extends HttpServlet {
 
 	protected void dispatch(HttpServletRequest request,
 			HttpServletResponse response, String path) throws Exception {
-		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append((request).getContextPath());
-		stringBuffer.append(path);
-		log.debug("dispatch path: " + stringBuffer.toString());
+		log.debug("dispatch path: " + path);
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
-				.getRequestDispatcher(stringBuffer.toString());
+				.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 
