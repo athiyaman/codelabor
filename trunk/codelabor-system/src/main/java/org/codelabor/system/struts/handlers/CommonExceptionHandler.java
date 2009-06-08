@@ -46,7 +46,7 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			ActionMapping mapping, ActionForm formInstance,
 			HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
-		logger.debug("ExceptionHandler executing for exception " + ex);
+		log.debug("ExceptionHandler executing for exception " + ex);
 
 		ActionForward forward;
 		ActionMessage error;
@@ -77,14 +77,14 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 		this.logException(ex);
 
 		// framework log
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append(System.getProperty("line.separator"));
 			stringBuilder.append("-------------------------------");
 			stringBuilder.append(System.getProperty("line.separator"));
 			stringBuilder.append("StackTrace");
 			stringBuilder.append(System.getProperty("line.separator"));
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 
 			Throwable throwable = ex;
 			for (int i = 0; throwable != null; i++) {
@@ -99,13 +99,13 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 					stringBuilder.append(stackTraceList[j].toString());
 					stringBuilder.append(System.getProperty("line.separator"));
 				}
-				logger.debug(stringBuilder.toString());
+				log.debug(stringBuilder.toString());
 
 				throwable = throwable.getCause();
 			}
 			stringBuilder = new StringBuilder();
 			stringBuilder.append("-------------------------------");
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 
 		// Store the exception
@@ -116,14 +116,14 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			return forward;
 		}
 
-		logger.debug("Response is already committed, so forwarding will not work."
+		log.debug("Response is already committed, so forwarding will not work."
 				+ " Attempt alternate handling.");
 
 		if (!silent(ae)) {
 			handleCommittedResponse(ex, ae, mapping, formInstance, request,
 					response, forward);
 		} else {
-			logger.warn("ExceptionHandler configured with " + SILENT_IF_COMMITTED
+			log.warn("ExceptionHandler configured with " + SILENT_IF_COMMITTED
 					+ " and response is committed.", ex);
 		}
 

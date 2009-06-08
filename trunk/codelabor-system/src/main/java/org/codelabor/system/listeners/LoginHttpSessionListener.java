@@ -46,7 +46,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 						.getServletContext());
 		LoginService loginService = (LoginService) ctx.getBean("loginService");
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("thread: ").append(Thread.currentThread());
 			stringBuilder.append(", ");
 			stringBuilder.append("instance: ").append(this.hashCode());
@@ -63,7 +63,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 
 		if (event.getName().equals(Constants.SESSION_LOGIN_INFO_KEY)) {
@@ -80,8 +80,8 @@ public class LoginHttpSessionListener extends BaseListener implements
 			} catch (Exception e) {
 				e.printStackTrace();
 				MessageDTO messageDTO = MessageUtil.exceptionToMessageDTO(e);
-				if (logger.isErrorEnabled()) {
-					logger.error(messageDTO.getUserMessage(), e);
+				if (log.isErrorEnabled()) {
+					log.error(messageDTO.getUserMessage(), e);
 				}
 			}
 		}
@@ -93,7 +93,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 						.getServletContext());
 		LoginService loginService = (LoginService) ctx.getBean("loginService");
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("thread: ").append(Thread.currentThread());
 			stringBuilder.append(", ");
 			stringBuilder.append("instance: ").append(this.hashCode());
@@ -110,7 +110,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 
 		if (event.getName().equals(Constants.SESSION_LOGIN_INFO_KEY)) {
@@ -121,8 +121,8 @@ public class LoginHttpSessionListener extends BaseListener implements
 			} catch (Exception e) {
 				e.printStackTrace();
 				MessageDTO messageDTO = MessageUtil.exceptionToMessageDTO(e);
-				if (logger.isErrorEnabled()) {
-					logger.error(messageDTO.getUserMessage(), e);
+				if (log.isErrorEnabled()) {
+					log.error(messageDTO.getUserMessage(), e);
 				}
 			}
 		}
@@ -130,7 +130,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 
 	public void attributeReplaced(HttpSessionBindingEvent event) {
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("name: ");
 			stringBuilder.append(event.getName());
 			stringBuilder.append(", ");
@@ -142,56 +142,56 @@ public class LoginHttpSessionListener extends BaseListener implements
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 	}
 
 	public void sessionCreated(HttpSessionEvent event) {
 
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("session id: ");
 			stringBuilder.append(event.getSession().getId());
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 	}
 
 	public void sessionDestroyed(HttpSessionEvent event) {
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("session id: ");
 			stringBuilder.append(event.getSession().getId());
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 	}
 
 	public void sessionDidActivate(HttpSessionEvent event) {
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("session id: ");
 			stringBuilder.append(event.getSession().getId());
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 	}
 
 	public void sessionWillPassivate(HttpSessionEvent event) {
 		StringBuilder stringBuilder = new StringBuilder();
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			stringBuilder.append("session id: ");
 			stringBuilder.append(event.getSession().getId());
 			stringBuilder.append(", ");
 			stringBuilder.append("soruce: ");
 			stringBuilder.append(event.getSource());
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 	}
 }

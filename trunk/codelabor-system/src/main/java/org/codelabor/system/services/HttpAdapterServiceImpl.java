@@ -76,8 +76,8 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 
 			String encodedURI = URIUtil.encodeQuery(stringBuilder.toString());
 
-			if (logger.isDebugEnabled()) {
-				logger.debug(encodedURI);
+			if (log.isDebugEnabled()) {
+				log.debug(encodedURI);
 			}
 
 			method = new GetMethod(encodedURI);
@@ -90,10 +90,10 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 					httpParams));
 
 			int statusCode = httpClient.executeMethod(method);
-			if (logger.isDebugEnabled()) {
+			if (log.isDebugEnabled()) {
 				stringBuilder = new StringBuilder();
 				stringBuilder.append("statusCode: ").append(statusCode);
-				logger.debug(stringBuilder.toString());
+				log.debug(stringBuilder.toString());
 			}
 			switch (statusCode) {
 			case HttpStatus.SC_OK:
@@ -101,12 +101,12 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 				break;
 			}
 		} catch (Exception e) {
-			if (logger.isErrorEnabled()) {
+			if (log.isErrorEnabled()) {
 				String messageKey = "error.http.request";
 				String userMessage = messageSource
 						.getMessage(messageKey, new String[] {},
 								"default message", Locale.getDefault());
-				logger.error(userMessage, e);
+				log.error(userMessage, e);
 			}
 		} finally {
 			if (method != null) {

@@ -9,7 +9,7 @@ import anyframe.core.properties.IPropertiesService;
 
 public class BaseDispatchAction extends DispatchAction {
 
-	protected Log logger = LogFactory.getLog(this.getClass());
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	protected IPropertiesService propertiesService;
 
@@ -39,6 +39,6 @@ public class BaseDispatchAction extends DispatchAction {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.logger = LogFactory.getLog(loggerName);
+		this.log = LogFactory.getLog(loggerName);
 	}
 }

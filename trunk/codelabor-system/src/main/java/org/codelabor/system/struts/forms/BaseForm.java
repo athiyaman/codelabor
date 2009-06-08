@@ -10,5 +10,5 @@ public class BaseForm extends ActionForm {
 	 * 
 	 */
 	private static final long serialVersionUID = 5090815461009053724L;
-	protected Log logger = LogFactory.getLog(this.getClass());
+	protected Log log = LogFactory.getLog(this.getClass());
 }

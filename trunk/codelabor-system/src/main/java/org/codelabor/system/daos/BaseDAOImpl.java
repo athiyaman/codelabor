@@ -35,7 +35,7 @@ public class BaseDAOImpl {
 
 	protected MessageSource messageSource;
 
-	protected Log logger = LogFactory.getLog(this.getClass());
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	protected String loggerName = this.getClass().getName();
 
@@ -53,7 +53,7 @@ public class BaseDAOImpl {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.logger = LogFactory.getLog(loggerName);
+		this.log = LogFactory.getLog(loggerName);
 	}
 
 	public MessageSource getMessageSource() {

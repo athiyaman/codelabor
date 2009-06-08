@@ -30,8 +30,8 @@ public class AuthenticationFilter extends BaseFilterImpl {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("doFilter()");
 
-		if (logger.isDebugEnabled()) {
-			logger.debug(stringBuilder.toString());
+		if (log.isDebugEnabled()) {
+			log.debug(stringBuilder.toString());
 		}
 
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -60,8 +60,8 @@ public class AuthenticationFilter extends BaseFilterImpl {
 		}
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("isAuthenticated: ").append(isAuthenticated);
-		if (logger.isDebugEnabled()) {
-			logger.debug(stringBuilder.toString());
+		if (log.isDebugEnabled()) {
+			log.debug(stringBuilder.toString());
 		}
 
 		return isAuthenticated;

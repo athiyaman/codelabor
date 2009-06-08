@@ -29,7 +29,7 @@ import anyframe.core.properties.IPropertiesService;
  */
 public class BaseListener {
 
-	protected Log logger = LogFactory.getLog(this.getClass());
+	protected Log log = LogFactory.getLog(this.getClass());
 	protected String loggerName = this.getClass().getName();
 	protected MessageSource messageSource;
 	protected IPropertiesService propertiesService;
@@ -40,7 +40,7 @@ public class BaseListener {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.logger = LogFactory.getLog(loggerName);
+		this.log = LogFactory.getLog(loggerName);
 	}
 
 	public MessageSource getMessageSource() {
