@@ -2,13 +2,13 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>xecure-web-example</display-name>
   
-	<!-- Spring support -->
+	<!-- spring support -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:configurations/**/applicationContext*.xml</param-value>
 	</context-param>
 	
-	<!-- Spring support -->
+	<!-- spring support -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -30,24 +30,24 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping> 	
 	
-	<!-- Sniff filter -->
+	<!-- sniffer filter -->
 	<filter>
-		<filter-name>sniff-filter</filter-name>
-		<filter-class>org.codelabor.system.filters.SniffFilter</filter-class>
+		<filter-name>sniffer-filter</filter-name>
+		<filter-class>org.codelabor.system.filters.SnifferFilter</filter-class>
 	</filter>	
 	<filter-mapping>
-		<filter-name>sniff-filter</filter-name>
+		<filter-name>sniffer-filter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>	
 
-	<!-- sniff servlet -->
+	<!-- sniffer servlet -->
   	<servlet>
-  		<servlet-name>sniff-servlet</servlet-name>
-  		<servlet-class>org.codelabor.system.servlets.SniffServlet</servlet-class>
+  		<servlet-name>sniffer-servlet</servlet-name>
+  		<servlet-class>org.codelabor.system.servlets.SnifferServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-  		<servlet-name>sniff-servlet</servlet-name>
-		<url-pattern>/servlet/sniffServlet</url-pattern>
+  		<servlet-name>sniffer-servlet</servlet-name>
+		<url-pattern>/servlet/snifferServlet</url-pattern>
 	</servlet-mapping>
     
 	<!-- upload servlet -->
