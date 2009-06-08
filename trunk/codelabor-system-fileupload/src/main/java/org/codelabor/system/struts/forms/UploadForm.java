@@ -40,11 +40,11 @@ public class UploadForm extends BaseForm {
 			fileName = formFile.getFileName();
 			this.formFileList.add(formFile);
 		}
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append("index: ").append(index);
 			stringBuilder.append("fileName: ").append(fileName);
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 	}
 
@@ -54,11 +54,11 @@ public class UploadForm extends BaseForm {
 		if (formFile != null) {
 			fileName = formFile.getFileName();
 		}
-		if (logger.isDebugEnabled()) {
+		if (log.isDebugEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append("index: ").append(index);
 			stringBuilder.append("fileName: ").append(fileName);
-			logger.debug(stringBuilder.toString());
+			log.debug(stringBuilder.toString());
 		}
 		return formFile;
 	}

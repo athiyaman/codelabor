@@ -29,12 +29,26 @@ import anyframe.core.properties.IPropertiesService;
 
 public class UploadAction extends BaseDispatchAction {
 
+	protected WebApplicationContext ctx;
+	protected FileManager fileManager;
+	protected IPropertiesService propertiesService;
+	protected IIdGenerationService uniqueFileNameGenerationService;
+
+	public UploadAction() {
+		super();
+		ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(servlet.getServletContext());
+		fileManager = (FileManager) ctx.getBean("fileManager");
+		propertiesService = (IPropertiesService) ctx
+				.getBean("propertiesService");
+		uniqueFileNameGenerationService = (IIdGenerationService) ctx
+				.getBean("uniqueFileNameGenerationService");
+
+	}
+
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
-		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		List<FileDTO> fileDTOList = null;
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
@@ -57,28 +71,15 @@ public class UploadAction extends BaseDispatchAction {
 	public ActionForward read(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
-		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFile(fileId);
 		request.setAttribute(FILE_KEY, fileDTO);
 		return mapping.findForward("read");
 	}
 
-	public UploadAction() {
-		super();
-
-	}
-
 	public ActionForward upload(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
-		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
-		IPropertiesService propertiesService = (IPropertiesService) ctx
-				.getBean("propertiesService");
 
 		// get parameter
 		String repositoryType = request.getParameter("repositoryType");
@@ -114,14 +115,6 @@ public class UploadAction extends BaseDispatchAction {
 
 	protected FileDTO saveFile(RepositoryType repositoryType, FormFile formFile)
 			throws Exception {
-		// get service
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
-		IPropertiesService propertiesService = (IPropertiesService) ctx
-				.getBean("propertiesService");
-		IIdGenerationService uniqueFileNameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFileNameGenerationService");
-
 		// set file properties
 		String realFileName = formFile.getFileName();
 		int fileSize = formFile.getFileSize();
@@ -169,9 +162,6 @@ public class UploadAction extends BaseDispatchAction {
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
-		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		int affectedRowCount = 0;
 		if (form != null) {
 			UploadForm uploadForm = (UploadForm) form;
@@ -181,5 +171,4 @@ public class UploadAction extends BaseDispatchAction {
 		}
 		return mapping.findForward("delete");
 	}
-
 }
