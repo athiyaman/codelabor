@@ -8,7 +8,7 @@
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/example/file/fileUpload.form" value-ref="fileUploadController"/>
+				<entry key="/example/file/uploadFile.form" value-ref="fileUploadController"/>
 			</map>
 		</property>
 	</bean>

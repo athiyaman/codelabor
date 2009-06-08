@@ -5,11 +5,14 @@
 
 	<bean
 		id="fileUploadController"
-		class="org.codelabor.system.spring.controllers.CreatePostController">
-		<property name="commandName" value="fileDTO"/>
-		<property name="commandClass" value="org.codelabor.system.spring.dtos.PostDTO"/>
+		class="org.codelabor.system.spring.controllers.FileUploadController">
+		<property name="commandName" value="post"/>
+		<property name="commandClass" value="org.codelabor.system.spring.commands.Post"/>
 		<property name="formView" value="example/file/spring-mvc/list"/>
 		<property name="successView" value="example/file/spring-mvc/list"/>
+		<property name="fileManager" ref="fileManager"/>
+		<property name="propertiesService" ref="propertiesService"/>
+		<property name="uniqueFileNameGenerationService" ref="uniqueFileNameGenerationService"/>
 	</bean>
 
 	<bean
