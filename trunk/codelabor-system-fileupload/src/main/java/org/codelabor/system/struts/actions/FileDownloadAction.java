@@ -17,7 +17,8 @@ import org.codelabor.system.managers.FileManager;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-public class DownloadAction extends org.apache.struts.actions.DownloadAction {
+public class FileDownloadAction extends
+		org.apache.struts.actions.DownloadAction {
 
 	private static final String contentType = "Application/octet-stream";
 
@@ -57,7 +58,7 @@ public class DownloadAction extends org.apache.struts.actions.DownloadAction {
 			}
 			stringBuilder.append(uniqueFileName);
 			File file = new File(stringBuilder.toString());
-			streamInfo = new DownloadAction.FileStreamInfo(contentType, file);
+			streamInfo = new FileStreamInfo(contentType, file);
 			// DATABASE
 		} else {
 			byte[] bytes = fileDTO.getBytes();

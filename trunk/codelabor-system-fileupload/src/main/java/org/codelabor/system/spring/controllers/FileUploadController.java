@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class UploadController extends SimpleFormController {
+public class FileUploadController extends SimpleFormController {
 	protected FileManager fileManager;
 	protected IPropertiesService propertiesService;
 	protected IIdGenerationService uniqueFileNameGenerationService;

@@ -1,6 +1,6 @@
 package org.codelabor.system.spring.commands;
 
-public class Post extends File {
+public class Post extends FileUpload {
 	/**
 	 * 
 	 */

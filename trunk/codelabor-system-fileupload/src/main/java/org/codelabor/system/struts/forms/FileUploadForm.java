@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
-public class UploadForm extends BaseForm {
+public class FileUploadForm extends BaseForm {
 
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class UploadForm extends BaseForm {
 	protected String[] fileId = {};
 	protected List<FormFile> formFileList = new Vector<FormFile>();
 
-	public UploadForm() {
+	public FileUploadForm() {
 	}
 
 	public String[] getFileId() {

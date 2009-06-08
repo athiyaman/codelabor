@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author bomber
  * 
  */
-public class File implements Serializable {
+public class FileUpload implements Serializable {
 
 	/**
 	 * 

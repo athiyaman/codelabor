@@ -19,7 +19,7 @@ import org.apache.struts.upload.FormFile;
 import org.codelabor.system.RepositoryType;
 import org.codelabor.system.dtos.FileDTO;
 import org.codelabor.system.managers.FileManager;
-import org.codelabor.system.struts.forms.UploadForm;
+import org.codelabor.system.struts.forms.FileUploadForm;
 import org.codelabor.system.utils.UploadUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -27,14 +27,14 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class UploadAction extends BaseDispatchAction {
+public class FileUploadAction extends BaseDispatchAction {
 
 	protected WebApplicationContext ctx;
 	protected FileManager fileManager;
 	protected IPropertiesService propertiesService;
 	protected IIdGenerationService uniqueFileNameGenerationService;
 
-	public UploadAction() {
+	public FileUploadAction() {
 		super();
 		ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
@@ -97,7 +97,7 @@ public class UploadAction extends BaseDispatchAction {
 		}
 
 		// get form
-		UploadForm uploadForm = (UploadForm) form;
+		FileUploadForm uploadForm = (FileUploadForm) form;
 		List<FormFile> formFileList = uploadForm.getFormFileList();
 
 		// upload
@@ -164,7 +164,7 @@ public class UploadAction extends BaseDispatchAction {
 			throws Exception {
 		int affectedRowCount = 0;
 		if (form != null) {
-			UploadForm uploadForm = (UploadForm) form;
+			FileUploadForm uploadForm = (FileUploadForm) form;
 			String[] fileIdList = uploadForm.getFileId();
 			affectedRowCount = fileManager.deleteFile(fileIdList);
 			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
