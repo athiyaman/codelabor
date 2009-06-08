@@ -54,7 +54,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 				stringBuilder.append(", ");
 			}
 		}
-		log.debug(stringBuilder.toString());
+		logger.debug(stringBuilder.toString());
 	}
 
 	public void dumpReturn(JoinPoint joinPoint, Object returnObject) {
@@ -70,7 +70,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 		stringBuilder.append("return: ");
 		stringBuilder.append(returnObject);
 
-		log.debug(stringBuilder.toString());
+		logger.debug(stringBuilder.toString());
 	}
 
 	public void dumpException(JoinPoint joinPoint, Exception exception) {
@@ -147,8 +147,8 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 		stringBuilder.append("-----------------------");
 		stringBuilder.append(System.getProperty("line.separator"));
 
-		if (log.isErrorEnabled()) {
-			log.error(stringBuilder.toString());
+		if (logger.isErrorEnabled()) {
+			logger.error(stringBuilder.toString());
 		}
 	}
 
@@ -179,7 +179,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 		stringBuilder.append("total time (millis): ").append(
 				stopWatch.getTotalTimeMillis());
 
-		log.debug(stringBuilder.toString());
+		logger.debug(stringBuilder.toString());
 		return returnValue;
 	}
 }

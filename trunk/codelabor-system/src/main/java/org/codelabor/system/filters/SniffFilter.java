@@ -246,8 +246,8 @@ public class SniffFilter extends BaseFilterImpl {
 
 		}
 
-		if (log.isDebugEnabled()) {
-			log.debug(stringBuilder.toString());
+		if (logger.isDebugEnabled()) {
+			logger.debug(stringBuilder.toString());
 		}
 
 		filterChain.doFilter(request, response);

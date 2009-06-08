@@ -36,11 +36,11 @@ import org.apache.commons.logging.LogFactory;
  */
 public abstract class BaseFilterImpl implements Filter {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Log logger = LogFactory.getLog(this.getClass());
 	protected ServletContext servletContext;
 
 	public void destroy() {
-		log.debug("destroy()");
+		logger.debug("destroy()");
 	}
 
 	public abstract void doFilter(ServletRequest request,
@@ -48,7 +48,7 @@ public abstract class BaseFilterImpl implements Filter {
 			throws IOException, ServletException;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.debug("init()");
+		logger.debug("init()");
 		this.servletContext = filterConfig.getServletContext();
 	}
 }

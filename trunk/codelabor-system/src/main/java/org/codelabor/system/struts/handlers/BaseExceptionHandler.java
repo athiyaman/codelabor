@@ -9,7 +9,7 @@ import anyframe.core.properties.IPropertiesService;
 
 public class BaseExceptionHandler extends ExceptionHandler {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Log logger = LogFactory.getLog(this.getClass());
 	protected String loggerName = this.getClass().getName();
 	protected MessageSource messageSource;
 	protected IPropertiesService propertiesService;
@@ -28,7 +28,7 @@ public class BaseExceptionHandler extends ExceptionHandler {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.log = LogFactory.getLog(loggerName);
+		this.logger = LogFactory.getLog(loggerName);
 	}
 
 	public void setMessageSource(MessageSource messageSource) {

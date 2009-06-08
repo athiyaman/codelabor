@@ -26,6 +26,6 @@ import org.apache.commons.logging.LogFactory;
  */
 public class BaseListener {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Log logger = LogFactory.getLog(this.getClass());
 
 }

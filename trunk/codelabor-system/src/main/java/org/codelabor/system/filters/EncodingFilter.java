@@ -21,7 +21,7 @@ public class EncodingFilter extends BaseFilterImpl {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
-		log.debug("doFilter()");
+		logger.debug("doFilter()");
 		request.setCharacterEncoding(encoding);
 		filterChain.doFilter(request, response);
 	}

@@ -10,7 +10,7 @@ import anyframe.core.properties.IPropertiesService;
 
 public class BaseActionSupport extends ActionSupport {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Log logger = LogFactory.getLog(this.getClass());
 	protected IPropertiesService propertiesService;
 	protected MessageSource messageSource;
 	protected WebApplicationContext webApplicationContext;	

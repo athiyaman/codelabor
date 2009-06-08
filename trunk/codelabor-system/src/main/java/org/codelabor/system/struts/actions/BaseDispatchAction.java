@@ -6,5 +6,5 @@ import org.apache.struts.actions.DispatchAction;
 
 public class BaseDispatchAction extends DispatchAction {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Log logger = LogFactory.getLog(this.getClass());
 }

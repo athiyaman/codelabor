@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 public class AnyframeDataSourceSpy implements DataSource {
 	private DataSource dataSource = null;
 
-	static final SpyLogDelegator log = SpyLogFactory.getSpyLogDelegator();
+	static final SpyLogDelegator logger = SpyLogFactory.getSpyLogDelegator();
 
 	static RdbmsSpecifics defaultRdbmsSpecifics = new RdbmsSpecifics();
 
@@ -43,7 +43,7 @@ public class AnyframeDataSourceSpy implements DataSource {
 	}
 
 	private Connection getWrappedConnection(Connection con) {
-		if (log.isJdbcLoggingEnabled()) {
+		if (logger.isJdbcLoggingEnabled()) {
 			ConnectionSpy cspy = new ConnectionSpy(con);
 			cspy.setRdbmsSpecifics(defaultRdbmsSpecifics);
 			return cspy;

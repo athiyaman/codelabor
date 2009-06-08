@@ -6,5 +6,5 @@ import org.apache.struts.action.Action;
 
 public class BaseAction extends Action {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Log logger = LogFactory.getLog(this.getClass());
 }
