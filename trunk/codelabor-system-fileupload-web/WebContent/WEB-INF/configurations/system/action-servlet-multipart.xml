@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="fileUploadController"
+		class="org.codelabor.example.spring.controllers.CreatePostController">
+		<property name="commandName" value="fileDTO"/>
+		<property name="commandClass" value="org.codelabor.example.dtos.PostDTO"/>
+		<property name="formView" value="example/multipart/create"/>
+		<property name="successView" value="example/multipart/list"/>
+	</bean>
+
+	<bean
+		id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600"/>
+	</bean>
+</beans>
