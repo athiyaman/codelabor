@@ -65,11 +65,6 @@
 						<h3>Upload (FILE SYSTEM)</h3>
 						<p></p>
 						<form:form method="post" enctype="multipart/form-data">
-						<!--
-						<form
-							action="<c:url value='/servlet/example/file/uploadFile?method=uploadStream&repositoryType=FILE_SYSTEM'/>"
-							method="post" enctype="multipart/form-data">
-							 -->
 							<table>
 								<tr class="a">
 									<th>param1</th>
@@ -91,9 +86,6 @@
 							<hr />
 							<input type="reset" value="reset" />
 							<input type="submit" value="upload" />
-						<!-- 
-						</form>
-						-->
 						</form:form>
 					</div>
 					
@@ -101,11 +93,6 @@
 						<h3>Upload (DATABASE)</h3>
 						<p></p>
 						<form:form method="post" enctype="multipart/form-data">
-						<!--
-						<form
-							action="<c:url value='/servlet/example/file/uploadFile?method=uploadStream&repositoryType=DATABASE'/>"
-							method="post" enctype="multipart/form-data">
-							-->
 							<table>
 								<tr class="a">
 									<th>param1</th>
@@ -127,9 +114,6 @@
 							<hr />
 							<input type="reset" value="reset" />
 							<input type="submit" value="upload" />
-						<!--  
-						</form>
-						-->
 						</form:form>
 					</div>
 				</div>
