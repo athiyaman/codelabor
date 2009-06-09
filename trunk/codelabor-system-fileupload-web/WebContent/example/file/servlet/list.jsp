@@ -56,8 +56,8 @@
 								</tbody>
 							</table>
 							<hr />
-							<input type="reset" value="reset" />
-							<input type="submit" value="delete" />
+							<input type="reset" value="Reset" />
+							<input type="submit" value="Delete" />
 						</form>
 					</div>
 					
@@ -86,8 +86,8 @@
 								</tr>
 							</table>
 							<hr />
-							<input type="reset" value="reset" />
-							<input type="submit" value="upload" />
+							<input type="reset" value="Reset" />
+							<input type="submit" value="Upload" />
 						</form>
 					</div>
 					
@@ -116,8 +116,8 @@
 								</tr>
 							</table>
 							<hr />
-							<input type="reset" value="reset" />
-							<input type="submit" value="upload" />
+							<input type="reset" value="Reset" />
+							<input type="submit" value="Upload" />
 						</form>
 					</div>
 				</div>

@@ -62,7 +62,7 @@
 							</table>
 							<hr />
 							<html:reset />
-							<html:submit>delete</html:submit>
+							<html:submit>Delete</html:submit>
 						</html:form>
 					</div>
 					
@@ -92,7 +92,7 @@
 							</table>
 							<hr />
 							<html:reset />
-							<html:submit>upload</html:submit>
+							<html:submit>Upload</html:submit>
 						</html:form>
 					</div>
 					
@@ -122,7 +122,7 @@
 							</table>
 							<hr />
 							<html:reset />
-							<html:submit>upload</html:submit>
+							<html:submit>Upload</html:submit>
 						</html:form>
 					</div>
 				</div>
