@@ -24,19 +24,19 @@
 					<div class="section">
 						<h3>Servlet</h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/example/file/uploadFile?method=list'/>" target="_blank">[test]</a></li>
+							<li><a href="<c:url value='/servlet/example/file/uploadFile?method=list'/>" target="_blank"><c:url value='/servlet/example/file/uploadFile?method=list'/></a></li>
 						</ul>
 					</div>
 					<div class="section">
 						<h3>Struts</h3>
 						<ul>
-							<li><a href="<c:url value='/example/file/uploadFile.do?method=list'/>" target="_blank">[test]</a></li>
+							<li><a href="<c:url value='/example/file/uploadFile.do?method=list'/>" target="_blank"><c:url value='/example/file/uploadFile.do?method=list'/></a></li>
 						</ul>
 					</div>
 										<div class="section">
 						<h3>Spring MVC</h3>
 						<ul>
-							<li><a href="<c:url value='/example/file/uploadFile.form?method=list'/>" target="_blank">[test]</a></li>
+							<li><a href="<c:url value='/example/file/uploadFile.form?method=list'/>" target="_blank"><c:url value='/example/file/uploadFile.form?method=list'/></a></li>
 						</ul>
 					</div>
 				</div>

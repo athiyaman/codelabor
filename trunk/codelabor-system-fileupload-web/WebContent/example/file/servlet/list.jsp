@@ -67,8 +67,8 @@
 						<form
 							action="<c:url value='/servlet/example/file/uploadFile?method=uploadStream&repositoryType=FILE_SYSTEM'/>"
 							method="post" enctype="multipart/form-data">
-							<table>
-								<tr class="a">
+							<table class="bodyTable">
+								<tr class="b">
 									<th>param1</th>
 									<td><input type="text" name="param1" value="값1"/></td>
 								</tr>
@@ -76,7 +76,7 @@
 									<th>param2</th>
 									<td><input type="text" name="param2" value="value2"/></td>
 								</tr>		
-								<tr class="a">
+								<tr class="b">
 									<th>files</th>
 									<td>
 										<input type="file" name="file[0]" /><br/>
@@ -97,8 +97,8 @@
 						<form
 							action="<c:url value='/servlet/example/file/uploadFile?method=uploadStream&repositoryType=DATABASE'/>"
 							method="post" enctype="multipart/form-data">
-							<table>
-								<tr class="a">
+							<table class="bodyTable">
+								<tr class="b">
 									<th>param1</th>
 									<td><input type="text" name="param1" value="값1"/></td>
 								</tr>
@@ -106,7 +106,7 @@
 									<th>param2</th>
 									<td><input type="text" name="param2" value="value2"/></td>
 								</tr>		
-								<tr class="a">
+								<tr class="b">
 									<th>files</th>
 									<td>
 										<input type="file" name="file[0]" /><br/>
