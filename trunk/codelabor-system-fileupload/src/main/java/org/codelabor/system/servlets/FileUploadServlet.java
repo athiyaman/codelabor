@@ -46,12 +46,12 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
-public class UploadServlet extends HttpServlet {
+public class FileUploadServlet extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
-	private final Log log = LogFactory.getLog(UploadServlet.class);
+	private final Log log = LogFactory.getLog(FileUploadServlet.class);
 
 	protected static final String contentType = "Application/octet-stream";
 	protected static final String responseHeaderName = "Content-Disposition";
@@ -173,35 +173,40 @@ public class UploadServlet extends HttpServlet {
 		}
 	}
 
-	protected FileDTO processFile(FileItem item) throws Exception {
-		if (item.getName() == null || item.getName().length() == 0)
+	protected FileDTO processFile(RepositoryType repositoryType,
+			FileItem fileItem) throws Exception {
+		if (fileItem.getName() == null || fileItem.getName().length() == 0)
 			return null;
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(item.getName());
+		fileDTO.setRealFileName(fileItem.getName());
 		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setContentType(item.getContentType());
+		fileDTO.setContentType(fileItem.getContentType());
 		fileDTO.setRepositoryPath(realRepositoryPath);
 		if (log.isDebugEnabled()) {
 			log.debug(fileDTO);
 		}
-		UploadUtil.processFile(repositoryType, item.getInputStream(), fileDTO);
+		UploadUtil.processFile(repositoryType, fileItem.getInputStream(),
+				fileDTO);
 		return fileDTO;
 	}
 
-	protected FileDTO processFile(FileItemStream item) throws Exception {
-		if (item.getName() == null || item.getName().length() == 0)
+	protected FileDTO processFile(RepositoryType repositoryType,
+			FileItemStream fileItemStream) throws Exception {
+		if (fileItemStream.getName() == null
+				|| fileItemStream.getName().length() == 0)
 			return null;
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(item.getName());
+		fileDTO.setRealFileName(fileItemStream.getName());
 		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setContentType(item.getContentType());
+		fileDTO.setContentType(fileItemStream.getContentType());
 		fileDTO.setRepositoryPath(realRepositoryPath);
 		if (log.isDebugEnabled()) {
 			log.debug(fileDTO);
 		}
-		UploadUtil.processFile(repositoryType, item.openStream(), fileDTO);
+		UploadUtil.processFile(repositoryType, fileItemStream.openStream(),
+				fileDTO);
 		return fileDTO;
 	}
 
@@ -217,9 +222,10 @@ public class UploadServlet extends HttpServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
+		RepositoryType acceptedRepositoryType = repositoryType;
 		String _repositoryType = request.getParameter("repositoryType");
 		if (_repositoryType != null && _repositoryType.length() > 0) {
-			repositoryType = RepositoryType.valueOf(_repositoryType);
+			acceptedRepositoryType = RepositoryType.valueOf(_repositoryType);
 		}
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
@@ -240,7 +246,7 @@ public class UploadServlet extends HttpServlet {
 						paramMap.put(item.getFieldName(), Streams.asString(item
 								.openStream(), characterEncoding));
 					} else {
-						fileDTO = processFile(item);
+						fileDTO = processFile(acceptedRepositoryType, item);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
@@ -267,9 +273,10 @@ public class UploadServlet extends HttpServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
+		RepositoryType acceptedRepositoryType = repositoryType;
 		String _repositoryType = request.getParameter("repositoryType");
 		if (_repositoryType != null && _repositoryType.length() > 0) {
-			repositoryType = RepositoryType.valueOf(_repositoryType);
+			acceptedRepositoryType = RepositoryType.valueOf(_repositoryType);
 		}
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
@@ -296,7 +303,7 @@ public class UploadServlet extends HttpServlet {
 						paramMap.put(item.getFieldName(), item
 								.getString(characterEncoding));
 					} else {
-						fileDTO = processFile(item);
+						fileDTO = processFile(acceptedRepositoryType, item);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
