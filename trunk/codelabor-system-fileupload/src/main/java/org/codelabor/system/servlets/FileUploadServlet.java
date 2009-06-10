@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
@@ -182,25 +181,6 @@ public class FileUploadServlet extends HttpServlet {
 			log.debug(fileDTO);
 		}
 		UploadUtil.processFile(repositoryType, fileItem.getInputStream(),
-				fileDTO);
-		return fileDTO;
-	}
-
-	protected FileDTO processFile(RepositoryType repositoryType,
-			FileItemStream fileItemStream) throws Exception {
-		if (fileItemStream.getName() == null
-				|| fileItemStream.getName().length() == 0)
-			return null;
-		// set DTO
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(fileItemStream.getName());
-		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setContentType(fileItemStream.getContentType());
-		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		UploadUtil.processFile(repositoryType, fileItemStream.openStream(),
 				fileDTO);
 		return fileDTO;
 	}

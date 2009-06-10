@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.RepositoryType;
 import org.codelabor.system.dtos.FileDTO;
 import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.UploadUtil;
 
 public class FileUploadStreamServlet extends FileUploadServlet {
 
@@ -73,5 +74,24 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 		}
 		dispatch(request, response, forwardPathUpload);
 
+	}
+
+	protected FileDTO processFile(RepositoryType repositoryType,
+			FileItemStream fileItemStream) throws Exception {
+		if (fileItemStream.getName() == null
+				|| fileItemStream.getName().length() == 0)
+			return null;
+		// set DTO
+		FileDTO fileDTO = new FileDTO();
+		fileDTO.setRealFileName(fileItemStream.getName());
+		fileDTO.setUniqueFileName(getUniqueFileName());
+		fileDTO.setContentType(fileItemStream.getContentType());
+		fileDTO.setRepositoryPath(realRepositoryPath);
+		if (log.isDebugEnabled()) {
+			log.debug(fileDTO);
+		}
+		UploadUtil.processFile(repositoryType, fileItemStream.openStream(),
+				fileDTO);
+		return fileDTO;
 	}
 }
