@@ -4,21 +4,21 @@
 
 	<!-- sniffer filter -->
 	<filter>
-		<filter-name>sniffer-filter</filter-name>
+		<filter-name>snifferFilter</filter-name>
 		<filter-class>org.codelabor.system.filters.SnifferFilter</filter-class>
 	</filter>	
 	<filter-mapping>
-		<filter-name>sniffer-filter</filter-name>
+		<filter-name>snifferFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
   
 	<!-- sniffer servlet -->
   	<servlet>
-  		<servlet-name>sniffer-servlet</servlet-name>
+  		<servlet-name>snifferServlet</servlet-name>
   		<servlet-class>org.codelabor.system.servlets.SnifferServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-  		<servlet-name>sniffer-servlet</servlet-name>
+  		<servlet-name>snifferServlet</servlet-name>
 		<url-pattern>/servlet/snifferServlet</url-pattern>
 	</servlet-mapping>
 	  

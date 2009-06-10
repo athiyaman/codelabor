@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import anyframe.common.util.StringUtil;
+
 /**
  * @author bomber
  * 
@@ -30,7 +32,7 @@ public class EncodingFilter extends BaseFilterImpl {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
 		String tempEncoding = filterConfig.getInitParameter("encoding");
-		if (tempEncoding != null && tempEncoding.length() > 0)
+		if (StringUtil.isNotEmpty(tempEncoding))
 			encoding = tempEncoding;
 	}
 }

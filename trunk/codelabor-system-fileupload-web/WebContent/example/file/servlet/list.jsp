@@ -65,7 +65,7 @@
 						<h3>Upload (FILE SYSTEM)</h3>
 						<p></p>
 						<form
-							action="<c:url value='/servlet/example/file/uploadFile?method=uploadStream&repositoryType=FILE_SYSTEM'/>"
+							action="<c:url value='/servlet/example/file/uploadFile?method=upload&repositoryType=FILE_SYSTEM'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
@@ -95,7 +95,7 @@
 						<h3>Upload (DATABASE)</h3>
 						<p></p>
 						<form
-							action="<c:url value='/servlet/example/file/uploadFile?method=uploadStream&repositoryType=DATABASE'/>"
+							action="<c:url value='/servlet/example/file/uploadFile?method=upload&repositoryType=DATABASE'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">

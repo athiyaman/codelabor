@@ -14,6 +14,7 @@ import org.codelabor.system.utils.UploadUtil;
 
 import xecure.file.XecureFileInputStream;
 import xecure.servlet.XecureServlet;
+import anyframe.common.util.StringUtil;
 
 public class XecureFileUploadServlet extends FileUploadServlet {
 
@@ -33,9 +34,9 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		Map paramMap = xecureServlet.request.getParameterMap();
 
 		RepositoryType acceptedRepositoryType = repositoryType;
-		String _repositoryType = (String) paramMap.get("repositoryType");
-		if (_repositoryType != null) {
-			acceptedRepositoryType = RepositoryType.valueOf(_repositoryType);
+		String tempRepositoryType = request.getParameter("repositoryType");
+		if (StringUtil.isNotEmpty(tempRepositoryType)) {
+			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
 		}
 
 		FileDTO fileDTO = processFile(acceptedRepositoryType,

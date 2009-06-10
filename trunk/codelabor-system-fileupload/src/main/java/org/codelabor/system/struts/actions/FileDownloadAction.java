@@ -17,6 +17,8 @@ import org.codelabor.system.managers.FileManager;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import anyframe.common.util.StringUtil;
+
 public class FileDownloadAction extends
 		org.apache.struts.actions.DownloadAction {
 
@@ -50,7 +52,7 @@ public class FileDownloadAction extends
 		String realFileName = fileDTO.getRealFileName();
 
 		// FILE_SYSTEM
-		if (repositoryPath != null && repositoryPath.length() > 0) {
+		if (StringUtil.isNotEmpty(repositoryPath)) {
 			stringBuilder = new StringBuilder();
 			stringBuilder.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {

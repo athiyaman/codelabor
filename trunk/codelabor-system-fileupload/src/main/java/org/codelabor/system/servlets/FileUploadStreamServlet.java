@@ -17,6 +17,8 @@ import org.codelabor.system.dtos.FileDTO;
 import org.codelabor.system.utils.RequestUtil;
 import org.codelabor.system.utils.UploadUtil;
 
+import anyframe.common.util.StringUtil;
+
 public class FileUploadStreamServlet extends FileUploadServlet {
 
 	/**
@@ -32,9 +34,9 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
 		RepositoryType acceptedRepositoryType = repositoryType;
-		String _repositoryType = (String) paramMap.get("repositoryType");
-		if (_repositoryType != null) {
-			acceptedRepositoryType = RepositoryType.valueOf(_repositoryType);
+		String tempRepositoryType = (String) paramMap.get("repositoryType");
+		if (StringUtil.isNotEmpty(tempRepositoryType)) {
+			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
 		}
 
 		if (isMultipart) {

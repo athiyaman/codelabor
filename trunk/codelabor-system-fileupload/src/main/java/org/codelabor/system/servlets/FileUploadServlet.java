@@ -40,6 +40,7 @@ import org.codelabor.system.utils.UploadUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
@@ -200,9 +201,9 @@ public class FileUploadServlet extends HttpServlet {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
 		RepositoryType acceptedRepositoryType = repositoryType;
-		String _repositoryType = (String) paramMap.get("repositoryType");
-		if (_repositoryType != null) {
-			acceptedRepositoryType = RepositoryType.valueOf(_repositoryType);
+		String tempRepositoryType = (String) paramMap.get("repositoryType");
+		if (StringUtil.isNotEmpty(tempRepositoryType)) {
+			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
 		}
 
 		if (isMultipart) {
@@ -295,7 +296,7 @@ public class FileUploadServlet extends HttpServlet {
 		String uniqueFileName = fileDTO.getUniqueFileName();
 		String realFileName = fileDTO.getRealFileName();
 		InputStream inputStream = null;
-		if (repositoryPath != null && repositoryPath.length() > 0) {
+		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
 			stringBuilder = new StringBuilder();
 			stringBuilder.append(repositoryPath);
