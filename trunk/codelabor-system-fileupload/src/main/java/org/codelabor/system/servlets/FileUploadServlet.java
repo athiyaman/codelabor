@@ -66,8 +66,8 @@ public class FileUploadServlet extends HttpServlet {
 	protected FileCleaningTracker fileCleaningTracker;
 	protected FileUploadProgressListener fileUploadProgressListener;
 
-	enum Parameter {
-		upload, uploadStream, download, list, read, delete
+	public enum Parameter {
+		upload, download, list, read, delete
 	};
 
 	// service
@@ -144,9 +144,6 @@ public class FileUploadServlet extends HttpServlet {
 			switch (Parameter.valueOf(parameterValue)) {
 			case upload:
 				this.upload(request, response);
-				break;
-			case uploadStream:
-				this.uploadStream(request, response);
 				break;
 			case download:
 				this.download(request, response);
