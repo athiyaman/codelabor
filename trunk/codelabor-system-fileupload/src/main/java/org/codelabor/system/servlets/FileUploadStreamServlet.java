@@ -28,13 +28,13 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
 		RepositoryType acceptedRepositoryType = repositoryType;
-		String _repositoryType = request.getParameter("repositoryType");
-		if (_repositoryType != null && _repositoryType.length() > 0) {
+		String _repositoryType = (String) paramMap.get("repositoryType");
+		if (_repositoryType != null) {
 			acceptedRepositoryType = RepositoryType.valueOf(_repositoryType);
 		}
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 
 		if (isMultipart) {
 			ServletFileUpload upload = new ServletFileUpload();
