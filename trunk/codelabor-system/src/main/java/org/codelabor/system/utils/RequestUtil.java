@@ -82,8 +82,14 @@ public class RequestUtil {
 		while (paramEnum.hasMoreElements()) {
 			String paramName = paramEnum.nextElement();
 			String[] paramValues = request.getParameterValues(paramName);
-			List paramValueList = Arrays.asList(paramValues);
-			paramMap.put(paramName, paramValueList);
+			if (paramValues == null) {
+				paramMap.put(paramName, null);
+			} else if (paramValues.length == 1) {
+				paramMap.put(paramName, paramValues[0]);
+			} else {
+				List paramValueList = Arrays.asList(paramValues);
+				paramMap.put(paramName, paramValueList);
+			}
 		}
 		return paramMap;
 	}
