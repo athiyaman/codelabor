@@ -18,6 +18,11 @@ public class MenuItemDTO implements Serializable {
 	private static final long serialVersionUID = 3253325473887636189L;
 	private String id;
 	private String href;
+
+	public List<MenuItemDTO> getChildMenuItemDTOList() {
+		return childMenuItemDTOList;
+	}
+
 	private String labelKey;
 	private String target = "_blank";
 	private boolean isEnable = true;
