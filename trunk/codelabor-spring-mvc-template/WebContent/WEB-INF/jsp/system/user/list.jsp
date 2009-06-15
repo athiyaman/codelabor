@@ -2,5 +2,5 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
 					
-					<h2>Home</h2>
+					<h2>User List</h2>
 					<p>main page</p>

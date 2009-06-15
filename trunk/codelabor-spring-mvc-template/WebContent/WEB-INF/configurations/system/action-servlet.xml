@@ -31,5 +31,10 @@
 		id="system.homeController" 
 		class="org.codelabor.system.spring.controllers.HomeController">
 		<property name="homeView" value="system.home.definition"/>
-	</bean>	
+	</bean>
+	<bean 
+		id="system.userController" 
+		class="org.codelabor.system.spring.controllers.UserController">
+		<property name="listView" value="system.user.list.definition"/>
+	</bean>		
 </beans>

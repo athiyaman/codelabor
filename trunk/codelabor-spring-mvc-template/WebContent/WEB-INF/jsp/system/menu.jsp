@@ -1,41 +1,26 @@
-				<h5>Project Documentation</h5>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
+				
+				<h5>Manage</h5>
 				<ul>
 					<li class="expanded">
-						<a href="project-info.html">Project Information</a>
+						<a href="<c:url value='/system/user.do'/>">User Management</a>
+						<!--  
 						<ul>
 							<li class="none">
 								<strong>About</strong>
 							</li>
 							<li class="none">
-								<a href="integration.html">Continuous Integration</a>
-							</li>
-							<li class="none">
-								<a href="dependencies.html">Dependencies</a>
-							</li>
-							<li class="none">
-								<a href="issue-tracking.html">Issue Tracking</a>
-							</li>
-							<li class="none">
-								<a href="mail-lists.html">Mailing Lists</a>
-							</li>
-							<li class="none">
-								<a href="plugin-management.html">Plugin Management</a>
-							</li>
-							<li class="none">
-								<a href="license.html">Project License</a>
-							</li>
-							<li class="none">
-								<a href="plugins.html">Project Plugins</a>
-							</li>
-							<li class="none">
-								<a href="project-summary.html">Project Summary</a>
-							</li>
-							<li class="none">
-								<a href="team-list.html">Project Team</a>
-							</li>
-							<li class="none">
-								<a href="source-repository.html">Source Repository</a>
+								<a href="">Continuous Integration</a>
 							</li>
 						</ul>
+						-->
 					</li>
+					<li class="expanded">
+						<a href="">User Roles</a>
+					</li>
+					<li class="expanded">
+						<a href="">Appearance</a>
+					</li>									
 				</ul>
