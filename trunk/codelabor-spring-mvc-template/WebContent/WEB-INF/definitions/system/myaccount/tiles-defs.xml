@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="system.myaccount.definition" extends="default.definition">
+    	<put-attribute name="title"  value="My Account"/>
+		<put-attribute name="header" value="/WEB-INF/jsp/system/my-account/header.jsp"/>    	
+		<put-attribute name="menu"   value="/WEB-INF/jsp/system/my-account/menu.jsp"/>
+		<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/body.jsp"/>
+	</definition>
+	<definition name="system.myaccount.home.definition" extends="system.myaccount.definition">
+    	<put-attribute name="title"  value="home"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/myaccount/home.jsp"/>
+	</definition>
+</tiles-definitions>

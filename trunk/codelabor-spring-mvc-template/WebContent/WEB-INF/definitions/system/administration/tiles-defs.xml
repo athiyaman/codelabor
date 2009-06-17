@@ -3,12 +3,11 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-	<definition name="system.administration.definition" template="/WEB-INF/jsp/system/administration/layout.jsp">
+	<definition name="system.administration.definition" extends="default.definition">
     	<put-attribute name="title"  value="Administration"/>
 		<put-attribute name="header" value="/WEB-INF/jsp/system/administration/header.jsp"/>
 		<put-attribute name="menu"   value="/WEB-INF/jsp/system/administration/menu.jsp"/>
 		<put-attribute name="body"   value="/WEB-INF/jsp/system/administration/body.jsp"/>
-		<put-attribute name="footer"   value="/WEB-INF/jsp/system/administration/footer.jsp"/>
 	</definition>
 	<definition name="system.administration.home.definition" extends="system.administration.definition">
     	<put-attribute name="title"  value="home"/>
