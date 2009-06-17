@@ -11,6 +11,6 @@
 	</definition>
 	<definition name="system.myaccount.home.definition" extends="system.myaccount.definition">
     	<put-attribute name="title"  value="home"/>
-    	<put-attribute name="body"   value="/WEB-INF/jsp/system/myaccount/home.jsp"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/home.jsp"/>
 	</definition>
 </tiles-definitions>
