@@ -10,8 +10,8 @@
 	 		<div class="xleft">Last Published: XXXX-XX-XX</div>
 			<div class="xright">
 				<a href="<c:url value='/example/home.do'/>">example</a> |
-				<a href="<c:url value='/system/home.do'/>">system</a> |
-				<a href="<c:url value='/system/personal/home.do'/>">my account</a>
+				<a href="<c:url value='/system/administration/home.do'/>">system</a> |
+				<a href="<c:url value='/system/my-account/home.do'/>">my account</a>
 			</div>
 		  	<div class="clear"><hr/></div>
 		</div>
