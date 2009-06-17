@@ -8,7 +8,7 @@
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/system/home.do" value-ref="system.homeController"/>			
+				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>			
 			</map>
 		</property>
 	</bean>
@@ -28,13 +28,8 @@
 	</bean>
 	
 	<bean 
-		id="system.homeController" 
+		id="system.administration.homeController" 
 		class="org.codelabor.system.spring.controllers.HomeController">
-		<property name="homeView" value="system.home.definition"/>
+		<property name="homeView" value="system.administration.home.definition"/>
 	</bean>
-	<bean 
-		id="system.userController" 
-		class="org.codelabor.system.spring.controllers.UserController">
-		<property name="listView" value="system.user.list.definition"/>
-	</bean>		
 </beans>
