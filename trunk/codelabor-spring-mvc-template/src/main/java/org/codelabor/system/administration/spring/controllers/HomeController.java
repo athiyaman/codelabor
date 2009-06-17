@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.codelabor.system.spring.controllers;
+package org.codelabor.system.administration.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.Controller;
  * @author bomber
  * 
  */
-public class UserController implements Controller {
+public class HomeController implements Controller {
 
 	/*
 	 * (non-Javadoc)
@@ -24,17 +24,17 @@ public class UserController implements Controller {
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		return new ModelAndView(getListView());
+		return new ModelAndView(getSuccessView());
 	}
 
-	private String listView;
+	private String successView;
 
-	public String getListView() {
-		return listView;
+	public String getSuccessView() {
+		return successView;
 	}
 
-	public void setListView(String listView) {
-		this.listView = listView;
+	public void setSuccessView(String successView) {
+		this.successView = successView;
 	}
 
 }

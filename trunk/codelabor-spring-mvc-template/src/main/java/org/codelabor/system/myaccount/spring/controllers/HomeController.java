@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.codelabor.system.spring.controllers;
+package org.codelabor.system.myaccount.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,17 +24,17 @@ public class HomeController implements Controller {
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		return new ModelAndView(getHomeView());
+		return new ModelAndView(getSuccessView());
 	}
 
-	private String homeView;
+	private String successView;
 
-	public String getHomeView() {
-		return homeView;
+	public String getSuccessView() {
+		return successView;
 	}
 
-	public void setHomeView(String homeView) {
-		this.homeView = homeView;
+	public void setSuccessView(String successView) {
+		this.successView = successView;
 	}
 
 }
