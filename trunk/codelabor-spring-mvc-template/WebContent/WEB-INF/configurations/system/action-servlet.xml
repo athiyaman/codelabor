@@ -6,10 +6,16 @@
 	<bean
 		id="defaultUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="themeChangeInterceptor"/>
+			</list>
+		</property>		
 		<property name="mappings">
 			<map>
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
 				<entry key="/system/my-account/home.do" value-ref="system.myaccount.homeController"/>
+				<entry key="/system/my-account/theme/home.do" value-ref="system.myaccount.theme.homeController"/>
 			</map>
 		</property>
 	</bean>
