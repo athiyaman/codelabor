@@ -1,10 +1,11 @@
 body {
   padding: 0px 0px 10px 0px;
+  color: white;
 }
 body, td, select, input, li{
   font-family: Verdana, Helvetica, Arial, sans-serif;
   font-size: 13px;
-  background-color: black;
+  background-color: #2C2F38;
 }
 code{
   font-family: Courier, monospace;
@@ -14,13 +15,13 @@ a {
   text-decoration: none;
 }
 a:link {
-  color:#36a;
+  color:#F15721;
 }
 a:visited  {
-  color:#47a;
+  color:#D55C23;
 }
 a:active, a:hover {
-  color:#69c;
+  color:#F7CA4D;
 }
 #legend li.externalLink {
   background: url(../images/external.png) left top no-repeat;
@@ -41,30 +42,30 @@ a.newWindow, a.newWindow:link, a.newWindow:visited, a.newWindow:active, a.newWin
 h2 {
   padding: 4px 4px 4px 6px;
   border: 1px solid #999;
-  color: #900;
-  background-color: #ddd;
+  color: #FF6628;
+  background-color: #1F1F1F;
   font-weight:900;
   font-size: x-large;
 }
 h3 {
   padding: 4px 4px 4px 6px;
   border: 1px solid #aaa;
-  color: #900;
-  background-color: #eee;
+  color: #FF6628;
+  background-color: #1F1F1F;
   font-weight: normal;
   font-size: large;
 }
 h4 {
   padding: 4px 4px 4px 6px;
   border: 1px solid #bbb;
-  color: #900;
-  background-color: #fff;
+  color: #FF6628;
+  background-color: #1F1F1F;
   font-weight: normal;
   font-size: large;
 }
 h5 {
   padding: 4px 4px 4px 6px;
-  color: #900;
+  color: #FF6628;
   font-size: normal;
 }
 p {
@@ -74,18 +75,19 @@ p {
 #breadcrumbs {
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
-  background-color: #ccc;
+  background-color: black;
+  color: #FF6628;
 }
 #leftColumn {
   margin: 10px 0 0 5px;
   border: 1px solid #999;
-  background-color: #eee;
+  background-color: black;
 }
 #navcolumn h5 {
   font-size: smaller;
   border-bottom: 1px solid #aaaaaa;
   padding-top: 2px;
-  color: #000;
+  color: white;
 }
 
 table.bodyTable th {
