@@ -188,7 +188,11 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void dispatch(HttpServletRequest request,
 			HttpServletResponse response, String path) throws Exception {
-		log.debug("dispatch path: " + path);
+		if (log.isDebugEnabled()) {
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.append("dispatch path: ").append(path);
+			log.debug(stringBuilder.toString());
+		}
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
 				.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
@@ -223,7 +227,9 @@ public class FileUploadServlet extends HttpServlet {
 
 				while (iter.hasNext()) {
 					FileItem item = iter.next();
-					log.debug(item);
+					if (log.isDebugEnabled()) {
+						log.debug(item);
+					}
 					FileDTO fileDTO = null;
 					if (item.isFormField()) {
 						paramMap.put(item.getFieldName(), item

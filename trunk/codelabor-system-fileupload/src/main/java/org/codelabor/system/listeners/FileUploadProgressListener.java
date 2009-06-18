@@ -37,7 +37,9 @@ public class FileUploadProgressListener implements ProgressListener {
 		megaBytes = mBytes;
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("reading item: ").append(items);
-		log.info(stringBuilder.toString());
+		if (log.isInfoEnabled()) {
+			log.info(stringBuilder.toString());
+		}
 
 		stringBuilder = new StringBuilder();
 		stringBuilder.append(bytesRead);
@@ -48,6 +50,8 @@ public class FileUploadProgressListener implements ProgressListener {
 			stringBuilder.append(contentLength);
 			stringBuilder.append(" bytes have been read.");
 		}
-		log.info(stringBuilder.toString());
+		if (log.isInfoEnabled()) {
+			log.info(stringBuilder.toString());
+		}
 	}
 }

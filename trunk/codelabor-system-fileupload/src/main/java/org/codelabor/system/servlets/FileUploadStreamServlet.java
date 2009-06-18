@@ -50,7 +50,9 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 
 				while (iter.hasNext()) {
 					FileItemStream item = iter.next();
-					log.debug(item);
+					if (log.isDebugEnabled()) {
+						log.debug(item);
+					}
 					FileDTO fileDTO = null;
 					if (item.isFormField()) {
 						paramMap.put(item.getFieldName(), Streams.asString(item
