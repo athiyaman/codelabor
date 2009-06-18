@@ -1,63 +1,64 @@
-				<h5>Administration</h5>
+
+				<h5>Profile</h5>
 				<ul>
 					<li class="expanded">
-						<a href="">Notice</a>
+						<a href="">User Info</a>
 					</li>
 					<li class="expanded">
-						<a href="">FAQ</a>
-					</li>
-					<li class="expanded">
-						<a href="">Business Hours</a>
-					</li>
-					<li class="expanded">
-						<a href="">Shutdown Hours</a>
-					</li>
+						<a href="">Password</a>
+					</li>					
 				</ul>
-				<h5>Manage</h5>
+				<h5>Services</h5>
 				<ul>
 					<li class="expanded">
-						<a href="<c:url value='/system/user.do'/>">User</a>
+						<a href="">SMS</a>
 					</li>
 					<li class="expanded">
-						<a href="">Roles</a>
-					</li>
-					<li class="expanded">
-						<a href="">Menu</a>
-					</li>
-					<li class="expanded">
-						<a href="">Reference Code</a>
+						<a href="">Sign Out</a>
 					</li>					
-					<li class="expanded">
-						<a href="">Appearance</a>
-					</li>									
 				</ul>
-				<h5>Report</h5>
+				<h5>Certificates</h5>
 				<ul>
 					<li class="expanded">
-						<a href="">PKI Certificates</a>
-					</li>
-					<li class="expanded">
-						<a href="">PKI Sign</a>
-					</li>					
-					<li class="expanded">
-						<a href="">Name Check</a>
-					</li>					
-					<li class="expanded">
-						<a href="">Transaction</a>
-					</li>
-					<li class="expanded">
-						<a href="">Password Reset</a>
-					</li>					
-					<li class="expanded">
-						<a href="">Dormant Account</a>
-					</li>					
-					<li class="expanded">
-						<a href="">Access</a>
+						<a href="">History</a>
 					</li>
 				</ul>
-				<h5>Monitor</h5>
-				<ul>				
+				<h5>PKI</h5>
+				<ul>
 					<li class="expanded">
-						<a href="">Anyframe</a>
-					</li>																			
-				</ul>				
+						<a href="">registration</a>
+					</li>
+					<li class="expanded">
+						<a href="">issue</a>
+					</li>					
+					<li class="expanded">
+						<a href="">update</a>
+					</li>
+					<li class="expanded">
+						<a href="">revoke</a>
+					</li>
+					<li class="expanded">
+						<a href="">manage</a>
+					</li>					
+				</ul>
+				<h5>OTP</h5>
+				<ul>
+					<li class="expanded">
+						<a href="">registration</a>
+					</li>
+				</ul>
+				<h5>Preferences</h5>
+				<ul>
+					<li class="expanded">
+						<a href="">Locale</a>
+					</li>
+					<li class="expanded">
+						<a href="">Theme</a>
+					</li>
+					<li class="expanded">
+						<a href="">Favorites</a>
+					</li>					
+					<li class="expanded">
+						<a href="">Accounts</a>
+					</li>					
+				</ul>							

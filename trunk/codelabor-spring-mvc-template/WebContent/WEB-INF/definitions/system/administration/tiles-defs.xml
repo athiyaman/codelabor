@@ -5,7 +5,6 @@
 <tiles-definitions>
 	<definition name="system.administration.definition" extends="default.definition">
     	<put-attribute name="title"  value="Administration"/>
-		<put-attribute name="header" value="/WEB-INF/jsp/system/administration/header.jsp"/>
 		<put-attribute name="menu"   value="/WEB-INF/jsp/system/administration/menu.jsp"/>
 		<put-attribute name="body"   value="/WEB-INF/jsp/system/administration/body.jsp"/>
 	</definition>
