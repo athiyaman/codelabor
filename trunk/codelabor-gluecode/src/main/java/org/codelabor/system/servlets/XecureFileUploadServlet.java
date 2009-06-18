@@ -44,7 +44,9 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
 					xecureServlet.getXecureSession(), xecureServlet.request);
 			Map paramMap = xecureServlet.request.getParameterMap();
-			log.debug(paramMap);
+			if (log.isDebugEnabled()) {
+				log.debug(paramMap);
+			}
 
 			RepositoryType acceptedRepositoryType = repositoryType;
 			String tempRepositoryType = request.getParameter("repositoryType");
