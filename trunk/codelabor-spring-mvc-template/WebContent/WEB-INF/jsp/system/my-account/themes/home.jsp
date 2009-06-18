@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
 					
-					<h2>Theme</h2>
+					<h2>Themes</h2>
 					<p></p>
 					<div class="section">
-						<h3>Available Theme</h3>
+						<h3>Available Themes</h3>
 					</div>
 					<ul>
 						<li><a href="?theme=theme-maven">theme-maven</a></li>
