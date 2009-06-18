@@ -13,8 +13,8 @@
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.theme"/>);
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);
 		</style>
-		<link rel="stylesheet" href="/css/print.css" type="text/css" media="print" />
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/print.css" type="text/css" media="print" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body class="composite">
 		<tiles:insertAttribute name="header"/>
