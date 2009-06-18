@@ -40,7 +40,9 @@ public abstract class BaseFilterImpl implements Filter {
 	protected ServletContext servletContext;
 
 	public void destroy() {
-		log.debug("destroy()");
+		if (log.isDebugEnabled()) {
+			log.debug("destroy()");
+		}
 	}
 
 	public abstract void doFilter(ServletRequest request,
@@ -48,7 +50,9 @@ public abstract class BaseFilterImpl implements Filter {
 			throws IOException, ServletException;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.debug("init()");
+		if (log.isDebugEnabled()) {
+			log.debug("init()");
+		}
 		this.servletContext = filterConfig.getServletContext();
 	}
 }
