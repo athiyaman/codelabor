@@ -3,14 +3,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title><tiles:getAsString name="title"/></title>
 		<style type="text/css" media="all">
-	  		@import url(<c:url value="/css/maven-base.css"/>);
-	  		@import url(<c:url value="/css/maven-theme.css"/>);
-	  		@import url(<c:url value="/css/site.css"/>);
+	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.base"/>);
+	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.theme"/>);
+	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);
 		</style>
 		<link rel="stylesheet" href="/css/print.css" type="text/css" media="print" />
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

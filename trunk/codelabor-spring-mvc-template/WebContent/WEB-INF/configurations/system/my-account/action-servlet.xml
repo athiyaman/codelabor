@@ -9,8 +9,8 @@
 		<property name="successView" value="system.myaccount.home.definition"/>
 	</bean>
 	<bean 
-		id="system.myaccount.theme.homeController" 
-		class="org.codelabor.system.myaccount.theme.spring.controllers.HomeController">
-		<property name="successView" value="system.myaccount.theme.home.definition"/>
+		id="system.myaccount.themes.homeController" 
+		class="org.codelabor.system.myaccount.themes.spring.controllers.HomeController">
+		<property name="successView" value="system.myaccount.themes.home.definition"/>
 	</bean>	
 </beans>

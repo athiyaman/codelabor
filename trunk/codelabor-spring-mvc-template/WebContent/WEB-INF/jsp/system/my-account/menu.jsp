@@ -53,7 +53,7 @@
 						<a href="">Locale</a>
 					</li>
 					<li class="expanded">
-						<a href="">Theme</a>
+						<a href="">Themes</a>
 					</li>
 					<li class="expanded">
 						<a href="">Favorites</a>

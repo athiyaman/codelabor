@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.codelabor.system.myaccount.theme.spring.controllers;
+package org.codelabor.system.myaccount.themes.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
