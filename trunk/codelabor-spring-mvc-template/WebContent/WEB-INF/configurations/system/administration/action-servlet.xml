@@ -5,7 +5,7 @@
 	
 	<bean 
 		id="system.administration.homeController" 
-		class="org.codelabor.system.administration.spring.controllers.HomeController">
+		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.administration.home.definition"/>
 	</bean>
 </beans>

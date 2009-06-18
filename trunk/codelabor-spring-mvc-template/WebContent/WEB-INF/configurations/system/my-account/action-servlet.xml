@@ -5,12 +5,12 @@
 	
 	<bean 
 		id="system.myaccount.homeController" 
-		class="org.codelabor.system.myaccount.spring.controllers.HomeController">
+		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.myaccount.home.definition"/>
 	</bean>
 	<bean 
 		id="system.myaccount.themes.homeController" 
-		class="org.codelabor.system.myaccount.themes.spring.controllers.HomeController">
+		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.myaccount.themes.home.definition"/>
 	</bean>	
 </beans>
