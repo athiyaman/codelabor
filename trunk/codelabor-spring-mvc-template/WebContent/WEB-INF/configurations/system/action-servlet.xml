@@ -15,7 +15,7 @@
 			<map>
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
 				<entry key="/system/my-account/home.do" value-ref="system.myaccount.homeController"/>
-				<entry key="/system/my-account/theme/home.do" value-ref="system.myaccount.theme.homeController"/>
+				<entry key="/system/my-account/themes/home.do" value-ref="system.myaccount.themes.homeController"/>
 			</map>
 		</property>
 	</bean>
