@@ -9,10 +9,9 @@
 		<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/body.jsp"/>
 	</definition>
 	<definition name="system.myaccount.home.definition" extends="system.myaccount.definition">
-    	<put-attribute name="title"  value="home"/>
     	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/home.jsp"/>
 	</definition>
-	<definition name="system.myaccount.theme.home.definition" extends="system.myaccount.theme.definition">
+	<definition name="system.myaccount.theme.home.definition" extends="system.myaccount.definition">
     	<put-attribute name="title"  value="Theme"/>
     	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/theme/home.jsp"/>
 	</definition>	
