@@ -1,67 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-				<h5>Profile</h5>
+				<h5><spring:message code="menu.system.myAccount.profile"/></h5>
 				<ul>
 					<li class="none">
-						<a href="">User Info</a>
+						<a href="">
+							<spring:message code="menu.system.myAccount.personalInfo"/>
+						</a>
 					</li>
 					<li class="none">
-						<a href="">Password</a>
+						<a href="">
+							<spring:message code="menu.system.myAccount.changePassword"/>
+						</a>
 					</li>					
 				</ul>
-				<h5>Services</h5>
+				<h5><spring:message code="menu.system.myAccount.preferences"/></h5>
 				<ul>
 					<li class="none">
-						<a href="">SMS</a>
+						<a href="<c:url value='/system/my-account/locale/home.do'/>">
+							<spring:message code="menu.system.myAccount.locale"/>
+						</a>
 					</li>
 					<li class="none">
-						<a href="">Sign Out</a>
+						<a href="<c:url value='/system/my-account/themes/home.do'/>">
+							<spring:message code="menu.system.myAccount.themes"/>
+						</a>
+					</li>
+					<li class="none">
+						<a href="">
+							<spring:message code="menu.system.myAccount.favorites"/>
+						</a>
 					</li>					
-				</ul>
-				<h5>Certificates</h5>
-				<ul>
-					<li class="none">
-						<a href="">History</a>
-					</li>
-				</ul>
-				<h5>PKI</h5>
-				<ul>
-					<li class="none">
-						<a href="">registration</a>
-					</li>
-					<li class="none">
-						<a href="">issue</a>
-					</li>					
-					<li class="none">
-						<a href="">update</a>
-					</li>
-					<li class="none">
-						<a href="">revoke</a>
-					</li>
-					<li class="none">
-						<a href="">manage</a>
-					</li>					
-				</ul>
-				<h5>OTP</h5>
-				<ul>
-					<li class="none">
-						<a href="">registration</a>
-					</li>
-				</ul>
-				<h5>Preferences</h5>
-				<ul>
-					<li class="none">
-						<a href="<c:url value='/system/my-account/locale/home.do'/>">Locale</a>
-					</li>
-					<li class="none">
-						<a href="<c:url value='/system/my-account/themes/home.do'/>">Themes</a>
-					</li>
-					<li class="none">
-						<a href="">Favorites</a>
-					</li>					
-					<li class="none">
-						<a href="">Accounts</a>
-					</li>					
-				</ul>							
+				</ul>													
