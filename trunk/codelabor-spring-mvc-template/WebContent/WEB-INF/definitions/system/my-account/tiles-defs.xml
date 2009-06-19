@@ -12,7 +12,11 @@
     	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/home.jsp"/>
 	</definition>
 	<definition name="system.myaccount.themes.home.definition" extends="system.myaccount.definition">
-    	<put-attribute name="title"  value="Theme"/>
+    	<put-attribute name="title"  value="Themes"/>
     	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/themes/home.jsp"/>
-	</definition>	
+	</definition>
+	<definition name="system.myaccount.locale.home.definition" extends="system.myaccount.definition">
+    	<put-attribute name="title"  value="Locale"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/locale/home.jsp"/>
+	</definition>		
 </tiles-definitions>

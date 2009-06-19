@@ -12,5 +12,10 @@
 		id="system.myaccount.themes.homeController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.myaccount.themes.home.definition"/>
-	</bean>	
+	</bean>
+	<bean 
+		id="system.myaccount.locale.homeController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="system.myaccount.locale.home.definition"/>
+	</bean>		
 </beans>

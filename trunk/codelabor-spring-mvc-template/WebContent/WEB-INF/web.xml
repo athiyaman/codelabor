@@ -4,7 +4,10 @@
 	<!-- spring support -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
+		<!--  
 		<param-value>classpath*:configurations/**/applicationContext*.xml</param-value>
+		-->
+		<param-value>/WEB-INF/configurations/**/applicationContext*.xml</param-value>
 	</context-param>
 	
 	<!-- spring support -->

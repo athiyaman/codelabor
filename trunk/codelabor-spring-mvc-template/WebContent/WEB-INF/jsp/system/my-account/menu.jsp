@@ -53,7 +53,7 @@
 				<h5>Preferences</h5>
 				<ul>
 					<li class="none">
-						<a href="">Locale</a>
+						<a href="<c:url value='/system/my-account/locale/home.do'/>">Locale</a>
 					</li>
 					<li class="none">
 						<a href="<c:url value='/system/my-account/themes/home.do'/>">Themes</a>

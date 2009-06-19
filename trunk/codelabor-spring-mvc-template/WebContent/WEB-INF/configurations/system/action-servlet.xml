@@ -9,6 +9,7 @@
 		<property name="interceptors">
 			<list>
 				<ref bean="themeChangeInterceptor"/>
+				<ref bean="localeChangeInterceptor"/>
 			</list>
 		</property>		
 		<property name="mappings">
@@ -16,6 +17,7 @@
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
 				<entry key="/system/my-account/home.do" value-ref="system.myaccount.homeController"/>
 				<entry key="/system/my-account/themes/home.do" value-ref="system.myaccount.themes.homeController"/>
+				<entry key="/system/my-account/locale/home.do" value-ref="system.myaccount.locale.homeController"/>				
 			</map>
 		</property>
 	</bean>
