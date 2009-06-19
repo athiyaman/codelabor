@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean 
-		id="baseDAO"
+		id="baseDAO" abstract="true"
 		class="org.codelabor.system.daos.BaseDAOImpl">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="queryService" ref="oracleQueryService"/>

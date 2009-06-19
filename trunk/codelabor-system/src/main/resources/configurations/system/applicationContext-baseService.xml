@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean 
-		id="baseService" 
+		id="baseService" abstract="true"
 		class="org.codelabor.system.services.BaseServiceImpl">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="propertiesService" ref="propertiesService"/>
