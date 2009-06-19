@@ -11,6 +11,8 @@
 			expression="execution(public * org.codelabor..*ExceptionHandler.*(..))"/>		
 		<aop:pointcut id="actionMethod"
 			expression="execution(public * org.codelabor..*Action.*(..))"/>
+		<aop:pointcut id="controllerMethod"
+			expression="execution(public * org.codelabor..*Controller.*(..))"/>
 		<aop:pointcut id="serviceMethod"
 			expression="execution(public * org.codelabor..*Service.*(..))" />
 		<aop:pointcut id="managerMethod"
