@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 					
-					<h2>Locale</h2>
+					<h2><spring:message code="label.system.myAccount.locale"/></h2>
 					<p></p>
 					<div class="section">
 						<h3>Available Locale</h3>

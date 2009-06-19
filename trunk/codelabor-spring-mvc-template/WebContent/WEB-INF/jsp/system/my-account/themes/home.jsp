@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
 					
-					<h2>Themes</h2>
+					<h2><spring:message code="label.system.myAccount.themes"/></h2>
 					<p></p>
 					<div class="section">
 						<h3>Available Themes</h3>
