@@ -8,7 +8,15 @@
 		<property name="basenames">
 			<list>
 				<!-- system message -->
+				<value>/WEB-INF/messages/system/menu</value>
+				<value>/WEB-INF/messages/system/button</value>
+				<value>/WEB-INF/messages/system/label</value>
+				<value>/WEB-INF/messages/system/images</value>
+				<value>/WEB-INF/messages/system/messages</value>
+				<value>/WEB-INF/messages/system/errors</value>
+								
 				<value>/WEB-INF/messages/system/my-account/menu</value>
+				<value>/WEB-INF/messages/system/my-account/button</value>
 				<value>/WEB-INF/messages/system/my-account/label</value>
 				<value>/WEB-INF/messages/system/my-account/images</value>
 				<value>/WEB-INF/messages/system/my-account/messages</value>

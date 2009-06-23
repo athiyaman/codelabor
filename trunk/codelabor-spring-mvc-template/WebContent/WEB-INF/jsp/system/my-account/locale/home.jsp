@@ -7,10 +7,13 @@
 					<h2><spring:message code="label.system.myAccount.locale"/></h2>
 					<p></p>
 					<div class="section">
-						<h3>Available Locale</h3>
+						<h3><spring:message code="label.system.myAccount.locale.available"/></h3>
+						<ul>
+							<li><a href="?locale=ko">ko</a></li>
+							<li><a href="?locale=en">en</a></li>
+						</ul>
+						<p>
+						Current Locale: <%= (new RequestContext(request)).getLocale() %>
+						</p>
 					</div>
-					<ul>
-						<li><a href="?locale=ko">ko</a></li>
-						<li><a href="?locale=en">en</a></li>
-					</ul>
-					Current Locale: <%= (new RequestContext(request)).getLocale() %>
+					

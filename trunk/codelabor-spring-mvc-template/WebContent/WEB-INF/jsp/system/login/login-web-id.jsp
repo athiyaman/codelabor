@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>	
+<%@ page import="org.springframework.security.ui.AbstractProcessingFilter" %>
+<%@ page import="org.springframework.security.ui.webapp.AuthenticationProcessingFilter" %>
+<%@ page import="org.springframework.security.AuthenticationException" %>
+					
+					<h3><spring:message code="label.login.webId"/></h3>
+					<c:if test="${not empty param.login_error}">
+						<font color="red">
+						  Your login attempt was not successful, try again.<br/><br/>
+						  Reason: <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+						</font>
+					</c:if>	
+					<form name="loginForm" 
+						action="<c:url value='/j_spring_security_check'/>" method="post">
+						<table class="bodyTable">
+							<tr class="a">
+								<th>Username</th><td><input type="text" name='j_username'/></td>
+							</tr>
+							<tr class="a">
+								<th>Password</th><td><input type="password" name="j_password"/></td>
+							</tr>
+						</table>
+						<input type="submit" value="<spring:message code='button.login'/>"/>
+					</form>

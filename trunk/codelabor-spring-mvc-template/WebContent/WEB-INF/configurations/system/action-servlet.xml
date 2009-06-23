@@ -15,6 +15,7 @@
 		<property name="mappings">
 			<map>
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
+				<entry key="/system/login/home.do" value-ref="system.login.homeController"/>
 				<entry key="/system/my-account/home.do" value-ref="system.myaccount.homeController"/>
 				<entry key="/system/my-account/themes/home.do" value-ref="system.myaccount.themes.homeController"/>
 				<entry key="/system/my-account/locale/home.do" value-ref="system.myaccount.locale.homeController"/>				
@@ -32,6 +33,7 @@
 		<property name="definitions">
 			<list>
 				<value>/WEB-INF/definitions/tiles-defs.xml</value>
+				<value>/WEB-INF/definitions/system/login/tiles-defs.xml</value>
 				<value>/WEB-INF/definitions/system/administration/tiles-defs.xml</value>
 				<value>/WEB-INF/definitions/system/my-account/tiles-defs.xml</value>
 			</list>
