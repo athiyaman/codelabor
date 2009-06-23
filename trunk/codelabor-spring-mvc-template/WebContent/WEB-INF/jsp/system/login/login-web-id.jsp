@@ -23,5 +23,7 @@
 								<th>Password</th><td><input type="password" name="j_password"/></td>
 							</tr>
 						</table>
+						<input type='checkbox' name='_spring_security_remember_me'/>
+						<spring:message code="messages.login.rememberMe"/>						
 						<input type="submit" value="<spring:message code='button.login'/>"/>
 					</form>
