@@ -11,16 +11,16 @@
 		<security:intercept-url pattern="/index.*" filters="none"/>
 		<security:intercept-url pattern="/login.*" filters="none"/>
 		<security:intercept-url pattern="/system/login/home.do*" filters="none"/>
-		<security:intercept-url pattern="/system/administration/**" access="ROLE_ADMIN"/>
-		<security:intercept-url pattern="/**" access="ROLE_USER"/>
+		<security:intercept-url pattern="/system/administration/**" access="ROLE_ADMIN" requires-channel="https"/>
+		<security:intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" requires-channel="http"/>
 		<security:form-login 
 			login-page="/system/login/home.do" 
 			always-use-default-target="false" 
 			authentication-failure-url="/system/login/home.do?login_error=1"
 			default-target-url="/"
 			login-processing-url="/j_spring_security_check"/>
+		<security:logout logout-success-url="/system/login/home.do"/>
 		<security:anonymous/>
-		<security:logout/>
 		<security:remember-me/>
 		<security:concurrent-session-control/>
 		<security:x509/>
@@ -28,7 +28,7 @@
 	<security:authentication-provider>
 		<security:password-encoder hash="sha"/>
 		<security:user-service>
-			<security:user name="admin" password="d033e22ae348aeb5660fc2140aec35850c4da997" authorities="ROLE_ADMIN"/>
+			<security:user name="admin" password="d033e22ae348aeb5660fc2140aec35850c4da997" authorities="ROLE_ADMIN, ROLE_USER"/>
 			<security:user name="bomber" password="4d32bbf089a6458f046b60ba671d2ded7b475ee9" authorities="ROLE_USER"/>
 		</security:user-service>
 	</security:authentication-provider>
