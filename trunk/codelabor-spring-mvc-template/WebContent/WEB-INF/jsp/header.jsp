@@ -22,7 +22,7 @@
 			<div class="xright">
 				<a href="<c:url value='/example/home.do'/>">example</a> |
 				<a href="<c:url value='/system/administration/home.do'/>">system</a> |
-				<a href="<c:url value='/system/my-account/home.do'/>">my account</a>
+				<a href="<c:url value='/system/preperences/home.do'/>">my account</a>
 				<security:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
 					 | 
 					<a href="<c:url value='/j_spring_security_logout'/>">logout</a>

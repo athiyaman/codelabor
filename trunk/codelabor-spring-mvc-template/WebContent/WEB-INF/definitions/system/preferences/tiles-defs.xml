@@ -5,18 +5,18 @@
 <tiles-definitions>
 	<definition name="system.preferences..definition" extends="default.definition">
     	<put-attribute name="title"  value="My Account"/>
-		<put-attribute name="menu"   value="/WEB-INF/jsp/system/my-account/menu.jsp"/>
-		<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/body.jsp"/>
+		<put-attribute name="menu"   value="/WEB-INF/jsp/system/preperences/menu.jsp"/>
+		<put-attribute name="body"   value="/WEB-INF/jsp/system/preperences/body.jsp"/>
 	</definition>
 	<definition name="system.preferences..home.definition" extends="system.preferences..definition">
-    	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/home.jsp"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/preperences/home.jsp"/>
 	</definition>
 	<definition name="system.preferences..themes.home.definition" extends="system.preferences..definition">
     	<put-attribute name="title"  value="Themes"/>
-    	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/themes/home.jsp"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/preperences/themes/home.jsp"/>
 	</definition>
 	<definition name="system.preferences..locale.home.definition" extends="system.preferences..definition">
     	<put-attribute name="title"  value="Locale"/>
-    	<put-attribute name="body"   value="/WEB-INF/jsp/system/my-account/locale/home.jsp"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/preperences/locale/home.jsp"/>
 	</definition>		
 </tiles-definitions>
