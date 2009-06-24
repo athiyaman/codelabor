@@ -26,5 +26,5 @@
 						</table>
 						<input type='checkbox' name='_spring_security_remember_me'/>
 						<spring:message code="messages.login.rememberMe"/>						
-						<input type="submit" value="<spring:message code='button.login'/>"/>
+						<input type="submit" value="<spring:message code='button.login.login'/>"/>
 					</form>

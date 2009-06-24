@@ -16,18 +16,27 @@
 			<map>
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
 				<entry key="/system/login/home.do" value-ref="system.login.homeController"/>
-				<entry key="/system/preferences/home.do" value-ref="system.preferences..homeController"/>
-				<entry key="/system/preferences/themes/home.do" value-ref="system.preferences..themes.homeController"/>
-				<entry key="/system/preferences/locale/home.do" value-ref="system.preferences..locale.homeController"/>				
+				<entry key="/system/login/xecure/login.do" value-ref="system.login.xecure.loginController"/>
+				<entry key="/system/preferences/home.do" value-ref="system.preferences.homeController"/>
+				<entry key="/system/preferences/themes/home.do" value-ref="system.preferences.themes.homeController"/>
+				<entry key="/system/preferences/locale/home.do" value-ref="system.preferences.locale.homeController"/>				
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean 
-		id="tilesViewResolver" 
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
-	</bean>	
+	</bean>
+
+	<!--
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	-->
 	
 	<!-- 
 	Spring 2.5.x + Tiles 2.1.x does not work

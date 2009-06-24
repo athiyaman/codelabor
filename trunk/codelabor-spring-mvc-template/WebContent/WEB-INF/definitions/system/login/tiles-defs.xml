@@ -8,7 +8,7 @@
 		<put-attribute name="menu"   value="/WEB-INF/jsp/system/login/menu.jsp"/>
 	</definition>
 	<definition name="system.login.body.definition" template="/WEB-INF/jsp/system/login/bodyLayout.jsp">
-		<put-attribute name="left" value="/WEB-INF/jsp/system/login/login-pki.jsp"/>
+		<put-attribute name="left" value="/WEB-INF/jsp/system/login/login-pki-xecure.jsp"/>
 		<put-attribute name="right" value="/WEB-INF/jsp/system/login/login-web-id.jsp"/>
 	</definition>
 	<definition name="system.login.home.definition" extends="system.login.definition">

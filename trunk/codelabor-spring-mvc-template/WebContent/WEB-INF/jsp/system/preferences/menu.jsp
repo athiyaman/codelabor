@@ -2,7 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
+				<security:authorize ifNotGranted="ROLE_ANONYMOUS">
 				<h5><spring:message code="menu.system.preferences.profile"/></h5>
 				<ul>
 					<li class="none">
@@ -16,6 +18,8 @@
 						</a>
 					</li>					
 				</ul>
+				</security:authorize>
+				
 				<h5><spring:message code="menu.system.preferences.preferences"/></h5>
 				<ul>
 					<li class="none">

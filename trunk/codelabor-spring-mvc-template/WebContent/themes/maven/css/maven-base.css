@@ -143,3 +143,19 @@ div.clear hr{
   margin: 0px;
   padding: 0px;
 }
+
+#login {
+	
+}
+
+#loginPKI {
+	width: 50%;
+	padding-right: 10px;
+	float: left;
+}
+
+#loginWebId {
+	width: 50%;
+	padding-left: 10px;
+	float: right;
+}

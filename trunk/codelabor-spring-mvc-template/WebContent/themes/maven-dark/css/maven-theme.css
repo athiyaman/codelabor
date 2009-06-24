@@ -143,3 +143,6 @@ dt {
   background-image: url(../images/icon_info_sml.gif);
 }
 
+input {
+	color: white;
+}
