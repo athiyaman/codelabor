@@ -15,12 +15,12 @@
 				<value>/WEB-INF/messages/system/messages</value>
 				<value>/WEB-INF/messages/system/errors</value>
 								
-				<value>/WEB-INF/messages/system/preperences/menu</value>
-				<value>/WEB-INF/messages/system/preperences/button</value>
-				<value>/WEB-INF/messages/system/preperences/label</value>
-				<value>/WEB-INF/messages/system/preperences/images</value>
-				<value>/WEB-INF/messages/system/preperences/messages</value>
-				<value>/WEB-INF/messages/system/preperences/errors</value>
+				<value>/WEB-INF/messages/system/preferences/menu</value>
+				<value>/WEB-INF/messages/system/preferences/button</value>
+				<value>/WEB-INF/messages/system/preferences/label</value>
+				<value>/WEB-INF/messages/system/preferences/images</value>
+				<value>/WEB-INF/messages/system/preferences/messages</value>
+				<value>/WEB-INF/messages/system/preferences/errors</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>

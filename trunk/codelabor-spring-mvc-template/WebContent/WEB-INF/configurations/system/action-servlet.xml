@@ -16,9 +16,9 @@
 			<map>
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
 				<entry key="/system/login/home.do" value-ref="system.login.homeController"/>
-				<entry key="/system/preperences/home.do" value-ref="system.preferences..homeController"/>
-				<entry key="/system/preperences/themes/home.do" value-ref="system.preferences..themes.homeController"/>
-				<entry key="/system/preperences/locale/home.do" value-ref="system.preferences..locale.homeController"/>				
+				<entry key="/system/preferences/home.do" value-ref="system.preferences..homeController"/>
+				<entry key="/system/preferences/themes/home.do" value-ref="system.preferences..themes.homeController"/>
+				<entry key="/system/preferences/locale/home.do" value-ref="system.preferences..locale.homeController"/>				
 			</map>
 		</property>
 	</bean>
