@@ -29,13 +29,14 @@
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
 	</bean>	
 	
+	<!-- 
+	Spring 2.5.x + Tiles 2.1.x does not work
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	-->
+	<bean id="tilesConfigurer" class="com.x.web.tiles2.SpringTilesConfigurer">
 		<property name="definitions">
 			<list>
-				<value>/WEB-INF/definitions/tiles-defs.xml</value>
-				<value>/WEB-INF/definitions/system/login/tiles-defs.xml</value>
-				<value>/WEB-INF/definitions/system/administration/tiles-defs.xml</value>
-				<value>/WEB-INF/definitions/system/my-account/tiles-defs.xml</value>
+				<value>/WEB-INF/definitions/**/tiles-defs.xml</value>
 			</list>
 		</property>
 	</bean>
