@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 		
 		<div id="banner">
 			<span id="bannerLeft">codelabor-spring-mvc-template</span>
@@ -20,12 +21,12 @@
 	 			</c:if>
 	 		</div>
 			<div class="xright">
-				<a href="<c:url value='/example/home.do'/>">example</a> |
-				<a href="<c:url value='/system/administration/home.do'/>">system</a> |
-				<a href="<c:url value='/system/preferences/home.do'/>">preferences</a>
+				<a href="<c:url value='/example/home.do'/>"><spring:message code="menu.example"/></a> |
+				<a href="<c:url value='/system/administration/home.do'/>"><spring:message code="menu.system.administration"/></a> |
+				<a href="<c:url value='/system/preferences/home.do'/>"><spring:message code="menu.system.preferences"/></a>
 				<security:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
 					 | 
-					<a href="<c:url value='/j_spring_security_logout'/>">logout</a>
+					<a href="<c:url value='/j_spring_security_logout'/>"><spring:message code="menu.system.login.logout"/></a>
 				</security:authorize>
 			</div>
 		  	<div class="clear"><hr/></div>
