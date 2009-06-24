@@ -32,7 +32,7 @@
 	</security:authentication-provider>
 	<security:global-method-security>
 		<security:protect-pointcut 
-			expression="execution(* org.codelabor.system.preferences.**.*(..))" 
-			access="ROLE_ADMIN, ROLE_USER"/>
+			expression="execution(* org.codelabor.system.administration.**.*(..))" 
+			access="ROLE_ADMIN"/>	
 	</security:global-method-security>	
 </beans>
