@@ -4,7 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 	<definition name="system.preferences..definition" extends="default.definition">
-    	<put-attribute name="title"  value="My Account"/>
+    	<put-attribute name="title"  value="Preferences"/>
 		<put-attribute name="menu"   value="/WEB-INF/jsp/system/preferences/menu.jsp"/>
 		<put-attribute name="body"   value="/WEB-INF/jsp/system/preferences/body.jsp"/>
 	</definition>
