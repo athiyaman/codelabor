@@ -4,18 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean 
-		id="system.myaccount.homeController" 
+		id="system.preferences..homeController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.myaccount.home.definition"/>
+		<property name="successView" value="system.preferences..home.definition"/>
 	</bean>
 	<bean 
-		id="system.myaccount.themes.homeController" 
+		id="system.preferences..themes.homeController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.myaccount.themes.home.definition"/>
+		<property name="successView" value="system.preferences..themes.home.definition"/>
 	</bean>
 	<bean 
-		id="system.myaccount.locale.homeController" 
+		id="system.preferences..locale.homeController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.myaccount.locale.home.definition"/>
+		<property name="successView" value="system.preferences..locale.home.definition"/>
 	</bean>		
 </beans>
