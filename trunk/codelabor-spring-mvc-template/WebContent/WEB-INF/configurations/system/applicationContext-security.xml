@@ -4,7 +4,7 @@
 	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.2.xsd">
-	<security:http auto-config="true" session-fixation-protection="newSession" >
+	<security:http auto-config="true" session-fixation-protection="none" >
 		<security:intercept-url pattern="/css/**" filters="none"/>
 		<security:intercept-url pattern="/images/**" filters="none"/>
 		<security:intercept-url pattern="/themes/**" filters="none"/>	
@@ -13,12 +13,10 @@
 		<security:intercept-url pattern="/system/login/home.do*" filters="none"/>
 		<security:intercept-url pattern="/system/administration/**" access="ROLE_ADMIN" requires-channel="https"/>
 		<security:intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN" requires-channel="http"/>
-		<security:form-login 
-			login-page="/system/login/home.do" 
-			always-use-default-target="false" 
-			authentication-failure-url="/system/login/home.do?login_error=1"
-			default-target-url="/"
-			login-processing-url="/j_spring_security_check"/>
+		<security:form-login
+			always-use-default-target="false"
+ 			login-page="/system/login/home.do" 
+			authentication-failure-url="/system/login/home.do?login_error=true"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
 		<security:anonymous/>
 		<security:remember-me/>
@@ -32,4 +30,9 @@
 			<security:user name="bomber" password="4d32bbf089a6458f046b60ba671d2ded7b475ee9" authorities="ROLE_USER"/>
 		</security:user-service>
 	</security:authentication-provider>
+	<security:global-method-security>
+		<security:protect-pointcut 
+			expression="execution(* org.codelabor.system.preferences.**.*(..))" 
+			access="ROLE_ADMIN, ROLE_USER"/>
+	</security:global-method-security>	
 </beans>
