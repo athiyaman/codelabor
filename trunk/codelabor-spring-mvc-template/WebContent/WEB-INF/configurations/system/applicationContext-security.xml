@@ -37,11 +37,11 @@
 			data-source-ref="oracleDataSource"
 			authorities-by-username-query="
 				SELECT USERNAME, AUTHORITY AS AUTHORITIES
-				FROM SYSTEM_USER_AUTHORITY_MAP
+				FROM USERS_AUTHORITIES_MAP
 				WHERE USERNAME = ?"
 			users-by-username-query="
 				SELECT USERNAME, PASSWORD, ENABLED 
-				FROM SYSTEM_USER
+				FROM USERS
 				WHERE USERNAME = ?"/>
 	</security:authentication-provider>
 	<security:global-method-security>
