@@ -4,7 +4,7 @@
 	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.2.xsd">
-	<security:http session-fixation-protection="none" >
+	<security:http auto-config="true" session-fixation-protection="none" >
 		<security:intercept-url pattern="/index.*" filters="none"/>	
 		<security:intercept-url pattern="/css/**" filters="none"/>
 		<security:intercept-url pattern="/images/**" filters="none"/>
@@ -33,7 +33,8 @@
 		</security:user-service>
 		-->
 		<!-- jdbc user service  -->
-		<security:jdbc-user-service 
+		<security:jdbc-user-service
+			cache-ref="userCache"
 			data-source-ref="oracleDataSource"
 			authorities-by-username-query="
 				SELECT USERNAME, AUTHORITY AS AUTHORITIES

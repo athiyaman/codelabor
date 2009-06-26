@@ -28,6 +28,9 @@
 				<value>/WEB-INF/messages/system/preferences/images</value>
 				<value>/WEB-INF/messages/system/preferences/messages</value>
 				<value>/WEB-INF/messages/system/preferences/errors</value>
+				
+				<!-- spring security -->
+				<value>org/springframework/security/messages</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
