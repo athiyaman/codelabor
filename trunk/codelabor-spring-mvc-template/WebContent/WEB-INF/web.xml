@@ -17,7 +17,14 @@
 	
 	<!-- spring security http session event publisher -->
 	<listener>
-  		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
+	
+		<!-- for spring security 2.0.4 -->
+ 		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
+ 			
+		<!-- for spring security 3.0.0.M1 -->
+		<!-- 
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+		 -->
 	</listener>	
 	
 	<!-- spring mvc -->
