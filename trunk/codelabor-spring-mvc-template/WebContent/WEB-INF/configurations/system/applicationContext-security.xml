@@ -4,7 +4,8 @@
 	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.2.xsd">
-	<security:http auto-config="true" session-fixation-protection="none" >
+	<security:http 
+		session-fixation-protection="newSession">
 		<security:intercept-url pattern="/index.*" filters="none"/>	
 		<security:intercept-url pattern="/css/**" filters="none"/>
 		<security:intercept-url pattern="/images/**" filters="none"/>
@@ -15,11 +16,11 @@
 		<security:intercept-url pattern="/**" access="ROLE_USER, ROLE_ADMIN, ROLE_ANONYMOUS" requires-channel="http"/>
 		<security:form-login
 			always-use-default-target="false"
- 			login-page="/system/login/home.do" 
+ 			login-page="/system/login/home.do"
 			authentication-failure-url="/system/login/home.do?login_error=true"/>
 		<security:anonymous username="anonymous"/>
-		<security:logout logout-success-url="/system/login/home.do"/>		
-		<security:remember-me/>
+		<security:logout logout-success-url="/system/login/home.do"/>
+		<security:remember-me data-source-ref="oracleDataSource"/>
 		<security:concurrent-session-control max-sessions="1"/>
 		<security:x509/>
 	</security:http>
