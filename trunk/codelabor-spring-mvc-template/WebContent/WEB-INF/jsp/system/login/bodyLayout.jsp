@@ -6,8 +6,8 @@
 					
 					<h2><spring:message code="label.login.home"/></h2>
 					<div id="loginPKI">
-						<tiles:insertAttribute name="left"/>
+						<tiles:insertAttribute name="login1"/>
 					</div>
 					<div id="loginUsernamePassword">
-					<tiles:insertAttribute name="right"/>
+					<tiles:insertAttribute name="login2"/>
 					</div>
