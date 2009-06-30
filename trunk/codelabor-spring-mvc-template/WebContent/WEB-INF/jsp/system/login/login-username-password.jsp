@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 					
-					<h3><spring:message code="label.login.webId"/></h3>
+					<h3><spring:message code="label.login.usernamePassword"/></h3>
 					<c:if test="${not empty param.login_error}">
 						<font color="red">
 						  <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
