@@ -17,7 +17,8 @@
 		<security:form-login
 			always-use-default-target="false"
  			login-page="/system/login/home.do"
-			authentication-failure-url="/system/login/home.do?login_error=true"/>
+			authentication-failure-url="/system/login/home.do?login_error=true"
+			login-processing-url="/system/login/success.do"/>
 		<security:anonymous username="anonymous"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
 		<security:remember-me data-source-ref="oracleDataSource"/>

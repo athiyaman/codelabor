@@ -14,4 +14,7 @@
 	<definition name="system.login.home.definition" extends="system.login.definition">
     	<put-attribute name="body"   value="system.login.body.definition"/>
 	</definition>
+	<definition name="system.login.success.definition" extends="system.login.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/login/login-success.jsp"/>
+	</definition>	
 </tiles-definitions>
