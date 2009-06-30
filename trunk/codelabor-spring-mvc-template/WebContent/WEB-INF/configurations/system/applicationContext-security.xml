@@ -15,17 +15,15 @@
 		<security:intercept-url pattern="/system/preferences/**" access="ROLE_ADMIN,ROLE_USER" requires-channel="http"/>	
 		<security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN,ROLE_ANONYMOUS" requires-channel="http"/>
 		<security:form-login
+			always-use-default-target="false"
+			default-target-url="/system/login/success.do"
  			login-page="/system/login/home.do"
-			always-use-default-target="false" 			
- 			default-target-url="/system/login/success.do"
 			authentication-failure-url="/system/login/home.do?login_error=true"/>
 		<security:anonymous username="anonymous"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
 		<security:remember-me data-source-ref="oracleDataSource"/>
 		<security:concurrent-session-control max-sessions="1"/>
-		<!--  
 		<security:x509/>
-		-->
 	</security:http>
 	<security:authentication-provider>
 		<security:password-encoder hash="sha"/>
