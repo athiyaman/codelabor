@@ -3,8 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
+	<!-- for Spring security 2.x -->
+	<!-- 
 	<bean id="userCache"
 		class="org.springframework.security.providers.dao.cache.EhCacheBasedUserCache">
+		<property name="cache" ref="userEhCache"/>
+	</bean>
+	 -->
+	 
+	<!-- for Spring security 3.x -->
+	<bean id="userCache"
+		class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
 		<property name="cache" ref="userEhCache"/>
 	</bean>
 	

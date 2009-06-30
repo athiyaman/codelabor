@@ -19,13 +19,31 @@
 	<listener>
 	
 		<!-- for spring security 2.0.4 -->
+		<!--  
  		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
+ 		-->
  			
 		<!-- for spring security 3.0.0.M1 -->
-		<!-- 
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
-		 -->
 	</listener>	
+
+	<!-- spring log4j listener -->
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>codelabor-spring-mvc-template.root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/configurations/log4j.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>10000</param-value>
+    </context-param>    
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+	
 	
 	<!-- spring mvc -->
 	<servlet>
