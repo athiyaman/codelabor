@@ -7,7 +7,15 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
-				<!-- system message -->
+				<!-- example -->
+				<value>/WEB-INF/messages/example/menu</value>
+				<value>/WEB-INF/messages/example/button</value>
+				<value>/WEB-INF/messages/example/label</value>
+				<value>/WEB-INF/messages/example/images</value>
+				<value>/WEB-INF/messages/example/messages</value>
+				<value>/WEB-INF/messages/example/errors</value>			
+			
+				<!-- system -->
 				<value>/WEB-INF/messages/system/menu</value>
 				<value>/WEB-INF/messages/system/button</value>
 				<value>/WEB-INF/messages/system/label</value>
