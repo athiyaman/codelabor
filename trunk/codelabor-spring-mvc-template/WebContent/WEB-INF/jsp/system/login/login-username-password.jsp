@@ -24,8 +24,8 @@
 						<input type='checkbox' name='_spring_security_remember_me'/>
 						<spring:message code="label.login.rememberMe"/>						
 						<input type="submit" value="<spring:message code='button.login.login'/>"/>
-						<br/>
-						<spring:message code="label.login.join"/>
-						<br/>				
-						<spring:message code="label.login.forgotYourPassword"/>
+						<ul>
+							<li><a href=""></a><spring:message code="label.login.join"/></li>
+							<li><a href=""></a><spring:message code="label.login.forgotYourPassword"/></li>
+						</ul>
 					</form>
