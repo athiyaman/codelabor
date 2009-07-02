@@ -6,9 +6,9 @@ import java.util.Map;
 
 import javax.mail.internet.InternetAddress;
 
-import org.codelabor.system.test.BaseTestCase;
 import org.codelabor.system.dtos.MailDTO;
 import org.codelabor.system.services.MailService;
+import org.codelabor.system.test.BaseTestCase;
 
 public class MailServiceTest extends BaseTestCase {
 
@@ -31,8 +31,8 @@ public class MailServiceTest extends BaseTestCase {
 			stringBuilder.append("<h1>mail service test</h1>");
 			stringBuilder.append("<ul>");
 			stringBuilder.append("<li>abcdefg</li>");
-			stringBuilder.append("<li>??��?�?�?�바사</li>");
-			stringBuilder.append("<li>あい�?���?/li>");
+			stringBuilder.append("<li>가나다라마바사</li>");
+			stringBuilder.append("<li>あえいおう </li>");
 			stringBuilder.append("</ul>");
 			stringBuilder.append("<img src='cid:image1'/>");
 			stringBuilder.append("<img src='cid:image2'/>");
