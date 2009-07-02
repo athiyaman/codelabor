@@ -10,7 +10,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT EXAMPLE_EMP_NO_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
+			<query>SELECT EXAMPLE_EMP_NO_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
 		</config:configuration>
 	</bean>
 	
@@ -19,7 +19,7 @@
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
-			<query>SELECT CRUD_ID_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>			
+			<query>SELECT CRUD_ID_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>			
 		</config:configuration>
 	</bean>	
 </beans>
