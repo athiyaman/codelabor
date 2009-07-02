@@ -18,7 +18,7 @@ public class ResultMapperTest extends BaseTestCase {
 	protected void onSetUp() throws Exception {
 		super.onSetUp();
 		queryService = (IQueryService) applicationContext
-				.getBean("queryService");
+				.getBean("oracleQueryService");
 	}
 
 	@SuppressWarnings("unchecked")
