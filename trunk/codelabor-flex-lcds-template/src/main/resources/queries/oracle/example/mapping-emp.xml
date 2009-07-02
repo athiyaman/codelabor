@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
-"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.2.dtd">
 <queryservice>
 	<queries>
 		<!-- delete -->
@@ -90,7 +90,8 @@
 				FROM 
 					EXAMPLE_EMP
 			]]></statement>
-			<result mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
+			<result
+				mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
 		</query>		
 		<query id="example.select.emp.list.by.dept.no" isDynamic="false">
 			<statement><![CDATA[
