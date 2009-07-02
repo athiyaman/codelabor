@@ -35,7 +35,7 @@ public class BlobTest extends BaseTestCase {
 	protected void onSetUp() throws Exception {
 		super.onSetUp();
 		queryService = (IQueryService) applicationContext
-				.getBean("queryService");
+				.getBean("oracleQueryService");
 		uuidGenerationService = (IIdGenerationService) applicationContext
 				.getBean("uniqueFileNameGenerationService");
 		sequenceIdGenerationService = (IIdGenerationService) applicationContext
@@ -45,7 +45,7 @@ public class BlobTest extends BaseTestCase {
 		sourceFile = new File("C:/WINDOWS/Help/Tours/htmlTour/intro_logo.jpg");
 
 		// clear data
-		queryService.remove("system.delete.file.list", new Object[] {});
+		// queryService.remove("system.delete.file.list", new Object[] {});
 	}
 
 	@Test
