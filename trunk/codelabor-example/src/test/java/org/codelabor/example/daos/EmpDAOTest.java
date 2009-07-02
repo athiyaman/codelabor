@@ -348,7 +348,7 @@ public class EmpDAOTest extends BaseTestCase {
 		empDTO = new EmpDTO();
 		empDTO.setEmpNo(8001);
 		deleteEmpDTOList.add(empDTO);
-
+		
 		AffectedRowCountDTO affectedRowCount = null;
 		try {
 			affectedRowCount = this.empDAO.saveEmp(insertEmpDTOList,

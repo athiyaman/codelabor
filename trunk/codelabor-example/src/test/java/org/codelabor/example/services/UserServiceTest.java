@@ -29,9 +29,10 @@ public class UserServiceTest extends BaseTestCase {
 			userDTO.setUserPassword("4321");
 
 			List<String> roleIdList = new ArrayList<String>();
-			roleIdList.add("ROLE_USER");
-			roleIdList.add("ROLE_GUEST");
-			int affectedRowCount = userService.registerUser(userDTO, roleIdList);
+			roleIdList.add("USER");
+			roleIdList.add("GUEST");
+			int affectedRowCount = userService
+					.registerUser(userDTO, roleIdList);
 			Assert.assertEquals(2, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +52,7 @@ public class UserServiceTest extends BaseTestCase {
 			userDTO.setUserPassword(new String(hashedPassword));
 
 			List<String> roleIdList = new ArrayList<String>();
-			roleIdList.add("ROLE_ADMIN");
+			roleIdList.add("ADMIN");
 			int affectedRowCount = userService.updateUser(userDTO, roleIdList);
 			Assert.assertEquals(1, affectedRowCount);
 		} catch (Exception e) {

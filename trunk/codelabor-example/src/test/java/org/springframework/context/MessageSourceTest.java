@@ -8,6 +8,11 @@ public class MessageSourceTest extends BaseTestCase {
 	private MessageSource messageSource;
 
 	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext-messageSource.xml" };
+	}
+
+	@Override
 	public void onSetUp() throws Exception {
 		this.messageSource = (MessageSource) applicationContext
 				.getBean("messageSource");

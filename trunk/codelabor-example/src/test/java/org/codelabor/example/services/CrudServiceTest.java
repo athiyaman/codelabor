@@ -53,8 +53,8 @@ public class CrudServiceTest extends BaseTestCase {
 	public void testCreate() {
 		try {
 			CrudDTO crudDTO = new CrudDTO();
-			crudDTO.setField1("TEST VALUE (C)");
-			crudDTO.setField2("TEST VALUE (C)");
+			crudDTO.setField1("VALUE(C)");
+			crudDTO.setField2("VALUE(C)");
 			int affectedRowCount = crudService.create(crudDTO);
 			assertTrue(affectedRowCount == 1);
 		} catch (Exception e) {
@@ -66,8 +66,8 @@ public class CrudServiceTest extends BaseTestCase {
 		try {
 			CrudDTO crudDTO = new CrudDTO();
 			crudDTO.setId(0);
-			crudDTO.setField1("TEST VALUE (U)");
-			crudDTO.setField2("TEST VALUE (U)");
+			crudDTO.setField1("VALUE(U)");
+			crudDTO.setField2("VALUE(U)");
 			int affectedRowCount = crudService.update(crudDTO);
 			assertTrue(affectedRowCount == 1);
 		} catch (Exception e) {

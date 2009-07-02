@@ -18,7 +18,7 @@ public class DeclarativeTransactionTest extends BaseTestCase {
 	public void onSetUp() throws Exception {
 		app1Service = (App1Service) applicationContext.getBean("app1Service");
 		queryService = (IQueryService) applicationContext
-				.getBean("queryService");
+				.getBean("oracleQueryService");
 
 		// clear data
 		String queryId = "example.delete.emp.list";
