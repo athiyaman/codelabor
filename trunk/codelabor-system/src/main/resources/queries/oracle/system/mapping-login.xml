@@ -66,7 +66,7 @@
 					LOGIN_TIMESTAMP DESC
 				]]>
 			</statement>
-			<param type="INTEGER"/>
+			<param type="VARCHAR"/>
 			<result class="org.codelabor.system.dtos.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
