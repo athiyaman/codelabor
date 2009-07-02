@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	
+	<!--  
 	<bean name="empNoGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
@@ -21,5 +22,6 @@
 		<config:configuration big-decimals="true">
 			<query>SELECT CRUD_ID_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>			
 		</config:configuration>
-	</bean>	
+	</bean>
+	-->	
 </beans>
