@@ -63,7 +63,7 @@
     
     <!-- spring -->
 	<logger name="org.springframework.security" additivity="false">
-		<level value="info" />
+		<level value="debug" />
 		<appender-ref ref="console" />
 		<appender-ref ref="defaultDailyRollingFile"/>
 	</logger>
@@ -101,8 +101,6 @@
 		<appender-ref ref="console" />
 		<appender-ref ref="codelaborDailyRollingFile"/>
 	</logger>	
-	
-  
     
     <root>
         <level value="debug"/>
