@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.login.spring.filters;
+package org.codelabor.system.authentication.preauth.filters;
 
 import javax.servlet.http.HttpServletRequest;
 
