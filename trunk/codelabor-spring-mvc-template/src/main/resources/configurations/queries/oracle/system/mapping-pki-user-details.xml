@@ -18,6 +18,7 @@
 					CERTIFICATES_USERS_MAP.DN = ?
 				]]>
 			</statement>
+			<param type="VARCHAR"/>
 		</query>
 	</queries>
 </queryservice>
