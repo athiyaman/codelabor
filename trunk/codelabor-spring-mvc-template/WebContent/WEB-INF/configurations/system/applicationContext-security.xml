@@ -23,7 +23,6 @@
 			default-target-url="/system/login/success.do"/>
 		<security:anonymous username="anonymous"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
-		<security:http-basic/>
 		<security:remember-me data-source-ref="oracleDataSource"/>
 		<security:concurrent-session-control max-sessions="1"/>
 	</security:http>

@@ -7,7 +7,7 @@
 		<!--  
 		<param-value>classpath*:configurations/**/applicationContext*.xml</param-value>
 		-->
-		<param-value>/WEB-INF/configurations/**/applicationContext*.xml</param-value>
+		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
 	
 	<!-- spring support -->
@@ -53,7 +53,7 @@
 				/WEB-INF/**/action-servlet*.xml,
 				/WEB-INF/**/applicationContext*.xml
 			</param-value>
-		</init-param>   	
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

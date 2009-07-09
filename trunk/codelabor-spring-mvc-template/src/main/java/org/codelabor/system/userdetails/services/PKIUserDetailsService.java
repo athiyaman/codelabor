@@ -73,7 +73,7 @@ public class PKIUserDetailsService implements AuthenticationUserDetailsService {
 					: false;
 
 			// get authorities
-			queryId = "system.userdetails.select.authority.by.username";
+			queryId = "system.userdetails.select.authorities.by.username";
 			Collection authorityCollection = queryService.find(queryId,
 					new Object[] { username });
 			Iterator authorityIterator = authorityCollection.iterator();
