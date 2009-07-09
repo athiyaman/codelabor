@@ -38,7 +38,7 @@ import anyframe.core.query.QueryServiceException;
  * @author bomber
  * 
  */
-public class QueryServiceUserDetailService implements UserDetailsService {
+public class QueryServiceUserDetailsService implements UserDetailsService {
 
 	private IQueryService queryService = null;
 
