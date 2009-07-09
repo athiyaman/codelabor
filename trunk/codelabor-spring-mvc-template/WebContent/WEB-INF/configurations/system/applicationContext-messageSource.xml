@@ -7,6 +7,16 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
+<!-- spring security -->
+				<value>classpath:org/springframework/security/messages</value>
+							
+				<!-- anyframe message -->
+				<value>classpath:anyframe/core/properties/messages/properties</value>
+				<value>classpath:anyframe/core/idgen/messages/idgeneration</value>
+				<value>classpath:anyframe/core/process/messages/process</value>
+				<value>classpath:anyframe/core/adaptormanager/messages/adaptormanager</value>
+				<value>classpath:anyframe/core/query/messages/query</value>
+							
 				<!-- example -->
 				<value>/WEB-INF/messages/example/menu</value>
 				<value>/WEB-INF/messages/example/button</value>
@@ -37,8 +47,7 @@
 				<value>/WEB-INF/messages/system/preferences/messages</value>
 				<value>/WEB-INF/messages/system/preferences/errors</value>
 				
-				<!-- spring security -->
-				<value>classpath:org/springframework/security/messages</value>
+				
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
