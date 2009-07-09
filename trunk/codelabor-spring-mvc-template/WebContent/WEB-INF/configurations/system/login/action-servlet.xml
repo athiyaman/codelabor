@@ -13,9 +13,4 @@
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.login.success.definition"/>
 	</bean>	
-	<bean 
-		id="system.login.xecure.loginController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.login.home.definition"/>
-	</bean>
 </beans>

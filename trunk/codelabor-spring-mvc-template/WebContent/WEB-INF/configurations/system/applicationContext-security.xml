@@ -13,6 +13,7 @@
 		<security:intercept-url pattern="/XecureObject/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/index.*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/home.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<security:intercept-url pattern="/system/login/xecure/login.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/administration/**" access="ROLE_ADMIN"/>
 		<security:intercept-url pattern="/system/preferences/**" access="ROLE_ADMIN,ROLE_USER"/>
 		<security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN"/>
@@ -53,4 +54,23 @@
 			expression="execution(* org.codelabor.system.administration.**.*(..))" 
 			access="ROLE_ADMIN"/>	
 	</security:global-method-security>
+	<bean 
+		id="xecurePKIAuthenticationProcessingFilter"
+		class="org.codelabor.system.login.spring.filters.XecurePKIAuthenticationProcessingFilter">
+		<security:custom-filter position="PRE_AUTH_FILTER"/>
+		<property name="authenticationManager" ref="authenticationManager"/>
+		<property name="continueFilterChainOnUnsuccessfulAuthentication" value="false"/>
+	</bean>
+	<bean
+		id="preauthAuthProvider"
+		class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
+		<security:custom-authentication-provider/>
+		<property name="preAuthenticatedUserDetailsService" ref="pkiUserDetailsService"/>
+	</bean>
+	<security:authentication-manager alias="authenticationManager"/>
+	<bean
+		id="pkiUserDetailsService"
+		class="org.codelabor.system.userdetails.services.PKIUserDetailsService">
+		<property name="queryService" ref="oracleQueryService"/>
+	</bean>
 </beans>

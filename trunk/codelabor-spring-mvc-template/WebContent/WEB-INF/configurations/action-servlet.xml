@@ -21,7 +21,7 @@
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
 				<entry key="/system/login/home.do" value-ref="system.login.homeController"/>
 				<entry key="/system/login/success.do" value-ref="system.login.successController"/>
-				<entry key="/system/login/xecure/login.do" value-ref="system.login.xecure.loginController"/>
+				<entry key="/system/login/xecure/login.do" value="system.login.successController"/>
 				<entry key="/system/preferences/home.do" value-ref="system.preferences.homeController"/>
 				<!--  
 				<entry key="/system/preferences/personal/home.do" value-ref="system.preferences.personalController"/>
