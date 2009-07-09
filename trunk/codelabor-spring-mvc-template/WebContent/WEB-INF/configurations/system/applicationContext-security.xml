@@ -57,7 +57,7 @@
 	</security:global-method-security>
 	<bean 
 		id="xecurePKIAuthenticationProcessingFilter"
-		class="org.codelabor.system.login.spring.filters.XecurePKIAuthenticationProcessingFilter">
+		class="org.codelabor.system.authentication.preauth.filters.XecurePKIAuthenticationProcessingFilter">
 		<security:custom-filter position="PRE_AUTH_FILTER"/>
 		<property name="authenticationManager" ref="authenticationManager"/>
 		<property name="continueFilterChainOnUnsuccessfulAuthentication" value="false"/>
