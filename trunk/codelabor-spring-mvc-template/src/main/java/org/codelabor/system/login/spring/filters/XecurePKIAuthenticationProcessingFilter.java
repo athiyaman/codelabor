@@ -1,41 +1,73 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.codelabor.system.login.spring.filters;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationProcessingFilter;
-import org.springframework.security.web.util.TextEscapeUtils;
+import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
+import org.springframework.web.util.WebUtils;
 
 import xecure.crypto.Certificate;
 import xecure.crypto.SignVerifier;
 import xecure.servlet.XecureConfig;
 
+/**
+ * @author bomber
+ * 
+ */
 public class XecurePKIAuthenticationProcessingFilter extends
-		UsernamePasswordAuthenticationProcessingFilter {
-	private final Log log = LogFactory
-			.getLog(XecurePKIAuthenticationProcessingFilter.class);
-	private final boolean postOnly = true;
+		AbstractPreAuthenticatedProcessingFilter {
 
-	private UserDetailsService userDetailsService = null;
+	public static final String CODELABOR_SECURITY_SIGNED_MESSAGE_KEY = "signedMessage";
 
-	public void setUserDetailsService(UserDetailsService userDetailsService) {
-		this.userDetailsService = userDetailsService;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.springframework.security.web.authentication.preauth.
+	 * AbstractPreAuthenticatedProcessingFilter
+	 * #getPreAuthenticatedCredentials(javax.servlet.http.HttpServletRequest)
+	 */
+	@Override
+	protected Object getPreAuthenticatedCredentials(HttpServletRequest request) {
+		return "N/A";
 	}
 
-	protected UserDetails getUserDetails(HttpServletRequest request)
-			throws Exception {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.springframework.security.web.authentication.preauth.
+	 * AbstractPreAuthenticatedProcessingFilter
+	 * #getPreAuthenticatedPrincipal(javax.servlet.http.HttpServletRequest)
+	 */
+	@Override
+	protected Object getPreAuthenticatedPrincipal(HttpServletRequest request) {
+		SignVerifier signVerifier;
+		String signedMessage = WebUtils.findParameterValue(request,
+				CODELABOR_SECURITY_SIGNED_MESSAGE_KEY);
+		if (signedMessage == null)
+			return null;
 
-		SignVerifier signVerifier = new SignVerifier(new XecureConfig(),
-				request.getParameter("signedMessage"));
+		try {
+			signVerifier = new SignVerifier(new XecureConfig(), signedMessage);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new AuthenticationServiceException(e.getMessage());
+		}
 		int errorCode = signVerifier.getLastError();
 		if (errorCode != 0)
 			throw new AuthenticationServiceException(signVerifier
@@ -43,82 +75,16 @@ public class XecurePKIAuthenticationProcessingFilter extends
 
 		Certificate signerCertificate = signVerifier.getSignerCertificate();
 
-		String subject = signerCertificate.getSubject();
-		String issuer = signerCertificate.getIssuer();
-		String issuerSerial = signerCertificate.getIssuerSerial();
-
-		String verifiedMassge = signVerifier.getVerifiedMsg_Text();
-		String certPem = signerCertificate.getCertPem();
-
-		String authorityKeyId = signerCertificate.getAuthorityKeyId();
-		String registeredNumber = signerCertificate.getRegisteredNumber();
-		String serial = signerCertificate.getSerial();
-		String version = signerCertificate.getVersion();
-		int certType = signerCertificate.getCertType();
-
-		log.debug("subject: " + subject);
-		log.debug("issuer: " + issuer);
-		log.debug("issuerSerial: " + issuerSerial);
-
-		log.debug("verifiedMassge: " + verifiedMassge);
-		log.debug("certPem: " + certPem);
-
-		log.debug("authorityKeyId: " + authorityKeyId);
-		log.debug("registeredNumber: " + registeredNumber);
-		log.debug("serial: " + serial);
-		log.debug("version: " + version);
-		log.debug("certType: " + certType);
-
-		// TODO
-		String username = "bomber";
-		UserDetails userDetails = userDetailsService
-				.loadUserByUsername(username);
-		return userDetails;
+		return signerCertificate.getSubject();
 	}
 
-	@Override
-	public Authentication attemptAuthentication(HttpServletRequest request,
-			HttpServletResponse response) throws AuthenticationException {
-		if (postOnly && !request.getMethod().equals("POST")) {
-			throw new AuthenticationServiceException(
-					"Authentication method not supported: "
-							+ request.getMethod());
-		}
-
-		UserDetails userDetails = null;
-		try {
-			userDetails = getUserDetails(request);
-		} catch (Exception e) {
-			throw new AuthenticationServiceException(e.getMessage());
-		}
-		String username = userDetails.getUsername();
-		String password = userDetails.getPassword();
-
-		if (username == null) {
-			username = "";
-		}
-
-		if (password == null) {
-			password = "";
-		}
-
-		username = username.trim();
-
-		UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
-				username, password);
-
-		// Place the last username attempted into HttpSession for views
-		HttpSession session = request.getSession(false);
-
-		if (session != null || getAllowSessionCreation()) {
-			request.getSession().setAttribute(
-					SPRING_SECURITY_LAST_USERNAME_KEY,
-					TextEscapeUtils.escapeEntities(username));
-		}
-
-		// Allow subclasses to set the "details" property
-		setDetails(request, authRequest);
-
-		return this.getAuthenticationManager().authenticate(authRequest);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.springframework.core.Ordered#getOrder()
+	 */
+	public int getOrder() {
+		return 0;
 	}
+
 }

@@ -17,9 +17,12 @@
 package org.codelabor.system.userdetails.services;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -51,12 +54,19 @@ public class PKIUserdetailsService implements AuthenticationUserDetailsService {
 		String queryId = "system.userdetails.select.user.by.distinguishedName";
 		UserDetails userDetails = null;
 		try {
-			Collection userDetailsList = queryService.find(queryId,
+			Collection mapList = queryService.find(queryId,
 					new Object[] { token.getName() });
-			if (userDetailsList.size() == 0) {
+			if (mapList.size() == 0) {
 				throw new UsernameNotFoundException(queryId);
 			}
-			userDetails = ((UserDetails[]) userDetailsList.toArray())[0];
+			Map map = (Map) mapList.toArray()[0];
+			String username = (String) map.get("username");
+			String password = (String) map.get("password");
+			boolean enabled = ((String) map.get("enabled")).equals("1") ? true
+					: false;
+
+			userDetails = new User(username, password, enabled, true, true,
+					true, AuthorityUtils.NO_AUTHORITIES);
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
 			throw new UnkownQueryServiceException(e.getMessage());
