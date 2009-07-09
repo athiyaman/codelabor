@@ -16,11 +16,16 @@
  */
 package org.codelabor.system.userdetails.services;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -51,22 +56,38 @@ public class PKIUserDetailsService implements AuthenticationUserDetailsService {
 	@SuppressWarnings("unchecked")
 	public UserDetails loadUserDetails(Authentication token)
 			throws UsernameNotFoundException {
-		String queryId = "system.userdetails.select.user.by.distinguishedName";
+		String queryId = null;
 		UserDetails userDetails = null;
 		try {
-			Collection mapList = queryService.find(queryId,
+			// get username, password
+			queryId = "system.userdetails.select.user.by.distinguishedName";
+			Collection userMapCollection = queryService.find(queryId,
 					new Object[] { token.getName() });
-			if (mapList.size() == 0) {
+			if (userMapCollection.size() == 0) {
 				throw new UsernameNotFoundException(queryId);
 			}
-			Map map = (Map) mapList.toArray()[0];
-			String username = (String) map.get("username");
-			String password = (String) map.get("password");
-			boolean enabled = ((String) map.get("enabled")).equals("1") ? true
+			Map userMap = (Map) userMapCollection.toArray()[0];
+			String username = (String) userMap.get("username");
+			String password = (String) userMap.get("password");
+			boolean enabled = ((BigDecimal) userMap.get("enabled")).intValue() == 1 ? true
 					: false;
 
+			// get authorities
+			queryId = "system.userdetails.select.authority.by.username";
+			Collection authorityCollection = queryService.find(queryId,
+					new Object[] { username });
+			Iterator authorityIterator = authorityCollection.iterator();
+			List authorityList = new ArrayList();
+			while (authorityIterator.hasNext()) {
+				Map authorityMap = (Map) authorityIterator.next();
+				GrantedAuthority authority = new GrantedAuthorityImpl(
+						(String) authorityMap.get("authority"));
+				authorityList.add(authority);
+			}
+
+			// create user details
 			userDetails = new User(username, password, enabled, true, true,
-					true, AuthorityUtils.NO_AUTHORITIES);
+					true, authorityList);
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
 			throw new UnkownQueryServiceException(e.getMessage());
