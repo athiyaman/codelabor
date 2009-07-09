@@ -26,7 +26,7 @@
 		<security:remember-me data-source-ref="oracleDataSource"/>
 		<security:concurrent-session-control max-sessions="1"/>
 	</security:http>
-	<security:authentication-provider>
+	<security:authentication-provider user-service-ref="queryServiceUserDetailsService">
 		<security:password-encoder hash="sha"/>
 		<!-- in memory -->
 		<!--  
@@ -36,6 +36,7 @@
 		</security:user-service>
 		-->
 		<!-- jdbc user service  -->
+		<!-- 
 		<security:jdbc-user-service
 			cache-ref="userCache"
 			data-source-ref="oracleDataSource"
@@ -47,6 +48,7 @@
 				SELECT USERNAME, PASSWORD, ENABLED 
 				FROM USERS
 				WHERE USERNAME = ?"/>
+		 -->
 	</security:authentication-provider>
 	<security:global-method-security>
 		<security:protect-pointcut 
@@ -67,9 +69,4 @@
 		<property name="preAuthenticatedUserDetailsService" ref="pkiUserDetailsService"/>
 	</bean>
 	<security:authentication-manager alias="authenticationManager"/>
-	<bean
-		id="pkiUserDetailsService"
-		class="org.codelabor.system.userdetails.services.PKIUserDetailsService">
-		<property name="queryService" ref="oracleQueryService"/>
-	</bean>
 </beans>
