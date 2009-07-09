@@ -18,36 +18,34 @@
 				<value>classpath:anyframe/core/query/messages/query</value>
 							
 				<!-- example -->
-				<value>/WEB-INF/messages/example/menu</value>
-				<value>/WEB-INF/messages/example/button</value>
-				<value>/WEB-INF/messages/example/label</value>
-				<value>/WEB-INF/messages/example/images</value>
-				<value>/WEB-INF/messages/example/messages</value>
-				<value>/WEB-INF/messages/example/errors</value>			
+				<value>/WEB-INF/classes/configurations/messages/example/menu</value>
+				<value>/WEB-INF/classes/configurations/messages/example/button</value>
+				<value>/WEB-INF/classes/configurations/messages/example/label</value>
+				<value>/WEB-INF/classes/configurations/messages/example/images</value>
+				<value>/WEB-INF/classes/configurations/messages/example/messages</value>
+				<value>/WEB-INF/classes/configurations/messages/example/errors</value>			
 			
 				<!-- system -->
-				<value>/WEB-INF/messages/system/menu</value>
-				<value>/WEB-INF/messages/system/button</value>
-				<value>/WEB-INF/messages/system/label</value>
-				<value>/WEB-INF/messages/system/images</value>
-				<value>/WEB-INF/messages/system/messages</value>
-				<value>/WEB-INF/messages/system/errors</value>
+				<value>/WEB-INF/classes/configurations/messages/system/menu</value>
+				<value>/WEB-INF/classes/configurations/messages/system/button</value>
+				<value>/WEB-INF/classes/configurations/messages/system/label</value>
+				<value>/WEB-INF/classes/configurations/messages/system/images</value>
+				<value>/WEB-INF/classes/configurations/messages/system/messages</value>
+				<value>/WEB-INF/classes/configurations/messages/system/errors</value>
 				
-				<value>/WEB-INF/messages/system/login/menu</value>
-				<value>/WEB-INF/messages/system/login/button</value>
-				<value>/WEB-INF/messages/system/login/label</value>
-				<value>/WEB-INF/messages/system/login/images</value>
-				<value>/WEB-INF/messages/system/login/messages</value>
-				<value>/WEB-INF/messages/system/login/errors</value>
+				<value>/WEB-INF/classes/configurations/messages/system/login/menu</value>
+				<value>/WEB-INF/classes/configurations/messages/system/login/button</value>
+				<value>/WEB-INF/classes/configurations/messages/system/login/label</value>
+				<value>/WEB-INF/classes/configurations/messages/system/login/images</value>
+				<value>/WEB-INF/classes/configurations/messages/system/login/messages</value>
+				<value>/WEB-INF/classes/configurations/messages/system/login/errors</value>
 								
-				<value>/WEB-INF/messages/system/preferences/menu</value>
-				<value>/WEB-INF/messages/system/preferences/button</value>
-				<value>/WEB-INF/messages/system/preferences/label</value>
-				<value>/WEB-INF/messages/system/preferences/images</value>
-				<value>/WEB-INF/messages/system/preferences/messages</value>
-				<value>/WEB-INF/messages/system/preferences/errors</value>
-				
-				
+				<value>/WEB-INF/classes/configurations/messages/system/preferences/menu</value>
+				<value>/WEB-INF/classes/configurations/messages/system/preferences/button</value>
+				<value>/WEB-INF/classes/configurations/messages/system/preferences/label</value>
+				<value>/WEB-INF/classes/configurations/messages/system/preferences/images</value>
+				<value>/WEB-INF/classes/configurations/messages/system/preferences/messages</value>
+				<value>/WEB-INF/classes/configurations/messages/system/preferences/errors</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
