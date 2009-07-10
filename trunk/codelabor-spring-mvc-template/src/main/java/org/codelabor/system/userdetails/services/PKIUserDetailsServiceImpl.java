@@ -23,12 +23,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.security.core.Authentication;
+import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import anyframe.core.query.IQueryService;
@@ -38,31 +38,26 @@ import anyframe.core.query.QueryServiceException;
  * @author bomber
  * 
  */
-public class PKIUserDetailsService implements AuthenticationUserDetailsService {
+public class PKIUserDetailsServiceImpl implements UserDetailsService {
 
 	private IQueryService queryService = null;
-
-	public void setQueryService(IQueryService queryService) {
-		this.queryService = queryService;
-	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @seeorg.springframework.security.core.userdetails.
-	 * AuthenticationUserDetailsService
-	 * #loadUserDetails(org.springframework.security.core.Authentication)
+	 * @seeorg.springframework.security.core.userdetails.UserDetailsService#
+	 * loadUserByUsername(java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
-	public UserDetails loadUserDetails(Authentication token)
-			throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String subject)
+			throws UsernameNotFoundException, DataAccessException {
 		String queryId = null;
 		UserDetails userDetails = null;
 		try {
 			// get username, password
 			queryId = "system.userdetails.select.user.by.distinguishedName";
 			Collection userMapCollection = queryService.find(queryId,
-					new Object[] { token.getName() });
+					new Object[] { subject });
 			if (userMapCollection.size() == 0) {
 				throw new UsernameNotFoundException(queryId);
 			}
@@ -94,4 +89,9 @@ public class PKIUserDetailsService implements AuthenticationUserDetailsService {
 		}
 		return userDetails;
 	}
+
+	public void setQueryService(IQueryService queryService) {
+		this.queryService = queryService;
+	}
+
 }
