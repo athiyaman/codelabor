@@ -25,14 +25,13 @@ import org.springframework.security.core.GrantedAuthority;
  * @author bomber
  * 
  */
-public class PKIAuthenticationToken extends
-		UsernamePasswordAuthenticationToken {
+public class PKIAuthenticationToken extends UsernamePasswordAuthenticationToken {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2235537598295015441L;
-	private Object subject;
+	private String subject;
 
 	/**
 	 * @param principal
@@ -52,7 +51,7 @@ public class PKIAuthenticationToken extends
 		super(principal, credentials);
 	}
 
-	public PKIAuthenticationToken(Object subject) {
+	public PKIAuthenticationToken(String subject) {
 		super(null, null);
 		this.subject = subject;
 	}
@@ -60,7 +59,7 @@ public class PKIAuthenticationToken extends
 	/**
 	 * @return the subject
 	 */
-	public Object getSubject() {
+	public String getSubject() {
 		return subject;
 	}
 
