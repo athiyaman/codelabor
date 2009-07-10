@@ -33,7 +33,7 @@ import xecure.servlet.XecureConfig;
 public class XecurePKIAuthenticationProcessingFilter extends
 		AbstractPreAuthenticatedProcessingFilter {
 
-	public static final String CODELABOR_SECURITY_SIGNED_MESSAGE_KEY = "signedMessage";
+	public static final String SECURITY_SIGNED_MESSAGE_KEY = "signedMessage";
 
 	/*
 	 * (non-Javadoc)
@@ -58,7 +58,7 @@ public class XecurePKIAuthenticationProcessingFilter extends
 	protected Object getPreAuthenticatedPrincipal(HttpServletRequest request) {
 		SignVerifier signVerifier;
 		String signedMessage = WebUtils.findParameterValue(request,
-				CODELABOR_SECURITY_SIGNED_MESSAGE_KEY);
+				SECURITY_SIGNED_MESSAGE_KEY);
 		if (signedMessage == null)
 			return null;
 
