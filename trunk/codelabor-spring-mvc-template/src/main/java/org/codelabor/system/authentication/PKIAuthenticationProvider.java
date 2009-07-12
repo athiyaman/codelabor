@@ -16,12 +16,11 @@
  */
 package org.codelabor.system.authentication;
 
-import org.codelabor.system.userdetails.services.PKIAuthenticatedUserDetailsServiceImpl;
-import org.codelabor.system.userdetails.services.PKIUserDetailsServiceImpl;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
@@ -32,10 +31,10 @@ import org.springframework.util.Assert;
 public class PKIAuthenticationProvider implements AuthenticationProvider,
 		InitializingBean {
 
-	private PKIUserDetailsServiceImpl userDetailsService = null;
+	private AuthenticationUserDetailsService userDetailsService = null;
 
 	public void setUserDetailsService(
-			PKIAuthenticatedUserDetailsServiceImpl userDetailsService) {
+			AuthenticationUserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 
@@ -51,11 +50,8 @@ public class PKIAuthenticationProvider implements AuthenticationProvider,
 			return null;
 		}
 
-		PKIAuthenticationToken authenticationToken = (PKIAuthenticationToken) authentication;
-		String subject = authenticationToken.getSubject();
-
 		UserDetails userDetails = userDetailsService
-				.loadUserByUsername(subject);
+				.loadUserDetails(authentication);
 		return new PKIAuthenticationToken(userDetails.getUsername(),
 				userDetails.getPassword(), userDetails.getAuthorities());
 	}

@@ -72,6 +72,9 @@ public class XecurePKIAuthenticationProcessingFilter extends
 			PKIAuthenticationToken authRequest = new PKIAuthenticationToken(
 					subject);
 
+			// Allow subclasses to set the "details" property
+			setDetails(request, authRequest);
+
 			Authentication authentication = this.getAuthenticationManager()
 					.authenticate(authRequest);
 
@@ -84,9 +87,6 @@ public class XecurePKIAuthenticationProcessingFilter extends
 						TextEscapeUtils
 								.escapeEntities(authentication.getName()));
 			}
-
-			// Allow subclasses to set the "details" property
-			setDetails(request, authRequest);
 
 			return authentication;
 		} else { // username, password login
