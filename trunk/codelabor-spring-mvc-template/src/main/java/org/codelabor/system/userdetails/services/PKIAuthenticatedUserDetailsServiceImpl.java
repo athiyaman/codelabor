@@ -38,7 +38,12 @@ public class PKIAuthenticatedUserDetailsServiceImpl extends
 	 */
 	public UserDetails loadUserDetails(Authentication authentication)
 			throws UsernameNotFoundException {
-		String subject = ((PKIAuthenticationToken) authentication).getSubject();
+		String subject = null;
+		if (authentication instanceof PKIAuthenticationToken) {
+			subject = ((PKIAuthenticationToken) authentication).getSubject();
+		} else {
+			subject = authentication.getName();
+		}
 		return super.loadUserByUsername(subject);
 
 	}
