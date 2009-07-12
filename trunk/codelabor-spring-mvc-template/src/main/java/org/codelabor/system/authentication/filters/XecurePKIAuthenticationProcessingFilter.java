@@ -50,6 +50,7 @@ public class XecurePKIAuthenticationProcessingFilter extends
 
 		if (signedMessage != null) { // PKI login
 			if (postOnly && !request.getMethod().equals("POST")) {
+				// TODO error handling
 				throw new AuthenticationServiceException(
 						"Authentication method not supported: "
 								+ request.getMethod());
@@ -59,13 +60,16 @@ public class XecurePKIAuthenticationProcessingFilter extends
 				signVerifier = new SignVerifier(new XecureConfig(),
 						signedMessage);
 			} catch (Exception e) {
+				// TODO error handling
 				e.printStackTrace();
 				throw new AuthenticationServiceException(e.getMessage());
 			}
 			int errorCode = signVerifier.getLastError();
-			if (errorCode != 0)
+			if (errorCode != 0) {
+				// TODO error handling
 				throw new AuthenticationServiceException(signVerifier
 						.getLastErrorMsg());
+			}
 			Certificate signerCertificate = signVerifier.getSignerCertificate();
 			String subject = signerCertificate.getSubject().trim();
 
