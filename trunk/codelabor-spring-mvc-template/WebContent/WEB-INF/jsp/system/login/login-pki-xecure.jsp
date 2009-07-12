@@ -6,8 +6,12 @@
 					<script language="javascript" src="<c:url value='/XecureObject/xecureweb.js'/>"></script>
 					<script language="javascript">PrintObjectTag();</script>
 
-							
 					<h3><spring:message code="label.login.pki"/></h3>
+					<c:if test="${not empty param.login_error}">
+						<font color="red">
+						  <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+						</font>
+					</c:if>					
 					<form name="xecure">
 						<input type="hidden" name="p"/>
 					</form>
