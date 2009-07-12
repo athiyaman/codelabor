@@ -8,6 +8,9 @@
 
 							
 					<h3><spring:message code="label.login.pki"/></h3>
+					<form name="xecure">
+						<input type="hidden" name="p"/>
+					</form>
 					<form name="loginPkiForm"
 						action="<c:url value='/system/login/xecure/login.do'/>" method="post" onsubmit="loginPkiForm.signedMessage.value = Sign_with_option(0, loginPkiForm.plainMessage.value);return XecureSubmit(this);">
 						<input type="hidden" name="plainMessage" value="login"/>

@@ -5,7 +5,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 	<security:http 
-		session-fixation-protection="migrateSession">
+		session-fixation-protection="migrateSession"
+		lowercase-comparisons="false">
 		<security:intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/themes/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
@@ -23,38 +24,36 @@
 			default-target-url="/system/login/success.do"/>
 		<security:anonymous username="anonymous"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
-		<security:remember-me data-source-ref="oracleDataSource"/>
-		<security:concurrent-session-control max-sessions="1"/>
+		<security:remember-me user-service-ref="queryServiceUserDetailsService" data-source-ref="oracleDataSource"/>
+		<security:concurrent-session-control max-sessions="1" expired-url="/system/login/home.do"/>
 	</security:http>
+	
+	<bean id="authenticationManager" 
+		class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="preauthAuthProvider"/>				
+			</list>
+		</property>
+	</bean>
+	<!-- authentication provider -->
+	<bean
+		id="preauthAuthProvider"
+		class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
+		<security:custom-authentication-provider/>
+		<property name="preAuthenticatedUserDetailsService" ref="pkiAuthenticatedUserDetailsService"/>
+	</bean>
 	<security:authentication-provider user-service-ref="queryServiceUserDetailsService">
 		<security:password-encoder hash="sha"/>
-		<!-- in memory -->
-		<!--  
-		<security:user-service>
-			<security:user name="admin" password="d033e22ae348aeb5660fc2140aec35850c4da997" authorities="ROLE_ADMIN, ROLE_USER"/>
-			<security:user name="bomber" password="4d32bbf089a6458f046b60ba671d2ded7b475ee9" authorities="ROLE_USER"/>
-		</security:user-service>
-		-->
-		<!-- jdbc user service  -->
-		<!-- 
-		<security:jdbc-user-service
-			cache-ref="userCache"
-			data-source-ref="oracleDataSource"
-			authorities-by-username-query="
-				SELECT USERNAME, AUTHORITY AS AUTHORITIES
-				FROM USERS_AUTHORITIES_MAP
-				WHERE USERNAME = ?"
-			users-by-username-query="
-				SELECT USERNAME, PASSWORD, ENABLED 
-				FROM USERS
-				WHERE USERNAME = ?"/>
-		 -->
 	</security:authentication-provider>
+	
 	<security:global-method-security>
-		<security:protect-pointcut 
+		<security:protect-pointcut
 			expression="execution(* org.codelabor.system.administration.**.*(..))" 
-			access="ROLE_ADMIN"/>	
+			access="ROLE_ADMIN"/>
 	</security:global-method-security>
+	
+	<!-- filter -->
 	<bean 
 		id="xecurePKIAuthenticationProcessingFilter"
 		class="org.codelabor.system.authentication.preauth.filters.XecurePKIAuthenticationProcessingFilter">
@@ -62,11 +61,6 @@
 		<property name="authenticationManager" ref="authenticationManager"/>
 		<property name="continueFilterChainOnUnsuccessfulAuthentication" value="false"/>
 	</bean>
-	<bean
-		id="preauthAuthProvider"
-		class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
-		<security:custom-authentication-provider/>
-		<property name="preAuthenticatedUserDetailsService" ref="pkiUserDetailsService"/>
-	</bean>
-	<security:authentication-manager alias="authenticationManager"/>
+	
+
 </beans>

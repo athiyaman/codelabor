@@ -82,6 +82,26 @@
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Xecure filter -->  
+	<filter>
+		<filter-name>xecureFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.XecureFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>xecureFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- sniffer filter -->
+	<filter>
+		<filter-name>snifferFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.SnifferFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>snifferFilter</filter-name>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>	
 	
 	<!-- spring security filter -->
