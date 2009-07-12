@@ -17,20 +17,25 @@
 package org.codelabor.system.authentication;
 
 import org.codelabor.system.userdetails.services.PKIAuthenticatedUserDetailsServiceImpl;
+import org.codelabor.system.userdetails.services.PKIUserDetailsServiceImpl;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.Assert;
 
 /**
  * @author bomber
  * 
  */
-public class PKIAuthenticationProvider implements AuthenticationProvider {
+public class PKIAuthenticationProvider implements AuthenticationProvider,
+		InitializingBean {
 
-	private PKIAuthenticatedUserDetailsServiceImpl userDetailsService = null;
+	private PKIUserDetailsServiceImpl userDetailsService = null;
 
-	public void setUserDetailsService(PKIAuthenticatedUserDetailsServiceImpl userDetailsService) {
+	public void setUserDetailsService(
+			PKIAuthenticatedUserDetailsServiceImpl userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 
@@ -40,7 +45,7 @@ public class PKIAuthenticationProvider implements AuthenticationProvider {
 	 * @seeorg.springframework.security.authentication.AuthenticationProvider#
 	 * authenticate(org.springframework.security.core.Authentication)
 	 */
-	public Authentication authenticate(Authentication authentication)
+	public Authentication authenticate(final Authentication authentication)
 			throws AuthenticationException {
 		if (!supports(authentication.getClass())) {
 			return null;
@@ -50,8 +55,9 @@ public class PKIAuthenticationProvider implements AuthenticationProvider {
 		String subject = authenticationToken.getSubject();
 
 		UserDetails userDetails = userDetailsService
-				.loadUserDetails(authenticationToken);
-		return null;
+				.loadUserByUsername(subject);
+		return new PKIAuthenticationToken(userDetails.getUsername(),
+				userDetails.getPassword(), userDetails.getAuthorities());
 	}
 
 	/*
@@ -63,6 +69,17 @@ public class PKIAuthenticationProvider implements AuthenticationProvider {
 	 */
 	public boolean supports(Class<? extends Object> authentication) {
 		return (PKIAuthenticationToken.class.isAssignableFrom(authentication));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
+	public void afterPropertiesSet() throws Exception {
+		Assert.notNull(this.userDetailsService,
+				"The userDetailsService must be set");
 	}
 
 }
