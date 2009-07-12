@@ -12,7 +12,7 @@
 						<input type="hidden" name="p"/>
 					</form>
 					<form name="loginPkiForm"
-						action="<c:url value='/system/login/xecure/login.do'/>" method="post" onsubmit="loginPkiForm.signedMessage.value = Sign_with_option(0, loginPkiForm.plainMessage.value);return XecureSubmit(this);">
+						action="<c:url value='/j_spring_security_check'/>" method="post" onsubmit="loginPkiForm.signedMessage.value = Sign_with_option(0, loginPkiForm.plainMessage.value);return XecureSubmit(this);">
 						<input type="hidden" name="plainMessage" value="login"/>
 						<input type="hidden" name="signedMessage"/>
 						<input type="submit" value="<spring:message code='button.login.login'/>">
