@@ -21,6 +21,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.util.Assert;
 
 /**
  * @author bomber
@@ -38,12 +39,9 @@ public class PKIAuthenticatedUserDetailsServiceImpl extends
 	 */
 	public UserDetails loadUserDetails(Authentication authentication)
 			throws UsernameNotFoundException {
-		String subject = null;
-		if (authentication instanceof PKIAuthenticationToken) {
-			subject = ((PKIAuthenticationToken) authentication).getSubject();
-		} else {
-			subject = authentication.getName();
-		}
+		Assert.isInstanceOf(PKIAuthenticationToken.class, authentication,
+				PKIAuthenticationToken.class + " required");
+		String subject = ((PKIAuthenticationToken) authentication).getSubject();
 		return super.loadUserByUsername(subject);
 
 	}

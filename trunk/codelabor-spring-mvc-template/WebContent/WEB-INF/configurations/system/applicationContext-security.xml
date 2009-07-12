@@ -69,7 +69,7 @@
 			</map>
 		</property>
 		 -->
-	</bean>	
+	</bean>
 	
 	<!-- entiry point -->
 	<bean id="loginUrlAuthenticationEntryPoint"

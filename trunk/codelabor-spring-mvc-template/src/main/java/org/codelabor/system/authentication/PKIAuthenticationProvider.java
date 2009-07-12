@@ -52,8 +52,10 @@ public class PKIAuthenticationProvider implements AuthenticationProvider,
 
 		UserDetails userDetails = userDetailsService
 				.loadUserDetails(authentication);
+		String subject = ((PKIAuthenticationToken) authentication).getSubject();
 		return new PKIAuthenticationToken(userDetails.getUsername(),
-				userDetails.getPassword(), userDetails.getAuthorities());
+				userDetails.getPassword(), userDetails.getAuthorities(),
+				subject);
 	}
 
 	/*

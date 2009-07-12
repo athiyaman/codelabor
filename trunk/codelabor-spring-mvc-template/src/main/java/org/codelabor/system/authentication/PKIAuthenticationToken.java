@@ -36,16 +36,6 @@ public class PKIAuthenticationToken extends UsernamePasswordAuthenticationToken 
 	/**
 	 * @param principal
 	 * @param credentials
-	 * @param authorities
-	 */
-	public PKIAuthenticationToken(Object principal, Object credentials,
-			List<GrantedAuthority> authorities) {
-		super(principal, credentials, authorities);
-	}
-
-	/**
-	 * @param principal
-	 * @param credentials
 	 */
 	public PKIAuthenticationToken(Object principal, Object credentials) {
 		super(principal, credentials);
@@ -54,6 +44,36 @@ public class PKIAuthenticationToken extends UsernamePasswordAuthenticationToken 
 	public PKIAuthenticationToken(String subject) {
 		super(null, null);
 		this.subject = subject;
+	}
+
+	/**
+	 * @param principal
+	 * @param credentials
+	 * @param authorities
+	 */
+	public PKIAuthenticationToken(Object principal, Object credentials,
+			List<GrantedAuthority> authorities) {
+		super(principal, credentials, authorities);
+	}
+
+	/**
+	 * @param username
+	 * @param password
+	 * @param authorities
+	 * @param subject
+	 */
+	public PKIAuthenticationToken(String username, String password,
+			List<GrantedAuthority> authorities, String subject) {
+		this(username, password, authorities);
+		this.subject = subject;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString()).append("; ");
+		sb.append("Subject: ").append(this.subject).append(": ");
+		return sb.toString();
 	}
 
 	/**
