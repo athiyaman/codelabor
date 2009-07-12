@@ -33,14 +33,6 @@
 		<security:custom-authentication-provider/>
 		<property name="userDetailsService" ref="pkiAuthenticatedUserDetailsService"/>
 	</bean>
-	<!--  
-	<bean
-		id="preauthAuthProvider"
-		class="org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider">
-		<security:custom-authentication-provider/>
-		<property name="preAuthenticatedUserDetailsService" ref="pkiAuthenticatedUserDetailsService"/>
-	</bean>
-	-->
 	<security:authentication-provider user-service-ref="queryServiceUserDetailsService">
 		<security:password-encoder hash="sha"/>
 	</security:authentication-provider>
@@ -60,15 +52,6 @@
 		<property name="authenticationFailureHandler" ref="authenticationFailureHandler"/>
 		<property name="authenticationManager" ref="authenticationManager"/>
 	</bean>
-	<!--  
-	<bean 
-		id="xecurePKIAuthenticationProcessingFilter"
-		class="org.codelabor.system.authentication.preauth.filters.XecurePKIAuthenticationProcessingFilter">
-		<security:custom-filter position="PRE_AUTH_FILTER"/>
-		<property name="authenticationManager" ref="authenticationManager"/>
-		<property name="continueFilterChainOnUnsuccessfulAuthentication" value="false"/>
-	</bean>
-	-->
 	
 	<!-- authentication handler -->
 	<bean id="authenticationSuccessHandler"
@@ -93,6 +76,4 @@
 		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
 		<property name="loginFormUrl" value="/system/login/home.do"></property>
 	</bean>
-	
-
 </beans>
