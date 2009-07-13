@@ -20,9 +20,9 @@
 				<h5>File</h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/file/spring-mvc/home.do'/>">List</a>
+						<a href="<c:url value='/example/file/spring-mvc/list.do'/>">Spring MVC</a>
 					</li>
 					<li>
-						<a href="<c:url value='/example/file/xecure/home.do'/>">List</a>
+						<a href="<c:url value='/example/file/xecure/list.do'/>">Xecure</a>
 					</li>
 				</ul>				
