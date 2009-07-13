@@ -24,6 +24,10 @@
 					value-ref="example.encryption.xecure.requestByScriptController"/>
 				<entry key="/example/encryption/xecure/response.do" 
 					value-ref="example.encryption.xecure.responseController"/>
+				<entry key="/example/file/spring-mvc/list.do" 
+					value-ref="example.file.springMvc.listController"/>
+				<entry key="/example/file/xecure/list.do" 
+					value-ref="example.file.xecure.listController"/>
 
 				<!-- system -->
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>

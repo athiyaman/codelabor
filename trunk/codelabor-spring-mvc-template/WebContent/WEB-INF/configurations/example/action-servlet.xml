@@ -9,6 +9,7 @@
 		<property name="successView" value="example.home.definition"/>
 	</bean>
 	
+	<!-- encryption -->
 	<bean 
 		id="example.encryption.xecure.requestByGetMethodController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
@@ -28,5 +29,17 @@
 		id="example.encryption.xecure.responseController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.encryption.xecure.response.definition"/>
-	</bean>				
+	</bean>
+	
+	<!-- file -->
+	<bean 
+		id="example.file.springMvc.listController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.file.springMvc.list.definition"/>
+	</bean>
+	<bean 
+		id="example.file.xecure.listController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.file.xecure.list.definition"/>	
+	</bean>		
 </beans>
