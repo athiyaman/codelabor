@@ -7,7 +7,7 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
-<!-- spring security -->
+				<!-- spring security -->
 				<value>classpath:org/springframework/security/messages</value>
 							
 				<!-- anyframe message -->
@@ -16,6 +16,10 @@
 				<value>classpath:anyframe/core/process/messages/process</value>
 				<value>classpath:anyframe/core/adaptormanager/messages/adaptormanager</value>
 				<value>classpath:anyframe/core/query/messages/query</value>
+				
+				<!-- codelabor system fileupload -->
+				<value>classpath:messages/system/file/button</value>
+				<value>classpath:messages/system/file/label</value>
 							
 				<!-- example -->
 				<value>/WEB-INF/classes/messages/example/menu</value>
@@ -30,7 +34,9 @@
 				<value>/WEB-INF/classes/messages/example/encryption/label</value>
 				<value>/WEB-INF/classes/messages/example/encryption/images</value>
 				<value>/WEB-INF/classes/messages/example/encryption/messages</value>
-				<value>/WEB-INF/classes/messages/example/encryption/errors</value>							
+				<value>/WEB-INF/classes/messages/example/encryption/errors</value>
+				
+				<value>/WEB-INF/classes/messages/example/file/label</value>							
 			
 				<!-- system -->
 				<value>/WEB-INF/classes/messages/system/menu</value>

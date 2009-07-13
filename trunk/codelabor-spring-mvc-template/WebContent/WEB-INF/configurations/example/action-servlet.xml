@@ -33,13 +33,18 @@
 	
 	<!-- file -->
 	<bean 
-		id="example.file.springMvc.listController" 
+		id="example.file.springMvc.listFileController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.file.springMvc.list.definition"/>
+		<property name="successView" value="example.file.springMvc.listFile.definition"/>
 	</bean>
 	<bean 
-		id="example.file.xecure.listController" 
+		id="example.file.xecure.listFileController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.file.xecure.list.definition"/>	
-	</bean>		
+		<property name="successView" value="example.file.xecure.listFile.definition"/>	
+	</bean>
+	<bean 
+		id="example.file.uploadFileController" 
+		class="org.codelabor.system.spring.controllers.FileUploadController">
+		<property name="successView" value="example.file.springMvc.listFile.definition"/>	
+	</bean>	
 </beans>

@@ -15,7 +15,7 @@
 	<bean id="tilesConfigurer" class="com.x.web.tiles2.SpringTilesConfigurer">
 		<property name="definitions">
 			<list>
-				<value>/WEB-INF/classes/configurations/definitions/**/tiles-defs.xml</value>
+				<value>/WEB-INF/classes/definitions/**/tiles-defs.xml</value>
 			</list>
 		</property>
 	</bean>
