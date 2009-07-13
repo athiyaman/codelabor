@@ -1,33 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>		
 
-				<h5>Example 1</h5>
+				<h5>Encryption</h5>
 				<ul>
 					<li class="expanded">
-						<a href="">Example 1-1</a>
+						<a href="<c:url value='/example/encryption/xecure/requestByGetMethod.do'/>">Request (get)</a>
 					</li>
 					<li class="expanded">
-						<a href="">Example 1-2</a>
+						<a href="<c:url value='/example/encryption/xecure/requestByPostMethod.do'/>">Request (post)</a>
 					</li>
 					<li class="expanded">
-						<a href="">Example 1-3</a>
+						<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>">Request (script)</a>
 					</li>
 					<li class="expanded">
-						<a href="">Example 1-4</a>
+						<a href="<c:url value='/example/encryption/xecure/response.do'/>">Response</a>
 					</li>
 				</ul>
-				<h5>Example 2</h5>
-				<ul>
-					<li class="expanded">
-						<a href="">Example 2-1</a>
-					</li>
-					<li class="expanded">
-						<a href="">Example 2-2</a>
-					</li>
-					<li class="expanded">
-						<a href="">Example 2-3</a>
-					</li>
-					<li class="expanded">
-						<a href="">Example 2-4</a>
-					</li>
-				</ul>							

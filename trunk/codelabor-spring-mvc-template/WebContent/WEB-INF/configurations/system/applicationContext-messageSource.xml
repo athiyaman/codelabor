@@ -23,7 +23,14 @@
 				<value>/WEB-INF/classes/configurations/messages/example/label</value>
 				<value>/WEB-INF/classes/configurations/messages/example/images</value>
 				<value>/WEB-INF/classes/configurations/messages/example/messages</value>
-				<value>/WEB-INF/classes/configurations/messages/example/errors</value>			
+				<value>/WEB-INF/classes/configurations/messages/example/errors</value>
+							
+				<value>/WEB-INF/classes/configurations/messages/example/encryption/menu</value>
+				<value>/WEB-INF/classes/configurations/messages/example/encryption/button</value>
+				<value>/WEB-INF/classes/configurations/messages/example/encryption/label</value>
+				<value>/WEB-INF/classes/configurations/messages/example/encryption/images</value>
+				<value>/WEB-INF/classes/configurations/messages/example/encryption/messages</value>
+				<value>/WEB-INF/classes/configurations/messages/example/encryption/errors</value>							
 			
 				<!-- system -->
 				<value>/WEB-INF/classes/configurations/messages/system/menu</value>

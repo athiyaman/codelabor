@@ -16,6 +16,14 @@
 			<map>
 				<!-- example -->
 				<entry key="/example/home.do" value-ref="example.homeController"/>
+				<entry key="/example/encryption/xecure/requestByGetMethod.do" 
+					value-ref="example.encryption.xecure.requestByGetMethodController"/>
+				<entry key="/example/encryption/xecure/requestByPostMethod.do" 
+					value-ref="example.encryption.xecure.requestByPostMethodController"/>
+				<entry key="/example/encryption/xecure/requestByScript.do" 
+					value-ref="example.encryption.xecure.requestByScriptController"/>
+				<entry key="/example/encryption/xecure/response.do" 
+					value-ref="example.encryption.xecure.responseController"/>
 
 				<!-- system -->
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
