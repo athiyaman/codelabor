@@ -43,6 +43,5 @@ public class PKIAuthenticatedUserDetailsServiceImpl extends
 				PKIAuthenticationToken.class + " required");
 		String subject = ((PKIAuthenticationToken) authentication).getSubject();
 		return super.loadUserByUsername(subject);
-
 	}
 }
