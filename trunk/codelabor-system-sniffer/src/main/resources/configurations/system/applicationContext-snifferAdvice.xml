@@ -28,6 +28,14 @@
 			<aop:around method="getElapsedTime" pointcut-ref="actionMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="actionMethod" />
+				
+			<!-- controller -->
+			<aop:before method="dumpArguments" pointcut-ref="controllerMethod" />
+			<aop:after-throwing throwing="exception"
+				method="dumpException" pointcut-ref="controllerMethod" />
+			<aop:around method="getElapsedTime" pointcut-ref="controllerMethod" />
+			<aop:after-returning returning="returnObject"
+				method="dumpReturn" pointcut-ref="controllerMethod" />				
 			
 			<!-- service -->			
 			<aop:before method="dumpArguments"
