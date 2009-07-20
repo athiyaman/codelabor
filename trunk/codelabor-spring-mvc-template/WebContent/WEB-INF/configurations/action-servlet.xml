@@ -17,6 +17,13 @@
 				<!-- example -->
 				<entry key="/example/home.do" value-ref="example.homeController"/>
 				
+				<!-- exmple crud -->
+				<entry key="/example/crud/create.do" value-ref="example.crud.createController"/>
+				<entry key="/example/crud/read.do" value-ref="example.crud.readController"/>
+				<entry key="/example/crud/list.do" value-ref="example.crud.listController"/>
+				<entry key="/example/crud/update.do" value-ref="example.crud.updateController"/>				
+				<entry key="/example/crud/delete.do" value-ref="example.crud.deleteController"/>
+				
 				<!-- example encryption -->
 				<entry key="/example/encryption/xecure/requestByGetMethod.do" 
 					value-ref="example.encryption.xecure.requestByGetMethodController"/>
@@ -29,11 +36,11 @@
 					
 				<!-- example file -->
 				<entry key="/example/file/spring-mvc/listFile.do" 
-					value-ref="example.file.springMvc.listFileController"/>
+					value-ref="example.file.springMvc.fileListController"/>
 				<entry key="/example/file/xecure/listFile.do" 
-					value-ref="example.file.xecure.listFileController"/>
-				<entry key="/example/file/uploadFile.do" 
-					value-ref="example.file.uploadFileController"/>
+					value-ref="example.file.xecure.fileListController"/>
+				<entry key="/system/file/uploadFile.do" 
+					value-ref="example.file.fileUploadController"/>
 
 				<!-- system -->
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
@@ -49,4 +56,6 @@
 			</map>
 		</property>
 	</bean>
+	
+	
 </beans>

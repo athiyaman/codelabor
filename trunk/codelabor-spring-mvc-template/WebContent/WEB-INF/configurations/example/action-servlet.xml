@@ -9,42 +9,4 @@
 		<property name="successView" value="example.home.definition"/>
 	</bean>
 	
-	<!-- encryption -->
-	<bean 
-		id="example.encryption.xecure.requestByGetMethodController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.requestByGetMethod.definition"/>
-	</bean>
-	<bean 
-		id="example.encryption.xecure.requestByPostMethodController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.requestByPostMethod.definition"/>
-	</bean>	
-	<bean 
-		id="example.encryption.xecure.requestByScriptController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.requestByScript.definition"/>
-	</bean>	
-	<bean 
-		id="example.encryption.xecure.responseController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.response.definition"/>
-	</bean>
-	
-	<!-- file -->
-	<bean 
-		id="example.file.springMvc.listFileController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.file.springMvc.listFile.definition"/>
-	</bean>
-	<bean 
-		id="example.file.xecure.listFileController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.file.xecure.listFile.definition"/>	
-	</bean>
-	<bean 
-		id="example.file.uploadFileController" 
-		class="org.codelabor.system.spring.controllers.FileUploadController">
-		<property name="successView" value="example.file.springMvc.listFile.definition"/>	
-	</bean>	
 </beans>

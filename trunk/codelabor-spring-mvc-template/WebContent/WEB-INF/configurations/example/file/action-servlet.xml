@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean 
+		id="example.file.springMvc.fileListController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.file.springMvc.listFile.definition"/>
+	</bean>
+	<bean 
+		id="example.file.xecure.fileListController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.file.xecure.listFile.definition"/>	
+	</bean>
+	<bean 
+		id="example.file.fileUploadController" 
+		class="org.codelabor.system.spring.controllers.FileUploadController">
+		<property name="commandClass" value="org.codelabor.system.spring.commands.Post"/>
+		<property name="formView" value="example.file.springMvc.listFile.definition"/>
+		<property name="successView" value="example.file.springMvc.listFile.definition"/>	
+	</bean>	
+</beans>
