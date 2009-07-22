@@ -2,7 +2,8 @@ package org.codelabor.example.services;
 
 import java.util.Collection;
 
-import org.codelabor.example.dtos.EmpDTO;
+import org.codelabor.example.emp.dtos.EmpDTO;
+import org.codelabor.example.transaction.services.App1Service;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;

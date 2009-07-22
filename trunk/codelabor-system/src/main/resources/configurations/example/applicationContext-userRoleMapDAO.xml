@@ -5,7 +5,7 @@
 
 	<bean 
 		id="example.userRoleMapDAO" 
-		class="org.codelabor.example.daos.UserRoleMapDAOImpl"
+		class="org.codelabor.example.user.daos.UserRoleMapDAOImpl"
 		parent="baseDAO">
 	</bean>
 </beans>

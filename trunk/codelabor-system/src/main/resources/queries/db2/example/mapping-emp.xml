@@ -54,7 +54,7 @@
 					EMPNO = ?
 			]]></statement>
 			<param type="INTEGER"/>
-			<result class="org.codelabor.example.dtos.EmpDTO">
+			<result class="org.codelabor.example.emp.dtos.EmpDTO">
 				<result-mapping column="EMPNO" attribute="empNo"/>
 				<result-mapping column="ENAME" attribute="ename"/>
 				<result-mapping column="JOB" attribute="job"/>
@@ -72,7 +72,7 @@
 				FROM 
 					EXAMPLE_EMP
 			]]></statement>
-			<result class="org.codelabor.example.dtos.EmpDTO" length="10">
+			<result class="org.codelabor.example.emp.dtos.EmpDTO" length="10">
 				<result-mapping column="EMPNO" attribute="empNo"/>
 				<result-mapping column="ENAME" attribute="ename"/>
 				<result-mapping column="JOB" attribute="job"/>
@@ -91,7 +91,7 @@
 					EXAMPLE_EMP
 			]]></statement>
 			<result 
-				mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
+				mapper="org.codelabor.example.emp.daos.mapper.EmpMapper"/>
 		</query>			
 		<query id="example.select.emp.list.by.dept.no" isDynamic="false">
 			<statement><![CDATA[
@@ -104,7 +104,7 @@
 					DEPTNO = ?			
 			]]></statement>
 			<param type="INTEGER"/>
-			<result class="org.codelabor.example.dtos.EmpDTO">
+			<result class="org.codelabor.example.emp.dtos.EmpDTO">
 				<result-mapping column="EMPNO" attribute="empNo"/>
 				<result-mapping column="ENAME" attribute="ename"/>
 				<result-mapping column="JOB" attribute="job"/>

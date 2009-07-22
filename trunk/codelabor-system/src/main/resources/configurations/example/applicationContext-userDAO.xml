@@ -5,7 +5,7 @@
 
 	<bean 
 		id="example.userDAO" 
-		class="org.codelabor.example.daos.UserDAOImpl"
+		class="org.codelabor.example.user.daos.UserDAOImpl"
 		parent="baseDAO">
 	</bean>
 </beans>

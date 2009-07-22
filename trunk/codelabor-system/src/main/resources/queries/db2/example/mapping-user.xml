@@ -5,7 +5,7 @@
 	<table-mapping>
 		<table 
 			name="EXAMPLE_USER" 
-			class="org.codelabor.example.dtos.UserDTO">
+			class="org.codelabor.example.user.dtos.UserDTO">
 			<field-mapping>
 				<dbms-column>USER_ID</dbms-column>
 				<class-attribute>userId</class-attribute>
@@ -58,7 +58,7 @@
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-			<result class="org.codelabor.example.dtos.UserDTO">
+			<result class="org.codelabor.example.user.dtos.UserDTO">
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="USER_PASSWORD" attribute="userPassword"/>
 			</result>			
@@ -73,7 +73,7 @@
 					EXAMPLE_USER
 				]]>
 			</statement>
-			<result class="org.codelabor.example.dtos.UserDTO">
+			<result class="org.codelabor.example.user.dtos.UserDTO">
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="USER_PASSWORD" attribute="userPassword"/>
 			</result>			

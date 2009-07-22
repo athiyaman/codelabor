@@ -6,7 +6,8 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.codelabor.example.dtos.UserDTO;
+import org.codelabor.example.user.dtos.UserDTO;
+import org.codelabor.example.user.services.UserService;
 import org.junit.Test;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 

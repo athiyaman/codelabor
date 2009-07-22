@@ -3,7 +3,7 @@ package anyframe.services.query;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.codelabor.example.dtos.EmpDTO;
+import org.codelabor.example.emp.dtos.EmpDTO;
 import org.junit.Test;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 

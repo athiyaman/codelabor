@@ -7,7 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.codelabor.example.dtos.EmpDTO;
+import org.codelabor.example.emp.daos.EmpDAO;
+import org.codelabor.example.emp.dtos.EmpDTO;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 

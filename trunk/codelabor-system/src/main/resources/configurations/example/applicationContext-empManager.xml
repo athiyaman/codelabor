@@ -5,7 +5,7 @@
 		
 	<bean 
 		id="empDAO" 
-		class="org.codelabor.example.daos.EmpDAOImpl"
+		class="org.codelabor.example.emp.daos.EmpDAOImpl"
 		parent="baseDAO">
 		<property name="idGenerationService">
 			<ref bean="empNoGenerationService" />

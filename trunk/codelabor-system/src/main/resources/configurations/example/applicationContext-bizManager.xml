@@ -5,12 +5,12 @@
 
 	<bean 
 		id="biz1Manager" 
-		class="org.codelabor.example.managers.Biz1ManagerImpl">
+		class="org.codelabor.example.transaction.managers.Biz1ManagerImpl">
 		<property name="queryService" ref="oracleQueryService"/>
 	</bean>
 	<bean 
 		id="biz2Manager" 
-		class="org.codelabor.example.managers.Biz2ManagerImpl">
+		class="org.codelabor.example.transaction.managers.Biz2ManagerImpl">
 		<property name="queryService" ref="oracleQueryService"/>
 	</bean>		
 </beans>

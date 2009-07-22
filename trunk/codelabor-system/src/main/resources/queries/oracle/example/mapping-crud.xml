@@ -3,7 +3,7 @@
 "http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
 <queryservice>
 	<table-mapping>
-		<table name="CRUD" class="org.codelabor.example.dtos.CrudDTO">
+		<table name="CRUD" class="org.codelabor.example.crud.dtos.CrudDTO">
 			<field-mapping>
 				<dbms-column>ID</dbms-column>
 				<class-attribute>id</class-attribute>
@@ -42,7 +42,7 @@
 				WHERE ID=?				
 			]]></statement>
 			<param type="INTEGER" />
-			<result class="org.codelabor.example.dtos.CrudDTO">
+			<result class="org.codelabor.example.crud.dtos.CrudDTO">
 				<result-mapping column="ID" attribute="id"/>
 				<result-mapping column="FIELD1" attribute="field1"/>
 				<result-mapping column="FIELD2" attribute="field2"/>
@@ -54,7 +54,7 @@
 				ID, FIELD1, FIELD2 				
 				FROM CRUD
 			]]></statement>
-			<result class="org.codelabor.example.dtos.CrudDTO">
+			<result class="org.codelabor.example.crud.dtos.CrudDTO">
 				<result-mapping column="ID" attribute="id"/>
 				<result-mapping column="FIELD1" attribute="field1"/>
 				<result-mapping column="FIELD2" attribute="field2"/>
@@ -68,7 +68,7 @@
 				WHERE FIELD1 LIKE ?		
 			]]></statement>
 			<param type="VARCHAR" />
-			<result class="org.codelabor.example.dtos.CrudDTO">
+			<result class="org.codelabor.example.crud.dtos.CrudDTO">
 				<result-mapping column="ID" attribute="id"/>
 				<result-mapping column="FIELD1" attribute="field1"/>
 				<result-mapping column="FIELD2" attribute="field2"/>

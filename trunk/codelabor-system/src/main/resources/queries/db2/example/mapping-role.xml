@@ -5,7 +5,7 @@
 	<table-mapping>
 		<table 
 			name="EXAMPLE_ROLE" 
-			class="org.codelabor.example.dtos.RoleDTO">
+			class="org.codelabor.example.user.dtos.RoleDTO">
 			<field-mapping>
 				<dbms-column>ROLE_ID</dbms-column>
 				<class-attribute>roleId</class-attribute>
@@ -58,7 +58,7 @@
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-			<result class="org.codelabor.example.dtos.RoleDTO">
+			<result class="org.codelabor.example.user.dtos.RoleDTO">
 				<result-mapping column="ROLE_ID" attribute="roleId"/>
 				<result-mapping column="DESCRIPTION" attribute="description"/>
 			</result>			
@@ -73,7 +73,7 @@
 					EXAMPLE_ROLE
 				]]>
 			</statement>
-			<result class="org.codelabor.example.dtos.RoleDTO">
+			<result class="org.codelabor.example.user.dtos.RoleDTO">
 				<result-mapping column="ROLE_ID" attribute="roleId"/>
 				<result-mapping column="DESCRIPTION" attribute="description"/>
 			</result>			

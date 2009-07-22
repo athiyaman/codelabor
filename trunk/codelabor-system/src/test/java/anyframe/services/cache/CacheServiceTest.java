@@ -3,7 +3,7 @@ package anyframe.services.cache;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.codelabor.example.dtos.EmpDTO;
+import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.cache.ICacheService;

@@ -68,7 +68,7 @@
 				]]>
 			</statement>
 			<param type="INTEGER"/>
-			<result class="org.codelabor.example.dtos.UserDTO">
+			<result class="org.codelabor.example.user.dtos.UserDTO">
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="ROLE_ID" attribute="roleId"/>
 			</result>			
@@ -86,7 +86,7 @@
 				]]>
 			</statement>
 			<param type="INTEGER"/>
-			<result class="org.codelabor.example.dtos.UserDTO">
+			<result class="org.codelabor.example.user.dtos.UserDTO">
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="ROLE_ID" attribute="roleId"/>
 			</result>			
@@ -101,7 +101,7 @@
 					EXAMPLE_USER_ROLE_MAP
 				]]>
 			</statement>
-			<result class="org.codelabor.example.dtos.UserDTO">
+			<result class="org.codelabor.example.user.dtos.UserDTO">
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="ROLE_ID" attribute="roleId"/>
 			</result>			
