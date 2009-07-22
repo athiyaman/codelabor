@@ -12,9 +12,6 @@
 		<config:configuration>
 			<fileName>classpath*:properties/**/*.properties</fileName>
 			<properties>
-				<!-- 
-				<element key="key1" value="value1" />
-				 -->
 			</properties>
 		</config:configuration>
 	</bean>

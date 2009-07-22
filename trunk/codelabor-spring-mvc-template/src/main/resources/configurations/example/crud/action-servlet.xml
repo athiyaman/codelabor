@@ -3,31 +3,47 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean 
+	<bean
+		abstract="true"
+		id="example.crud.baseCrudController"
+		class="org.codelabor.example.crud.spring.controllers.BaseCrudController">
+		<property name="crudService" ref="crudService"/>
+	</bean>
+	<bean
+		abstract="true"
+		id="example.crud.baseCrudFormController"
+		class="org.codelabor.example.crud.spring.controllers.BaseCrudFormController">
+		<property name="crudService" ref="crudService"/>
+	</bean>	
+	<bean
+		parent="example.crud.baseCrudFormController" 
 		id="example.crud.createController" 
 		class="org.codelabor.example.crud.spring.controllers.CreateController">
 		<property name="commandName" value="crudForm"/>
 		<property name="commandClass" value="org.codelabor.example.crud.dtos.CrudDTO"/>
 		<property name="formView" value="example.crud.create.definition"/>
 		<property name="successView" value="example.crud.list.definition"/>
-		<property name="crudService" ref="example.crudService"/>
 	</bean>
-	<bean 
+	<bean
+		parent="example.crud.baseCrudController" 
 		id="example.crud.readController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.crud.read.definition"/>
 	</bean>
 	<bean 
+		parent="example.crud.baseCrudController"
 		id="example.crud.listController" 
-		class="org.codelabor.system.spring.controllers.ForwardController">
+		class="org.codelabor.example.crud.spring.controllers.ListController">
 		<property name="successView" value="example.crud.list.definition"/>
 	</bean>
 	<bean 
+		parent="example.crud.baseCrudFormController"	
 		id="example.crud.updateController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.crud.update.definition"/>
 	</bean>	
-	<bean 
+	<bean
+		parent="example.crud.baseCrudFormController"	 
 		id="example.crud.deleteController" 
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="forward:/example/crud/list.do"/>

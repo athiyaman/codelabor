@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 	
 	<bean id="sniffer"
-		class="org.codelabor.system.advices.SnifferAdvice"
+		class="org.codelabor.system.sniffer.advices.SnifferAdvice"
 		parent="baseAdvice">
 		<property name="messageSource" ref="messageSource"/>
 	</bean>
