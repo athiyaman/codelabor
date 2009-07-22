@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.dtos;
+package org.codelabor.system.file.dtos;
 
 import java.io.Serializable;
 

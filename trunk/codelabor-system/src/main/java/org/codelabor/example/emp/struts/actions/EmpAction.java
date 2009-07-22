@@ -1,4 +1,4 @@
-package org.codelabor.example.struts.actions;
+package org.codelabor.example.emp.struts.actions;
 
 import java.util.List;
 

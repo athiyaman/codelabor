@@ -15,25 +15,32 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.daos;
+package org.codelabor.system.file.managers;
 
 import java.util.List;
 
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.RepositoryType;
+import org.codelabor.system.file.dtos.FileDTO;
 
 /**
  * @author SangJae Shin
  * 
  */
-public interface LoginDAO {
-	public int insertLogin(LoginDTO loginDTO) throws Exception;
+public interface FileManager {
 
-	public int updateLogin(LoginDTO loginDTO) throws Exception;
+	public int deleteFile(String fileId) throws Exception;
 
-	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception;
+	public int deleteFile(String[] fileIdList) throws Exception;
 
-	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
+	public int insertFile(FileDTO fileDTO) throws Exception;
+
+	public int insertFile(List<FileDTO> fileDTOList) throws Exception;
+
+	public List<FileDTO> selectFile() throws Exception;
+
+	public List<FileDTO> selectFile(RepositoryType repositoryType)
 			throws Exception;
 
-	public List<LoginDTO> selectLogin() throws Exception;
+	public FileDTO selectFile(String fileId) throws Exception;
+
 }

@@ -15,13 +15,14 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.daos;
+package org.codelabor.system.file.daos;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.codelabor.system.RepositoryType;
-import org.codelabor.system.dtos.FileDTO;
+import org.codelabor.system.daos.BaseDAOImpl;
+import org.codelabor.system.file.dtos.FileDTO;
 
 /**
  * @author SangJae Shin
