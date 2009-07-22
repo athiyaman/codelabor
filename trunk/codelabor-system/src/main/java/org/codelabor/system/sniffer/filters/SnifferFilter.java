@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.filters;
+package org.codelabor.system.sniffer.filters;
 
 import java.io.IOException;
 
@@ -24,6 +24,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.utils.SnifferUtil;
 
 /**
