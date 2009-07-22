@@ -91,6 +91,30 @@
   </build>
   <dependencies>        
   	<dependency>
+  		<groupId>kr.co.tmax</groupId>
+  		<artifactId>clientcontainer</artifactId>
+  		<version>6.0.0.5</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>kr.co.tmax</groupId>
+  		<artifactId>jclient</artifactId>
+  		<version>6.0.0.5</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>kr.co.tmax</groupId>
+  		<artifactId>jclient_jaxb</artifactId>
+  		<version>6.0.0.5</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>  	
+  	<dependency>
   		<groupId>junit</groupId>
   		<artifactId>junit</artifactId>
   		<version>4.6</version>
