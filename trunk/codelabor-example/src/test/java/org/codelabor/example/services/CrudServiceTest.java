@@ -4,13 +4,15 @@ import java.util.List;
 
 import junit.framework.Assert;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.CrudDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class CrudServiceTest extends BaseTestCase {
+public class CrudServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private CrudService crudService;
-
 	@Override
 	public void onSetUp() throws Exception {
 		crudService = (CrudService) applicationContext
@@ -83,5 +85,10 @@ public class CrudServiceTest extends BaseTestCase {
 		} catch (Exception e) {
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

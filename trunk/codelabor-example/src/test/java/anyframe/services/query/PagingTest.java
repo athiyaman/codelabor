@@ -3,13 +3,13 @@ package anyframe.services.query;
 import java.util.List;
 import java.util.Map;
 
-import org.codelabor.system.test.BaseTestCase;
 import org.junit.Test;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 import anyframe.core.query.QueryServiceException;
 
-public class PagingTest extends BaseTestCase {
+public class PagingTest extends AbstractDependencyInjectionSpringContextTests {
 
 	protected IQueryService queryService;
 
@@ -31,9 +31,9 @@ public class PagingTest extends BaseTestCase {
 			List resultList = (List) resultMap.get(IQueryService.LIST);
 			int totalCount = ((Long) resultMap.get(IQueryService.COUNT))
 					.intValue();
-			log.info("totalCount: " + totalCount);
-			log.info("resultList.size(): " + resultList.size());
-			log.info("resultList: " + resultList);
+			logger.info("totalCount: " + totalCount);
+			logger.info("resultList.size(): " + resultList.size());
+			logger.info("resultList: " + resultList);
 
 			// assert
 			assertEquals(14, totalCount);
@@ -56,10 +56,10 @@ public class PagingTest extends BaseTestCase {
 			List resultList = (List) resultMap.get(IQueryService.LIST);
 			int totalCount = ((Long) resultMap.get(IQueryService.COUNT))
 					.intValue();
-			log.info("pageIndex: " + pageIndex);
-			log.info("totalCount: " + totalCount);
-			log.info("resultList.size(): " + resultList.size());
-			log.info("resultList: " + resultList);
+			logger.info("pageIndex: " + pageIndex);
+			logger.info("totalCount: " + totalCount);
+			logger.info("resultList.size(): " + resultList.size());
+			logger.info("resultList: " + resultList);
 
 			// assert
 			assertEquals(14, totalCount);
@@ -84,11 +84,11 @@ public class PagingTest extends BaseTestCase {
 			List resultList = (List) resultMap.get(IQueryService.LIST);
 			int totalCount = ((Long) resultMap.get(IQueryService.COUNT))
 					.intValue();
-			log.info("pageIndex: " + pageIndex);
-			log.info("pageSize: " + pageSize);
-			log.info("totalCount: " + totalCount);
-			log.info("resultList.size(): " + resultList.size());
-			log.info("resultList: " + resultList);
+			logger.info("pageIndex: " + pageIndex);
+			logger.info("pageSize: " + pageSize);
+			logger.info("totalCount: " + totalCount);
+			logger.info("resultList.size(): " + resultList.size());
+			logger.info("resultList: " + resultList);
 
 			// assert
 			assertEquals(14, totalCount);
@@ -100,11 +100,11 @@ public class PagingTest extends BaseTestCase {
 					pageIndex, pageSize);
 			resultList = (List) resultMap.get(IQueryService.LIST);
 			totalCount = ((Long) resultMap.get(IQueryService.COUNT)).intValue();
-			log.info("pageIndex: " + pageIndex);
-			log.info("pageSize: " + pageSize);
-			log.info("totalCount: " + totalCount);
-			log.info("resultList.size(): " + resultList.size());
-			log.info("resultList: " + resultList);
+			logger.info("pageIndex: " + pageIndex);
+			logger.info("pageSize: " + pageSize);
+			logger.info("totalCount: " + totalCount);
+			logger.info("resultList.size(): " + resultList.size());
+			logger.info("resultList: " + resultList);
 
 			// assert
 			assertEquals(14, totalCount);
@@ -113,5 +113,10 @@ public class PagingTest extends BaseTestCase {
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

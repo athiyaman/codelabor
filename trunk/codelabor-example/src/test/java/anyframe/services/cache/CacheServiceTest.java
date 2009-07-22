@@ -3,15 +3,17 @@ package anyframe.services.cache;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.EmpDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.cache.ICacheService;
 
-public class CacheServiceTest extends BaseTestCase {
+public class CacheServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	protected ICacheService cacheService;
-
 	@Override
 	protected void onSetUp() throws Exception {
 		super.onSetUp();
@@ -46,5 +48,10 @@ public class CacheServiceTest extends BaseTestCase {
 			e.printStackTrace();
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

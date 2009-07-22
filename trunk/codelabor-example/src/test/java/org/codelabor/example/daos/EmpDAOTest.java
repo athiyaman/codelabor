@@ -7,16 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.EmpDTO;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class EmpDAOTest extends BaseTestCase {
+public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 
 	private EmpDAO empDAO;
-
-	// private IQueryService queryService;
-
 	@Override
 	protected void onSetUp() throws Exception {
 		empDAO = (EmpDAO) applicationContext.getBean("empDAO");
@@ -348,7 +347,7 @@ public class EmpDAOTest extends BaseTestCase {
 		empDTO = new EmpDTO();
 		empDTO.setEmpNo(8001);
 		deleteEmpDTOList.add(empDTO);
-		
+
 		AffectedRowCountDTO affectedRowCount = null;
 		try {
 			affectedRowCount = this.empDAO.saveEmp(insertEmpDTOList,
@@ -359,5 +358,10 @@ public class EmpDAOTest extends BaseTestCase {
 		assertEquals(3, affectedRowCount.getInsertedRowCount());
 		assertEquals(3, affectedRowCount.getUpdatedRowCount());
 		assertEquals(2, affectedRowCount.getDeletedRowCount());
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

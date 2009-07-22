@@ -12,15 +12,17 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.dtos.FileDTO;
-import org.codelabor.system.test.BaseTestCase;
 import org.codelabor.system.utils.ChannelUtil;
 import org.junit.Test;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.query.IQueryService;
 
-public class BlobTest extends BaseTestCase {
+public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 
 	protected IQueryService queryService;
 
@@ -160,5 +162,10 @@ public class BlobTest extends BaseTestCase {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

@@ -2,11 +2,12 @@ package anyframe.services.properties;
 
 import java.util.Iterator;
 
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.properties.IPropertiesService;
-import org.codelabor.system.test.BaseTestCase;
 
-public class PropertiesServiceTest extends BaseTestCase {
+public class PropertiesServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	protected IPropertiesService propertiesService;
 
@@ -32,7 +33,7 @@ public class PropertiesServiceTest extends BaseTestCase {
 				StringBuilder stringBuilder = new StringBuilder();
 				stringBuilder.append(key).append(": ").append(
 						propertiesService.getString(key));
-				log.debug(stringBuilder);
+				logger.debug(stringBuilder);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,5 +52,10 @@ public class PropertiesServiceTest extends BaseTestCase {
 			e.printStackTrace();
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

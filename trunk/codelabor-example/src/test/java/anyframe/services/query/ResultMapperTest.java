@@ -4,13 +4,14 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import org.codelabor.example.dtos.EmpDTO;
-import org.codelabor.system.test.BaseTestCase;
 import org.junit.Test;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 import anyframe.core.query.QueryServiceException;
 
-public class ResultMapperTest extends BaseTestCase {
+public class ResultMapperTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	protected IQueryService queryService;
 
@@ -31,12 +32,17 @@ public class ResultMapperTest extends BaseTestCase {
 			Iterator iterator = result.iterator();
 			while (iterator.hasNext()) {
 				EmpDTO empDTO = (EmpDTO) iterator.next();
-				log.debug(empDTO);
+				logger.debug(empDTO);
 			}
 			// assert
 
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

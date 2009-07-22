@@ -1,9 +1,10 @@
 package org.springframework.context;
 
-import org.codelabor.system.test.BaseTestCase;
 import org.junit.Test;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class MessageSourceTest extends BaseTestCase {
+public class MessageSourceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private MessageSource messageSource;
 
@@ -27,7 +28,7 @@ public class MessageSourceTest extends BaseTestCase {
 					"error.properties.refresh.files", null, null);
 			// assert
 			assertEquals(expectedMessage, message);
-			log.debug(message);
+			logger.debug(message);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

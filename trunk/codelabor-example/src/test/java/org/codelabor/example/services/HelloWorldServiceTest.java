@@ -1,12 +1,14 @@
 package org.codelabor.example.services;
 
-import org.codelabor.system.test.BaseTestCase;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class HelloWorldServiceTest extends BaseTestCase {
+public class HelloWorldServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private HelloWorldService helloWorldService;
-
 	@Override
 	public void onSetUp() {
 		helloWorldService = (HelloWorldService) applicationContext
@@ -33,6 +35,11 @@ public class HelloWorldServiceTest extends BaseTestCase {
 			e.printStackTrace();
 		}
 		assertEquals("Hello, Bomber!", greeting);
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 
 }

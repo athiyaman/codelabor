@@ -6,14 +6,16 @@ import java.util.List;
 
 import junit.framework.Assert;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.UserDTO;
-import org.codelabor.system.test.BaseTestCase;
 import org.junit.Test;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class UserServiceTest extends BaseTestCase {
+public class UserServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private UserService userService;
-
 	@Override
 	public void onSetUp() throws Exception {
 		userService = (UserService) applicationContext
@@ -70,5 +72,10 @@ public class UserServiceTest extends BaseTestCase {
 			e.printStackTrace();
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

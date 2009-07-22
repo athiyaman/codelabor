@@ -2,18 +2,20 @@ package org.codelabor.example.services;
 
 import java.util.Collection;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.EmpDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
-public class DeclarativeTransactionTest extends BaseTestCase {
+public class DeclarativeTransactionTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private App1Service app1Service;
 	private IQueryService queryService;
 
 	private Collection<EmpDTO> empDTOList;
-
 	@Override
 	public void onSetUp() throws Exception {
 		app1Service = (App1Service) applicationContext.getBean("app1Service");
@@ -242,6 +244,11 @@ public class DeclarativeTransactionTest extends BaseTestCase {
 				throw e;
 			}
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 
 }
