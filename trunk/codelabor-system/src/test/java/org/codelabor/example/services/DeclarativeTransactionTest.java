@@ -2,8 +2,6 @@ package org.codelabor.example.services;
 
 import java.util.Collection;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.EmpDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
@@ -13,9 +11,17 @@ public class DeclarativeTransactionTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
 	private App1Service app1Service;
+
+	@Override
+	protected void onTearDown() throws Exception {
+		super.onTearDown();
+		// queryService.remove(arg0, arg1);
+	}
+
 	private IQueryService queryService;
 
 	private Collection<EmpDTO> empDTOList;
+
 	@Override
 	public void onSetUp() throws Exception {
 		app1Service = (App1Service) applicationContext.getBean("app1Service");
@@ -23,9 +29,9 @@ public class DeclarativeTransactionTest extends
 				.getBean("oracleQueryService");
 
 		// clear data
-		String queryId = "example.delete.emp.list";
-		Object[] params = new Object[] {};
-		queryService.remove(queryId, params);
+		// String queryId = "example.delete.emp.list";
+		// Object[] params = new Object[] {};
+		// queryService.remove(queryId, params);
 	}
 
 	@SuppressWarnings("unchecked")
