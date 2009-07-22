@@ -1,4 +1,4 @@
-package org.codelabor.example.services;
+package org.codelabor.example.user.services;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;

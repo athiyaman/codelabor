@@ -12,7 +12,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
-import org.codelabor.system.dtos.FileDTO;
+import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.utils.ChannelUtil;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 

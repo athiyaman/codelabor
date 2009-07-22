@@ -1,10 +1,10 @@
-package org.codelabor.system.services;
+package org.codelabor.system.login.services;
 
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.login.dtos.LoginDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;

@@ -1,4 +1,4 @@
-package org.codelabor.example.services;
+package org.codelabor.example.transaction.services;
 
 import java.util.Collection;
 
