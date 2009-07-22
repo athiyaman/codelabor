@@ -81,7 +81,7 @@ public class MailServiceTest extends
 			if (log.isDebugEnabled()) {
 				log.debug(mailDTO.toString());
 			}
-			// mailService.send(mailDTO);
+			mailService.send(mailDTO);
 
 			// TODO assert
 		} catch (Exception e) {
