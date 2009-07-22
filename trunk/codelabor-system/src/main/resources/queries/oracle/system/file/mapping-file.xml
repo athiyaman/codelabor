@@ -5,7 +5,7 @@
 	<table-mapping>
 		<table 
 			name="FILE_REPOSITORY" 
-			class="org.codelabor.system.dtos.FileDTO">
+			class="org.codelabor.system.file.dtos.FileDTO">
 			<field-mapping>
 				<dbms-column>FILE_ID</dbms-column>
 				<class-attribute>fileId</class-attribute>
@@ -110,7 +110,7 @@
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-			<result class="org.codelabor.system.dtos.FileDTO">
+			<result class="org.codelabor.system.file.dtos.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
@@ -139,7 +139,7 @@
 				#end
 				]]>
 			</statement>
-			<result class="org.codelabor.system.dtos.FileDTO">
+			<result class="org.codelabor.system.file.dtos.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
@@ -162,7 +162,7 @@
 					FILE_REPOSITORY
 				]]>
 			</statement>
-			<result class="org.codelabor.system.dtos.FileDTO">
+			<result class="org.codelabor.system.file.dtos.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>

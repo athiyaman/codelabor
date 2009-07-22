@@ -13,9 +13,10 @@
 				]]>
 			</statement>
 		</query>	
+					
 		
 		<!-- insert -->
-		<!-- DB2 -->					
+		<!-- Oracle -->
 		<query id="system.insert.login" isDynamic="false">
 			<statement>
 				<![CDATA[
@@ -23,14 +24,14 @@
 				INTO LOGIN ( 
 					SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP
 				) VALUES (
-					?, ?, ?, CURRENT_TIMESTAMP
+					?, ?, ?, SYSDATE
 				)
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
 			<param type="VARCHAR"/>
 			<param type="VARCHAR"/>			
-		</query>
+		</query>		
 					
 		<!-- select -->			
 		<query id="system.select.login.list" isDynamic="false">
@@ -41,7 +42,7 @@
 				FROM LOGIN
 				]]>
 			</statement>
-			<result class="org.codelabor.system.dtos.LoginDTO">
+			<result class="org.codelabor.system.login.dtos.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
@@ -49,24 +50,24 @@
 				<result-mapping column="LOGOUT_TIMESTAMP" attribute="logoutTimestamp"/>								
 			</result>
 		</query>
-		<!-- DB2 -->
+		<!-- Oracle -->
 		<query id="system.select.login" isDynamic="false">
 			<statement>
 				<![CDATA[
-				SELECT * FROM 
-				(SELECT /* system.select.login */
-					ROWNUMBER() OVER() AS ROWNUM, SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP 
+				SELECT /* system.select.login */
+					SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP
 				FROM 
-					LOGIN 
+					LOGIN
 				WHERE 
 					SESSION_ID = ?
+					AND
+					ROWNUM = 1
 				ORDER BY 
-					LOGIN_TIMESTAMP DESC	
-				) AS INNER_TABLE WHERE ROWNUM = 1				
+					LOGIN_TIMESTAMP DESC
 				]]>
 			</statement>
-			<param type="INTEGER"/>
-			<result class="org.codelabor.system.dtos.LoginDTO">
+			<param type="VARCHAR"/>
+			<result class="org.codelabor.system.login.dtos.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
@@ -77,21 +78,22 @@
 		<query id="system.select.login.by.last.logout.user.id" isDynamic="false">
 			<statement>
 				<![CDATA[
-				SELECT * FROM 
-				(SELECT /* system.select.login.by.last.logout.user.id */
-					ROWNUMBER() OVER() AS ROWNUM, SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP 
+				SELECT /* system.select.login.by.last.logout.user.id */
+					SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP
 				FROM 
-					LOGIN 
+					LOGIN
 				WHERE 
 					USER_ID = ?
-					AND LOGOUT_TIMESTAMP IS NOT NULL
+					AND
+					ROWNUM = 1
+					AND
+					LOGOUT_TIMESTAMP IS NOT NULL
 				ORDER BY 
-					LOGIN_TIMESTAMP DESC	
-				) AS INNER_TABLE WHERE ROWNUM = 1						
+					LOGOUT_TIMESTAMP DESC
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-			<result class="org.codelabor.system.dtos.LoginDTO">
+			<result class="org.codelabor.system.login.dtos.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
@@ -99,23 +101,22 @@
 				<result-mapping column="LOGOUT_TIMESTAMP" attribute="logoutTimestamp"/>								
 			</result>
 		</query>
-	
 
 		<!-- update -->
-		<!-- DB2 -->
+		<!-- Oracle -->
 		<query id="system.update.login" isDynamic="false">
 			<statement>
 				<![CDATA[
 				UPDATE /* system.update.login */
 				LOGIN 
 				SET 
-					LOGOUT_TIMESTAMP = CURRENT_TIMESTAMP
+					LOGOUT_TIMESTAMP = SYSDATE
 				WHERE
 					SESSION_ID = ?
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-		</query>		 
+		</query>
 	</queries>
 </queryservice>
 
