@@ -1,7 +1,5 @@
 package org.codelabor.example.services;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.SystemPropertiesDTO;
 import org.junit.Test;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
@@ -10,6 +8,7 @@ public class SystemPropertiesServiceTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
 	private SystemPropertiesService systemPropertiesService;
+
 	@Override
 	public void onSetUp() throws Exception {
 		systemPropertiesService = (SystemPropertiesService) applicationContext

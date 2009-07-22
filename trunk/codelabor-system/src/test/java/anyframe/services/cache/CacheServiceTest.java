@@ -3,8 +3,6 @@ package anyframe.services.cache;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.EmpDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
@@ -14,6 +12,7 @@ public class CacheServiceTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
 	protected ICacheService cacheService;
+
 	@Override
 	protected void onSetUp() throws Exception {
 		super.onSetUp();

@@ -1,7 +1,5 @@
 package org.codelabor.example.services;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
@@ -9,6 +7,7 @@ public class HelloWorldServiceTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
 	private HelloWorldService helloWorldService;
+
 	@Override
 	public void onSetUp() {
 		helloWorldService = (HelloWorldService) applicationContext

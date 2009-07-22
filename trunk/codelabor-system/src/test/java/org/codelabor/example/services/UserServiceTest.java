@@ -6,8 +6,6 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.UserDTO;
 import org.junit.Test;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
@@ -16,6 +14,7 @@ public class UserServiceTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
 	private UserService userService;
+
 	@Override
 	public void onSetUp() throws Exception {
 		userService = (UserService) applicationContext

@@ -252,6 +252,18 @@ public class DeclarativeTransactionTest extends
 		}
 	}
 
+	public void testClearData() throws Exception {
+		String queryId = "example.delete.emp";
+		queryService.remove(queryId, new String[] { "10" });
+		queryService.remove(queryId, new String[] { "11" });
+		queryService.remove(queryId, new String[] { "14" });
+		queryService.remove(queryId, new String[] { "18" });
+		queryService.remove(queryId, new String[] { "19" });
+		queryService.remove(queryId, new String[] { "21" });
+		queryService.remove(queryId, new String[] { "24" });
+		queryService.remove(queryId, new String[] { "25" });
+	}
+
 	@Override
 	protected String[] getConfigLocations() {
 		return new String[] { "classpath*:/**/applicationContext*.xml" };
