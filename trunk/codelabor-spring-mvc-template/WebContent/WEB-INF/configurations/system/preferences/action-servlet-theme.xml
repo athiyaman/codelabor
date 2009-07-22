@@ -18,6 +18,6 @@
 	<bean
 		id="themeSource"
 		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
-		<property name="basenamePrefix" value="configurations.themes."/>
+		<property name="basenamePrefix" value="themes."/>
 	</bean>
 </beans>
