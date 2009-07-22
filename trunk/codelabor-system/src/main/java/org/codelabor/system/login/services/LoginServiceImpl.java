@@ -15,14 +15,15 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.services;
+package org.codelabor.system.login.services;
 
 import java.util.List;
 
-import org.codelabor.system.dtos.LoginDTO;
 import org.codelabor.system.exceptions.CommonException;
 import org.codelabor.system.exceptions.RollbackCommonException;
-import org.codelabor.system.managers.LoginManager;
+import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.managers.LoginManager;
+import org.codelabor.system.services.BaseServiceImpl;
 
 /**
  * @author SangJae Shin

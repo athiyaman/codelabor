@@ -15,17 +15,17 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.services;
+package org.codelabor.system.login.managers;
 
 import java.util.List;
 
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
  * @author SangJae Shin
  * 
  */
-public interface LoginService {
+public interface LoginManager {
 	public void login(LoginDTO loginDTO) throws Exception;
 
 	public void logout(LoginDTO loginDTO) throws Exception;

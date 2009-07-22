@@ -15,12 +15,13 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.managers;
+package org.codelabor.system.login.managers;
 
 import java.util.List;
 
-import org.codelabor.system.daos.LoginDAO;
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.login.daos.LoginDAO;
+import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
  * @author SangJae Shin

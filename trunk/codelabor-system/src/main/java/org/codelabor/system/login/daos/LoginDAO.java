@@ -15,25 +15,25 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.managers;
+package org.codelabor.system.login.daos;
 
 import java.util.List;
 
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
  * @author SangJae Shin
  * 
  */
-public interface LoginManager {
-	public void login(LoginDTO loginDTO) throws Exception;
+public interface LoginDAO {
+	public int insertLogin(LoginDTO loginDTO) throws Exception;
 
-	public void logout(LoginDTO loginDTO) throws Exception;
-
-	public List<LoginDTO> selectLogin() throws Exception;
+	public int updateLogin(LoginDTO loginDTO) throws Exception;
 
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception;
 
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception;
+
+	public List<LoginDTO> selectLogin() throws Exception;
 }

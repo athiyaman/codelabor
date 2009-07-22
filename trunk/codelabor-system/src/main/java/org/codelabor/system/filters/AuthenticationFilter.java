@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.codelabor.system.Constants;
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
  * @author SangJae Shin

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.listeners;
+package org.codelabor.system.login.listeners;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionActivationListener;
@@ -25,9 +25,10 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 import org.codelabor.system.Constants;
-import org.codelabor.system.dtos.LoginDTO;
 import org.codelabor.system.dtos.MessageDTO;
-import org.codelabor.system.services.LoginService;
+import org.codelabor.system.listeners.BaseListener;
+import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.services.LoginService;
 import org.codelabor.system.utils.MessageUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
