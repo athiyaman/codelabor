@@ -3,16 +3,19 @@ package org.codelabor.system.services;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.dtos.AccessLogDTO;
-import org.codelabor.system.services.AccessLogService;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
-public class AccessLogServiceTest extends BaseTestCase {
+public class AccessLogServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private AccessLogService accessLogService;
 	protected IQueryService queryService;
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -80,5 +83,10 @@ public class AccessLogServiceTest extends BaseTestCase {
 			e.printStackTrace();
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

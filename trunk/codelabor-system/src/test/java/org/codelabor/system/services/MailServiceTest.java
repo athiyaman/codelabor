@@ -6,11 +6,14 @@ import java.util.Map;
 
 import javax.mail.internet.InternetAddress;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.dtos.MailDTO;
-import org.codelabor.system.services.MailService;
-import org.codelabor.system.test.BaseTestCase;
+import org.junit.Ignore;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class MailServiceTest extends BaseTestCase {
+public class MailServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private MailService mailService;
 	private final String mailAddressFrom = "tester@codelabor.org";
@@ -18,12 +21,14 @@ public class MailServiceTest extends BaseTestCase {
 	private final String mailAddressTo = "tester@codelabor.org";
 	private final String mailAddressCC = "tester@codelabor.org";
 	private final String mailAddressBCC = "tester@codelabor.org";
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public void onSetUp() throws Exception {
 		mailService = (MailService) applicationContext.getBean("mailService");
 	}
 
+	@Ignore
 	public void testSend() {
 		try {
 			// mail text
@@ -76,12 +81,17 @@ public class MailServiceTest extends BaseTestCase {
 			if (log.isDebugEnabled()) {
 				log.debug(mailDTO.toString());
 			}
-			mailService.send(mailDTO);
+			// mailService.send(mailDTO);
 
 			// TODO assert
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

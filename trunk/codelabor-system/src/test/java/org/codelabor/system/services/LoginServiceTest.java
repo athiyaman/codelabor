@@ -2,16 +2,19 @@ package org.codelabor.system.services;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.dtos.LoginDTO;
-import org.codelabor.system.services.LoginService;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
-public class LoginServiceTest extends BaseTestCase {
+public class LoginServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private LoginService loginService;
 	private IQueryService queryService;
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -71,5 +74,10 @@ public class LoginServiceTest extends BaseTestCase {
 			e.printStackTrace();
 			fail();
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

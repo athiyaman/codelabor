@@ -3,12 +3,15 @@ package org.codelabor.system.services;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.codelabor.system.test.BaseTestCase;
-import org.codelabor.system.services.HttpAdapterService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class HttpAdapterServiceTest extends BaseTestCase {
+public class HttpAdapterServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private HttpAdapterService httpAdapterService;
+	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -32,5 +35,10 @@ public class HttpAdapterServiceTest extends BaseTestCase {
 		if (log.isDebugEnabled()) {
 			log.debug("responseBody: " + responseBody);
 		}
+	}
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
