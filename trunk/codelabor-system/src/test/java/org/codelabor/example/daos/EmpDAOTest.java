@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.dtos.EmpDTO;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
@@ -16,6 +14,7 @@ import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 
 	private EmpDAO empDAO;
+
 	@Override
 	protected void onSetUp() throws Exception {
 		empDAO = (EmpDAO) applicationContext.getBean("empDAO");
@@ -143,8 +142,8 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		calendar.clear();
 
 		EmpDTO empDTO = new EmpDTO();
-		empDTO.setEmpNo(7369);
-		empDTO.setEname("BOMBER");
+		empDTO.setEmpNo(8000);
+		empDTO.setEname("BOMBER *");
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
@@ -169,8 +168,8 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		List<EmpDTO> empDTOList = new ArrayList<EmpDTO>();
 
 		EmpDTO empDTO = new EmpDTO();
-		empDTO.setEmpNo(7369);
-		empDTO.setEname("BOMBER");
+		empDTO.setEmpNo(8001);
+		empDTO.setEname("BOMBER *");
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
@@ -181,20 +180,8 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTOList.add(empDTO);
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(7499);
-		empDTO.setEname("BOMBER");
-		empDTO.setJob("FA");
-		empDTO.setMgr(7839);
-		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
-		empDTO.setSal(5000);
-		empDTO.setComm(0);
-		empDTO.setDeptNo(20);
-		empDTOList.add(empDTO);
-
-		empDTO = new EmpDTO();
-		empDTO.setEmpNo(7521);
-		empDTO.setEname("BOMBER");
+		empDTO.setEmpNo(8002);
+		empDTO.setEname("BOMBER *");
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
@@ -210,7 +197,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		assertEquals(3, affectedRowCount);
+		assertEquals(2, affectedRowCount);
 	}
 
 	public void testDeleteEmpEmpDTO() {
@@ -218,7 +205,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		calendar.clear();
 
 		EmpDTO empDTO = new EmpDTO();
-		empDTO.setEmpNo(7369);
+		empDTO.setEmpNo(8000);
 
 		int affectedRowCount = 0;
 		try {
@@ -238,11 +225,11 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		EmpDTO empDTO = new EmpDTO();
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(7499);
+		empDTO.setEmpNo(8001);
 		empDTOList.add(empDTO);
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(7521);
+		empDTO.setEmpNo(8002);
 		empDTOList.add(empDTO);
 
 		int affectedRowCount = 0;
@@ -285,7 +272,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		// insert
 		List<EmpDTO> insertEmpDTOList = new ArrayList<EmpDTO>();
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 2; i++) {
 			empDTO = new EmpDTO();
 			empDTO.setEname("BOMBER");
 			empDTO.setJob("FA");
@@ -302,8 +289,8 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		List<EmpDTO> updateEmpDTOList = new ArrayList<EmpDTO>();
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(8000);
-		empDTO.setEname("BOMBER");
+		empDTO.setEmpNo(8003);
+		empDTO.setEname("BOMBER *");
 		empDTO.setJob("SA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
@@ -314,20 +301,8 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		updateEmpDTOList.add(empDTO);
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(8001);
-		empDTO.setEname("BOMBER");
-		empDTO.setJob("SA");
-		empDTO.setMgr(7839);
-		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
-		empDTO.setSal(5000);
-		empDTO.setComm(0);
-		empDTO.setDeptNo(20);
-		updateEmpDTOList.add(empDTO);
-
-		empDTO = new EmpDTO();
-		empDTO.setEmpNo(8002);
-		empDTO.setEname("BOMBER");
+		empDTO.setEmpNo(8004);
+		empDTO.setEname("BOMBER *");
 		empDTO.setJob("SA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
@@ -341,11 +316,11 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		List<EmpDTO> deleteEmpDTOList = new ArrayList<EmpDTO>();
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(8000);
+		empDTO.setEmpNo(8003);
 		deleteEmpDTOList.add(empDTO);
 
 		empDTO = new EmpDTO();
-		empDTO.setEmpNo(8001);
+		empDTO.setEmpNo(8004);
 		deleteEmpDTOList.add(empDTO);
 
 		AffectedRowCountDTO affectedRowCount = null;
@@ -355,8 +330,8 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		assertEquals(3, affectedRowCount.getInsertedRowCount());
-		assertEquals(3, affectedRowCount.getUpdatedRowCount());
+		assertEquals(2, affectedRowCount.getInsertedRowCount());
+		assertEquals(2, affectedRowCount.getUpdatedRowCount());
 		assertEquals(2, affectedRowCount.getDeletedRowCount());
 	}
 
