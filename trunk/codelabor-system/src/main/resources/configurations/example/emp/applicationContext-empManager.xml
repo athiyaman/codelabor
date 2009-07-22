@@ -2,16 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-	
+		
 	<bean 
-		id="loginDAO" 
-		class="org.codelabor.system.daos.LoginDAOImpl"
+		id="empDAO" 
+		class="org.codelabor.example.emp.daos.EmpDAOImpl"
 		parent="baseDAO">
+		<property name="idGenerationService">
+			<ref bean="empNoGenerationService" />
+		</property>		
 	</bean>
 	<bean 
-		id="loginManager" 
-		class="org.codelabor.system.managers.LoginManagerImpl"
+		id="empManager" 
+		class="org.codelabor.example.emp.managers.EmpManagerImpl"
 		parent="baseManager">
-		<property name="loginDAO" ref="loginDAO"/>
+		<property name="empDAO" ref="empDAO"/>
 	</bean>
 </beans>

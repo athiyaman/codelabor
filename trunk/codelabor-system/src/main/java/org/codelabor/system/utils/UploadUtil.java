@@ -13,7 +13,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.RepositoryType;
-import org.codelabor.system.dtos.FileDTO;
+import org.codelabor.system.file.dtos.FileDTO;
 
 public class UploadUtil {
 	static private final Log log = LogFactory.getLog(UploadUtil.class);

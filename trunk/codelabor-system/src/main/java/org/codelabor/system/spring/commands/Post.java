@@ -1,5 +1,7 @@
 package org.codelabor.system.spring.commands;
 
+import org.codelabor.system.file.spring.commands.FileList;
+
 public class Post extends FileList {
 	/**
 	 * 
