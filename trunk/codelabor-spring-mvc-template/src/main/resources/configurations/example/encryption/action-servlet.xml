@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean 
+		id="example.encryption.xecure.requestByGetMethodController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.encryption.xecure.requestByGetMethod.definition"/>
+	</bean>
+	<bean 
+		id="example.encryption.xecure.requestByPostMethodController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.encryption.xecure.requestByPostMethod.definition"/>
+	</bean>	
+	<bean 
+		id="example.encryption.xecure.requestByScriptController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.encryption.xecure.requestByScript.definition"/>
+	</bean>	
+	<bean 
+		id="example.encryption.xecure.responseController" 
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.encryption.xecure.response.definition"/>
+	</bean>
+</beans>
