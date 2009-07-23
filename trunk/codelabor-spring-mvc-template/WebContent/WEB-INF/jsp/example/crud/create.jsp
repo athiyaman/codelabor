@@ -4,24 +4,24 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>	
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-				<h2>CRUD Example</h2>
+				<h2><spring:message code="label.example.crud"/></h2>
 				<p></p>
 				<div class="section">
-				<h3>Create Form</h3>
+				<h3><spring:message code="label.example.crud.create"/></h3>
 				<p></p>
-				<form:form method="post" commandName="crudForm">
+				<form:form method="post" commandName="createForm">
 					<form:errors path="*"/>
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
-								<th>field1</th>
+								<th><spring:message code="label.example.crud.field1"/></th>
 								<td>
 									<form:input path="field1" />
 									<form:errors path="field1"/>
 								</td>
 							</tr>
 							<tr class="b">
-								<th>field2</th>
+								<th><spring:message code="label.example.crud.field2"/></th>
 								<td>
 									<form:input path="field2" />
 									<form:errors path="field2"/>
