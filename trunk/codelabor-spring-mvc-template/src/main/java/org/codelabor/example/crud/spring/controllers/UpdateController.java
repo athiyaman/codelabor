@@ -16,17 +16,27 @@
  */
 package org.codelabor.example.crud.spring.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.codelabor.example.crud.dtos.CrudDTO;
 
 /**
  * @author Shin Sang Jae
  * 
  */
-public class CreateController extends BaseCrudFormController {
+public class UpdateController extends BaseCrudFormController {
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
 		CrudDTO crudDTO = (CrudDTO) command;
-		crudService.create(crudDTO);
+		crudService.update(crudDTO);
+	}
+
+	@Override
+	protected Object formBackingObject(HttpServletRequest request)
+			throws Exception {
+		int id = Integer.parseInt(request.getParameter("id"));
+		CrudDTO crudDTO = crudService.read(id);
+		return crudDTO;
 	}
 }

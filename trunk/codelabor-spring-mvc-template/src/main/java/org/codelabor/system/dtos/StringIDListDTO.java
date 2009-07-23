@@ -1,8 +1,13 @@
 package org.codelabor.system.dtos;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class StringIDListDTO {
+public class StringIDListDTO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4930740279435448852L;
 	private List<String> id;
 
 	public List<String> getId() {

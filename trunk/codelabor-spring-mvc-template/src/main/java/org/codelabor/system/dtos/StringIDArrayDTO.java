@@ -1,6 +1,13 @@
 package org.codelabor.system.dtos;
 
-public class StringIDArrayDTO {
+import java.io.Serializable;
+
+public class StringIDArrayDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6296998747458539246L;
 	private String[] id;
 
 	public String[] getId() {

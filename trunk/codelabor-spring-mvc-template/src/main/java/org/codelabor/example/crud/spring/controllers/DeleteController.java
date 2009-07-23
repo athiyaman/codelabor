@@ -16,17 +16,26 @@
  */
 package org.codelabor.example.crud.spring.controllers;
 
-import org.codelabor.example.crud.dtos.CrudDTO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.codelabor.system.dtos.IntIDArrayDTO;
+import org.springframework.validation.BindException;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Shin Sang Jae
  * 
  */
-public class CreateController extends BaseCrudFormController {
+public class DeleteController extends BaseCrudCommandController {
 
 	@Override
-	protected void doSubmitAction(Object command) throws Exception {
-		CrudDTO crudDTO = (CrudDTO) command;
-		crudService.create(crudDTO);
+	protected ModelAndView handle(HttpServletRequest request,
+			HttpServletResponse response, Object command,
+			BindException exception) throws Exception {
+		IntIDArrayDTO intIDArrayDTO = (IntIDArrayDTO) command;
+		int[] idArray = intIDArrayDTO.getId();
+		crudService.delete(idArray);
+		return new ModelAndView(getSuccessView());
 	}
 }
