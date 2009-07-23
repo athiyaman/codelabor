@@ -15,7 +15,7 @@
 	</bean>
 	<bean 
 		id="example.file.fileUploadController" 
-		class="org.codelabor.system.spring.controllers.FileUploadController">
+		class="org.codelabor.system.file.spring.controllers.FileUploadController">
 		<property name="commandClass" value="org.codelabor.system.spring.commands.Post"/>
 		<property name="formView" value="example.file.springMvc.listFile.definition"/>
 		<property name="successView" value="example.file.springMvc.listFile.definition"/>	
