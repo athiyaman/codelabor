@@ -43,7 +43,7 @@
 		<property name="commandName" value="updateForm"/>
 		<property name="commandClass" value="org.codelabor.example.crud.dtos.CrudDTO"/>
 		<property name="formView" value="example.crud.update.definition"/>
-		<property name="successView" value="redirect:/example/crud/list.do"/>
+		<property name="successView" value="forward:/example/crud/read.do"/>
 	</bean>	
 	<bean
 		id="example.crud.deleteController" 
