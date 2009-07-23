@@ -39,7 +39,7 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RollbackCommonException(messageSource,
-					"error.crud.create");
+					"error.crud.create", e);
 		}
 		return affectedRowCount;
 	}
@@ -53,8 +53,9 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 						new Object[] { crudId });
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new RollbackCommonException(messageSource,
-					"error.crud.delete");
+					"error.crud.delete", e);
 		}
 		return affectedRowCount;
 	}
@@ -68,7 +69,8 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 			crudDTOList = (List<CrudDTO>) queryService.find(queryId, param);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RollbackCommonException(messageSource, "error.crud.list");
+			throw new RollbackCommonException(messageSource, "error.crud.list",
+					e);
 		}
 		return crudDTOList;
 	}
@@ -81,7 +83,9 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 			Object[] param = new Object[] { field1Pattern };
 			crudDTOList = (List<CrudDTO>) queryService.find(queryId, param);
 		} catch (Exception e) {
-			throw new RollbackCommonException(messageSource, "error.crud.list");
+			e.printStackTrace();
+			throw new RollbackCommonException(messageSource, "error.crud.list",
+					e);
 		}
 		return crudDTOList;
 	}
@@ -97,7 +101,8 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 			crudDTO = crudDTOList.get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RollbackCommonException(messageSource, "error.crud.read");
+			throw new RollbackCommonException(messageSource, "error.crud.read",
+					e);
 		}
 		return crudDTO;
 	}
@@ -107,8 +112,9 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 		try {
 			affectedRowCount = queryService.update(crudDTO);
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new RollbackCommonException(messageSource,
-					"error.crud.update");
+					"error.crud.update", e);
 		}
 		return affectedRowCount;
 	}
