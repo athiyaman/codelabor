@@ -5,9 +5,9 @@
 				<h5>CRUD</h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/crud/list.do'/>">Spring MVC</a>
+						<a href="<c:url value='/example/crud/list.do'/>">Duplicate Submit</a>
 					</li>
-				</ul>	
+				</ul>
 				<h5>Encryption</h5>
 				<ul>
 					<li>
@@ -23,12 +23,17 @@
 						<a href="<c:url value='/example/encryption/xecure/response.do'/>">Response</a>
 					</li>
 				</ul>
+				<!--  
+				<h5>Sign</h5>
+				-->
 				<h5>File</h5>
 				<ul>
+					<!--  
 					<li>
-						<a href="<c:url value='/example/file/spring-mvc/listFile.do'/>">Spring MVC</a>
+  						<a href="<c:url value='/example/file/spring-mvc/listFile.do'/>">Spring MVC</a>
 					</li>
+					-->
 					<li>
 						<a href="<c:url value='/example/file/xecure/listFile.do'/>">Xecure</a>
 					</li>
-				</ul>				
+				</ul>

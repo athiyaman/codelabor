@@ -8,11 +8,11 @@
 					<script language="javascript">
 					<!--
 					function popup() {
-					    window.open("<c:url value='/servlet/snifferServlet?param1=value1&param2=value2'/>", "popupWindow1");
+					    window.open("<c:url value='/servlet/system/snifferServlet?param1=value1&param2=value2'/>", "popupWindow1");
 					}
 			
 					function xecurePopup() {
-						XecureNavigate("<c:url value='/servlet/snifferServlet?param1=value1&param2=value2'/>", "popupWindow2");
+						XecureNavigate("<c:url value='/servlet/system/snifferServlet?param1=value1&param2=value2'/>", "popupWindow2");
 					}
 					//-->
 					</script>

@@ -16,6 +16,8 @@
 		<security:intercept-url pattern="/example/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>		
 		<security:intercept-url pattern="/XecureObject/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/index.*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<security:intercept-url pattern="/servlet/system/snifferServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<security:intercept-url pattern="/servlet/system/XecureSnifferServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/home.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/xecure/login.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/administration/**" access="ROLE_ADMIN"/>

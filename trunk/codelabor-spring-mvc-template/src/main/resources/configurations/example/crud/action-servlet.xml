@@ -40,6 +40,7 @@
 		id="example.crud.updateController" 
 		class="org.codelabor.example.crud.spring.controllers.UpdateController"
 		parent="example.crud.baseCrudFormController">
+		<property name="sessionForm" value="true"/>
 		<property name="commandName" value="updateForm"/>
 		<property name="commandClass" value="org.codelabor.example.crud.dtos.CrudDTO"/>
 		<property name="formView" value="example.crud.update.definition"/>

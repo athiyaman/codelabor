@@ -68,7 +68,7 @@
 	</servlet>
 	<servlet-mapping>
   		<servlet-name>snifferServlet</servlet-name>
-		<url-pattern>/servlet/snifferServlet</url-pattern>
+		<url-pattern>/servlet/system/snifferServlet</url-pattern>
 	</servlet-mapping>
     
     <!-- xecure sniff servlet -->
@@ -78,7 +78,7 @@
   	</servlet>
 	<servlet-mapping>
   		<servlet-name>xecureSnifferServlet</servlet-name>
-  		<url-pattern>/servlet/xecureSnifferServlet</url-pattern>
+  		<url-pattern>/servlet/system/xecureSnifferServlet</url-pattern>
 	</servlet-mapping> 	
 	  
 	<welcome-file-list>

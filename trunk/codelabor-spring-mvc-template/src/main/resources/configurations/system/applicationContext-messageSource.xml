@@ -45,6 +45,7 @@
 			
 				<!-- system -->
 				<value>/WEB-INF/classes/messages/system/button</value>
+				<value>/WEB-INF/classes/messages/system/errors</value>
 				<value>/WEB-INF/classes/messages/system/label</value>
 				<value>/WEB-INF/classes/messages/system/menu</value>
 				<value>/WEB-INF/classes/messages/system/messages</value>

@@ -17,14 +17,26 @@
 package org.codelabor.example.crud.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.example.crud.dtos.CrudDTO;
+import org.springframework.validation.BindException;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Shin Sang Jae
  * 
  */
 public class UpdateController extends BaseCrudFormController {
+
+	@SuppressWarnings("deprecation")
+	@Override
+	protected ModelAndView handleInvalidSubmit(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		BindException errors = getErrorsForNewForm(request);
+		errors.reject("errors.duplicate.form.submission");
+		return showForm(request, response, errors);
+	}
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
