@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 		
 		<div id="banner">
-			<span id="bannerLeft">codelabor-spring-mvc-template</span>
+			<span id="bannerLeft"><spring:message code="label.header"/></span>
 			<div class="clear"><hr/></div>
 		</div>
 		<div id="breadcrumbs">
