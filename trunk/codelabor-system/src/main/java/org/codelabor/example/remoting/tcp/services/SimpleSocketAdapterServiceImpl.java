@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.example.remoting.services;
+package org.codelabor.example.remoting.tcp.services;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -28,7 +28,7 @@ import java.net.UnknownHostException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.remoting.services.SocketAdapterService;
+import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
 
 /**
  * @author bomber
