@@ -11,7 +11,7 @@ public class HelloWorldServiceTest extends
 	@Override
 	public void onSetUp() {
 		helloWorldService = (HelloWorldService) applicationContext
-				.getBean("helloWorldService");
+				.getBean("example.helloWorldService");
 	}
 
 	@Test
