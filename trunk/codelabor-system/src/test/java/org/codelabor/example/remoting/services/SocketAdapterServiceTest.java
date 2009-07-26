@@ -19,8 +19,12 @@ public class SocketAdapterServiceTest extends
 			String inputMessage = "Hello, World!";
 			String outputMessage = SocketAdapterService.send(inputMessage);
 			if (logger.isDebugEnabled()) {
-				logger.debug(outputMessage);
+				StringBuilder sb = new StringBuilder();
+				sb.append("sent message: ").append(inputMessage).append(", ");
+				sb.append("received message: ").append(outputMessage);
+				logger.debug(sb.toString());
 			}
+			assertEquals(inputMessage, outputMessage);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
