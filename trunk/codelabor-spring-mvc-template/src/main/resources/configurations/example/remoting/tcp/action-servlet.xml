@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean
+		id="example.remoting.tcp.baseCrudController"
+		class="org.codelabor.example.remoting.tcp.spring.controllers.BaseCrudController"
+		abstract="true">
+		<property name="crudService" ref="example.crudService"/>
+	</bean>
+	<bean
+		id="example.remoting.tcp.baseCrudFormController"
+		class="org.codelabor.example.remoting.tcp.spring.controllers.BaseCrudFormController"
+		abstract="true">
+		<property name="crudService" ref="example.crudService"/>
+	</bean>	
+	<bean
+ 		id="example.remoting.tcp.sendController" 
+		class="org.codelabor.example.remoting.tcp.spring.controllers.CreateController"
+		parent="example.remoting.tcp.baseCrudFormController">
+		<property name="commandName" value="sendForm"/>
+		<property name="commandClass" value="org.codelabor.example.remoting.tcp.dtos.CrudDTO"/>
+		<property name="formView" value="example.remoting.tcp.send.definition"/>
+		<property name="successView" value="redirect:/example/crud/list.do"/>
+	</bean>
+	<bean
+		id="example.remoting.tcp.receiveController" 
+		class="org.codelabor.example.remoting.tcp.spring.controllers.ReadController"
+		parent="example.remoting.tcp.baseCrudController" >
+		<property name="successView" value="example.remoting.tcp.receive.definition"/>
+	</bean>
+	<bean 
+		id="example.remoting.tcp.listController" 
+		class="org.codelabor.example.remoting.tcp.spring.controllers.ListController"
+		parent="example.remoting.tcp.baseCrudController">
+		<property name="successView" value="example.remoting.tcp.list.definition"/>
+	</bean>
+	<bean 
+		id="example.remoting.tcp.updateController" 
+		class="org.codelabor.example.remoting.tcp.spring.controllers.UpdateController"
+		parent="example.remoting.tcp.baseCrudFormController">
+		<property name="sessionForm" value="true"/>
+		<property name="commandName" value="updateForm"/>
+		<property name="commandClass" value="org.codelabor.example.remoting.tcp.dtos.CrudDTO"/>
+		<property name="formView" value="example.remoting.tcp.update.definition"/>
+		<property name="successView" value="forward:/example/crud/receive.do"/>
+	</bean>	
+	<bean
+		id="example.remoting.tcp.deleteController" 
+		class="org.codelabor.example.remoting.tcp.spring.controllers.DeleteController"
+		parent="example.remoting.tcp.baseCrudFormController">
+		<property name="commandName" value="idArray"/>
+		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>		
+		<property name="successView" value="redirect:/example/crud/list.do"/>
+	</bean>	
+</beans>
