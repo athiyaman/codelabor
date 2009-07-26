@@ -23,6 +23,7 @@
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="example.remoting.tcp.socketEchoService"/>
 		<property name="targetMethod" value="handle"/>
+		<property name="concurrent" value="false"/>
 	</bean>
 </beans>
 
