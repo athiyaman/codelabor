@@ -95,7 +95,7 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>          			  	
+  <dependencies>          			  	  	
   	<dependency>
   		<groupId>kr.co.tmax</groupId>
   		<artifactId>clientcontainer</artifactId>
@@ -231,6 +231,46 @@
   		<artifactId>quartz</artifactId>
   		<version>1.5.2</version>
   		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.security</groupId>
+  		<artifactId>spring-security-core</artifactId>
+  		<version>3.0.0.M1</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.security</groupId>
+  		<artifactId>spring-security-config</artifactId>
+  		<version>3.0.0.M1</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.security</groupId>
+  		<artifactId>spring-security-openid</artifactId>
+  		<version>3.0.0.M1</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.security</groupId>
+  		<artifactId>spring-security-taglibs</artifactId>
+  		<version>3.0.0.M1</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.springframework.security</groupId>
+  		<artifactId>spring-security-web</artifactId>
+  		<version>3.0.0.M1</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
   		<optional>false</optional>
   	</dependency>
   </dependencies>
