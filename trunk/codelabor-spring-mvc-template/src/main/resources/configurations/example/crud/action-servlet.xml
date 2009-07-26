@@ -7,13 +7,13 @@
 		id="example.crud.baseCrudController"
 		class="org.codelabor.example.crud.spring.controllers.BaseCrudController"
 		abstract="true">
-		<property name="crudService" ref="example.crudService"/>
+		<property name="crudService" ref="example.crud.crudService"/>
 	</bean>
 	<bean
 		id="example.crud.baseCrudFormController"
 		class="org.codelabor.example.crud.spring.controllers.BaseCrudFormController"
 		abstract="true">
-		<property name="crudService" ref="example.crudService"/>
+		<property name="crudService" ref="example.crud.crudService"/>
 	</bean>	
 	<bean
  		id="example.crud.createController" 
