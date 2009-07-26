@@ -26,6 +26,8 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.remoting.services.SocketAdapterService;
 
 /**
@@ -33,7 +35,8 @@ import org.codelabor.system.remoting.services.SocketAdapterService;
  * 
  */
 public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
-
+	private final Log log = LogFactory
+			.getLog(SimpleSocketAdapterServiceImpl.class);
 	private String host;
 	private int port;
 
@@ -60,14 +63,14 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 			bufferedWriter = new BufferedWriter(outputStreamWriter);
 
 			// send message
-			bufferedWriter.write(inputMessage
-					+ System.getProperty("line.separator"));
+			bufferedWriter.write(inputMessage);
+			bufferedWriter.newLine();
 			bufferedWriter.flush();
-			System.out.println("sent message: " + inputMessage);
+			log.debug("sent message: " + inputMessage);
 
 			// receive messate
 			receivedMessage = bufferedReader.readLine();
-			System.out.println("received message: " + receivedMessage);
+			log.debug("received message: " + receivedMessage);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
