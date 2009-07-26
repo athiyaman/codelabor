@@ -1,7 +1,7 @@
 package org.codelabor.system.ros;
 
 import org.codelabor.system.Constants;
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.login.dtos.LoginDTO;
 
 import flex.messaging.FlexContext;
 import flex.messaging.FlexSession;

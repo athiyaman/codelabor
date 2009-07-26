@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.RepositoryType;
-import org.codelabor.system.dtos.FileDTO;
+import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.file.servlets.FileUploadServlet;
 import org.codelabor.system.utils.UploadUtil;
 
 import xecure.file.XecureFileInputStream;
