@@ -10,5 +10,18 @@
 		id="helloWorldService" 
 		class="org.codelabor.example.services.HelloWorldServiceImpl">
 	</bean>
+	
+	<bean id="helloWorldServiceTrigger" 
+		class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="helloWorldServiceJobDetail" />
+		<property name="repeatInterval" value="1000"/>
+		<property name="repeatCount" value="5"/>
+	</bean>
+	
+	<bean id="helloWorldServiceJobDetail" 
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="helloWorldService"/>
+		<property name="targetMethod" value="sayHello"/>
+	</bean>
 </beans>
 
