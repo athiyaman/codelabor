@@ -11,7 +11,7 @@ public class SocketAdapterServiceTest extends
 	@Override
 	public void onSetUp() throws Exception {
 		SocketAdapterService = (SocketAdapterService) applicationContext
-				.getBean("example.remoting.socketAdapterService");
+				.getBean("example.remoting.tcp.socketAdapterService");
 	}
 
 	public void testSend() {

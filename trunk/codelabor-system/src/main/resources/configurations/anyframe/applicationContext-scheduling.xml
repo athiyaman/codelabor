@@ -9,7 +9,7 @@
 		<property name="triggers">
 			<list>
 				<ref bean="example.helloWorldServiceTrigger"/>
-				<ref bean="example.remoting.socketEchoServiceTrigger"/>
+				<ref bean="example.remoting.tcp.socketEchoServiceTrigger"/>
 			</list>
 		</property>		
 	</bean>
