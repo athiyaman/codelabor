@@ -36,6 +36,9 @@
 				
 				<!-- example crud -->
 				<value>/WEB-INF/classes/messages/example/crud/label</value>
+				
+				<!-- example remoting -->
+				<value>/WEB-INF/classes/messages/example/remoting/label</value>				
 							
 				<!-- example encryption -->
 				<value>/WEB-INF/classes/messages/example/encryption/label</value>
