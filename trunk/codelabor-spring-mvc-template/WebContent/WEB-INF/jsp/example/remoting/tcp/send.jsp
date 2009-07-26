@@ -4,34 +4,26 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>	
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-				<h2><spring:message code="label.example.remoting"/></h2>
+				<h2><spring:message code="label.example.remoting.tcp"/></h2>
 				<p></p>
 				<div class="section">
 				<h3><spring:message code="label.example.remoting.send"/></h3>
 				<p></p>
-				<form:form method="post" commandName="createForm">
+				<form:form method="post" commandName="sendForm">
 					<form:errors path="*"/>
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
-								<th><spring:message code="label.example.remoting.field1"/></th>
+								<th><spring:message code="label.example.remoting.message"/></th>
 								<td>
-									<form:input path="field1" />
-									<form:errors path="field1"/>
-								</td>
-							</tr>
-							<tr class="b">
-								<th><spring:message code="label.example.remoting.field2"/></th>
-								<td>
-									<form:input path="field2" />
-									<form:errors path="field2"/>
+									<form:textarea path="message" cols="50" rows="10"/>
+									<form:errors path="message"/>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 					<hr/>
-					<a href="<c:url value='/example/crud/list.do'/>"><spring:message code='button.list'/></a>
-					<input type="submit" value="<spring:message code='button.save'/>"/>
+					<input type="submit" value="<spring:message code='button.send'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</form:form>
 				</div>
