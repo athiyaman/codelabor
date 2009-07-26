@@ -17,6 +17,7 @@
 package org.codelabor.system.remoting.services;
 
 import org.codelabor.system.remoting.dtos.Header;
+import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
 
 import com.sds.anyframe.abstractlayer.vo.AbstractMVO;
 
