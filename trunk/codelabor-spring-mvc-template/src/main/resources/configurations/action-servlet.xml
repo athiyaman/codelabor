@@ -24,6 +24,10 @@
 				<entry key="/example/crud/update.do" value-ref="example.crud.updateController"/>				
 				<entry key="/example/crud/delete.do" value-ref="example.crud.deleteController"/>
 				
+				<!-- exmple remoting tcp -->
+				<entry key="/example/remoting/tcp/send.do" value-ref="example.remoting.tcp.sendController"/>
+				<entry key="/example/remoting/tcp/receive.do" value-ref="example.remoting.tcp.receiveController"/>				
+				
 				<!-- example encryption -->
 				<entry key="/example/encryption/xecure/requestByGetMethod.do" 
 					value-ref="example.encryption.xecure.requestByGetMethodController"/>
