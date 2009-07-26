@@ -41,24 +41,26 @@ public class SocketEchoServiceThread implements Runnable {
 				// receive messate
 				receivedMessage = bufferedReader.readLine();
 
-				StringBuilder sb = new StringBuilder();
-				sb.append("received message: ").append(receivedMessage);
-				if (log.isDebugEnabled()) {
-					log.debug(sb.toString());
-				}
+				if (receivedMessage == null) {
+					continue;
+				} else {
+					StringBuilder sb = new StringBuilder();
+					sb.append("received message: ").append(receivedMessage);
+					if (log.isDebugEnabled()) {
+						log.debug(sb.toString());
+					}
 
-				// send messate
-				sb = new StringBuilder();
-				sb.append(receivedMessage).append(
-						System.getProperty("line.separator"));
-				String sentMessage = sb.toString();
-				bufferedWriter.write(sentMessage);
-				// bufferedWriter.flush();
+					// send messate
+					String sentMessage = receivedMessage;
+					bufferedWriter.write(sentMessage);
+					bufferedWriter.newLine();
+					bufferedWriter.flush();
 
-				sb = new StringBuilder();
-				sb.append("sent message: ").append(sentMessage);
-				if (log.isDebugEnabled()) {
-					log.debug(sb.toString());
+					sb = new StringBuilder();
+					sb.append("sent message: ").append(sentMessage);
+					if (log.isDebugEnabled()) {
+						log.debug(sb.toString());
+					}
 				}
 			}
 		} catch (IOException e) {
