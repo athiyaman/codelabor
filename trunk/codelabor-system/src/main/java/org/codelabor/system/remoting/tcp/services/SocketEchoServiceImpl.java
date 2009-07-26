@@ -1,4 +1,4 @@
-package org.codelabor.system.remoting.services;
+package org.codelabor.system.remoting.tcp.services;
 
 import java.io.IOException;
 import java.net.ServerSocket;
