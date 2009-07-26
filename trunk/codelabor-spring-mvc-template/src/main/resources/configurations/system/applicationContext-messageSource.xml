@@ -38,7 +38,10 @@
 				<value>/WEB-INF/classes/messages/example/crud/label</value>
 				
 				<!-- example remoting -->
-				<value>/WEB-INF/classes/messages/example/remoting/label</value>				
+				<value>/WEB-INF/classes/messages/example/remoting/label</value>
+				
+				<!-- example remoting tcp -->
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/label</value>							
 							
 				<!-- example encryption -->
 				<value>/WEB-INF/classes/messages/example/encryption/label</value>
