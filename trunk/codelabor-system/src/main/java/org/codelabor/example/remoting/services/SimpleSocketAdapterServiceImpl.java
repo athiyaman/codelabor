@@ -66,11 +66,19 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 			bufferedWriter.write(inputMessage);
 			bufferedWriter.newLine();
 			bufferedWriter.flush();
-			log.debug("sent message: " + inputMessage);
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("sent message: ").append(inputMessage);
+				log.debug(sb.toString());
+			}
 
 			// receive messate
 			receivedMessage = bufferedReader.readLine();
-			log.debug("received message: " + receivedMessage);
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("received message: ").append(receivedMessage);
+				log.debug(sb.toString());
+			}
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
