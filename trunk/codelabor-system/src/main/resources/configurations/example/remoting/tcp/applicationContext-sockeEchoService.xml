@@ -7,21 +7,21 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	
 	<bean 
-		id="example.remoting.socketEchoService" 
+		id="example.remoting.tcp.socketEchoService" 
 		class="org.codelabor.system.remoting.tcp.services.SocketEchoServiceImpl">
 		<property name="port" value="10000"/>
 	</bean>
 	
-	<bean id="example.remoting.socketEchoServiceTrigger" 
+	<bean id="example.remoting.tcp.socketEchoServiceTrigger" 
 		class="org.springframework.scheduling.quartz.SimpleTriggerBean">
-		<property name="jobDetail" ref="example.remoting.soketEchoServiceJobDetail" />
+		<property name="jobDetail" ref="example.remoting.tcp.soketEchoServiceJobDetail" />
 		<property name="repeatInterval" value="0"/>
 		<property name="repeatCount" value="0"/>
 	</bean>
 	
-	<bean id="example.remoting.soketEchoServiceJobDetail" 
+	<bean id="example.remoting.tcp.soketEchoServiceJobDetail" 
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="example.remoting.socketEchoService"/>
+		<property name="targetObject" ref="example.remoting.tcp.socketEchoService"/>
 		<property name="targetMethod" value="handle"/>
 	</bean>
 </beans>
