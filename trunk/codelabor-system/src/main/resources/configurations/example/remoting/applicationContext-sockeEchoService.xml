@@ -11,5 +11,18 @@
 		class="org.codelabor.system.remoting.services.SocketEchoServiceImpl">
 		<property name="port" value="10000"/>
 	</bean>
+	
+	<bean id="example.remoting.socketEchoServiceTrigger" 
+		class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="example.remoting.soketEchoServiceJobDetail" />
+		<property name="repeatInterval" value="0"/>
+		<property name="repeatCount" value="0"/>
+	</bean>
+	
+	<bean id="example.remoting.soketEchoServiceJobDetail" 
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="example.remoting.socketEchoService"/>
+		<property name="targetMethod" value="handle"/>
+	</bean>
 </beans>
 
