@@ -5,7 +5,7 @@
 	xmlns:config="http://www.anyframejava.org/schema/service"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
-	
+	<!--  
 	<bean 
 		id="example.remoting.tcp.socketEchoService" 
 		class="org.codelabor.system.remoting.tcp.services.SocketEchoServiceImpl">
@@ -25,5 +25,6 @@
 		<property name="targetMethod" value="handle"/>
 		<property name="concurrent" value="false"/>
 	</bean>
+	-->
 </beans>
 
