@@ -7,11 +7,11 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	
 	<bean 
-		id="example.remoting.tcp.socketAdapterService" 
-		class="org.codelabor.example.remoting.tcp.services.SimpleSocketAdapterServiceImpl"
+		id="example.remoting.tcp.neoframe.NeoframeSocketAdapterService" 
+		class="org.codelabor.system.remoting.tcp.neoframe.services.NeoframeSocketAdapterServiceImpl"
 		depends-on="example.remoting.tcp.socketEchoService">
-		<property name="host" value="localhost"/>
-		<property name="port" value="10000"/>
-	</bean>
+		<property name="host" value="172.25.33.6"/>
+		<property name="port" value="9085"/>
+	</bean>	
 </beans>
 
