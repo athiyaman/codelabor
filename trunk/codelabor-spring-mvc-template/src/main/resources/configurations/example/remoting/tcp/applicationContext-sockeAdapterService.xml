@@ -8,8 +8,7 @@
 	
 	<bean 
 		id="example.remoting.tcp.socketAdapterService" 
-		class="org.codelabor.example.remoting.tcp.services.SimpleSocketAdapterServiceImpl"
-		depends-on="example.remoting.tcp.socketEchoService">
+		class="org.codelabor.example.remoting.tcp.services.SimpleSocketAdapterServiceImpl">
 		<property name="host" value="localhost"/>
 		<property name="port" value="10000"/>
 	</bean>
