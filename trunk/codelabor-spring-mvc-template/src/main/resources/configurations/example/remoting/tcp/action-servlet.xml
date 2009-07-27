@@ -5,7 +5,10 @@
 	<bean
  		id="example.remoting.tcp.sendController" 
 		class="org.codelabor.example.remoting.tcp.spring.controllers.SendController">
+		<!-- 
 		<property name="socketAdapterService" ref="example.remoting.tcp.socketAdapterService"/>
+		 -->
+		 <property name="socketAdapterService" ref="example.remoting.tcp.neoframe.NeoframeSocketAdapterService"/>
 		<property name="commandName" value="sendForm"/>
 		<property name="commandClass" value="org.codelabor.example.remoting.tcp.dtos.MessageDTO"/>
 		<property name="formView" value="example.remoting.tcp.send.definition"/>

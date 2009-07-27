@@ -13,5 +13,12 @@
 		<property name="host" value="localhost"/>
 		<property name="port" value="10000"/>
 	</bean>
+	<bean 
+		id="example.remoting.tcp.neoframe.NeoframeSocketAdapterService" 
+		class="org.codelabor.example.remoting.tcp.neoframe.services.NeoframeSocketAdapterServiceImpl"
+		depends-on="example.remoting.tcp.socketEchoService">
+		<property name="host" value="172.25.33.6"/>
+		<property name="port" value="9085"/>
+	</bean>	
 </beans>
 
