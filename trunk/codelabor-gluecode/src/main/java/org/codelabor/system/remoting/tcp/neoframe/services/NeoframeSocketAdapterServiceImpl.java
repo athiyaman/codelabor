@@ -31,6 +31,7 @@ import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
  * 
  */
 public class NeoframeSocketAdapterServiceImpl implements SocketAdapterService {
+	public final int MESSAGE_LENGTH_FIELD_LENGTH = 8;
 	private final Log log = LogFactory
 			.getLog(NeoframeSocketAdapterServiceImpl.class);
 	private String host;
@@ -60,7 +61,7 @@ public class NeoframeSocketAdapterServiceImpl implements SocketAdapterService {
 			}
 
 			// receive messate
-			byte[] messageLengthBytes = new byte[8];
+			byte[] messageLengthBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
 			inputStream.read(messageLengthBytes, 0, messageLengthBytes.length);
 			int messageLength = Integer
 					.parseInt(new String(messageLengthBytes));
