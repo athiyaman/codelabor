@@ -8,8 +8,7 @@
 	
 	<bean 
 		id="example.remoting.tcp.neoframe.NeoframeSocketAdapterService" 
-		class="org.codelabor.system.remoting.tcp.neoframe.services.NeoframeSocketAdapterServiceImpl"
-		depends-on="example.remoting.tcp.socketEchoService">
+		class="org.codelabor.system.remoting.tcp.neoframe.services.NeoframeSocketAdapterServiceImpl">
 		<property name="host" value="172.25.33.6"/>
 		<property name="port" value="9085"/>
 	</bean>	
