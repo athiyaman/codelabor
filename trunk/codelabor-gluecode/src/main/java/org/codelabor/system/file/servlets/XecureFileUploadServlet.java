@@ -1,4 +1,4 @@
-package org.codelabor.system.servlets;
+package org.codelabor.system.file.servlets;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
