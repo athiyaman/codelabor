@@ -61,6 +61,11 @@
     </logger>
 
     <!-- spring -->
+	<logger name="org.springframework.jdbc" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="defaultDailyRollingFile"/>
+	</logger
 	<logger name="org.springframework.security" additivity="false">
 		<level value="info" />
 		<appender-ref ref="console" />
