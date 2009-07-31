@@ -7,14 +7,14 @@
     	<put-attribute name="title"  value="Login"/>
 		<put-attribute name="menu"   value="/WEB-INF/jsp/system/login/menu.jsp"/>
 	</definition>
-	<definition name="system.login.body.definition" template="/WEB-INF/jsp/system/login/bodyLayout.jsp">
+	<definition name="system.login.body.definition" template="/WEB-INF/jsp/system/login/body-layout.jsp">
 		<put-attribute name="login1" value="/WEB-INF/jsp/system/login/login-pki-xecure.jsp"/>
-		<put-attribute name="login2" value="/WEB-INF/jsp/system/login/login-username-password.jsp"/>
+		<put-attribute name="login2" value="/WEB-INF/jsp/system/login/login-username-password-xecure.jsp"/>
 	</definition>
 	<definition name="system.login.home.definition" extends="system.login.definition">
     	<put-attribute name="body"   value="system.login.body.definition"/>
 	</definition>
 	<definition name="system.login.success.definition" extends="system.login.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/system/login/login-success.jsp"/>
-	</definition>	
+	</definition>
 </tiles-definitions>
