@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -39,6 +39,10 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 			.getLog(SimpleSocketAdapterServiceImpl.class);
 	private String host;
 	private int port;
+
+	public byte[] send(byte[] inputMessageBytes) throws Exception {
+		return this.send(inputMessageBytes.toString()).getBytes();
+	}
 
 	public String send(String inputMessage) throws Exception {
 		Socket socket = null;
@@ -101,4 +105,5 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 	public void setPort(int port) {
 		this.port = port;
 	}
+
 }
