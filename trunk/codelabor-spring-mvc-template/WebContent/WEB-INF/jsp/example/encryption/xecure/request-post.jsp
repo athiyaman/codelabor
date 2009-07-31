@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>	
-
-					<script language="javascript" src="<c:url value='/XecureObject/xecureweb.js'/>"></script>
-					<script language="javascript">PrintObjectTag();</script>
-					<form name="xecure"><input type="hidden" name="p"/></form>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 					<h2><spring:message code="label.example.encryption.request.post"/></h2>
 					<p></p>
@@ -20,10 +16,10 @@
 									<td>param2</td><td><input type="text" name="param2" value="value2"/></td>
 								</tr>
 							</table>
-							<input type="submit" value="submit"/>			
+							<input type="submit" value="submit"/>
 						</form>
 					</div>
-					<div class="section">						
+					<div class="section">
 						<h3><spring:message code="label.example.encryption.encrypted"/></h3>
 						<form action="<c:url value='/servlet/system/snifferServlet'/>" target="_blank" method="post" onsubmit="return XecureSubmit(this);">
 							<table>
@@ -34,6 +30,6 @@
 									<td>param2</td><td><input type="text" name="param2" value="value2"/></td>
 								</tr>
 							</table>
-							<input type="submit" value="submit"/>			
+							<input type="submit" value="submit"/>
 						</form>
 					</div>
