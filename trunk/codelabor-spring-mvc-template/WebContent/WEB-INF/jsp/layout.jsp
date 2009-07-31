@@ -15,7 +15,7 @@
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);
 		</style>
 		<style type="text/css" media="print">
-			@import url(${pageContext.request.contextPath}/css/print.css)/>);
+			@import url(${pageContext.request.contextPath}/css/print.css);
 		</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
