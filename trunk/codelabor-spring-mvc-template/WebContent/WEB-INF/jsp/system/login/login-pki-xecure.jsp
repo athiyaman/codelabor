@@ -9,7 +9,6 @@
 						  <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
 						</font>
 					</c:if>
-					<form name="xecure"><input type="hidden" name="p"/></form>
 					<form name="loginPkiForm"
 						action="<c:url value='/j_spring_security_check'/>" method="post" onsubmit="loginPkiForm.signedMessage.value = Sign_with_option(0, loginPkiForm.plainMessage.value);return XecureSubmit(this);">
 						<input type="hidden" name="plainMessage" value="login"/>
