@@ -4,26 +4,26 @@
 	<!-- spring support -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<!--  
+		<!--
 		<param-value>classpath*:configurations/**/applicationContext*.xml</param-value>
 		-->
 		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
-	
+
 	<!-- spring support -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<!-- spring security http session event publisher -->
 	<listener>
 		<!-- for spring security 2.0.4 -->
-		<!--  
+		<!--
  		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
  		-->
 		<!-- for spring security 3.0.0.M1 -->
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
-	</listener>	
+	</listener>
 
 	<!-- spring log4j listener -->
     <context-param>
@@ -37,12 +37,12 @@
     <context-param>
         <param-name>log4jRefreshInterval</param-name>
         <param-value>60000</param-value>
-    </context-param>    
+    </context-param>
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
-	
-	
+
+
 	<!-- spring mvc -->
 	<servlet>
 		<servlet-name>action</servlet-name>
@@ -60,7 +60,7 @@
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- sniffer servlet -->
   	<servlet>
   		<servlet-name>snifferServlet</servlet-name>
@@ -70,7 +70,7 @@
   		<servlet-name>snifferServlet</servlet-name>
 		<url-pattern>/servlet/system/snifferServlet</url-pattern>
 	</servlet-mapping>
-    
+
     <!-- xecure sniff servlet -->
   	<servlet>
   		<servlet-name>xecureSnifferServlet</servlet-name>
@@ -78,9 +78,19 @@
   	</servlet>
 	<servlet-mapping>
   		<servlet-name>xecureSnifferServlet</servlet-name>
-  		<url-pattern>/servlet/system/xecureSnifferServlet</url-pattern>
-	</servlet-mapping> 	
-	  
+  		<url-pattern>/servlet/system/sniffer/xecureSnifferServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- xecure file upload servlet -->
+  	<servlet>
+  		<servlet-name>xecureFileUploadServlet</servlet-name>
+  		<servlet-class>org.codelabor.system.sniffer.servlets.XecureSnifferServlet</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+  		<servlet-name>xecureFileUploadServlet</servlet-name>
+  		<url-pattern>/servlet/system/file/xecureFileUploadServlet</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -89,7 +99,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- encoding filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -103,27 +113,27 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<!-- Xecure filter -->  
+
+	<!-- Xecure filter -->
 	<filter>
 		<filter-name>xecureFilter</filter-name>
 		<filter-class>org.codelabor.system.filters.XecureFilter</filter-class>
-	</filter>	
+	</filter>
 	<filter-mapping>
 		<filter-name>xecureFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- sniffer filter -->
 	<filter>
 		<filter-name>snifferFilter</filter-name>
 		<filter-class>org.codelabor.system.sniffer.filters.SnifferFilter</filter-class>
-	</filter>	
+	</filter>
 	<filter-mapping>
 		<filter-name>snifferFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>	
-	
+	</filter-mapping>
+
 	<!-- spring security filter -->
  	<filter>
     	<filter-name>springSecurityFilterChain</filter-name>

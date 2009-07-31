@@ -3,22 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-		<script language="javascript" src="<c:url value='/XecureObject/xecureweb.js'/>"></script>
-		<script language="javascript" src="<c:url value='/XecureObject/xecureweb_file.js'/>"></script>
-		<script language="javascript">PrintObjectTag();</script>
-		<script language="javascript">PrintFileObjectTag();</script>
-			
-
 					<h2><spring:message code="label.example.file.xecure"/></h2>
 					<p></p>
 					<div class="section">
 						<h3><spring:message code="label.example.file.list"/>
-						<c:if test="${!empty param.repositoryType}"> 
+						<c:if test="${!empty param.repositoryType}">
 							(Repository Type: <c:out value="${param.repositoryType}"/>)
 						</c:if>
 						</h3>
 						<p></p>
-						<form action="<c:url value='/servlet/example/file/xecureUploadFile?method=delete'/>" method="post">
+						<form action="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=delete'/>" method="post">
 							<table class="bodyTable">
 								<tbody>
 									<tr class="a">
@@ -35,13 +29,13 @@
 												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
 											</td>
 											<td>
-												<a href="<c:url value='/servlet/example/file/xecureUploadFile?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
+												<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
 											</td>
 											<td>${fileDTO.uniqueFileName}</td>
 											<td>${fileDTO.repositoryPath}</td>
 											<td>${fileDTO.contentType}</td>
 											<td>${fileDTO.fileSize}</td>
-										</tr>			
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
@@ -50,18 +44,18 @@
 							<input type="submit" value="<spring:message code='button.delete'/>" />
 						</form>
 					</div>
-					
+
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.filesystem"/></h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/example/file/xecureUploadFile?method=upload&repositoryType=FILE_SYSTEM'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
+							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
 						</ul>
 					</div>
-					
+
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/example/file/xecureUploadFile?method=upload&repositoryType=DATABASE'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
+							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=DATABASE'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
 						</ul>
 					</div>
 
