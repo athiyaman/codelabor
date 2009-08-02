@@ -13,11 +13,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.file.servlets.FileUploadServlet;
 import org.codelabor.system.utils.UploadUtil;
 
 import xecure.file.XecureFileInputStream;
 import xecure.file.XecureFileOutputStream;
+import xecure.servlet.XecureConfig;
 import xecure.servlet.XecureHttpServletRequest;
 import xecure.servlet.XecureHttpServletResponse;
 import xecure.servlet.XecureServlet;
@@ -28,7 +28,7 @@ import anyframe.common.util.StringUtil;
 public class XecureFileUploadServlet extends FileUploadServlet {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 3747959585667212375L;
 	private final Log log = LogFactory.getLog(XecureFileUploadServlet.class);
@@ -39,9 +39,8 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			HttpServletResponse response) throws Exception {
 		PrintWriter writer = response.getWriter();
 		try {
-			XecureServlet xecureServlet = new XecureServlet(
-					((XecureHttpServletRequest) request).req,
-					((XecureHttpServletResponse) response).res);
+			XecureServlet xecureServlet = new XecureServlet(new XecureConfig(),
+					request, response);
 			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
 					xecureServlet.getXecureSession(), xecureServlet.request);
 			Map paramMap = xecureServlet.request.getParameterMap();

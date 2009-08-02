@@ -42,6 +42,10 @@
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
 
+	<!--file cleaner -->
+  	<listener>
+  		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
+	</listener>
 
 	<!-- spring mvc -->
 	<servlet>
