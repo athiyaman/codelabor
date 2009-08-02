@@ -18,7 +18,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 
 	@Override
 	protected void onSetUp() throws Exception {
-		empDAO = (EmpDAO) applicationContext.getBean("empDAO");
+		empDAO = (EmpDAO) applicationContext.getBean("example.emp.empDAO");
 		// queryService = (IQueryService) applicationContext
 		// .getBean("oracleQueryService");
 
