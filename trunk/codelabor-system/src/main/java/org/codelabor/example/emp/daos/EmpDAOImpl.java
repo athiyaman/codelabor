@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -108,7 +108,7 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 
 	@SuppressWarnings("unchecked")
 	public List selectEmp(Map<String, String> searchCondition) throws Exception {
-		log.debug("deptNo: " + searchCondition.get("deptNo"));
+		// TODO customize query
 		String selectQueryId = "example.select.emp.list.by.dept.no";
 		Object[] params = new Object[] { Integer.parseInt(searchCondition
 				.get("deptNo")) };
@@ -133,10 +133,24 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 
 	@SuppressWarnings("unchecked")
 	public EmpDTO selectEmp(int empNo) throws Exception {
-		log.debug("empNo: " + empNo);
 		String selectQueryId = "example.select.emp";
 		Object[] params = new Object[] { empNo };
 		return ((List<EmpDTO>) queryService.find(selectQueryId, params)).get(0);
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<EmpDTO> selectEmpListByDeptNo(int deptNo, int pageIndex,
+			int pageSize) throws Exception {
+		String selectQueryId = "example.select.emp.list.by.dept.no";
+		Object[] params = new Object[] { deptNo };
+		return (List<EmpDTO>) queryService.findWithRowCount(selectQueryId,
+				params, pageIndex, pageSize);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<EmpDTO> selectEmpListByDeptNo(int deptNo) throws Exception {
+		String selectQueryId = "example.select.emp.list.by.dept.no";
+		Object[] params = new Object[] { deptNo };
+		return new ArrayList(queryService.find(selectQueryId, params));
+	}
 }

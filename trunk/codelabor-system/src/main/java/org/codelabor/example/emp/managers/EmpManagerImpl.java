@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,9 +17,7 @@
 
 package org.codelabor.example.emp.managers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.codelabor.example.emp.daos.EmpDAO;
 import org.codelabor.example.emp.dtos.EmpDTO;
@@ -41,9 +39,7 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 	}
 
 	public List<EmpDTO> selectEmpListByDeptNo(int deptNo) throws Exception {
-		Map<String, String> searchCondition = new HashMap<String, String>();
-		searchCondition.put("deptNo", String.valueOf(deptNo));
-		return empDAO.selectEmp(searchCondition);
+		return empDAO.selectEmpListByDeptNo(deptNo);
 	}
 
 	public List<EmpDTO> selectEmpList() throws Exception {
@@ -52,5 +48,10 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 
 	public EmpDTO selectEmp(int empNo) throws Exception {
 		return empDAO.selectEmp(empNo);
+	}
+
+	public List<EmpDTO> selectEmpListByDeptNo(int deptNo, int pageIndex,
+			int pageSize) throws Exception {
+		return empDAO.selectEmpListByDeptNo(deptNo, pageIndex, pageSize);
 	}
 }
