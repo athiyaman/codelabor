@@ -1,0 +1,11 @@
+package org.codelabor.system.remoting.dtos;
+
+public abstract class HeaderDTO {
+
+	public abstract byte[] toBytes() throws Exception;
+
+	public abstract void fromBytes(byte[] bytes) throws Exception;
+
+	public abstract int getLength();
+
+}
