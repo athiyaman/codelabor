@@ -26,7 +26,7 @@ public class SearchController extends BaseEmpCommandController {
 		Page page = empManager.selectEmpListByDeptNo(deptNo, pageIndex,
 				pageSize);
 		ModelAndView mav = new ModelAndView(getSuccessView());
-		mav.addObject("empDTOList", page.getList());
+		mav.addObject("page", page);
 		return mav;
 	}
 
