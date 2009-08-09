@@ -23,6 +23,8 @@ import org.codelabor.example.emp.daos.EmpDAO;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
+import anyframe.common.Page;
+
 /**
  * @author SangJae Shin
  * 
@@ -50,8 +52,8 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 		return empDAO.selectEmp(empNo);
 	}
 
-	public List<EmpDTO> selectEmpListByDeptNo(int deptNo, int pageIndex,
-			int pageSize) throws Exception {
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
+			throws Exception {
 		return empDAO.selectEmpListByDeptNo(deptNo, pageIndex, pageSize);
 	}
 }

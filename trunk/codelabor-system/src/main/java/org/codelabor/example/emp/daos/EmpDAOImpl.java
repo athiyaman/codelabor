@@ -25,6 +25,9 @@ import org.codelabor.example.emp.dtos.EmpDTO;
 import org.codelabor.system.daos.BaseDAOImpl;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
 
+import anyframe.common.Page;
+import anyframe.core.query.IQueryService;
+
 /**
  * @author SangJae Shin
  * 
@@ -139,12 +142,16 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<EmpDTO> selectEmpListByDeptNo(int deptNo, int pageIndex,
-			int pageSize) throws Exception {
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
+			throws Exception {
 		String selectQueryId = "example.select.emp.list.by.dept.no";
 		Object[] params = new Object[] { deptNo };
-		return (List<EmpDTO>) queryService.findWithRowCount(selectQueryId,
-				params, pageIndex, pageSize);
+		Map resultMap = queryService.findWithRowCount(selectQueryId, params,
+				pageIndex, pageSize);
+		List resultList = (List) resultMap.get(IQueryService.LIST);
+		int totalCount = ((Long) resultMap.get(IQueryService.COUNT)).intValue();
+		return new Page(resultList, pageIndex, totalCount);
+
 	}
 
 	@SuppressWarnings("unchecked")

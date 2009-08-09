@@ -24,6 +24,8 @@ import java.util.List;
 
 import org.codelabor.example.emp.dtos.EmpDTO;
 
+import anyframe.common.Page;
+
 /**
  * @author SangJae Shin
  * 
@@ -104,8 +106,7 @@ public class EmpManagerMock implements EmpManager {
 		return returnEmpDTO;
 	}
 
-	public List<EmpDTO> selectEmpListByDeptNo(int deptNo, int pageIndex,
-			int pageSize) {
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize) {
 		// TODO Auto-generated method stub
 		return null;
 	}

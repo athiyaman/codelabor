@@ -21,6 +21,8 @@ import java.util.List;
 
 import org.codelabor.example.emp.dtos.EmpDTO;
 
+import anyframe.common.Page;
+
 /**
  * @author SangJae Shin
  * 
@@ -32,6 +34,6 @@ public interface EmpManager {
 
 	public EmpDTO selectEmp(int empNo) throws Exception;
 
-	public List<EmpDTO> selectEmpListByDeptNo(int deptNo, int pageIndex,
-			int pageSize) throws Exception;
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
+			throws Exception;
 }
