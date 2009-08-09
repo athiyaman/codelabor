@@ -3,7 +3,6 @@ package org.codelabor.example.crud.spring.controllers;
 import org.codelabor.example.crud.services.CrudService;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
-@SuppressWarnings("deprecation")
 public class BaseCrudFormController extends SimpleFormController {
 
 	protected CrudService crudService;
