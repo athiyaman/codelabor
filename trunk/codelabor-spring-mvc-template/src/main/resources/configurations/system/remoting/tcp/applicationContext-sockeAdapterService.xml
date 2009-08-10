@@ -12,6 +12,7 @@
 		depends-on="example.remoting.tcp.socketEchoService">
 		<property name="host" value="localhost"/>
 		<property name="port" value="10000"/>
+		<property name="charsetName" value="EUC-KR"/>
 	</bean>
 </beans>
 
