@@ -38,10 +38,17 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 	private final Log log = LogFactory
 			.getLog(SimpleSocketAdapterServiceImpl.class);
 	private String host;
+
+	public void setCharsetName(String charsetName) {
+		this.charsetName = charsetName;
+	}
+
 	private int port;
+	private String charsetName = "EUC-KR";
 
 	public byte[] send(byte[] inputMessageBytes) throws Exception {
-		return this.send(inputMessageBytes.toString()).getBytes();
+		return this.send(new String(inputMessageBytes, charsetName)).getBytes(
+				charsetName);
 	}
 
 	public String send(String inputMessage) throws Exception {
