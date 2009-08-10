@@ -17,7 +17,6 @@ import org.codelabor.system.utils.UploadUtil;
 
 import xecure.file.XecureFileInputStream;
 import xecure.file.XecureFileOutputStream;
-import xecure.servlet.XecureConfig;
 import xecure.servlet.XecureHttpServletRequest;
 import xecure.servlet.XecureHttpServletResponse;
 import xecure.servlet.XecureServlet;
@@ -39,8 +38,8 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			HttpServletResponse response) throws Exception {
 		PrintWriter writer = response.getWriter();
 		try {
-			XecureServlet xecureServlet = new XecureServlet(new XecureConfig(),
-					request, response);
+			XecureServlet xecureServlet = new XecureServlet(request, response);
+
 			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
 					xecureServlet.getXecureSession(), xecureServlet.request);
 			Map paramMap = xecureServlet.request.getParameterMap();
