@@ -3,12 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean
- 		id="example.remoting.tcp.sendController" 
+ 		id="example.remoting.tcp.sendController"
 		class="org.codelabor.example.remoting.tcp.spring.controllers.SendController">
-		<!-- 
-		<property name="socketAdapterService" ref="example.remoting.tcp.socketAdapterService"/>
-		 -->
-		 <property name="socketAdapterService" ref="system.remoting.tcp.neoframe.NeoframeSocketAdapterService"/>
+		<property name="socketAdapterService" ref="simpleSocketAdapterService"/>
 		<property name="commandName" value="sendForm"/>
 		<property name="commandClass" value="org.codelabor.example.remoting.tcp.dtos.MessageDTO"/>
 		<property name="formView" value="example.remoting.tcp.send.definition"/>
