@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<bean
 		id="example.crud.baseCrudController"
 		class="org.codelabor.example.crud.spring.controllers.BaseCrudController"
@@ -14,9 +14,9 @@
 		class="org.codelabor.example.crud.spring.controllers.BaseCrudFormController"
 		abstract="true">
 		<property name="crudService" ref="example.crud.crudService"/>
-	</bean>	
+	</bean>
 	<bean
- 		id="example.crud.createController" 
+ 		id="example.crud.createController"
 		class="org.codelabor.example.crud.spring.controllers.CreateController"
 		parent="example.crud.baseCrudFormController">
 		<property name="commandName" value="createForm"/>
@@ -25,19 +25,25 @@
 		<property name="successView" value="redirect:/example/crud/list.do"/>
 	</bean>
 	<bean
-		id="example.crud.readController" 
+		id="example.crud.readController"
 		class="org.codelabor.example.crud.spring.controllers.ReadController"
 		parent="example.crud.baseCrudController" >
 		<property name="successView" value="example.crud.read.definition"/>
 	</bean>
-	<bean 
-		id="example.crud.listController" 
+	<bean
+		id="example.crud.listController"
 		class="org.codelabor.example.crud.spring.controllers.ListController"
 		parent="example.crud.baseCrudController">
 		<property name="successView" value="example.crud.list.definition"/>
 	</bean>
-	<bean 
-		id="example.crud.updateController" 
+	<bean
+		id="example.crud.searchController"
+		class="org.codelabor.example.crud.spring.controllers.SearchController"
+		parent="example.crud.baseCrudCommandController">
+		<property name="successView" value="example.crud.search.definition"/>
+	</bean>
+	<bean
+		id="example.crud.updateController"
 		class="org.codelabor.example.crud.spring.controllers.UpdateController"
 		parent="example.crud.baseCrudFormController">
 		<property name="sessionForm" value="true"/>
@@ -45,13 +51,13 @@
 		<property name="commandClass" value="org.codelabor.example.crud.dtos.CrudDTO"/>
 		<property name="formView" value="example.crud.update.definition"/>
 		<property name="successView" value="forward:/example/crud/read.do"/>
-	</bean>	
+	</bean>
 	<bean
-		id="example.crud.deleteController" 
+		id="example.crud.deleteController"
 		class="org.codelabor.example.crud.spring.controllers.DeleteController"
 		parent="example.crud.baseCrudFormController">
 		<property name="commandName" value="idArray"/>
-		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>		
+		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
 		<property name="successView" value="redirect:/example/crud/list.do"/>
-	</bean>	
+	</bean>
 </beans>

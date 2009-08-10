@@ -78,7 +78,7 @@
     <!-- xecure sniff servlet -->
   	<servlet>
   		<servlet-name>xecureSnifferServlet</servlet-name>
-  		<servlet-class>org.codelabor.system.file.servlets.XecureFileUploadServlet</servlet-class>
+  		<servlet-class>org.codelabor.system.sniffer.servlets.XecureSnifferServlet</servlet-class>
   	</servlet>
 	<servlet-mapping>
   		<servlet-name>xecureSnifferServlet</servlet-name>
@@ -88,7 +88,23 @@
 	<!-- xecure file upload servlet -->
   	<servlet>
   		<servlet-name>xecureFileUploadServlet</servlet-name>
-  		<servlet-class>org.codelabor.system.sniffer.servlets.XecureSnifferServlet</servlet-class>
+  		<servlet-class>org.codelabor.system.file.servlets.XecureFileUploadServlet</servlet-class>
+	  	<init-param>
+	  		<param-name>parameterName</param-name>
+	  		<param-value>method</param-value>
+	  	</init-param>
+	  	<init-param>
+	  		<param-name>forwardPathUpload</param-name>
+	  		<param-value>/servlet/system/file/xecureFileUploadServlet?method=list</param-value>
+	  	</init-param>
+		<init-param>
+	  		<param-name>forwardPathList</param-name>
+	  		<param-value>/example/file/xecure/listFile.do</param-value>
+	  	</init-param>
+	  	<init-param>
+	  		<param-name>forwardPathDelete</param-name>
+	  		<param-value>/servlet/system/file/xecureFileUploadServlet?method=list</param-value>
+	  	</init-param>
   	</servlet>
 	<servlet-mapping>
   		<servlet-name>xecureFileUploadServlet</servlet-name>

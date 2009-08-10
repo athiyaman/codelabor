@@ -32,7 +32,6 @@
 				-->
 
 				<!-- example -->
-				<value>/WEB-INF/classes/messages/example/button</value>
 				<value>/WEB-INF/classes/messages/example/label</value>
 
 				<!-- example crud -->
