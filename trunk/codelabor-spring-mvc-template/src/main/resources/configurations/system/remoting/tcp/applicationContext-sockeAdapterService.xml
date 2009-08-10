@@ -7,10 +7,11 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
 	<bean
-		id="system.remoting.tcp.neoframe.NeoframeSocketAdapterService"
-		class="org.codelabor.system.remoting.tcp.neoframe.services.NeoframeSocketAdapterServiceImpl">
+		id="simpleSocketAdapterService"
+		class="kr.co.ksfc.jc.system.remoting.services.SimpleSocketAdapterServiceImpl">
 		<property name="host" value="172.25.33.6"/>
 		<property name="port" value="9085"/>
+		<property name="charsetName" value="EUC-KR"/>
 	</bean>
 </beans>
 

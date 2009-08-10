@@ -36,14 +36,8 @@
 		parent="example.crud.baseCrudController">
 		<property name="successView" value="example.crud.list.definition"/>
 	</bean>
-	<bean
-		id="example.crud.searchController"
-		class="org.codelabor.example.crud.spring.controllers.SearchController"
-		parent="example.crud.baseCrudCommandController">
-		<property name="successView" value="example.crud.search.definition"/>
-	</bean>
-	<bean
-		id="example.crud.updateController"
+	<bean 
+		id="example.crud.updateController" 
 		class="org.codelabor.example.crud.spring.controllers.UpdateController"
 		parent="example.crud.baseCrudFormController">
 		<property name="sessionForm" value="true"/>

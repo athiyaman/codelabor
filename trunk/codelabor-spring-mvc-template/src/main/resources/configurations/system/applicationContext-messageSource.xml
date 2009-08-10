@@ -2,71 +2,71 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-	<bean
+	<bean 
 		id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
 				<!-- spring security -->
 				<value>classpath:org/springframework/security/messages</value>
-
+							
 				<!-- anyframe message -->
 				<value>classpath:anyframe/core/properties/messages/properties</value>
 				<value>classpath:anyframe/core/idgen/messages/idgeneration</value>
 				<value>classpath:anyframe/core/process/messages/process</value>
 				<value>classpath:anyframe/core/adaptormanager/messages/adaptormanager</value>
 				<value>classpath:anyframe/core/query/messages/query</value>
-
+				
 				<!-- codelabor system fileupload -->
 				<value>classpath:messages/system/file/button</value>
 				<value>classpath:messages/system/file/label</value>
-
+				
 				<!-- tempate -->
 				<!--
 				<value>/WEB-INF/classes/messages/xxx/button</value>
-				<value>/WEB-INF/classes/messages/xxx/errors</value>
+				<value>/WEB-INF/classes/messages/xxx/errors</value>				
 				<value>/WEB-INF/classes/messages/xxx/images</value>
 				<value>/WEB-INF/classes/messages/xxx/label</value>
 				<value>/WEB-INF/classes/messages/xxx/menu</value>
 				<value>/WEB-INF/classes/messages/xxx/messages</value>
 				-->
-
+							
 				<!-- example -->
 				<value>/WEB-INF/classes/messages/example/label</value>
-
+				
 				<!-- example crud -->
 				<value>/WEB-INF/classes/messages/example/crud/label</value>
-
+				
 				<!-- example remoting -->
 				<value>/WEB-INF/classes/messages/example/remoting/label</value>
-
+				
 				<!-- example remoting tcp -->
-				<value>/WEB-INF/classes/messages/example/remoting/tcp/label</value>
-
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/label</value>							
+							
 				<!-- example encryption -->
 				<value>/WEB-INF/classes/messages/example/encryption/label</value>
-
+				
 				<!-- example file -->
-				<value>/WEB-INF/classes/messages/example/file/label</value>
-
+				<value>/WEB-INF/classes/messages/example/file/label</value>							
+			
 				<!-- system -->
 				<value>/WEB-INF/classes/messages/system/button</value>
 				<value>/WEB-INF/classes/messages/system/errors</value>
 				<value>/WEB-INF/classes/messages/system/label</value>
 				<value>/WEB-INF/classes/messages/system/menu</value>
 				<value>/WEB-INF/classes/messages/system/messages</value>
-
+				
 				<!-- system login -->
 				<value>/WEB-INF/classes/messages/system/login/button</value>
-				<value>/WEB-INF/classes/messages/system/login/label</value>
+				<value>/WEB-INF/classes/messages/system/login/label</value>				
 				<value>/WEB-INF/classes/messages/system/login/menu</value>
 
 				<!-- system preferences -->
 				<value>/WEB-INF/classes/messages/system/preferences/button</value>
-				<value>/WEB-INF/classes/messages/system/preferences/label</value>
+				<value>/WEB-INF/classes/messages/system/preferences/label</value>									
 				<value>/WEB-INF/classes/messages/system/preferences/menu</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
-	</bean>
+	</bean>	
 </beans>

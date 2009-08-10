@@ -10,6 +10,7 @@
 		id="messageAdapterService"
 		class="org.codelabor.system.remoting.services.MessageAdapterServiceImpl">
 		<property name="socketAdapterService" ref="simpleSocketAdapterService"/>
+		<property name="charsetName" value="EUC-KR"/>
 	</bean>
 </beans>
 

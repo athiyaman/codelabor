@@ -12,9 +12,6 @@
 	<definition name="example.crud.list.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/crud/list.jsp"/>
 	</definition>
-	<definition name="example.crud.search.definition" extends="example.definition">
-    	<put-attribute name="body"   value="/WEB-INF/jsp/example/crud/search.jsp"/>
-	</definition>
 	<definition name="example.crud.update.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/crud/update.jsp"/>
 	</definition>
