@@ -17,6 +17,8 @@
 package org.codelabor.system.remoting.services;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.remoting.dtos.DataDTO;
 import org.codelabor.system.remoting.dtos.HeaderDTO;
 import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
@@ -26,8 +28,13 @@ import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
  * 
  */
 public class MessageAdapterServiceImpl implements MessageAdapterService {
-
+	private final Log log = LogFactory.getLog(MessageAdapterServiceImpl.class);
 	private SocketAdapterService socketAdapterService;
+	private String charsetName = "EUC-KR";
+
+	public void setCharsetName(String charsetName) {
+		this.charsetName = charsetName;
+	}
 
 	public void setSocketAdapterService(
 			SocketAdapterService socketAdapterService) {
@@ -40,10 +47,19 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		byte[] inputDataBytes = inputDataDTO.toBytes();
 		byte[] inputMessageBytes = ArrayUtils.addAll(inputHeaderBytes,
 				inputDataBytes);
-		String outputMessage = socketAdapterService.send(new String(
-				inputMessageBytes));
 
-		byte[] outputMessageBytes = outputMessage.getBytes();
+		String inputMessage = new String(inputMessageBytes, charsetName);
+		String outputMessage = socketAdapterService.send(inputMessage);
+		if (log.isDebugEnabled()) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("input message: ").append(inputMessage);
+			log.debug(sb.toString());
+			sb = new StringBuilder();
+			sb.append("output message: ").append(outputMessage);
+			log.debug(sb.toString());
+		}
+
+		byte[] outputMessageBytes = outputMessage.getBytes(charsetName);
 		byte[] outputHeaderBytes = ArrayUtils.subarray(outputMessageBytes, 0,
 				outputHeaderDTO.getLength());
 		byte[] outputDataBytes = ArrayUtils.subarray(outputMessageBytes,

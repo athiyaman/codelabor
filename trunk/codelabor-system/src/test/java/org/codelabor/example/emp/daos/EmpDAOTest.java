@@ -7,10 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.codelabor.example.emp.daos.EmpDAO;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+
+import anyframe.common.Page;
 
 public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 
@@ -262,6 +263,17 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 			e.printStackTrace();
 		}
 		assertEquals(3, empDTOList.size());
+	}
+
+	public void testSelectEmpPage() {
+		int totalCount = 1;
+		try {
+			Page page = this.empDAO.selectEmpListByDeptNo(10, 1, 10);
+			totalCount = page.getTotalCount();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(3, totalCount);
 	}
 
 	public void testSaveEmp() {
