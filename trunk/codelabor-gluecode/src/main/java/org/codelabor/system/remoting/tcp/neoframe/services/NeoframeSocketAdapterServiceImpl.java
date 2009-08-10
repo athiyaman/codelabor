@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -34,8 +34,14 @@ public class NeoframeSocketAdapterServiceImpl implements SocketAdapterService {
 	public final int MESSAGE_LENGTH_FIELD_LENGTH = 8;
 	private final Log log = LogFactory
 			.getLog(NeoframeSocketAdapterServiceImpl.class);
+
+	public void setCharsetName(String charsetName) {
+		this.charsetName = charsetName;
+	}
+
 	private String host;
 	private int port;
+	private String charsetName = "EUC-KR";
 
 	public String send(String inputMessage) throws Exception {
 		Socket socket = null;
@@ -52,7 +58,7 @@ public class NeoframeSocketAdapterServiceImpl implements SocketAdapterService {
 			outputStream = socket.getOutputStream();
 
 			// send message
-			outputStream.write(inputMessage.getBytes());
+			outputStream.write(inputMessage.getBytes(charsetName));
 			outputStream.flush();
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
@@ -61,17 +67,19 @@ public class NeoframeSocketAdapterServiceImpl implements SocketAdapterService {
 			}
 
 			// receive messate
+			StringBuilder sb = new StringBuilder();
 			byte[] messageLengthBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
 			inputStream.read(messageLengthBytes, 0, messageLengthBytes.length);
-			int messageLength = Integer
-					.parseInt(new String(messageLengthBytes));
+			sb.append(new String(messageLengthBytes, charsetName));
+			int messageLength = Integer.parseInt(sb.toString());
 
 			byte[] messageBytes = new byte[messageLength];
 			inputStream.read(messageBytes, 0, messageBytes.length);
-			receivedMessage = new String(messageBytes);
+			sb.append(new String(messageBytes, charsetName));
+			receivedMessage = sb.toString();
 
 			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
+				sb = new StringBuilder();
 				sb.append("received message: ").append(receivedMessage);
 				log.debug(sb.toString());
 			}
