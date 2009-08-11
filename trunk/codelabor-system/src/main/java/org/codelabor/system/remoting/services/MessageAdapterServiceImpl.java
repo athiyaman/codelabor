@@ -65,6 +65,8 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		byte[] outputDataBytes = ArrayUtils.subarray(outputMessageBytes,
 				outputHeaderDTO.getLength(), outputMessageBytes.length);
 		outputHeaderDTO.fromBytes(outputHeaderBytes);
-		outputDataDTO.fromBytes(outputDataBytes);
+		if (!outputHeaderDTO.isError()) {
+			outputDataDTO.fromBytes(outputDataBytes);
+		}
 	}
 }

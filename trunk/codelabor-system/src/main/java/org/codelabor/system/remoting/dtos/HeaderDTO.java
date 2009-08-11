@@ -8,4 +8,6 @@ public abstract class HeaderDTO {
 
 	public abstract int getLength();
 
+	public abstract boolean isError();
+
 }
