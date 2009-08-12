@@ -73,7 +73,7 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 		return queryService.update(updateQueryId, params.toArray());
 	}
 
-	public int updateEmp(List<EmpDTO> updateEmpDTOList) throws Exception {
+	public int updateEmpList(List<EmpDTO> updateEmpDTOList) throws Exception {
 		int empDTOCount = updateEmpDTOList.size();
 		int affectedRowCount = 0;
 		if (updateEmpDTOList != null && updateEmpDTOList.size() > 0) {
@@ -84,14 +84,28 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 		return affectedRowCount;
 	}
 
-	public int deleteEmp(EmpDTO empDTO) throws Exception {
+	public int deleteEmp(int empNo) throws Exception {
 		String deleteQueryId = "example.delete.emp";
 		List<Object> params = new ArrayList<Object>();
-		params.add(empDTO.getEmpNo());
+		params.add(empNo);
 		return queryService.remove(deleteQueryId, params.toArray());
 	}
 
-	public int deleteEmp(List<EmpDTO> deleteEmpDTOList) throws Exception {
+	public int deleteEmp(EmpDTO empDTO) throws Exception {
+		return this.deleteEmp(empDTO.getEmpNo());
+	}
+
+	public int deleteEmpList(int[] empNoArray) throws Exception {
+		int affectedRowCount = 0;
+		if (empNoArray != null) {
+			for (int i = 0; i < empNoArray.length; i++) {
+				affectedRowCount += this.deleteEmp(empNoArray[i]);
+			}
+		}
+		return affectedRowCount;
+	}
+
+	public int deleteEmpList(List<EmpDTO> deleteEmpDTOList) throws Exception {
 		int empDTOCount = deleteEmpDTOList.size();
 		int affectedRowCount = 0;
 		if (deleteEmpDTOList != null && deleteEmpDTOList.size() > 0) {
@@ -103,7 +117,7 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<EmpDTO> selectEmp() throws Exception {
+	public List<EmpDTO> selectEmpList() throws Exception {
 		String selectQueryId = "example.select.emp.list";
 		Object[] params = new Object[] {};
 		return new ArrayList(queryService.find(selectQueryId, params));
@@ -123,8 +137,8 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 			throws Exception {
 		AffectedRowCountDTO affectedRowCountDTO = new AffectedRowCountDTO();
 		affectedRowCountDTO.setInsertedRowCount(insertEmp(insertEmpDTOList));
-		affectedRowCountDTO.setUpdatedRowCount(updateEmp(updateEmpDTOList));
-		affectedRowCountDTO.setDeletedRowCount(deleteEmp(deleteEmpDTOList));
+		affectedRowCountDTO.setUpdatedRowCount(updateEmpList(updateEmpDTOList));
+		affectedRowCountDTO.setDeletedRowCount(deleteEmpList(deleteEmpDTOList));
 
 		if (log.isDebugEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
@@ -160,4 +174,5 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 		Object[] params = new Object[] { deptNo };
 		return new ArrayList(queryService.find(selectQueryId, params));
 	}
+
 }
