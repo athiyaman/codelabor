@@ -52,6 +52,8 @@ public interface EmpDAO {
 
 	public List<EmpDTO> selectEmpList() throws Exception;
 
+	public Page selectEmpList(int pageIndex, int pageSize) throws Exception;
+
 	public List<EmpDTO> selectEmp(Map<String, String> searchCondition)
 			throws Exception;
 

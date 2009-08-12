@@ -33,6 +33,11 @@ import anyframe.core.query.IQueryService;
  * 
  */
 public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
+	private int pageUnit = 10;
+
+	public void setPageUnit(int pageUnit) {
+		this.pageUnit = pageUnit;
+	}
 
 	public int insertEmp(EmpDTO empDTO) throws Exception {
 		String insertQueryId = "example.insert.emp";
@@ -164,8 +169,7 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 				pageIndex, pageSize);
 		List resultList = (List) resultMap.get(IQueryService.LIST);
 		int totalCount = ((Long) resultMap.get(IQueryService.COUNT)).intValue();
-		return new Page(resultList, pageIndex, totalCount);
-
+		return new Page(resultList, pageIndex, totalCount, pageUnit, pageSize);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -173,6 +177,17 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 		String selectQueryId = "example.select.emp.list.by.dept.no";
 		Object[] params = new Object[] { deptNo };
 		return new ArrayList(queryService.find(selectQueryId, params));
+	}
+
+	@SuppressWarnings("unchecked")
+	public Page selectEmpList(int pageIndex, int pageSize) throws Exception {
+		String selectQueryId = "example.select.emp.list";
+		Object[] params = new Object[] {};
+		Map resultMap = queryService.findWithRowCount(selectQueryId, params,
+				pageIndex, pageSize);
+		List resultList = (List) resultMap.get(IQueryService.LIST);
+		int totalCount = ((Long) resultMap.get(IQueryService.COUNT)).intValue();
+		return new Page(resultList, pageIndex, totalCount, pageUnit, pageSize);
 	}
 
 }
