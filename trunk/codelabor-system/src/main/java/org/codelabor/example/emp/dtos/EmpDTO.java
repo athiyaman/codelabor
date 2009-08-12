@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,7 +18,7 @@
 package org.codelabor.example.emp.dtos;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author SangJae Shin
@@ -27,7 +27,7 @@ import java.sql.Timestamp;
 public class EmpDTO implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 4271457252488970749L;
 
@@ -35,7 +35,7 @@ public class EmpDTO implements Serializable {
 	private float sal;
 	private int mgr;
 	private String job;
-	private Timestamp hireDate;
+	private Date hireDate;
 	private String ename;
 	private int empNo;
 	private int deptNo;
@@ -61,8 +61,8 @@ public class EmpDTO implements Serializable {
 
 	}
 
-	public void setHireDate(Timestamp hireDate) {
-		this.hireDate = hireDate;
+	public void setHireDate(Date date) {
+		this.hireDate = date;
 	}
 
 	public void setSal(float sal) {
@@ -89,7 +89,7 @@ public class EmpDTO implements Serializable {
 		return empNo;
 	}
 
-	public Timestamp getHireDate() {
+	public Date getHireDate() {
 		return hireDate;
 	}
 

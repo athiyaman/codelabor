@@ -16,13 +16,33 @@
  */
 package org.codelabor.example.emp.spring.controllers;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.codelabor.example.emp.dtos.EmpDTO;
+import org.springframework.web.bind.ServletRequestDataBinder;
 
 /**
  * @author Shin Sang Jae
  * 
  */
 public class CreateController extends BaseEmpFormController {
+
+	@Override
+	protected Object formBackingObject(HttpServletRequest request)
+			throws Exception {
+		EmpDTO empDTO = new EmpDTO();
+		empDTO.setHireDate(Calendar.getInstance().getTime());
+		return empDTO;
+	}
+
+	@Override
+	protected void initBinder(HttpServletRequest request,
+			ServletRequestDataBinder binder) throws Exception {
+		binder.registerCustomEditor(Date.class, this.getCustomDateEditor());
+	}
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
