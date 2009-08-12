@@ -1,6 +1,5 @@
 package org.codelabor.example.emp.daos;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -97,7 +96,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+		empDTO.setHireDate(Calendar.getInstance().getTime());
 		empDTO.setSal(5000);
 		empDTO.setComm(0);
 		empDTO.setDeptNo(20);
@@ -123,7 +122,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 			empDTO.setJob("FA");
 			empDTO.setMgr(7839);
 			calendar.set(2001, 2, 1, 12, 00, 00);
-			empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+			empDTO.setHireDate(Calendar.getInstance().getTime());
 			empDTO.setSal(5000);
 			empDTO.setComm(0);
 			empDTO.setDeptNo(20);
@@ -149,7 +148,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+		empDTO.setHireDate(Calendar.getInstance().getTime());
 		empDTO.setSal(5000);
 		empDTO.setComm(0);
 		empDTO.setDeptNo(20);
@@ -175,7 +174,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+		empDTO.setHireDate(Calendar.getInstance().getTime());
 		empDTO.setSal(5000);
 		empDTO.setComm(0);
 		empDTO.setDeptNo(20);
@@ -187,7 +186,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTO.setJob("FA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+		empDTO.setHireDate(Calendar.getInstance().getTime());
 		empDTO.setSal(5000);
 		empDTO.setComm(0);
 		empDTO.setDeptNo(20);
@@ -291,7 +290,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 			empDTO.setJob("FA");
 			empDTO.setMgr(7839);
 			calendar.set(2001, 2, 1, 12, 00, 00);
-			empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+			empDTO.setHireDate(Calendar.getInstance().getTime());
 			empDTO.setSal(5000);
 			empDTO.setComm(0);
 			empDTO.setDeptNo(20);
@@ -307,7 +306,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTO.setJob("SA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+		empDTO.setHireDate(Calendar.getInstance().getTime());
 		empDTO.setSal(5000);
 		empDTO.setComm(0);
 		empDTO.setDeptNo(20);
@@ -319,7 +318,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 		empDTO.setJob("SA");
 		empDTO.setMgr(7839);
 		calendar.set(2001, 2, 1, 12, 00, 00);
-		empDTO.setHireDate(new Timestamp(calendar.getTimeInMillis()));
+		empDTO.setHireDate(Calendar.getInstance().getTime());
 		empDTO.setSal(5000);
 		empDTO.setComm(0);
 		empDTO.setDeptNo(20);

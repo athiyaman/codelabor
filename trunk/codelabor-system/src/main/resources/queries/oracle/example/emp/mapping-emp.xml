@@ -7,26 +7,26 @@
 		<query id="example.delete.emp" isDynamic="false">
 			<statement><![CDATA[
 			DELETE /* example.delete.emp */
-			FROM 
-				EXAMPLE_EMP 
-			WHERE 
+			FROM
+				EXAMPLE_EMP
+			WHERE
 				EMPNO = ?
 			]]></statement>
-			<param type="INTEGER"/>	
+			<param type="INTEGER"/>
 		</query>
 		<query id="example.delete.emp.list" isDynamic="false">
 			<statement><![CDATA[
 			DELETE /* example.delete.emp.list */
-			FROM 
-				EXAMPLE_EMP 
+			FROM
+				EXAMPLE_EMP
 			]]></statement>
-		</query>		
-		
+		</query>
+
 		<!-- insert -->
 		<query id="example.insert.emp" isDynamic="false">
 			<statement><![CDATA[
-			INSERT /* example.insert.emp */ 
-			INTO 
+			INSERT /* example.insert.emp */
+			INTO
 				EXAMPLE_EMP (
 					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
 				) VALUES (
@@ -34,23 +34,23 @@
 				)
 			]]></statement>
 			<param type="INTEGER"/>
-			<param type="VARCHAR"/>	
+			<param type="VARCHAR"/>
 			<param type="VARCHAR"/>
 			<param type="INTEGER"/>
-			<param type="TIMESTAMP"/>
+			<param type="DATE"/>
 			<param type="REAL"/>
 			<param type="REAL"/>
 			<param type="INTEGER"/>
-		</query>		
-		
+		</query>
+
 		<!-- select -->
 		<query id="example.select.emp" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.emp */
-					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO				
-				FROM 
+					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+				FROM
 					EXAMPLE_EMP
-				WHERE 
+				WHERE
 					EMPNO = ?
 			]]></statement>
 			<param type="INTEGER"/>
@@ -63,13 +63,13 @@
 				<result-mapping column="SAL" attribute="sal"/>
 				<result-mapping column="COMM" attribute="comm"/>
 				<result-mapping column="DEPTNO" attribute="deptNo"/>
-			</result>			
-		</query>		
+			</result>
+		</query>
 		<query id="example.select.emp.list" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.emp.list */
-					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO				
-				FROM 
+					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+				FROM
 					EXAMPLE_EMP
 			]]></statement>
 			<result class="org.codelabor.example.emp.dtos.EmpDTO" length="10">
@@ -81,27 +81,27 @@
 				<result-mapping column="SAL" attribute="sal"/>
 				<result-mapping column="COMM" attribute="comm"/>
 				<result-mapping column="DEPTNO" attribute="deptNo"/>
-			</result>			
-		</query>	
+			</result>
+		</query>
 		<query id="example.select.emp.list2" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.emp.list2 */
-					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO				
-				FROM 
+					EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
+				FROM
 					EXAMPLE_EMP
 			]]></statement>
 			<result
 				mapper="org.codelabor.example.emp.daos.mapper.EmpMapper"/>
-		</query>		
+		</query>
 		<query id="example.select.emp.list.by.dept.no" isDynamic="false">
 			<statement><![CDATA[
 				SELECT /* example.select.emp.list.by.dept.no */
-					EMPNO, ENAME, JOB, MGR, HIREDATE, 				
-					SAL, COMM, DEPTNO				
-				FROM 
+					EMPNO, ENAME, JOB, MGR, HIREDATE,
+					SAL, COMM, DEPTNO
+				FROM
 					EXAMPLE_EMP
-				WHERE 
-					DEPTNO = ?			
+				WHERE
+					DEPTNO = ?
 			]]></statement>
 			<param type="INTEGER"/>
 			<result class="org.codelabor.example.emp.dtos.EmpDTO">
@@ -113,28 +113,28 @@
 				<result-mapping column="SAL" attribute="sal"/>
 				<result-mapping column="COMM" attribute="comm"/>
 				<result-mapping column="DEPTNO" attribute="deptNo"/>
-			</result>			
-		</query>	
-		
+			</result>
+		</query>
+
 		<!-- update -->
 		<query id="example.update.emp" isDynamic="false">
 			<statement><![CDATA[
-			UPDATE /* example.update.emp */ EXAMPLE_EMP  
-			SET 
-				ENAME = ?, JOB = ?, MGR = ?, HIREDATE = ?, SAL = ?, COMM = ?, DEPTNO = ? 
+			UPDATE /* example.update.emp */ EXAMPLE_EMP
+			SET
+				ENAME = ?, JOB = ?, MGR = ?, HIREDATE = ?, SAL = ?, COMM = ?, DEPTNO = ?
 			WHERE
 				EMPNO = ?
 			]]></statement>
-			<param type="VARCHAR"/>	
+			<param type="VARCHAR"/>
 			<param type="VARCHAR"/>
 			<param type="INTEGER"/>
-			<param type="TIMESTAMP"/>
+			<param type="DATE"/>
 			<param type="REAL"/>
 			<param type="REAL"/>
-			<param type="INTEGER"/>		
-			<param type="INTEGER"/>			
-		</query>		
+			<param type="INTEGER"/>
+			<param type="INTEGER"/>
+		</query>
 	</queries>
 </queryservice>
 
-	
+
