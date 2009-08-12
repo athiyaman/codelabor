@@ -72,4 +72,8 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 	public int updateEmp(EmpDTO empDTO) throws Exception {
 		return empDAO.updateEmp(empDTO);
 	}
+
+	public Page selectEmpList(int pageIndex, int pageSize) throws Exception {
+		return empDAO.selectEmpList(pageIndex, pageSize);
+	}
 }

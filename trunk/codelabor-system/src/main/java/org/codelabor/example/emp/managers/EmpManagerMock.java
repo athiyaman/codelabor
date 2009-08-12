@@ -131,4 +131,9 @@ public class EmpManagerMock implements EmpManager {
 		// TODO Auto-generated method stub
 		throw new Exception("Not yet implemented");
 	}
+
+	public Page selectEmpList(int pageIndex, int pageSize) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception("Not yet implemented");
+	}
 }

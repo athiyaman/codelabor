@@ -44,4 +44,6 @@ public interface EmpManager {
 	public int insertEmp(EmpDTO empDTO) throws Exception;
 
 	public int updateEmp(EmpDTO empDTO) throws Exception;
+
+	public Page selectEmpList(int pageIndex, int pageSize) throws Exception;
 }
