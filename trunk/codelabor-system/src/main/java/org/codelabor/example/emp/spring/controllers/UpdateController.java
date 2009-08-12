@@ -17,10 +17,15 @@
 package org.codelabor.example.emp.spring.controllers;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.map.ListOrderedMap;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -57,6 +62,21 @@ public class UpdateController extends BaseEmpFormController {
 	protected void doSubmitAction(Object command) throws Exception {
 		EmpDTO empDTO = (EmpDTO) command;
 		empManager.updateEmp(empDTO);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected Map referenceData(HttpServletRequest request) throws Exception {
+		Map referenceMap = new HashMap();
+		List<EmpDTO> empList = empManager.selectEmpList();
+		Iterator iterator = empList.iterator();
+		Map managerMap = new ListOrderedMap();
+		while (iterator.hasNext()) {
+			EmpDTO empDTO = (EmpDTO) iterator.next();
+			managerMap.put(empDTO.getEmpNo(), empDTO.getEname());
+		}
+		referenceMap.put("managerMap", managerMap);
+		return referenceMap;
 	}
 
 }

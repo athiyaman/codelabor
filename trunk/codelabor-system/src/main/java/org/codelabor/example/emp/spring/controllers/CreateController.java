@@ -18,9 +18,14 @@ package org.codelabor.example.emp.spring.controllers;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.collections.map.ListOrderedMap;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.web.bind.ServletRequestDataBinder;
 
@@ -29,6 +34,21 @@ import org.springframework.web.bind.ServletRequestDataBinder;
  * 
  */
 public class CreateController extends BaseEmpFormController {
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected Map referenceData(HttpServletRequest request) throws Exception {
+		Map referenceMap = new HashMap();
+		List<EmpDTO> empList = empManager.selectEmpList();
+		Iterator iterator = empList.iterator();
+		Map managerMap = new ListOrderedMap();
+		while (iterator.hasNext()) {
+			EmpDTO empDTO = (EmpDTO) iterator.next();
+			managerMap.put(empDTO.getEmpNo(), empDTO.getEname());
+		}
+		referenceMap.put("managerMap", managerMap);
+		return referenceMap;
+	}
 
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
