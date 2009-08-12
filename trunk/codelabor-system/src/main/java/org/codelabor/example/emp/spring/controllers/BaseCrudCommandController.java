@@ -1,17 +1,17 @@
 package org.codelabor.example.emp.spring.controllers;
 
-import org.codelabor.example.emp.managers.EmpManager;
+import org.codelabor.example.crud.services.CrudService;
 import org.springframework.web.servlet.mvc.AbstractCommandController;
 
-public abstract class BaseEmpCommandController extends
+public abstract class BaseCrudCommandController extends
 		AbstractCommandController {
 
-	protected EmpManager empManager;
+	protected CrudService crudService;
 
 	protected String successView;
 
-	public void setEmpManager(EmpManager empManager) {
-		this.empManager = empManager;
+	public void setCrudService(CrudService crudService) {
+		this.crudService = crudService;
 	}
 
 	public void setSuccessView(String successView) {
@@ -21,4 +21,5 @@ public abstract class BaseEmpCommandController extends
 	public String getSuccessView() {
 		return successView;
 	}
+
 }
