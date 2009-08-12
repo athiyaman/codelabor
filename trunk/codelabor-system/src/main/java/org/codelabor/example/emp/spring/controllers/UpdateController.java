@@ -19,7 +19,7 @@ package org.codelabor.example.emp.spring.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.example.crud.dtos.CrudDTO;
+import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Shin Sang Jae
  * 
  */
-public class UpdateController extends BaseCrudFormController {
+public class UpdateController extends BaseEmpFormController {
 
 	@Override
 	protected ModelAndView handleInvalidSubmit(HttpServletRequest request,
@@ -39,15 +39,15 @@ public class UpdateController extends BaseCrudFormController {
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
-		CrudDTO crudDTO = (CrudDTO) command;
-		crudService.update(crudDTO);
+		EmpDTO empDTO = (EmpDTO) command;
+		empManager.updateEmp(empDTO);
 	}
 
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
-		int id = Integer.parseInt(request.getParameter("id"));
-		CrudDTO crudDTO = crudService.read(id);
-		return crudDTO;
+		int empNo = Integer.parseInt(request.getParameter("id"));
+		EmpDTO empDTO = empManager.selectEmp(empNo);
+		return empDTO;
 	}
 }

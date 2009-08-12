@@ -5,17 +5,17 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.example.crud.dtos.CrudDTO;
+import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.web.servlet.ModelAndView;
 
-public class ListController extends BaseCrudController {
+public class ListController extends BaseEmpController {
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		List<CrudDTO> crudDTOList = crudService.list();
+		List<EmpDTO> empDTOList = empManager.selectEmpList();
 		ModelAndView mav = new ModelAndView(getSuccessView());
-		mav.addObject("crudDTOList", crudDTOList);
+		mav.addObject("empDTOList", empDTOList);
 		return mav;
 	}
 
