@@ -16,11 +16,14 @@
  */
 package org.codelabor.example.emp.spring.controllers;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.validation.BindException;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -28,6 +31,19 @@ import org.springframework.web.servlet.ModelAndView;
  * 
  */
 public class UpdateController extends BaseEmpFormController {
+	@Override
+	protected Object formBackingObject(HttpServletRequest request)
+			throws Exception {
+		int empNo = Integer.parseInt(request.getParameter("id"));
+		EmpDTO empDTO = empManager.selectEmp(empNo);
+		return empDTO;
+	}
+
+	@Override
+	protected void initBinder(HttpServletRequest request,
+			ServletRequestDataBinder binder) throws Exception {
+		binder.registerCustomEditor(Date.class, this.getCustomDateEditor());
+	}
 
 	@Override
 	protected ModelAndView handleInvalidSubmit(HttpServletRequest request,
@@ -43,11 +59,4 @@ public class UpdateController extends BaseEmpFormController {
 		empManager.updateEmp(empDTO);
 	}
 
-	@Override
-	protected Object formBackingObject(HttpServletRequest request)
-			throws Exception {
-		int empNo = Integer.parseInt(request.getParameter("id"));
-		EmpDTO empDTO = empManager.selectEmp(empNo);
-		return empDTO;
-	}
 }
