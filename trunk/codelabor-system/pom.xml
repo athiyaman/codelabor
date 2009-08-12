@@ -41,7 +41,7 @@
       		<skip>true</skip>
       	</configuration>
       </plugin>
-      <!-- 
+      <!--
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
@@ -92,12 +92,11 @@
           <driver>oracle.jdbc.driver.OracleDriver</driver>
           <url>jdbc:oracle:thin:@localhost:1521:orcl</url>
           <settingsKey>database.codelaor-system.oracle</settingsKey>
-          
         </configuration>
       </plugin>
     </plugins>
   </build>
-  <dependencies>          			  	  	
+  <dependencies>
   	<dependency>
   		<groupId>kr.co.tmax</groupId>
   		<artifactId>clientcontainer</artifactId>
