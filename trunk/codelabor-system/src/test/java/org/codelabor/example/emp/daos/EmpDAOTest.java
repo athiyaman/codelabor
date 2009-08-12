@@ -195,7 +195,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 
 		int affectedRowCount = 0;
 		try {
-			affectedRowCount = this.empDAO.updateEmp(empDTOList);
+			affectedRowCount = this.empDAO.updateEmpList(empDTOList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -236,7 +236,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 
 		int affectedRowCount = 0;
 		try {
-			affectedRowCount = this.empDAO.deleteEmp(empDTOList);
+			affectedRowCount = this.empDAO.deleteEmpList(empDTOList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -246,7 +246,7 @@ public class EmpDAOTest extends AbstractDependencyInjectionSpringContextTests {
 	public void testSelectEmp() {
 		List<EmpDTO> empDTOList = null;
 		try {
-			empDTOList = this.empDAO.selectEmp();
+			empDTOList = this.empDAO.selectEmpList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
