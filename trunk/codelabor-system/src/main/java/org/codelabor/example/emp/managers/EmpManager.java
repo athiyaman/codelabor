@@ -36,4 +36,12 @@ public interface EmpManager {
 
 	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
 			throws Exception;
+
+	public int deleteEmp(int empNo) throws Exception;
+
+	public int deleteEmpList(int[] empNoArray) throws Exception;
+
+	public int insertEmp(EmpDTO empDTO) throws Exception;
+
+	public int updateEmp(EmpDTO empDTO) throws Exception;
 }

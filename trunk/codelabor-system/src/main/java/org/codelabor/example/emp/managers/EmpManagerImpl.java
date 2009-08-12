@@ -45,7 +45,7 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 	}
 
 	public List<EmpDTO> selectEmpList() throws Exception {
-		return empDAO.selectEmp();
+		return empDAO.selectEmpList();
 	}
 
 	public EmpDTO selectEmp(int empNo) throws Exception {
@@ -55,5 +55,21 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
 			throws Exception {
 		return empDAO.selectEmpListByDeptNo(deptNo, pageIndex, pageSize);
+	}
+
+	public int deleteEmp(int empNo) throws Exception {
+		return empDAO.deleteEmp(empNo);
+	}
+
+	public int deleteEmpList(int[] empNoArray) throws Exception {
+		return empDAO.deleteEmpList(empNoArray);
+	}
+
+	public int insertEmp(EmpDTO empDTO) throws Exception {
+		return empDAO.insertEmp(empDTO);
+	}
+
+	public int updateEmp(EmpDTO empDTO) throws Exception {
+		return empDAO.updateEmp(empDTO);
 	}
 }

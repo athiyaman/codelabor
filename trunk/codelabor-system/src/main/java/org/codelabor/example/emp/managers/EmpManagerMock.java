@@ -106,8 +106,29 @@ public class EmpManagerMock implements EmpManager {
 		return returnEmpDTO;
 	}
 
-	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize) {
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
+			throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		throw new Exception("Not yet implemented");
+	}
+
+	public int deleteEmp(int empNo) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception("Not yet implemented");
+	}
+
+	public int deleteEmpList(int[] empNoArray) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception("Not yet implemented");
+	}
+
+	public int insertEmp(EmpDTO empDTO) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception("Not yet implemented");
+	}
+
+	public int updateEmp(EmpDTO empDTO) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception("Not yet implemented");
 	}
 }
