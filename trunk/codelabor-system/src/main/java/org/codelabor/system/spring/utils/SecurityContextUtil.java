@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
 public class SecurityContextUtil {
-	static String getUsername() throws Exception {
+	public static String getUsername() throws Exception {
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		if (securityContext == null) {
 			return null;
@@ -26,7 +26,7 @@ public class SecurityContextUtil {
 		}
 	}
 
-	static String getRemoteAddress() throws Exception {
+	public static String getRemoteAddress() throws Exception {
 		SecurityContext securityContext = SecurityContextHolder.getContext();
 		if (securityContext == null) {
 			return null;
