@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="example.emp.baseEmpController"
+		class="org.codelabor.example.emp.spring.controllers.BaseEmpController"
+		abstract="true">
+		<property name="empManager" ref="example.emp.empManager"/>
+	</bean>
+	<bean
+		id="example.emp.baseEmpFormController"
+		class="org.codelabor.example.emp.spring.controllers.BaseEmpFormController"
+		abstract="true">
+
+		<property name="empManager" ref="example.emp.empManager"/>
+	</bean>
+	<bean
+ 		id="example.emp.createController"
+		class="org.codelabor.example.emp.spring.controllers.CreateController"
+		parent="example.emp.baseEmpFormController">
+		<property name="customDateEditor" ref="customDateEditor"/>
+		<property name="commandName" value="createForm"/>
+		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
+		<property name="formView" value="example.emp.create.definition"/>
+		<property name="successView" value="redirect:/example/emp/list.do"/>
+	</bean>
+	<bean
+		id="example.emp.readController"
+		class="org.codelabor.example.emp.spring.controllers.ReadController"
+		parent="example.emp.baseEmpController" >
+		<property name="successView" value="example.emp.read.definition"/>
+	</bean>
+	<bean
+		id="example.emp.listController"
+		class="org.codelabor.example.emp.spring.controllers.ListController"
+		parent="example.emp.baseEmpController">
+		<property name="successView" value="example.emp.list.definition"/>
+	</bean>
+	<bean
+		id="example.emp.updateController"
+		class="org.codelabor.example.emp.spring.controllers.UpdateController"
+		parent="example.emp.baseEmpFormController">
+		<property name="customDateEditor" ref="customDateEditor"/>
+		<property name="sessionForm" value="true"/>
+		<property name="commandName" value="updateForm"/>
+		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
+		<property name="formView" value="example.emp.update.definition"/>
+		<property name="successView" value="forward:/example/emp/read.do"/>
+	</bean>
+	<bean
+		id="example.emp.deleteController"
+		class="org.codelabor.example.emp.spring.controllers.DeleteController"
+		parent="example.emp.baseEmpFormController">
+		<property name="commandName" value="idArray"/>
+		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
+		<property name="successView" value="redirect:/example/emp/list.do"/>
+	</bean>
+</beans>
