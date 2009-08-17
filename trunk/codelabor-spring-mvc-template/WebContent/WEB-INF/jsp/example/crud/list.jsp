@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>	
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 				<h2><spring:message code="label.example.crud"/></h2>
@@ -18,7 +18,7 @@
 								<th><spring:message code="label.example.crud.field1"/></th>
 								<th><spring:message code="label.example.crud.field2"/></th>
 							</tr>
-							<c:forEach var="crudDTO" items="${requestScope['crudDTOList']}">
+							<c:forEach var="crudDTO" items="${crudDTOList}">
 								<tr class="b">
 									<td>
 										<input type="checkbox" name="id" value="${crudDTO.id}"/>

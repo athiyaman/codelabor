@@ -6,6 +6,7 @@
 				<ul>
 					<li>
 						<a href="<c:url value='/example/crud/list.do'/>">Duplicate Submit</a>
+						<a href="<c:url value='/example/emp/list.do'/>">Pagenation</a>
 					</li>
 				</ul>
 				<h5>Remoting</h5>
@@ -13,7 +14,7 @@
 					<li>
 						<a href="<c:url value='/example/remoting/tcp/send.do'/>">TCP</a>
 					</li>
-				</ul>				
+				</ul>
 				<h5>Encryption</h5>
 				<ul>
 					<li>
@@ -29,7 +30,7 @@
 						<a href="<c:url value='/example/encryption/xecure/response.do'/>">Response</a>
 					</li>
 				</ul>
-				<!--  
+				<!--
 				<h5>Sign</h5>
 				-->
 				<h5>File</h5>
