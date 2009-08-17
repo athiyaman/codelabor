@@ -5,31 +5,30 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
-	<!-- 
-	<bean id="queryService" 
+	<bean id="oracleQueryService" 
 		class="anyframe.core.query.impl.QueryServiceImpl">
 		<property name="jdbcTemplate">
-			<ref bean="pagingJdbcTemplate"/>
+			<ref bean="oraclePagingJdbcTemplate"/>
 		</property>		
 		<property name="sqlRepository">
-			<ref bean="sqlLoader"/>
+			<ref bean="oracleSqlLoader"/>
 		</property>	
 		<property name="lobHandler">
-			<ref bean="lobHandler"/>
+			<ref bean="oracleLobHandler"/>
 		</property>
 		<property name="pagingSQLGenerator" 
-			ref="pagingSQLGenerator"/>
+			ref="oraclePagingSQLGenerator"/>
 	</bean>	
 	
-	<bean id="pagingJdbcTemplate" 
+	<bean id="oraclePagingJdbcTemplate" 
 		class="anyframe.core.query.impl.jdbc.PagingJdbcTemplate">
-	  	<constructor-arg ref="dataSource"/>
+	  	<constructor-arg ref="oracleDataSource"/>
 	</bean>
 	
-	<bean id="pagingSQLGenerator" 
+	<bean id="oraclePagingSQLGenerator" 
 		class="anyframe.core.query.impl.jdbc.generator.OraclePagingSQLGenerator"/>
 	 
-	<bean id="sqlLoader" 
+	<bean id="oracleSqlLoader" 
 		class="anyframe.core.query.impl.config.loader.SQLLoader">
 		<config:configuration>
 	        <filename>classpath*:queries/oracle/**/mapping-*.xml</filename>
@@ -37,17 +36,5 @@
 		</config:configuration>					
 	</bean>	
 	
-	<bean id="lobHandler" 
-		class="org.springframework.jdbc.support.lob.OracleLobHandler" 
-		lazy-init="true">
-		<property name="nativeJdbcExtractor">
-			<ref local="nativeJdbcExtractor"/>
-		</property>
-	</bean>
-	
-	<bean id="nativeJdbcExtractor" 
-		class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor" 
-		lazy-init="true">
-	</bean>
-	-->
+
 </beans>

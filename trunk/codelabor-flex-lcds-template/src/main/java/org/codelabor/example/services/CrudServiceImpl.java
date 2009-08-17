@@ -74,11 +74,11 @@ public class CrudServiceImpl extends BaseServiceImpl implements CrudService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CrudDTO> list(String filed1Pattern) throws CommonException {
+	public List<CrudDTO> list(String field1Pattern) throws CommonException {
 		List<CrudDTO> crudDTOList = null;
 		try {
 			String queryId = "example.select.crud.list.by.field1";
-			Object[] param = new Object[] { filed1Pattern };
+			Object[] param = new Object[] { field1Pattern };
 			crudDTOList = (List<CrudDTO>) queryService.find(queryId, param);
 		} catch (Exception e) {
 			throw new RollbackCommonException(messageSource, "error.crud.list");

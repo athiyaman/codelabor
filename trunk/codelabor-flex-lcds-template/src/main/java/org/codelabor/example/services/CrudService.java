@@ -36,7 +36,7 @@ public interface CrudService {
 
 	public CrudDTO read(int crudId) throws CommonException;
 
-	public List<CrudDTO> list(String filed1Pattern) throws CommonException;
+	public List<CrudDTO> list(String field1Pattern) throws CommonException;
 
 	public List<CrudDTO> list() throws CommonException;
 }

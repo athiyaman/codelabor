@@ -29,20 +29,12 @@ public class AccessLogManagerImpl extends BaseManagerImpl implements
 
 	private AccessLogDAO accessLogDAO;
 
-	public AccessLogDAO getBpmDAO() {
-		return accessLogDAO;
-	}
-
 	public void setAccessLogAO(AccessLogDAO accessLogDAO) {
 		this.accessLogDAO = accessLogDAO;
 	}
 
 	public void accessLog(AccessLogDTO accessLogDTO) throws Exception {
 		this.accessLogDAO.insert(accessLogDTO);
-	}
-
-	public AccessLogDAO getHttpAdapterDAO() {
-		return accessLogDAO;
 	}
 
 	public void setAccessLogDAO(AccessLogDAO accessLogDAO) {

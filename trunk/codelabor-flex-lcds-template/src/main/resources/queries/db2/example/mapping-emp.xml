@@ -90,7 +90,8 @@
 				FROM 
 					EXAMPLE_EMP
 			]]></statement>
-			<result mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
+			<result 
+				mapper="org.codelabor.example.daos.mapper.EmpMapper"/>
 		</query>			
 		<query id="example.select.emp.list.by.dept.no" isDynamic="false">
 			<statement><![CDATA[

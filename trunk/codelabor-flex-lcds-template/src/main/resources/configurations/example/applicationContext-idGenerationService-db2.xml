@@ -8,7 +8,7 @@
 	<bean name="empNoGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
 			<query>SELECT EXAMPLE_EMP_NO_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
 		</config:configuration>
@@ -17,7 +17,7 @@
 	<bean name="crudIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="oracleDataSource" />
 		<config:configuration big-decimals="true">
 			<query>SELECT CRUD_ID_SEQUENCE.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>			
 		</config:configuration>
