@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.file.services.strategy;
+package org.codelabor.system.file.strategies;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
