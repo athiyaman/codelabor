@@ -4,14 +4,16 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="codelabor" %>
+
+<!-- %@ taglib tagdir="/WEB-INF/tags" prefix="codelabor" % -->
+<%@ taglib uri="http://codelabor.org/tags/codelabor" prefix="codelabor" %>
 
 				<h2><spring:message code="label.example.emp"/></h2>
 				<p></p>
 				<div class="section">
 					<h3><spring:message code="label.example.emp.list"/></h3>
 					<p><spring:message code="label.example.emp.totalCount"/>: ${page.total}</p>
-					<form action="<c:url value='/example/emp/delete.do'/>" method="post">
+					<form action="<c:url value='/example/emp/delete.ksfc'/>" method="post">
 					<table class="bodyTable">
 						<tbody>
 							<tr class="a">
@@ -32,7 +34,7 @@
 
 									</td>
 									<td>
-										<a href="<c:url value='/example/emp/read.do?id=${empDTO.empNo}'/>">${empDTO.empNo}</a>
+										<a href="<c:url value='/example/emp/read.ksfc?id=${empDTO.empNo}'/>">${empDTO.empNo}</a>
 									</td>
 									<td>${empDTO.ename}</td>
 									<td>${empDTO.deptNo}</td>
@@ -45,9 +47,27 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<codelabor:pageNavigator/>
+					<!-- codelabor:pageNavigator/ -->
+					<codelabor:pagenation page="${page}" param="${param}"/>
+					<br />
+					<codelabor:pagenation page="${page}" param="${param}"
+						previousUnitPageImage="/img/com/btn/paging_prev2.jpg"
+						previousPageImage="/img/com/btn/paging_prev1.jpg"
+						nextPageImage="/img/com/btn/paging_next1.jpg"
+						nextUnitPageImage="/img/com/btn/paging_next2.jpg"/>
+					<br />
+					<codelabor:pagenation page="${page}" param="${param}"
+						previousUnitPageClass="previousUnitPage"
+						previousPageClass="previousPage"
+						pageClass="page"
+						nextPageClass="nextPage"
+						nextUnitPageClass="nextUnitPage"
+						previousUnitPageString=""
+						previousPageString=""
+						nextPageString=""
+						nextUnitPageString=""/>
 					<hr />
-					<a href="<c:url value='/example/emp/create.do'/>"><spring:message code="button.create"/></a>
+					<a href="<c:url value='/example/emp/create.ksfc'/>"><spring:message code="button.create"/></a>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 					<input type="submit" value="<spring:message code='button.delete'/>"/>
 					</form>
