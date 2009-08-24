@@ -47,25 +47,7 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<!-- codelabor:pageNavigator/ -->
-					<codelabor:pagenation page="${page}" param="${param}"/>
-					<br />
-					<codelabor:pagenation page="${page}" param="${param}"
-						previousUnitPageImage="/img/com/btn/paging_prev2.jpg"
-						previousPageImage="/img/com/btn/paging_prev1.jpg"
-						nextPageImage="/img/com/btn/paging_next1.jpg"
-						nextUnitPageImage="/img/com/btn/paging_next2.jpg"/>
-					<br />
-					<codelabor:pagenation page="${page}" param="${param}"
-						previousUnitPageClass="previousUnitPage"
-						previousPageClass="previousPage"
-						pageClass="page"
-						nextPageClass="nextPage"
-						nextUnitPageClass="nextUnitPage"
-						previousUnitPageString=""
-						previousPageString=""
-						nextPageString=""
-						nextUnitPageString=""/>
+					<codelabor:textPagenation page="${page}" param="${param}"/>
 					<hr />
 					<a href="<c:url value='/example/emp/create.ksfc'/>"><spring:message code="button.create"/></a>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
