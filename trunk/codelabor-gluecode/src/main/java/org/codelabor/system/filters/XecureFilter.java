@@ -41,10 +41,13 @@ public class XecureFilter implements Filter {
 		XecureHttpServletResponse xRes = null;
 
 		String qValue = httpReq.getParameter("q");
+		String fileEnc = httpReq.getParameter("fileEnc");
 		if (log.isDebugEnabled()) {
 			log.debug("q: " + qValue);
 		}
 		if (qValue == null || "".equals(qValue))
+			chain.doFilter(httpReq, httpRes);
+		else if ("YES".equals(fileEnc))
 			chain.doFilter(httpReq, httpRes);
 		else {
 			try {
