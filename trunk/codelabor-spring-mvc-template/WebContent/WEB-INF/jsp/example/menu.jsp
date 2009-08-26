@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>		
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 				<h5>CRUD</h5>
 				<ul>
@@ -18,16 +19,22 @@
 				<h5>Encryption</h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/encryption/xecure/requestByGetMethod.do'/>">Request (get)</a>
+						<a href="<c:url value='/example/encryption/xecure/requestByGetMethod.do'/>"><spring:message code="label.example.encryption.request.get"/></a>
 					</li>
 					<li>
-						<a href="<c:url value='/example/encryption/xecure/requestByPostMethod.do'/>">Request (post)</a>
+						<a href="<c:url value='/example/encryption/xecure/requestByPostMethod.do'/>"><spring:message code="label.example.encryption.request.post"/></a>
 					</li>
 					<li>
-						<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>">Request (script)</a>
+						<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>"><spring:message code="label.example.encryption.request.script"/></a>
 					</li>
 					<li>
-						<a href="<c:url value='/example/encryption/xecure/response.do'/>">Response</a>
+						<a href="<c:url value='/example/encryption/xecure/response.do'/>"><spring:message code="label.example.encryption.response"/></a>
+					</li>
+					<li>
+						<a href="<c:url value='/example/encryption/xecure/seed.do'/>"><spring:message code="label.example.encryption.data.seed"/></a>
+					</li>
+					<li>
+						<a href="<c:url value='/example/encryption/xecure/hash.do'/>"><spring:message code="label.example.encryption.data.hash"/></a>
 					</li>
 				</ul>
 				<!--
@@ -35,7 +42,7 @@
 				-->
 				<h5>File</h5>
 				<ul>
-					<!--  
+					<!--
 					<li>
   						<a href="<c:url value='/example/file/spring-mvc/listFile.do'/>">Spring MVC</a>
 					</li>
