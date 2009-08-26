@@ -14,5 +14,11 @@
 	</definition>
 	<definition name="example.encryption.xecure.response.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/encryption/xecure/response.jsp"/>
-	</definition>			
+	</definition>
+	<definition name="example.encryption.xecure.seed.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/encryption/xecure/data-seed.jsp"/>
+	</definition>
+	<definition name="example.encryption.xecure.hash.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/encryption/xecure/data-hash.jsp"/>
+	</definition>
 </tiles-definitions>
