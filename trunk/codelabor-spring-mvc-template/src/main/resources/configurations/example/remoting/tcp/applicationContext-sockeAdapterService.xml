@@ -7,8 +7,8 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
 	<bean
-		id="simpleSocketAdapterService"
-		class="org.codelabor.example.remoting.tcp.services.SimpleSocketAdapterServiceImpl"
+		id="example.remoting.tcp.simpleSocketAdapterService"
+		class="org.codelabor.example.remoting.tcp.services.simpleSocketAdapterServiceImpl"
 		depends-on="example.remoting.tcp.socketEchoService">
 		<property name="host" value="localhost"/>
 		<property name="port" value="10000"/>
