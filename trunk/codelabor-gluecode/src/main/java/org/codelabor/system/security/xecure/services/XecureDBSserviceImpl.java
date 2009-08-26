@@ -1,4 +1,4 @@
-package org.codelabor.system.security.services;
+package org.codelabor.system.security.xecure.services;
 
 import org.codelabor.system.security.HashFunctionType;
 
