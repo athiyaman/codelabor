@@ -5,7 +5,7 @@ import org.codelabor.system.security.HashFunctionType;
 import com.softforum.xdbe.XdspClient;
 import com.softforum.xdbe.XdspNative;
 
-public class XecureDBSserviceImpl implements XecureDBService {
+public class XecureDBServiceImpl implements XecureDBService {
 	public void setCharsetName(String charsetName) {
 		this.charsetName = charsetName;
 	}
