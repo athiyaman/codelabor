@@ -10,6 +10,7 @@
 		session-fixation-protection="migrateSession"
 		lowercase-comparisons="false"
 		entry-point-ref="loginUrlAuthenticationEntryPoint">
+		<!--
 		<security:intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/themes/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
@@ -21,16 +22,34 @@
 		<security:intercept-url pattern="/servlet/system/file/xecureFileUploadServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/home.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/xecure/login.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-		<security:intercept-url pattern="/system/administration/**" access="ROLE_ADMIN"/>
+		<security:intercept-url pattern="/system/administration/**" requires-channel="https" access="ROLE_ADMIN"/>
 		<security:intercept-url pattern="/system/preferences/**" access="ROLE_ADMIN,ROLE_USER"/>
 		<security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN"/>
+		-->
 		<security:anonymous username="anonymous"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
 		<security:remember-me user-service-ref="queryServiceUserDetailsService" data-source-ref="oracleDataSource"/>
 		<security:concurrent-session-control max-sessions="1" expired-url="/system/login/home.do"/>
 	</security:http>
 
+	<!-- authentication manager -->
 	<security:authentication-manager alias="authenticationManager"/>
+
+	<!-- access decision manager -->
+	<bean
+		id="accessDecisionManager"
+		class="org.springframework.security.access.vote.AffirmativeBased">
+        <property name="allowIfAllAbstainDecisions" value="false" />
+        <property name="decisionVoters">
+            <list>
+                <bean class="org.springframework.security.access.vote.RoleVoter">
+                    <property name="rolePrefix" value="ROLE_" />
+                </bean>
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+            </list>
+        </property>
+    </bean>
+
 	<!-- authentication provider -->
 	<bean
 		id="pkiAuthProvider"
@@ -51,11 +70,35 @@
 	<!-- filter -->
 	<bean
 		id="pkiAuthenticationProcessingFilter"
-		class="org.codelabor.system.authentication.filters.XecurePKIAuthenticationProcessingFilter">
+		class="org.codelabor.system.security.xecure.filters.XecurePKIAuthenticationProcessingFilter">
 		<security:custom-filter position="AUTHENTICATION_PROCESSING_FILTER"/>
+		<property name="authenticationManager" ref="authenticationManager"/>
 		<property name="authenticationSuccessHandler" ref="authenticationSuccessHandler"/>
 		<property name="authenticationFailureHandler" ref="authenticationFailureHandler"/>
-		<property name="authenticationManager" ref="authenticationManager"/>
+	</bean>
+    <bean
+    	id="filterSecurityInterceptor"
+    	class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+        <security:custom-filter before="FILTER_SECURITY_INTERCEPTOR" />
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="accessDecisionManager" ref="accessDecisionManager" />
+        <property name="objectDefinitionSource" ref="databaseObjectDefinitionSource" />
+    </bean>
+
+    <bean id="databaseObjectDefinitionSource"
+        class="org.codelabor.system.services.ReloadableDefaultFilterInvocationSecurityMetaSource">
+        <constructor-arg ref="antUrlPathMatcher" />
+        <constructor-arg ref="requestMapFactory"/>
+    </bean>
+
+	<!-- path matcher -->
+	<bean id="antUrlPathMatcher" class="org.springframework.security.web.util.AntUrlPathMatcher" />
+	<bean id="regexUrlPathMatcher" class="org.springframework.security.web.util.RegexUrlPathMatcher" />
+
+	<!-- request map factory -->
+	<bean
+		id="requestMapFactory"
+		class="org.codelabor.system.factories.RequestMapFactoryBean">
 	</bean>
 
 	<!-- authentication handler -->
