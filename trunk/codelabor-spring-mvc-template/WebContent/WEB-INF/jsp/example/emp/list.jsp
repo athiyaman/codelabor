@@ -13,7 +13,7 @@
 				<div class="section">
 					<h3><spring:message code="label.example.emp.list"/></h3>
 					<p><spring:message code="label.example.emp.totalCount"/>: ${page.total}</p>
-					<form action="<c:url value='/example/emp/delete.ksfc'/>" method="post">
+					<form action="<c:url value='/example/emp/delete.do'/>" method="post">
 					<table class="bodyTable">
 						<tbody>
 							<tr class="a">
@@ -34,7 +34,7 @@
 
 									</td>
 									<td>
-										<a href="<c:url value='/example/emp/read.ksfc?id=${empDTO.empNo}'/>">${empDTO.empNo}</a>
+										<a href="<c:url value='/example/emp/read.do?id=${empDTO.empNo}'/>">${empDTO.empNo}</a>
 									</td>
 									<td>${empDTO.ename}</td>
 									<td>${empDTO.deptNo}</td>
@@ -49,7 +49,7 @@
 					</table>
 					<codelabor:textPagenation page="${page}" param="${param}"/>
 					<hr />
-					<a href="<c:url value='/example/emp/create.ksfc'/>"><spring:message code="button.create"/></a>
+					<a href="<c:url value='/example/emp/create.do'/>"><spring:message code="button.create"/></a>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 					<input type="submit" value="<spring:message code='button.delete'/>"/>
 					</form>
