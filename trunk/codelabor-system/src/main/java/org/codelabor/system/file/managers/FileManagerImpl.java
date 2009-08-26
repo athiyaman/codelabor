@@ -19,7 +19,7 @@ package org.codelabor.system.file.managers;
 
 import java.util.List;
 
-import org.codelabor.system.RepositoryType;
+import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.daos.FileDAO;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
