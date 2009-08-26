@@ -6,12 +6,13 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.activation.MimetypesFileTypeMap;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.RepositoryType;
+import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.utils.UploadUtil;
 
@@ -33,13 +34,43 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	private final Log log = LogFactory.getLog(XecureFileUploadServlet.class);
 
 	@Override
+	public void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		XecureServlet xecureServlet;
+		try {
+			xecureServlet = new XecureServlet(request, response);
+			request = xecureServlet.request;
+			response = xecureServlet.response;
+
+			String parameterValue = request.getParameter(parameterName);
+			switch (Parameter.valueOf(parameterValue)) {
+			case upload:
+				this.upload(request, response, xecureServlet);
+				break;
+			case download:
+				this.download(request, response);
+				break;
+			case list:
+				this.list(request, response);
+				break;
+			case delete:
+				this.delete(request, response);
+				break;
+			case read:
+				this.read(request, response);
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	protected void upload(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+			HttpServletResponse response, XecureServlet xecureServlet)
+			throws Exception {
 		PrintWriter writer = response.getWriter();
 		try {
-			XecureServlet xecureServlet = new XecureServlet(request, response);
-
 			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
 					xecureServlet.getXecureSession(), xecureServlet.request);
 			Map paramMap = xecureServlet.request.getParameterMap();
@@ -58,20 +89,20 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 					xecureFileInputStream);
 			fileManager.insertFile(fileDTO);
 			processParameters(paramMap);
-			writer.write("OK");
+			writer.println("OK");
 			writer.flush();
 		} catch (XecureServletConfigException e) {
 			e.printStackTrace();
-			writer.write("SFE20");
+			writer.println("SFE20");
 		} catch (XecureServletException e) {
 			e.printStackTrace();
-			writer.write("SFE21");
+			writer.println("SFE21");
 		} catch (IOException e) {
 			e.printStackTrace();
-			writer.write("SFE22");
+			writer.println("SFE22");
 		} catch (Exception e) {
 			e.printStackTrace();
-			writer.write("SFE23");
+			writer.println("SFE23");
 		} finally {
 			writer.flush();
 			writer.close();
