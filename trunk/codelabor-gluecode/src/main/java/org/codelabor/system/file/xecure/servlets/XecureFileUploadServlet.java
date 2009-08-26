@@ -15,7 +15,6 @@ import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.servlets.FileUploadServlet;
-import org.codelabor.system.file.servlets.FileUploadServlet.Parameter;
 import org.codelabor.system.utils.UploadUtil;
 
 import xecure.file.XecureFileInputStream;
