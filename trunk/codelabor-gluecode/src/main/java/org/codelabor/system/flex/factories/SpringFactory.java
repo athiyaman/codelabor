@@ -1,4 +1,4 @@
-package org.codelabor.system.factories;
+package org.codelabor.system.flex.factories;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
