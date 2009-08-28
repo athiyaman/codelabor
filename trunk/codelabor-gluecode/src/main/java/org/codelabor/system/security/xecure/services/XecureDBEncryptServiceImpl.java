@@ -1,11 +1,12 @@
 package org.codelabor.system.security.xecure.services;
 
 import org.codelabor.system.security.HashFunctionType;
+import org.codelabor.system.security.services.EncryptService;
 
 import com.softforum.xdbe.XdspClient;
 import com.softforum.xdbe.XdspNative;
 
-public class XecureDBServiceImpl implements XecureDBService {
+public class XecureDBEncryptServiceImpl implements EncryptService {
 	public void setCharsetName(String charsetName) {
 		this.charsetName = charsetName;
 	}

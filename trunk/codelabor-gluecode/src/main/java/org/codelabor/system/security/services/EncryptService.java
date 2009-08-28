@@ -1,8 +1,8 @@
-package org.codelabor.system.security.xecure.services;
+package org.codelabor.system.security.services;
 
 import org.codelabor.system.security.HashFunctionType;
 
-public interface XecureDBService {
+public interface EncryptService {
 	public String encrypt(String plainData) throws Exception;
 
 	public byte[] encrypt(byte[] plainData) throws Exception;
