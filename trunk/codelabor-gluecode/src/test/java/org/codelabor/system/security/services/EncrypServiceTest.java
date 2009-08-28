@@ -1,4 +1,5 @@
 package org.codelabor.system.security.services;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -16,16 +17,16 @@ public class EncrypServiceTest extends
 	@Override
 	public void onSetUp() throws Exception {
 		xecureDBService = (EncryptService) applicationContext
-				.getBean("xecureDBService");
+				.getBean("xecureDBEncryptService");
 	}
 
 	public void test() {
 		try {
 
 			InputStreamReader inputStreamReader = new FileReader(
-					"password-encrypted.txt");
+					"password-encrypted1.txt");
 			OutputStreamWriter outputStreamWriter = new FileWriter(
-					"password-decrypted.txt");
+					"password-decrypted1.txt");
 			BufferedReader bufferedReader = new BufferedReader(
 					inputStreamReader);
 			BufferedWriter bufferedWriter = new BufferedWriter(
@@ -60,6 +61,6 @@ public class EncrypServiceTest extends
 
 	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext-xecureDBService.xml" };
+		return new String[] { "classpath*:/**/applicationContext-encryptService.xml" };
 	}
 }
