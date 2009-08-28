@@ -2,8 +2,8 @@ package org.codelabor.system.security.services;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
@@ -22,11 +22,20 @@ public class EncrypServiceTest extends
 
 	public void test() {
 		try {
+			String charsetName = "EUC-KR";
 
-			InputStreamReader inputStreamReader = new FileReader(
-					"password-encrypted1.txt");
-			OutputStreamWriter outputStreamWriter = new FileWriter(
-					"password-decrypted1.txt");
+			// InputStreamReader inputStreamReader = new FileReader(
+			// "password-encrypted.txt");
+			// OutputStreamWriter outputStreamWriter = new FileWriter(
+			// "password-decrypted.txt");
+			FileInputStream fileInputStream = new FileInputStream(
+					"password-encrypted.txt");
+			FileOutputStream fileOutputStream = new FileOutputStream(
+					"password-decrypted.txt");
+			InputStreamReader inputStreamReader = new InputStreamReader(
+					fileInputStream, charsetName);
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+					fileOutputStream, charsetName);
 			BufferedReader bufferedReader = new BufferedReader(
 					inputStreamReader);
 			BufferedWriter bufferedWriter = new BufferedWriter(
