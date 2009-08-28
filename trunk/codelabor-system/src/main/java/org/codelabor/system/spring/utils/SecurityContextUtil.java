@@ -45,4 +45,18 @@ public class SecurityContextUtil {
 			}
 		}
 	}
+
+	public static boolean isAuthenticated() throws Exception {
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		if (securityContext == null) {
+			return false;
+		} else {
+			Authentication authentication = securityContext.getAuthentication();
+			if (authentication == null) {
+				return false;
+			} else {
+				return authentication.isAuthenticated();
+			}
+		}
+	}
 }
