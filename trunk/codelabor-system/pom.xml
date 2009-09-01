@@ -4,7 +4,7 @@
   <artifactId>codelabor-system</artifactId>
   <packaging>jar</packaging>
   <name>codelabor-system</name>
-  <version>2.1.8</version>
+  <version>2.1.9</version>
   <url>http://maven.apache.org</url>
   <developers>
     <developer>
@@ -265,6 +265,14 @@
   		<version>3.0.0.M1</version>
   		<type>jar</type>
   		<scope>compile</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>net.sf.json-lib</groupId>
+  		<artifactId>json-lib</artifactId>
+  		<version>2.3</version>
+  		<classifier>jdk15</classifier>
+  		<type>jar</type>
   		<optional>false</optional>
   	</dependency>
   </dependencies>
