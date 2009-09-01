@@ -50,21 +50,20 @@
 	<!-- rexpert -->
 	<servlet>
 	  	<servlet-name>empListJsonServlet</servlet-name>
-	  	<servlet-class>org.codelabor.example.servlets.EmpListJsonServlet</servlet-class>
+	  	<servlet-class>org.codelabor.example.report.servlets.EmpListJsonServlet</servlet-class>
 	</servlet>
 	<servlet>
 	  	<servlet-name>empListXmlServlet</servlet-name>
-	  	<servlet-class>org.codelabor.example.servlets.EmpListXmlServlet</servlet-class>
+	  	<servlet-class>org.codelabor.example.report.servlets.EmpListXmlServlet</servlet-class>
 	</servlet>
 	<servlet>
 	  	<servlet-name>deptListJsonServlet</servlet-name>
-	  	<servlet-class>org.codelabor.example.servlets.DeptListJsonServlet</servlet-class>
+	  	<servlet-class>org.codelabor.example.report.servlets.DeptListJsonServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>empDeptListXmlServlet</servlet-name>
-	  	<servlet-class>org.codelabor.example.servlets.EmpDeptListXmlServlet</servlet-class>
+	  	<servlet-class>org.codelabor.example.report.servlets.EmpDeptListXmlServlet</servlet-class>
 	</servlet>
-
 	<servlet-mapping>
 	  	<servlet-name>empListJsonServlet</servlet-name>
 	  	<url-pattern>/servlet/empListJsonServlet</url-pattern>
