@@ -9,51 +9,36 @@ import java.io.OutputStreamWriter;
 
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class EncrypServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class EncrypServiceTest extends AbstractDependencyInjectionSpringContextTests {
 
 	private EncryptService xecureDBService;
 
 	@Override
 	public void onSetUp() throws Exception {
-		xecureDBService = (EncryptService) applicationContext
-				.getBean("xecureDBEncryptService");
+		xecureDBService = (EncryptService) applicationContext.getBean("xecureDBEncryptService");
 	}
 
 	public void test() {
 		try {
 			String charsetName = "EUC-KR";
 
-			// InputStreamReader inputStreamReader = new FileReader(
-			// "password-encrypted.txt");
-			// OutputStreamWriter outputStreamWriter = new FileWriter(
-			// "password-decrypted.txt");
-			FileInputStream fileInputStream = new FileInputStream(
-					"password-encrypted.txt");
-			FileOutputStream fileOutputStream = new FileOutputStream(
-					"password-decrypted.txt");
-			InputStreamReader inputStreamReader = new InputStreamReader(
-					fileInputStream, charsetName);
-			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
-					fileOutputStream, charsetName);
-			BufferedReader bufferedReader = new BufferedReader(
-					inputStreamReader);
-			BufferedWriter bufferedWriter = new BufferedWriter(
-					outputStreamWriter);
+			FileInputStream fileInputStream = new FileInputStream("password-encrypted.txt");
+			FileOutputStream fileOutputStream = new FileOutputStream("password-decrypted.txt");
+			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, charsetName);
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream, charsetName);
+			BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+			BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
 
 			String encryptedLine = null;
 			while ((encryptedLine = bufferedReader.readLine()) != null) {
 				String[] splitedLines = encryptedLine.split(", ");
-				String id = splitedLines[0].substring(1, splitedLines[0]
-						.length() - 1);
-				String encryptedPassword = splitedLines[1].substring(1,
-						splitedLines[1].length() - 1);
+				String id = splitedLines[0].substring(1, splitedLines[0].length() - 1);
+				String encryptedPassword = splitedLines[1].substring(1, splitedLines[1].length() - 1);
 				String decryptedPassword = null;
 				if (encryptedPassword.equals("null")) {
 					decryptedPassword = encryptedPassword;
 				} else {
-					decryptedPassword = xecureDBService
-							.decrypt64(encryptedPassword);
+					decryptedPassword = xecureDBService.decrypt64(encryptedPassword);
 				}
 				StringBuilder sb = new StringBuilder();
 				sb.append("\"").append(id).append("\", \"");
