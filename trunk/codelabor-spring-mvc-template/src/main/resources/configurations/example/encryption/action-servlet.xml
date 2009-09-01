@@ -17,6 +17,10 @@
 					value-ref="example.encryption.xecure.requestByScriptController"/>
 				<entry key="/example/encryption/xecure/response.do"
 					value-ref="example.encryption.xecure.responseController"/>
+				<entry key="/example/encryption/xecure/seed.do"
+					value-ref="example.encryption.xecure.seedController"/>
+				<entry key="/example/encryption/xecure/hash.do"
+					value-ref="example.encryption.xecure.hashController"/>
 			</map>
 		</property>
 	</bean>
@@ -46,7 +50,7 @@
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.encryption.xecure.seed.definition"/>
 	</bean>
-			<bean
+	<bean
 		id="example.encryption.xecure.hashController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.encryption.xecure.hash.definition"/>
