@@ -2,15 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<bean 
-		id="system.login.homeController" 
+
+	<bean
+		id="system.login.urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="default.urlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/system/login/home.do" value-ref="system.login.homeController"/>
+				<entry key="/system/login/success.do" value-ref="system.login.successController"/>
+				<entry key="/system/login/xecure/login.do" value="system.login.successController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="system.login.homeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.login.home.definition"/>
 	</bean>
-	<bean 
-		id="system.login.successController" 
+	<bean
+		id="system.login.successController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.login.success.definition"/>
-	</bean>	
+	</bean>
 </beans>

@@ -4,68 +4,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean
-		id="defaultUrlMapping"
-		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		id="default.urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		abstract="true">
 		<property name="interceptors">
 			<list>
 				<ref bean="themeChangeInterceptor"/>
 				<ref bean="localeChangeInterceptor"/>
 			</list>
 		</property>
-		<property name="mappings">
-			<map>
-				<!-- example -->
-				<entry key="/example/home.do" value-ref="example.homeController"/>
-
-				<!-- exmple crud -->
-				<entry key="/example/crud/create.do" value-ref="example.crud.createController"/>
-				<entry key="/example/crud/read.do" value-ref="example.crud.readController"/>
-				<entry key="/example/crud/list.do" value-ref="example.crud.listController"/>
-				<entry key="/example/crud/update.do" value-ref="example.crud.updateController"/>
-				<entry key="/example/crud/delete.do" value-ref="example.crud.deleteController"/>
-
-				<!-- exmple emp -->
-				<entry key="/example/emp/create.do" value-ref="example.emp.createController"/>
-				<entry key="/example/emp/read.do" value-ref="example.emp.readController"/>
-				<entry key="/example/emp/list.do" value-ref="example.emp.listController"/>
-				<entry key="/example/emp/update.do" value-ref="example.emp.updateController"/>
-				<entry key="/example/emp/delete.do" value-ref="example.emp.deleteController"/>
-
-				<!-- exmple remoting tcp -->
-				<entry key="/example/remoting/tcp/send.do" value-ref="example.remoting.tcp.sendController"/>
-				
-				<!-- example encryption -->
-				<entry key="/example/encryption/xecure/requestByGetMethod.do"
-					value-ref="example.encryption.xecure.requestByGetMethodController"/>
-				<entry key="/example/encryption/xecure/requestByPostMethod.do"
-					value-ref="example.encryption.xecure.requestByPostMethodController"/>
-				<entry key="/example/encryption/xecure/requestByScript.do"
-					value-ref="example.encryption.xecure.requestByScriptController"/>
-				<entry key="/example/encryption/xecure/response.do"
-					value-ref="example.encryption.xecure.responseController"/>
-
-				<!-- example file -->
-				<entry key="/example/file/spring-mvc/listFile.do"
-					value-ref="example.file.springMvc.fileListController"/>
-				<entry key="/example/file/xecure/listFile.do"
-					value-ref="example.file.xecure.fileListController"/>
-				<entry key="/system/file/uploadFile.do"
-					value-ref="example.file.fileUploadController"/>
-
-				<!-- system -->
-				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
-				<entry key="/system/login/home.do" value-ref="system.login.homeController"/>
-				<entry key="/system/login/success.do" value-ref="system.login.successController"/>
-				<entry key="/system/login/xecure/login.do" value="system.login.successController"/>
-				<entry key="/system/preferences/home.do" value-ref="system.preferences.homeController"/>
-				<!--
-				<entry key="/system/preferences/personal/home.do" value-ref="system.preferences.personalController"/>
-				-->
-				<entry key="/system/preferences/themes/home.do" value-ref="system.preferences.themes.homeController"/>
-				<entry key="/system/preferences/locale/home.do" value-ref="system.preferences.locale.homeController"/>
-			</map>
-		</property>
 	</bean>
-
-
 </beans>

@@ -2,6 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean
+		id="example.crud.urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="default.urlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/crud/create.do" value-ref="example.crud.createController"/>
+				<entry key="/example/crud/read.do" value-ref="example.crud.readController"/>
+				<entry key="/example/crud/list.do" value-ref="example.crud.listController"/>
+				<entry key="/example/crud/update.do" value-ref="example.crud.updateController"/>
+				<entry key="/example/crud/delete.do" value-ref="example.crud.deleteController"/>
+			</map>
+		</property>
+	</bean>
 
 	<bean
 		id="example.crud.baseCrudController"
@@ -36,8 +50,8 @@
 		parent="example.crud.baseCrudController">
 		<property name="successView" value="example.crud.list.definition"/>
 	</bean>
-	<bean 
-		id="example.crud.updateController" 
+	<bean
+		id="example.crud.updateController"
 		class="org.codelabor.example.crud.spring.controllers.UpdateController"
 		parent="example.crud.baseCrudFormController">
 		<property name="sessionForm" value="true"/>

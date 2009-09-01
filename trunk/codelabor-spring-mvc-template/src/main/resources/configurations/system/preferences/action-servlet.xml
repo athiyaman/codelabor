@@ -2,20 +2,33 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
-	<bean 
-		id="system.preferences.homeController" 
+
+	<bean
+		id="system.login.urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="default.urlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/system/preferences/home.do" value-ref="system.preferences.homeController"/>
+				<entry key="/system/preferences/themes/home.do" value-ref="system.preferences.themes.homeController"/>
+				<entry key="/system/preferences/locale/home.do" value-ref="system.preferences.locale.homeController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="system.preferences.homeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.preferences.home.definition"/>
 	</bean>
-	<bean 
-		id="system.preferences.themes.homeController" 
+	<bean
+		id="system.preferences.themes.homeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.preferences.themes.home.definition"/>
 	</bean>
-	<bean 
-		id="system.preferences.locale.homeController" 
+	<bean
+		id="system.preferences.locale.homeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.preferences.locale.home.definition"/>
-	</bean>		
+	</bean>
 </beans>

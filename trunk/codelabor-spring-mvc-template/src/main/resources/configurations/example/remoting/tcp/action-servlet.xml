@@ -2,6 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="example.remoting.tcp.urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="default.urlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/remoting/tcp/send.do" value-ref="example.remoting.tcp.sendController"/>
+			</map>
+		</property>
+	</bean>
+
 	<bean
  		id="example.remoting.tcp.sendController"
 		class="org.codelabor.example.remoting.tcp.spring.controllers.SendController">
