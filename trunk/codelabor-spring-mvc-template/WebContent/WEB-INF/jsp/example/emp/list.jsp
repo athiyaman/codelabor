@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<!-- %@ taglib tagdir="/WEB-INF/tags" prefix="codelabor" % -->
+
 <%@ taglib uri="http://codelabor.org/tags/codelabor" prefix="codelabor" %>
 
 				<h2><spring:message code="label.example.emp"/></h2>

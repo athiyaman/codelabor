@@ -47,6 +47,41 @@
   		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
 	</listener>
 
+	<!-- rexpert -->
+	<servlet>
+	  	<servlet-name>empListJsonServlet</servlet-name>
+	  	<servlet-class>org.codelabor.example.servlets.EmpListJsonServlet</servlet-class>
+	</servlet>
+	<servlet>
+	  	<servlet-name>empListXmlServlet</servlet-name>
+	  	<servlet-class>org.codelabor.example.servlets.EmpListXmlServlet</servlet-class>
+	</servlet>
+	<servlet>
+	  	<servlet-name>deptListJsonServlet</servlet-name>
+	  	<servlet-class>org.codelabor.example.servlets.DeptListJsonServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>empDeptListXmlServlet</servlet-name>
+	  	<servlet-class>org.codelabor.example.servlets.EmpDeptListXmlServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+	  	<servlet-name>empListJsonServlet</servlet-name>
+	  	<url-pattern>/servlet/empListJsonServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	  	<servlet-name>empListXmlServlet</servlet-name>
+	  	<url-pattern>/servlet/empListXmlServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	  	<servlet-name>deptListJsonServlet</servlet-name>
+	  	<url-pattern>/servlet/deptListJsonServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	  	<servlet-name>empDeptListXmlServlet</servlet-name>
+	  	<url-pattern>/servlet/empDeptListXmlServlet</url-pattern>
+	</servlet-mapping>
+
 	<!-- spring mvc -->
 	<servlet>
 		<servlet-name>action</servlet-name>
@@ -78,7 +113,7 @@
     <!-- xecure sniff servlet -->
   	<servlet>
   		<servlet-name>xecureSnifferServlet</servlet-name>
-  		<servlet-class>org.codelabor.system.sniffer.servlets.XecureSnifferServlet</servlet-class>
+  		<servlet-class>org.codelabor.system.security.xecure.servlets.XecureSnifferServlet</servlet-class>
   	</servlet>
 	<servlet-mapping>
   		<servlet-name>xecureSnifferServlet</servlet-name>
@@ -88,7 +123,7 @@
 	<!-- xecure file upload servlet -->
   	<servlet>
   		<servlet-name>xecureFileUploadServlet</servlet-name>
-  		<servlet-class>org.codelabor.system.file.servlets.XecureFileUploadServlet</servlet-class>
+  		<servlet-class>org.codelabor.system.file.xecure.servlets.XecureFileUploadServlet</servlet-class>
 	  	<init-param>
 	  		<param-name>parameterName</param-name>
 	  		<param-value>method</param-value>
@@ -137,7 +172,7 @@
 	<!-- Xecure filter -->
 	<filter>
 		<filter-name>xecureFilter</filter-name>
-		<filter-class>org.codelabor.system.filters.XecureFilter</filter-class>
+		<filter-class>org.codelabor.system.security.xecure.filters.XecureFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>xecureFilter</filter-name>

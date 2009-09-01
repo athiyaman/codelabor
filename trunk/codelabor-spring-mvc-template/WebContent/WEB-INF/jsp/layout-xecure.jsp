@@ -18,6 +18,16 @@
 			@import url(${pageContext.request.contextPath}/css/print.css);
 		</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<!--
+		<script language="JavaScript" src="http://ahnlabdownload.nefficient.co.kr/aos/plugin/aosmgr_common.js"></script>
+		<script language="JavaScript">
+			aos_set_authinfo('xxx.xxx.xxx');
+			aos_set_option("asyncmode", true);
+			aos_set_option("uimode", true);
+			aos_write_object();
+			aos_start('e5');
+		</script>
+		-->
 	</head>
 	<body class="composite">
 
