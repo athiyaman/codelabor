@@ -8,7 +8,7 @@
                         http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
 	<bean
-		id="xecureDBEncryptService"
+		id="encryptService"
 		class="org.codelabor.system.security.xecure.services.XecureDBEncryptServiceImpl">
 		<property name="pool" value="ksfc"/>
 		<property name="database" value="AA"/>
