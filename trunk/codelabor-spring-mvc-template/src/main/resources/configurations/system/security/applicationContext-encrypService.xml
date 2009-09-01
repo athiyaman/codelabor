@@ -9,7 +9,7 @@
 
 	<bean
 		id="encryptService"
-		class="org.codelabor.system.security.xecure.services.XecureDBServiceImpl">
+		class="org.codelabor.system.security.xecure.services.XecureDBEncryptServiceImpl">
 		<property name="pool" value="ksfc"/>
 		<property name="database" value="AA"/>
 		<property name="owner" value="AA"/>
