@@ -11,11 +11,11 @@ import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 public class EncrypServiceTest extends AbstractDependencyInjectionSpringContextTests {
 
-	private EncryptService xecureDBService;
+	private EncryptService encryptService;
 
 	@Override
 	public void onSetUp() throws Exception {
-		xecureDBService = (EncryptService) applicationContext.getBean("xecureDBEncryptService");
+		encryptService = (EncryptService) applicationContext.getBean("encryptService");
 	}
 
 	public void test() {
@@ -38,7 +38,7 @@ public class EncrypServiceTest extends AbstractDependencyInjectionSpringContextT
 				if (encryptedPassword.equals("null")) {
 					decryptedPassword = encryptedPassword;
 				} else {
-					decryptedPassword = xecureDBService.decrypt64(encryptedPassword);
+					decryptedPassword = encryptService.decrypt64(encryptedPassword);
 				}
 				StringBuilder sb = new StringBuilder();
 				sb.append("\"").append(id).append("\", \"");
