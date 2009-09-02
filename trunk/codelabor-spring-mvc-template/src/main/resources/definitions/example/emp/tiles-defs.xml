@@ -15,4 +15,13 @@
 	<definition name="example.emp.update.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/update.jsp"/>
 	</definition>
+	<definition name="example.emp.create.step1.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step1.jsp"/>
+	</definition>
+	<definition name="example.emp.create.step2.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step2.jsp"/>
+	</definition>
+	<definition name="example.emp.create.step3.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step3.jsp"/>
+	</definition>
 </tiles-definitions>
