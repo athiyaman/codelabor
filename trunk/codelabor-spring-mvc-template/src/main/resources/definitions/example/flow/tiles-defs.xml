@@ -12,4 +12,7 @@
 	<definition name="example.flow.step3.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/flow/step3.jsp"/>
 	</definition>
+	<definition name="example.flow.cancel.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/flow/cancel.jsp"/>
+	</definition>
 </tiles-definitions>
