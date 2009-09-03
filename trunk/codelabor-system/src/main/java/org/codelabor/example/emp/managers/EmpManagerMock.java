@@ -137,7 +137,8 @@ public class EmpManagerMock implements EmpManager {
 		throw new Exception("Not yet implemented");
 	}
 
-	public Map<Integer, String> getManagerMap() throws Exception {
+	@SuppressWarnings("unchecked")
+	public Map getManagerMap() throws Exception {
 		// TODO Auto-generated method stub
 		throw new Exception("Not yet implemented");
 	}

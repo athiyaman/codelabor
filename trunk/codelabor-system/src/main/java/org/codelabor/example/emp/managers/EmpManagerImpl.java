@@ -80,10 +80,10 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Map<Integer, String> getManagerMap() throws Exception {
+	public Map getManagerMap() throws Exception {
 		List<EmpDTO> empList = this.selectEmpList();
 		Iterator<EmpDTO> iterator = empList.iterator();
-		Map<Integer, String> managerMap = new ListOrderedMap();
+		Map managerMap = new ListOrderedMap();
 		while (iterator.hasNext()) {
 			EmpDTO empDTO = iterator.next();
 			managerMap.put(empDTO.getEmpNo(), empDTO.getEname());

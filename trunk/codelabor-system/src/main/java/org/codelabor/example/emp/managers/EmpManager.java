@@ -47,5 +47,6 @@ public interface EmpManager {
 
 	public Page selectEmpList(int pageIndex, int pageSize) throws Exception;
 
-	public Map<Integer, String> getManagerMap() throws Exception;
+	@SuppressWarnings("unchecked")
+	public Map getManagerMap() throws Exception;
 }
