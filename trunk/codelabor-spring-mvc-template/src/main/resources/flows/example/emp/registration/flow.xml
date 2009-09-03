@@ -6,19 +6,31 @@
 
     <var name="createForm" class="org.codelabor.example.emp.dtos.EmpDTO"/>
 
-	<view-state id="step1" view="example.emp.create.step1.definition">
-		<transition on="proceed" to="step2" />
+	<view-state id="step1" view="example.emp.create.step1.definition" model="createForm">
+		<binder>
+			<binding property="ename" required="true"/>
+			<binding property="job" required="true"/>
+		</binder>
+		<transition on="next" to="step2" />
 		<transition on="cancel" to="cancelled" />
 	</view-state>
 
-	<view-state id="step2" view="example.emp.create.step2.definition">
-		<transition on="revise" to="step1" />
-		<transition on="proceed" to="step3" />
+	<view-state id="step2" view="example.emp.create.step2.definition" model="createForm">
+		<binder>
+			<binding property="mgr" required="true"/>
+			<binding property="hireDate" required="true"/>
+		</binder>
+		<transition on="previous" to="step1" />
+		<transition on="next" to="step3" />
 		<transition on="cancel" to="cancelled" />
 	</view-state>
 
-	<view-state id="step3" view="example.emp.create.step3.definition">
-		<transition on="revise" to="step2" />
+	<view-state id="step3" view="example.emp.create.step3.definition" model="createForm">
+		<binder>
+			<binding property="sal" required="true"/>
+			<binding property="comm" required="true"/>
+		</binder>
+		<transition on="previous" to="step2" />
 		<transition on="submit" to="confirmed" />
 		<transition on="cancel" to="cancelled" />
 	</view-state>
