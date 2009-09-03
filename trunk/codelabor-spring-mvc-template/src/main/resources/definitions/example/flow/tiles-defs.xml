@@ -15,4 +15,7 @@
 	<definition name="example.flow.cancel.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/flow/cancel.jsp"/>
 	</definition>
+	<definition name="example.flow.confirm.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/flow/confirm.jsp"/>
+	</definition>
 </tiles-definitions>
