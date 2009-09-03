@@ -4,6 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
+    <var name="createForm" class="org.codelabor.example.emp.dtos.EmpDTO"/>
+
 	<view-state id="step1" view="example.emp.create.step1.definition">
 		<transition on="proceed" to="step2" />
 		<transition on="cancel" to="cancelled" />
