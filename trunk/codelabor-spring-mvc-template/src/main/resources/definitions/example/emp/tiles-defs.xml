@@ -24,4 +24,10 @@
 	<definition name="example.emp.create.step3.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step3.jsp"/>
 	</definition>
+	<definition name="example.emp.create.cancel.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-cancel.jsp"/>
+	</definition>
+	<definition name="example.emp.create.confirm.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-confirm.jsp"/>
+	</definition>
 </tiles-definitions>
