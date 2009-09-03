@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:beans="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:webflow="http://www.springframework.org/schema/webflow-config"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -7,16 +7,19 @@
 		http://www.springframework.org/schema/webflow-config
 		http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
 
-		<webflow:flow-registry id="flowRegistry"
-			base-path="/WEB-INF/classes/flows"
-			flow-builder-services="flowBuilderServices">
-			<webflow:flow-location-pattern value="/**/*-flow.xml"/>
-		</webflow:flow-registry>
 		<webflow:flow-executor id="flowExecutor" />
+
+		<webflow:flow-registry id="flowRegistry"
+			flow-builder-services="flowBuilderServices"
+			base-path="/WEB-INF/classes/flows">
+			<webflow:flow-location-pattern value="/**/*flow.xml"/>
+		</webflow:flow-registry>
+
 		<webflow:flow-builder-services id="flowBuilderServices"
 			view-factory-creator="mvcViewFactoryCreator"
 			development="true"/>
-		<bean id="mvcViewFactoryCreate" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<bean id="mvcViewFactoryCreator"
+			class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 			<property name="viewResolvers" ref="tilesViewResolver" />
 		</bean>
 
@@ -24,8 +27,14 @@
 			<property name="flowExecutor" ref="flowExecutor" />
 		</bean>
 
-		<bean class="org.springframewokr.webflow.mvc.servlet.FlowHandlerMapping">
+		<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 			<property name="order" value="0" />
 			<property name="flowRegistry" ref="flowRegistry" />
 		</bean>
+
+		<!-- for spring security 2.5.x -->
+		<!--
+		<bean id="securityFlowExecutionListener"
+			class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
+		-->
 </beans>
