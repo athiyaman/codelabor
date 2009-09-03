@@ -9,7 +9,7 @@
 				<div class="section">
 				<h3><spring:message code="label.example.emp.create.step1"/></h3>
 				<p></p>
-				<form:form method="post" commandName="createForm">
+				<form:form method="post" commandName="empDTO">
 					<form:errors path="*"/>
 					<table class="bodyTable">
 						<tbody>
@@ -32,7 +32,6 @@
 					<hr/>
 					<input type="submit" name="_eventId_next" value="<spring:message code='button.next'/>">
 					<input type="submit" name="_eventId_cancel" value="<spring:message code='button.cancel'/>">
-					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</form:form>
 				</div>
 

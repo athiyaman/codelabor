@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
@@ -9,36 +10,32 @@
 				<div class="section">
 				<h3><spring:message code="label.example.emp.create.step3"/></h3>
 				<p></p>
-				<form:form method="post" commandName="createForm">
+				<form:form method="post" commandName="empDTO">
 					<form:errors path="*"/>
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.ename"/></th>
 								<td>
-									<form:input path="ename" />
-									<form:errors path="ename"/>
+									<c:out value="${empDTO.ename}" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.job"/></th>
 								<td>
-									<form:input path="job" />
-									<form:errors path="job"/>
+									<c:out value="${empDTO.job}" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.mgr"/></th>
 								<td>
-									<form:select path="mgr" items="${managerMap}"/>
-									<form:errors path="mgr"/>
+									<c:out value="${empDTO.mgr}" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.hireDate"/></th>
 								<td>
-									<form:input path="hireDate" />
-									<form:errors path="hireDate"/>
+									<f:formatDate value="${empDTO.hireDate}" pattern="yyyy-MM-dd"/>
 								</td>
 							</tr>
 							<tr class="b">
@@ -61,6 +58,5 @@
 					<input type="submit" name="_eventId_submit" value="<spring:message code='button.submit'/>">
 					<input type="submit" name="_eventId_previous" value="<spring:message code='button.previous'/>">
 					<input type="submit" name="_eventId_cancel" value="<spring:message code='button.cancel'/>">
-					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</form:form>
 				</div>

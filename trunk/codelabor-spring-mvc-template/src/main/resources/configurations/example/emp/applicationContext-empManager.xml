@@ -12,7 +12,7 @@
 		</property>
 	</bean>
 	<bean
-		id="example.emp.empManager"
+		id="example.emp.empManager" name="empManager"
 		class="org.codelabor.example.emp.managers.EmpManagerImpl"
 		parent="baseManager">
 		<property name="empDAO" ref="example.emp.empDAO"/>

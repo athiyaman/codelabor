@@ -9,7 +9,7 @@
 				<div class="section">
 				<h3><spring:message code="label.example.emp.create"/></h3>
 				<p></p>
-				<form:form method="post" commandName="createForm">
+				<form:form method="post" commandName="empDTO">
 					<form:errors path="*"/>
 					<table class="bodyTable">
 						<tbody>

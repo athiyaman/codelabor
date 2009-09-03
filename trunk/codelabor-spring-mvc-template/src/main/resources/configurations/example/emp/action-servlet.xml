@@ -35,7 +35,7 @@
 		class="org.codelabor.example.emp.spring.controllers.CreateController"
 		parent="example.emp.baseEmpFormController">
 		<property name="customDateEditor" ref="customDateEditor"/>
-		<property name="commandName" value="createForm"/>
+		<property name="commandName" value="empDTO"/>
 		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
 		<property name="formView" value="example.emp.create.definition"/>
 		<property name="successView" value="redirect:/example/emp/list.do"/>
