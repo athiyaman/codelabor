@@ -1,7 +1,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<bean
 		id="example.emp.urlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
@@ -16,7 +16,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean
 		id="example.emp.baseEmpController"
 		class="org.codelabor.example.emp.spring.controllers.BaseEmpController"
