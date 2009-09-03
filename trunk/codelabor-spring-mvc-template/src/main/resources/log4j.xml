@@ -76,6 +76,11 @@
 		<appender-ref ref="console" />
 		<appender-ref ref="defaultDailyRollingFile"/>
 	</logger>
+	<logger name="org.springframework.webflow" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="defaultDailyRollingFile"/>
+	</logger>
 
 	<!-- anyframe -->
 	<logger name="anyframe" additivity="false">
