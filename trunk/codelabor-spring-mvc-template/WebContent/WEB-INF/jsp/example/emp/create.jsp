@@ -58,7 +58,7 @@
 						</tbody>
 					</table>
 					<hr/>
-					<a href="<c:url value='/example/emp/list.do'/>"><spring:message code='button.list'/></a>
+					<a href="<c:url value='/example/emp/list.do' />"><spring:message code='button.list'/></a>
 					<input type="submit" value="<spring:message code='button.save'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</form:form>
