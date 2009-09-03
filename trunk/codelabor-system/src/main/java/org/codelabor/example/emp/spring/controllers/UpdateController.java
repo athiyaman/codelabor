@@ -17,15 +17,11 @@
 package org.codelabor.example.emp.spring.controllers;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.map.ListOrderedMap;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -37,22 +33,19 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class UpdateController extends BaseEmpFormController {
 	@Override
-	protected Object formBackingObject(HttpServletRequest request)
-			throws Exception {
+	protected Object formBackingObject(HttpServletRequest request) throws Exception {
 		int empNo = Integer.parseInt(request.getParameter("id"));
 		EmpDTO empDTO = empManager.selectEmp(empNo);
 		return empDTO;
 	}
 
 	@Override
-	protected void initBinder(HttpServletRequest request,
-			ServletRequestDataBinder binder) throws Exception {
+	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
 		binder.registerCustomEditor(Date.class, this.getCustomDateEditor());
 	}
 
 	@Override
-	protected ModelAndView handleInvalidSubmit(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	protected ModelAndView handleInvalidSubmit(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		BindException errors = getErrorsForNewForm(request);
 		errors.reject("errors.duplicate.form.submission");
 		return showForm(request, response, errors);
@@ -67,16 +60,17 @@ public class UpdateController extends BaseEmpFormController {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected Map referenceData(HttpServletRequest request) throws Exception {
-		Map referenceMap = new HashMap();
-		List<EmpDTO> empList = empManager.selectEmpList();
-		Iterator iterator = empList.iterator();
-		Map managerMap = new ListOrderedMap();
-		while (iterator.hasNext()) {
-			EmpDTO empDTO = (EmpDTO) iterator.next();
-			managerMap.put(empDTO.getEmpNo(), empDTO.getEname());
-		}
-		referenceMap.put("managerMap", managerMap);
-		return referenceMap;
+		return empManager.getManagerMap();
+		// Map referenceMap = new HashMap();
+		// List<EmpDTO> empList = empManager.selectEmpList();
+		// Iterator iterator = empList.iterator();
+		// Map managerMap = new ListOrderedMap();
+		// while (iterator.hasNext()) {
+		// EmpDTO empDTO = (EmpDTO) iterator.next();
+		// managerMap.put(empDTO.getEmpNo(), empDTO.getEname());
+		// }
+		// referenceMap.put("managerMap", managerMap);
+		// return referenceMap;
 	}
 
 }
