@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import org.codelabor.example.emp.dtos.EmpDTO;
 
@@ -106,8 +107,7 @@ public class EmpManagerMock implements EmpManager {
 		return returnEmpDTO;
 	}
 
-	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
-			throws Exception {
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize) throws Exception {
 		// TODO Auto-generated method stub
 		throw new Exception("Not yet implemented");
 	}
@@ -133,6 +133,11 @@ public class EmpManagerMock implements EmpManager {
 	}
 
 	public Page selectEmpList(int pageIndex, int pageSize) throws Exception {
+		// TODO Auto-generated method stub
+		throw new Exception("Not yet implemented");
+	}
+
+	public Map<Integer, String> getManagerMap() throws Exception {
 		// TODO Auto-generated method stub
 		throw new Exception("Not yet implemented");
 	}

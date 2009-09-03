@@ -18,6 +18,7 @@
 package org.codelabor.example.emp.managers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.codelabor.example.emp.dtos.EmpDTO;
 
@@ -34,8 +35,7 @@ public interface EmpManager {
 
 	public EmpDTO selectEmp(int empNo) throws Exception;
 
-	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
-			throws Exception;
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize) throws Exception;
 
 	public int deleteEmp(int empNo) throws Exception;
 
@@ -46,4 +46,6 @@ public interface EmpManager {
 	public int updateEmp(EmpDTO empDTO) throws Exception;
 
 	public Page selectEmpList(int pageIndex, int pageSize) throws Exception;
+
+	public Map<Integer, String> getManagerMap() throws Exception;
 }

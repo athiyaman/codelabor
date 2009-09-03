@@ -17,8 +17,11 @@
 
 package org.codelabor.example.emp.managers;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.collections.map.ListOrderedMap;
 import org.codelabor.example.emp.daos.EmpDAO;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
@@ -52,8 +55,7 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 		return empDAO.selectEmp(empNo);
 	}
 
-	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize)
-			throws Exception {
+	public Page selectEmpListByDeptNo(int deptNo, int pageIndex, int pageSize) throws Exception {
 		return empDAO.selectEmpListByDeptNo(deptNo, pageIndex, pageSize);
 	}
 
@@ -75,5 +77,17 @@ public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {
 
 	public Page selectEmpList(int pageIndex, int pageSize) throws Exception {
 		return empDAO.selectEmpList(pageIndex, pageSize);
+	}
+
+	@SuppressWarnings("unchecked")
+	public Map<Integer, String> getManagerMap() throws Exception {
+		List<EmpDTO> empList = this.selectEmpList();
+		Iterator<EmpDTO> iterator = empList.iterator();
+		Map<Integer, String> managerMap = new ListOrderedMap();
+		while (iterator.hasNext()) {
+			EmpDTO empDTO = iterator.next();
+			managerMap.put(empDTO.getEmpNo(), empDTO.getEname());
+		}
+		return managerMap;
 	}
 }
