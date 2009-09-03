@@ -10,15 +10,15 @@
 				<h3><spring:message code="label.example.flow.step3"/></h3>
 				<hr/>
 				<spring:message code="label.example.flow.signal.anchor"/>
-				<a href="${flowExecutionUrl}&_eventId=submit"><spring:message code='button.submit'/></a>
-				<a href="${flowExecutionUrl}&_eventId=revise"><spring:message code='button.revise'/></a>
-				<a href="${flowExecutionUrl}&_eventId=cancel"><spring:message code='button.cancel'/></a>
+				<a href="<c:url value='${flowExecutionUrl}&_eventId=submit' context='/'/>"><spring:message code='button.submit'/></a>
+				<a href="<c:url value='${flowExecutionUrl}&_eventId=previous' context='/'/>"><spring:message code='button.previous'/></a>
+				<a href="<c:url value='${flowExecutionUrl}&_eventId=cancel' context='/'/>"><spring:message code='button.cancel'/></a>
 				<br/>
 
 				<spring:message code="label.example.flow.signal.submit"/>
 				<form action="${flowExecutionUrl}" method="post">
 					<input type="submit" name="_eventId_submit" value="<spring:message code='button.submit'/>">
-					<input type="submit" name="_eventId_revise" value="<spring:message code='button.revise'/>">
+					<input type="submit" name="_eventId_previous" value="<spring:message code='button.previous'/>">
 					<input type="submit" name="_eventId_cancel" value="<spring:message code='button.cancel'/>">
 				</form>
 				<br/>
@@ -29,8 +29,8 @@
 					<input type="hidden" name="_eventId" value="submit">
 				</form>
 				<form action="${flowExecutionUrl}" method="post">
-					<input type="submit" value="<spring:message code='button.revise'/>">
-					<input type="hidden" name="_eventId" value="revise">
+					<input type="submit" value="<spring:message code='button.previous'/>">
+					<input type="hidden" name="_eventId" value="previous">
 				</form>
 				<form action="${flowExecutionUrl}" method="post">
 					<input type="submit" value="<spring:message code='button.cancel'/>">

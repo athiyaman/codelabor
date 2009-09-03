@@ -10,21 +10,21 @@
 				<h3><spring:message code="label.example.flow.step1"/></h3>
 				<hr/>
 				<spring:message code="label.example.flow.signal.anchor"/>
-				<a href="${flowExecutionUrl}&_eventId=proceed"><spring:message code='button.proceed'/></a>
-				<a href="${flowExecutionUrl}&_eventId=cancel"><spring:message code='button.cancel'/></a>
+				<a href="<c:url value='${flowExecutionUrl}&_eventId=next' context='/'/>"><spring:message code='button.next'/></a>
+				<a href="<c:url value='${flowExecutionUrl}&_eventId=cancel' context='/'/>"><spring:message code='button.cancel'/></a>
 				<br/>
 
 				<spring:message code="label.example.flow.signal.submit"/>
 				<form action="${flowExecutionUrl}" method="post">
-					<input type="submit" name="_eventId_proceed" value="<spring:message code='button.proceed'/>">
+					<input type="submit" name="_eventId_next" value="<spring:message code='button.next'/>">
 					<input type="submit" name="_eventId_cancel" value="<spring:message code='button.cancel'/>">
 				</form>
 				<br/>
 
 				<spring:message code="label.example.flow.signal.hidden"/>
 				<form action="${flowExecutionUrl}" method="post">
-					<input type="submit" value="<spring:message code='button.proceed'/>">
-					<input type="hidden" name="_eventId" value="proceed">
+					<input type="submit" value="<spring:message code='button.next'/>">
+					<input type="hidden" name="_eventId" value="next">
 				</form>
 				<form action="${flowExecutionUrl}" method="post">
 					<input type="submit" value="<spring:message code='button.cancel'/>">

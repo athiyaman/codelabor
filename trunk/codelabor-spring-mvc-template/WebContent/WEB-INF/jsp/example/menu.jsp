@@ -6,17 +6,19 @@
 				<h5>CRUD</h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/crud/list.do'/>">Duplicate Submit</a>
-						<a href="<c:url value='/example/emp/list.do'/>">Pagenation</a>
+						<a href="<c:url value='/example/crud/list.do'/>"><spring:message code="label.example.crud.duplicate.submit"/></a>
+					</li>
+					<li>
+						<a href="<c:url value='/example/emp/list.do'/>"><spring:message code="label.example.crud.pagenation"/></a>
 					</li>
 				</ul>
 				<h5>Flow</h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/flow/navigation.do'/>">Navigation (Page)</a>
+						<a href="<c:url value='/example/flow/navigation.do'/>"><spring:message code="label.example.flow.navigation"/></a>
 					</li>
 					<li>
-						<a href="<c:url value='/example/emp/registration.do'/>">Registration (Controller)</a>
+						<a href="<c:url value='/example/emp/registration.do'/>"><spring:message code="label.example.flow.registration"/></a>
 					</li>
 				</ul>
 				<h5>Remoting</h5>
