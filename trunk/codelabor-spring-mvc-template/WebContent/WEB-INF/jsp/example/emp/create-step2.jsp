@@ -44,9 +44,9 @@
 						</tbody>
 					</table>
 					<hr/>
-					<a href="<c:url value='${flowExecutionUrl}&_eventId=next' context='/'/>"><spring:message code='button.next'/></a>
-					<a href="<c:url value='${flowExecutionUrl}&_eventId=previous' context='/'/>"><spring:message code='button.previous'/></a>
-					<a href="<c:url value='${flowExecutionUrl}&_eventId=cancel' context='/'/>"><spring:message code='button.cancel'/></a>
+					<input type="submit" name="_eventId_previous" value="<spring:message code='button.previous'/>">
+					<input type="submit" name="_eventId_next" value="<spring:message code='button.next'/>">
+					<input type="submit" name="_eventId_cancel" value="<spring:message code='button.cancel'/>">
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</form:form>
 				</div>
