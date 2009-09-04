@@ -40,6 +40,7 @@
 				<!-- example emp -->
 				<value>/WEB-INF/classes/messages/example/emp/errors</value>
 				<value>/WEB-INF/classes/messages/example/emp/label</value>
+				<value>/WEB-INF/classes/messages/example/emp/messages</value>
 
 				<!-- example flow -->
 				<value>/WEB-INF/classes/messages/example/flow/errors</value>
