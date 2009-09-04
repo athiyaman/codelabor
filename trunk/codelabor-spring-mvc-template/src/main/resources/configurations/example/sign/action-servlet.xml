@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleSignUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/sign/xecure/create.do" value-ref="exampleSignXecureCreateController"/>
+				<entry key="/example/sign/xecure/list.do" value-ref="exampleSignXecureListController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="exampleSignXecureListController"
+		class="org.codelabor.example.sign.xecure.spring.controllers.ListController">
+		<property name="successView" value="example.sign.xecure.list.definition"/>
+	</bean>
+	<bean
+		id="exampleSignXecureCreateController"
+		class="org.codelabor.example.sign.xecure.spring.controllers.CreateController">
+		<property name="commandClass" value="org.codelabor.example.sign.dto.SignDTO"/>
+		<property name="formView" value="example.sign.xecure.create.definition"/>
+		<property name="successView" value="example.sign.xecure.list.definition"/>
+	</bean>
+</beans>

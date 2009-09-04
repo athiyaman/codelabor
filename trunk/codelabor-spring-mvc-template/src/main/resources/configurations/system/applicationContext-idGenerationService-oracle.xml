@@ -34,6 +34,15 @@
 		</config:configuration>
 	</bean>
 
+	<bean name="sequenceSignIdGenerationService"
+		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+		destroy-method="destroy">
+		<property name="dataSource" ref="oracleDataSource" />
+		<config:configuration big-decimals="true">
+			<query>SELECT SIGN_ID_SEQ.NEXTVAL FROM DUAL</query>
+		</config:configuration>
+	</bean>
+
 	<bean name="uniqueFileNameGenerationService"
 		class="anyframe.core.idgen.impl.TableIdGenerationService"
 		destroy-method="destroy">
