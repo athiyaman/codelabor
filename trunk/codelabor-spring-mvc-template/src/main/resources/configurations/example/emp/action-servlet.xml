@@ -27,7 +27,6 @@
 		id="exampleEmpBaseEmpFormController"
 		class="org.codelabor.example.emp.spring.controllers.BaseEmpFormController"
 		abstract="true">
-
 		<property name="empManager" ref="exampleEmpEmpManager"/>
 	</bean>
 	<bean

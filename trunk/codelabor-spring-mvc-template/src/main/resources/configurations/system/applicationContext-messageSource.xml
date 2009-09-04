@@ -56,7 +56,7 @@
 				<value>/WEB-INF/classes/messages/example/encryption/label</value>
 
 				<!-- example sign -->
-				<value>/WEB-INF/classes/messages/example/file/button</value>
+				<value>/WEB-INF/classes/messages/example/sign/button</value>
 				<value>/WEB-INF/classes/messages/example/sign/label</value>
 
 				<!-- example file -->

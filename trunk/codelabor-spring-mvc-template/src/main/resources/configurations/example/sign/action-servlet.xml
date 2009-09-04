@@ -36,8 +36,9 @@
 		id="exampleSignXecureCreateController"
 		class="org.codelabor.example.sign.xecure.spring.controllers.CreateController"
 		parent="exampleSignBaseSignFormController">
+		<property name="commandName" value="signDTO" />
 		<property name="commandClass" value="org.codelabor.system.sign.dtos.SignDTO"/>
 		<property name="formView" value="example.sign.xecure.create.definition"/>
-		<property name="successView" value="example.sign.xecure.list.definition"/>
+		<property name="successView" value="redirect:/example/sign/xecure/list.do"/>
 	</bean>
 </beans>
