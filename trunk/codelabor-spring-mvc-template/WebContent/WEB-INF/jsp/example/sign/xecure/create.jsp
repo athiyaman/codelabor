@@ -9,21 +9,23 @@
 				<div class="section">
 				<h3><spring:message code="label.example.sign.create"/></h3>
 				<p></p>
-				<form:form method="post" commandName="signDTO">
+				<form:form name="signForm" method="post" commandName="signDTO" onsubmit="signForm.signedMessage.value = Sign_with_option(0, signForm.plainMessage.value);return XecureSubmit(this);">
 					<form:errors path="*"/>
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
 								<th><spring:message code="label.example.sign.signedMessage"/></th>
 								<td>
-									<form:input path="signedMessage" />
+									<input type="text" name="plainMessage" />
 									<form:errors path="signedMessage"/>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 					<hr/>
+
 					<a href="<c:url value='/example/sign/list.do'/>"><spring:message code='button.list'/></a>
+					<form:hidden path="signedMessage" />
 					<input type="submit" value="<spring:message code='button.sign'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</form:form>
