@@ -3,9 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean
-		id="example.crud.urlMapping"
+		id="exampleCrudUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
-		parent="default.urlMapping">
+		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
 				<entry key="/example/crud/create.do" value-ref="example.crud.createController"/>

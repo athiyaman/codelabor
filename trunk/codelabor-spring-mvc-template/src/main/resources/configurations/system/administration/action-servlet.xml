@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean
-		id="system.administration.urlMapping"
+		id="systemAdministrationUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
-		parent="default.urlMapping">
+		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
 				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>

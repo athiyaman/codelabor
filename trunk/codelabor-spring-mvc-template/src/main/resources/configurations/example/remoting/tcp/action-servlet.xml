@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean
-		id="example.remoting.tcp.urlMapping"
+		id="exampleRemotingTcpUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
-		parent="default.urlMapping">
+		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
 				<entry key="/example/remoting/tcp/send.do" value-ref="example.remoting.tcp.sendController"/>

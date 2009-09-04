@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean
-		id="example.file.urlMapping"
+		id="exampleFileUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
-		parent="default.urlMapping">
+		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
 				<entry key="/example/file/spring-mvc/listFile.do"

@@ -6,6 +6,6 @@
 	<bean
 		id="system.urlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
-		parent="default.urlMapping">
+		parent="defaultUrlMapping">
 	</bean>
 </beans>
