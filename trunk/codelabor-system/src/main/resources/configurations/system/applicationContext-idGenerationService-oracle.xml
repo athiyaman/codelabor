@@ -15,7 +15,7 @@
 			<query>SELECT BPM_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
-	
+
 	<bean name="accessLogSeqGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
@@ -23,7 +23,7 @@
 		<config:configuration big-decimals="true">
 			<query>SELECT ACCESS_LOG_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
-	</bean>	
+	</bean>
 
 	<bean name="sequenceFileIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
@@ -33,13 +33,22 @@
 			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
-	
+
+	<bean name="sequenceSignIdGenerationService"
+		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+		destroy-method="destroy">
+		<property name="dataSource" ref="oracleDataSource" />
+		<config:configuration big-decimals="true">
+			<query>SELECT SIGN_ID_SEQ.NEXTVAL FROM DUAL</query>
+		</config:configuration>
+	</bean>
+
 	<bean name="uniqueFileNameGenerationService"
 		class="anyframe.core.idgen.impl.TableIdGenerationService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
 		<property name="strategy" ref="fileNameStrategy" />
-		<config:configuration 
+		<config:configuration
 			block-size="1" table="ID" key-table="UNIQUE_FILE_NAME" />
 	</bean>
 	<bean name="fileNameStrategy"
