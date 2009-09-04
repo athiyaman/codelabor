@@ -36,6 +36,15 @@
 	        <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
 	    </layout>
 	</appender>
+	<appender
+		name="snifferDailyRollingFile"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${anyframe.log.dir}/sniffer.log"/>
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+	    </layout>
+	</appender>
 
 	<!-- infrared -->
     <category name="net.sf.infrared.agent.transport" additivity="false">
@@ -88,6 +97,8 @@
 		<appender-ref ref="console" />
 		<appender-ref ref="defaultDailyRollingFile"/>
 	</logger>
+
+	<!-- jdbc -->
 	<logger name="jdbc.sqltiming" additivity="false">
 		<level value="debug" />
 		<appender-ref ref="console" />
@@ -107,6 +118,13 @@
 		<level value="debug" />
 		<appender-ref ref="console" />
 		<appender-ref ref="defaultDailyRollingFile"/>
+	</logger>
+
+	<!-- sniffer -->
+	<logger name="org.codelabor.system.sniffer" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="snifferDailyRollingFile"/>
 	</logger>
 
 	<!-- codelabor -->
