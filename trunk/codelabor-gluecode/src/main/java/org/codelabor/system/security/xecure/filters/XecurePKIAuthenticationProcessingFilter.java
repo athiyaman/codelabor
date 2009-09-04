@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.codelabor.system.authentication.PKIAuthenticationToken;
+import org.codelabor.system.security.xecure.Constants;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -36,29 +37,22 @@ import xecure.servlet.XecureConfig;
  * @author bomber
  * 
  */
-public class XecurePKIAuthenticationProcessingFilter extends
-		UsernamePasswordAuthenticationProcessingFilter {
+public class XecurePKIAuthenticationProcessingFilter extends UsernamePasswordAuthenticationProcessingFilter {
 
 	private final boolean postOnly = true;
-	public static final String SECURITY_SIGNED_MESSAGE_KEY = "signedMessage";
 
 	@Override
-	public Authentication attemptAuthentication(HttpServletRequest request,
-			HttpServletResponse response) throws AuthenticationException {
-		String signedMessage = WebUtils.findParameterValue(request,
-				SECURITY_SIGNED_MESSAGE_KEY);
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+		String signedMessage = WebUtils.findParameterValue(request, Constants.SECURITY_SIGNED_MESSAGE_KEY);
 
 		if (signedMessage != null) { // PKI login
 			if (postOnly && !request.getMethod().equals("POST")) {
 				// TODO error handling
-				throw new AuthenticationServiceException(
-						"Authentication method not supported: "
-								+ request.getMethod());
+				throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
 			}
 			SignVerifier signVerifier;
 			try {
-				signVerifier = new SignVerifier(new XecureConfig(),
-						signedMessage);
+				signVerifier = new SignVerifier(new XecureConfig(), signedMessage);
 			} catch (Exception e) {
 				// TODO error handling
 				e.printStackTrace();
@@ -67,29 +61,23 @@ public class XecurePKIAuthenticationProcessingFilter extends
 			int errorCode = signVerifier.getLastError();
 			if (errorCode != 0) {
 				// TODO error handling
-				throw new AuthenticationServiceException(signVerifier
-						.getLastErrorMsg());
+				throw new AuthenticationServiceException(signVerifier.getLastErrorMsg());
 			}
 			Certificate signerCertificate = signVerifier.getSignerCertificate();
 			String subject = signerCertificate.getSubject().trim();
 
-			PKIAuthenticationToken authRequest = new PKIAuthenticationToken(
-					subject);
+			PKIAuthenticationToken authRequest = new PKIAuthenticationToken(subject);
 
 			// Allow subclasses to set the "details" property
 			setDetails(request, authRequest);
 
-			Authentication authentication = this.getAuthenticationManager()
-					.authenticate(authRequest);
+			Authentication authentication = this.getAuthenticationManager().authenticate(authRequest);
 
 			// Place the last username attempted into HttpSession for views
 			HttpSession session = request.getSession(false);
 
 			if (session != null || getAllowSessionCreation()) {
-				request.getSession().setAttribute(
-						SPRING_SECURITY_LAST_USERNAME_KEY,
-						TextEscapeUtils
-								.escapeEntities(authentication.getName()));
+				request.getSession().setAttribute(SPRING_SECURITY_LAST_USERNAME_KEY, TextEscapeUtils.escapeEntities(authentication.getName()));
 			}
 
 			return authentication;
