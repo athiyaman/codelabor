@@ -48,9 +48,13 @@
 						<a href="<c:url value='/example/encryption/xecure/hash.do'/>"><spring:message code="label.example.encryption.data.hash"/></a>
 					</li>
 				</ul>
-				<!--
 				<h5>Sign</h5>
-				-->
+				<ul>
+					<li>
+						<a href="<c:url value='/example/sign/xecure/list.do'/>"><spring:message code="label.example.sign.xecure"/></a>
+					</li>
+				</ul>
+
 				<h5>File</h5>
 				<ul>
 					<!--
@@ -59,6 +63,6 @@
 					</li>
 					-->
 					<li>
-						<a href="<c:url value='/example/file/xecure/listFile.do'/>">Xecure</a>
+						<a href="<c:url value='/example/file/xecure/listFile.do'/>"><spring:message code="label.example.file.xecure"/></a>
 					</li>
 				</ul>
