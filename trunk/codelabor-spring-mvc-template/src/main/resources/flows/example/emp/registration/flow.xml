@@ -26,7 +26,7 @@
 		</on-render>
 		<transition on="previous" to="step1" />
 		<transition on="next" to="step3" />
-		<transition on="cancel" to="cancelled" />
+		<transition on="cancel" to="cancelled" bind="false"/>
 	</view-state>
 
 	<view-state id="step3" view="example.emp.create.step3.definition" model="empDTO">
@@ -36,12 +36,7 @@
 		</binder>
 		<transition on="previous" to="step2" />
 		<transition on="submit" to="insertEmp" />
-		<!--
-		<transition on="submit" to="confirmed">
-			<evaluate expression="exampleEmpEmpManager.insertEmp(empDTO)"/>
-		</transition>
-		-->
-		<transition on="cancel" to="cancelled" />
+		<transition on="cancel" to="cancelled" bind="false"/>
 	</view-state>
 
 	<action-state id="insertEmp">
@@ -49,10 +44,6 @@
 		<transition on="success" to="confirmed" />
 	</action-state>
 
-	<!--
-	<end-state id="confirmed" view="example.emp.create.confirm.definition"/>
-	<end-state id="cancelled" view="example.emp.create.cancel.definition"/>
-	-->
 	<end-state id="confirmed" view="redirect:/example/emp/list.do"/>
 	<end-state id="cancelled" view="redirect:/example/emp/list.do"/>
 </flow>
