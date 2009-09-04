@@ -10,27 +10,27 @@
 		<property name="mappings">
 			<map>
 				<entry key="/example/file/spring-mvc/listFile.do"
-					value-ref="example.file.springMvc.fileListController"/>
+					value-ref="exampleFileSpringMvcFileListController"/>
 				<entry key="/example/file/xecure/listFile.do"
-					value-ref="example.file.xecure.fileListController"/>
+					value-ref="exampleFileXecureFileListController"/>
 				<entry key="/system/file/uploadFile.do"
-					value-ref="example.file.fileUploadController"/>
+					value-ref="exampleFileFileUploadController"/>
 			</map>
 		</property>
 	</bean>
 
 	<bean
-		id="example.file.springMvc.fileListController"
+		id="exampleFileSpringMvcFileListController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.file.springMvc.listFile.definition"/>
 	</bean>
 	<bean
-		id="example.file.xecure.fileListController"
+		id="exampleFileXecureFileListController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.file.xecure.listFile.definition"/>
 	</bean>
 	<bean
-		id="example.file.fileUploadController"
+		id="exampleFileFileUploadController"
 		class="org.codelabor.system.file.spring.controllers.FileUploadController">
 		<property name="commandClass" value="org.codelabor.system.spring.commands.Post"/>
 		<property name="formView" value="example.file.springMvc.listFile.definition"/>

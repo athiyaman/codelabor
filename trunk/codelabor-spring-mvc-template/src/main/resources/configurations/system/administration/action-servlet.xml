@@ -9,13 +9,13 @@
 		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/system/administration/home.do" value-ref="system.administration.homeController"/>
+				<entry key="/system/administration/home.do" value-ref="systemAdministrationHomeController"/>
 			</map>
 		</property>
 	</bean>
 
 	<bean
-		id="system.administration.homeController"
+		id="systemAdministrationHomeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.administration.home.definition"/>
 	</bean>

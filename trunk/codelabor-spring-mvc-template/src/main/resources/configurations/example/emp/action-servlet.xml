@@ -8,32 +8,32 @@
 		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/example/emp/create.do" value-ref="example.emp.createController"/>
-				<entry key="/example/emp/read.do" value-ref="example.emp.readController"/>
-				<entry key="/example/emp/list.do" value-ref="example.emp.listController"/>
-				<entry key="/example/emp/update.do" value-ref="example.emp.updateController"/>
-				<entry key="/example/emp/delete.do" value-ref="example.emp.deleteController"/>
+				<entry key="/example/emp/create.do" value-ref="exampleEmpCreateController"/>
+				<entry key="/example/emp/read.do" value-ref="exampleEmpReadController"/>
+				<entry key="/example/emp/list.do" value-ref="exampleEmpListController"/>
+				<entry key="/example/emp/update.do" value-ref="exampleEmpUpdateController"/>
+				<entry key="/example/emp/delete.do" value-ref="exampleEmpDeleteController"/>
 			</map>
 		</property>
 	</bean>
 
 	<bean
-		id="example.emp.baseEmpController"
+		id="exampleEmpBaseEmpController"
 		class="org.codelabor.example.emp.spring.controllers.BaseEmpController"
 		abstract="true">
-		<property name="empManager" ref="example.emp.empManager"/>
+		<property name="empManager" ref="exampleEmpEmpManager"/>
 	</bean>
 	<bean
-		id="example.emp.baseEmpFormController"
+		id="exampleEmpBaseEmpFormController"
 		class="org.codelabor.example.emp.spring.controllers.BaseEmpFormController"
 		abstract="true">
 
-		<property name="empManager" ref="example.emp.empManager"/>
+		<property name="empManager" ref="exampleEmpEmpManager"/>
 	</bean>
 	<bean
- 		id="example.emp.createController"
+ 		id="exampleEmpCreateController"
 		class="org.codelabor.example.emp.spring.controllers.CreateController"
-		parent="example.emp.baseEmpFormController">
+		parent="exampleEmpBaseEmpFormController">
 		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="commandName" value="empDTO"/>
 		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
@@ -41,21 +41,21 @@
 		<property name="successView" value="redirect:/example/emp/list.do"/>
 	</bean>
 	<bean
-		id="example.emp.readController"
+		id="exampleEmpReadController"
 		class="org.codelabor.example.emp.spring.controllers.ReadController"
-		parent="example.emp.baseEmpController" >
+		parent="exampleEmpBaseEmpController" >
 		<property name="successView" value="example.emp.read.definition"/>
 	</bean>
 	<bean
-		id="example.emp.listController"
+		id="exampleEmpListController"
 		class="org.codelabor.example.emp.spring.controllers.ListController"
-		parent="example.emp.baseEmpController">
+		parent="exampleEmpBaseEmpController">
 		<property name="successView" value="example.emp.list.definition"/>
 	</bean>
 	<bean
-		id="example.emp.updateController"
+		id="exampleEmpUpdateController"
 		class="org.codelabor.example.emp.spring.controllers.UpdateController"
-		parent="example.emp.baseEmpFormController">
+		parent="exampleEmpBaseEmpFormController">
 		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="sessionForm" value="true"/>
 		<property name="commandName" value="updateForm"/>
@@ -64,9 +64,9 @@
 		<property name="successView" value="forward:/example/emp/read.do"/>
 	</bean>
 	<bean
-		id="example.emp.deleteController"
+		id="exampleEmpDeleteController"
 		class="org.codelabor.example.emp.spring.controllers.DeleteController"
-		parent="example.emp.baseEmpFormController">
+		parent="exampleEmpBaseEmpFormController">
 		<property name="commandName" value="idArray"/>
 		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
 		<property name="successView" value="redirect:/example/emp/list.do"/>

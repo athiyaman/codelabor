@@ -9,25 +9,25 @@
 		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/system/preferences/home.do" value-ref="system.preferences.homeController"/>
-				<entry key="/system/preferences/themes/home.do" value-ref="system.preferences.themes.homeController"/>
-				<entry key="/system/preferences/locale/home.do" value-ref="system.preferences.locale.homeController"/>
+				<entry key="/system/preferences/home.do" value-ref="systemPreferencesHomeController"/>
+				<entry key="/system/preferences/themes/home.do" value-ref="systemPreferencesThemesHomeController"/>
+				<entry key="/system/preferences/locale/home.do" value-ref="systemPreferencesLocaleHomeController"/>
 			</map>
 		</property>
 	</bean>
 
 	<bean
-		id="system.preferences.homeController"
+		id="systemPreferencesHomeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.preferences.home.definition"/>
 	</bean>
 	<bean
-		id="system.preferences.themes.homeController"
+		id="systemPreferencesThemesHomeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.preferences.themes.home.definition"/>
 	</bean>
 	<bean
-		id="system.preferences.locale.homeController"
+		id="systemPreferencesLocaleHomeController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="system.preferences.locale.home.definition"/>
 	</bean>

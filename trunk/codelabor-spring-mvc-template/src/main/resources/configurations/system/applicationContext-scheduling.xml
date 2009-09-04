@@ -8,7 +8,7 @@
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref bean="example.helloWorldServiceTrigger"/>
+				<ref bean="exampleHelloWorldServiceTrigger"/>
 			</list>
 		</property>
 	</bean>

@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean
-		id="example.emp.empDAO"
+		id="exampleEmpEmpDao"
 		class="org.codelabor.example.emp.daos.EmpDAOImpl"
 		parent="baseDAO">
 		<property name="idGenerationService">
@@ -12,9 +12,9 @@
 		</property>
 	</bean>
 	<bean
-		id="example.emp.empManager" name="empManager"
+		id="exampleEmpEmpManager"
 		class="org.codelabor.example.emp.managers.EmpManagerImpl"
 		parent="baseManager">
-		<property name="empDAO" ref="example.emp.empDAO"/>
+		<property name="empDAO" ref="exampleEmpEmpDao"/>
 	</bean>
 </beans>

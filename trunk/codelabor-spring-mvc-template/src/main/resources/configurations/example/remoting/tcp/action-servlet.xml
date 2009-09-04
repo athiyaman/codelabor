@@ -9,15 +9,15 @@
 		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/example/remoting/tcp/send.do" value-ref="example.remoting.tcp.sendController"/>
+				<entry key="/example/remoting/tcp/send.do" value-ref="exampleRemotingTcpSendController"/>
 			</map>
 		</property>
 	</bean>
 
 	<bean
- 		id="example.remoting.tcp.sendController"
+ 		id="exampleRemotingTcpSendController"
 		class="org.codelabor.example.remoting.tcp.spring.controllers.SendController">
-		<property name="socketAdapterService" ref="example.remoting.tcp.simpleSocketAdapterService"/>
+		<property name="socketAdapterService" ref="exampleRemotingTcpSimpleSocketAdapterService"/>
 		<property name="commandName" value="sendForm"/>
 		<property name="commandClass" value="org.codelabor.example.remoting.tcp.dtos.MessageDTO"/>
 		<property name="formView" value="example.remoting.tcp.send.definition"/>

@@ -22,7 +22,7 @@
 			<binding property="hireDate" required="true"/>
 		</binder>
 		<on-render>
-			<evaluate expression="empManager.getManagerMap()" result="viewScope.managerMap" />
+			<evaluate expression="exampleEmpEmpManager.getManagerMap()" result="viewScope.managerMap" />
 		</on-render>
 		<transition on="previous" to="step1" />
 		<transition on="next" to="step3" />
@@ -38,14 +38,14 @@
 		<transition on="submit" to="insertEmp" />
 		<!--
 		<transition on="submit" to="confirmed">
-			<evaluate expression="empManager.insertEmp(empDTO)"/>
+			<evaluate expression="exampleEmpEmpManager.insertEmp(empDTO)"/>
 		</transition>
 		-->
 		<transition on="cancel" to="cancelled" />
 	</view-state>
 
 	<action-state id="insertEmp">
-		<evaluate expression="empManager.insertEmp(empDTO)"/>
+		<evaluate expression="exampleEmpEmpManager.insertEmp(empDTO)"/>
 		<transition on="success" to="confirmed" />
 	</action-state>
 
