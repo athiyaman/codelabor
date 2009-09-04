@@ -26,7 +26,7 @@ public class EmpAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		EmpManager empManager = (EmpManager) ctx.getBean("example.emp.empManager");
+		EmpManager empManager = (EmpManager) ctx.getBean("exampleEmpEmpManager");
 
 		List empDTOList = empManager.selectEmpList();
 		request.setAttribute("empDTOList", empDTOList);
@@ -38,7 +38,7 @@ public class EmpAction extends BaseDispatchAction {
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
-		EmpManager empManager = (EmpManager) ctx.getBean("example.emp.empManager");
+		EmpManager empManager = (EmpManager) ctx.getBean("exampleEmpEmpManager");
 
 		String empNoParam = request.getParameter("empNo");
 		int empNo = 0;

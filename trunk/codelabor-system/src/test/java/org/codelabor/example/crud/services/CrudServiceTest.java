@@ -16,7 +16,7 @@ public class CrudServiceTest extends
 	@Override
 	public void onSetUp() throws Exception {
 		crudService = (CrudService) applicationContext
-				.getBean("example.crud.crudService");
+				.getBean("exampleCrudCrudService");
 	}
 
 	public void testRead() {
