@@ -32,53 +32,108 @@
 				-->
 
 				<!-- example -->
+				<value>/WEB-INF/classes/messages/example/button</value>
+				<value>/WEB-INF/classes/messages/example/errors</value>
+				<value>/WEB-INF/classes/messages/example/images</value>
 				<value>/WEB-INF/classes/messages/example/label</value>
+				<value>/WEB-INF/classes/messages/example/menu</value>
+				<value>/WEB-INF/classes/messages/example/messages</value>
 
 				<!-- example crud -->
+				<value>/WEB-INF/classes/messages/example/crud/button</value>
+				<value>/WEB-INF/classes/messages/example/crud/errors</value>
+				<value>/WEB-INF/classes/messages/example/crud/images</value>
 				<value>/WEB-INF/classes/messages/example/crud/label</value>
+				<value>/WEB-INF/classes/messages/example/crud/menu</value>
+				<value>/WEB-INF/classes/messages/example/crud/messages</value>
 
 				<!-- example emp -->
+				<value>/WEB-INF/classes/messages/example/emp/button</value>
 				<value>/WEB-INF/classes/messages/example/emp/errors</value>
+				<value>/WEB-INF/classes/messages/example/emp/images</value>
 				<value>/WEB-INF/classes/messages/example/emp/label</value>
+				<value>/WEB-INF/classes/messages/example/emp/menu</value>
 				<value>/WEB-INF/classes/messages/example/emp/messages</value>
 
 				<!-- example flow -->
+				<value>/WEB-INF/classes/messages/example/flow/button</value>
 				<value>/WEB-INF/classes/messages/example/flow/errors</value>
+				<value>/WEB-INF/classes/messages/example/flow/images</value>
 				<value>/WEB-INF/classes/messages/example/flow/label</value>
+				<value>/WEB-INF/classes/messages/example/flow/menu</value>
+				<value>/WEB-INF/classes/messages/example/flow/messages</value>
 
 				<!-- example remoting -->
+				<value>/WEB-INF/classes/messages/example/remoting/button</value>
+				<value>/WEB-INF/classes/messages/example/remoting/errors</value>
+				<value>/WEB-INF/classes/messages/example/remoting/images</value>
 				<value>/WEB-INF/classes/messages/example/remoting/label</value>
+				<value>/WEB-INF/classes/messages/example/remoting/menu</value>
+				<value>/WEB-INF/classes/messages/example/remoting/messages</value>
 
 				<!-- example remoting tcp -->
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/button</value>
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/errors</value>
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/images</value>
 				<value>/WEB-INF/classes/messages/example/remoting/tcp/label</value>
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/menu</value>
+				<value>/WEB-INF/classes/messages/example/remoting/tcp/messages</value>
 
 				<!-- example encryption -->
+				<value>/WEB-INF/classes/messages/example/encryption/button</value>
+				<value>/WEB-INF/classes/messages/example/encryption/errors</value>
+				<value>/WEB-INF/classes/messages/example/encryption/images</value>
 				<value>/WEB-INF/classes/messages/example/encryption/label</value>
+				<value>/WEB-INF/classes/messages/example/encryption/menu</value>
+				<value>/WEB-INF/classes/messages/example/encryption/messages</value>
 
 				<!-- example sign -->
 				<value>/WEB-INF/classes/messages/example/sign/button</value>
+				<value>/WEB-INF/classes/messages/example/sign/errors</value>
+				<value>/WEB-INF/classes/messages/example/sign/images</value>
 				<value>/WEB-INF/classes/messages/example/sign/label</value>
+				<value>/WEB-INF/classes/messages/example/sign/menu</value>
+				<value>/WEB-INF/classes/messages/example/sign/messages</value>
 
 				<!-- example file -->
 				<value>/WEB-INF/classes/messages/example/file/button</value>
+				<value>/WEB-INF/classes/messages/example/file/errors</value>
+				<value>/WEB-INF/classes/messages/example/file/images</value>
 				<value>/WEB-INF/classes/messages/example/file/label</value>
+				<value>/WEB-INF/classes/messages/example/file/menu</value>
+				<value>/WEB-INF/classes/messages/example/file/messages</value>
+
+				<!-- example banking -->
+				<value>/WEB-INF/classes/messages/example/banking/button</value>
+				<value>/WEB-INF/classes/messages/example/banking/errors</value>
+				<value>/WEB-INF/classes/messages/example/banking/images</value>
+				<value>/WEB-INF/classes/messages/example/banking/label</value>
+				<value>/WEB-INF/classes/messages/example/banking/menu</value>
+				<value>/WEB-INF/classes/messages/example/banking/messages</value>
 
 				<!-- system -->
 				<value>/WEB-INF/classes/messages/system/button</value>
 				<value>/WEB-INF/classes/messages/system/errors</value>
+				<value>/WEB-INF/classes/messages/system/images</value>
 				<value>/WEB-INF/classes/messages/system/label</value>
 				<value>/WEB-INF/classes/messages/system/menu</value>
 				<value>/WEB-INF/classes/messages/system/messages</value>
 
 				<!-- system login -->
 				<value>/WEB-INF/classes/messages/system/login/button</value>
+				<value>/WEB-INF/classes/messages/system/login/errors</value>
+				<value>/WEB-INF/classes/messages/system/login/images</value>
 				<value>/WEB-INF/classes/messages/system/login/label</value>
 				<value>/WEB-INF/classes/messages/system/login/menu</value>
+				<value>/WEB-INF/classes/messages/system/login/messages</value>
 
 				<!-- system preferences -->
 				<value>/WEB-INF/classes/messages/system/preferences/button</value>
+				<value>/WEB-INF/classes/messages/system/preferences/errors</value>
+				<value>/WEB-INF/classes/messages/system/preferences/images</value>
 				<value>/WEB-INF/classes/messages/system/preferences/label</value>
 				<value>/WEB-INF/classes/messages/system/preferences/menu</value>
+				<value>/WEB-INF/classes/messages/system/preferences/messages</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
