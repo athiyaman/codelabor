@@ -28,13 +28,17 @@
 			aos_start('e5');
 		</script>
 		-->
+
 	</head>
 	<body class="composite">
-
-		<script language="javascript" src="<c:url value='/XecureObject/xecureweb.js'/>"></script>
-		<script language="javascript" src="<c:url value='/XecureObject/xecureweb_file.js'/>"></script>
+		<script language="javascript" src="<c:url value="/XecureObject/xecureweb.js"/>"></script>
+		<script language="javascript" src="<c:url value="/XecureObject/xecureweb_file.js"/>"></script>
 		<script language="javascript">PrintObjectTag();</script>
 		<script language="javascript">PrintFileObjectTag();</script>
+
+		<script type="text/javascript" src="<c:url value="/resources/dojo/dojo.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/spring/Spring.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/spring/Spring-Dojo.js" />"></script>
 		<form name="xecure"><input type="hidden" name="p"/></form>
 
 		<tiles:insertAttribute name="header"/>
