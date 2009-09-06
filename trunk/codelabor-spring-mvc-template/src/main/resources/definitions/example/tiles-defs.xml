@@ -7,7 +7,19 @@
     	<put-attribute name="title"  value="Example"/>
 		<put-attribute name="menu"   value="/WEB-INF/jsp/example/menu.jsp"/>
 	</definition>
-	<definition name="example.home.definition" extends="example.definition">
-    	<put-attribute name="body"   value="/WEB-INF/jsp/example/home.jsp"/>
+	<definition name="example.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}.jsp"/>
+	</definition>
+	<definition name="example.*.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}.jsp"/>
+	</definition>
+	<definition name="example.*.*.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}.jsp"/>
+	</definition>
+	<definition name="example.*.*.*.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}/{4}.jsp"/>
+	</definition>
+	<definition name="example.*.*.*.*.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}/{4}/{5}.jsp"/>
 	</definition>
 </tiles-definitions>
