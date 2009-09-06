@@ -10,7 +10,6 @@
 		session-fixation-protection="migrateSession"
 		lowercase-comparisons="false"
 		entry-point-ref="loginUrlAuthenticationEntryPoint">
-		<!--
 		<security:intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/themes/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
@@ -25,7 +24,6 @@
 		<security:intercept-url pattern="/system/administration/**" requires-channel="https" access="ROLE_ADMIN"/>
 		<security:intercept-url pattern="/system/preferences/**" access="ROLE_ADMIN,ROLE_USER"/>
 		<security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN"/>
-		-->
 		<security:anonymous username="anonymous"/>
 		<security:logout logout-success-url="/system/login/home.do"/>
 		<security:remember-me user-service-ref="queryServiceUserDetailsService" data-source-ref="oracleDataSource"/>
@@ -76,6 +74,7 @@
 		<property name="authenticationSuccessHandler" ref="authenticationSuccessHandler"/>
 		<property name="authenticationFailureHandler" ref="authenticationFailureHandler"/>
 	</bean>
+	<!--
     <bean
     	id="filterSecurityInterceptor"
     	class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
@@ -84,6 +83,7 @@
         <property name="accessDecisionManager" ref="accessDecisionManager" />
         <property name="objectDefinitionSource" ref="databaseObjectDefinitionSource" />
     </bean>
+    -->
 
     <bean id="databaseObjectDefinitionSource"
         class="org.codelabor.system.services.ReloadableDefaultFilterInvocationSecurityMetaSource">
