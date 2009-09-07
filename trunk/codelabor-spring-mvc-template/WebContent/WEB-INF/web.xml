@@ -145,6 +145,16 @@
   		<url-pattern>/servlet/system/file/xecureFileUploadServlet</url-pattern>
 	</servlet-mapping>
 
+	<!-- spring java script -->
+	<servlet>
+		<servlet-name>Resource Servlet</servlet-name>
+		<servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Resource Servlet</servlet-name>
+		<url-pattern>/resources/*</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
