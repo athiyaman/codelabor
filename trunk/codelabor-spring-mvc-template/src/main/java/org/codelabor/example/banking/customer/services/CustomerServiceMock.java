@@ -3,8 +3,9 @@ package org.codelabor.example.banking.customer.services;
 import org.codelabor.example.banking.customer.dtos.CustomerDTO;
 import org.codelabor.example.banking.customer.managers.CustomerManager;
 import org.codelabor.system.banking.SecurityType;
+import org.codelabor.system.services.BaseServiceImpl;
 
-public class CustomerServiceMock implements CustomerService {
+public class CustomerServiceMock extends BaseServiceImpl implements CustomerService {
 
 	private CustomerManager customerManager;
 
