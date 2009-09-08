@@ -20,7 +20,7 @@ public class TransferDTO implements Serializable {
 	private String withdrawalAccountNo;
 	private String withdrawalAccountMemo;
 
-	private String receivingBankId;
+	private String receivingBankCode;
 	private String receivingAccountNo;
 	private String receivingAccountMemo;
 
@@ -72,12 +72,12 @@ public class TransferDTO implements Serializable {
 		this.senderId = senderId;
 	}
 
-	public String getReceivingBankId() {
-		return receivingBankId;
+	public String getReceivingBankCode() {
+		return receivingBankCode;
 	}
 
-	public void setReceivingBankId(String receivingBankId) {
-		this.receivingBankId = receivingBankId;
+	public void setReceivingBankCode(String receivingBankCode) {
+		this.receivingBankCode = receivingBankCode;
 	}
 
 	public String getWithdrawalAccountNo() {
@@ -165,8 +165,8 @@ public class TransferDTO implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("TransferDTO ( ").append(super.toString()).append(TAB).append("cmsNo = ").append(this.cmsNo).append(TAB).append("currencyCode = ").append(this.currencyCode).append(TAB).append("executionDate = ").append(this.executionDate).append(TAB).append("fee = ").append(this.fee)
-				.append(TAB).append("receiverName = ").append(this.receiverName).append(TAB).append("receivingAccountMemo = ").append(this.receivingAccountMemo).append(TAB).append("receivingAccountNo = ").append(this.receivingAccountNo).append(TAB).append("receivingBankId = ").append(
-						this.receivingBankId).append(TAB).append("senderId = ").append(this.senderId).append(TAB).append("senderName = ").append(this.senderName).append(TAB).append("transferAmount = ").append(this.transferAmount).append(TAB).append("transferPassword = ").append(
+				.append(TAB).append("receiverName = ").append(this.receiverName).append(TAB).append("receivingAccountMemo = ").append(this.receivingAccountMemo).append(TAB).append("receivingAccountNo = ").append(this.receivingAccountNo).append(TAB).append("receivingBankCode = ").append(
+						this.receivingBankCode).append(TAB).append("senderId = ").append(this.senderId).append(TAB).append("senderName = ").append(this.senderName).append(TAB).append("transferAmount = ").append(this.transferAmount).append(TAB).append("transferPassword = ").append(
 						this.transferPassword).append(TAB).append("transferType = ").append(this.transferType).append(TAB).append("withdrawalAccountMemo = ").append(this.withdrawalAccountMemo).append(TAB).append("withdrawalAccountNo = ").append(this.withdrawalAccountNo).append(TAB).append(" )");
 
 		return retValue.toString();

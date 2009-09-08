@@ -9,7 +9,10 @@ public class AccountDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -626786559778871841L;
 
+	private String bankCode;
+	private String bankName;
 	private String customerId;
+	private String customerName;
 	private String managementBranch;
 	private String accountNo;
 	private String accountPassword;
@@ -22,6 +25,30 @@ public class AccountDTO implements Serializable {
 	private Date lastTransactionDate;
 	private boolean incidentReport;
 	private boolean pledgeEstablishment;
+
+	public String getBankCode() {
+		return bankCode;
+	}
+
+	public void setBankCode(String bankCode) {
+		this.bankCode = bankCode;
+	}
+
+	public String getBankName() {
+		return bankName;
+	}
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
 	public String getCustomerId() {
 		return customerId;
@@ -125,6 +152,27 @@ public class AccountDTO implements Serializable {
 
 	public void setOpeningDate(Date openingDate) {
 		this.openingDate = openingDate;
+	}
+
+	/**
+	 * Constructs a <code>String</code> with all attributes in name = value
+	 * format.
+	 * 
+	 * @return a <code>String</code> representation of this object.
+	 */
+	@Override
+	public String toString() {
+		final String TAB = "    ";
+
+		StringBuilder retValue = new StringBuilder();
+
+		retValue.append("AccountDTO ( ").append(super.toString()).append(TAB).append("accountNo = ").append(this.accountNo).append(TAB).append("accountPassword = ").append(this.accountPassword).append(TAB).append("bankCode = ").append(this.bankCode).append(TAB).append("bankName = ").append(
+				this.bankName).append(TAB).append("currentBalance = ").append(this.currentBalance).append(TAB).append("customerId = ").append(this.customerId).append(TAB).append("customerName = ").append(this.customerName).append(TAB).append("depositType = ").append(this.depositType).append(TAB)
+				.append("incidentReport = ").append(this.incidentReport).append(TAB).append("lastTransactionDate = ").append(this.lastTransactionDate).append(TAB).append("managementBranch = ").append(this.managementBranch).append(TAB).append("maturityDate = ").append(this.maturityDate).append(TAB)
+				.append("nick = ").append(this.nick).append(TAB).append("openingDate = ").append(this.openingDate).append(TAB).append("pledgeEstablishment = ").append(this.pledgeEstablishment).append(TAB).append("withdrawAvailableAmount = ").append(this.withdrawAvailableAmount).append(TAB).append(
+						" )");
+
+		return retValue.toString();
 	}
 
 }

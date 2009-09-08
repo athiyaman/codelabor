@@ -16,6 +16,24 @@ public class CustomerDTO implements Serializable {
 	private String smsCellPhoneNumber;
 	private SecurityType securityType;
 	private List<InformType> informTypes;
+	private String otpTokenSerialNumber;
+	private String securityCardSerialNumber;
+
+	public String getOtpTokenSerialNumber() {
+		return otpTokenSerialNumber;
+	}
+
+	public void setOtpTokenSerialNumber(String otpTokenSerialNumber) {
+		this.otpTokenSerialNumber = otpTokenSerialNumber;
+	}
+
+	public String getSecurityCardSerialNumber() {
+		return securityCardSerialNumber;
+	}
+
+	public void setSecurityCardSerialNumber(String securityCardSerialNumber) {
+		this.securityCardSerialNumber = securityCardSerialNumber;
+	}
 
 	public String getCustomerId() {
 		return customerId;
@@ -69,8 +87,8 @@ public class CustomerDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("CustomerDTO ( ").append(super.toString()).append(TAB).append("customerId = ").append(this.customerId).append(TAB).append("informTypes = ").append(this.informTypes).append(TAB).append("name = ").append(this.name).append(TAB).append("securityType = ")
-				.append(this.securityType).append(TAB).append("smsCellPhoneNumber = ").append(this.smsCellPhoneNumber).append(TAB).append(" )");
+		retValue.append("CustomerDTO ( ").append(super.toString()).append(TAB).append("customerId = ").append(this.customerId).append(TAB).append("informTypes = ").append(this.informTypes).append(TAB).append("name = ").append(this.name).append(TAB).append("otpTokenSerialNumber = ").append(
+				this.otpTokenSerialNumber).append(TAB).append("securityCardSerialNumber = ").append(this.securityCardSerialNumber).append(TAB).append("securityType = ").append(this.securityType).append(TAB).append("smsCellPhoneNumber = ").append(this.smsCellPhoneNumber).append(TAB).append(" )");
 
 		return retValue.toString();
 	}
