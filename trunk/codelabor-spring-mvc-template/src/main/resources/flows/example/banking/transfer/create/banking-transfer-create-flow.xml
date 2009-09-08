@@ -4,7 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
         start-state="enterTransferInformation">
-
 	<var name="transferList" class="java.util.ArrayList" />
 
 	<view-state id="enterTransferInformation"

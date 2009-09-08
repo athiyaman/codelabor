@@ -20,7 +20,7 @@
 			development="true"/>
 		<bean id="mvcViewFactoryCreator"
 			class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
-			<property name="viewResolvers" ref="tilesViewResolver" />
+			<property name="viewResolvers" ref="ajaxUrlBasedViewResolver" />
 		</bean>
 
 		<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
