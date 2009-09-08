@@ -31,6 +31,8 @@
 			<evaluate expression="exampleBankingAccountManager.getReceivingAccount(transfer.receivingBankCode, transfer.receivingAccountNo)" result="viewScope.receivingAccount"/>
 			<evaluate expression="transfer.setReceiverName(receivingAccount.getCustomerName())" />
 			<evaluate expression="transferList.add(transfer)" />
+			<evaluate expression="exampleBankingTransferService.createTransfer(currentUser.name)"
+			 	result="viewScope.transfer" />
 		</transition>
 		<transition on="removeTransfer">
 			<evaluate expression="transferList.remove(transferIndex)" />
@@ -89,7 +91,7 @@
 			<evaluate expression="exampleBankingTransferService.createPassword(currentUser.name)"
 				result="viewScope.password" />
 		</on-render>
-		<transition on="confirm" to="transferResult" />
+		<transition on="confirm" to="transferResult" history="discard"/>
 	</view-state>
 
 	<end-state id="transferResult"
