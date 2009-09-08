@@ -11,8 +11,8 @@ public class AccountManagerMock extends BaseManagerImpl implements AccountManage
 	private List<AccountDTO> withdrawalAccountList;
 
 	public AccountManagerMock() {
-		frequenUsedAccountList = new ArrayList();
-		withdrawalAccountList = new ArrayList();
+		frequenUsedAccountList = new ArrayList<AccountDTO>();
+		withdrawalAccountList = new ArrayList<AccountDTO>();
 
 		// setup frequenUsedAccountList
 		AccountDTO accountDTO1 = new AccountDTO();
