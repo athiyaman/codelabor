@@ -33,9 +33,11 @@
 			<evaluate expression="transferList.add(transfer)" />
 			<evaluate expression="exampleBankingTransferService.createTransfer(currentUser.name)"
 			 	result="viewScope.transfer" />
+			<render fragments="transferList" />
 		</transition>
 		<transition on="removeTransfer">
 			<evaluate expression="transferList.remove(transferIndex)" />
+			<render fragments="transferList" />
 		</transition>
 		<transition on="transfer" to="checkSecurityType" bind="false" />
 	</view-state>
