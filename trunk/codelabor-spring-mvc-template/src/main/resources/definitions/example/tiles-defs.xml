@@ -16,10 +16,18 @@
 	<definition name="example.*.*.*.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}.jsp"/>
 	</definition>
+	<!--
 	<definition name="example.*.*.*.*.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}/{4}.jsp"/>
 	</definition>
 	<definition name="example.*.*.*.*.*.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}/{4}/{5}.jsp"/>
 	</definition>
+	<definition name="example.*.*.*.*.*.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}/{4}/{5}/{6}.jsp"/>
+	</definition>
+	<definition name="example.*.*.*.*.*.*.*.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/{1}/{2}/{3}/{4}/{5}/{6}/{7}.jsp"/>
+	</definition>
+	-->
 </tiles-definitions>

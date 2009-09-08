@@ -4,10 +4,10 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-				<h2><spring:message code="label.example.banking.bank.unavailable.list"/></h2>
+				<h2><spring:message code="label.example.banking.bank.unavailable.bank.list"/></h2>
 				<p></p>
 				<div class="section">
-					<h3><spring:message code="label.example.banking.bank.unavailable.list"/></h3>
+					<h3><spring:message code="label.example.banking.bank.unavailable.bank.list"/></h3>
 					<p></p>
 					<table class="bodyTable">
 						<tbody>
@@ -15,7 +15,7 @@
 								<th><spring:message code="label.example.banking.bank.code"/></th>
 								<th><spring:message code="label.example.banking.bank.name"/></th>
 							</tr>
-							<c:forEach var="bank" items="${unavailableBankList}">
+							<c:forEach var="bank" items="${bankUnavailableList}">
 								<tr class="b">
 									<td>${bank.code}</td>
 									<td>${bank.name}</td>
@@ -24,4 +24,5 @@
 						</tbody>
 					</table>
 					<hr />
+					<a href="<c:url value='${flowExecutionUrl}&_eventId=close' context='/'/>"><spring:message code='button.close'/></a>
 				</div>

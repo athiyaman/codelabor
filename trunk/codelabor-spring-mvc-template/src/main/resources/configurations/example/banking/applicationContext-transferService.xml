@@ -14,5 +14,6 @@
 		id="exampleBankingTransferService"
 		class="org.codelabor.example.banking.transfer.services.TransferServiceMock"
 		parent="baseService">
+		<property name="customerManager" ref="exampleBankingCustomerManager" />
 	</bean>
 </beans>

@@ -5,7 +5,7 @@
 
 	<bean
 		id="exampleBankingCustomerService"
-		class="org.codelabor.example.banking.customer.managers.CustomerServiceMock"
+		class="org.codelabor.example.banking.customer.services.CustomerServiceMock"
 		parent="baseService">
 		<property name="customerManager" ref="exampleBankingCustomerManager" />
 	</bean>
