@@ -18,9 +18,11 @@
 			@import url(${pageContext.request.contextPath}/css/print.css);
 		</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<!-- ahnlab online security -->
 		<!--
-		<script language="JavaScript" src="http://ahnlabdownload.nefficient.co.kr/aos/plugin/aosmgr_common.js"></script>
-		<script language="JavaScript">
+		<script language="text/javascript" src="http://ahnlabdownload.nefficient.co.kr/aos/plugin/aosmgr_common.js"></script>
+		<script language="text/javascript">
 			aos_set_authinfo('xxx.xxx.xxx');
 			aos_set_option("asyncmode", true);
 			aos_set_option("uimode", true);
@@ -28,14 +30,20 @@
 			aos_start('e5');
 		</script>
 		-->
-
 	</head>
 	<body class="composite">
-		<script language="javascript" src="<c:url value="/XecureObject/xecureweb.js"/>"></script>
-		<script language="javascript" src="<c:url value="/XecureObject/xecureweb_file.js"/>"></script>
-		<script language="javascript">PrintObjectTag();</script>
-		<script language="javascript">PrintFileObjectTag();</script>
+		<!-- rexpert -->
+		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert.js"/>"></script>
+		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert_properties.js"/>"></script>
+		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert_json.js"/>"></script>
 
+		<!-- xecure -->
+		<script language="text/javascript" src="<c:url value="/XecureObject/xecureweb.js"/>"></script>
+		<script language="text/javascript" src="<c:url value="/XecureObject/xecureweb_file.js"/>"></script>
+		<script language="text/javascript">PrintObjectTag();</script>
+		<script language="text/javascript">PrintFileObjectTag();</script>
+
+		<!-- spring js -->
 		<script type="text/javascript" src="<c:url value="/resources/dojo/dojo.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/spring/Spring.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/spring/Spring-Dojo.js" />"></script>

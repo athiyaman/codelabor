@@ -6,31 +6,31 @@
 	<definition name="example.report.rexpert.main.rdbms.definition"
 		extends="example.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/example/report/rexpert/emp-list-db-report.jsp"/>
+    		value="/WEB-INF/jsp/example/report/rexpert/main/rdbms.jsp"/>
 	</definition>
 	<definition name="example.report.rexpert.main.xml.definition"
 		extends="example.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/example/report/rexpert/emp-list-xml-report.jsp"/>
+    		value="/WEB-INF/jsp/example/report/rexpert/main/xml.jsp"/>
 	</definition>
 	<definition name="example.report.rexpert.main.json.definition"
 		extends="example.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/example/report/rexpert/emp-list-json-report.jsp"/>
+    		value="/WEB-INF/jsp/example/report/rexpert/main/json.jsp"/>
 	</definition>
 	<definition name="example.report.rexpert.sub.rdbms.definition"
 		extends="example.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/example/report/rexpert/emp-dept-list-db-report.jsp"/>
+    		value="/WEB-INF/jsp/example/report/rexpert/sub/rdbms.jsp"/>
 	</definition>
 	<definition name="example.report.rexpert.sub.xml.definition"
 		extends="example.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/example/report/rexpert/emp-dept-list-xml-report.jsp"/>
+    		value="/WEB-INF/jsp/example/report/rexpert/sub/xml.jsp"/>
 	</definition>
 	<definition name="example.report.rexpert.sub.json.definition"
 		extends="example.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/example/report/rexpert/emp-dept-list-json-report.jsp"/>
+    		value="/WEB-INF/jsp/example/report/rexpert/sub/json.jsp"/>
 	</definition>
 </tiles-definitions>

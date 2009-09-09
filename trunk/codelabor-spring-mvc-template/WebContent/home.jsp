@@ -19,8 +19,5 @@
 		<li><a href="emp-dept-list-xml-report.jsp" target="_blank">xml</a></li>
 		<li><a href="emp-dept-list-json-report.jsp" target="_blank">json</a></li>
 	</ul>
-	<script type="text/javascript">
-	alert(document.location.protocol + "//" + document.location.host);
-	</script>
 </body>
 </html>

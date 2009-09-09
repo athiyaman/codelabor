@@ -27,7 +27,7 @@
 						<a href="<c:url value='/example/remoting/tcp/send.do'/>">TCP</a>
 					</li>
 				</ul>
-				<h5>Integration</h5>
+				<h5><spring:message code="label.example.integration"/></h5>
 				<ul>
 					<li>
 						<a href="<c:url value='/example/integration/mci/list.do'/>">MCI</a>
@@ -37,39 +37,70 @@
 				<ul>
 					<li class="expanded">
 						<spring:message code="menu.example.security.transport"/>
-							<ul>
-								<li class="none">
-									<a href="<c:url value='/example/encryption/xecure/requestByGetMethod.do'/>"><spring:message code="label.example.encryption.request.get"/></a>
-								</li>
-								<li class="none">
-									<a href="<c:url value='/example/encryption/xecure/requestByPostMethod.do'/>"><spring:message code="label.example.encryption.request.post"/></a>
-								</li>
-								<li class="none">
-									<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>"><spring:message code="label.example.encryption.request.script"/></a>
-								</li>
-								<li class="none">
-									<a href="<c:url value='/example/encryption/xecure/response.do'/>"><spring:message code="label.example.encryption.response"/></a>
-								</li>
-							</ul>
+						<ul>
+							<li class="none">
+								<a href="<c:url value='/example/encryption/xecure/requestByGetMethod.do'/>"><spring:message code="label.example.encryption.request.get"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/encryption/xecure/requestByPostMethod.do'/>"><spring:message code="label.example.encryption.request.post"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>"><spring:message code="label.example.encryption.request.script"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/encryption/xecure/response.do'/>"><spring:message code="label.example.encryption.response"/></a>
+							</li>
+						</ul>
 					</li>
 					<li class="expanded">
 						<spring:message code="menu.example.security.data"/>
-							<ul>
-								<li class="none">
-									<a href="<c:url value='/example/encryption/xecure/seed.do'/>"><spring:message code="label.example.encryption.data.seed"/></a>
-								</li>
-								<li class="none">
-									<a href="<c:url value='/example/encryption/xecure/hash.do'/>"><spring:message code="label.example.encryption.data.hash"/></a>
-								</li>
-							</ul>
+						<ul>
+							<li class="none">
+								<a href="<c:url value='/example/encryption/xecure/seed.do'/>"><spring:message code="label.example.encryption.data.seed"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/encryption/xecure/hash.do'/>"><spring:message code="label.example.encryption.data.hash"/></a>
+							</li>
+						</ul>
 					</li>
 					<li class="expanded">
 						<spring:message code="menu.example.security.file"/>
-							<ul>
-								<li class="none">
-									<a href="<c:url value='/example/file/xecure/listFile.do'/>"><spring:message code="label.example.file"/></a>
-								</li>
-							</ul>
+						<ul>
+							<li class="none">
+								<a href="<c:url value='/example/file/xecure/listFile.do'/>"><spring:message code="label.example.file"/></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<h5><spring:message code="menu.example.report"/></h5>
+				<ul>
+					<li class="expanded">
+						<spring:message code="menu.example.report.main"/>
+						<ul>
+							<li class="none">
+								<a href="<c:url value='/example/report/rexpert/main/rdbms.do'/>"><spring:message code="label.example.report.rdbms"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/report/rexpert/main/xml.do'/>"><spring:message code="label.example.report.xml"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/report/rexpert/main/json.do'/>"><spring:message code="label.example.report.json"/></a>
+							</li>
+						</ul>
+					</li>
+					<li class="expanded">
+						<spring:message code="menu.example.report.sub"/>
+						<ul>
+							<li class="none">
+								<a href="<c:url value='/example/report/rexpert/sub/rdbms.do'/>"><spring:message code="label.example.report.rdbms"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/report/rexpert/sub/xml.do'/>"><spring:message code="label.example.report.xml"/></a>
+							</li>
+							<li class="none">
+								<a href="<c:url value='/example/report/rexpert/sub/json.do'/>"><spring:message code="label.example.report.json"/></a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 				<h5><spring:message code="menu.example.certificate"/></h5>

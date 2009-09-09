@@ -33,12 +33,12 @@
 	<bean
 		id="exampleReportXecureMainXmlController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.rexpert.main.rdbms.definition"/>
+		<property name="successView" value="example.report.rexpert.main.xml.definition"/>
 	</bean>
 	<bean
 		id="exampleReportXecureMainJsonController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.rexpert.main.rdbms.definition"/>
+		<property name="successView" value="example.report.rexpert.main.json.definition"/>
 	</bean>
 	<bean
 		id="exampleReportXecureSubRdbmsController"
@@ -48,11 +48,11 @@
 	<bean
 		id="exampleReportXecureSubXmlController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.rexpert.sub.rdbms.definition"/>
+		<property name="successView" value="example.report.rexpert.sub.xml.definition"/>
 	</bean>
 	<bean
 		id="exampleReportXecureSubJsonController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.rexpert.sub.rdbms.definition"/>
+		<property name="successView" value="example.report.rexpert.sub.json.definition"/>
 	</bean>
 </beans>
