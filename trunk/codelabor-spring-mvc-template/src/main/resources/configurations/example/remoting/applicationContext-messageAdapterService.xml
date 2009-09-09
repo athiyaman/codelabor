@@ -7,10 +7,10 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
 	<bean
-		id="exampleRemotingTcpSimpleSocketAdapterService"
-		class="org.codelabor.system.remoting.tcp.services.SimpleSocketAdapterServiceImpl">
-		<property name="host" value="172.25.33.6"/>
-		<property name="port" value="9085"/>
+		id="messageAdapterService"
+		class="org.codelabor.system.remoting.message.services.MessageAdapterServiceImpl">
+		<property name="socketAdapterService" ref="simpleSocketAdapterService"/>
+		<property name="idGenerationService" ref="system.transactionIdGenerationService"/>
 		<property name="charsetName" value="EUC-KR"/>
 	</bean>
 </beans>

@@ -79,6 +79,14 @@
 				<value>/WEB-INF/classes/messages/example/remoting/tcp/menu</value>
 				<value>/WEB-INF/classes/messages/example/remoting/tcp/messages</value>
 
+				<!-- example integration mci -->
+				<value>/WEB-INF/classes/messages/example/integration/mci/button</value>
+				<value>/WEB-INF/classes/messages/example/integration/mci/errors</value>
+				<value>/WEB-INF/classes/messages/example/integration/mci/images</value>
+				<value>/WEB-INF/classes/messages/example/integration/mci/label</value>
+				<value>/WEB-INF/classes/messages/example/integration/mci/menu</value>
+				<value>/WEB-INF/classes/messages/example/integration/mci/messages</value>
+
 				<!-- example encryption -->
 				<value>/WEB-INF/classes/messages/example/encryption/button</value>
 				<value>/WEB-INF/classes/messages/example/encryption/errors</value>

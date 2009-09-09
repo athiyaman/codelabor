@@ -27,6 +27,12 @@
 						<a href="<c:url value='/example/remoting/tcp/send.do'/>">TCP</a>
 					</li>
 				</ul>
+				<h5>Integration</h5>
+				<ul>
+					<li>
+						<a href="<c:url value='/example/integration/mci/list.do'/>">MCI</a>
+					</li>
+				</ul>
 				<h5><spring:message code="menu.example.security"/></h5>
 				<ul>
 					<li class="expanded">
