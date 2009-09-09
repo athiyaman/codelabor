@@ -21,7 +21,7 @@
 		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="validator" ref="example.integration.mci.searchConditionValidator"/>
 		<property name="commandName" value="searchCondition"/>
-		<property name="commandClass" value="org.codelabor.example.integration.mci.dtos.SearchConditionDTO"/>
+		<property name="commandClass" value="org.codelabor.example.emp.dtos.SearchConditionDTO"/>
 		<property name="formView" value="example.integration.mci.list.definition"/>
 		<property name="successView" value="example.integration.mci.list.definition"/>
 	</bean>

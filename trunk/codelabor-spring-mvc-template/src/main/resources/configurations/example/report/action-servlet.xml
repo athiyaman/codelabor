@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleReportMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/report/xecure/main/rdmbs.do"
+					value-ref="exampleReportXecureMainRdbmsController"/>
+				<entry key="/example/report/xecure/main/xml.do"
+					value-ref="exampleReportXecureMainXmlController"/>
+				<entry key="/example/report/xecure/main/json.do"
+					value-ref="exampleReportXecureMainJsonController"/>
+				<entry key="/example/report/xecure/sub/rdmbs.do"
+					value-ref="exampleReportXecureMainRdbmsController"/>
+				<entry key="/example/report/xecure/sub/xml.do"
+					value-ref="exampleReportXecureMainXmlController"/>
+				<entry key="/example/report/xecure/sub/json.do"
+					value-ref="exampleReportXecureMainJsonController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="exampleReportXecureMainRdbmsController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureMainXmlController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureMainJsonController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureSubRdbmsController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureSubRdbmsController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureSubRdbmsController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+	</bean>
+</beans>
