@@ -1,4 +1,4 @@
-package org.codelabor.system.remoting.dtos;
+package org.codelabor.system.remoting.message.dtos;
 
 public abstract class HeaderDTO {
 
