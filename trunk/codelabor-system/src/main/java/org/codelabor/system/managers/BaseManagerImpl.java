@@ -19,6 +19,7 @@ package org.codelabor.system.managers;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codelabor.system.remoting.message.services.MessageAdapterService;
 import org.springframework.context.MessageSource;
 
 import anyframe.core.properties.IPropertiesService;
@@ -33,6 +34,7 @@ public class BaseManagerImpl {
 	protected Log log = LogFactory.getLog(this.getClass());
 	protected String loggerName = this.getClass().getName();
 	protected IPropertiesService propertiesService;
+	protected MessageAdapterService messageAdapterService;
 
 	public BaseManagerImpl() {
 		super();
@@ -61,6 +63,14 @@ public class BaseManagerImpl {
 
 	public void setPropertiesService(IPropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
+	}
+
+	public MessageAdapterService getMessageAdapterService() {
+		return messageAdapterService;
+	}
+
+	public void setMessageAdapterService(MessageAdapterService messageAdapterService) {
+		this.messageAdapterService = messageAdapterService;
 	}
 
 }
