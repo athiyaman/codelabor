@@ -1,4 +1,4 @@
-package org.codelabor.example.banking.transfer.validators;
+package org.codelabor.example.banking.transfer.spring.validators;
 
 import org.codelabor.example.banking.transfer.dtos.PasswordDTO;
 import org.springframework.binding.message.MessageBuilder;
