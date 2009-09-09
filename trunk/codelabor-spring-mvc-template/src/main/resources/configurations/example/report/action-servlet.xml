@@ -41,18 +41,18 @@
 		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
 	</bean>
 	<bean
-		id="exampleReportXecureSubRdbmsController"
+		id="exampleReportXecureMainRdbmsController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+		<property name="successView" value="example.report.xecure.sub.rdbms.definition"/>
 	</bean>
 	<bean
-		id="exampleReportXecureSubRdbmsController"
+		id="exampleReportXecureMainXmlController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+		<property name="successView" value="example.report.xecure.sub.rdbms.definition"/>
 	</bean>
 	<bean
-		id="exampleReportXecureSubRdbmsController"
+		id="exampleReportXecureMainJsonController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.report.xecure.main.rdbms.definition"/>
+		<property name="successView" value="example.report.xecure.sub.rdbms.definition"/>
 	</bean>
 </beans>

@@ -95,6 +95,14 @@
 				<value>/WEB-INF/classes/messages/example/encryption/menu</value>
 				<value>/WEB-INF/classes/messages/example/encryption/messages</value>
 
+				<!-- example report -->
+				<value>/WEB-INF/classes/messages/example/report/button</value>
+				<value>/WEB-INF/classes/messages/example/report/errors</value>
+				<value>/WEB-INF/classes/messages/example/report/images</value>
+				<value>/WEB-INF/classes/messages/example/report/label</value>
+				<value>/WEB-INF/classes/messages/example/report/menu</value>
+				<value>/WEB-INF/classes/messages/example/report/messages</value>
+
 				<!-- example sign -->
 				<value>/WEB-INF/classes/messages/example/sign/button</value>
 				<value>/WEB-INF/classes/messages/example/sign/errors</value>

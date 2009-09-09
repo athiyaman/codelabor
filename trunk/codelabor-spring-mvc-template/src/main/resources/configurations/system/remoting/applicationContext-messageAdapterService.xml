@@ -8,7 +8,7 @@
 
 	<bean
 		id="messageAdapterService"
-		class="org.codelabor.system.remoting.message.services.MessageAdapterServiceImpl">
+		class="org.codelabor.example.remoting.message.services.MessageAdapterServiceImpl">
 		<property name="socketAdapterService" ref="exampleRemotingTcpSimpleSocketAdapterService"/>
 		<property name="idGenerationService" ref="system.transactionIdGenerationService"/>
 		<property name="charsetName" value="EUC-KR"/>
