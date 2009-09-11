@@ -33,9 +33,11 @@
 	</head>
 	<body class="composite">
 		<!-- rexpert -->
+		<!--
 		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert.js"/>"></script>
 		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert_properties.js"/>"></script>
 		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert_json.js"/>"></script>
+		-->
 
 		<!-- xecure -->
 		<script language="text/javascript" src="<c:url value="/XecureObject/xecureweb.js"/>"></script>

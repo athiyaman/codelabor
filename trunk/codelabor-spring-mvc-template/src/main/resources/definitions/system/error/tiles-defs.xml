@@ -8,9 +8,9 @@
 		<put-attribute name="menu"
 			value="/WEB-INF/jsp/system/help/menu.jsp"/>
 	</definition>
-	<definition name="system.error.http.status.code.400.definition" extends="system.error.definition">
+	<definition name="system.error.http.status.code.401.definition" extends="system.error.definition">
     	<put-attribute name="body"
-    		value="/WEB-INF/jsp/system/error/httpStatusCode400.jsp"/>
+    		value="/WEB-INF/jsp/system/error/httpStatusCode401.jsp"/>
 	</definition>
 	<definition name="system.error.http.status.code.403.definition" extends="system.error.definition">
     	<put-attribute name="body"

@@ -8,10 +8,10 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-				<h2><spring:message code="label.system.error.http.status.code.500"/></h2>
+				<h2><spring:message code="label.system.error.http.status.code.401"/></h2>
 				<p></p>
 				<div class="section">
-				<h3><spring:message code="label.system.error.http.status.code.500.message"/></h3>
+				<h3><spring:message code="label.system.error.http.status.code.401.message"/></h3>
 				<p></p>
 				<table class="bodyTable">
 					<tbody>
