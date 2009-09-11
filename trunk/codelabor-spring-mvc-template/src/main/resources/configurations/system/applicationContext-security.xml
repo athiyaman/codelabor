@@ -21,6 +21,7 @@
 		<security:intercept-url pattern="/servlet/system/file/xecureFileUploadServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/home.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/xecure/login.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<security:intercept-url pattern="/system/error/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/administration/**" requires-channel="https" access="ROLE_ADMIN"/>
 		<security:intercept-url pattern="/system/preferences/**" access="ROLE_ADMIN,ROLE_USER"/>
 		<security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN"/>
