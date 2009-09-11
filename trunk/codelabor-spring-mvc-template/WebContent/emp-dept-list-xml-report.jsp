@@ -15,7 +15,7 @@
 		oRptMainParam = rex_GetgoDictionay();
 		oRptMainParam.put("rex_rptname", "empDeptListXml");
 		oRptMainParam.put("rex_datatype", "XMLFILE");
-		oRptMainParam.put("rex_data", document.location.protocol + "//" + document.location.host + contextName+"/servlet/empDeptListXmlServlet");
+		oRptMainParam.put("rex_data", rex_gfGetLocationHost() + "/servlet/empDeptListXmlServlet");
 		//oRptMainParam.put("rex_xpath", "java/object/void");
 		rex_gfRexRptOpen("iframe", ifrmRexPreview, oRptMainParam);
 	}

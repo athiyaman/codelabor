@@ -18,7 +18,7 @@
 		oRptMainParam.put("rex_datatype", "CSVSTR");
 		var sParam = "";
 		var sContentType = "application/x-www-form-urlencoded;charset=utf-8";
-		var oAjax = rex_gfAjaxExcute("POST", false, document.location.protocol + "//" + document.location.host + contextName+"/servlet/empDeptListJsonServlet", sParam, "CSV", sContentType);
+		var oAjax = rex_gfAjaxExcute("POST", false, rex_gfGetLocationHost() + "/servlet/empDeptListJsonServlet", sParam, "CSV", sContentType);
 		var jsonData = oAjax.Response();
 		oRptMainParam.put("rex_data", jsonDatatoRexData(jsonData));
 		rex_gfRexRptOpen("iframe", ifrmRexPreview, oRptMainParam);
