@@ -11,6 +11,8 @@
 			<map>
 				<entry key="/example/error/jspException.do"
 					value-ref="exampleErrorJspExceptionController"/>
+				<entry key="/example/error/jspExceptionErrorPage.do"
+					value-ref="exampleErrorJspExceptionErrorPageController"/>
 				<entry key="/example/error/controllerException.do"
 					value-ref="exampleErrorControllerExceptionController"/>
 				<entry key="/example/error/flowException.do"
@@ -31,6 +33,11 @@
 		id="exampleErrorJspExceptionController"
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.error.jsp.exception.definition"/>
+	</bean>
+	<bean
+		id="exampleErrorJspExceptionErrorPageController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.error.jsp.exception.error.page.definition"/>
 	</bean>
 	<bean
 		id="exampleErrorControllerExceptionController"
