@@ -9,29 +9,34 @@
 				<h2><spring:message code="label.system.error"/></h2>
 				<p></p>
 
+				<!-- user friendly error messages -->
+
+
+				<!-- system level error messages -->
+
 				<!-- jsp exception -->
-				<c:if test="${!empty requestScope['org.apache.struts.action.EXCEPTION']}">
+				<c:if test="${!empty requestScope['javax.servlet.jsp.jspException']}">
 				<div class="section">
-				<h3><spring:message code="label.system.error.level.system"/></h3>
+				<h3><spring:message code="label.system.error.system.level.message"/></h3>
 				<p></p>
 				<table class="bodyTable">
 					<tbody>
 						<tr class="b">
 							<th><spring:message code="label.system.error.exception.class"/></th>
 							<td>
-								${requestScope['org.apache.struts.action.EXCEPTION'].class}
+								${requestScope['javax.servlet.jsp.jspException'].class}
 							</td>
 						</tr>
 						<tr class="b">
 							<th><spring:message code="label.system.error.exception.message"/></th>
 							<td>
-								${requestScope['org.apache.struts.action.EXCEPTION'].message}
+								${requestScope['javax.servlet.jsp.jspException'].message}
 							</td>
 						</tr>
 						<tr class="b">
 							<th><spring:message code="label.system.error.exception.stackTrace"/></th>
 							<td>
-								<c:forEach  var="stackTrace" items="${requestScope['org.apache.struts.action.EXCEPTION'].stackTrace}">
+								<c:forEach  var="stackTrace" items="${requestScope['javax.servlet.jsp.jspException'].stackTrace}">
 								${stackTrace}<br/>
 								</c:forEach>
 							</td>
@@ -44,7 +49,7 @@
 				<!-- struts exception -->
 				<c:if test="${!empty requestScope['org.apache.struts.action.EXCEPTION']}">
 				<div class="section">
-				<h3><spring:message code="label.system.error.level.system"/></h3>
+				<h3><spring:message code="label.system.error.system.level.message"/></h3>
 				<p></p>
 				<table class="bodyTable">
 					<tbody>
