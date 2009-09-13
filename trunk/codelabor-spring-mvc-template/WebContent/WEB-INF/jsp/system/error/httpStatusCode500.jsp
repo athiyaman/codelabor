@@ -14,7 +14,7 @@
 				<table class="bodyTable">
 					<tbody>
 						<tr class="b">
-							<th>Description</th>
+							<th><spring:message code="label.system.error.description"/></th>
 							<td>
 								<spring:message code="label.system.error.http.status.code.500.message"/>
 							</td>
