@@ -12,6 +12,52 @@
 						<a href="<c:url value='/example/emp/list.do'/>"><spring:message code="label.example.crud.pagenation"/></a>
 					</li>
 				</ul>
+				<h5><spring:message code="menu.example.error"/></h5>
+				<ul>
+					<li class="expanded">
+						<spring:message code="menu.example.error.http.status.code"/>
+						<ul>
+							<li>
+								<a href="<c:url value='/system/error/httpStatusCode401.do'/>"><spring:message code="menu.example.error.http.status.code.401"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/httpStatusCode403.do'/>"><spring:message code="menu.example.error.http.status.code.403"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/httpStatusCode404.do'/>"><spring:message code="menu.example.error.http.status.code.404"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/httpStatusCode500.do'/>"><spring:message code="menu.example.error.http.status.code.500"/></a>
+							</li>
+						</ul>
+					</li>
+					<li class="expanded">
+						<spring:message code="menu.example.error.layer"/>
+						<ul>
+							<li>
+								<a href="<c:url value='/system/error/jspException.do'/>"><spring:message code="menu.example.error.layer.jsp"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/controllerException.do'/>"><spring:message code="menu.example.error.layer.controller"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/flowException.do'/>"><spring:message code="menu.example.error.layer.flow"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/securityException.do'/>"><spring:message code="menu.example.error.layer.security"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/serviceException.do'/>"><spring:message code="menu.example.error.layer.service"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/managerException.do'/>"><spring:message code="menu.example.error.layer.manager"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/system/error/daoException.do'/>"><spring:message code="menu.example.error.layer.dao"/></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 				<h5><spring:message code="menu.example.flow"/></h5>
 				<ul>
 					<li>
@@ -21,6 +67,7 @@
 						<a href="<c:url value='/example/emp/registration.do'/>"><spring:message code="label.example.flow.registration"/></a>
 					</li>
 				</ul>
+
 				<h5><spring:message code="menu.example.remoting"/></h5>
 				<ul>
 					<li>
