@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="example.error.jsp.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/jspException.jsp"/>
+	</definition>
+	<definition name="example.error.controller.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/controllerException.jsp"/>
+	</definition>
+	<definition name="example.error.flow.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/flowException.jsp"/>
+	</definition>
+	<definition name="example.error.security.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/securityException.jsp"/>
+	</definition>
+	<definition name="example.error.service.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/serviceException.jsp"/>
+	</definition>
+	<definition name="example.error.manager.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/managerException.jsp"/>
+	</definition>
+	<definition name="example.error.dao.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/daoException.jsp"/>
+	</definition>
+</tiles-definitions>
