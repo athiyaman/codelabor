@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	errorPage="/system/error/error.do"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
@@ -35,25 +36,28 @@
 						<spring:message code="menu.example.error.layer"/>
 						<ul>
 							<li>
-								<a href="<c:url value='/system/error/jspException.do'/>"><spring:message code="menu.example.error.layer.jsp"/></a>
+								<a href="<c:url value='/example/error/jspException.do'/>"><spring:message code="menu.example.error.layer.jsp"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/system/error/controllerException.do'/>"><spring:message code="menu.example.error.layer.controller"/></a>
+								<a href="<c:url value='/example/error/jspExceptionErrorPage.do'/>"><spring:message code="menu.example.error.layer.jsp.error.page"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/system/error/flowException.do'/>"><spring:message code="menu.example.error.layer.flow"/></a>
+								<a href="<c:url value='/example/error/controllerException.do'/>"><spring:message code="menu.example.error.layer.controller"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/system/error/securityException.do'/>"><spring:message code="menu.example.error.layer.security"/></a>
+								<a href="<c:url value='/example/error/flowException.do'/>"><spring:message code="menu.example.error.layer.flow"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/system/error/serviceException.do'/>"><spring:message code="menu.example.error.layer.service"/></a>
+								<a href="<c:url value='/example/error/securityException.do'/>"><spring:message code="menu.example.error.layer.security"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/system/error/managerException.do'/>"><spring:message code="menu.example.error.layer.manager"/></a>
+								<a href="<c:url value='/example/error/serviceException.do'/>"><spring:message code="menu.example.error.layer.service"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/system/error/daoException.do'/>"><spring:message code="menu.example.error.layer.dao"/></a>
+								<a href="<c:url value='/example/error/managerException.do'/>"><spring:message code="menu.example.error.layer.manager"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/example/error/daoException.do'/>"><spring:message code="menu.example.error.layer.dao"/></a>
 							</li>
 						</ul>
 					</li>
