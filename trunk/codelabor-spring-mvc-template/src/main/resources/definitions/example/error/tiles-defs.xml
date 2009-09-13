@@ -7,6 +7,10 @@
     	<put-attribute name="body"
     		value="/WEB-INF/jsp/example/error/jspException.jsp"/>
 	</definition>
+	<definition name="example.error.jsp.exception.error.page.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/jspExceptionErrorPage.jsp"/>
+	</definition>
 	<definition name="example.error.controller.exception.definition" extends="system.error.definition">
     	<put-attribute name="body"
     		value="/WEB-INF/jsp/example/error/controllerException.jsp"/>
