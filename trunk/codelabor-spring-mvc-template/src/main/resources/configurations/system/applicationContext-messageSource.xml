@@ -63,6 +63,14 @@
 				<value>/WEB-INF/classes/messages/example/flow/menu</value>
 				<value>/WEB-INF/classes/messages/example/flow/messages</value>
 
+				<!-- example error -->
+				<value>/WEB-INF/classes/messages/example/error/button</value>
+				<value>/WEB-INF/classes/messages/example/error/errors</value>
+				<value>/WEB-INF/classes/messages/example/error/images</value>
+				<value>/WEB-INF/classes/messages/example/error/label</value>
+				<value>/WEB-INF/classes/messages/example/error/menu</value>
+				<value>/WEB-INF/classes/messages/example/error/messages</value>
+
 				<!-- example remoting -->
 				<value>/WEB-INF/classes/messages/example/remoting/button</value>
 				<value>/WEB-INF/classes/messages/example/remoting/errors</value>
