@@ -32,23 +32,27 @@
 		-->
 	</head>
 	<body class="composite">
-		<!-- rexpert -->
-		<!--
-		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert.js"/>"></script>
-		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert_properties.js"/>"></script>
-		<script language="text/javascript" src="<c:url value="/RexServer/rexscript/rexpert_json.js"/>"></script>
-		-->
 
 		<!-- xecure -->
-		<script language="text/javascript" src="<c:url value="/XecureObject/xecureweb.js"/>"></script>
-		<script language="text/javascript" src="<c:url value="/XecureObject/xecureweb_file.js"/>"></script>
-		<script language="text/javascript">PrintObjectTag();</script>
-		<script language="text/javascript">PrintFileObjectTag();</script>
+		<script language="javascript" src="<c:url value="/XecureObject/xecureweb.js"/>"></script>
+		<script language="javascript" src="<c:url value="/XecureObject/xecureweb_file.js"/>"></script>
+		<script language="javascript">PrintObjectTag();</script>
+		<script language="javascript">PrintFileObjectTag();</script>
 
 		<!-- spring js -->
 		<script type="text/javascript" src="<c:url value="/resources/dojo/dojo.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/spring/Spring.js" />"></script>
 		<script type="text/javascript" src="<c:url value="/resources/spring/Spring-Dojo.js" />"></script>
+
+		<!-- rexpert -->
+		<!--
+	 	<script language="javascript" src="<c:url value="/RexServer/rexscript/rexpert.js"/>"></script>
+		<script language="javascript" src="<c:url value="/RexServer/rexscript/rexpert_properties.js"/>"></script>
+		<script language="javascript" src="<c:url value="/RexServer/rexscript/rexpert_json.js"/>"></script>
+		-->
+
+
+
 		<form name="xecure"><input type="hidden" name="p"/></form>
 
 		<tiles:insertAttribute name="header"/>
