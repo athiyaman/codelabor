@@ -9,6 +9,8 @@
 		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
+				<entry key="/system/error/error.do"
+					value-ref="systemErrorErrorController"/>
 				<entry key="/system/error/httpStatusCode401.do"
 					value-ref="systemErrorHttpStatusCode401Controller"/>
 				<entry key="/system/error/httpStatusCode403.do"
@@ -21,6 +23,11 @@
 		</property>
 	</bean>
 
+	<bean
+		id="systemErrorErrorController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="system.error.error.definition"/>
+	</bean>
 	<bean
 		id="systemErrorHttpStatusCode401Controller"
 		class="org.codelabor.system.spring.controllers.ForwardController">
