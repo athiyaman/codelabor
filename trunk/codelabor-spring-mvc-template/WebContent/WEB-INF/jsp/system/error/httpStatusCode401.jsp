@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
@@ -18,7 +16,7 @@
 						<tr class="b">
 							<th>Description</th>
 							<td>
-								Check Access Log
+								<spring:message code="label.system.error.http.status.code.401.message"/>
 							</td>
 						</tr>
 					</tbody>
