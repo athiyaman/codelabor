@@ -6,15 +6,13 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 				<script language="javascript">
-					function report() {
-						var oRptMainParam;
-						oRptMainParam = rex_GetgoDictionay();
-						oRptMainParam.put("rex_rptname", "empListXml");
-						oRptMainParam.put("rex_datatype", "XMLFILE");
-						oRptMainParam.put("rex_data", document.location.protocol + "//" + document.location.host + contextName+"/servlet/empListXmlServlet");
-						oRptMainParam.put("rex_xpath", "java/object/void");
-						rex_gfRexRptOpen("iframe", ifrmRexPreview, oRptMainParam);
-					}
+					var oRptMainParam;
+					oRptMainParam = rex_GetgoDictionay();
+					oRptMainParam.put("rex_rptname", "empListXml");
+					oRptMainParam.put("rex_datatype", "XMLFILE");
+					oRptMainParam.put("rex_data", rex_gfGetLocationHost()+"/servlet/empListXmlServlet");
+					oRptMainParam.put("rex_xpath", "java/object/void");
+					rex_gfRexRptOpen("iframe", ifrmRexPreview, oRptMainParam);
 				</script>
 
 				<h2><spring:message code="label.example.report.rexpert"/></h2>
