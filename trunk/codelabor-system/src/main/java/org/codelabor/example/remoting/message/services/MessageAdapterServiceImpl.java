@@ -17,7 +17,6 @@
 package org.codelabor.example.remoting.message.services;
 
 import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.example.remoting.message.dtos.KsfcHeaderDTO;
@@ -81,6 +80,9 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdReqTm(nextId.substring(17, 25));
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdSeq(nextId.substring(25, 27));
 
+		// lnkg_sno
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setLnkgSno("000");
+
 		// og_tr_id
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setOgTrId(nextId);
 
@@ -90,17 +92,56 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		// sync_dscd
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setSyncDscd("S");
 
+		// rsp_tpcd
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setRspTpcd(0);
+
+		// tlg_pout_tpcd
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTlgPoutTpcd(0);
+
+		// nxt_tr_yn
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setNxtTrYn(0);
 		// tmnl_ip
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTmnlIp(SecurityContextUtil.getRemoteAddress());
 
 		// tr_rqs_chnl_cd
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrRqsChnlCd("IUS");
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrRqsChnlCd("IBS");
 
 		// og_tr_rqs_chnl_cd
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setOgTrRqsChnlCd("IUS");
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setOgTrRqsChnlCd("IBS");
+
+		// tr_prcs_rsl_cd
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrPrcsRslCd(0);
+
+		// og_tr_cd
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setOgTrCd(nextId);
+
+		// hnd_empno
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setHndEmpno("Z9001");
 
 		// lgn_yn
-		ksfcInputHeaderDTO.getTransactionHeaderDTO().setLgnYn(BooleanUtils.toInteger(SecurityContextUtil.isAuthenticated()));
+		// ksfcInputHeaderDTO.getTransactionHeaderDTO().setLgnYn(BooleanUtils.toInteger(SecurityContextUtil.isAuthenticated()));
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setLgnYn(1);
+
+		// clsn_bf_af_dscd
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setClsnBfAfDscd("0");
+
+		// iccd_rdr_inp_yn
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setIccdRdrInpYn("N");
+
+		// pinpd_inp_yn
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setPinpdInpYn("N");
+
+		// bkbk_prtr_inp_yn
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setBkbkPrtrInpYn("N");
+
+		// rspr_aprv_tr_obj_yn
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setRsprAprvTrObjYn(0);
+
+		// cnc_tlg_dscd
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setCncTlgDscd(0);
+
+		// tlg_tr_tpcd
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setTlgTrTpcd(0);
 
 		byte[] inputHeaderBytes = inputHeaderDTO.toBytes();
 		byte[] inputDataBytes = inputDataDTO.toBytes();
