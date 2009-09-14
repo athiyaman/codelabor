@@ -5,7 +5,6 @@
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
 				<h2><spring:message code="label.system.error"/></h2>
 				<p></p>
 
@@ -15,7 +14,7 @@
 				<!-- system level error messages -->
 
 				<!-- jsp exception -->
-				<c:if test="${!empty requestScope['javax.servlet.jsp.jspException']}">
+				<c:if test="${!empty pageContext.exception}">
 				<div class="section">
 				<h3><spring:message code="label.system.error.system.level.message"/></h3>
 				<p></p>
@@ -24,19 +23,19 @@
 						<tr class="b">
 							<th><spring:message code="label.system.error.exception.class"/></th>
 							<td>
-								${requestScope['javax.servlet.jsp.jspException'].class}
+								${pageContext.exception.class}
 							</td>
 						</tr>
 						<tr class="b">
 							<th><spring:message code="label.system.error.exception.message"/></th>
 							<td>
-								${requestScope['javax.servlet.jsp.jspException'].message}
+								${pageContext.exception.message}
 							</td>
 						</tr>
 						<tr class="b">
 							<th><spring:message code="label.system.error.exception.stackTrace"/></th>
 							<td>
-								<c:forEach  var="stackTrace" items="${requestScope['javax.servlet.jsp.jspException'].stackTrace}">
+								<c:forEach  var="stackTrace" items="${pageContext.exception.stackTrace}">
 								${stackTrace}<br/>
 								</c:forEach>
 							</td>
