@@ -91,7 +91,7 @@
         <configuration>
           <driver>oracle.jdbc.driver.OracleDriver</driver>
           <url>jdbc:oracle:thin:@localhost:1521:orcl</url>
-          <settingsKey>database.codelaor-system.oracle</settingsKey>
+          <settingsKey>database.codelabor-system.oracle</settingsKey>
         </configuration>
       </plugin>
     </plugins>
