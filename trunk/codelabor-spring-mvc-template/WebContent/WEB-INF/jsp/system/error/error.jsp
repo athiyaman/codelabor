@@ -9,11 +9,21 @@
 				<p></p>
 
 				<!-- user friendly error messages -->
+				<div class="section">
+				<h3><spring:message code="label.system.error.user.friendly.message"/></h3>
+				<p></p>
+				<table class="bodyTable">
+					<tbody>
+						<tr class="b">
+							<th></th>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
 
 
 				<!-- system level error messages -->
-
-				<!-- jsp exception -->
 				<c:if test="${!empty pageContext.exception}">
 				<div class="section">
 				<h3><spring:message code="label.system.error.system.level.message"/></h3>
@@ -40,41 +50,26 @@
 								</c:forEach>
 							</td>
 						</tr>
+						<c:if test="${!empty pageContext.exception.cause}">
+						<tr class="b">
+							<th><spring:message code="label.system.error.exception.cause"/></th>
+							<td>
+							<%
+							Throwable cause = exception.getCause();
+							while (cause != null) {
+								out.print(cause.getMessage());
+								out.print("<br/>");
+								cause = cause.getCause();
+							}
+							%>
+							</td>
+						</tr>
+						</c:if>
 					</tbody>
 				</table>
 				</div>
 				</c:if>
 
-				<!-- struts exception -->
-				<c:if test="${!empty requestScope['org.apache.struts.action.EXCEPTION']}">
-				<div class="section">
-				<h3><spring:message code="label.system.error.system.level.message"/></h3>
-				<p></p>
-				<table class="bodyTable">
-					<tbody>
-						<tr class="b">
-							<th><spring:message code="label.system.error.exception.class"/></th>
-							<td>
-								${requestScope['org.apache.struts.action.EXCEPTION'].class}
-							</td>
-						</tr>
-						<tr class="b">
-							<th><spring:message code="label.system.error.exception.message"/></th>
-							<td>
-								${requestScope['org.apache.struts.action.EXCEPTION'].message}
-							</td>
-						</tr>
-						<tr class="b">
-							<th><spring:message code="label.system.error.exception.stackTrace"/></th>
-							<td>
-								<c:forEach  var="stackTrace" items="${requestScope['org.apache.struts.action.EXCEPTION'].stackTrace}">
-								${stackTrace}<br/>
-								</c:forEach>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				</div>
-				</c:if>
+
 
 

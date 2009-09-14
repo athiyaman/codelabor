@@ -226,7 +226,10 @@
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
+		<!--
 		<location>/system/error/httpStatusCode500.do</location>
+		-->
+		<location>/system/error/error.do</location>
 	</error-page>
 
 	<!-- static error page -->
