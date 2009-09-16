@@ -38,39 +38,49 @@
 				%>
 
 				<!-- user friendly error messages -->
-				<c:if test="${!empty pageScope.baseException}">
 				<div class="section">
 				<h3><spring:message code="label.system.error.user.friendly.message"/></h3>
-				<p></p>
-				<table class="bodyTable">
-					<tbody>
-						<c:if test="${!empty pageScope['commonException']}">
-						<tr class="b">
-							<th><spring:message code="label.system.error.message.code"/></th>
-							<td>${pageScope['commonException'].messageCode}</td>
-						</tr>
-						</c:if>
-						<tr class="b">
-							<th><spring:message code="label.system.error.message.key"/></th>
-							<td>${pageScope['baseException'].messages.messageKey}</td>
-						</tr>
-						<tr class="b">
-							<th><spring:message code="label.system.error.message.user.message"/></th>
-							<td>${pageScope['baseException'].messages.userMessage}</td>
-						</tr>
-						<tr class="b">
-							<th><spring:message code="label.system.error.message.reason"/></th>
-							<td>${pageScope['baseException'].messages.reason}</td>
-						</tr>
-						<tr class="b">
-							<th><spring:message code="label.system.error.message.solution"/></th>
-							<td>${pageScope['baseException'].messages.solution}</td>
-						</tr>
-					</tbody>
-				</table>
+				<c:choose>
+					<c:when test="${!empty pageScope.baseException}">
+					<table class="bodyTable">
+						<tbody>
+							<c:if test="${!empty pageScope['commonException']}">
+							<tr class="b">
+								<th><spring:message code="label.system.error.message.code"/></th>
+								<td>${pageScope['commonException'].messageCode}</td>
+							</tr>
+							</c:if>
+							<tr class="b">
+								<th><spring:message code="label.system.error.message.key"/></th>
+								<td>${pageScope['baseException'].messages.messageKey}</td>
+							</tr>
+							<tr class="b">
+								<th><spring:message code="label.system.error.message.user.message"/></th>
+								<td>${pageScope['baseException'].messages.userMessage}</td>
+							</tr>
+							<tr class="b">
+								<th><spring:message code="label.system.error.message.reason"/></th>
+								<td>${pageScope['baseException'].messages.reason}</td>
+							</tr>
+							<tr class="b">
+								<th><spring:message code="label.system.error.message.solution"/></th>
+								<td>${pageScope['baseException'].messages.solution}</td>
+							</tr>
+						</tbody>
+					</table>
+					</c:when>
+					<c:otherwise>
+					<table class="bodyTable">
+						<tbody>
+							<tr class="b">
+								<th><spring:message code="label.system.error.exception.message"/></th>
+								<td>${pageContext.exception.message}</td>
+							</tr>
+						</tbody>
+					</table>
+					</c:otherwise>
+				</c:choose>
 				</div>
-				</c:if>
-
 
 				<!-- system level error messages -->
 				<c:if test="${!empty pageContext.exception}">

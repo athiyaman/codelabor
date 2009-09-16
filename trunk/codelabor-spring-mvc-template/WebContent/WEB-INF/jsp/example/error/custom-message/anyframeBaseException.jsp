@@ -7,7 +7,7 @@
 	try {
 		int result = 1/0;
 	} catch (Exception e) {
-		BaseException baseException = new BaseException(e.getMessage());
+		BaseException baseException = new BaseException(e.getMessage(), e);
 		throw baseException;
 	}
 %>

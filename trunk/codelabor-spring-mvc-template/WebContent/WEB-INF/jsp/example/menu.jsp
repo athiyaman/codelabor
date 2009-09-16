@@ -33,6 +33,28 @@
 						</ul>
 					</li>
 					<li class="expanded">
+						<spring:message code="menu.example.error.error.page"/>
+						<ul>
+							<li>
+								<a href="<c:url value='/example/error/error-page/errorPageMisuse.do'/>"><spring:message code="menu.example.error.error.page.misuse"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/example/error/error-page/errorPageUse.do'/>"><spring:message code="menu.example.error.error.page.use"/></a>
+							</li>
+						</ul>
+					</li>
+					<li class="expanded">
+						<spring:message code="menu.example.error.custom.message"/>
+						<ul>
+							<li>
+								<a href="<c:url value='/example/error/custom-message/anyframeBaseException.do'/>"><spring:message code="menu.example.error.custom.message.anyframe.base"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/example/error/custom-message/codelaborCommonException.do'/>"><spring:message code="menu.example.error.custom.message.codelabor.common"/></a>
+							</li>
+						</ul>
+					</li>
+					<li class="expanded">
 						<spring:message code="menu.example.error.layer"/>
 						<ul>
 							<li>
