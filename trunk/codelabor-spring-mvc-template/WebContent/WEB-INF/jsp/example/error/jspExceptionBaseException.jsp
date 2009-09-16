@@ -4,8 +4,10 @@
 	import="anyframe.common.exception.BaseException"
 	errorPage="/system/error/error.do"%>
 <%
-	BaseException baseException = new BaseException();
-	if (true) {
+	try {
+		int result = 1/0;
+	} catch (Exception e) {
+		BaseException baseException = new BaseException(e.getMessage());
 		throw baseException;
 	}
 %>
