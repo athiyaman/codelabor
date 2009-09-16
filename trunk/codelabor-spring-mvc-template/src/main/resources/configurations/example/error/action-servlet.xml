@@ -13,6 +13,12 @@
 					value-ref="exampleErrorJspExceptionController"/>
 				<entry key="/example/error/jspExceptionErrorPage.do"
 					value-ref="exampleErrorJspExceptionErrorPageController"/>
+
+				<entry key="/example/error/jspExceptionBaseException.do"
+					value-ref="exampleErrorJspExceptionBaseExceptionController"/>
+				<entry key="/example/error/jspExceptionCommonException.do"
+					value-ref="exampleErrorJspExceptionCommonExceptionController"/>
+
 				<entry key="/example/error/controllerException.do"
 					value-ref="exampleErrorControllerExceptionController"/>
 				<entry key="/example/error/flowException.do"
@@ -39,6 +45,18 @@
 		class="org.codelabor.system.spring.controllers.ForwardController">
 		<property name="successView" value="example.error.jsp.exception.error.page.definition"/>
 	</bean>
+	<bean
+		id="exampleErrorJspExceptionBaseExceptionController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.error.jsp.exception.base.exception.definition"/>
+	</bean>
+	<bean
+		id="exampleErrorJspExceptionCommonExceptionController"
+		class="org.codelabor.system.spring.controllers.ForwardController">
+		<property name="successView" value="example.error.jsp.exception.common.exception.definition"/>
+	</bean>
+
+
 	<bean
 		id="exampleErrorControllerExceptionController"
 		class="org.codelabor.system.spring.controllers.ForwardController">

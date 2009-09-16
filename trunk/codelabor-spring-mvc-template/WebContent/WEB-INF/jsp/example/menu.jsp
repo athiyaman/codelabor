@@ -42,6 +42,12 @@
 								<a href="<c:url value='/example/error/jspExceptionErrorPage.do'/>"><spring:message code="menu.example.error.layer.jsp.error.page"/></a>
 							</li>
 							<li>
+								<a href="<c:url value='/example/error/jspExceptionBaseException.do'/>"><spring:message code="menu.example.error.layer.jsp.base.exception"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/example/error/jspExceptionCommonException.do'/>"><spring:message code="menu.example.error.layer.jsp.common.exception"/></a>
+							</li>
+							<li>
 								<a href="<c:url value='/example/error/controllerException.do'/>"><spring:message code="menu.example.error.layer.controller"/></a>
 							</li>
 							<li>

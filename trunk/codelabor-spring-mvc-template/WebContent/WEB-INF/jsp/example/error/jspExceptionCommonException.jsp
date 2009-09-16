@@ -3,4 +3,9 @@
 	pageEncoding="UTF-8"
 	errorPage="/system/error/error.do"%>
 
-				<%= 1/0 %>
+				<%
+				BaseException baseException = new BaseException();
+				if (true) {
+					throw baseException;
+				}
+				%>

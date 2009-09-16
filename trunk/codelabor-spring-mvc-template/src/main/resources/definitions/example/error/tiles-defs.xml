@@ -11,6 +11,14 @@
     	<put-attribute name="body"
     		value="/WEB-INF/jsp/example/error/jspExceptionErrorPage.jsp"/>
 	</definition>
+	<definition name="example.error.jsp.exception.base.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/jspExceptionBaseException.jsp"/>
+	</definition>
+	<definition name="example.error.jsp.exception.common.exception.definition" extends="system.error.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/error/jspExceptionCommonException.jsp"/>
+	</definition>
 	<definition name="example.error.controller.exception.definition" extends="system.error.definition">
     	<put-attribute name="body"
     		value="/WEB-INF/jsp/example/error/controllerException.jsp"/>
