@@ -16,8 +16,8 @@
 
 	<bean
 		id="exampleHomeController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.home.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.home.definition"/>
 	</bean>
 
 </beans>

@@ -27,32 +27,32 @@
 
 	<bean
 		id="example.encryption.xecure.requestByGetMethodController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.request.get.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.encryption.xecure.request.get.definition"/>
 	</bean>
 	<bean
 		id="example.encryption.xecure.requestByPostMethodController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.request.post.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.encryption.xecure.request.post.definition"/>
 	</bean>
 	<bean
 		id="example.encryption.xecure.requestByScriptController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.request.script.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.encryption.xecure.request.script.definition"/>
 	</bean>
 	<bean
 		id="example.encryption.xecure.responseController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.response.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.encryption.xecure.response.definition"/>
 	</bean>
 	<bean
 		id="example.encryption.xecure.seedController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.data.seed.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.encryption.xecure.data.seed.definition"/>
 	</bean>
 	<bean
 		id="example.encryption.xecure.hashController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.encryption.xecure.data.hash.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.encryption.xecure.data.hash.definition"/>
 	</bean>
 </beans>

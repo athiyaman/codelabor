@@ -18,12 +18,12 @@
 
 	<bean
 		id="systemLoginHomeController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.login.home.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.login.home.definition"/>
 	</bean>
 	<bean
 		id="systemLoginSuccessController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.login.success.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.login.success.definition"/>
 	</bean>
 </beans>

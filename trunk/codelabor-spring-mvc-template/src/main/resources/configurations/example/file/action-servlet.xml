@@ -21,13 +21,13 @@
 
 	<bean
 		id="exampleFileSpringMvcFileListController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.file.springMvc.listFile.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.springMvc.listFile.definition"/>
 	</bean>
 	<bean
 		id="exampleFileXecureFileListController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="example.file.xecure.listFile.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.xecure.listFile.definition"/>
 	</bean>
 	<bean
 		id="exampleFileFileUploadController"

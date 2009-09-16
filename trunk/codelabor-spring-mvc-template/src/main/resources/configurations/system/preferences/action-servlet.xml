@@ -18,17 +18,17 @@
 
 	<bean
 		id="systemPreferencesHomeController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.preferences.home.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.preferences.home.definition"/>
 	</bean>
 	<bean
 		id="systemPreferencesThemesHomeController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.preferences.themes.home.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.preferences.themes.home.definition"/>
 	</bean>
 	<bean
 		id="systemPreferencesLocaleHomeController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.preferences.locale.home.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.preferences.locale.home.definition"/>
 	</bean>
 </beans>

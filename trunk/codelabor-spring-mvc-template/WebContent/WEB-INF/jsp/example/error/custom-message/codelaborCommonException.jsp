@@ -8,7 +8,7 @@
 	try {
 		int result = 1/0;
 	} catch (Exception e) {
-		CommonException commonException = new RollbackCommonException(e.getMessage(), e);
+		CommonException commonException = new RollbackCommonException(e.getMessage());
 		commonException.setMessageCode("E0000");
 		throw commonException;
 	}

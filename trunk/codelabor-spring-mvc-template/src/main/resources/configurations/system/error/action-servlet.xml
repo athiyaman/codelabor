@@ -25,27 +25,27 @@
 
 	<bean
 		id="systemErrorErrorController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.error.error.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.error.error.definition"/>
 	</bean>
 	<bean
 		id="systemErrorHttpStatusCode401Controller"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.error.http.status.code.401.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.error.http.status.code.401.definition"/>
 	</bean>
 	<bean
 		id="systemErrorHttpStatusCode403Controller"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.error.http.status.code.403.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.error.http.status.code.403.definition"/>
 	</bean>
 	<bean
 		id="systemErrorHttpStatusCode404Controller"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.error.http.status.code.404.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.error.http.status.code.404.definition"/>
 	</bean>
 	<bean
 		id="systemErrorHttpStatusCode500Controller"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.error.http.status.code.500.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.error.http.status.code.500.definition"/>
 	</bean>
 </beans>

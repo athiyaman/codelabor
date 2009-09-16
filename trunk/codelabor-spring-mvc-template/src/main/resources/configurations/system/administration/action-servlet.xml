@@ -16,7 +16,7 @@
 
 	<bean
 		id="systemAdministrationHomeController"
-		class="org.codelabor.system.spring.controllers.ForwardController">
-		<property name="successView" value="system.administration.home.definition"/>
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.administration.home.definition"/>
 	</bean>
 </beans>
