@@ -54,6 +54,7 @@
 							</li>
 						</ul>
 					</li>
+					<!--
 					<li class="expanded">
 						<spring:message code="menu.example.error.layer"/>
 						<ul>
@@ -89,6 +90,7 @@
 							</li>
 						</ul>
 					</li>
+					-->
 				</ul>
 				<h5><spring:message code="menu.example.flow"/></h5>
 				<ul>
