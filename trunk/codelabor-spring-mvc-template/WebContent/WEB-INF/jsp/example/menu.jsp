@@ -134,6 +134,17 @@
 						</ul>
 					</li>
 					<li class="expanded">
+						<spring:message code="menu.example.security.link"/>
+						<ul>
+							<li>
+								<a href="<c:url value='/example/emp/list.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
+							</li>
+							<li>
+								<a href="<c:url value='/example/emp/registration.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.web.flow"/></a>
+							</li>
+						</ul>
+					</li>
+					<li class="expanded">
 						<spring:message code="menu.example.security.data"/>
 						<ul>
 							<li class="none">
