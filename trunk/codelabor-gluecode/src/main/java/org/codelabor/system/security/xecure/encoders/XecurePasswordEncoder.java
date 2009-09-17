@@ -8,8 +8,8 @@ public class XecurePasswordEncoder implements PasswordEncoder {
 
 	protected EncryptService xecureDBEncryptService;
 
-	public void setXecureDBEncryptService(EncryptService xecureDBEncryptService) {
-		this.xecureDBEncryptService = xecureDBEncryptService;
+	public void setEncryptService(EncryptService encryptService) {
+		this.xecureDBEncryptService = encryptService;
 	}
 
 	public String encodePassword(String rawPass, Object salt) {

@@ -15,7 +15,7 @@ public class EncrypServiceTest extends AbstractDependencyInjectionSpringContextT
 
 	@Override
 	public void onSetUp() throws Exception {
-		encryptService = (EncryptService) applicationContext.getBean("encryptService");
+		encryptService = (EncryptService) applicationContext.getBean("xecureEncryptService");
 	}
 
 	public void testEncrypt() {
