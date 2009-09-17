@@ -129,7 +129,7 @@
 								<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>"><spring:message code="label.example.encryption.request.script"/></a>
 							</li>
 							<li class="none">
-								<a href="<c:url value='/example/encryption/xecure/response.do'/>"><spring:message code="label.example.encryption.response"/></a>
+								<a href="<c:url value='/example/encryption/xecure/response.do?z=z'/>" onclick="return XecureLink(this);"><spring:message code="label.example.encryption.response"/></a>
 							</li>
 						</ul>
 					</li>
@@ -137,10 +137,10 @@
 						<spring:message code="menu.example.security.link"/>
 						<ul>
 							<li>
-								<a href="<c:url value='/example/emp/list.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
+								<a href="<c:url value='/example/emp/list.do?a=a'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/example/emp/registration.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.web.flow"/></a>
+								<a href="<c:url value='/example/emp/registration.do?a=a'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.web.flow"/></a>
 							</li>
 						</ul>
 					</li>
