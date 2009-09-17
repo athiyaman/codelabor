@@ -59,22 +59,21 @@
 		<property name="fillChar" value="0" />
 	</bean>
 
-	<bean name="system.transactionIdGenerationService"
+	<bean name="transactionIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
-		<property name="strategy" ref="system.transactionIdStrategy" />
+		<property name="strategy" ref="transactionIdStrategy" />
 		<config:configuration big-decimals="true">
 			<query>SELECT TX_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
-	<bean name="system.transactionIdStrategy"
+	<bean name="transactionIdStrategy"
 		class="org.codelabor.system.remoting.strategies.TransactionIdStrategy">
-		<!--
-		TODO: replace
 		<property name="prefix" value="IBS" />
-		-->
+		<!--
 		<property name="prefix" value="IUS" />
+		-->
 		<property name="dateAndTimePattern" value="yyMMddHHmmssSSS" />
 		<property name="cipers" value="2" />
 		<property name="fillChar" value="0"/>
