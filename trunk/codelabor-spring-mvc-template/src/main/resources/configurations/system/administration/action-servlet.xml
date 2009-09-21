@@ -10,7 +10,7 @@
 		<property name="mappings">
 			<map>
 				<entry key="/system/administration/home.do" value-ref="systemAdministrationHomeController"/>
-				<entry key="/system/administration/reloadAuthorization.do" value-ref="systemAdministrationReloadAuthorizationController"/>
+				<entry key="/system/administration/authorization/reload.do" value-ref="systemAdministrationReloadAuthorizationController"/>
 			</map>
 		</property>
 	</bean>
@@ -25,6 +25,6 @@
 		id="systemAdministrationReloadAuthorizationController"
 		class="org.codelabor.system.security.authorization.spring.controllers.ReloadController">
 		<property name="securityMetadataSource" ref="securityMetadataSource" />
-		<property name="successView" value="system.administration.reloadauthorization.definition"/>
+		<property name="successView" value="system.administration.authorization.reload.definition"/>
 	</bean>
 </beans>
