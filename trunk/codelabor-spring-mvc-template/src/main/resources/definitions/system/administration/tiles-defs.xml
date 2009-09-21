@@ -11,8 +11,8 @@
     	<put-attribute name="title"  value="home"/>
     	<put-attribute name="body"   value="/WEB-INF/jsp/system/administration/home.jsp"/>
 	</definition>
-	<definition name="system.administration.reloadauthorization.definition" extends="system.administration.definition">
+	<definition name="system.administration.authorization.reload.definition" extends="system.administration.definition">
     	<put-attribute name="title"  value="home"/>
-    	<put-attribute name="body"   value="/WEB-INF/jsp/system/administration/reloadAuthorization.jsp"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/administration/authorization/reload.jsp"/>
 	</definition>
 </tiles-definitions>
