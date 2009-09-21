@@ -55,6 +55,8 @@
 				<value>/WEB-INF/classes/messages/example/emp/menu</value>
 				<value>/WEB-INF/classes/messages/example/emp/messages</value>
 
+
+
 				<!-- example flow -->
 				<value>/WEB-INF/classes/messages/example/flow/button</value>
 				<value>/WEB-INF/classes/messages/example/flow/errors</value>
@@ -62,6 +64,14 @@
 				<value>/WEB-INF/classes/messages/example/flow/label</value>
 				<value>/WEB-INF/classes/messages/example/flow/menu</value>
 				<value>/WEB-INF/classes/messages/example/flow/messages</value>
+
+				<!-- example form -->
+				<value>/WEB-INF/classes/messages/example/form/button</value>
+				<value>/WEB-INF/classes/messages/example/form/errors</value>
+				<value>/WEB-INF/classes/messages/example/form/images</value>
+				<value>/WEB-INF/classes/messages/example/form/label</value>
+				<value>/WEB-INF/classes/messages/example/form/menu</value>
+				<value>/WEB-INF/classes/messages/example/form/messages</value>
 
 				<!-- example error -->
 				<value>/WEB-INF/classes/messages/example/error/button</value>
