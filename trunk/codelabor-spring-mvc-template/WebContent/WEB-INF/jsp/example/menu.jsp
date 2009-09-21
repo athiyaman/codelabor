@@ -95,6 +95,12 @@
 				<h5><spring:message code="menu.example.flow"/></h5>
 				<ul>
 					<li>
+						<a href="<c:url value='/example/form/command.do'/>"><spring:message code="label.example.form.command"/></a>
+					</li>
+					<li>
+						<a href="<c:url value='/example/form/requestParameters.do'/>"><spring:message code="label.example.form.request.parameters"/></a>
+					</li>
+					<li>
 						<a href="<c:url value='/example/flow/navigation.do'/>"><spring:message code="label.example.flow.navigation"/></a>
 					</li>
 					<li>
