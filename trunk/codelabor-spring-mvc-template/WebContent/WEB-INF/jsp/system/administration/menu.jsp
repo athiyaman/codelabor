@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 				<h5>Administration</h5>
 				<ul>
@@ -19,6 +19,14 @@
 				</ul>
 				<h5>Manage</h5>
 				<ul>
+					<li class="expanded">
+						Authorization
+						<ul>
+							<li>
+								<a href="<c:url value='/system/administration/authorization/reload.do'/>">Reload</a>
+							</li>
+						</ul>
+					</li>
 					<li class="none">
 						<a href="<c:url value='/system/user.do'/>">User</a>
 					</li>
@@ -30,10 +38,10 @@
 					</li>
 					<li class="none">
 						<a href="">Reference Code</a>
-					</li>					
+					</li>
 					<li class="none">
 						<a href="">Appearance</a>
-					</li>									
+					</li>
 				</ul>
 				<h5>Report</h5>
 				<ul>
@@ -42,26 +50,26 @@
 					</li>
 					<li class="none">
 						<a href="">PKI Sign</a>
-					</li>					
+					</li>
 					<li class="none">
 						<a href="">Name Check</a>
-					</li>					
+					</li>
 					<li class="none">
 						<a href="">Transaction</a>
 					</li>
 					<li class="none">
 						<a href="">Password Reset</a>
-					</li>					
+					</li>
 					<li class="none">
 						<a href="">Dormant Account</a>
-					</li>					
+					</li>
 					<li class="none">
 						<a href="">Access</a>
 					</li>
 				</ul>
 				<h5>Monitor</h5>
-				<ul>				
+				<ul>
 					<li class="none">
 						<a href="">Anyframe</a>
-					</li>																			
-				</ul>				
+					</li>
+				</ul>
