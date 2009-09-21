@@ -8,8 +8,8 @@ import org.springframework.validation.Validator;
 public class SearchConditionValidator implements Validator {
 
 	public void validate(Object command, Errors errors) {
-		ValidationUtils.rejectIfEmpty(errors, "fromDate", "errors.jc.example.integration.mci.fromDate.required");
-		ValidationUtils.rejectIfEmpty(errors, "toDate", "errors.jc.example.integration.mci.toDate.required");
+		ValidationUtils.rejectIfEmpty(errors, "fromDate", "errors.example.integration.mci.fromDate.required");
+		ValidationUtils.rejectIfEmpty(errors, "toDate", "errors.example.integration.mci.toDate.required");
 	}
 
 	@SuppressWarnings("unchecked")
