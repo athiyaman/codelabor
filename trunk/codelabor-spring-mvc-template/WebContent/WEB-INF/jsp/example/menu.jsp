@@ -135,7 +135,7 @@
 								<a href="<c:url value='/example/encryption/xecure/requestByScript.do'/>"><spring:message code="label.example.encryption.request.script"/></a>
 							</li>
 							<li class="none">
-								<a href="<c:url value='/example/encryption/xecure/response.do?z=z'/>" onclick="return XecureLink(this);"><spring:message code="label.example.encryption.response"/></a>
+								<a href="<c:url value='/example/encryption/xecure/response.do'/>" onclick="return XecureLink(this);"><spring:message code="label.example.encryption.response"/></a>
 							</li>
 						</ul>
 					</li>
