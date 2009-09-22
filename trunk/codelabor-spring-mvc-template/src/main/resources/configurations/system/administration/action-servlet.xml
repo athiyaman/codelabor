@@ -21,12 +21,12 @@
 		<property name="viewName" value="system.administration.home.definition"/>
 	</bean>
 
-	<!--
 	<bean
 		id="systemAdministrationReloadAuthorizationController"
 		class="org.codelabor.system.security.authorization.spring.controllers.ReloadController">
+		<!--
 		<property name="securityMetadataSource" ref="securityMetadataSource" />
+		-->
 		<property name="successView" value="system.administration.authorization.reload.definition"/>
 	</bean>
-	-->
 </beans>
