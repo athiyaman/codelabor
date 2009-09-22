@@ -17,6 +17,7 @@
 		<style type="text/css" media="print">
 			@import url(${pageContext.request.contextPath}/css/print.css);
 		</style>
+		<link type="text/css" rel="stylesheet" href="<c:url value="/resources/dijit/themes/tundra/tundra.css" />" />
 
 		<!-- spring js -->
 		<script type="text/javascript" src="<c:url value="/resources/dojo/dojo.js" />"></script>
