@@ -12,7 +12,7 @@
 				<div class="section">
 					<h3><spring:message code="label.example.banking.transfer.create.enter.transfer.information"/></h3>
 					<p></p>
-					<form:form method="post" commandName="transfer">
+					<form:form method="post" id="transferForm" commandName="transfer">
 					<form:errors path="*"/>
 
 					<div class="section">
@@ -113,9 +113,8 @@
 					</div>
 
 					<hr/>
-					<input type="submit" name="_eventId_addTransfer" value="<spring:message code='button.transfer.add'/>">
+					<input type="submit" id="addTransferSubmit" name="_eventId_addTransfer" value="<spring:message code='button.transfer.add'/>">
 					</form:form>
-
 
 					<div class="section" id="transferList">
 					<h4><spring:message code="label.example.banking.transfer.confirm"/></h4>
