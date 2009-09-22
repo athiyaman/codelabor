@@ -45,14 +45,9 @@
 								</td>
 							</tr>
 						</table>
-						<input type="checkbox" name="_spring_security_remember_me" id="remember_me"/>
+						<input type="checkbox" name="_spring_security_remember_me" />
 						<spring:message code="label.login.rememberMe"/>
 						<input type="submit" value="<spring:message code='button.login.login'/>"/>
-						<script type="text/javascript">
-							Spring.addDecoration(new Spring.ElementDecoration({
-								elementId : "remember_me",
-								widgetType : "dijit.form.CheckBox"}));
-						</script>
 						<ul>
 							<li><a href=""></a><spring:message code="label.login.join"/></li>
 							<li><a href=""></a><spring:message code="label.login.forgotYourPassword"/></li>
