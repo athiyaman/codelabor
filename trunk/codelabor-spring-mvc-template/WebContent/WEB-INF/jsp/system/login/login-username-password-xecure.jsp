@@ -14,16 +14,45 @@
 						<table class="bodyTable">
 							<tr class="a">
 								<th><spring:message code="label.login.username"/></th>
-								<td><input type="text" name='j_username'/></td>
+								<td>
+									<input type="text" name="j_username" id="j_username" />
+									<script type="text/javascript">
+										Spring.addDecoration(new Spring.ElementDecoration({
+											elementId : "j_username",
+											widgetType : "dijit.form.ValidationTextBox",
+											widgetAttrs : {
+												promptMessage : "Your username",
+												required: true
+											}
+										}));
+									</script>
+								</td>
 							</tr>
 							<tr class="a">
 								<th><spring:message code="label.login.password"/></th>
-								<td><input type="password" name="j_password"/></td>
+								<td>
+									<input type="password" name="j_password" id="j_password" />
+									<script type="text/javascript">
+										Spring.addDecoration(new Spring.ElementDecoration({
+											elementId : "j_password",
+											widgetType : "dijit.form.ValidationTextBox",
+											widgetAttrs : {
+												promptMessage : "Your password",
+												required : true
+											}
+										}));
+									</script>
+								</td>
 							</tr>
 						</table>
-						<input type='checkbox' name='_spring_security_remember_me'/>
+						<input type="checkbox" name="_spring_security_remember_me" id="remember_me"/>
 						<spring:message code="label.login.rememberMe"/>
 						<input type="submit" value="<spring:message code='button.login.login'/>"/>
+						<script type="text/javascript">
+							Spring.addDecoration(new Spring.ElementDecoration({
+								elementId : "remember_me",
+								widgetType : "dijit.form.CheckBox"}));
+						</script>
 						<ul>
 							<li><a href=""></a><spring:message code="label.login.join"/></li>
 							<li><a href=""></a><spring:message code="label.login.forgotYourPassword"/></li>
