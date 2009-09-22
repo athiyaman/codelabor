@@ -143,10 +143,10 @@
 						<spring:message code="menu.example.security.link"/>
 						<ul>
 							<li>
-								<a href="<c:url value='/example/emp/list.do?a=a'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
+								<a href="<c:url value='/example/emp/list.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
 							</li>
 							<li>
-								<a href="<c:url value='/example/emp/registration.do?a=a'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.web.flow"/></a>
+								<a href="<c:url value='/example/emp/registration.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.web.flow"/></a>
 							</li>
 						</ul>
 					</li>
