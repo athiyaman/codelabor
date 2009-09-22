@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title><tiles:getAsString name="title"/></title>
-		<style type="text/css" media="all">
+		<style type="text/css" media="screen">
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.base"/>);
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.theme"/>);
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);

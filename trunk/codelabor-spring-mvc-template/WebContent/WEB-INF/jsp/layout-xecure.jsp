@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title><tiles:getAsString name="title"/></title>
-		<style type="text/css" media="all">
+		<style type="text/css" media="screen">
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.base"/>);
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.theme"/>);
 	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);
@@ -17,7 +17,11 @@
 		<style type="text/css" media="print">
 			@import url(${pageContext.request.contextPath}/css/print.css);
 		</style>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<!-- spring js -->
+		<script type="text/javascript" src="<c:url value="/resources/dojo/dojo.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/spring/Spring.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/spring/Spring-Dojo.js" />"></script>
 
 		<!-- ahnlab online security -->
 		<!--
@@ -30,6 +34,7 @@
 			aos_start('e5');
 		</script>
 		-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body class="composite">
 
@@ -39,19 +44,12 @@
 		<script language="javascript">PrintObjectTag();</script>
 		<script language="javascript">PrintFileObjectTag();</script>
 
-		<!-- spring js -->
-		<script type="text/javascript" src="<c:url value="/resources/dojo/dojo.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/resources/spring/Spring.js" />"></script>
-		<script type="text/javascript" src="<c:url value="/resources/spring/Spring-Dojo.js" />"></script>
-
 		<!-- rexpert -->
 		<!--
 	 	<script language="javascript" src="<c:url value="/RexServer/rexscript/rexpert.js"/>"></script>
 		<script language="javascript" src="<c:url value="/RexServer/rexscript/rexpert_properties.js"/>"></script>
 		<script language="javascript" src="<c:url value="/RexServer/rexscript/rexpert_json.js"/>"></script>
 		-->
-
-
 
 		<form name="xecure"><input type="hidden" name="p"/></form>
 
