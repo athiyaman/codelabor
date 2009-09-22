@@ -137,7 +137,12 @@ public class IOUtil {
 	}
 
 	public static byte[] lpad(BigDecimal bd, int length, char pad, String charSet) throws Exception {
-		byte[] bytes = String.valueOf(bd).getBytes();
+		byte[] bytes = null;
+		if (bd == null) {
+			bytes = "".getBytes();
+		} else {
+			bytes = String.valueOf(bd).getBytes();
+		}
 		return lpad(bytes, length, pad);
 	}
 
