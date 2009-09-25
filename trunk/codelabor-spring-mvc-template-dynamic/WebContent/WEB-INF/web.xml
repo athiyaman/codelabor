@@ -109,16 +109,6 @@
 		<url-pattern>/servlet/system/snifferServlet</url-pattern>
 	</servlet-mapping>
 
-    <!-- xecure sniff servlet -->
-  	<servlet>
-  		<servlet-name>xecureSnifferServlet</servlet-name>
-  		<servlet-class>org.codelabor.system.security.xecure.servlets.XecureSnifferServlet</servlet-class>
-  	</servlet>
-	<servlet-mapping>
-  		<servlet-name>xecureSnifferServlet</servlet-name>
-  		<url-pattern>/servlet/system/sniffer/xecureSnifferServlet</url-pattern>
-	</servlet-mapping>
-
 	<!-- xecure file upload servlet -->
   	<servlet>
   		<servlet-name>xecureFileUploadServlet</servlet-name>
@@ -164,6 +154,16 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
+	<!-- Xecure filter -->
+	<filter>
+		<filter-name>xecureFilter</filter-name>
+		<filter-class>org.codelabor.system.security.xecure.filters.XecureFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>xecureFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<!-- encoding filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -178,16 +178,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- Xecure filter -->
-	<filter>
-		<filter-name>xecureFilter</filter-name>
-		<filter-class>org.codelabor.system.security.xecure.filters.XecureFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>xecureFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
