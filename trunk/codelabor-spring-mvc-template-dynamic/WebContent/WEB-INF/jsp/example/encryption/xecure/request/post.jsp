@@ -7,7 +7,8 @@
 					<p></p>
 					<div class="section">
 						<h3><spring:message code="label.example.encryption.plain"/></h3>
-						<form action="<c:url value='/servlet/system/snifferServlet" target="_blank" method="post'/>">
+						<form action="<c:url value='/servlet/system/snifferServlet"
+							target="_blank" method="post'/>">
 							<table>
 								<tr>
 									<td>param1</td><td><input type="text" name="param1" value="value1"/></td>
@@ -21,7 +22,8 @@
 					</div>
 					<div class="section">
 						<h3><spring:message code="label.example.encryption.encrypted"/></h3>
-						<form action="<c:url value='/servlet/system/snifferServlet'/>" target="_blank" method="post" onsubmit="return XecureSubmit(this);">
+						<form action="<c:url value='/servlet/system/snifferServlet'/>"
+							target="_blank" method="post" onsubmit="return XecureSubmit(this);">
 							<table>
 								<tr>
 									<td>param1</td><td><input type="text" name="param1" value="value1"/></td>
