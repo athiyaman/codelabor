@@ -201,7 +201,7 @@
   	</dependency>
   	<dependency>
   		<groupId>mvn.local</groupId>
-  		<artifactId>mvn.local.root.300M1</artifactId>
+  		<artifactId>mvn.local.iam.core.300M1</artifactId>
   		<version>1.0.0-20090929.003232-1</version>
   		<type>jar</type>
   		<optional>false</optional>
