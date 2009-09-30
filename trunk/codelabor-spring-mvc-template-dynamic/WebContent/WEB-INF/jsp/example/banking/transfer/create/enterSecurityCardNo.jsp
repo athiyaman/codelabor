@@ -11,7 +11,7 @@
 				<div class="section">
 					<h3><spring:message code="label.example.banking.transfer.create.enter.security.information"/></h3>
 					<p></p>
-					<form:form method="post" commandName="password">
+					<form:form method="post" commandName="password" onsubmit="return XecureSubmit(this);">
 					<form:errors path="*"/>
 
 					<div class="section">

@@ -12,7 +12,7 @@
 				<div class="section">
 					<h3><spring:message code="label.example.banking.transfer.create.enter.transfer.information"/></h3>
 					<p></p>
-					<form:form method="post" id="transferForm" commandName="transfer">
+					<form:form method="post" commandName="transfer" onsubmit="return XecureSubmit(this)">
 					<form:errors path="*"/>
 
 					<div class="section">
