@@ -10,7 +10,8 @@
 		<property name="mappings">
 			<map>
 				<entry key="/example/sign/xecure/crl/create.do" value-ref="exampleSignXecureCrlCreateController"/>
-				<entry key="/example/sign/xecure/crl/list.do" value-ref="exampleSignXecureCrlListController"/>
+				<entry key="/example/sign/xecure/ocsp/create.do" value-ref="exampleSignXecureOcspCreateController"/>
+				<entry key="/example/sign/xecure/list.do" value-ref="exampleSignXecureListController"/>
 			</map>
 		</property>
 	</bean>
@@ -27,13 +28,14 @@
 		<property name="signManager" ref="signManager"/>
 	</bean>
 	
-	<!-- crl -->
 	<bean
-		id="exampleSignXecureCrlListController"
+		id="exampleSignXecureListController"
 		class="org.codelabor.example.sign.xecure.spring.controllers.ListController"
 		parent="exampleSignBaseSignController">
 		<property name="successView" value="example.sign.xecure.list.definition"/>
-	</bean>
+	</bean>	
+	
+	<!-- crl -->
 	<bean
 		id="exampleSignXecureCrlCreateController"
 		class="org.codelabor.example.sign.xecure.crl.spring.controllers.CreateController"
@@ -45,12 +47,7 @@
 	</bean>
 	
 	<!-- ocsp -->
-	<bean
-		id="exampleSignXecureOcspListController"
-		class="org.codelabor.example.sign.xecure.spring.controllers.ListController"
-		parent="exampleSignBaseSignController">
-		<property name="successView" value="example.sign.xecure.list.definition"/>
-	</bean>
+
 	<bean
 		id="exampleSignXecureOcspCreateController"
 		class="org.codelabor.example.sign.xecure.ocsp.spring.controllers.CreateController"

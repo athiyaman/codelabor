@@ -11,7 +11,7 @@
 				<div class="section">
 					<h3><spring:message code="label.example.banking.transfer.create.enter.security.information"/></h3>
 					<p></p>
-					<form:form method="post" commandName="password" onsubmit="return XecureSubmit(this);">
+					<form:form method="post" commandName="password" onsubmit="Sign_html(1, '입금은행:출금은행:출금액:보내는사람:받는사람', '국민:기업:100원:홍길동:홍길순', '');return XecureSubmit(this);">
 					<form:errors path="*"/>
 
 					<div class="section">
