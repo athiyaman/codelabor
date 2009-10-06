@@ -9,36 +9,55 @@
 		parent="defaultUrlMapping">
 		<property name="mappings">
 			<map>
-				<entry key="/example/sign/xecure/create.do" value-ref="exampleSignXecureCreateController"/>
-				<entry key="/example/sign/xecure/list.do" value-ref="exampleSignXecureListController"/>
+				<entry key="/example/sign/xecure/crl/create.do" value-ref="exampleSignXecureCrlCreateController"/>
+				<entry key="/example/sign/xecure/crl/list.do" value-ref="exampleSignXecureCrlListController"/>
 			</map>
 		</property>
 	</bean>
 	<bean
 		id="exampleSignBaseSignController"
-		class="org.codelabor.system.system.spring.controllers.BaseSignController"
+		class="org.codelabor.example.sign.xecure.spring.controllers.BaseSignController"
 		abstract="true">
 		<property name="signManager" ref="signManager"/>
 	</bean>
 	<bean
 		id="exampleSignBaseSignFormController"
-		class="org.codelabor.system.system.spring.controllers.BaseSignFormController"
+		class="org.codelabor.example.sign.xecure.spring.controllers.BaseSignFormController"
 		abstract="true">
 		<property name="signManager" ref="signManager"/>
 	</bean>
+	
+	<!-- crl -->
 	<bean
-		id="exampleSignXecureListController"
+		id="exampleSignXecureCrlListController"
 		class="org.codelabor.example.sign.xecure.spring.controllers.ListController"
 		parent="exampleSignBaseSignController">
-		<property name="successView" value="example.sign.xecure.list.definition"/>
+		<property name="successView" value="example.sign.xecure.crl.list.definition"/>
 	</bean>
 	<bean
-		id="exampleSignXecureCreateController"
-		class="org.codelabor.example.sign.xecure.spring.controllers.CreateController"
+		id="exampleSignXecureCrlCreateController"
+		class="org.codelabor.example.sign.xecure.crl.spring.controllers.CreateController"
 		parent="exampleSignBaseSignFormController">
 		<property name="commandName" value="signDTO" />
 		<property name="commandClass" value="org.codelabor.system.sign.dtos.SignDTO"/>
-		<property name="formView" value="example.sign.xecure.create.definition"/>
+		<property name="formView" value="example.sign.xecure.crl.create.definition"/>
 		<property name="successView" value="redirect:/example/sign/xecure/list.do"/>
 	</bean>
+	
+	<!-- ocsp -->
+	<bean
+		id="exampleSignXecureOcspListController"
+		class="org.codelabor.example.sign.xecure.spring.controllers.ListController"
+		parent="exampleSignBaseSignController">
+		<property name="successView" value="example.sign.xecure.ocsp.list.definition"/>
+	</bean>
+	<bean
+		id="exampleSignXecureOcspCreateController"
+		class="org.codelabor.example.sign.xecure.ocsp.spring.controllers.CreateController"
+		parent="exampleSignBaseSignFormController">
+		<property name="commandName" value="signDTO" />
+		<property name="commandClass" value="org.codelabor.system.sign.dtos.SignDTO"/>
+		<property name="formView" value="example.sign.xecure.ocsp.create.definition"/>
+		<property name="successView" value="redirect:/example/sign/xecure/list.do"/>
+	</bean>	
 </beans>
