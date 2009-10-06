@@ -32,7 +32,7 @@
 		id="exampleSignXecureCrlListController"
 		class="org.codelabor.example.sign.xecure.spring.controllers.ListController"
 		parent="exampleSignBaseSignController">
-		<property name="successView" value="example.sign.xecure.crl.list.definition"/>
+		<property name="successView" value="example.sign.xecure.list.definition"/>
 	</bean>
 	<bean
 		id="exampleSignXecureCrlCreateController"
@@ -49,7 +49,7 @@
 		id="exampleSignXecureOcspListController"
 		class="org.codelabor.example.sign.xecure.spring.controllers.ListController"
 		parent="exampleSignBaseSignController">
-		<property name="successView" value="example.sign.xecure.ocsp.list.definition"/>
+		<property name="successView" value="example.sign.xecure.list.definition"/>
 	</bean>
 	<bean
 		id="exampleSignXecureOcspCreateController"
