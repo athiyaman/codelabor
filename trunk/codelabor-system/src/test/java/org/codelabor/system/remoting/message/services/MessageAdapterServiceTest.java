@@ -74,9 +74,6 @@ public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpring
 
 	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext-messageAdapterService.xml", "classpath*:/**/applicationContext-messageSource.xml", "classpath*:/**/applicationContext-socketAdapterService.xml", "classpath*:/**/applicationContext-idGenerationService-oracle.xml",
-				"classpath*:/**/applicationContext-dataSourceService-oracle.xml", "classpath*:/**/applicationContext-configurableCallBack.xml"
-
-		};
+		return new String[] { "classpath*:/**/applicationContext-*.xml"};
 	}
 }
