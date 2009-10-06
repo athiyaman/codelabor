@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.example.sign.ocsp.xecure.spring.controllers;
+package org.codelabor.example.sign.xecure.ocsp.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.example.sign.crl.xecure.spring.controllers.BaseSignFormController;
+import org.codelabor.example.sign.xecure.spring.controllers.BaseSignFormController;
 import org.codelabor.system.security.xecure.Constants;
 import org.codelabor.system.sign.dtos.SignDTO;
 import org.codelabor.system.sign.exceptions.NotVerifiedException;
