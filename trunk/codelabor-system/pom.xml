@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.codelabor</groupId>
-  <artifactId>codelabor-system2</artifactId>
+  <artifactId>codelabor-system</artifactId>
   <packaging>jar</packaging>
-  <version>2.3.2</version>
-  <name>codelabor-system2</name>
+  <version>2.3.3</version>
+  <name>codelabor-system</name>
   <url>http://codelabor.org</url>
   <developers>
     <developer>
