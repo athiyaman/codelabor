@@ -37,41 +37,7 @@ import xecure.servlet.XecureConfig;
  */
 public class CreateController extends BaseSignFormController {
 	
-	private String ocspClientIpAddress = "172.25.33.4:5620";
-
 	private String caDnList;
-
-	public CreateController() {
-		super();
-		StringBuilder sb = new StringBuilder();
-		sb.append("//cn=yessignCA,ou=LicensedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=signGATE CA,ou=licensedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=SignKorea CA,ou=LicensedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=NCASign CA,ou=licensedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=CrossCertCA,ou=licensedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//ou=TradeSignCA,ou=LicensedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.tradesign.net:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=yessignCA,ou=AccreditedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=signGATE CA2,ou=AccreditedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=SignKorea CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=NCASignCA,ou=AccreditedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=CrossCert Certificate Authority,ou=AccreditedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=TradeSignCA,ou=AccreditedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;ldap.tradesign.net:389,ldap.tradesign.net:389|");
-		sb.append(ocspClientIpAddress);
-		sb.append("//cn=SignKorea Test CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;211.175.81.102:689,211.175.81.102:689|");
-		sb.append(ocspClientIpAddress);
-        caDnList = sb.toString();  		
-	}
 
 	@Override
 	protected Object formBackingObject(HttpServletRequest request) throws Exception {
@@ -116,6 +82,36 @@ public class CreateController extends BaseSignFormController {
 	}
 	
 	public void setOcspClientIpAddress(String ocspClientIpAddress) {
-		this.ocspClientIpAddress = ocspClientIpAddress;
+		StringBuilder sb = new StringBuilder();
+		sb.append("//cn=yessignCA,ou=LicensedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=signGATE CA,ou=licensedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=SignKorea CA,ou=LicensedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=NCASign CA,ou=licensedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=CrossCertCA,ou=licensedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//ou=TradeSignCA,ou=LicensedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.tradesign.net:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=yessignCA,ou=AccreditedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=signGATE CA2,ou=AccreditedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=SignKorea CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=NCASignCA,ou=AccreditedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=CrossCert Certificate Authority,ou=AccreditedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=TradeSignCA,ou=AccreditedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;ldap.tradesign.net:389,ldap.tradesign.net:389|");
+		sb.append(ocspClientIpAddress);
+		sb.append("//cn=SignKorea Test CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;211.175.81.102:689,211.175.81.102:689|");
+		sb.append(ocspClientIpAddress);
+        caDnList = sb.toString();
+        if (logger.isDebugEnabled()) {
+        	logger.debug(caDnList);
+        }
 	}	
 }
