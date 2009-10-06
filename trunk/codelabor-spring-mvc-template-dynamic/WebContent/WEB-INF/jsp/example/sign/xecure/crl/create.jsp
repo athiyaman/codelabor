@@ -24,7 +24,7 @@
 					</table>
 					<hr/>
 
-					<a href="<c:url value='/example/sign/list.do'/>"><spring:message code='button.list'/></a>
+					<a href="<c:url value='/example/sign/xecure/crl/list.do'/>"><spring:message code='button.list'/></a>
 					<form:hidden path="signedMessage" />
 					<input type="submit" value="<spring:message code='button.sign'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
