@@ -14,7 +14,6 @@ public class ImagePagenationTag extends TextPagenationTag {
 		return sb.toString();
 	}
 
-	@Override
 	protected String getPageIndexBody(String body, String styleId,
 			String styleClass) {
 		// TODO Auto-generated method stub
