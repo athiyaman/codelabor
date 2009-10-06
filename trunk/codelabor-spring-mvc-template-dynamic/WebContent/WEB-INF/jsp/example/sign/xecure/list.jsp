@@ -33,5 +33,6 @@
 						</tbody>
 					</table>
 					<hr />
-					<a href="<c:url value='/example/sign/xecure/crl/create.do'/>"><spring:message code="button.create"/></a>
+					<a href="<c:url value='/example/sign/xecure/crl/create.do'/>"><spring:message code="button.sign.crl"/></a>
+					<a href="<c:url value='/example/sign/xecure/ocsp/create.do'/>"><spring:message code="button.sign.ocsp"/></a>
 				</div>

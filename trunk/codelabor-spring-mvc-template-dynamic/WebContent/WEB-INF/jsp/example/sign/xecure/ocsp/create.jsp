@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-				<h2><spring:message code="label.example.sign"/></h2>
+				<h2><spring:message code="label.example.sign.ocsp"/></h2>
 				<p></p>
 				<div class="section">
 				<h3><spring:message code="label.example.sign.create"/></h3>
@@ -24,7 +24,7 @@
 					</table>
 					<hr/>
 
-					<a href="<c:url value='/example/sign/xecure/crl/list.do'/>"><spring:message code='button.list'/></a>
+					<a href="<c:url value='/example/sign/xecure/list.do'/>"><spring:message code='button.list'/></a>
 					<form:hidden path="signedMessage" />
 					<input type="submit" value="<spring:message code='button.sign'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>

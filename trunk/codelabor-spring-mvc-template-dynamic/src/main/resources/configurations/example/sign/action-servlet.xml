@@ -47,7 +47,6 @@
 	</bean>
 	
 	<!-- ocsp -->
-
 	<bean
 		id="exampleSignXecureOcspCreateController"
 		class="org.codelabor.example.sign.xecure.ocsp.spring.controllers.CreateController"
@@ -56,5 +55,6 @@
 		<property name="commandClass" value="org.codelabor.system.sign.dtos.SignDTO"/>
 		<property name="formView" value="example.sign.xecure.ocsp.create.definition"/>
 		<property name="successView" value="redirect:/example/sign/xecure/list.do"/>
+		<property name="ocspClientIpAddress" value="172.25.33.4:5620" />
 	</bean>	
 </beans>
