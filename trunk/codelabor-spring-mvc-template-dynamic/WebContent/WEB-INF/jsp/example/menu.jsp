@@ -165,7 +165,7 @@
 						<spring:message code="menu.example.security.file"/>
 						<ul>
 							<li class="none">
-								<a href="<c:url value='/example/file/xecure/listFile.do'/>"><spring:message code="label.example.file"/></a>
+								<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=list'/>" onclick="return XecureLink(this);"><spring:message code="label.example.file.servlet"/></a>
 							</li>
 						</ul>
 					</li>
@@ -207,14 +207,14 @@
 						<a href="<c:url value='/example/sign/xecure/list.do'/>"><spring:message code="label.example.sign"/></a>
 					</li>
 				</ul>
-<!--
+
 				<h5><spring:message code="menu.example.upload"/></h5>
 				<ul>
 					<li>
-  						<a href="<c:url value='/example/file/spring-mvc/listFile.do'/>">Spring MVC</a>
+  						<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=list'/>"><spring:message code="label.example.file.servlet"/></a>
 					</li>
 				</ul>
--->
+
 				<h5><spring:message code="menu.example.banking"/></h5>
 				<ul>
 					<li>

@@ -13,6 +13,8 @@
 					value-ref="exampleFileSpringMvcFileListController"/>
 				<entry key="/example/file/xecure/listFile.do"
 					value-ref="exampleFileXecureFileListController"/>
+				<entry key="/example/file/servlet/listFile.do"
+					value-ref="exampleFileServletFileListController"/>					
 				<entry key="/system/file/uploadFile.do"
 					value-ref="exampleFileFileUploadController"/>
 			</map>
@@ -20,20 +22,25 @@
 	</bean>
 
 	<bean
+		id="exampleFileServletFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.servlet.list.file.definition"/>
+	</bean>	
+	<bean
 		id="exampleFileSpringMvcFileListController"
 		class="anyframe.web.springmvc.controller.ForwardController">
-		<property name="viewName" value="example.file.springMvc.listFile.definition"/>
+		<property name="viewName" value="example.file.spring.mvc.list.file.definition"/>
 	</bean>
 	<bean
 		id="exampleFileXecureFileListController"
 		class="anyframe.web.springmvc.controller.ForwardController">
-		<property name="viewName" value="example.file.xecure.listFile.definition"/>
+		<property name="viewName" value="example.file.xecure.list.file.definition"/>
 	</bean>
 	<bean
 		id="exampleFileFileUploadController"
 		class="org.codelabor.system.file.spring.controllers.FileUploadController">
 		<property name="commandClass" value="org.codelabor.system.spring.commands.Post"/>
-		<property name="formView" value="example.file.springMvc.listFile.definition"/>
-		<property name="successView" value="example.file.springMvc.listFile.definition"/>
+		<property name="formView" value="example.file.springMvc.list.file.definition"/>
+		<property name="successView" value="example.file.spring.mvc.list.file.definition"/>
 	</bean>
 </beans>

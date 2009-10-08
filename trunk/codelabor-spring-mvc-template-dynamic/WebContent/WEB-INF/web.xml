@@ -108,6 +108,35 @@
   		<servlet-name>snifferServlet</servlet-name>
 		<url-pattern>/servlet/system/snifferServlet</url-pattern>
 	</servlet-mapping>
+	
+	<!-- file upload servlet -->
+  	<servlet>
+  		<servlet-name>fileUploadServlet</servlet-name>
+  		<servlet-class>org.codelabor.system.file.servlets.FileUploadServlet</servlet-class>
+  		<!--  
+  		<servlet-class>org.codelabor.system.file.servlets.FileUploadStreamServlet</servlet-class>
+  		-->
+	  	<init-param>
+	  		<param-name>parameterName</param-name>
+	  		<param-value>method</param-value>
+	  	</init-param>
+	  	<init-param>
+	  		<param-name>forwardPathUpload</param-name>
+	  		<param-value>/servlet/system/file/fileUploadServlet?method=list</param-value>
+	  	</init-param>
+		<init-param>
+	  		<param-name>forwardPathList</param-name>
+	  		<param-value>/example/file/servlet/listFile.do</param-value>
+	  	</init-param>
+	  	<init-param>
+	  		<param-name>forwardPathDelete</param-name>
+	  		<param-value>/servlet/system/file/fileUploadServlet?method=list</param-value>
+	  	</init-param>
+  	</servlet>
+	<servlet-mapping>
+  		<servlet-name>fileUploadServlet</servlet-name>
+  		<url-pattern>/servlet/system/file/fileUploadServlet</url-pattern>
+	</servlet-mapping>
 
 	<!-- xecure file upload servlet -->
   	<servlet>

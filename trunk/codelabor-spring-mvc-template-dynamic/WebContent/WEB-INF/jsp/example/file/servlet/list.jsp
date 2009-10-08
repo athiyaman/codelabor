@@ -3,16 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
-					<h2><spring:message code="label.example.file.spring.mvc"/></h2>
+					<h2><spring:message code="label.example.file.servlet"/></h2>
 					<p></p>
 					<div class="section">
 						<h3><spring:message code="label.example.file.list"/>
-						<c:if test="${!empty param.repositoryType}"> 
+						<c:if test="${!empty param.repositoryType}">
 							(Repository Type: <c:out value="${param.repositoryType}"/>)
 						</c:if>
 						</h3>
 						<p></p>
-						<form action="<c:url value='/system/file/uploadFile.do?method=delete'/>" method="post">
+						<form action="<c:url value='/servlet/system/file/fileUploadServlet?method=delete'/>" method="post">
 							<table class="bodyTable">
 								<tbody>
 									<tr class="a">
@@ -29,13 +29,13 @@
 												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
 											</td>
 											<td>
-												<a href="<c:url value='/system/file/uploadFile.do?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
+												<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
 											</td>
 											<td>${fileDTO.uniqueFileName}</td>
 											<td>${fileDTO.repositoryPath}</td>
 											<td>${fileDTO.contentType}</td>
 											<td>${fileDTO.fileSize}</td>
-										</tr>			
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
@@ -44,11 +44,11 @@
 							<input type="submit" value="<spring:message code='button.delete'/>" />
 						</form>
 					</div>
-					
+
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.filesystem"/></h3>
 						<form
-							action="<c:url value='/system/file/uploadFile.do?method=upload&repositoryType=FILE_SYSTEM'/>"
+							action="<c:url value='/servlet/system/file/fileUploadServlet?method=upload&repositoryType=FILE_SYSTEM'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
@@ -77,7 +77,7 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<form
-							action="<c:url value='/system/file/uploadFile.do?method=upload&repositoryType=DATABASE'/>"
+							action="<c:url value='/servlet/system/file/fileUploadServlet?method=upload&repositoryType=DATABASE'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
