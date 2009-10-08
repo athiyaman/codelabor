@@ -38,12 +38,12 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			XecureServlet xecureServlet = new XecureServlet(request, response);
+			request = xecureServlet.request;
+			response = xecureServlet.response;			
 			String parameterValue = request.getParameter(parameterName);
 			switch (Parameter.valueOf(parameterValue)) {
 			case upload:
-				XecureServlet xecureServlet = new XecureServlet(request, response);
-				request = xecureServlet.request;
-				response = xecureServlet.response;				
 				upload(request, response, xecureServlet);
 				break;
 			case download:
