@@ -141,19 +141,19 @@ public class FileUploadServlet extends HttpServlet {
 			String parameterValue = request.getParameter(parameterName);
 			switch (Parameter.valueOf(parameterValue)) {
 			case upload:
-				this.upload(request, response);
+				upload(request, response);
 				break;
 			case download:
-				this.download(request, response);
+				download(request, response);
 				break;
 			case list:
-				this.list(request, response);
+				list(request, response);
 				break;
 			case delete:
-				this.delete(request, response);
+				delete(request, response);
 				break;
 			case read:
-				this.read(request, response);
+				read(request, response);
 				break;
 			}
 		} catch (Exception e) {
@@ -172,9 +172,23 @@ public class FileUploadServlet extends HttpServlet {
 			FileItem fileItem) throws Exception {
 		if (fileItem.getName() == null || fileItem.getName().length() == 0)
 			return null;
+		
+		// remove path information
+		String realFileNameWithPath = fileItem.getName();
+		int lastIndex = realFileNameWithPath.lastIndexOf(System.getProperty("file.separator"));
+		int beginIndex = (lastIndex > 0)? lastIndex+1: 0;
+		String realFileName = realFileNameWithPath.substring(beginIndex);
+		
+		if (log.isDebugEnabled()) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("realFileNameWithPath: ").append(realFileNameWithPath);
+			sb.append(", realFileName: ").append(realFileName);
+			log.debug(sb.toString());
+		}
+				
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(fileItem.getName());
+		fileDTO.setRealFileName(realFileName);
 		fileDTO.setUniqueFileName(getUniqueFileName());
 		fileDTO.setContentType(fileItem.getContentType());
 		fileDTO.setRepositoryPath(realRepositoryPath);
@@ -314,8 +328,12 @@ public class FileUploadServlet extends HttpServlet {
 			inputStream = new FileInputStream(file);
 		} else {
 			// DATABASE
-			byte[] bytes = fileDTO.getBytes();
+			byte[] bytes = new byte[] {};
+			if (fileDTO.getFileSize() > 0) {
+				bytes = fileDTO.getBytes();
+			}
 			inputStream = new ByteArrayInputStream(bytes);
+			
 		}
 		response.setContentType(contentType);
 		stringBuilder = new StringBuilder();
