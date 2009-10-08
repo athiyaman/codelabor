@@ -37,28 +37,26 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		XecureServlet xecureServlet;
 		try {
-			xecureServlet = new XecureServlet(request, response);
-			request = xecureServlet.request;
-			response = xecureServlet.response;
-
 			String parameterValue = request.getParameter(parameterName);
 			switch (Parameter.valueOf(parameterValue)) {
 			case upload:
-				this.upload(request, response, xecureServlet);
+				XecureServlet xecureServlet = new XecureServlet(request, response);
+				request = xecureServlet.request;
+				response = xecureServlet.response;				
+				upload(request, response, xecureServlet);
 				break;
 			case download:
-				this.download(request, response);
+				download(request, response);
 				break;
 			case list:
-				this.list(request, response);
+				list(request, response);
 				break;
 			case delete:
-				this.delete(request, response);
+				delete(request, response);
 				break;
 			case read:
-				this.read(request, response);
+				read(request, response);
 				break;
 			}
 		} catch (Exception e) {
