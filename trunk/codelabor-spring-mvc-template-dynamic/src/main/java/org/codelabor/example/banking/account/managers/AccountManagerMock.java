@@ -7,8 +7,8 @@ import org.codelabor.example.banking.account.dtos.AccountDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 public class AccountManagerMock extends BaseManagerImpl implements AccountManager {
-	private List<AccountDTO> frequenUsedAccountList;
-	private List<AccountDTO> withdrawalAccountList;
+	private final List<AccountDTO> frequenUsedAccountList;
+	private final List<AccountDTO> withdrawalAccountList;
 
 	public AccountManagerMock() {
 		frequenUsedAccountList = new ArrayList<AccountDTO>();

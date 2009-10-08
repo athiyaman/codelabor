@@ -7,6 +7,7 @@ import org.codelabor.example.banking.customer.dtos.CustomerDTO;
 import org.codelabor.example.banking.customer.managers.CustomerManager;
 import org.codelabor.example.banking.transfer.dtos.PasswordDTO;
 import org.codelabor.example.banking.transfer.dtos.TransferDTO;
+import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.services.BaseServiceImpl;
 
 public class TransferServiceMock extends BaseServiceImpl implements TransferService {
@@ -37,6 +38,8 @@ public class TransferServiceMock extends BaseServiceImpl implements TransferServ
 		case SECURITY_CARD:
 			passwordDTO.setSecurityCardSerialNumber(customerDTO.getSecurityCardSerialNumber());
 			break;
+		default:
+			throw new RollbackCommonException("Unsupported security type");
 		}
 		return passwordDTO;
 	}

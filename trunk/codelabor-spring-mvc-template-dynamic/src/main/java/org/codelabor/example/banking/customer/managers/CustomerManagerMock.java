@@ -10,7 +10,7 @@ import org.codelabor.system.managers.BaseManagerImpl;
 
 public class CustomerManagerMock extends BaseManagerImpl implements CustomerManager {
 
-	private List<CustomerDTO> customerDTOList;
+	private final List<CustomerDTO> customerDTOList;
 
 	public CustomerManagerMock() {
 		customerDTOList = new ArrayList<CustomerDTO>();

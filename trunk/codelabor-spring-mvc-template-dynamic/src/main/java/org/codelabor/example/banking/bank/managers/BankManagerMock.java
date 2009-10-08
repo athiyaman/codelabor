@@ -8,7 +8,7 @@ import org.codelabor.system.managers.BaseManagerImpl;
 
 public class BankManagerMock extends BaseManagerImpl implements BankManager {
 
-	private List<BankDTO> bankList;
+	private final List<BankDTO> bankList;
 
 	public BankManagerMock() {
 		bankList = new ArrayList<BankDTO>();

@@ -29,6 +29,7 @@ public class CommonExceptionHandler implements FlowExecutionExceptionHandler {
 			try {
 				viewState.getViewFactory().getView(requestControlContext).render();
 			} catch (IOException e) {
+				e.printStackTrace();
 				// Properly handle rendering errors here
 			}
 		}

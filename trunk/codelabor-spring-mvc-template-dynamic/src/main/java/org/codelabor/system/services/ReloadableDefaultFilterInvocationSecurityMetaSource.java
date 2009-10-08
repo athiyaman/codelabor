@@ -29,7 +29,7 @@ public class ReloadableDefaultFilterInvocationSecurityMetaSource extends
 	 * Stores request maps keyed by specific HTTP methods. A null key matches
 	 * any method
 	 */
-	private Map<String, Map<Object, List<ConfigAttribute>>> httpMethodMap = new HashMap<String, Map<Object, List<ConfigAttribute>>>();
+	private final Map<String, Map<Object, List<ConfigAttribute>>> httpMethodMap = new HashMap<String, Map<Object, List<ConfigAttribute>>>();
 	private UrlMatcher urlMatcher;
 	@SuppressWarnings("unused")
 	private boolean stripQueryStringFromUrls;

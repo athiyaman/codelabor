@@ -94,7 +94,7 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
 public class SpringTilesConfigurer implements ServletContextAware,
 		InitializingBean, DisposableBean {
 
-	protected final static Log logger = LogFactory
+	private final Log logger = LogFactory
 			.getLog(SpringTilesConfigurer.class);
 
 	private final Properties tilesPropertyMap = new Properties();
