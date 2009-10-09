@@ -167,14 +167,8 @@ public class FileUploadServlet extends HttpServlet {
 			log.debug(paramMap);
 		}
 	}
-
-	protected FileDTO processFile(RepositoryType repositoryType,
-			FileItem fileItem) throws Exception {
-		if (fileItem.getName() == null || fileItem.getName().length() == 0)
-			return null;
-		
-		// remove path information
-		String realFileNameWithPath = fileItem.getName();
+	
+	protected String stripPathInfo(String realFileNameWithPath) {
 		int lastIndex = realFileNameWithPath.lastIndexOf(System.getProperty("file.separator"));
 		int beginIndex = (lastIndex > 0)? lastIndex+1: 0;
 		String realFileName = realFileNameWithPath.substring(beginIndex);
@@ -185,10 +179,17 @@ public class FileUploadServlet extends HttpServlet {
 			sb.append(", realFileName: ").append(realFileName);
 			log.debug(sb.toString());
 		}
+		return realFileName;
+	}
+
+	protected FileDTO processFile(RepositoryType repositoryType,
+			FileItem fileItem) throws Exception {
+		if (fileItem.getName() == null || fileItem.getName().length() == 0)
+			return null;
 				
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(realFileName);
+		fileDTO.setRealFileName(stripPathInfo(fileItem.getName()));
 		fileDTO.setUniqueFileName(getUniqueFileName());
 		fileDTO.setContentType(fileItem.getContentType());
 		fileDTO.setRepositoryPath(realRepositoryPath);
