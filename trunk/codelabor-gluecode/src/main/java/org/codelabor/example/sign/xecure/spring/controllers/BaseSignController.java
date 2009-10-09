@@ -6,12 +6,12 @@ import org.springframework.web.servlet.mvc.AbstractController;
 public abstract class BaseSignController extends AbstractController {
 
 	protected SignManager signManager;
+	
+	protected String successView;	
 
 	public void setSignManager(SignManager signManager) {
 		this.signManager = signManager;
 	}
-
-	protected String successView;
 
 	public void setSuccessView(String successView) {
 		this.successView = successView;
@@ -20,5 +20,4 @@ public abstract class BaseSignController extends AbstractController {
 	public String getSuccessView() {
 		return successView;
 	}
-
 }

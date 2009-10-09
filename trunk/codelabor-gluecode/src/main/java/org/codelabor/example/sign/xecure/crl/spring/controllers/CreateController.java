@@ -39,8 +39,7 @@ public class CreateController extends BaseSignFormController {
 
 	@Override
 	protected Object formBackingObject(HttpServletRequest request) throws Exception {
-		SignDTO signDTO = new SignDTO();
-		return signDTO;
+		return new SignDTO();
 	}
 
 	@Override
