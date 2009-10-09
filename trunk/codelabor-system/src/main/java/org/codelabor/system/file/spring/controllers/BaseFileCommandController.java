@@ -11,6 +11,7 @@ public abstract class BaseFileCommandController extends AbstractCommandControlle
 	protected FileManager fileManager;
 	protected IPropertiesService propertiesService;
 	protected IIdGenerationService uniqueFileNameGenerationService;
+	protected String successView;
 
 	public void setFileManager(FileManager fileManager) {
 		this.fileManager = fileManager;
@@ -23,6 +24,14 @@ public abstract class BaseFileCommandController extends AbstractCommandControlle
 	public void setUniqueFileNameGenerationService(
 			IIdGenerationService uniqueFileNameGenerationService) {
 		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
+	}
+
+	public String getSuccessView() {
+		return successView;
+	}
+
+	public void setSuccessView(String successView) {
+		this.successView = successView;
 	}
 
 }
