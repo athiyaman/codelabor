@@ -87,8 +87,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 			return null;
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(fileItemStream.getName());
-		fileDTO.setUniqueFileName(stripPathInfo(getUniqueFileName()));
+		fileDTO.setRealFileName(stripPathInfo(fileItemStream.getName()));
+		fileDTO.setUniqueFileName(getUniqueFileName());
 		fileDTO.setContentType(fileItemStream.getContentType());
 		fileDTO.setRepositoryPath(realRepositoryPath);
 		if (log.isDebugEnabled()) {
