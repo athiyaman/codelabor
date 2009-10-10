@@ -1,5 +1,7 @@
 package org.codelabor.system.file.spring.controllers;
 
+import static org.codelabor.system.Constants.FILE_LIST_KEY;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +17,7 @@ public class FileListController extends BaseFileController {
 			HttpServletResponse response) throws Exception {
 		List<FileDTO> fileDTOList = fileManager.selectFile();
 		ModelAndView mav = new ModelAndView(getSuccessView());
-		mav.addObject("fileDTOList", fileDTOList);
+		mav.addObject(FILE_LIST_KEY, fileDTOList);
 		return mav;
 	}
 }

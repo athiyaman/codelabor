@@ -9,23 +9,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.spring.commands.FileList;
-import org.codelabor.system.spring.commands.Post;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.properties.IPropertiesService;
-
 public class FileUploadController extends SimpleFormController {
-	protected FileManager fileManager;
-	protected IPropertiesService propertiesService;
-	protected IIdGenerationService uniqueFileNameGenerationService;
-
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
@@ -34,12 +25,7 @@ public class FileUploadController extends SimpleFormController {
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
-		Post postDTO = (Post) command;
-		logger.debug("subject: " + postDTO.getSubject());
-		logger.debug("description: " + postDTO.getDescription());
-		logger.debug("writer: " + postDTO.getWriter());
-
-		List<MultipartFile> uploadedFileList = postDTO.getFile();
+		List<MultipartFile> uploadedFileList = ((FileList) command).getFile();
 		Iterator<MultipartFile> iter = uploadedFileList.iterator();
 		while (iter.hasNext()) {
 			MultipartFile uploadedFile = iter.next();
@@ -54,6 +40,7 @@ public class FileUploadController extends SimpleFormController {
 			logger.debug(pathName.toString());
 			File file = new File(pathName.toString());
 			FileCopyUtils.copy(uploadedFile.getBytes(), file);
+
 		}
 		super.doSubmitAction(command);
 	}
@@ -64,18 +51,5 @@ public class FileUploadController extends SimpleFormController {
 			throws Exception {
 		Map<String, Object> controlModel = new HashMap<String, Object>();
 		return super.showForm(request, response, errors, controlModel);
-	}
-
-	public void setFileManager(FileManager fileManager) {
-		this.fileManager = fileManager;
-	}
-
-	public void setPropertiesService(IPropertiesService propertiesService) {
-		this.propertiesService = propertiesService;
-	}
-
-	public void setUniqueFileNameGenerationService(
-			IIdGenerationService uniqueFileNameGenerationService) {
-		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
 	}
 }

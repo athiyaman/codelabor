@@ -167,39 +167,6 @@ public class FileUploadServlet extends HttpServlet {
 			log.debug(paramMap);
 		}
 	}
-	
-	protected String stripPathInfo(String realFileNameWithPath) {
-		int lastIndex = realFileNameWithPath.lastIndexOf(System.getProperty("file.separator"));
-		int beginIndex = (lastIndex > 0)? lastIndex+1: 0;
-		String realFileName = realFileNameWithPath.substring(beginIndex);
-		
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("realFileNameWithPath: ").append(realFileNameWithPath);
-			sb.append(", realFileName: ").append(realFileName);
-			log.debug(sb.toString());
-		}
-		return realFileName;
-	}
-
-	protected FileDTO processFile(RepositoryType repositoryType,
-			FileItem fileItem) throws Exception {
-		if (fileItem.getName() == null || fileItem.getName().length() == 0)
-			return null;
-				
-		// set DTO
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(stripPathInfo(fileItem.getName()));
-		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setContentType(fileItem.getContentType());
-		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		UploadUtil.processFile(repositoryType, fileItem.getInputStream(),
-				fileDTO);
-		return fileDTO;
-	}
 
 	protected void dispatch(HttpServletRequest request,
 			HttpServletResponse response, String path) throws Exception {
@@ -250,7 +217,9 @@ public class FileUploadServlet extends HttpServlet {
 						paramMap.put(item.getFieldName(), item
 								.getString(characterEncoding));
 					} else {
-						fileDTO = processFile(acceptedRepositoryType, item);
+						fileDTO = UploadUtil.processFile(
+								acceptedRepositoryType, item,
+								realRepositoryPath, getUniqueFileName());
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
@@ -334,7 +303,7 @@ public class FileUploadServlet extends HttpServlet {
 				bytes = fileDTO.getBytes();
 			}
 			inputStream = new ByteArrayInputStream(bytes);
-			
+
 		}
 		response.setContentType(contentType);
 		stringBuilder = new StringBuilder();

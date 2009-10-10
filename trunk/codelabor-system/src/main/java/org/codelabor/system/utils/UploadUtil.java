@@ -10,6 +10,8 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
@@ -91,5 +93,59 @@ public class UploadUtil {
 		outputChannel.close();
 		inputStream.close();
 		outputStream.close();
+	}
+
+	static public FileDTO processFile(RepositoryType repositoryType,
+			FileItem fileItem, String realRepositoryPath, String uniqueFileName)
+			throws Exception {
+		if (fileItem.getName() == null || fileItem.getName().length() == 0)
+			return null;
+
+		// set DTO
+		FileDTO fileDTO = new FileDTO();
+		fileDTO.setRealFileName(stripPathInfo(fileItem.getName()));
+		fileDTO.setUniqueFileName(uniqueFileName);
+		fileDTO.setContentType(fileItem.getContentType());
+		fileDTO.setRepositoryPath(realRepositoryPath);
+		if (log.isDebugEnabled()) {
+			log.debug(fileDTO);
+		}
+		processFile(repositoryType, fileItem.getInputStream(), fileDTO);
+		return fileDTO;
+	}
+
+	static public FileDTO processFile(RepositoryType repositoryType,
+			FileItemStream fileItemStream, String realRepositoryPath,
+			String uniqueFileName) throws Exception {
+		if (fileItemStream.getName() == null
+				|| fileItemStream.getName().length() == 0)
+			return null;
+
+		// set DTO
+		FileDTO fileDTO = new FileDTO();
+		fileDTO.setRealFileName(stripPathInfo(fileItemStream.getName()));
+		fileDTO.setUniqueFileName(uniqueFileName);
+		fileDTO.setContentType(fileItemStream.getContentType());
+		fileDTO.setRepositoryPath(realRepositoryPath);
+		if (log.isDebugEnabled()) {
+			log.debug(fileDTO);
+		}
+		processFile(repositoryType, fileItemStream.openStream(), fileDTO);
+		return fileDTO;
+	}
+
+	static public String stripPathInfo(String realFileNameWithPath) {
+		int lastIndex = realFileNameWithPath.lastIndexOf(System
+				.getProperty("file.separator"));
+		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
+		String realFileName = realFileNameWithPath.substring(beginIndex);
+
+		if (log.isDebugEnabled()) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("realFileNameWithPath: ").append(realFileNameWithPath);
+			sb.append(", realFileName: ").append(realFileName);
+			log.debug(sb.toString());
+		}
+		return realFileName;
 	}
 }

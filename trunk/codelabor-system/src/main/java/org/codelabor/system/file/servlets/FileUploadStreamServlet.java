@@ -58,7 +58,9 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						paramMap.put(item.getFieldName(), Streams.asString(item
 								.openStream(), characterEncoding));
 					} else {
-						fileDTO = processFile(acceptedRepositoryType, item);
+						fileDTO = UploadUtil.processFile(
+								acceptedRepositoryType, item,
+								realRepositoryPath, getUniqueFileName());
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
@@ -78,24 +80,5 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 		}
 		dispatch(request, response, forwardPathUpload);
 
-	}
-
-	protected FileDTO processFile(RepositoryType repositoryType,
-			FileItemStream fileItemStream) throws Exception {
-		if (fileItemStream.getName() == null
-				|| fileItemStream.getName().length() == 0)
-			return null;
-		// set DTO
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setRealFileName(stripPathInfo(fileItemStream.getName()));
-		fileDTO.setUniqueFileName(getUniqueFileName());
-		fileDTO.setContentType(fileItemStream.getContentType());
-		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		UploadUtil.processFile(repositoryType, fileItemStream.openStream(),
-				fileDTO);
-		return fileDTO;
 	}
 }
