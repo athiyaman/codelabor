@@ -1,6 +1,5 @@
 package org.codelabor.system.file.spring.controllers;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -9,14 +8,26 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codelabor.system.file.RepositoryType;
+import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.spring.commands.FileList;
-import org.springframework.util.FileCopyUtils;
+import org.codelabor.system.file.utils.UploadUtil;
 import org.springframework.validation.BindException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.SimpleFormController;
 
-public class FileUploadController extends SimpleFormController {
+public class FileUploadController extends BaseFileFormController {
+	protected RepositoryType repositoryType;
+	protected String repositoryPath;
+
+	public void setRepositoryType(String repositoryType) {
+		this.repositoryType = RepositoryType.valueOf(repositoryType);
+	}
+
+	public void setRepositoryPath(String repositoryPath) {
+		this.repositoryPath = repositoryPath;
+	}
+
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
@@ -29,18 +40,10 @@ public class FileUploadController extends SimpleFormController {
 		Iterator<MultipartFile> iter = uploadedFileList.iterator();
 		while (iter.hasNext()) {
 			MultipartFile uploadedFile = iter.next();
-
-			if (uploadedFile.getOriginalFilename().length() == 0)
-				continue;
-
-			StringBuffer pathName = new StringBuffer();
-			pathName.append(System.getProperty("user.home"));
-			pathName.append(System.getProperty("file.separator"));
-			pathName.append(uploadedFile.getOriginalFilename());
-			logger.debug(pathName.toString());
-			File file = new File(pathName.toString());
-			FileCopyUtils.copy(uploadedFile.getBytes(), file);
-
+			FileDTO fileDTO = UploadUtil.processFile(repositoryType,
+					uploadedFile, repositoryPath, getUniqueFileName());
+			if (fileDTO != null)
+				fileManager.insertFile(fileDTO);
 		}
 		super.doSubmitAction(command);
 	}
@@ -51,5 +54,9 @@ public class FileUploadController extends SimpleFormController {
 			throws Exception {
 		Map<String, Object> controlModel = new HashMap<String, Object>();
 		return super.showForm(request, response, errors, controlModel);
+	}
+
+	protected String getUniqueFileName() throws Exception {
+		return uniqueFileNameGenerationService.getNextStringId();
 	}
 }

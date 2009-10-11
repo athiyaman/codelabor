@@ -14,8 +14,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.utils.RequestUtil;
-import org.codelabor.system.utils.UploadUtil;
 
 import anyframe.common.util.StringUtil;
 

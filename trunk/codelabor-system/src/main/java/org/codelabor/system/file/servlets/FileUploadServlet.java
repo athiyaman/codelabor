@@ -35,8 +35,8 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
 import org.codelabor.system.file.managers.FileManager;
+import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.utils.RequestUtil;
-import org.codelabor.system.utils.UploadUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
