@@ -249,7 +249,7 @@
   		<optional>false</optional>
   	</dependency>
   	
-	<!-- tmax -->
+	<!-- tmax jeus -->
   	<dependency>
   		<groupId>kr.co.tmax</groupId>
   		<artifactId>clientcontainer</artifactId>
