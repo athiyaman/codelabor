@@ -10,7 +10,9 @@
 		<property name="mappings">
 			<map>
 				<entry key="/example/file/servlet/list.do"
-					value-ref="exampleFileServletFileListController"/>				
+					value-ref="exampleFileServletFileListController"/>
+				<entry key="/example/file/servlet/xecure/list.do"
+					value-ref="exampleFileServletXecureFileListController"/>					
 				<entry key="/example/file/spring-mvc/list.do"
 					value-ref="exampleFileSpringMvcFileListController"/>
 				<entry key="/example/file/spring-mvc/delete.do"
@@ -53,6 +55,11 @@
 		class="anyframe.web.springmvc.controller.ForwardController">
 		<property name="viewName" value="example.file.servlet.list.definition"/>
 	</bean>
+	<bean
+		id="exampleFileServletXecureFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.servlet.xecure.list.definition"/>
+	</bean>	
 	<bean
 		id="exampleFileSpringMvcFileListController"
 		class="org.codelabor.system.file.spring.controllers.FileListController"
