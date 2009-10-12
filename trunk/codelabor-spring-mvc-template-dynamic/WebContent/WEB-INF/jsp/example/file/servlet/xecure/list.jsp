@@ -29,7 +29,7 @@
 												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
 											</td>
 											<td>
-												<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
+												<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=download&fileId=${fileDTO.fileId}'/>" onClick="FileDownload('${fileDTO.realFileName}', this, 0, 0); return false;">${fileDTO.realFileName}</a>
 											</td>
 											<td>${fileDTO.uniqueFileName}</td>
 											<td>${fileDTO.repositoryPath}</td>

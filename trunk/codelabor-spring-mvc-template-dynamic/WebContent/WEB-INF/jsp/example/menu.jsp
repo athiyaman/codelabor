@@ -165,7 +165,7 @@
 						<spring:message code="menu.example.security.file"/>
 						<ul>
 							<li class="none">
-								<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=list'/>" onclick="return XecureLink(this);"><spring:message code="label.example.file.servlet"/></a>
+								<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=list'/>" onclick="return XecureFileLink(this);"><spring:message code="label.example.file.servlet"/></a>
 							</li>
 						</ul>
 					</li>

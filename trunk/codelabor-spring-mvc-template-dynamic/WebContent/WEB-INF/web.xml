@@ -152,7 +152,7 @@
 	  	</init-param>
 		<init-param>
 	  		<param-name>forwardPathList</param-name>
-	  		<param-value>/example/file/xecure/list.do</param-value>
+	  		<param-value>/example/file/servlet/xecure/list.do</param-value>
 	  	</init-param>
 	  	<init-param>
 	  		<param-name>forwardPathDelete</param-name>
