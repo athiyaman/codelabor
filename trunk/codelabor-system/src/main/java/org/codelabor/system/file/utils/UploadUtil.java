@@ -98,13 +98,14 @@ public class UploadUtil {
 	}
 
 	static public FileDTO processFile(RepositoryType repositoryType,
-			FileItem fileItem, String realRepositoryPath, String uniqueFileName)
-			throws Exception {
+			FileItem fileItem, String realRepositoryPath,
+			String uniqueFileName, String mapId) throws Exception {
 		if (fileItem.getName() == null || fileItem.getName().length() == 0)
 			return null;
 
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
+		fileDTO.setMapId(mapId);
 		fileDTO.setRealFileName(stripPathInfo(fileItem.getName()));
 		fileDTO.setUniqueFileName(uniqueFileName);
 		fileDTO.setContentType(fileItem.getContentType());
@@ -118,13 +119,14 @@ public class UploadUtil {
 
 	static public FileDTO processFile(RepositoryType repositoryType,
 			FileItemStream fileItemStream, String realRepositoryPath,
-			String uniqueFileName) throws Exception {
+			String uniqueFileName, String mapId) throws Exception {
 		if (fileItemStream.getName() == null
 				|| fileItemStream.getName().length() == 0)
 			return null;
 
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
+		fileDTO.setMapId(mapId);
 		fileDTO.setRealFileName(stripPathInfo(fileItemStream.getName()));
 		fileDTO.setUniqueFileName(uniqueFileName);
 		fileDTO.setContentType(fileItemStream.getContentType());
@@ -138,13 +140,14 @@ public class UploadUtil {
 
 	public static FileDTO processFile(RepositoryType repositoryType,
 			MultipartFile uploadedFile, String repositoryPath,
-			String uniqueFileName) throws Exception {
+			String uniqueFileName, String mapId) throws Exception {
 		String originalFilename = uploadedFile.getOriginalFilename();
 		if (originalFilename == null || originalFilename.length() == 0)
 			return null;
 
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
+		fileDTO.setMapId(mapId);
 		fileDTO.setRealFileName(stripPathInfo(originalFilename));
 		fileDTO.setUniqueFileName(uniqueFileName);
 		fileDTO.setContentType(uploadedFile.getContentType());

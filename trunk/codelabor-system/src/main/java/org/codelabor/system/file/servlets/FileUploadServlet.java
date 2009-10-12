@@ -183,6 +183,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		RepositoryType acceptedRepositoryType = repositoryType;
 		String tempRepositoryType = (String) paramMap.get("repositoryType");
+		String mapId = (String) paramMap.get("mapId");
 		if (StringUtil.isNotEmpty(tempRepositoryType)) {
 			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
 		}
@@ -214,7 +215,7 @@ public class FileUploadServlet extends HttpServlet {
 					} else {
 						fileDTO = UploadUtil.processFile(
 								acceptedRepositoryType, item,
-								realRepositoryPath, getUniqueFileName());
+								realRepositoryPath, getUniqueFileName(), mapId);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
@@ -246,11 +247,11 @@ public class FileUploadServlet extends HttpServlet {
 				switch (RepositoryType.valueOf(repositoryType)) {
 				case DATABASE:
 					fileDTOList = fileManager
-							.selectFile(RepositoryType.DATABASE);
+							.selectFileByRepositoryType(RepositoryType.DATABASE);
 					break;
 				case FILE_SYSTEM:
 					fileDTOList = fileManager
-							.selectFile(RepositoryType.FILE_SYSTEM);
+							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
 				default:
 					fileDTOList = fileManager.selectFile();

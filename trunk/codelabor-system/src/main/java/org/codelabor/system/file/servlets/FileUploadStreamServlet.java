@@ -35,6 +35,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 
 		RepositoryType acceptedRepositoryType = repositoryType;
 		String tempRepositoryType = (String) paramMap.get("repositoryType");
+		String mapId = (String) paramMap.get("mapId");
 		if (StringUtil.isNotEmpty(tempRepositoryType)) {
 			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
 		}
@@ -60,7 +61,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 					} else {
 						fileDTO = UploadUtil.processFile(
 								acceptedRepositoryType, item,
-								realRepositoryPath, getUniqueFileName());
+								realRepositoryPath, getUniqueFileName(), mapId);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);

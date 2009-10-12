@@ -36,12 +36,14 @@ public class FileUploadController extends BaseFileFormController {
 
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
-		List<MultipartFile> uploadedFileList = ((FileList) command).getFile();
+		FileList fileList = (FileList) command;
+		List<MultipartFile> uploadedFileList = fileList.getFile();
 		Iterator<MultipartFile> iter = uploadedFileList.iterator();
+		String mapId = fileList.getMapId();
 		while (iter.hasNext()) {
 			MultipartFile uploadedFile = iter.next();
 			FileDTO fileDTO = UploadUtil.processFile(repositoryType,
-					uploadedFile, repositoryPath, getUniqueFileName());
+					uploadedFile, repositoryPath, getUniqueFileName(), mapId);
 			if (fileDTO != null)
 				fileManager.insertFile(fileDTO);
 		}

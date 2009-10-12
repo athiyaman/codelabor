@@ -20,6 +20,15 @@ public class FileList implements Serializable {
 	 */
 	private static final long serialVersionUID = -7498417407011918047L;
 	private List<MultipartFile> file = new ArrayList<MultipartFile>();
+	private String mapId;
+
+	public String getMapId() {
+		return mapId;
+	}
+
+	public void setMapId(String mapId) {
+		this.mapId = mapId;
+	}
 
 	public List<MultipartFile> getFile() {
 		return file;

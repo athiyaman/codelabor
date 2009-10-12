@@ -65,7 +65,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<FileDTO> selectFile(RepositoryType repositoryType)
+	public List<FileDTO> selectFileByRepositoryType(RepositoryType repositoryType)
 			throws Exception {
 		String queryId = "system.select.file.list.by.repository.type";
 		StringBuilder stringBuilder = new StringBuilder();
@@ -78,8 +78,8 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	@SuppressWarnings("unchecked")
 	public List<FileDTO> selectFile() throws Exception {
 		String queryId = "system.select.file.list";
-		Object[] params = new Object[] {};
-		return (List<FileDTO>) queryService.find(queryId, params);
+		Object[] param = new Object[] {};
+		return (List<FileDTO>) queryService.find(queryId, param);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -90,5 +90,12 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		if (fileCol == null || fileCol.size() == 0)
 			return null;
 		return (FileDTO) fileCol.toArray()[0];
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<FileDTO> selectFileByMapId(String mapId) throws Exception {
+		String queryId = "system.select.file.list.by.map.id";
+		Object[] param = new Object[] { mapId };
+		return (List<FileDTO>) queryService.find(queryId, param);
 	}
 }

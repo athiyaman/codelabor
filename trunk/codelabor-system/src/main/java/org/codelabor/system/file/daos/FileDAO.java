@@ -36,11 +36,13 @@ public interface FileDAO {
 
 	public int insertFile(List<FileDTO> fileDTOList) throws Exception;
 
-	public List<FileDTO> selectFile(RepositoryType repositoryType)
+	public List<FileDTO> selectFileByRepositoryType(RepositoryType repositoryType)
 			throws Exception;
 
 	public List<FileDTO> selectFile() throws Exception;
 
 	public FileDTO selectFile(String fileId) throws Exception;
+
+	public List<FileDTO> selectFileByMapId(String mapId) throws Exception;
 
 }

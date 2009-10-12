@@ -30,7 +30,7 @@ import org.codelabor.system.managers.BaseManagerImpl;
  */
 public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 
-	private FileDAO fileDAO;
+	FileDAO fileDAO;
 
 	public int deleteFile(String fileId) throws Exception {
 		return fileDAO.deleteFile(fileId);
@@ -48,9 +48,13 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 		return fileDAO.insertFile(fileDTOList);
 	}
 
-	public List<FileDTO> selectFile(RepositoryType repositoryType)
+	public List<FileDTO> selectFileByRepositoryType(RepositoryType repositoryType)
 			throws Exception {
-		return fileDAO.selectFile(repositoryType);
+		return fileDAO.selectFileByRepositoryType(repositoryType);
+	}
+
+	public List<FileDTO> selectFileByMapId(String mapId) throws Exception {
+		return fileDAO.selectFileByMapId(mapId);
 	}
 
 	public List<FileDTO> selectFile() throws Exception {

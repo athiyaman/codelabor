@@ -48,11 +48,11 @@ public class FileUploadAction extends BaseDispatchAction {
 		} else {
 			switch (RepositoryType.valueOf(repositoryType)) {
 			case DATABASE:
-				fileDTOList = fileManager.selectFile(RepositoryType.DATABASE);
+				fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.DATABASE);
 				break;
 			case FILE_SYSTEM:
 				fileDTOList = fileManager
-						.selectFile(RepositoryType.FILE_SYSTEM);
+						.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 				break;
 			}
 		}
