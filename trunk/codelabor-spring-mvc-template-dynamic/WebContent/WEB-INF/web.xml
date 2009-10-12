@@ -112,10 +112,10 @@
 	<!-- file upload servlet -->
   	<servlet>
   		<servlet-name>fileUploadServlet</servlet-name>
+  		<!-- 
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadServlet</servlet-class>
-  		<!--  
+  		 -->
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadStreamServlet</servlet-class>
-  		-->
 	  	<init-param>
 	  		<param-name>parameterName</param-name>
 	  		<param-value>method</param-value>
@@ -126,7 +126,7 @@
 	  	</init-param>
 		<init-param>
 	  		<param-name>forwardPathList</param-name>
-	  		<param-value>/example/file/servlet/listFile.do</param-value>
+	  		<param-value>/example/file/servlet/list.do</param-value>
 	  	</init-param>
 	  	<init-param>
 	  		<param-name>forwardPathDelete</param-name>
@@ -152,7 +152,7 @@
 	  	</init-param>
 		<init-param>
 	  		<param-name>forwardPathList</param-name>
-	  		<param-value>/example/file/xecure/listFile.do</param-value>
+	  		<param-value>/example/file/xecure/list.do</param-value>
 	  	</init-param>
 	  	<init-param>
 	  		<param-name>forwardPathDelete</param-name>

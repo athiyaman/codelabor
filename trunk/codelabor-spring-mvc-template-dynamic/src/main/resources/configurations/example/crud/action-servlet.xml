@@ -24,6 +24,12 @@
 		<property name="crudService" ref="exampleCrudCrudService"/>
 	</bean>
 	<bean
+		id="exampleCrudBaseCrudCommandController"
+		class="org.codelabor.example.crud.spring.controllers.BaseCrudCommandController"
+		abstract="true">
+		<property name="crudService" ref="exampleCrudCrudService"/>
+	</bean>	
+	<bean
 		id="exampleCrudBaseCrudFormController"
 		class="org.codelabor.example.crud.spring.controllers.BaseCrudFormController"
 		abstract="true">
@@ -63,7 +69,7 @@
 	<bean
 		id="exampleCrudDeleteController"
 		class="org.codelabor.example.crud.spring.controllers.DeleteController"
-		parent="exampleCrudBaseCrudFormController">
+		parent="exampleCrudBaseCrudCommandController">
 		<property name="commandName" value="idArray"/>
 		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
 		<property name="successView" value="redirect:/example/crud/list.do"/>

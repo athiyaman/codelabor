@@ -213,6 +213,9 @@
 					<li>
   						<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=list'/>"><spring:message code="label.example.file.servlet"/></a>
 					</li>
+					<li>
+  						<a href="<c:url value='/example/file/spring-mvc/list.do'/>"><spring:message code="label.example.file.spring.mvc"/></a>
+					</li>
 				</ul>
 
 				<h5><spring:message code="menu.example.banking"/></h5>

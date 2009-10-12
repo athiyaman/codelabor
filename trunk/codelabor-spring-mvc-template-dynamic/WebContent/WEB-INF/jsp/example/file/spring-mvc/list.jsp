@@ -12,7 +12,7 @@
 						</c:if>
 						</h3>
 						<p></p>
-						<form action="<c:url value='/system/file/uploadFile.do?method=delete'/>" method="post">
+						<form action="<c:url value='/example/file/spring-mvc/delete.do'/>" method="post">
 							<table class="bodyTable">
 								<tbody>
 									<tr class="a">
@@ -26,10 +26,10 @@
 									<c:forEach var="fileDTO" items="${requestScope['org.codelabor.system.FILE_LIST']}">
 										<tr class="b">
 											<td>
-												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
+												<input type="checkbox" name="id" value="${fileDTO.fileId}"/>
 											</td>
 											<td>
-												<a href="<c:url value='/system/file/uploadFile.do?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
+												<a href="<c:url value='/example/file/spring-mvc/download.do?fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
 											</td>
 											<td>${fileDTO.uniqueFileName}</td>
 											<td>${fileDTO.repositoryPath}</td>
@@ -48,7 +48,7 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.filesystem"/></h3>
 						<form
-							action="<c:url value='/system/file/uploadFile.do?method=upload&repositoryType=FILE_SYSTEM'/>"
+							action="<c:url value='/example/file/spring-mvc/upload.do?method=upload&repositoryType=FILE_SYSTEM'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
@@ -77,7 +77,7 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<form
-							action="<c:url value='/system/file/uploadFile.do?method=upload&repositoryType=DATABASE'/>"
+							action="<c:url value='/example/file/spring-mvc/upload.do?method=upload&repositoryType=DATABASE'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
