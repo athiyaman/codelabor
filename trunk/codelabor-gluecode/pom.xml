@@ -35,12 +35,6 @@
   </build>
   <dependencies>
   	<!-- java -->
-  
-  	<!-- codelabor system -->  	
-  	
-  	<!-- adobe flex -->
-  	
-  	<!-- softforum xecure -->
   	<dependency>
   		<groupId>javax.activation</groupId>
   		<artifactId>activation</artifactId>
@@ -48,14 +42,34 @@
   		<type>jar</type>
   		<optional>false</optional>
   	</dependency>
+  	
+  	<!-- junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>  	
+  
+  	<!-- codelabor system -->
   	<dependency>
   		<groupId>org.codelabor</groupId>
   		<artifactId>codelabor-system</artifactId>
   		<version>2.3.3</version>
   		<type>jar</type>
   		<optional>false</optional>
-  	</dependency>
+  	</dependency>  	
+  	
+  	<!-- koscom lra -->
   	<dependency>
+    	<groupId>com.signkorea</groupId>
+    	<artifactId>signkorea-lra</artifactId>
+    	<version>1.0.3</version>
+    	<optional>false</optional>
+    </dependency>
+  	
+  	<!-- adobe flex -->
+	<dependency>
   		<groupId>adobe</groupId>
   		<artifactId>flex-messaging-remoting</artifactId>
   		<version>3.2.0.3978</version>
@@ -75,7 +89,9 @@
   		<version>3.2.0.3978</version>
   		<type>jar</type>
   		<optional>false</optional>
-  	</dependency>
+  	</dependency>  	
+  	
+  	<!-- softforum xecure -->
   	<dependency>
   		<groupId>softforum.xecure</groupId>
   		<artifactId>xecure-web</artifactId>
@@ -90,6 +106,33 @@
   		<type>jar</type>
   		<optional>false</optional>
   	</dependency>
+  	
+	<!-- tmax jeus -->
+  	<dependency>
+  		<groupId>kr.co.tmax</groupId>
+  		<artifactId>clientcontainer</artifactId>
+  		<version>6.0.0.5</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>kr.co.tmax</groupId>
+  		<artifactId>jclient</artifactId>
+  		<version>6.0.0.5</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	<dependency>
+  		<groupId>kr.co.tmax</groupId>
+  		<artifactId>jclient_jaxb</artifactId>
+  		<version>6.0.0.5</version>
+  		<type>jar</type>
+  		<scope>test</scope>
+  		<optional>false</optional>
+  	</dependency>
+  	  	
   </dependencies>
   <distributionManagement>
     <repository>

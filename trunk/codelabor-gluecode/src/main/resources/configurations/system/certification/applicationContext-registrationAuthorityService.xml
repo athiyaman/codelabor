@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="registrationAuthorityService"
+	class="org.codelabor.system.certification.pki.services.signkorea.SignkoreaRAServiceImpl">
+		<property name="test" value="true"/>
+		<property name="raServerIp" value="172.25.33.4"/>
+		<property name="raServerPort" value="7700"/>
+		<property name="returnCodeTranslator" ref="returnCodeTranslator"/>
+		<property name="queryService" ref="oracleQueryService"/>
+	</bean>
+	<bean id="returnCodeTranslator"
+		class="org.codelabor.system.certification.pki.services.signkorea.SignkoreaReturnCodeTranslator"/>
+</beans>
