@@ -1,6 +1,5 @@
 package org.codelabor.system.certification.pki.services;
 
-import org.codelabor.system.certification.pki.dtos.RegistrationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
@@ -11,12 +10,13 @@ public class RegistrationAuthorityServiceTest extends
 
 	public void testEnroll() {
 		try {
-			RegistrationDTO registrationDTO = new RegistrationDTO();
-			registrationDTO.setId("bomber");
-			registrationDTO.setPassword("bomber");
-			registrationDTO.setRegistrationNumber("7504181117115");
-			raService.enroll(registrationDTO);
-			System.out.println(registrationDTO);
+
+			// RegistrationDTO registrationDTO = new RegistrationDTO();
+			// registrationDTO.setId("bomber");
+			// registrationDTO.setPassword("bomber");
+			// registrationDTO.setRegistrationNumber("7504181117115");
+			// raService.enroll(registrationDTO);
+			// System.out.println(registrationDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
