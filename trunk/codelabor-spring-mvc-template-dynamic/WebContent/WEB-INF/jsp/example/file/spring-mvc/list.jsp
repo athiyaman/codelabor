@@ -52,12 +52,8 @@
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
-									<th>param1</th>
-									<td><input type="text" name="param1" value="값1"/></td>
-								</tr>
-								<tr class="b">
-									<th>param2</th>
-									<td><input type="text" name="param2" value="value2"/></td>
+									<th><spring:message code="label.system.file.map.id"/></th>
+									<td><input type="text" name="mapId" /></td>
 								</tr>		
 								<tr class="b">
 									<th>files</th>
@@ -81,12 +77,8 @@
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
-									<th>param1</th>
-									<td><input type="text" name="param1" value="값1"/></td>
-								</tr>
-								<tr class="b">
-									<th>param2</th>
-									<td><input type="text" name="param2" value="value2"/></td>
+									<th><spring:message code="label.system.file.map.id"/></th>
+									<td><input type="text" name="mapId" /></td>
 								</tr>		
 								<tr class="b">
 									<th>files</th>
