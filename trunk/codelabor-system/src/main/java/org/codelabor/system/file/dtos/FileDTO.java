@@ -39,19 +39,37 @@ public class FileDTO implements Serializable {
 
 	/**
 	 * Copy Constructor
-	 *
-	 * @param fileDTO a <code>FileDTO</code> object
+	 * 
+	 * @param fileDTO
+	 *            a <code>FileDTO</code> object
 	 */
-	public FileDTO(FileDTO fileDTO) 
-	{
-	    this.bytes = fileDTO.bytes;
-	    this.contentType = fileDTO.contentType;
-	    this.fileId = fileDTO.fileId;
-	    this.fileSize = fileDTO.fileSize;
-	    this.mapId = fileDTO.mapId;
-	    this.realFileName = fileDTO.realFileName;
-	    this.repositoryPath = fileDTO.repositoryPath;
-	    this.uniqueFileName = fileDTO.uniqueFileName;
+	public FileDTO(FileDTO fileDTO) {
+		this.bytes = fileDTO.bytes;
+		this.contentType = fileDTO.contentType;
+		this.fileId = fileDTO.fileId;
+		this.fileSize = fileDTO.fileSize;
+		this.mapId = fileDTO.mapId;
+		this.realFileName = fileDTO.realFileName;
+		this.repositoryPath = fileDTO.repositoryPath;
+		this.uniqueFileName = fileDTO.uniqueFileName;
+	}
+
+	public FileDTO() {
+		super();
+	}
+
+	public FileDTO(String fileId, String mapId, String realFileName,
+			String uniqueFileName, String repositoryPath, String contentType,
+			long fileSize, byte[] bytes) {
+		super();
+		this.fileId = fileId;
+		this.mapId = mapId;
+		this.realFileName = realFileName;
+		this.uniqueFileName = uniqueFileName;
+		this.repositoryPath = repositoryPath;
+		this.contentType = contentType;
+		this.fileSize = fileSize;
+		this.bytes = bytes;
 	}
 
 	public String getContentType() {
@@ -127,31 +145,30 @@ public class FileDTO implements Serializable {
 	}
 
 	/**
-	 * Constructs a <code>String</code> with all attributes
-	 * in name = value format.
-	 *
-	 * @return a <code>String</code> representation 
-	 * of this object.
+	 * Constructs a <code>String</code> with all attributes in name = value
+	 * format.
+	 * 
+	 * @return a <code>String</code> representation of this object.
 	 */
-	public String toString()
-	{
-	    final String TAB = "    ";
-	
-	    StringBuilder retValue = new StringBuilder();
-	    
-	    retValue.append("FileDTO ( ")
-	        .append(super.toString()).append(TAB)
-	        .append("bytes = ").append(this.bytes).append(TAB)
-	        .append("contentType = ").append(this.contentType).append(TAB)
-	        .append("fileId = ").append(this.fileId).append(TAB)
-	        .append("fileSize = ").append(this.fileSize).append(TAB)
-	        .append("mapId = ").append(this.mapId).append(TAB)
-	        .append("realFileName = ").append(this.realFileName).append(TAB)
-	        .append("repositoryPath = ").append(this.repositoryPath).append(TAB)
-	        .append("uniqueFileName = ").append(this.uniqueFileName).append(TAB)
-	        .append(" )");
-	    
-	    return retValue.toString();
+	@Override
+	public String toString() {
+		final String TAB = "    ";
+
+		StringBuilder retValue = new StringBuilder();
+
+		retValue.append("FileDTO ( ").append(super.toString()).append(TAB)
+				.append("bytes = ").append(this.bytes).append(TAB).append(
+						"contentType = ").append(this.contentType).append(TAB)
+				.append("fileId = ").append(this.fileId).append(TAB).append(
+						"fileSize = ").append(this.fileSize).append(TAB)
+				.append("mapId = ").append(this.mapId).append(TAB).append(
+						"realFileName = ").append(this.realFileName)
+				.append(TAB).append("repositoryPath = ").append(
+						this.repositoryPath).append(TAB).append(
+						"uniqueFileName = ").append(this.uniqueFileName)
+				.append(TAB).append(" )");
+
+		return retValue.toString();
 	}
 
 }
