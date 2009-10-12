@@ -31,6 +31,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codelabor.system.Constants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
@@ -50,9 +51,6 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
 	private final Log log = LogFactory.getLog(FileUploadServlet.class);
-
-	protected static final String contentType = "Application/octet-stream";
-	protected static final String responseHeaderName = "Content-Disposition";
 
 	protected ServletConfig servletConfig;
 	protected String parameterName;
@@ -305,10 +303,10 @@ public class FileUploadServlet extends HttpServlet {
 			inputStream = new ByteArrayInputStream(bytes);
 
 		}
-		response.setContentType(contentType);
+		response.setContentType(Constants.CONTENT_TYPE);
 		stringBuilder = new StringBuilder();
 		stringBuilder.append("attachment; filename=").append(realFileName);
-		response.setHeader(responseHeaderName, stringBuilder.toString());
+		response.setHeader(Constants.RESPONSE_HEADER_NAME, stringBuilder.toString());
 
 		BufferedInputStream bufferdInputStream = new BufferedInputStream(
 				inputStream);
