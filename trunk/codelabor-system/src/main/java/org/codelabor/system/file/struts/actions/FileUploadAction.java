@@ -1,8 +1,6 @@
 package org.codelabor.system.file.struts.actions;
 
 import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
-import static org.codelabor.system.Constants.FILE_KEY;
-import static org.codelabor.system.Constants.FILE_LIST_KEY;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -16,6 +14,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
+import org.codelabor.system.file.Constants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
@@ -57,7 +56,7 @@ public class FileUploadAction extends BaseDispatchAction {
 				break;
 			}
 		}
-		request.setAttribute(FILE_LIST_KEY, fileDTOList);
+		request.setAttribute(Constants.FILE_LIST_KEY, fileDTOList);
 		return mapping.findForward("list");
 	}
 
@@ -70,7 +69,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFile(fileId);
-		request.setAttribute(FILE_KEY, fileDTO);
+		request.setAttribute(Constants.FILE_KEY, fileDTO);
 		return mapping.findForward("read");
 	}
 

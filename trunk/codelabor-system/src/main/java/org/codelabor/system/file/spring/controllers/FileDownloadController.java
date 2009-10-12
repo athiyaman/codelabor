@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.Constants;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -59,11 +58,13 @@ public class FileDownloadController extends BaseFileController {
 			inputStream = new ByteArrayInputStream(bytes);
 
 		}
-		response.setContentType(Constants.CONTENT_TYPE);
+		response
+				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
 		stringBuilder = new StringBuilder();
 		stringBuilder.append("attachment; filename=").append(realFileName);
-		response.setHeader(Constants.RESPONSE_HEADER_NAME, stringBuilder
-				.toString());
+		response.setHeader(
+				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
+				stringBuilder.toString());
 
 		BufferedInputStream bufferdInputStream = new BufferedInputStream(
 				inputStream);

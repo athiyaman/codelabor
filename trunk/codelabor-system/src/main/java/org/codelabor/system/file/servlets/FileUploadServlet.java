@@ -1,8 +1,6 @@
 package org.codelabor.system.file.servlets;
 
 import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
-import static org.codelabor.system.Constants.FILE_KEY;
-import static org.codelabor.system.Constants.FILE_LIST_KEY;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -31,7 +29,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.Constants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
@@ -260,7 +257,9 @@ public class FileUploadServlet extends HttpServlet {
 					break;
 				}
 			}
-			request.setAttribute(FILE_LIST_KEY, fileDTOList);
+			request.setAttribute(
+					org.codelabor.system.file.Constants.FILE_LIST_KEY,
+					fileDTOList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -303,10 +302,13 @@ public class FileUploadServlet extends HttpServlet {
 			inputStream = new ByteArrayInputStream(bytes);
 
 		}
-		response.setContentType(Constants.CONTENT_TYPE);
+		response
+				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
 		stringBuilder = new StringBuilder();
 		stringBuilder.append("attachment; filename=").append(realFileName);
-		response.setHeader(Constants.RESPONSE_HEADER_NAME, stringBuilder.toString());
+		response.setHeader(
+				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
+				stringBuilder.toString());
 
 		BufferedInputStream bufferdInputStream = new BufferedInputStream(
 				inputStream);
@@ -345,7 +347,8 @@ public class FileUploadServlet extends HttpServlet {
 			throws Exception {
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFile(fileId);
-		request.setAttribute(FILE_KEY, fileDTO);
+		request.setAttribute(org.codelabor.system.file.Constants.FILE_KEY,
+				fileDTO);
 		dispatch(request, response, forwardPathRead);
 	}
 
