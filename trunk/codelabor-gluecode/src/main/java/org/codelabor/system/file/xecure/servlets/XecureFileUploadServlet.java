@@ -1,7 +1,12 @@
 package org.codelabor.system.file.xecure.servlets;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -15,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.servlets.FileUploadServlet;
-import org.codelabor.system.utils.UploadUtil;
+import org.codelabor.system.file.utils.UploadUtil;
 
 import xecure.file.XecureFileInputStream;
 import xecure.file.XecureFileOutputStream;
@@ -40,7 +45,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		try {
 			XecureServlet xecureServlet = new XecureServlet(request, response);
 			request = xecureServlet.request;
-			response = xecureServlet.response;			
+			response = xecureServlet.response;
 			String parameterValue = request.getParameter(parameterName);
 			switch (Parameter.valueOf(parameterValue)) {
 			case upload:
@@ -118,7 +123,68 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			XecureFileOutputStream xecureFileOutputStream = new XecureFileOutputStream(
 					xservlet.getXecureSession(), xservlet.request,
 					xservlet.response, response.getOutputStream());
-			xecureFileOutputStream.fileDownload();
+
+			StringBuilder stringBuilder = null;
+			String fileId = request.getParameter("fileId");
+
+			FileDTO fileDTO;
+			fileDTO = fileManager.selectFile(fileId);
+			if (log.isDebugEnabled()) {
+				stringBuilder = new StringBuilder();
+				stringBuilder.append(fileDTO);
+				log.debug(stringBuilder.toString());
+			}
+
+			String repositoryPath = fileDTO.getRepositoryPath();
+			String uniqueFileName = fileDTO.getUniqueFileName();
+			String realFileName = fileDTO.getRealFileName();
+			InputStream inputStream = null;
+			if (StringUtil.isNotEmpty(repositoryPath)) {
+				// FILE_SYSTEM
+				stringBuilder = new StringBuilder();
+				stringBuilder.append(repositoryPath);
+				if (!repositoryPath.endsWith(File.separator)) {
+					stringBuilder.append(File.separator);
+				}
+				stringBuilder.append(uniqueFileName);
+				File file = new File(stringBuilder.toString());
+				inputStream = new FileInputStream(file);
+			} else {
+				// DATABASE
+				byte[] bytes = new byte[] {};
+				if (fileDTO.getFileSize() > 0) {
+					bytes = fileDTO.getBytes();
+				}
+				inputStream = new ByteArrayInputStream(bytes);
+
+			}
+
+			xecureFileOutputStream.writeHeader((int) fileDTO.getFileSize());
+
+			response
+					.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
+			stringBuilder = new StringBuilder();
+			stringBuilder.append("attachment; filename=").append(realFileName);
+			response.setHeader(
+					org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
+					stringBuilder.toString());
+
+			BufferedInputStream bufferdInputStream = new BufferedInputStream(
+					inputStream);
+
+			int bytesRead;
+			byte buffer[] = new byte[2048];
+			while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {
+				xecureFileOutputStream.write(buffer, 0, bytesRead);
+			}
+			// flush
+			xecureFileOutputStream.flush();
+
+			// close stream
+			inputStream.close();
+			bufferdInputStream.close();
+			xecureFileOutputStream.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

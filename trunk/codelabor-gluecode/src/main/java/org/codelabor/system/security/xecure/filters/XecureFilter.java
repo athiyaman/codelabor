@@ -25,12 +25,10 @@ public class XecureFilter implements Filter {
 
 	private final Log log = LogFactory.getLog(XecureFilter.class);
 
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
+	public void init(FilterConfig config) throws ServletException {
 	}
 
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -41,13 +39,12 @@ public class XecureFilter implements Filter {
 		XecureHttpServletResponse xRes = null;
 
 		String qValue = httpReq.getParameter("q");
-		String fileEnc = httpReq.getParameter("fileEnc");
 		if (log.isDebugEnabled()) {
 			log.debug("q: " + qValue);
 		}
 		if (qValue == null || "".equals(qValue))
 			chain.doFilter(httpReq, httpRes);
-		else if ("YES".equals(fileEnc))
+		else if (Boolean.parseBoolean(httpReq.getParameter("fileEnc")))
 			chain.doFilter(httpReq, httpRes);
 		else {
 			try {
