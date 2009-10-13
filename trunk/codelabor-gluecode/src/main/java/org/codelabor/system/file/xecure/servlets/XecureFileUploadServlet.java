@@ -82,15 +82,17 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 				log.debug(paramMap);
 			}
 
+			String mapId = (String) paramMap.get("mapId");
 			RepositoryType acceptedRepositoryType = repositoryType;
-			String tempRepositoryType = request.getParameter("repositoryType");
-			if (StringUtil.isNotEmpty(tempRepositoryType)) {
+			String requestedRepositoryType = (String) paramMap
+					.get("repositoryType");
+			if (StringUtil.isNotEmpty(requestedRepositoryType)) {
 				acceptedRepositoryType = RepositoryType
-						.valueOf(tempRepositoryType);
+						.valueOf(requestedRepositoryType);
 			}
 
 			FileDTO fileDTO = processFile(acceptedRepositoryType,
-					xecureFileInputStream);
+					xecureFileInputStream, mapId);
 			fileManager.insertFile(fileDTO);
 			processParameters(paramMap);
 			writer.println("OK");
@@ -201,12 +203,14 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	 * @return
 	 */
 	private FileDTO processFile(RepositoryType repositoryType,
-			XecureFileInputStream xecureFileInputStream) throws Exception {
+			XecureFileInputStream xecureFileInputStream, String mapId)
+			throws Exception {
 		String fileName = xecureFileInputStream.getFileName();
 		if (StringUtil.isEmpty(fileName))
 			return null;
 		// set DTO
 		FileDTO fileDTO = new FileDTO();
+		fileDTO.setMapId(mapId);
 		MimetypesFileTypeMap mimetypesFileTypeMap = new MimetypesFileTypeMap();
 		fileDTO.setRealFileName(fileName);
 		fileDTO.setUniqueFileName(getUniqueFileName());

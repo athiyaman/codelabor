@@ -4,7 +4,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-gluecode</artifactId>
   <packaging>jar</packaging>
-  <version>1.2.8</version>
+  <version>1.2.9</version>
   <name>codelabor-gluecode</name>
   <url>http://codelabor.org</url>
   <developers>
@@ -51,14 +51,7 @@
       <scope>test</scope>
     </dependency>  	
   
-  	<!-- codelabor system -->
-  	<dependency>
-  		<groupId>org.codelabor</groupId>
-  		<artifactId>codelabor-system</artifactId>
-  		<version>2.3.9</version>
-  		<type>jar</type>
-  		<optional>false</optional>
-  	</dependency>  	
+  	<!-- codelabor system -->  	
   	
   	<!-- koscom lra -->
   	<dependency>
@@ -133,6 +126,13 @@
   		<optional>false</optional>
   	</dependency>
   	  	
+  	<dependency>
+  		<groupId>org.codelabor</groupId>
+  		<artifactId>codelabor-system</artifactId>
+  		<version>2.4.0</version>
+  		<type>jar</type>
+  		<optional>false</optional>
+  	</dependency>
   </dependencies>
   <distributionManagement>
     <repository>

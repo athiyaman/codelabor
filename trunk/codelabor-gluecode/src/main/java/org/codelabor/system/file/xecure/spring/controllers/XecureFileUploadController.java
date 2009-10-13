@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class XecureFileUploadController extends BaseXecureFileController {
 
+	@SuppressWarnings("unused")
 	private final Log log = LogFactory.getLog(XecureFileUploadController.class);
 
 	@Override
