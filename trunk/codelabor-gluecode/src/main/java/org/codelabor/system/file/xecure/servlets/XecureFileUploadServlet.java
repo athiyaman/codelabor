@@ -82,10 +82,17 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 				log.debug(paramMap);
 			}
 
-			String mapId = (String) paramMap.get("mapId");
+			// error (array)
+			// String mapId = (String) paramMap.get("mapId");
+			// RepositoryType acceptedRepositoryType = repositoryType;
+			// String requestedRepositoryType = (String) paramMap
+			// .get("repositoryType");
+
+			String mapId = ((String[]) paramMap.get("mapId"))[0];
 			RepositoryType acceptedRepositoryType = repositoryType;
-			String requestedRepositoryType = (String) paramMap
-					.get("repositoryType");
+			String requestedRepositoryType = ((String[]) paramMap
+					.get("repositoryType"))[0];
+
 			if (StringUtil.isNotEmpty(requestedRepositoryType)) {
 				acceptedRepositoryType = RepositoryType
 						.valueOf(requestedRepositoryType);
