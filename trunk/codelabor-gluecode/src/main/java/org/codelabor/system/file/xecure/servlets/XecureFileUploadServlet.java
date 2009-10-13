@@ -202,7 +202,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	 * @param xecureFileInputStream
 	 * @return
 	 */
-	private FileDTO processFile(RepositoryType repositoryType,
+	protected FileDTO processFile(RepositoryType repositoryType,
 			XecureFileInputStream xecureFileInputStream, String mapId)
 			throws Exception {
 		String fileName = xecureFileInputStream.getFileName();
