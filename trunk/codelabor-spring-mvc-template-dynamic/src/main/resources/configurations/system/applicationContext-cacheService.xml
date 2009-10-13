@@ -26,4 +26,22 @@
 	<bean id="cacheManager"
 		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 	</bean>
+	
+	<bean id="cacheAdministrator"
+		class="com.opensymphony.oscache.general.GeneralCacheAdministrator"
+		destroy-method="destroy">
+		<constructor-arg index="0">
+			<props>
+				<prop key="cache.capacity">50</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+
+	<bean id="cache" factory-bean="cacheAdministrator"
+		factory-method="getCache" />
+
+	<bean id="cacheService"
+		class="anyframe.core.cache.impl.DefaultCacheService">
+		<property name="cache" ref="cache" />
+	</bean>
 </beans>
