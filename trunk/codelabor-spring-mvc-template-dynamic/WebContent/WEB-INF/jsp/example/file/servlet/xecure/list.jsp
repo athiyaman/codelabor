@@ -12,7 +12,7 @@
 						</c:if>
 						</h3>
 						<p></p>
-						<form action="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=delete'/>" method="post">
+						<form action="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=delete'/>" method="post" onsubmit="return XecureSubmit(this);">
 							<table class="bodyTable">
 								<tbody>
 									<tr class="a">
