@@ -17,6 +17,7 @@
 								<tbody>
 									<tr class="a">
 										<th><spring:message code="label.system.file.id"/></th>
+										<th><spring:message code="label.system.file.map.id"/></th>
 										<th><spring:message code="label.system.file.real.name"/></th>
 										<th><spring:message code="label.system.file.unique.name"/></th>
 										<th><spring:message code="label.system.file.repository.path"/></th>
@@ -27,6 +28,9 @@
 										<tr class="b">
 											<td>
 												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
+											</td>
+											<td>
+												${fileDTO.mapId}
 											</td>
 											<td>
 												<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=download&fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
@@ -48,12 +52,12 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.filesystem"/></h3>
 						<form
-							action="<c:url value='/servlet/system/file/fileUploadServlet?method=upload&repositoryType=FILE_SYSTEM'/>"
+							action="<c:url value='/servlet/system/file/fileUploadServlet?method=upload&repositoryType=FILE_SYSTEM&mapId=${mapId}'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
 									<th><spring:message code="label.system.file.map.id"/></th>
-									<td><input type="text" name="mapId" /></td>
+									<td>${mapId}</td>
 								</tr>
 								<tr class="b">
 									<th>files</th>
@@ -73,12 +77,12 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<form
-							action="<c:url value='/servlet/system/file/fileUploadServlet?method=upload&repositoryType=DATABASE'/>"
+							action="<c:url value='/servlet/system/file/fileUploadServlet?method=upload&repositoryType=DATABASE&mapId=${mapId}'/>"
 							method="post" enctype="multipart/form-data">
 							<table class="bodyTable">
 								<tr class="b">
 									<th><spring:message code="label.system.file.map.id"/></th>
-									<td><input type="text" name="mapId" /></td>
+									<td>${mapId}</td>
 								</tr>		
 								<tr class="b">
 									<th>files</th>

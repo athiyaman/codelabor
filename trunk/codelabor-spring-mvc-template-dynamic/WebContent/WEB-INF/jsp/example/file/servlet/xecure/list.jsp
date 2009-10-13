@@ -17,6 +17,7 @@
 								<tbody>
 									<tr class="a">
 										<th><spring:message code="label.system.file.id"/></th>
+										<th><spring:message code="label.system.file.map.id"/></th>
 										<th><spring:message code="label.system.file.real.name"/></th>
 										<th><spring:message code="label.system.file.unique.name"/></th>
 										<th><spring:message code="label.system.file.repository.path"/></th>
@@ -28,6 +29,7 @@
 											<td>
 												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
 											</td>
+											<td>${fileDTO.mapId}</td>
 											<td>
 												<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=download&fileId=${fileDTO.fileId}'/>" onClick="FileDownload('${fileDTO.realFileName}', this, 0, 0); return false;">${fileDTO.realFileName}</a>
 											</td>
@@ -48,14 +50,14 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.filesystem"/></h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
+							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
 						</ul>
 					</div>
 
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=DATABASE'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
+							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=DATABASE&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
 						</ul>
 					</div>
 
