@@ -47,7 +47,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
-	private final Log log = LogFactory.getLog(FileUploadServlet.class);
+	private final static Log log = LogFactory.getLog(FileUploadServlet.class);
 
 	protected ServletConfig servletConfig;
 	protected String parameterName;
@@ -187,11 +187,13 @@ public class FileUploadServlet extends HttpServlet {
 			log.debug(paramMap);
 		}
 
-		RepositoryType acceptedRepositoryType = repositoryType;
-		String tempRepositoryType = (String) paramMap.get("repositoryType");
 		String mapId = (String) paramMap.get("mapId");
-		if (StringUtil.isNotEmpty(tempRepositoryType)) {
-			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
+		RepositoryType acceptedRepositoryType = repositoryType;
+		String requestedRepositoryType = (String) paramMap
+				.get("repositoryType");
+		if (StringUtil.isNotEmpty(requestedRepositoryType)) {
+			acceptedRepositoryType = RepositoryType
+					.valueOf(requestedRepositoryType);
 		}
 
 		if (isMultipart) {
@@ -206,22 +208,35 @@ public class FileUploadServlet extends HttpServlet {
 			upload.setHeaderEncoding(characterEncoding);
 			upload.setProgressListener(fileUploadProgressListener);
 			try {
-				List<FileItem> items = upload.parseRequest(request);
-				Iterator<FileItem> iter = items.iterator();
+				List<FileItem> fileItemList = upload.parseRequest(request);
+				Iterator<FileItem> iter = fileItemList.iterator();
 
 				while (iter.hasNext()) {
-					FileItem item = iter.next();
+					FileItem fileItem = iter.next();
 					if (log.isDebugEnabled()) {
-						log.debug(item);
+						log.debug(fileItem);
 					}
 					FileDTO fileDTO = null;
-					if (item.isFormField()) {
-						paramMap.put(item.getFieldName(), item
+					if (fileItem.isFormField()) {
+						paramMap.put(fileItem.getFieldName(), fileItem
 								.getString(characterEncoding));
 					} else {
-						fileDTO = UploadUtil.processFile(
-								acceptedRepositoryType, item,
-								realRepositoryPath, getUniqueFileName(), mapId);
+						if (fileItem.getName() == null
+								|| fileItem.getName().length() == 0)
+							continue;
+						// set DTO
+						fileDTO = new FileDTO();
+						fileDTO.setMapId(mapId);
+						fileDTO.setRealFileName(UploadUtil
+								.stripPathInfo(fileItem.getName()));
+						fileDTO.setUniqueFileName(getUniqueFileName());
+						fileDTO.setContentType(fileItem.getContentType());
+						fileDTO.setRepositoryPath(realRepositoryPath);
+						if (log.isDebugEnabled()) {
+							log.debug(fileDTO);
+						}
+						UploadUtil.processFile(acceptedRepositoryType, fileItem
+								.getInputStream(), fileDTO);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);

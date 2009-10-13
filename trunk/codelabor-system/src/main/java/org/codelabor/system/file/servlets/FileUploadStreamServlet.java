@@ -36,11 +36,13 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 			log.debug(paramMap);
 		}
 
-		RepositoryType acceptedRepositoryType = repositoryType;
-		String tempRepositoryType = (String) paramMap.get("repositoryType");
 		String mapId = (String) paramMap.get("mapId");
-		if (StringUtil.isNotEmpty(tempRepositoryType)) {
-			acceptedRepositoryType = RepositoryType.valueOf(tempRepositoryType);
+		RepositoryType acceptedRepositoryType = repositoryType;
+		String requestedRepositoryType = (String) paramMap
+				.get("repositoryType");
+		if (StringUtil.isNotEmpty(requestedRepositoryType)) {
+			acceptedRepositoryType = RepositoryType
+					.valueOf(requestedRepositoryType);
 		}
 
 		if (isMultipart) {
@@ -53,18 +55,33 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 				FileItemIterator iter = upload.getItemIterator(request);
 
 				while (iter.hasNext()) {
-					FileItemStream item = iter.next();
+					FileItemStream fileItemSteam = iter.next();
 					if (log.isDebugEnabled()) {
-						log.debug(item);
+						log.debug(fileItemSteam);
 					}
 					FileDTO fileDTO = null;
-					if (item.isFormField()) {
-						paramMap.put(item.getFieldName(), Streams.asString(item
-								.openStream(), characterEncoding));
+					if (fileItemSteam.isFormField()) {
+						paramMap.put(fileItemSteam.getFieldName(), Streams
+								.asString(fileItemSteam.openStream(),
+										characterEncoding));
 					} else {
-						fileDTO = UploadUtil.processFile(
-								acceptedRepositoryType, item,
-								realRepositoryPath, getUniqueFileName(), mapId);
+						if (fileItemSteam.getName() == null
+								|| fileItemSteam.getName().length() == 0)
+							continue;
+
+						// set DTO
+						fileDTO = new FileDTO();
+						fileDTO.setMapId(mapId);
+						fileDTO.setRealFileName(UploadUtil
+								.stripPathInfo(fileItemSteam.getName()));
+						fileDTO.setUniqueFileName(getUniqueFileName());
+						fileDTO.setContentType(fileItemSteam.getContentType());
+						fileDTO.setRepositoryPath(realRepositoryPath);
+						if (log.isDebugEnabled()) {
+							log.debug(fileDTO);
+						}
+						UploadUtil.processFile(repositoryType, fileItemSteam
+								.openStream(), fileDTO);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);

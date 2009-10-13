@@ -10,17 +10,14 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.utils.ChannelUtil;
-import org.springframework.web.multipart.MultipartFile;
 
 public class UploadUtil {
-	static private final Log log = LogFactory.getLog(UploadUtil.class);
+	public static final Log log = LogFactory.getLog(UploadUtil.class);
 
 	static public void processFile(RepositoryType repositoryType,
 			InputStream inputStream, List<FileDTO> fileDTOList)
@@ -95,68 +92,6 @@ public class UploadUtil {
 		outputChannel.close();
 		inputStream.close();
 		outputStream.close();
-	}
-
-	static public FileDTO processFile(RepositoryType repositoryType,
-			FileItem fileItem, String realRepositoryPath,
-			String uniqueFileName, String mapId) throws Exception {
-		if (fileItem.getName() == null || fileItem.getName().length() == 0)
-			return null;
-
-		// set DTO
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setMapId(mapId);
-		fileDTO.setRealFileName(stripPathInfo(fileItem.getName()));
-		fileDTO.setUniqueFileName(uniqueFileName);
-		fileDTO.setContentType(fileItem.getContentType());
-		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		processFile(repositoryType, fileItem.getInputStream(), fileDTO);
-		return fileDTO;
-	}
-
-	static public FileDTO processFile(RepositoryType repositoryType,
-			FileItemStream fileItemStream, String realRepositoryPath,
-			String uniqueFileName, String mapId) throws Exception {
-		if (fileItemStream.getName() == null
-				|| fileItemStream.getName().length() == 0)
-			return null;
-
-		// set DTO
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setMapId(mapId);
-		fileDTO.setRealFileName(stripPathInfo(fileItemStream.getName()));
-		fileDTO.setUniqueFileName(uniqueFileName);
-		fileDTO.setContentType(fileItemStream.getContentType());
-		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		processFile(repositoryType, fileItemStream.openStream(), fileDTO);
-		return fileDTO;
-	}
-
-	public static FileDTO processFile(RepositoryType repositoryType,
-			MultipartFile uploadedFile, String repositoryPath,
-			String uniqueFileName, String mapId) throws Exception {
-		String originalFilename = uploadedFile.getOriginalFilename();
-		if (originalFilename == null || originalFilename.length() == 0)
-			return null;
-
-		// set DTO
-		FileDTO fileDTO = new FileDTO();
-		fileDTO.setMapId(mapId);
-		fileDTO.setRealFileName(stripPathInfo(originalFilename));
-		fileDTO.setUniqueFileName(uniqueFileName);
-		fileDTO.setContentType(uploadedFile.getContentType());
-		fileDTO.setRepositoryPath(repositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
-		processFile(repositoryType, uploadedFile.getInputStream(), fileDTO);
-		return fileDTO;
 	}
 
 	static public String stripPathInfo(String realFileNameWithPath) {

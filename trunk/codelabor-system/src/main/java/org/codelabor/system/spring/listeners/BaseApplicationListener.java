@@ -25,6 +25,7 @@ import org.springframework.context.ApplicationListener;
  * @author SangJae Shin
  * 
  */
+@SuppressWarnings("unchecked")
 public class BaseApplicationListener extends BaseListener implements
 		ApplicationListener {
 

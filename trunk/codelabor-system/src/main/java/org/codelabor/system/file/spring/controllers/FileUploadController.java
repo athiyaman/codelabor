@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.spring.commands.FileList;
@@ -16,7 +18,10 @@ import org.springframework.validation.BindException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import anyframe.common.util.StringUtil;
+
 public class FileUploadController extends BaseFileFormController {
+	private final Log log = LogFactory.getLog(FileUploadController.class);
 	protected RepositoryType repositoryType;
 	protected String repositoryPath;
 
@@ -39,11 +44,35 @@ public class FileUploadController extends BaseFileFormController {
 		FileList fileList = (FileList) command;
 		List<MultipartFile> uploadedFileList = fileList.getFile();
 		Iterator<MultipartFile> iter = uploadedFileList.iterator();
+
 		String mapId = fileList.getMapId();
+		RepositoryType acceptedRepositoryType = repositoryType;
+		String requestedRepositoryType = fileList.getRepositoryType();
+		if (StringUtil.isNotEmpty(requestedRepositoryType)) {
+			acceptedRepositoryType = RepositoryType
+					.valueOf(requestedRepositoryType);
+		}
+
 		while (iter.hasNext()) {
 			MultipartFile uploadedFile = iter.next();
-			FileDTO fileDTO = UploadUtil.processFile(repositoryType,
-					uploadedFile, repositoryPath, getUniqueFileName(), mapId);
+
+			String originalFilename = uploadedFile.getOriginalFilename();
+			if (originalFilename == null || originalFilename.length() == 0)
+				continue;
+
+			// set DTO
+			FileDTO fileDTO = new FileDTO();
+			fileDTO.setMapId(mapId);
+			fileDTO.setRealFileName(UploadUtil.stripPathInfo(originalFilename));
+			fileDTO.setUniqueFileName(getUniqueFileName());
+			fileDTO.setContentType(uploadedFile.getContentType());
+			fileDTO.setRepositoryPath(repositoryPath);
+			if (log.isDebugEnabled()) {
+				log.debug(fileDTO);
+			}
+			UploadUtil.processFile(acceptedRepositoryType, uploadedFile
+					.getInputStream(), fileDTO);
+
 			if (fileDTO != null)
 				fileManager.insertFile(fileDTO);
 		}
