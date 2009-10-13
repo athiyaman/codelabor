@@ -93,7 +93,7 @@
 
 	<!-- anyframe -->
 	<logger name="anyframe" additivity="false">
-		<level value="info" />
+		<level value="debug" />
 		<appender-ref ref="console" />
 		<appender-ref ref="defaultDailyRollingFile"/>
 	</logger>

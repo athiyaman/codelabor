@@ -33,6 +33,14 @@
 			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
+	<bean name="sequenceMapIdGenerationService"
+		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+		destroy-method="destroy">
+		<property name="dataSource" ref="oracleDataSource" />
+		<config:configuration big-decimals="true">
+			<query>SELECT MAP_ID_SEQ.NEXTVAL FROM DUAL</query>
+		</config:configuration>
+	</bean>		
 
 	<bean name="sequenceSignIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
