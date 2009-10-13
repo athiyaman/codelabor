@@ -32,6 +32,9 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
 
 		RepositoryType acceptedRepositoryType = repositoryType;
 		String tempRepositoryType = (String) paramMap.get("repositoryType");

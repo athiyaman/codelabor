@@ -68,6 +68,7 @@ public class FileUploadServlet extends HttpServlet {
 	protected FileManager fileManager;
 	protected IPropertiesService propertiesService;
 	protected IIdGenerationService uniqueFileNameGenerationService;
+	protected IIdGenerationService mapIdGenerationService;
 
 	// configuration
 	protected String characterEncoding = "UTF-8";
@@ -98,6 +99,8 @@ public class FileUploadServlet extends HttpServlet {
 				.getBean("propertiesService");
 		uniqueFileNameGenerationService = (IIdGenerationService) ctx
 				.getBean("uniqueFileNameGenerationService");
+		mapIdGenerationService = (IIdGenerationService) ctx
+				.getBean("sequenceMapIdGenerationService");
 
 		// overwrite configuration
 		characterEncoding = propertiesService.getString(
@@ -180,6 +183,9 @@ public class FileUploadServlet extends HttpServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
 
 		RepositoryType acceptedRepositoryType = repositoryType;
 		String tempRepositoryType = (String) paramMap.get("repositoryType");
@@ -261,6 +267,8 @@ public class FileUploadServlet extends HttpServlet {
 			request.setAttribute(
 					org.codelabor.system.file.Constants.FILE_LIST_KEY,
 					fileDTOList);
+			request.setAttribute(org.codelabor.system.file.Constants.MAP_ID,
+					mapIdGenerationService.getNextStringId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
