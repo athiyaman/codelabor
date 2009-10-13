@@ -80,8 +80,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						if (log.isDebugEnabled()) {
 							log.debug(fileDTO);
 						}
-						UploadUtil.processFile(repositoryType, fileItemSteam
-								.openStream(), fileDTO);
+						UploadUtil.processFile(acceptedRepositoryType,
+								fileItemSteam.openStream(), fileDTO);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
