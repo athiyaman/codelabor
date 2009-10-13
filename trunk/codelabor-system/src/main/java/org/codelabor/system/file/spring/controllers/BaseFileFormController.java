@@ -11,6 +11,7 @@ public class BaseFileFormController extends SimpleFormController {
 	protected FileManager fileManager;
 	protected IPropertiesService propertiesService;
 	protected IIdGenerationService uniqueFileNameGenerationService;
+	protected IIdGenerationService mapIdGenerationService;
 
 	public void setFileManager(FileManager fileManager) {
 		this.fileManager = fileManager;
@@ -23,6 +24,11 @@ public class BaseFileFormController extends SimpleFormController {
 	public void setUniqueFileNameGenerationService(
 			IIdGenerationService uniqueFileNameGenerationService) {
 		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
+	}
+
+	public void setMapIdGenerationService(
+			IIdGenerationService mapIdGenerationService) {
+		this.mapIdGenerationService = mapIdGenerationService;
 	}
 
 }

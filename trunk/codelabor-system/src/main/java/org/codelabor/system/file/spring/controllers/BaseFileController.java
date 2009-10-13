@@ -12,6 +12,7 @@ public abstract class BaseFileController extends AbstractController {
 	protected IPropertiesService propertiesService;
 	protected IIdGenerationService uniqueFileNameGenerationService;
 	protected String successView;
+	protected IIdGenerationService mapIdGenerationService;
 
 	public void setFileManager(FileManager fileManager) {
 		this.fileManager = fileManager;
@@ -32,6 +33,11 @@ public abstract class BaseFileController extends AbstractController {
 
 	public void setSuccessView(String successView) {
 		this.successView = successView;
+	}
+
+	public void setMapIdGenerationService(
+			IIdGenerationService mapIdGenerationService) {
+		this.mapIdGenerationService = mapIdGenerationService;
 	}
 
 }

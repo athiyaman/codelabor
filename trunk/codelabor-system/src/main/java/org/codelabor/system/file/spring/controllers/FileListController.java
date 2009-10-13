@@ -17,6 +17,8 @@ public class FileListController extends BaseFileController {
 		List<FileDTO> fileDTOList = fileManager.selectFile();
 		ModelAndView mav = new ModelAndView(getSuccessView());
 		mav.addObject(Constants.FILE_LIST_KEY, fileDTOList);
+		mav.addObject(Constants.MAP_ID, mapIdGenerationService
+				.getNextStringId());
 		return mav;
 	}
 }
