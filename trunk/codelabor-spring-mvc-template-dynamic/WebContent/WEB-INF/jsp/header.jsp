@@ -21,6 +21,9 @@
 	 			</c:if>
 	 		</div>
 			<div class="xright">
+				<a href="<c:url value='/'/>">
+					<spring:message code="menu.home"/>
+				</a> |			
 				<a href="<c:url value='/example/home.do'/>">
 					<spring:message code="menu.example"/>
 				</a> |
