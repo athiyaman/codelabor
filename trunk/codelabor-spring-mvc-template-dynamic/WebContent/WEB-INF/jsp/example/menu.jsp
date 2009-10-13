@@ -216,6 +216,9 @@
 					<li>
   						<a href="<c:url value='/example/file/spring-mvc/list.do'/>"><spring:message code="label.example.file.spring.mvc"/></a>
 					</li>
+					<li>
+  						<a href="<c:url value='/example/file/spring/webflow/list.do'/>"><spring:message code="label.example.file.spring.webflow"/></a>
+					</li>					
 				</ul>
 
 				<h5><spring:message code="menu.example.banking"/></h5>

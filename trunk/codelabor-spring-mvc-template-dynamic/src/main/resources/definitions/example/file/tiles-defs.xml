@@ -11,7 +11,7 @@
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/file/servlet/xecure/list.jsp"/>
 	</definition>	
 	<definition name="example.file.spring.mvc.list.definition" extends="example.definition">
-    	<put-attribute name="body"   value="/WEB-INF/jsp/example/file/spring-mvc/list.jsp"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/file/spring/mvc/list.jsp"/>
 	</definition>		
 	<definition name="example.file.xecure.list.definition" extends="example.definition">
     	<put-attribute name="body"   value="/WEB-INF/jsp/example/file/xecure/list.jsp"/>
