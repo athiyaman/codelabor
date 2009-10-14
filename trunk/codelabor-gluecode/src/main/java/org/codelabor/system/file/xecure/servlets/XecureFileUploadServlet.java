@@ -1,5 +1,7 @@
 package org.codelabor.system.file.xecure.servlets;
 
+import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -43,26 +45,39 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			XecureServlet xecureServlet = new XecureServlet(request, response);
-			request = xecureServlet.request;
-			response = xecureServlet.response;
-			String parameterValue = request.getParameter(parameterName);
-			switch (Parameter.valueOf(parameterValue)) {
-			case upload:
-				upload(request, response, xecureServlet);
-				break;
-			case download:
-				download(request, response);
-				break;
-			case list:
-				list(request, response);
-				break;
-			case delete:
-				delete(request, response);
-				break;
-			case read:
-				read(request, response);
-				break;
+			String qValue = request.getParameter("q");
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("q: ").append(qValue);
+				log.debug(sb.toString());
+			}
+			if (StringUtil.isNotEmpty(qValue)) {
+				String parameterValue = request.getParameter(parameterName);
+				switch (Parameter.valueOf(parameterValue)) {
+				case list:
+					list(request, response);
+					break;
+				case delete:
+					delete(request, response);
+					break;
+				case read:
+					read(request, response);
+					break;
+				}
+			} else {
+				XecureServlet xecureServlet = new XecureServlet(request,
+						response);
+				request = xecureServlet.request;
+				response = xecureServlet.response;
+				String parameterValue = request.getParameter(parameterName);
+				switch (Parameter.valueOf(parameterValue)) {
+				case upload:
+					upload(request, response, xecureServlet);
+					break;
+				case download:
+					download(request, response);
+					break;
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,12 +96,6 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			if (log.isDebugEnabled()) {
 				log.debug(paramMap);
 			}
-
-			// error (array)
-			// String mapId = (String) paramMap.get("mapId");
-			// RepositoryType acceptedRepositoryType = repositoryType;
-			// String requestedRepositoryType = (String) paramMap
-			// .get("repositoryType");
 
 			String mapId = ((String[]) paramMap.get("mapId"))[0];
 			RepositoryType acceptedRepositoryType = repositoryType;
@@ -228,5 +237,19 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		}
 		UploadUtil.processFile(repositoryType, xecureFileInputStream, fileDTO);
 		return fileDTO;
+	}
+
+	@Override
+	protected void delete(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		int affectedRowCount = 0;
+		String[] fileIdList = request.getParameterValues("fileId");
+		try {
+			affectedRowCount = fileManager.deleteFile(fileIdList);
+			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		dispatch(request, response, forwardPathDelete);
 	}
 }

@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -33,26 +34,32 @@ public class XecureFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		HttpServletRequest httpReq = (HttpServletRequest) request;
-		HttpServletResponse httpRes = (HttpServletResponse) response;
-		XecureHttpServletRequest xReq = null;
-		XecureHttpServletResponse xRes = null;
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+		XecureHttpServletRequest xecureHttpServletRequest = null;
+		XecureHttpServletResponse xecureHttpServletResponse = null;
 
-		String qValue = httpReq.getParameter("q");
+		String qValue = httpServletRequest.getParameter("q");
 		if (log.isDebugEnabled()) {
-			log.debug("q: " + qValue);
+			StringBuilder sb = new StringBuilder();
+			sb.append("q: ").append(qValue);
+			log.debug(sb.toString());
 		}
-		if (qValue == null || "".equals(qValue))
-			chain.doFilter(httpReq, httpRes);
-		else if (Boolean.parseBoolean(httpReq.getParameter("fileEnc")))
-			chain.doFilter(httpReq, httpRes);
-		else {
+
+		if (StringUtils.isNotEmpty(qValue)) {
+			chain.doFilter(httpServletRequest, httpServletResponse);
+		} else if (Boolean.parseBoolean(httpServletRequest
+				.getParameter("fileEnc"))) {
+			chain.doFilter(httpServletRequest, httpServletResponse);
+		} else {
 			try {
-				XecureServlet xecure = new XecureServlet(new XecureConfig(),
-						httpReq, httpRes);
-				xReq = xecure.request;
-				xRes = xecure.response;
-				chain.doFilter(xReq, xRes);
+				XecureServlet xecureServlet = new XecureServlet(
+						new XecureConfig(), httpServletRequest,
+						httpServletResponse);
+				xecureHttpServletRequest = xecureServlet.request;
+				xecureHttpServletResponse = xecureServlet.response;
+				chain.doFilter(xecureHttpServletRequest,
+						xecureHttpServletResponse);
 			} catch (XecureServletException e) {
 				e.printStackTrace();
 			} catch (XecureServletConfigException e) {
