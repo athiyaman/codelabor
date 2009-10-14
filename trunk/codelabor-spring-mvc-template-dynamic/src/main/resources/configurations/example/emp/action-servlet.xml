@@ -24,16 +24,22 @@
 		<property name="empManager" ref="exampleEmpEmpManager"/>
 	</bean>
 	<bean
+		id="exampleEmpBaseEmpCommandController"
+		class="org.codelabor.example.emp.spring.controllers.BaseEmpCommandController"
+		abstract="true">
+		<property name="empManager" ref="exampleEmpEmpManager"/>
+	</bean>
+	<bean
 		id="exampleEmpBaseEmpFormController"
 		class="org.codelabor.example.emp.spring.controllers.BaseEmpFormController"
 		abstract="true">
+		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="empManager" ref="exampleEmpEmpManager"/>
 	</bean>
 	<bean
  		id="exampleEmpCreateController"
 		class="org.codelabor.example.emp.spring.controllers.CreateController"
 		parent="exampleEmpBaseEmpFormController">
-		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="commandName" value="empDTO"/>
 		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
 		<property name="formView" value="example.emp.create.definition"/>
@@ -55,7 +61,6 @@
 		id="exampleEmpUpdateController"
 		class="org.codelabor.example.emp.spring.controllers.UpdateController"
 		parent="exampleEmpBaseEmpFormController">
-		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="sessionForm" value="true"/>
 		<property name="commandName" value="updateForm"/>
 		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
@@ -65,7 +70,7 @@
 	<bean
 		id="exampleEmpDeleteController"
 		class="org.codelabor.example.emp.spring.controllers.DeleteController"
-		parent="exampleEmpBaseEmpFormController">
+		parent="exampleEmpBaseEmpCommandController">
 		<property name="commandName" value="idArray"/>
 		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
 		<property name="successView" value="redirect:/example/emp/list.do"/>
