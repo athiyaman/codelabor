@@ -46,7 +46,7 @@ public class XecureFilter implements Filter {
 			log.debug(sb.toString());
 		}
 
-		if (StringUtils.isNotEmpty(qValue)) {
+		if (StringUtils.isEmpty(qValue)) {
 			chain.doFilter(httpServletRequest, httpServletResponse);
 		} else if (Boolean.parseBoolean(httpServletRequest
 				.getParameter("fileEnc"))) {

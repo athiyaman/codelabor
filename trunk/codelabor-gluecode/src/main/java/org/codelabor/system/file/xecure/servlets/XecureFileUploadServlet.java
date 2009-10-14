@@ -51,7 +51,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 				sb.append("q: ").append(qValue);
 				log.debug(sb.toString());
 			}
-			if (StringUtil.isNotEmpty(qValue)) {
+			if (StringUtil.isEmpty(qValue)) {
 				String parameterValue = request.getParameter(parameterName);
 				switch (Parameter.valueOf(parameterValue)) {
 				case list:
