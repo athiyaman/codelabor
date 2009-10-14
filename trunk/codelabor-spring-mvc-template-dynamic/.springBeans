@@ -12,6 +12,7 @@
 		<config>src/main/resources/configurations/example/banking/applicationContext-customerManager.xml</config>
 		<config>src/main/resources/configurations/example/banking/applicationContext-customerService.xml</config>
 		<config>src/main/resources/configurations/example/banking/applicationContext-transferService.xml</config>
+		<config>src/main/resources/configurations/system/applicationContext-ioServiceManager.xml</config>
 	</configs>
 	<configSets>
 		<configSet>

@@ -50,14 +50,14 @@
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.filesystem"/></h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
+							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); window.location.reload();">upload</a></li>
 						</ul>
 					</div>
 
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<ul>
-							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=DATABASE&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); return false;">upload</a></li>
+							<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=DATABASE&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); window.location.reload();">upload</a></li>
 						</ul>
 					</div>
 
