@@ -10,14 +10,13 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.utils.RequestUtil;
-
-import anyframe.common.util.StringUtil;
 
 public class FileUploadStreamServlet extends FileUploadServlet {
 
@@ -40,7 +39,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 		RepositoryType acceptedRepositoryType = repositoryType;
 		String requestedRepositoryType = (String) paramMap
 				.get("repositoryType");
-		if (StringUtil.isNotEmpty(requestedRepositoryType)) {
+		if (StringUtils.isNotEmpty(requestedRepositoryType)) {
 			acceptedRepositoryType = RepositoryType
 					.valueOf(requestedRepositoryType);
 		}
