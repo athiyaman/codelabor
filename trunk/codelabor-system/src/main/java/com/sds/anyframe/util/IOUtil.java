@@ -6,18 +6,21 @@ import java.util.Map;
 
 public class IOUtil {
 
-	public static void bytecopy(BigDecimal bd, byte[] destBytes, int destPos, int length, char pad, String charSet) throws Exception {
+	public static void bytecopy(BigDecimal bd, byte[] destBytes, int destPos,
+			int length, char pad, String charSet) throws Exception {
 		pad = '0';
 		byte[] srcBytes = lpad(bd, length, pad, charSet);
 		System.arraycopy(srcBytes, 0, destBytes, destPos, length);
 	}
 
-	public static void bytecopy(byte[] inbytes, int srcPos, byte[] destBytes, int destPos, int length, char pad) throws Exception {
+	public static void bytecopy(byte[] inbytes, int srcPos, byte[] destBytes,
+			int destPos, int length, char pad) throws Exception {
 		byte[] srcBytes = rpad(inbytes, length, pad);
 		System.arraycopy(srcBytes, srcPos, destBytes, destPos, length);
 	}
 
-	public static void bytecopy(int intval, byte[] destBytes, int destPos, int length, char pad, String charSet) throws Exception {
+	public static void bytecopy(int intval, byte[] destBytes, int destPos,
+			int length, char pad, String charSet) throws Exception {
 		pad = '0';
 		byte[] srcBytes = IOUtil.lpad(intval, length, pad, charSet);
 		System.arraycopy(srcBytes, 0, destBytes, destPos, length);
@@ -25,7 +28,8 @@ public class IOUtil {
 
 	// bytes, string, BigDecimal, int에 대한 rpad와 bytecopy 메소드 end
 
-	public static void bytecopy(String strval, byte[] destBytes, int destPos, int length, char pad, String charSet) throws Exception {
+	public static void bytecopy(String strval, byte[] destBytes, int destPos,
+			int length, char pad, String charSet) throws Exception {
 		byte[] srcBytes = rpad(strval, length, pad, charSet);
 		System.arraycopy(srcBytes, 0, destBytes, destPos, length);
 	}
@@ -131,12 +135,14 @@ public class IOUtil {
 	}
 
 	//
-	public static byte[] lpad(int intval, int length, char pad, String charSet) throws Exception {
+	public static byte[] lpad(int intval, int length, char pad, String charSet)
+			throws Exception {
 		byte[] bytes = String.valueOf(intval).getBytes();
 		return lpad(bytes, length, pad);
 	}
 
-	public static byte[] lpad(BigDecimal bd, int length, char pad, String charSet) throws Exception {
+	public static byte[] lpad(BigDecimal bd, int length, char pad,
+			String charSet) throws Exception {
 		byte[] bytes = null;
 		if (bd == null) {
 			bytes = "".getBytes();
@@ -173,9 +179,11 @@ public class IOUtil {
 		return padding(pads, padChar).concat(str);
 	}
 
-	private static String padding(int repeat, char padChar) throws IndexOutOfBoundsException {
+	private static String padding(int repeat, char padChar)
+			throws IndexOutOfBoundsException {
 		if (repeat < 0) {
-			throw new IndexOutOfBoundsException("Cannot pad a negative amount: " + repeat);
+			throw new IndexOutOfBoundsException(
+					"Cannot pad a negative amount: " + repeat);
 		}
 		final char[] buf = new char[repeat];
 		for (int i = 0; i < buf.length; i++) {
@@ -185,7 +193,8 @@ public class IOUtil {
 	}
 
 	//
-	public static byte[] rpad(BigDecimal bd, int length, char pad) throws Exception {
+	public static byte[] rpad(BigDecimal bd, int length, char pad)
+			throws Exception {
 		byte[] bytes = null;
 		if (bd == null) {
 			bytes = "".getBytes();
@@ -196,7 +205,8 @@ public class IOUtil {
 	}
 
 	//
-	public static byte[] rpad(BigDecimal bd, int length, char pad, String charSet) throws Exception {
+	public static byte[] rpad(BigDecimal bd, int length, char pad,
+			String charSet) throws Exception {
 		byte[] bytes = null;
 		if (bd == null) {
 			bytes = "".getBytes();
@@ -207,19 +217,22 @@ public class IOUtil {
 	}
 
 	//
-	public static byte[] rpad(int intval, int length, char pad) throws Exception {
+	public static byte[] rpad(int intval, int length, char pad)
+			throws Exception {
 		byte[] bytes = String.valueOf(intval).getBytes();
 		return rpad(bytes, length, pad);
 	}
 
 	//
-	public static byte[] rpad(int intval, int length, char pad, String charSet) throws Exception {
+	public static byte[] rpad(int intval, int length, char pad, String charSet)
+			throws Exception {
 		byte[] bytes = String.valueOf(intval).getBytes();
 		return rpad(bytes, length, pad);
 	}
 
 	//
-	public static byte[] rpad(String strval, int length, char pad) throws Exception {
+	public static byte[] rpad(String strval, int length, char pad)
+			throws Exception {
 		if (strval == null) {
 			strval = "";
 		}
@@ -227,7 +240,8 @@ public class IOUtil {
 	}
 
 	//
-	public static byte[] rpad(String strval, int length, char pad, String charSet) throws Exception {
+	public static byte[] rpad(String strval, int length, char pad,
+			String charSet) throws Exception {
 		if (strval == null) {
 			strval = "";
 		}
@@ -249,7 +263,8 @@ public class IOUtil {
 		return outbytes;
 	}
 
-	public static byte[] subbyte(byte[] bytes, int spos, int epos) throws Exception {
+	public static byte[] subbyte(byte[] bytes, int spos, int epos)
+			throws Exception {
 		int length = epos - spos;
 		byte[] outbytes = new byte[length];
 		System.arraycopy(bytes, spos, outbytes, 0, length);
@@ -257,14 +272,16 @@ public class IOUtil {
 	}
 
 	// charSet없는 substr
-	public static String substr(byte[] bytes, int spos, int epos) throws Exception {
+	public static String substr(byte[] bytes, int spos, int epos)
+			throws Exception {
 		int length = epos - spos;
 		byte[] outbytes = new byte[length];
 		System.arraycopy(bytes, spos, outbytes, 0, length);
 		return new String(outbytes);
 	}
 
-	public static String substr(byte[] bytes, int spos, int epos, String charSet) throws Exception {
+	public static String substr(byte[] bytes, int spos, int epos, String charSet)
+			throws Exception {
 		int length = epos - spos;
 		byte[] outbytes = new byte[length];
 		System.arraycopy(bytes, spos, outbytes, 0, length);
