@@ -2,19 +2,19 @@ package org.codelabor.system.dtos;
 
 import java.io.Serializable;
 
-public class StringIDArrayDTO implements Serializable {
+public class IntegerIDArrayDTO implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6296998747458539246L;
-	private String[] id;
+	private static final long serialVersionUID = -520242686559075448L;
+	private Integer[] id;
 
-	public String[] getId() {
+	public Integer[] getId() {
 		return id;
 	}
 
-	public void setId(String[] id) {
+	public void setId(Integer[] id) {
 		this.id = id;
 	}
 
@@ -31,12 +31,11 @@ public class StringIDArrayDTO implements Serializable {
 	
 	    StringBuilder retValue = new StringBuilder();
 	    
-	    retValue.append("StringIDArrayDTO ( ")
+	    retValue.append("IntegerIDArrayDTO ( ")
 	        .append(super.toString()).append(TAB)
 	        .append("id = ").append(this.id).append(TAB)
 	        .append(" )");
 	    
 	    return retValue.toString();
 	}
-
 }
