@@ -9,7 +9,7 @@
 				<div class="section">
 					<h3><spring:message code="label.example.crud.list"/></h3>
 					<p></p>
-					<form action="<c:url value='/example/crud/delete.do'/>" method="post">
+					<form action="<c:url value='/example/crud.do?method=delete'/>" method="post">
 					<table class="bodyTable">
 						<tbody>
 							<tr class="a">
@@ -25,7 +25,7 @@
 
 									</td>
 									<td>
-										<a href="<c:url value='/example/crud/read.do?id=${crudDTO.id}'/>">${crudDTO.id}</a>
+										<a href="<c:url value='/example/crud.do?method=read&id=${crudDTO.id}'/>">${crudDTO.id}</a>
 									</td>
 									<td>${crudDTO.field1}</td>
 									<td>${crudDTO.field2}</td>
@@ -34,7 +34,7 @@
 						</tbody>
 					</table>
 					<hr />
-					<a href="<c:url value='/example/crud/create.do'/>"><spring:message code="button.create"/></a>
+					<a href="<c:url value='/example/crud.do?method=prepareCreate'/>"><spring:message code="button.create"/></a>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 					<input type="submit" value="<spring:message code='button.delete'/>"/>
 					</form>

@@ -25,7 +25,7 @@
 						</tbody>
 					</table>
 					<hr />
-					<a href="<c:url value='/example/crud/list.do'/>"><spring:message code="button.list"/></a>
-					<a href="<c:url value='/example/crud/update.do?id=${crudDTO.id}'/>"><spring:message code="button.update"/></a>
-					<a href="<c:url value='/example/crud/delete.do?id=${crudDTO.id}'/>"><spring:message code="button.delete"/></a>
+					<a href="<c:url value='/example/crud.do?method=list'/>"><spring:message code="button.list"/></a>
+					<a href="<c:url value='/example/crud.do?method=prepareUpdate&id=${crudDTO.id}'/>"><spring:message code="button.update"/></a>
+					<a href="<c:url value='/example/crud.do?method=delete&id=${crudDTO.id}'/>"><spring:message code="button.delete"/></a>
 				</div>
