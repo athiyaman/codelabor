@@ -23,7 +23,7 @@
 			<forward name="prepareUpdate" path="example.crud.update.definition" />
 			<forward name="processUpdate" path="/example/crud.do?method=list" redirect="true"/>
 			<forward name="delete" path="/example/crud.do?method=list" redirect="true"/>
-		</action>	
+		</action>
 	</action-mappings>
 	<message-resources 
 		parameter="messages.example.crud.label" key="example.crud.label"/>	
