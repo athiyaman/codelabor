@@ -3,6 +3,11 @@
           "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
           "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
+	<form-beans>
+		<form-bean name="stringIdArrayForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="java.lang.String[]" />
+		</form-bean>	
+	</form-beans>
 	<message-resources 
 		parameter="messages.MessageResources" />
 	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
