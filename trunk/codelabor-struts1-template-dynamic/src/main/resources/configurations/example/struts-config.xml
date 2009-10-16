@@ -6,9 +6,6 @@
 	<form-beans>
 	</form-beans>
 	<action-mappings>
-		<action
-		   path="/example/home"
-		   forward="example.home.definition">
-		</action>
+		<action path="/example/home" forward="example.home.definition" />
 	</action-mappings>
 </struts-config>
