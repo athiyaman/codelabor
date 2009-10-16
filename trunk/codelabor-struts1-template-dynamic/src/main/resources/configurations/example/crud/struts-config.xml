@@ -18,7 +18,7 @@
 			parameter="method" name="crudForm" validate="false">
 			<forward name="prepareCreate" path="example.crud.create.definition" />
 			<forward name="processCreate" path="/example/crud.do?method=list" redirect="true"/>
-			<forward name="read" path="/WEB-INF/jsp/example/crud/read.jsp" />
+			<forward name="read" path="example.crud.read.definition" />
 			<forward name="list" path="example.crud.list.definition" />
 			<forward name="prepareUpdate" path="example.crud.update.definition" />
 			<forward name="processUpdate" path="/example/crud.do?method=list" redirect="true"/>
