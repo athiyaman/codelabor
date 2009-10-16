@@ -26,5 +26,5 @@
 		</action>	
 	</action-mappings>
 	<message-resources 
-		parameter="messages.example.crud.MessageResources" key="example.crud"/>	
+		parameter="messages.example.crud.label" key="example.crud.label"/>	
 </struts-config>
