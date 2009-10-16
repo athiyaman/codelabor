@@ -18,15 +18,10 @@ public class DeleteAction extends BaseEmpAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		DynaActionForm stringIdArrayForm = (DynaActionForm) form;
-		String[] empNoStringArray = (String[]) stringIdArrayForm.get("id");
+		DynaActionForm intIdArrayForm = (DynaActionForm) form;
+		int[] empNoArray = (int[]) intIdArrayForm.get("id");
 
-		int[] empNoIntArray = new int[empNoStringArray.length];
-		for (int i = 0; i < empNoStringArray.length; i++) {
-			empNoIntArray[i] = Integer.parseInt(empNoStringArray[i]);
-		}
-
-		int affectedRowCount = empManager.deleteEmpList(empNoIntArray);
+		int affectedRowCount = empManager.deleteEmpList(empNoArray);
 		request.setAttribute("affectedRowCount", affectedRowCount);
 		return mapping.findForward("success");
 	}
