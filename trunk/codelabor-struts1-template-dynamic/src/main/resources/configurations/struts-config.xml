@@ -8,6 +8,7 @@
 			value="/WEB-INF/classes/definitions/tiles-defs.xml,
 				/WEB-INF/classes/definitions/example/tiles-defs.xml,
 				/WEB-INF/classes/definitions/example/banking/tiles-defs.xml,
+				/WEB-INF/classes/definitions/example/crud/tiles-defs.xml,
 				/WEB-INF/classes/definitions/example/emp/tiles-defs.xml,
 				/WEB-INF/classes/definitions/example/encryption/xecure/tiles-defs.xml,
 				/WEB-INF/classes/definitions/example/error/tiles-defs.xml,
