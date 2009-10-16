@@ -118,11 +118,11 @@ public class CrudAction extends BaseDispatchAction {
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		CrudService crudService = (CrudService) ctx.getBean("exampleCrudCrudService");
 
-		DynaActionForm dynaActionform = (DynaActionForm) form;
-		String[] crudIdStringList = (String[]) dynaActionform.get("id");
-		int[] crudIdList = new int[crudIdStringList.length];
-		for (int i = 0; i < crudIdStringList.length; i++) {
-			crudIdList[i] = Integer.parseInt(crudIdStringList[i]);
+		DynaActionForm dynaActionForm = (DynaActionForm) form;
+		String[] stringIdArray = (String[]) dynaActionForm.get("id");
+		int[] crudIdList = new int[stringIdArray.length];
+		for (int i = 0; i < stringIdArray.length; i++) {
+			crudIdList[i] = Integer.parseInt(stringIdArray[i]);
 		}
 
 		int affectedRowCount = crudService.delete(crudIdList);
