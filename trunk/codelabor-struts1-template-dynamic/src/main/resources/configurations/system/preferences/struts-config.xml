@@ -6,5 +6,8 @@
 	<form-beans>
 	</form-beans>
 	<action-mappings>
+		<action path="/system/preferences/home" forward="system.preferences.home.definition" />
+		<action path="/system/preferences/themes/home" forward="system.preferences.themes.home.definition" />
+		<action path="/system/preferences/locale/home" forward="system.preferences.locale.home.definition" />
 	</action-mappings>
 </struts-config>
