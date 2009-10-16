@@ -31,6 +31,23 @@ public class EmpDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 4271457252488970749L;
 
+	public EmpDTO() {
+		super();
+	}
+
+	public EmpDTO(float comm, float sal, int mgr, String job, Date hireDate,
+			String ename, int empNo, int deptNo) {
+		super();
+		this.comm = comm;
+		this.sal = sal;
+		this.mgr = mgr;
+		this.job = job;
+		this.hireDate = hireDate;
+		this.ename = ename;
+		this.empNo = empNo;
+		this.deptNo = deptNo;
+	}
+
 	private float comm;
 	private float sal;
 	private int mgr;
