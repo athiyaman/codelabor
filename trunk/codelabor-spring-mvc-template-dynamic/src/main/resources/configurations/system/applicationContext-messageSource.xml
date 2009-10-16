@@ -144,6 +144,9 @@
 				<value>/WEB-INF/classes/messages/example/banking/label</value>
 				<value>/WEB-INF/classes/messages/example/banking/menu</value>
 				<value>/WEB-INF/classes/messages/example/banking/messages</value>
+				
+				<!-- root -->
+				<value>/WEB-INF/classes/messages/menu</value>
 
 				<!-- system -->
 				<value>/WEB-INF/classes/messages/system/button</value>
