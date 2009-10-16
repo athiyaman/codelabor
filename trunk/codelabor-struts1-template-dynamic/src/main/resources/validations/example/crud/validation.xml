@@ -9,7 +9,7 @@
 				<msg name="required" key="errors.id.required" />
 			</field>		
 			<field property="field1" depends="minlength, maxlength">
-				<arg position="0" key="prompt.field1" bundle="example.crud"/>
+				<arg position="0" key="label.example.crud.field1" bundle="example.crud.label"/>
 				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
 				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
 				<var>
@@ -22,7 +22,7 @@
 				</var>				
 			</field>
 			<field property="field2" depends="minlength, maxlength">
-				<arg position="0" key="prompt.field2" bundle="example.crud"/>
+				<arg position="0" key="label.example.crud.field2" bundle="example.crud.label"/>
 				<arg position="1" name="minlength" key="${var:minlength}" resource="false" />
 				<arg position="2" name="maxlength" key="${var:maxlength}" resource="false" />
 				<var>
