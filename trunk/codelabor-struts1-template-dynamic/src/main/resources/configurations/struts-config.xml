@@ -4,6 +4,12 @@
           "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
+		<form-bean name="intIdArrayForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="int[]" />
+		</form-bean>
+		<form-bean name="longIdArrayForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="long[]" />
+		</form-bean>		
 		<form-bean name="stringIdArrayForm" type="org.apache.struts.action.DynaActionForm">
 			<form-property name="id" type="java.lang.String[]" />
 		</form-bean>	

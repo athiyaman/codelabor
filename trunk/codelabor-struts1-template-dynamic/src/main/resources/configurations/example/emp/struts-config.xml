@@ -8,34 +8,34 @@
 	</form-beans>
 	<action-mappings>
 		<action path="/example/emp/prepareCreate"
-			type="org.codelabor.example.emp.struts.actions.EmpPrepareCreateAction" scope="request">
+			type="org.codelabor.example.emp.struts.actions.PrepareCreateAction" scope="request">
 			<forward name="success" path="example.emp.create.definition" />
 		</action>
 		<action path="/example/emp/processCreate"
-			type="org.codelabor.example.emp.struts.actions.EmpProcessCreateAction" scope="request"
+			type="org.codelabor.example.emp.struts.actions.ProcessCreateAction" scope="request"
 			name="empForm" validate="false">
 			<forward name="success" path="/example/emp/list.do" redirect="true"/>
 		</action>
 		<action path="/example/emp/read"
-			type="org.codelabor.example.emp.struts.actions.EmpReadAction" scope="request">
+			type="org.codelabor.example.emp.struts.actions.ReadAction" scope="request">
 			<forward name="success" path="example.emp.read.definition" />
 		</action>
 		<action path="/example/emp/list"
-			type="org.codelabor.example.emp.struts.actions.EmpListAction" scope="request">
+			type="org.codelabor.example.emp.struts.actions.ListAction" scope="request">
 			<forward name="success" path="example.emp.list.definition" />
 		</action>
 		<action path="/example/emp/prepareUpdate"
-			type="org.codelabor.example.emp.struts.actions.EmpPrepareUpdateAction" scope="request">
+			type="org.codelabor.example.emp.struts.actions.PrepareUpdateAction" scope="request">
 			<forward name="success" path="example.emp.update.definition" />
 		</action>
 		<action path="/example/emp/processUpdate"
-			type="org.codelabor.example.emp.struts.actions.EmpProcessUpdateAction" scope="request"
+			type="org.codelabor.example.emp.struts.actions.ProcessUpdateAction" scope="request"
 			name="empForm" validate="false">
 			<forward name="success" path="/example/emp/list.do" redirect="true"/>
 		</action>
 		<action path="/example/emp/delete"
-			type="org.codelabor.example.emp.struts.actions.EmpDeleteAction" scope="request"
-			name="stringIdArrayForm" validate="false">
+			type="org.codelabor.example.emp.struts.actions.DeleteAction" scope="request"
+			name="intIdArrayForm" validate="false">
 			<forward name="success" path="/example/emp/list.do" redirect="true"/>
 		</action>		
 	</action-mappings>
