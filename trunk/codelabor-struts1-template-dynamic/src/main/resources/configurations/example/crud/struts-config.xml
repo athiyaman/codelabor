@@ -25,4 +25,6 @@
 			<forward name="delete" path="/example/crud.do?method=list" redirect="true"/>
 		</action>	
 	</action-mappings>
+	<message-resources 
+		parameter="messages.example.crud.MessageResources" key="example.crud"/>	
 </struts-config>
