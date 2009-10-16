@@ -6,4 +6,6 @@
 	<action-mappings>
 		<action path="/example/home" forward="example.home.definition" />
 	</action-mappings>
+	<message-resources 
+		parameter="messages.example.MessageResources" key="example"/>
 </struts-config>
