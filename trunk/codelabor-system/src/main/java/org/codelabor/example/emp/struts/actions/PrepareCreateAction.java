@@ -10,9 +10,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.codelabor.example.emp.dtos.EmpDTO;
 
-public class EmpPrepareCreateAction extends BaseEmpAction {
+public class PrepareCreateAction extends BaseEmpAction {
 
-	public EmpPrepareCreateAction() {
+	public PrepareCreateAction() {
 		super();
 	}
 

@@ -8,9 +8,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.codelabor.example.emp.dtos.EmpDTO;
 
-public class EmpReadAction extends BaseEmpAction {
+public class ReadAction extends BaseEmpAction {
 
-	public EmpReadAction() {
+	public ReadAction() {
 		super();
 	}
 

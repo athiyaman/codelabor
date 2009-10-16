@@ -8,9 +8,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.DynaActionForm;
 
-public class EmpDeleteAction extends BaseEmpAction {
+public class DeleteAction extends BaseEmpAction {
 
-	public EmpDeleteAction() {
+	public DeleteAction() {
 		super();
 	}
 
