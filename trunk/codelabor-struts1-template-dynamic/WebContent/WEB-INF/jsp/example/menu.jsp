@@ -7,7 +7,7 @@
 				<h5><spring:message code="menu.example.crud"/></h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/crud/list.do'/>"><spring:message code="label.example.crud.duplicate.submit"/></a>
+						<a href="<c:url value='/example/crud.do?method=list'/>"><spring:message code="label.example.crud.duplicate.submit"/></a>
 					</li>
 					<li>
 						<a href="<c:url value='/example/emp/list.do'/>"><spring:message code="label.example.crud.pagenation"/></a>
