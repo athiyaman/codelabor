@@ -23,7 +23,7 @@ import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public abstract class CommonException extends BaseException {

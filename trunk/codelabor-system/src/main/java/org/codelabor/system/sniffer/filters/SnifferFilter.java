@@ -28,7 +28,7 @@ import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.utils.SnifferUtil;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class SnifferFilter extends BaseFilterImpl {

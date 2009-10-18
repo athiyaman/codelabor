@@ -20,7 +20,7 @@ package org.codelabor.system.services;
 import org.codelabor.system.dtos.MailDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface MailService {

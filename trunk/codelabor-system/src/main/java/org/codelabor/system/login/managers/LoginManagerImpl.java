@@ -24,7 +24,7 @@ import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {

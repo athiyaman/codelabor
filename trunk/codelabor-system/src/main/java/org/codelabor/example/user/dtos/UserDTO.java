@@ -18,7 +18,7 @@
 package org.codelabor.example.user.dtos;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class UserDTO {

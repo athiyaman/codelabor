@@ -20,7 +20,7 @@ package org.codelabor.example.crud.dtos;
 import java.io.Serializable;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class CrudDTO implements Serializable {

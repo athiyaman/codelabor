@@ -35,7 +35,7 @@ import org.codelabor.system.servlets.dtos.RemoteDTO;
 import org.codelabor.system.servlets.dtos.ServerDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class RequestUtil {

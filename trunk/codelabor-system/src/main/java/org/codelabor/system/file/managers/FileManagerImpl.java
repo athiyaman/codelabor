@@ -25,7 +25,7 @@ import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class FileManagerImpl extends BaseManagerImpl implements FileManager {

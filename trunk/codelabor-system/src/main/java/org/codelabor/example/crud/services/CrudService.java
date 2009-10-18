@@ -23,7 +23,7 @@ import org.codelabor.example.crud.dtos.CrudDTO;
 import org.codelabor.system.exceptions.CommonException;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface CrudService {

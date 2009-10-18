@@ -21,7 +21,7 @@ import org.codelabor.system.daos.AccessLogDAO;
 import org.codelabor.system.dtos.AccessLogDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class AccessLogManagerImpl extends BaseManagerImpl implements

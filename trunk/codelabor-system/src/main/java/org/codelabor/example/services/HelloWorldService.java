@@ -18,7 +18,7 @@
 package org.codelabor.example.services;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface HelloWorldService {

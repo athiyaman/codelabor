@@ -22,7 +22,7 @@ import java.util.List;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface LoginManager {

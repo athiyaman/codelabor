@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpDTO implements Serializable {

@@ -26,7 +26,7 @@ import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IdGenerationStrategy;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class TransactionIdStrategy implements IdGenerationStrategy {

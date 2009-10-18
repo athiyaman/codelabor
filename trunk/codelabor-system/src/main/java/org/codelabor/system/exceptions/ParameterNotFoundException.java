@@ -18,7 +18,7 @@
 package org.codelabor.system.exceptions;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class ParameterNotFoundException extends Exception {

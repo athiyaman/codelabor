@@ -24,7 +24,7 @@ import org.codelabor.system.managers.BaseManagerImpl;
 import anyframe.core.query.IQueryService;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class Biz2ManagerImpl extends BaseManagerImpl implements Biz2Manager {

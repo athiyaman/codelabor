@@ -23,7 +23,7 @@ import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class ErrorServiceImpl extends BaseServiceImpl implements ErrorService {

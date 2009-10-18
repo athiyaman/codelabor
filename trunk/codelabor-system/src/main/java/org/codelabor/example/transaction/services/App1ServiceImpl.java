@@ -22,7 +22,7 @@ import org.codelabor.example.transaction.managers.Biz2Manager;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class App1ServiceImpl extends BaseServiceImpl implements App1Service {

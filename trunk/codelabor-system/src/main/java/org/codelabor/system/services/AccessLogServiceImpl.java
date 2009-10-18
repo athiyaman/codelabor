@@ -23,7 +23,7 @@ import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.managers.AccessLogManager;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class AccessLogServiceImpl extends BaseServiceImpl implements

@@ -26,7 +26,7 @@ import org.codelabor.system.dtos.AffectedRowCountDTO;
 import anyframe.common.Page;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface EmpDAO {

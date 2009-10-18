@@ -28,7 +28,7 @@ import org.codelabor.example.emp.dtos.EmpDTO;
 import anyframe.common.Page;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpManagerMock implements EmpManager {

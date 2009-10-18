@@ -31,7 +31,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public abstract class BaseFilterImpl implements Filter {

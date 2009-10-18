@@ -20,7 +20,7 @@ package org.codelabor.system.servlets.dtos;
 import java.io.Serializable;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class LocalDTO implements Serializable {

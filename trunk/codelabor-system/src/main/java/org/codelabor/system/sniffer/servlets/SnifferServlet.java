@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 import org.codelabor.system.utils.SnifferUtil;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class SnifferServlet implements Servlet {

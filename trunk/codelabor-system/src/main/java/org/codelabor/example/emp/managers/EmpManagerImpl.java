@@ -29,7 +29,7 @@ import org.codelabor.system.managers.BaseManagerImpl;
 import anyframe.common.Page;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {

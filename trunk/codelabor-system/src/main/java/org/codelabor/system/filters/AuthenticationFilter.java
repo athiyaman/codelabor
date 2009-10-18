@@ -15,7 +15,7 @@ import org.codelabor.system.Constants;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class AuthenticationFilter extends BaseFilterImpl {

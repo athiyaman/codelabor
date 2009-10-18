@@ -29,7 +29,7 @@ import anyframe.common.Page;
 import anyframe.core.query.IQueryService;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {

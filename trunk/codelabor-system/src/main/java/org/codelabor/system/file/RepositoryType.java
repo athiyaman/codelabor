@@ -18,7 +18,7 @@
 package org.codelabor.system.file;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public enum RepositoryType {
