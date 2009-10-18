@@ -17,7 +17,7 @@
 
 package org.codelabor.example.emp.struts.forms;
 
-import java.util.Date;
+import java.sql.Date;
 
 import org.apache.struts.action.ActionForm;
 import org.codelabor.example.emp.dtos.EmpDTO;

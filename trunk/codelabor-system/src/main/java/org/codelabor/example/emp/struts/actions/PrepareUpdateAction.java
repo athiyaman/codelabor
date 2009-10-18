@@ -17,7 +17,11 @@
 
 package org.codelabor.example.emp.struts.actions;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
+import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.util.LabelValueBean;
 import org.codelabor.example.emp.dtos.EmpDTO;
 import org.codelabor.example.emp.managers.EmpManager;
 import org.codelabor.system.struts.actions.BaseAction;
@@ -59,9 +64,20 @@ public class PrepareUpdateAction extends BaseAction {
 		// get reference data
 		Map managerMap = empManager.getManagerMap();
 
+		// make labelValueBean
+		Collection managerOptions = new Vector();
+		Set keySet = managerMap.keySet();
+		Iterator iterator = keySet.iterator();
+		while (iterator.hasNext()) {
+			int empNo = (Integer) iterator.next();
+			String ename = (String) managerMap.get(empNo);
+			managerOptions
+					.add(new LabelValueBean(ename, String.valueOf(empNo)));
+		}
+
 		// set attribute
 		request.setAttribute("empDTO", empDTO);
-		request.setAttribute("managerMap", managerMap);
+		request.setAttribute("managerOptions", managerOptions);
 
 		// forward
 		return mapping.findForward("success");
