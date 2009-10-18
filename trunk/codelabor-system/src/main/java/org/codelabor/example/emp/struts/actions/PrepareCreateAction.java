@@ -1,6 +1,7 @@
 package org.codelabor.example.emp.struts.actions;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,17 +21,28 @@ public class PrepareCreateAction extends BaseAction {
 		super();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		// get bean
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		EmpManager empManager = (EmpManager) ctx
 				.getBean("exampleEmpEmpManager");
 
+		// execute biz logic
 		List<EmpDTO> empDTOList = empManager.selectEmpList();
+
+		// get reference data
+		Map managerMap = empManager.getManagerMap();
+
+		// set attribute
 		request.setAttribute("empDTOList", empDTOList);
+		request.setAttribute("managerMap", managerMap);
+
+		// forward
 		return mapping.findForward("success");
 	}
 }

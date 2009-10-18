@@ -22,16 +22,21 @@ public class DeleteAction extends BaseAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		// get bean
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		EmpManager empManager = (EmpManager) ctx
 				.getBean("exampleEmpEmpManager");
 
+		// execute biz logic
 		DynaActionForm intIdArrayForm = (DynaActionForm) form;
 		int[] empNoArray = (int[]) intIdArrayForm.get("id");
-
 		int affectedRowCount = empManager.deleteEmpList(empNoArray);
+
+		// set attribute
 		request.setAttribute("affectedRowCount", affectedRowCount);
+
+		// forward
 		return mapping.findForward("success");
 	}
 }

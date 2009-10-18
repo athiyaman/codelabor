@@ -22,14 +22,20 @@ public class ReadAction extends BaseAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		// get bean
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		EmpManager empManager = (EmpManager) ctx
 				.getBean("exampleEmpEmpManager");
 
+		// execute biz logic
 		EmpDTO empDTO = empManager.selectEmp(Integer.parseInt(request
 				.getParameter("id")));
+
+		// set attribute
 		request.setAttribute("empDTO", empDTO);
+
+		// forward
 		return mapping.findForward("success");
 	}
 }

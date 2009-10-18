@@ -22,13 +22,19 @@ public class ProcessCreateAction extends BaseAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		// get bean
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		EmpManager empManager = (EmpManager) ctx
 				.getBean("exampleEmpEmpManager");
 
+		// execute biz logic
 		int affectedRowCount = empManager.insertEmp(((EmpForm) form).toDTO());
+
+		// set attribute
 		request.setAttribute("affectedRowCount", affectedRowCount);
+
+		// forward
 		return mapping.findForward("success");
 	}
 }
