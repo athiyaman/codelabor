@@ -27,11 +27,4 @@
 	</action-mappings>
 	<message-resources 
 		parameter="messages.example.crud.label" key="example.crud.label"/>
-	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
-		<set-property property="pathnames"
-			value="/org/apache/struts/validator/validator-rules.xml,
-			/WEB-INF/classes/validations/validation.xml,
-			/WEB-INF/classes/validations/example/crud/validation.xml" />
-		<set-property property="stopOnFirstError" value="false" />
-	</plug-in>			
 </struts-config>
