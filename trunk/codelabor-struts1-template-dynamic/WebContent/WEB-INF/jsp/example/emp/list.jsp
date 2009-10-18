@@ -31,7 +31,6 @@
 								<tr class="b">
 									<td>
 										<input type="checkbox" name="id" value="${empDTO.empNo}"/>
-
 									</td>
 									<td>
 										<a href="<c:url value='/example/emp/read.do?id=${empDTO.empNo}'/>">${empDTO.empNo}</a>

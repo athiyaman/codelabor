@@ -19,6 +19,12 @@
 								</td>
 							</tr>
 							<tr class="b">
+								<th><spring:message code="label.example.emp.deptNo"/></th>
+								<td>
+									<html:text property="deptNo" />
+								</td>
+							</tr>							
+							<tr class="b">
 								<th><spring:message code="label.example.emp.job"/></th>
 								<td>
 									<html:text property="job" />
@@ -27,9 +33,8 @@
 							<tr class="b">
 								<th><spring:message code="label.example.emp.mgr"/></th>
 								<td>
-								${managerMap}
 									<html:select property="mgr">
-										
+										<html:options collection="managerOptions" labelProperty="label" property="value" />
 									</html:select>
 								</td>
 							</tr>
@@ -58,5 +63,6 @@
 					<input type="submit" value="<spring:message code='button.save'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 				</html:form>
+				<html:javascript formName="empForm" />
 				</div>
 

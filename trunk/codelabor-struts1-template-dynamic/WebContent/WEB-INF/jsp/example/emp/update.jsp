@@ -2,70 +2,64 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 				<h2><spring:message code="label.example.emp"/></h2>
 				<p></p>
 				<div class="section">
 				<h3><spring:message code="label.example.emp.update"/></h3>
 				<p></p>
-				<form:form method="post" commandName="updateForm">
-					<form:errors path="*"/>
+				<html:form action="/example/emp/processUpdate.do" onsubmit="return validateCrudForm(this);">
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.empNo"/></th>
 								<td>
-									${updateForm.empNo}
+									${empDTO.empNo}
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.ename"/></th>
 								<td>
-									<form:input path="ename" />
-									<form:errors path="ename"/>
+									<html:text property="ename" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.deptNo"/></th>
 								<td>
-									<form:input path="deptNo" />
-									<form:errors path="deptNo"/>
+									<html:text property="deptNo" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.job"/></th>
 								<td>
-									<form:input path="job" />
-									<form:errors path="job"/>
+									<html:text property="job" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.mgr"/></th>
 								<td>
-									<form:select path="mgr" items="${managerMap}"/>
-									<form:errors path="mgr"/>
+									<html:select property="mgr">
+										<html:options collection="managerOptions" labelProperty="label" property="value" />
+									</html:select>
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.hireDate"/></th>
 								<td>
-									<form:input path="hireDate" />
-									<form:errors path="hireDate"/>
+									<html:text property="hireDate" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.sal"/></th>
 								<td>
-									<form:input path="sal" />
-									<form:errors path="sal"/>
+									<html:text property="sal" />
 								</td>
 							</tr>
 							<tr class="b">
 								<th><spring:message code="label.example.emp.comm"/></th>
 								<td>
-									<form:input path="comm" />
-									<form:errors path="comm"/>
+									<html:text property="comm" />
 								</td>
 							</tr>
 						</tbody>
@@ -74,5 +68,6 @@
 					<a href="<c:url value='/example/emp/list.do'/>"><spring:message code='button.list'/></a>
 					<input type="submit" value="<spring:message code='button.save'/>"/>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
-				</form:form>
+				</html:form>
+				<html:javascript formName="empForm" />
 				</div>
