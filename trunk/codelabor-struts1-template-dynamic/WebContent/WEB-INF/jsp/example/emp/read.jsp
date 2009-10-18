@@ -46,6 +46,6 @@
 					</table>
 					<hr />
 					<a href="<c:url value='/example/emp/list.do'/>"><spring:message code="button.list"/></a>
-					<a href="<c:url value='/example/emp/update.do?id=${empDTO.empNo}'/>"><spring:message code="button.update"/></a>
+					<a href="<c:url value='/example/emp/prepareUpdate.do?id=${empDTO.empNo}'/>"><spring:message code="button.update"/></a>
 					<a href="<c:url value='/example/emp/delete.do?id=${empDTO.empNo}'/>"><spring:message code="button.delete"/></a>
 				</div>

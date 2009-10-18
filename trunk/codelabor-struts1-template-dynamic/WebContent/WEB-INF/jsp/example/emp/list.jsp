@@ -49,7 +49,7 @@
 					</table>
 					<codelabor:textPagenation page="${page}" param="${param}"/>
 					<hr />
-					<a href="<c:url value='/example/emp/create.do'/>"><spring:message code="button.create"/></a>
+					<a href="<c:url value='/example/emp/prepareCreate.do'/>"><spring:message code="button.create"/></a>
 					<input type="reset" value="<spring:message code='button.reset'/>"/>
 					<input type="submit" value="<spring:message code='button.delete'/>"/>
 					</form>
