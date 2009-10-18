@@ -39,4 +39,11 @@
 			<forward name="success" path="/example/emp/list.do" redirect="true"/>
 		</action>		
 	</action-mappings>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+			/WEB-INF/classes/validations/validation.xml,
+			/WEB-INF/classes/validations/example/emp/validation.xml" />
+		<set-property property="stopOnFirstError" value="false" />
+	</plug-in>	
 </struts-config>
