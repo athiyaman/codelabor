@@ -18,7 +18,7 @@
 package org.codelabor.system;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public enum MessageType {

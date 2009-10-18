@@ -18,7 +18,7 @@
 package org.codelabor.example.managers;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface Biz1Manager {

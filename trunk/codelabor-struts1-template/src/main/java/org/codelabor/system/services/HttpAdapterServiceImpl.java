@@ -33,7 +33,7 @@ import org.apache.commons.httpclient.params.HttpParams;
 import org.apache.commons.httpclient.util.URIUtil;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class HttpAdapterServiceImpl extends BaseServiceImpl implements

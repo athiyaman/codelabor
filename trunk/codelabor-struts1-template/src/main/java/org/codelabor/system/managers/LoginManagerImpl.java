@@ -23,7 +23,7 @@ import org.codelabor.system.daos.LoginDAO;
 import org.codelabor.system.dtos.LoginDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {

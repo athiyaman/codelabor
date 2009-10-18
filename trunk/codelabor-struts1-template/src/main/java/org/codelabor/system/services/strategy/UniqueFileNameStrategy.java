@@ -24,7 +24,7 @@ import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IdGenerationStrategy;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class UniqueFileNameStrategy implements IdGenerationStrategy {

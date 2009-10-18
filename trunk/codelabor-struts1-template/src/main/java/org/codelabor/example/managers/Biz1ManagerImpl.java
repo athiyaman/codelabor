@@ -27,7 +27,7 @@ import org.codelabor.system.managers.BaseManagerImpl;
 import anyframe.core.query.IQueryService;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class Biz1ManagerImpl extends BaseManagerImpl implements ThreadSafe,

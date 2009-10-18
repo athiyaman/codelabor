@@ -25,7 +25,7 @@ import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.managers.LoginManager;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class LoginServiceImpl extends BaseServiceImpl implements LoginService {

@@ -25,7 +25,7 @@ import javax.activation.FileTypeMap;
 import javax.mail.internet.InternetAddress;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class MailDTO implements Serializable {

@@ -20,7 +20,7 @@ package org.codelabor.system.exceptions;
 import org.springframework.context.MessageSource;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class RollbackCommonException extends CommonException implements

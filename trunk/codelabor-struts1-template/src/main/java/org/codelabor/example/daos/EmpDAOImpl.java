@@ -26,7 +26,7 @@ import org.codelabor.system.daos.BaseDAOImpl;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {

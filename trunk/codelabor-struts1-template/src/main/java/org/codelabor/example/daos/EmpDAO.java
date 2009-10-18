@@ -24,7 +24,7 @@ import org.codelabor.example.dtos.EmpDTO;
 import org.codelabor.system.dtos.AffectedRowCountDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface EmpDAO {

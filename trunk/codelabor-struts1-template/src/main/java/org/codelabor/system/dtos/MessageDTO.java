@@ -22,7 +22,7 @@ import java.io.Serializable;
 import org.codelabor.system.MessageType;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class MessageDTO implements Serializable {

@@ -26,7 +26,7 @@ import java.util.List;
 import org.codelabor.system.dtos.LoginDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {

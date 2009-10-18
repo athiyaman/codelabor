@@ -27,7 +27,7 @@ import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class SnifferAdvice extends BaseAdvice implements Ordered {

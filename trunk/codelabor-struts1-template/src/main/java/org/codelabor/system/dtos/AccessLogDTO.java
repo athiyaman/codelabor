@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class AccessLogDTO implements Serializable {

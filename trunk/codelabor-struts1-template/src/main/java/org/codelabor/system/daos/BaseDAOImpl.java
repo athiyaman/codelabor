@@ -26,7 +26,7 @@ import anyframe.core.properties.IPropertiesService;
 import anyframe.core.query.IQueryService;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class BaseDAOImpl {

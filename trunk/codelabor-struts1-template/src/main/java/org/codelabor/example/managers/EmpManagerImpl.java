@@ -26,7 +26,7 @@ import org.codelabor.example.dtos.EmpDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpManagerImpl extends BaseManagerImpl implements EmpManager {

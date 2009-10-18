@@ -25,7 +25,7 @@ import java.util.List;
 import org.codelabor.example.dtos.EmpDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public class EmpManagerMock implements EmpManager {

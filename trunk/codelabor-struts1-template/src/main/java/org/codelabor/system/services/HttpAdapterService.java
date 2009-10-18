@@ -20,7 +20,7 @@ package org.codelabor.system.services;
 import java.util.Map;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface HttpAdapterService {

@@ -20,7 +20,7 @@ package org.codelabor.system.managers;
 import org.codelabor.system.dtos.AccessLogDTO;
 
 /**
- * @author SangJae Shin
+ * @author Sang Jae Shin
  * 
  */
 public interface AccessLogManager {
