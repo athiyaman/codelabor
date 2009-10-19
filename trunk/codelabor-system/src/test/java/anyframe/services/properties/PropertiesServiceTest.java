@@ -2,9 +2,9 @@ package anyframe.services.properties;
 
 import java.util.Iterator;
 
+import org.codelabor.system.test.BaseTestCase;
 
 import anyframe.core.properties.IPropertiesService;
-import org.codelabor.system.test.BaseTestCase;
 
 public class PropertiesServiceTest extends BaseTestCase {
 
@@ -47,6 +47,18 @@ public class PropertiesServiceTest extends BaseTestCase {
 
 			// assert
 			assertEquals("value1", value);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	public void testGetCnDnList() {
+		try {
+			// test
+			String cnDnList = propertiesService.getString("cadn.list");
+
+			System.out.println(cnDnList);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
