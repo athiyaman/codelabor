@@ -108,14 +108,16 @@
 						<spring:message code="menu.example.security.link"/>
 						<ul>
 							<li>
-								<a href="<c:url value='/example/emp.do?method=list'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.struts1"/></a>
-							</li>						
+								<a href="<c:url value='/example/emp/list.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.struts1"/></a>
+							</li>
+							<!-- 						
 							<li>
 								<a href="<c:url value='/example/emp/list.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
 							</li>
 							<li>
 								<a href="<c:url value='/example/emp/registration.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.web.flow"/></a>
 							</li>
+							-->
 						</ul>
 					</li>
 					<li class="expanded">

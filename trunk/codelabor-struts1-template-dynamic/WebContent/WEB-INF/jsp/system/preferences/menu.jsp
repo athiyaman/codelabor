@@ -20,6 +20,7 @@
 				</ul>
 				</security:authorize>
 				
+				<!-- 
 				<h5><spring:message code="menu.system.preferences.preferences"/></h5>
 				<ul>
 					<li class="none">
@@ -37,4 +38,5 @@
 							<spring:message code="menu.system.preferences.favorites"/>
 						</a>
 					</li>					
-				</ul>													
+				</ul>
+				 -->												
