@@ -6,5 +6,7 @@
 	<form-beans>
 	</form-beans>
 	<action-mappings>
+		<action path="/example/file/servlet/list" forward="example.file.servlet.list.definition" />
+		<action path="/example/file/servlet/xecure/list" forward="example.file.servlet.xecure.list.definition" />
 	</action-mappings>
 </struts-config>
