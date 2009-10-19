@@ -35,36 +35,35 @@ public class ListController extends SimpleFormController {
 	}
 
 	@Override
-	protected Object formBackingObject(HttpServletRequest request) throws Exception {
+	protected Object formBackingObject(HttpServletRequest request)
+			throws Exception {
 		SearchConditionDTO searchCondition = new SearchConditionDTO();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale
+				.getDefault());
 		searchCondition.setFromDate(dateFormat.parse("2009-01-01"));
 		searchCondition.setToDate(Calendar.getInstance().getTime());
 		return searchCondition;
 	}
 
 	@Override
-	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
+	protected void initBinder(HttpServletRequest request,
+			ServletRequestDataBinder binder) throws Exception {
 		binder.registerCustomEditor(Date.class, this.getCustomDateEditor());
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
+	protected ModelAndView onSubmit(HttpServletRequest request,
+			HttpServletResponse response, Object command, BindException errors)
+			throws Exception {
 		try {
 			SearchConditionDTO searchCondition = (SearchConditionDTO) command;
-			List serviceList = financialService.search(searchCondition.getFromDate(), searchCondition.getToDate());
+			List serviceList = financialService.search(searchCondition
+					.getFromDate(), searchCondition.getToDate());
 			ModelAndView modelAndView = new ModelAndView(getSuccessView());
 			modelAndView.addObject("serviceList", serviceList);
 			modelAndView.addObject(getCommandName(), command);
 			return modelAndView;
-			// } catch (CommonException e) {
-			// e.printStackTrace();
-			// StringBuilder sb = new StringBuilder();
-			// sb.append("[").append(e.getMessageKey()).append("] ");
-			// sb.append(e.getMessage());
-			// errors.reject(e.getMessageKey(), sb.toString());
-			// return showForm(request, response, errors);
 		} catch (Exception e) {
 			e.printStackTrace();
 			errors.reject(null, e.getMessage());
