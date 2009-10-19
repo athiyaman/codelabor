@@ -76,7 +76,7 @@
 				<h5><spring:message code="menu.example.remoting"/></h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/remoting/tcp/send.do'/>">TCP</a>
+						<a href="<c:url value='/example/remoting/tcp/prepareSend.do'/>">TCP</a>
 					</li>
 				</ul>
 				<h5><spring:message code="label.example.integration"/></h5>
@@ -140,6 +140,7 @@
 						</ul>
 					</li>
 				</ul>
+				<!--  
 				<h5><spring:message code="menu.example.report"/></h5>
 				<ul>
 					<li class="expanded">
@@ -171,6 +172,7 @@
 						</ul>
 					</li>
 				</ul>
+				-->
 				<h5><spring:message code="menu.example.certificate"/></h5>
 				<ul>
 					<li>
