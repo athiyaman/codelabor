@@ -36,39 +36,52 @@ import xecure.servlet.XecureConfig;
  * 
  */
 public class CreateController extends BaseSignFormController {
-	
+
 	private String caDnList;
 
 	@Override
-	protected Object formBackingObject(HttpServletRequest request) throws Exception {
+	protected Object formBackingObject(HttpServletRequest request)
+			throws Exception {
 		return new SignDTO();
 	}
 
 	@Override
-	protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
-		String signedMessage = WebUtils.findParameterValue(request, Constants.SECURITY_SIGNED_MESSAGE_KEY);
+	protected ModelAndView onSubmit(HttpServletRequest request,
+			HttpServletResponse response, Object command, BindException errors)
+			throws Exception {
+		String signedMessage = WebUtils.findParameterValue(request,
+				Constants.SECURITY_SIGNED_MESSAGE_KEY);
 
 		if (signedMessage != null) {
-			SignVerifierM signVerifier = new SignVerifierM(new XecureConfig(), signedMessage);
-			
+			SignVerifierM signVerifier = new SignVerifierM(new XecureConfig(),
+					signedMessage);
+
 			// 서명 메시지 검증
 			int errorCode = signVerifier.getLastError();
 			if (errorCode != 0) {
 				throw new NotVerifiedException(signVerifier.getLastErrorMsg());
 			}
-                                 
-            // OCSP 검증
-            errorCode = signVerifier.getSignerCertificate().VerifyCertificate(signVerifier.getSignerCertificate().getCertPem(),"internet",caDnList);
+
+			if (logger.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("caDnList: ").append(caDnList);
+				logger.debug(sb.toString());
+			}
+
+			// OCSP 검증
+			errorCode = signVerifier.getSignerCertificate().VerifyCertificate(
+					signVerifier.getSignerCertificate().getCertPem(),
+					"internet", caDnList);
 			if (errorCode != 0) {
 				throw new NotVerifiedException(signVerifier.getLastErrorMsg());
-			}			
-			
+			}
+
 			Certificate signerCertificate = signVerifier.getSignerCertificate();
 			String subject = signerCertificate.getSubject().trim();
 			String certPem = signerCertificate.getCertPem();
 			int certType = signerCertificate.getCertType();
 			String serial = signerCertificate.getSerial();
-			
+
 			SignDTO signDTO = (SignDTO) command;
 			signDTO.setSerial(serial);
 			signDTO.setSubject(subject);
@@ -79,38 +92,51 @@ public class CreateController extends BaseSignFormController {
 		}
 		return super.onSubmit(request, response, command, errors);
 	}
-	
+
 	public void setOcspClientIpAddress(String ocspClientIpAddress) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("//cn=yessignCA,ou=LicensedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
+		sb
+				.append("//cn=yessignCA,ou=LicensedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=signGATE CA,ou=licensedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
+		sb
+				.append("//cn=signGATE CA,ou=licensedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=SignKorea CA,ou=LicensedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
+		sb
+				.append("//cn=SignKorea CA,ou=LicensedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=NCASign CA,ou=licensedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
+		sb
+				.append("//cn=NCASign CA,ou=licensedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=CrossCertCA,ou=licensedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
+		sb
+				.append("//cn=CrossCertCA,ou=licensedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//ou=TradeSignCA,ou=LicensedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.tradesign.net:389|");
+		sb
+				.append("//ou=TradeSignCA,ou=LicensedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.tradesign.net:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=yessignCA,ou=AccreditedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
+		sb
+				.append("//cn=yessignCA,ou=AccreditedCA,o=yessign,c=kr;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,203.233.91.35:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=signGATE CA2,ou=AccreditedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
+		sb
+				.append("//cn=signGATE CA2,ou=AccreditedCA,o=KICA,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ldap.signgate.com:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=SignKorea CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
+		sb
+				.append("//cn=SignKorea CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.signkorea.com:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=NCASignCA,ou=AccreditedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
+		sb
+				.append("//cn=NCASignCA,ou=AccreditedCA,o=NCASign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,ds.nca.or.kr:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=CrossCert Certificate Authority,ou=AccreditedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
+		sb
+				.append("//cn=CrossCert Certificate Authority,ou=AccreditedCA,o=CrossCert,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;dirsys.rootca.or.kr:389,dir.crosscert.com:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=TradeSignCA,ou=AccreditedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;ldap.tradesign.net:389,ldap.tradesign.net:389|");
+		sb
+				.append("//cn=TradeSignCA,ou=AccreditedCA,o=TradeSign,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;ldap.tradesign.net:389,ldap.tradesign.net:389|");
 		sb.append(ocspClientIpAddress);
-		sb.append("//cn=SignKorea Test CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;211.175.81.102:689,211.175.81.102:689|");
+		sb
+				.append("//cn=SignKorea Test CA,ou=AccreditedCA,o=SignKorea,c=KR;0;4;152.99.56.86:389;cn=Root CA,ou=GPKI,o=Government of Korea,c=KR;211.175.81.102:689,211.175.81.102:689|");
 		sb.append(ocspClientIpAddress);
-        caDnList = sb.toString();
-        if (logger.isDebugEnabled()) {
-        	logger.debug(caDnList);
-        }
-	}	
+		caDnList = sb.toString();
+		if (logger.isDebugEnabled()) {
+			logger.debug(caDnList);
+		}
+	}
 }
