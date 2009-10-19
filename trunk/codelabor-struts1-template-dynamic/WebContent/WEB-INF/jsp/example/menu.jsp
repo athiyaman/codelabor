@@ -13,6 +13,7 @@
 						<a href="<c:url value='/example/emp/list.do'/>"><spring:message code="label.example.crud.pagenation"/></a>
 					</li>
 				</ul>
+				<!--  
 				<h5><spring:message code="menu.example.error"/></h5>
 				<ul>
 					<li class="expanded">
@@ -55,6 +56,7 @@
 						</ul>
 					</li>
 				</ul>
+				-->
 				<!--  
 				<h5><spring:message code="menu.example.flow"/></h5>
 				<ul>
