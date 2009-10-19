@@ -34,7 +34,6 @@ public class ListAction extends BaseAction {
 
 		// forward
 		return mapping.findForward("success");
-
 	}
 
 }
