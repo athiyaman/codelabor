@@ -3,15 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 				<h2><spring:message code="label.example.integration.mci"/></h2>
 				<p></p>
 				<div class="section">
 				<h3><spring:message code="label.example.integration.mci.list"/></h3>
 				<p></p>
-				<form:form method="post" commandName="searchCondition">
-					<form:errors path="*"/>
+				<html:form action="/example/integration/mci/processSearch.do" onsubmit="return validateCrudForm(this);">
 					<table class="bodyTable">
 						<tbody>
 							<tr class="b">
@@ -27,7 +26,7 @@
 							</tr>
 						</tbody>
 					</table>
-				</form:form>
+				</html:form>
 				</div>
 
 				<div class="section">

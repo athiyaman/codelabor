@@ -82,7 +82,7 @@
 				<h5><spring:message code="label.example.integration"/></h5>
 				<ul>
 					<li>
-						<a href="<c:url value='/example/integration/mci/list.do'/>">MCI</a>
+						<a href="<c:url value='/example/integration/mci/prepareSearch.do'/>">MCI</a>
 					</li>
 				</ul>
 				<h5><spring:message code="menu.example.security"/></h5>
