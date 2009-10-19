@@ -24,7 +24,6 @@ import java.net.UnknownHostException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
 
 /**
  * @author bomber
@@ -32,7 +31,8 @@ import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
  */
 public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 	public final int MESSAGE_LENGTH_FIELD_LENGTH = 8;
-	private final Log log = LogFactory.getLog(SimpleSocketAdapterServiceImpl.class);
+	private final Log log = LogFactory
+			.getLog(SimpleSocketAdapterServiceImpl.class);
 
 	public void setCharsetName(String charsetName) {
 		this.charsetName = charsetName;
@@ -66,11 +66,14 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 			}
 
 			// receive messate
-			StringBuilder sb = new StringBuilder();
 			byte[] messageLengthBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
 			inputStream.read(messageLengthBytes, 0, messageLengthBytes.length);
+			StringBuilder sb = new StringBuilder();
 			sb.append(new String(messageLengthBytes, charsetName).trim());
-			int messageLength = Integer.parseInt(sb.toString());
+			String messageLengthBytesString = sb.toString();
+			if (messageLengthBytesString.length() == 0)
+				return null;
+			int messageLength = Integer.parseInt(messageLengthBytesString);
 
 			byte[] messageBytes = new byte[messageLength];
 			inputStream.read(messageBytes, 0, messageBytes.length);
@@ -106,6 +109,7 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 	}
 
 	public byte[] send(byte[] bytes) throws Exception {
-		return (this.send(new String(bytes, charsetName))).getBytes(charsetName);
+		return (this.send(new String(bytes, charsetName)))
+				.getBytes(charsetName);
 	}
 }
