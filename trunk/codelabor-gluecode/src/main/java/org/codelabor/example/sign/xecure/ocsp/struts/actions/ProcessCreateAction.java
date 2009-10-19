@@ -37,7 +37,7 @@ public class ProcessCreateAction extends BaseAction {
 				.getBean("propertiesService");
 
 		// get cndn list
-		this.caDnList = propertiesService.getString(caDnList);
+		this.caDnList = propertiesService.getString("cadn.list");
 
 		// execute biz logic
 		String signedMessage = WebUtils.findParameterValue(request,
