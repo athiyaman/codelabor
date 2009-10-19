@@ -36,12 +36,18 @@ public class ProcessCreateAction extends BaseAction {
 		IPropertiesService propertiesService = (IPropertiesService) ctx
 				.getBean("propertiesService");
 
-		// get cndn list
-		this.caDnList = propertiesService.getString("cadn.list");
+		// get caDnList
+		caDnList = propertiesService.getString("ca.dn.list");
+		if (log.isDebugEnabled()) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("caDnList: ").append(caDnList);
+			log.debug(sb.toString());
+		}
 
-		// execute biz logic
+		// exeucte biz logic
 		String signedMessage = WebUtils.findParameterValue(request,
 				Constants.SECURITY_SIGNED_MESSAGE_KEY);
+
 		if (signedMessage != null) {
 			SignVerifierM signVerifier = new SignVerifierM(new XecureConfig(),
 					signedMessage);
