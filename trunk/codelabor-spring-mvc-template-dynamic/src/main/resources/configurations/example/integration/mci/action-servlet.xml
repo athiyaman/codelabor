@@ -17,7 +17,7 @@
 	<bean
  		id="example.integration.mci.listController"
 		class="org.codelabor.example.integration.mci.spring.controllers.ListController">
-		<property name="financialService" ref="example.integration.mci.financialService"/>
+		<property name="financialService" ref="exampleIntegrationMciFinancialService"/>
 		<property name="customDateEditor" ref="customDateEditor"/>
 		<property name="validator" ref="example.integration.mci.searchConditionValidator"/>
 		<property name="commandName" value="searchCondition"/>
