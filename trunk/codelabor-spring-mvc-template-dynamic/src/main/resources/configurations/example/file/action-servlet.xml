@@ -25,6 +25,18 @@
 		</property>
 	</bean>
 	
+	<!-- servlet file upload -->
+	<bean
+		id="exampleFileServletFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.servlet.list.definition"/>
+	</bean>
+	<bean
+		id="exampleFileServletXecureFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.servlet.xecure.list.definition"/>
+	</bean>	
+	
 	<!-- base controller -->
 	<bean
 		id="exampleFileBaseController"
@@ -54,16 +66,7 @@
 		<property name="mapIdGenerationService" ref="sequenceMapIdGenerationService" />
 	</bean>		
 
-	<bean
-		id="exampleFileServletFileListController"
-		class="anyframe.web.springmvc.controller.ForwardController">
-		<property name="viewName" value="example.file.servlet.list.definition"/>
-	</bean>
-	<bean
-		id="exampleFileServletXecureFileListController"
-		class="anyframe.web.springmvc.controller.ForwardController">
-		<property name="viewName" value="example.file.servlet.xecure.list.definition"/>
-	</bean>	
+	<!-- spring mvc file upload -->
 	<bean
 		id="exampleFileSpringMvcFileListController"
 		class="org.codelabor.system.file.spring.controllers.FileListController"
