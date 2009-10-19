@@ -19,6 +19,7 @@ public class SignkoreaRAServiceImpl extends RegistrationAuthorityService {
 	private String raServerIp;
 	private int raServerPort;
 	private ReturnCodeTranslator returnCodeTranslator;
+	@SuppressWarnings("unused")
 	private IQueryService queryService;
 
 	public void setQueryService(IQueryService queryService) {
