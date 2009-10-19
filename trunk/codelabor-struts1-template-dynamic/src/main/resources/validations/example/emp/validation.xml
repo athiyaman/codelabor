@@ -11,7 +11,7 @@
 			<field property="hireDate" depends="required,date">
 		        <msg name="required" key="empDTO.hireDate.required" />
 		        <msg name="date" key="empDTO.hireDate.typeMismatch" />
-		        <var><var-name>datePatternStrict</var-name><var-value>Myyyy-MM-dd</var-value></var>
+		        <var><var-name>datePatternStrict</var-name><var-value>yyyy-MM-dd</var-value></var>
 		    </field>
 		</form>
 	</formset>

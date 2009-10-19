@@ -54,44 +54,8 @@
 							</li>
 						</ul>
 					</li>
-					<!--
-					<li class="expanded">
-						<spring:message code="menu.example.error.layer"/>
-						<ul>
-							<li>
-								<a href="<c:url value='/example/error/jspException.do'/>"><spring:message code="menu.example.error.layer.jsp"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/jspExceptionErrorPage.do'/>"><spring:message code="menu.example.error.layer.jsp.error.page"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/jspExceptionBaseException.do'/>"><spring:message code="menu.example.error.layer.jsp.base.exception"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/jspExceptionCommonException.do'/>"><spring:message code="menu.example.error.layer.jsp.common.exception"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/controllerException.do'/>"><spring:message code="menu.example.error.layer.controller"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/flowException.do'/>"><spring:message code="menu.example.error.layer.flow"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/securityException.do'/>"><spring:message code="menu.example.error.layer.security"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/serviceException.do'/>"><spring:message code="menu.example.error.layer.service"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/managerException.do'/>"><spring:message code="menu.example.error.layer.manager"/></a>
-							</li>
-							<li>
-								<a href="<c:url value='/example/error/daoException.do'/>"><spring:message code="menu.example.error.layer.dao"/></a>
-							</li>
-						</ul>
-					</li>
-					-->
 				</ul>
+				<!--  
 				<h5><spring:message code="menu.example.flow"/></h5>
 				<ul>
 					<li>
@@ -107,6 +71,7 @@
 						<a href="<c:url value='/example/emp/registration.do'/>"><spring:message code="label.example.flow.registration"/></a>
 					</li>
 				</ul>
+				-->
 
 				<h5><spring:message code="menu.example.remoting"/></h5>
 				<ul>
@@ -142,6 +107,9 @@
 					<li class="expanded">
 						<spring:message code="menu.example.security.link"/>
 						<ul>
+							<li>
+								<a href="<c:url value='/example/emp.do?method=list'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.struts1"/></a>
+							</li>						
 							<li>
 								<a href="<c:url value='/example/emp/list.do'/>" onclick="return XecureLink(this);"><spring:message code="menu.example.security.link.spring.mvc"/></a>
 							</li>
@@ -213,19 +181,21 @@
 					<li>
   						<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=list'/>"><spring:message code="label.example.file.servlet"/></a>
 					</li>
+					<!-- 
 					<li>
   						<a href="<c:url value='/example/file/spring/mvc/list.do'/>"><spring:message code="label.example.file.spring.mvc"/></a>
 					</li>
-					<!--  
 					<li>
   						<a href="<c:url value='/example/file/spring/webflow/list.do'/>"><spring:message code="label.example.file.spring.webflow"/></a>
 					</li>
 					-->					
 				</ul>
 
+				<!--  
 				<h5><spring:message code="menu.example.banking"/></h5>
 				<ul>
 					<li>
   						<a href="<c:url value='/example/banking/transfer/create.do'/>"><spring:message code="label.example.banking.transfer"/></a>
 					</li>
 				</ul>
+				-->

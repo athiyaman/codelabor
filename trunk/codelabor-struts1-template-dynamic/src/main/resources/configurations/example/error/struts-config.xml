@@ -6,5 +6,11 @@
 	<form-beans>
 	</form-beans>
 	<action-mappings>
+		<action path="/example/error/error-page/errorPageMisuse" forward="example.error.error.page.misuse.definition" />
+		<action path="/example/error/error-page/errorPageUse" forward="example.error.error.page.use.definition" />
+		<action path="/example/error/custom-message/anyframeBaseException" forward="example.error.custom.message.anyframe.base.exception.definition" />
+		<action path="/example/error/custom-message/codelaborCommonException" forward="example.error.custom.message.codelabor.common.exception.definition" />
+		<action path="/example/error/jspExceptionBaseException" forward="example.error.jsp.exception.base.exception.definition" />
+		<action path="/example/error/jspExceptionCommonException" forward="example.error.jsp.exception.common.exception.definition" />
 	</action-mappings>
 </struts-config>
