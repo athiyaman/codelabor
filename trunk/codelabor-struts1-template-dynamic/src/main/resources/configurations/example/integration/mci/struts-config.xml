@@ -4,7 +4,16 @@
           "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
+		<form-bean name="searchForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="fromDate" type="java.util.Date" />
+			<form-property name="toDate" type="java.util.Date" />
+		</form-bean>
 	</form-beans>
 	<action-mappings>
+		<action path="/example/integration/mci/list" 
+			type="org.codelabor.example.integration.mci.struts.actions.ListAction"
+			name="searchForm">
+			<forward name="success" path="example.integration.mci.list.definition" />
+		</action>
 	</action-mappings>
 </struts-config>
