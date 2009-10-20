@@ -17,9 +17,9 @@
 								<th><spring:message code="label.example.integration.mci.date"/></th>
 								<td>
 
-									<input type="text" name="fromDate" value="<f:formatDate value='${searchCondition.fromDate}' pattern='yyyy-MM-dd'/>">
+									<input type="text" name="fromDate" value="2009-01-01">
 									~
-									<input type="text" name="toDate" value="<f:formatDate value='${searchCondition.toDate}' pattern='yyyy-MM-dd'/>">
+									<input type="text" name="toDate" value="2009-10-01">
 									<input type="submit" value="<spring:message code='button.search'/>"/>
 									<input type="reset" value="<spring:message code='button.reset'/>"/>
 								</td>
