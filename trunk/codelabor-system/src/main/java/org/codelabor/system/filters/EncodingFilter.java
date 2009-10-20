@@ -36,15 +36,27 @@ public class EncodingFilter extends BaseFilterImpl {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
-		String beforeCharacterEncoding = request.getCharacterEncoding();
+		String requestBeforeCharacterEncoding = request.getCharacterEncoding();
+		String responseBeforeCharacterEncoding = response
+				.getCharacterEncoding();
+
 		request.setCharacterEncoding(encoding);
-		String afterCharacterEncoding = request.getCharacterEncoding();
+		response.setCharacterEncoding(encoding);
+
+		String requestAfterCharacterEncoding = request.getCharacterEncoding();
+		String responseAfterCharacterEncoding = response.getCharacterEncoding();
 		if (log.isDebugEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(beforeCharacterEncoding);
-			stringBuilder.append(" > ");
-			stringBuilder.append(afterCharacterEncoding);
-			log.debug(stringBuilder.toString());
+			StringBuilder sb = new StringBuilder();
+			sb.append("request character encoding: ");
+			sb.append(requestBeforeCharacterEncoding);
+			sb.append(" -> ");
+			sb.append(requestAfterCharacterEncoding);
+			sb.append(", ");
+			sb.append("response character encoding: ");
+			sb.append(responseBeforeCharacterEncoding);
+			sb.append(" -> ");
+			sb.append(responseAfterCharacterEncoding);
+			log.debug(sb.toString());
 		}
 		filterChain.doFilter(request, response);
 	}
