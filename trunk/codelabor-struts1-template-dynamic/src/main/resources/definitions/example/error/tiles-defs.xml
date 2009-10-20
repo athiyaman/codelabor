@@ -29,28 +29,4 @@
     	<put name="body"
     		value="/WEB-INF/jsp/example/error/jspExceptionCommonException.jsp"/>
 	</definition>
-	<definition name="example.error.controller.exception.definition" extends="system.error.definition">
-    	<put name="body"
-    		value="/WEB-INF/jsp/example/error/controllerException.jsp"/>
-	</definition>
-	<definition name="example.error.flow.exception.definition" extends="system.error.definition">
-    	<put name="body"
-    		value="/WEB-INF/jsp/example/error/flowException.jsp"/>
-	</definition>
-	<definition name="example.error.security.exception.definition" extends="system.error.definition">
-    	<put name="body"
-    		value="/WEB-INF/jsp/example/error/securityException.jsp"/>
-	</definition>
-	<definition name="example.error.service.exception.definition" extends="system.error.definition">
-    	<put name="body"
-    		value="/WEB-INF/jsp/example/error/serviceException.jsp"/>
-	</definition>
-	<definition name="example.error.manager.exception.definition" extends="system.error.definition">
-    	<put name="body"
-    		value="/WEB-INF/jsp/example/error/managerException.jsp"/>
-	</definition>
-	<definition name="example.error.dao.exception.definition" extends="system.error.definition">
-    	<put name="body"
-    		value="/WEB-INF/jsp/example/error/daoException.jsp"/>
-	</definition>
 </tiles-definitions>
