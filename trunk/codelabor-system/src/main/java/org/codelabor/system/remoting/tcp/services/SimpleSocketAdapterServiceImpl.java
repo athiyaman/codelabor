@@ -16,6 +16,8 @@
  */
 package org.codelabor.system.remoting.tcp.services;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -46,6 +48,8 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 		Socket socket = null;
 		InputStream inputStream = null;
 		OutputStream outputStream = null;
+		ByteArrayOutputStream byteArrayOutputStream = null;
+		BufferedOutputStream bufferedOutputStream = null;
 		String receivedMessage = null;
 
 		try {
@@ -65,55 +69,26 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 				log.debug(sb.toString());
 			}
 
-			// read size part
-			byte[] lengthPartBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
-			inputStream.read(lengthPartBytes, 0, lengthPartBytes.length);
-			String messageLengthBytesString = new String(lengthPartBytes,
-					charsetName);
-			if (messageLengthBytesString.length() == 0)
-				return null;
-
-			// get message length
-			int messageLength = Integer.parseInt(messageLengthBytesString);
-
-			// read remains part
-			byte[] remainsPartBytes = new byte[messageLength
-					- MESSAGE_LENGTH_FIELD_LENGTH];
-			inputStream.read(remainsPartBytes, 0, remainsPartBytes.length);
-
-			// append bytes
-			byte[] receivedMessageBytes = new byte[messageLength];
-			System.arraycopy(lengthPartBytes, 0, receivedMessageBytes, 0,
-					MESSAGE_LENGTH_FIELD_LENGTH);
-			System.arraycopy(remainsPartBytes, 0, receivedMessageBytes,
-					MESSAGE_LENGTH_FIELD_LENGTH, messageLength
-							- MESSAGE_LENGTH_FIELD_LENGTH);
-
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb.append("lengthpartBytes: [").append(
-						new String(lengthPartBytes, charsetName)).append("]");
-				sb.append(", ");
-				sb.append("remainsPartBytes: [").append(
-						new String(remainsPartBytes, charsetName)).append("]");
-				sb.append(", ");
-				sb.append("receivedMessageBytes: [").append(
-						new String(receivedMessageBytes, charsetName)).append(
-						"]");
-				log.debug(sb.toString());
+			// read input stream
+			int readSize = 0;
+			int totalReadSize = 0;
+			byte[] buffer = new byte[128 * 1024];
+			byteArrayOutputStream = new ByteArrayOutputStream();
+			bufferedOutputStream = new BufferedOutputStream(
+					byteArrayOutputStream);
+			while ((readSize = inputStream.read(buffer)) != -1) {
+				bufferedOutputStream.write(buffer, 0, readSize);
+				totalReadSize += readSize;
 			}
-
+			byte[] receivedMessageBytes = byteArrayOutputStream.toByteArray();
 			receivedMessage = new String(receivedMessageBytes, charsetName);
 
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
-				sb.append("message length: ").append(messageLength);
-				sb.append(", ");
-				sb.append("received message length: ").append(
-						receivedMessage.getBytes(charsetName).length);
-				sb.append(", ");
-				sb.append("received message: [").append(receivedMessage)
-						.append("]");
+				sb.append("message length: ").append(
+						receivedMessageBytes.length);
+				sb.append("receivedMessage: [").append(receivedMessage).append(
+						"]");
 				log.debug(sb.toString());
 			}
 		} catch (UnknownHostException e) {
@@ -121,6 +96,10 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
+			if (byteArrayOutputStream != null)
+				byteArrayOutputStream.close();
+			if (bufferedOutputStream != null)
+				bufferedOutputStream.close();
 			if (inputStream != null)
 				inputStream.close();
 			if (outputStream != null)
