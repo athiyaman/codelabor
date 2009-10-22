@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.2.4.RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[2.2.6.200908051215-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
@@ -16,6 +16,7 @@
 		<config>src/main/resources/configurations/example/applicationContext-idGenerationService-oracle.xml</config>
 		<config>src/main/resources/configurations/example/remoting/tcp/applicationContext-sockeAdapterService.xml</config>
 		<config>src/main/resources/configurations/system/remoting/applicationContext-messageAdapterService.xml</config>
+		<config>src/main/resources/configurations/example/applicationContext-echoService.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
