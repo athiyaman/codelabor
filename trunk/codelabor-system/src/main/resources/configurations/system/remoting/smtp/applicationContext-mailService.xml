@@ -11,7 +11,7 @@
 	</bean>
 	<bean 
 		id="mailService" 
-		class="org.codelabor.system.services.MailServiceImpl"
+		class="org.codelabor.system.remoting.smtp.services.MailServiceImpl"
 		parent="baseService">
 		<property name="mailSender" ref="mailSender"/>
 	</bean>
