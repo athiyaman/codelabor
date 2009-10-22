@@ -23,5 +23,5 @@ es/LICENSE-2.0
 package org.codelabor.system.remoting.http.services;
 
 public interface MessageHandlerService {
-	public String handleString(String message) throws Exception;
+	public String handleMessage(String message) throws Exception;
 }

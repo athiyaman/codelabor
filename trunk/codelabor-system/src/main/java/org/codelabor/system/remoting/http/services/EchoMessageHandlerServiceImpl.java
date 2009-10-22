@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 public class EchoMessageHandlerServiceImpl implements MessageHandlerService {
 	Log log = LogFactory.getLog(EchoMessageHandlerServiceImpl.class);
 
-	public String handleString(String message) throws Exception {
+	public String handleMessage(String message) throws Exception {
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("message: ").append(message);
