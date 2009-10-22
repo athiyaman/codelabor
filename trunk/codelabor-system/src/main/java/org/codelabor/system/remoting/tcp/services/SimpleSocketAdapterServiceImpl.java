@@ -65,29 +65,55 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 				log.debug(sb.toString());
 			}
 
-			// receive message
-			byte[] messageLengthBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
-			inputStream.read(messageLengthBytes, 0, messageLengthBytes.length);
-			StringBuilder sb = new StringBuilder();
-			sb.append(new String(messageLengthBytes, charsetName));
-			String messageLengthBytesString = sb.toString();
+			// read size part
+			byte[] lengthPartBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
+			inputStream.read(lengthPartBytes, 0, lengthPartBytes.length);
+			String messageLengthBytesString = new String(lengthPartBytes,
+					charsetName);
 			if (messageLengthBytesString.length() == 0)
 				return null;
+
+			// get message length
 			int messageLength = Integer.parseInt(messageLengthBytesString);
 
-			byte[] messageBytes = new byte[messageLength];
-			inputStream.read(messageBytes, 0, messageBytes.length);
-			sb.append(new String(messageBytes, charsetName));
-			receivedMessage = sb.toString();
+			// read remains part
+			byte[] remainsPartBytes = new byte[messageLength
+					- MESSAGE_LENGTH_FIELD_LENGTH];
+			inputStream.read(remainsPartBytes, 0, remainsPartBytes.length);
+
+			// append bytes
+			byte[] receivedMessageBytes = new byte[messageLength];
+			System.arraycopy(lengthPartBytes, 0, receivedMessageBytes, 0,
+					MESSAGE_LENGTH_FIELD_LENGTH);
+			System.arraycopy(remainsPartBytes, 0, receivedMessageBytes,
+					MESSAGE_LENGTH_FIELD_LENGTH, messageLength
+							- MESSAGE_LENGTH_FIELD_LENGTH);
 
 			if (log.isDebugEnabled()) {
-				sb = new StringBuilder();
+				StringBuilder sb = new StringBuilder();
+				sb.append("lengthpartBytes: [").append(
+						new String(lengthPartBytes, charsetName)).append("]");
+				sb.append(", ");
+				sb.append("remainsPartBytes: [").append(
+						new String(remainsPartBytes, charsetName)).append("]");
+				sb.append(", ");
+				sb.append("receivedMessageBytes: [").append(
+						new String(receivedMessageBytes, charsetName)).append(
+						"]");
+				log.debug(sb.toString());
+			}
+
+			receivedMessage = new String(receivedMessageBytes, charsetName);
+
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
 				sb.append("message length: ").append(messageLength);
 				sb.append(", ");
 				sb.append("received message length: ").append(
 						receivedMessage.getBytes(charsetName).length);
 				sb.append(", ");
-				sb.append("received message: ").append(receivedMessage);
+				sb.append("received message: [").append(receivedMessage)
+						.append("]");
 				log.debug(sb.toString());
 			}
 		} catch (UnknownHostException e) {
