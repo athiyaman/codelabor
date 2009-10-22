@@ -1,4 +1,4 @@
-package org.codelabor.system.services;
+package org.codelabor.system.remoting.smtp.services;
 
 import java.io.File;
 import java.util.HashMap;
@@ -9,6 +9,7 @@ import javax.mail.internet.InternetAddress;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.dtos.MailDTO;
+import org.codelabor.system.remoting.smtp.services.MailService;
 import org.junit.Ignore;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 

@@ -1,4 +1,4 @@
-package org.codelabor.system.services;
+package org.codelabor.system.remoting.http.services;
 
 import java.util.HashMap;
 import java.util.Map;
