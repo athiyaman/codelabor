@@ -30,7 +30,7 @@ public class ChannelUtil {
 
 	public static int copy(ReadableByteChannel inputChannel,
 			WritableByteChannel outputChannel) throws IOException {
-		ByteBuffer buffer = ByteBuffer.allocateDirect(16 * 1024);
+		ByteBuffer buffer = ByteBuffer.allocateDirect(128 * 1024);
 		int readSize = 0;
 		int copySize = 0;
 
