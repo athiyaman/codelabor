@@ -9,7 +9,9 @@ public class EchoServiceImpl implements StringHandlerService {
 
 	public String handleString(String message) throws Exception {
 		if (log.isDebugEnabled()) {
-			log.debug(message);
+			StringBuilder sb = new StringBuilder();
+			sb.append("message: ").append(message);
+			log.debug(sb.toString());
 		}
 		return message;
 	}
