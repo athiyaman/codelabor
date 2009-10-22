@@ -16,6 +16,7 @@
 		<config>src/main/resources/configurations/example/applicationContext-idGenerationService-oracle.xml</config>
 		<config>src/main/resources/configurations/example/remoting/tcp/applicationContext-sockeAdapterService.xml</config>
 		<config>src/main/resources/configurations/system/remoting/applicationContext-messageAdapterService.xml</config>
+		<config>src/main/resources/configurations/system/remoting/http/applicationContext-messageHandlerService.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
