@@ -65,11 +65,11 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 				log.debug(sb.toString());
 			}
 
-			// receive messate
+			// receive message
 			byte[] messageLengthBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
 			inputStream.read(messageLengthBytes, 0, messageLengthBytes.length);
 			StringBuilder sb = new StringBuilder();
-			sb.append(new String(messageLengthBytes, charsetName).trim());
+			sb.append(new String(messageLengthBytes, charsetName));
 			String messageLengthBytesString = sb.toString();
 			if (messageLengthBytesString.length() == 0)
 				return null;
@@ -82,6 +82,11 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 
 			if (log.isDebugEnabled()) {
 				sb = new StringBuilder();
+				sb.append("message length: ").append(messageLength);
+				sb.append(", ");
+				sb.append("received message length: ").append(
+						receivedMessage.getBytes(charsetName).length);
+				sb.append(", ");
 				sb.append("received message: ").append(receivedMessage);
 				log.debug(sb.toString());
 			}
