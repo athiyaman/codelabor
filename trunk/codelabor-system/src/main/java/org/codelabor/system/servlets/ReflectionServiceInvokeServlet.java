@@ -18,8 +18,8 @@ public class ReflectionServiceInvokeServlet extends BaseServlet {
 
 	private final Log log = LogFactory
 			.getLog(ReflectionServiceInvokeServlet.class);
-	public final static String SERVICE = "service";
-	public final static String METHOD = "method";
+	public final static String SERVICE = "serviceName";
+	public final static String METHOD = "methodName";
 	public final static String MESSAGE = "message";
 
 	@SuppressWarnings("unchecked")
