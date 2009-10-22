@@ -48,6 +48,10 @@ public class ReflectionServiceInvokeServlet extends BaseServlet {
 			String responseMessage = (String) myMethod.invoke(requestMessage);
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
+				sb.append("serviceName: ").append(serviceName);
+				sb.append(", ");
+				sb.append("methodName: ").append(methodName);
+				sb.append(", ");
 				sb.append("requestMessage: ").append(requestMessage);
 				sb.append(", ");
 				sb.append("responseMessage: ").append(responseMessage);
