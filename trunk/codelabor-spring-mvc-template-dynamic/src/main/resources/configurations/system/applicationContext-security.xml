@@ -19,6 +19,7 @@
 		<security:intercept-url pattern="/servlet/system/snifferServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/servlet/system/sniffer/xecureSnifferServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/servlet/system/file/xecureFileUploadServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<security:intercept-url pattern="/servlet/system/remoting/http/messageHandlerServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/home.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/login/xecure/login.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 		<security:intercept-url pattern="/system/error/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
