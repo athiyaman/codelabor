@@ -23,6 +23,9 @@ public class ReflectionServiceInvokeServlet extends BaseServlet {
 	public final static String SERVICE = "serviceName";
 	public final static String METHOD = "methodName";
 	public final static String MESSAGE = "message";
+	public final static String DEFAULT_SERVICE = "echoMessageHandlerService";
+	public final static String DEFAULT_METHOD = "handleMessage";
+	public final static String DEFAULT_MESSAGE = "Hello, World!";
 
 	protected String contentType = "text/html;charset=UTF-8";
 
@@ -39,11 +42,11 @@ public class ReflectionServiceInvokeServlet extends BaseServlet {
 
 		// get parameter
 		String serviceName = ServletRequestUtils.getStringParameter(request,
-				SERVICE);
+				SERVICE, DEFAULT_SERVICE);
 		String methodName = ServletRequestUtils.getStringParameter(request,
-				METHOD);
+				METHOD, DEFAULT_METHOD);
 		String requestMessage = ServletRequestUtils.getStringParameter(request,
-				MESSAGE);
+				MESSAGE, DEFAULT_MESSAGE);
 
 		// get bean
 		WebApplicationContext ctx = WebApplicationContextUtils
