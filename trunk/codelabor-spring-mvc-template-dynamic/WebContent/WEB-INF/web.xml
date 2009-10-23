@@ -173,6 +173,16 @@
 		<servlet-name>Resource Servlet</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- message handler servlet -->
+	<servlet>
+		<servlet-name>Message Handler Servlet</servlet-name>
+		<servlet-class>org.codelabor.system.remoting.http.servlets.MessageHandlerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Message Handler Servlet</servlet-name>
+		<url-pattern>/servlet/system/remoting/http/messageHandlerServlet</url-pattern>
+	</servlet-mapping>	
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
