@@ -29,10 +29,10 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 2371693467388711297L;
+	public final static String DEFAULT_METHOD = "handleMessage";
 	private final Log log = LogFactory.getLog(MessageHandlerServlet.class);
 	protected String contentType = "text/html;charset=UTF-8";
 	protected int bufferSize = 512;
-	public final static String DEFAULT_METHOD = "handleMessage";
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -48,6 +48,7 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 				&& StringUtils.isNumeric(paramBufferSize)) {
 			bufferSize = Integer.parseInt(paramBufferSize);
 		}
+		String paramBeginIndex = config.getInitParameter("beginIndex");
 
 		// log
 		if (log.isDebugEnabled()) {
