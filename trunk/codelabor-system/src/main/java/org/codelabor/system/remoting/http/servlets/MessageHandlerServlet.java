@@ -116,6 +116,11 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 
 	protected String getServiceName(String message) throws Exception {
 		String serviceName = message.substring(12, 23);
+		if (log.isDebugEnabled()) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("serviceName: ").append(serviceName);
+			log.debug(sb.toString());
+		}
 		return serviceName;
 	}
 
