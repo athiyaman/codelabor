@@ -65,28 +65,46 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 			outputStream.flush();
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
-				sb.append("sent message: ").append(inputMessage);
+				sb.append("sent message: [").append(inputMessage).append("]");
 				log.debug(sb.toString());
 			}
 
-			// read input stream
 			int readSize = 0;
 			int totalReadSize = 0;
-			byte[] buffer = new byte[128 * 1024];
+
+			byte[] messageLengthBytes = new byte[MESSAGE_LENGTH_FIELD_LENGTH];
+			inputStream
+					.read(messageLengthBytes, 0, MESSAGE_LENGTH_FIELD_LENGTH);
+			String messageLengthString = new String(messageLengthBytes,
+					charsetName);
+			totalReadSize += MESSAGE_LENGTH_FIELD_LENGTH;
+			int messageLength = Integer.parseInt(messageLengthString);
+
+			// read input stream
+			byte[] buffer = new byte[128];
 			byteArrayOutputStream = new ByteArrayOutputStream();
 			bufferedOutputStream = new BufferedOutputStream(
 					byteArrayOutputStream);
-			while ((readSize = inputStream.read(buffer)) != -1) {
+			while (messageLength > totalReadSize
+					&& (readSize = inputStream.read(buffer)) != -1) {
 				bufferedOutputStream.write(buffer, 0, readSize);
+				bufferedOutputStream.flush();
 				totalReadSize += readSize;
+				if (log.isDebugEnabled()) {
+					StringBuilder sb = new StringBuilder();
+					sb.append("read size: ").append(readSize);
+					sb.append(", ");
+					sb.append("total read size: ").append(totalReadSize);
+					sb.append(", ");
+					sb.append("message length: ").append(messageLength);
+					log.debug(sb.toString());
+				}
 			}
 			byte[] receivedMessageBytes = byteArrayOutputStream.toByteArray();
 			receivedMessage = new String(receivedMessageBytes, charsetName);
 
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
-				sb.append("message length: ").append(
-						receivedMessageBytes.length);
 				sb.append("receivedMessage: [").append(receivedMessage).append(
 						"]");
 				log.debug(sb.toString());
