@@ -86,6 +86,8 @@ public class MessageHandlerServlet extends BaseServlet {
 		// sb.append("responseMessage: ").append(responseMessage);
 		// log.debug(sb.toString());
 		// }
+		responseMessage = requestMessage;
+
 		response.setContentType(contentType);
 		response.getWriter().write(responseMessage);
 		// } catch (Exception e) {
