@@ -100,7 +100,13 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 					log.debug(sb.toString());
 				}
 			}
-			byte[] receivedMessageBytes = byteArrayOutputStream.toByteArray();
+			byte[] remainsMessageBytes = byteArrayOutputStream.toByteArray();
+			byte[] receivedMessageBytes = new byte[messageLengthBytes.length
+					+ remainsMessageBytes.length];
+			System.arraycopy(messageLengthBytes, 0, receivedMessageBytes, 0,
+					messageLengthBytes.length);
+			System.arraycopy(remainsMessageBytes, 0, receivedMessageBytes,
+					messageLengthBytes.length, remainsMessageBytes.length);
 			receivedMessage = new String(receivedMessageBytes, charsetName);
 
 			if (log.isDebugEnabled()) {

@@ -3,23 +3,26 @@ package org.codelabor.system.remoting.http.servlets;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.Reader;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
+import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.servlets.BaseServlet;
+import org.codelabor.system.servlets.BaseHttpServlet;
 import org.codelabor.system.utils.ChannelUtil;
 
-public class MessageHandlerServlet extends BaseServlet {
+public class MessageHandlerServlet extends BaseHttpServlet {
 
 	private final Log log = LogFactory.getLog(MessageHandlerServlet.class);
 	protected String contentType = "text/html;charset=UTF-8";
@@ -40,10 +43,19 @@ public class MessageHandlerServlet extends BaseServlet {
 	}
 
 	@Override
-	public void service(ServletRequest request, ServletResponse response)
+	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		int contentLength = request.getContentLength();
+		Map parameterMap = request.getParameterMap();
 
 		InputStream inputStream = request.getInputStream();
+
+		Reader reader = new InputStreamReader(inputStream);
+		int c;
+		while ((c = reader.read()) != -1) {
+			System.out.print((char) c);
+		}
+
 		OutputStream outputStream = new ByteArrayOutputStream();
 		ReadableByteChannel inputChannel = Channels.newChannel(inputStream);
 		WritableByteChannel outputChannel = Channels.newChannel(outputStream);
@@ -53,6 +65,10 @@ public class MessageHandlerServlet extends BaseServlet {
 
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
+			sb.append("contentLength: ").append(contentLength);
+			sb.append(", ");
+			sb.append("parameterMap: ").append(parameterMap);
+			sb.append(", ");
 			sb.append("messageLength: ").append(messageLength);
 			sb.append(", ");
 			sb.append("requestMessage: ").append(requestMessage);

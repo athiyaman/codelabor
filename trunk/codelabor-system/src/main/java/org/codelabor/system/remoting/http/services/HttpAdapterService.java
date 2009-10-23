@@ -25,5 +25,7 @@ import java.util.Map;
  */
 public interface HttpAdapterService {
 
-	public String request(Map<String, String> parameterMap);
+	public String request(Map<String, String> parameterMap) throws Exception;
+
+	public String request(String requestMessage) throws Exception;
 }
