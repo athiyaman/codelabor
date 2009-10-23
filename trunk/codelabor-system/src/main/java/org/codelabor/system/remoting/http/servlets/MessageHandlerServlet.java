@@ -48,7 +48,6 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 				&& StringUtils.isNumeric(paramBufferSize)) {
 			bufferSize = Integer.parseInt(paramBufferSize);
 		}
-		String paramBeginIndex = config.getInitParameter("beginIndex");
 
 		// log
 		if (log.isDebugEnabled()) {
