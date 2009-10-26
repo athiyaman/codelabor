@@ -20,12 +20,13 @@ public class HttpAdapterServiceTest extends
 
 	}
 
-	public void testRequestByMap() {
+	public void testRequestByGetMethod() {
 		try {
 			// test
 			Map<String, String> parameterMap = new HashMap<String, String>();
 			parameterMap.put("q", "codelabor");
-			String responseBody = this.httpAdapterService.request(parameterMap);
+			String responseBody = this.httpAdapterService
+					.requestByGetMethod(parameterMap);
 
 			// assert
 			assertNotNull(responseBody);
@@ -42,16 +43,17 @@ public class HttpAdapterServiceTest extends
 		}
 	}
 
-	public void testRequestByString() {
+	public void testRequestByPostMethod() {
 		try {
 			// test
-			String requestMessage = "hello";
+			String requestMessage = "00001611SKSFWORKFLOW001109905P0LB IUS208160000910231458554546000IUS208160000910231458554546                                0S 0000000000010.10.101.204          1          2009102314585570                                                                                                                                       IUSIUS0 WORKFLOW001                             101 0210125020816김성오              1    N                    00   20091023                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2                   20816   0                                                                                                                                                                 00000        ;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ";
 			String responseMessage;
-			responseMessage = this.httpAdapterService.request(requestMessage);
+			responseMessage = this.httpAdapterService
+					.requestByPostMethod(requestMessage);
 
 			// assert
 			assertNotNull(responseMessage);
-			String expectedBody = "hello";
+			String expectedBody = "00001611SKSFWORKFLOW001109905P0LB IUS208160000910231458554546000IUS208160000910231458554546                                0S 0000000000010.10.101.204          1          2009102314585570                                                                                                                                       IUSIUS0 WORKFLOW001                             101 0210125020816김성오              1    N                    00   20091023                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2                   20816   0                                                                                                                                                                 00000        ;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ";
 			assertTrue(responseMessage.contains(expectedBody.subSequence(0,
 					expectedBody.length())));
 			// log
