@@ -15,5 +15,6 @@
 		</property>
 		<property name="retry" value="3"/>
 		<property name="charsetName" value="EUC-KR" />
+		<property name="contentType" value="text/html;charset=EUC-KR" />
 	</bean>	
 </beans>
