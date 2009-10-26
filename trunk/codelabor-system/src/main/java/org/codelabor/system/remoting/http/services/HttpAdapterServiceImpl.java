@@ -17,18 +17,7 @@
 
 package org.codelabor.system.remoting.http.services;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -37,6 +26,9 @@ import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.RequestEntity;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.params.DefaultHttpParams;
 import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.params.HttpMethodParams;
@@ -51,10 +43,19 @@ import org.codelabor.system.services.BaseServiceImpl;
 public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 		HttpAdapterService {
 
-	private String url = null;
-	private String charsetName = "UTF-8";
+	protected String url = null;
+	protected String charsetName = "UTF-8";
+	protected String contentType = "text/html;charset=UTF-8";
 
 	private int retry = 3;
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
 
 	public String getCharsetName() {
 		return charsetName;
@@ -72,12 +73,52 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 		this.url = url;
 	}
 
-	public String request(Map<String, String> parameterMap) throws Exception {
-		StringBuilder sb = new StringBuilder();
+	public String requestByPostMethod(String content) throws Exception {
+		String responseBody = null;
+		PostMethod method = null;
+		RequestEntity requestEntity = null;
+
+		try {
+			requestEntity = new StringRequestEntity(content, contentType,
+					charsetName);
+			method = new PostMethod(url);
+			method.setRequestEntity(requestEntity);
+			HttpClient httpClient = new HttpClient();
+			int statusCode = httpClient.executeMethod(method);
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb = new StringBuilder();
+				sb.append("statusCode: ").append(statusCode);
+				log.debug(sb.toString());
+			}
+			switch (statusCode) {
+
+			case HttpStatus.SC_OK:
+				responseBody = method.getResponseBodyAsString();
+				if (log.isDebugEnabled()) {
+					StringBuilder sb = new StringBuilder();
+					sb = new StringBuilder();
+					sb.append("responseBody: ").append(responseBody);
+					log.debug(sb.toString());
+				}
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			method.releaseConnection();
+		}
+		return responseBody;
+	}
+
+	public String requestByGetMethod(Map<String, String> parameterMap)
+			throws Exception {
 		String responseBody = null;
 		GetMethod method = null;
 
 		try {
+			StringBuilder sb = new StringBuilder();
 			sb.append(url);
 			if (url.indexOf("?") == -1) {
 				sb.append("?");
@@ -119,6 +160,12 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 			switch (statusCode) {
 			case HttpStatus.SC_OK:
 				responseBody = method.getResponseBodyAsString();
+				if (log.isDebugEnabled()) {
+					sb = new StringBuilder();
+					sb = new StringBuilder();
+					sb.append("responseBody: ").append(responseBody);
+					log.debug(sb.toString());
+				}
 				break;
 			}
 		} catch (Exception e) {
@@ -145,60 +192,5 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 
 	public void setRetry(int retry) {
 		this.retry = retry;
-	}
-
-	public String request(String requestMessage) throws Exception {
-		String responseBody = null;
-		URL myUrl = null;
-		URLConnection urlConnection = null;
-		HttpURLConnection httpUrlConnection = null;
-		InputStream inputStream = null;
-		OutputStream outputStream = null;
-		Reader reader = null;
-		Writer writer = null;
-
-		try {
-			myUrl = new URL(url);
-			urlConnection = myUrl.openConnection();
-			httpUrlConnection = (HttpURLConnection) urlConnection;
-
-			httpUrlConnection.setDoOutput(true);
-			outputStream = httpUrlConnection.getOutputStream();
-			writer = new OutputStreamWriter(outputStream);
-			writer.write(requestMessage);
-			writer.flush();
-
-			int reponseCode = httpUrlConnection.getResponseCode();
-			String responseMessage = httpUrlConnection.getResponseMessage();
-			Map<String, List<String>> headerFields = httpUrlConnection
-					.getHeaderFields();
-
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb.append("reponseCode: ").append(reponseCode);
-				sb.append(", ");
-				sb.append("responseMessage: ").append(responseMessage);
-				sb.append(", ");
-				sb.append("headerFields: ").append(headerFields);
-				log.debug(sb.toString());
-			}
-
-			inputStream = httpUrlConnection.getInputStream();
-			reader = new InputStreamReader(inputStream);
-			int c;
-			while ((c = reader.read()) != -1) {
-				System.out.print((char) c);
-			}
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-			throw e;
-		} finally {
-			if (inputStream != null)
-				inputStream.close();
-			if (httpUrlConnection != null)
-				httpUrlConnection.disconnect();
-		}
-
-		return responseBody;
 	}
 }
