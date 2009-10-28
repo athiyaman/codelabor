@@ -103,9 +103,9 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 				sb.append(", ");
 				sb.append("messageLength: ").append(messageLength);
 				sb.append(", ");
-				sb.append("inputMessage: ").append(inputMessage);
+				sb.append("inputMessage: [").append(inputMessage).append("]");
 				sb.append(", ");
-				sb.append("outputMessage: ").append(outputMessage);
+				sb.append("outputMessage: [").append(outputMessage).append("]");
 				log.debug(sb.toString());
 			}
 		} catch (Exception e) {
