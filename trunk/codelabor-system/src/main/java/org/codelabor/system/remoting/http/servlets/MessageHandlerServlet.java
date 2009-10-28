@@ -1,13 +1,10 @@
 package org.codelabor.system.remoting.http.servlets;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Method;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -19,7 +16,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.remoting.http.services.MessageHandlerService;
 import org.codelabor.system.servlets.BaseHttpServlet;
-import org.codelabor.system.utils.ChannelUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -31,8 +27,9 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 	private static final long serialVersionUID = 2371693467388711297L;
 	public final static String DEFAULT_METHOD = "handleMessage";
 	private final Log log = LogFactory.getLog(MessageHandlerServlet.class);
-	protected String contentType = "text/html;charset=UTF-8";
-	protected int bufferSize = 512;
+	protected String contentType = "text/html;charset=EUC-KR";
+	protected String charsetName = "EUC-KR";
+	protected int bufferSize = 8 * 1024;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -42,6 +39,10 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 		String paramContentType = config.getInitParameter("contentType");
 		if (StringUtils.isNotBlank(paramContentType)) {
 			contentType = paramContentType;
+		}
+		String paramcharsetName = config.getInitParameter("charsetName");
+		if (StringUtils.isNotBlank(paramcharsetName)) {
+			charsetName = paramcharsetName;
 		}
 		String paramBufferSize = config.getInitParameter("bufferSize");
 		if (StringUtils.isNotBlank(paramContentType)
@@ -68,11 +69,35 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 
 		// get input message
 		InputStream inputStream = request.getInputStream();
-		OutputStream outputStream = new ByteArrayOutputStream();
-		ReadableByteChannel inputChannel = Channels.newChannel(inputStream);
-		WritableByteChannel outputChannel = Channels.newChannel(outputStream);
-		int messageLength = ChannelUtil.copy(inputChannel, outputChannel);
-		String inputMessage = outputStream.toString();
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
+				byteArrayOutputStream);
+		byte[] buffer = new byte[bufferSize];
+		int readSize = 0;
+		int totalReadSize = 0;
+		while ((readSize = inputStream.read(buffer)) != -1) {
+			bufferedOutputStream.write(buffer, 0, readSize);
+			bufferedOutputStream.flush();
+			totalReadSize += readSize;
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb.append("read size: ").append(readSize);
+				sb.append(", ");
+				sb.append("total read size: ").append(totalReadSize);
+				log.debug(sb.toString());
+			}
+		}
+		byte[] inputMessageBytes = byteArrayOutputStream.toByteArray();
+
+		// handle stream
+
+		// ReadableByteChannel inputChannel = Channels.newChannel(inputStream);
+		// WritableByteChannel outputChannel =
+		// Channels.newChannel(outputStream);
+		// int messageLength = ChannelUtil.copy(inputChannel, outputChannel);
+
+		// message
+		String inputMessage = new String(inputMessageBytes, charsetName);
 		String outputMessage = null;
 		MessageHandlerService stringHandlerService = null;
 		try {
@@ -99,13 +124,18 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 			// log
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
-				sb.append("contentLength: ").append(contentLength);
+				sb.append("content length: ").append(contentLength);
 				sb.append(", ");
-				sb.append("messageLength: ").append(messageLength);
+				sb.append("input message: [").append(inputMessage).append("]");
 				sb.append(", ");
-				sb.append("inputMessage: [").append(inputMessage).append("]");
+				sb.append("input message length: ").append(
+						inputMessage.getBytes().length);
 				sb.append(", ");
-				sb.append("outputMessage: [").append(outputMessage).append("]");
+				sb.append("output message: [").append(outputMessage)
+						.append("]");
+				sb.append(", ");
+				sb.append("output message length: ").append(
+						outputMessage.getBytes().length);
 				log.debug(sb.toString());
 			}
 		} catch (Exception e) {
