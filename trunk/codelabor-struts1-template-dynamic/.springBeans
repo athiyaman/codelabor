@@ -7,11 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/configurations/example/banking/applicationContext-accountManager.xml</config>
-		<config>src/main/resources/configurations/example/banking/applicationContext-bankManager.xml</config>
-		<config>src/main/resources/configurations/example/banking/applicationContext-customerManager.xml</config>
-		<config>src/main/resources/configurations/example/banking/applicationContext-customerService.xml</config>
-		<config>src/main/resources/configurations/example/banking/applicationContext-transferService.xml</config>
 		<config>src/main/resources/configurations/system/applicationContext-ioServiceManager.xml</config>
 	</configs>
 	<configSets>
@@ -20,11 +15,6 @@
 			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
 			<incomplete>false</incomplete>
 			<configs>
-				<config>src/main/resources/configurations/example/banking/applicationContext-accountManager.xml</config>
-				<config>src/main/resources/configurations/example/banking/applicationContext-bankManager.xml</config>
-				<config>src/main/resources/configurations/example/banking/applicationContext-customerManager.xml</config>
-				<config>src/main/resources/configurations/example/banking/applicationContext-customerService.xml</config>
-				<config>src/main/resources/configurations/example/banking/applicationContext-transferService.xml</config>
 			</configs>
 		</configSet>
 	</configSets>
