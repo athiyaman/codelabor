@@ -8,7 +8,7 @@
 		class="org.codelabor.system.remoting.http.services.HttpAdapterServiceImpl"
 		parent="baseService">
 		<property name="url">
-			<value>http://localhost:8180/servlet/system/remoting/message/messageHandlerServlet</value>
+			<value>http://localhost:10300/servlet/system/remoting/message/messageHandlerServlet</value>
 			<!--  
 			<value>http://www.google.com/search</value>
 			-->
