@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.remoting.http.services.MessageHandlerService;
+import org.codelabor.system.remoting.http.utils.MessageUtil;
 import org.codelabor.system.servlets.BaseHttpServlet;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -65,60 +66,50 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int contentLength = request.getContentLength();
-
-		// get input message
-		InputStream inputStream = request.getInputStream();
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				byteArrayOutputStream);
-		byte[] buffer = new byte[bufferSize];
-		int readSize = 0;
-		int totalReadSize = 0;
-		while ((readSize = inputStream.read(buffer)) != -1) {
-			bufferedOutputStream.write(buffer, 0, readSize);
-			bufferedOutputStream.flush();
-			totalReadSize += readSize;
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb.append("read size: ").append(readSize);
-				sb.append(", ");
-				sb.append("total read size: ").append(totalReadSize);
-				log.debug(sb.toString());
-			}
-		}
-		byte[] inputMessageBytes = byteArrayOutputStream.toByteArray();
-
-		// handle stream
-
-		// ReadableByteChannel inputChannel = Channels.newChannel(inputStream);
-		// WritableByteChannel outputChannel =
-		// Channels.newChannel(outputStream);
-		// int messageLength = ChannelUtil.copy(inputChannel, outputChannel);
-
-		// message
-		String inputMessage = new String(inputMessageBytes, charsetName);
-		String outputMessage = null;
-		MessageHandlerService stringHandlerService = null;
 		try {
+			int contentLength = request.getContentLength();
+
+			// get input message
+			InputStream inputStream = request.getInputStream();
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+			BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
+					byteArrayOutputStream);
+			byte[] buffer = new byte[bufferSize];
+			int readSize = 0;
+			int totalReadSize = 0;
+			while ((readSize = inputStream.read(buffer)) != -1
+					&& (totalReadSize < contentLength)) {
+				bufferedOutputStream.write(buffer, 0, readSize);
+				bufferedOutputStream.flush();
+				totalReadSize += readSize;
+				if (log.isDebugEnabled()) {
+					StringBuilder sb = new StringBuilder();
+					sb.append("read size: ").append(readSize);
+					sb.append(", ");
+					sb.append("total read size: ").append(totalReadSize);
+					log.debug(sb.toString());
+				}
+			}
+
+			// message
+			String inputMessage = new String(byteArrayOutputStream
+					.toByteArray(), charsetName);
+			String outputMessage = null;
+
 			// get bean
 			WebApplicationContext ctx = WebApplicationContextUtils
 					.getRequiredWebApplicationContext(getServletConfig()
 							.getServletContext());
-			stringHandlerService = (MessageHandlerService) ctx.getBean(this
-					.getServiceName(inputMessage));
-			String inputHeaderMessage = new String(
-					getInputHeaderMessage(inputMessageBytes));
-			String inputDataMessage = new String(
-					getInputDataMessage(inputMessageBytes));
+			String serviceName = MessageUtil.getServiceName(inputMessage);
+			MessageHandlerService stringHandlerService = (MessageHandlerService) ctx
+					.getBean(serviceName);
 
 			// invoke
 			Class serviceClass = stringHandlerService.getClass();
-			Class[] paramTypes = new Class[] { String.class, String.class };
+			Class[] paramTypes = new Class[] { String.class };
 			Method serviceMethod = serviceClass.getMethod(DEFAULT_METHOD,
 					paramTypes);
-			Object[] paramList = new String[] { inputHeaderMessage,
-					inputDataMessage };
+			Object[] paramList = new String[] { inputMessage };
 			outputMessage = (String) serviceMethod.invoke(stringHandlerService,
 					paramList);
 
@@ -148,30 +139,5 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 			e.printStackTrace();
 			throw new ServletException(e);
 		}
-	}
-
-	protected byte[] getInputHeaderMessage(byte[] inputMessage)
-			throws Exception {
-		byte[] inputHeaderMessage = new byte[900];
-		System.arraycopy(inputMessage, 0, inputHeaderMessage, 0,
-				inputHeaderMessage.length);
-		return inputHeaderMessage;
-	}
-
-	protected byte[] getInputDataMessage(byte[] inputMessage) throws Exception {
-		byte[] inputDataMessage = new byte[inputMessage.length - 900];
-		System.arraycopy(inputMessage, 900, inputDataMessage, 0,
-				inputDataMessage.length);
-		return inputDataMessage;
-	}
-
-	protected String getServiceName(String message) throws Exception {
-		String serviceName = message.substring(12, 23);
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("serviceName: ").append(serviceName);
-			log.debug(sb.toString());
-		}
-		return serviceName;
 	}
 }
