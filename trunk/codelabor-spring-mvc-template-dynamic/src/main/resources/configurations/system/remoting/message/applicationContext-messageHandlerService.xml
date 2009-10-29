@@ -4,5 +4,5 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<bean id="echoMessageHandlerService" name="WORKFLOW001"
-		class="org.codelabor.system.remoting.http.services.EchoMessageHandlerServiceImpl" />
+		class="org.codelabor.system.remoting.message.services.EchoMessageHandlerServiceImpl" />
 </beans>
