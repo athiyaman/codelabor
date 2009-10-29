@@ -107,13 +107,18 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 							.getServletContext());
 			stringHandlerService = (MessageHandlerService) ctx.getBean(this
 					.getServiceName(inputMessage));
+			String inputHeaderMessage = new String(
+					getInputHeaderMessage(inputMessageBytes));
+			String inputDataMessage = new String(
+					getInputDataMessage(inputMessageBytes));
 
 			// invoke
 			Class serviceClass = stringHandlerService.getClass();
-			Class[] paramTypes = new Class[] { String.class };
+			Class[] paramTypes = new Class[] { String.class, String.class };
 			Method serviceMethod = serviceClass.getMethod(DEFAULT_METHOD,
 					paramTypes);
-			Object[] paramList = new String[] { inputMessage };
+			Object[] paramList = new String[] { inputHeaderMessage,
+					inputDataMessage };
 			outputMessage = (String) serviceMethod.invoke(stringHandlerService,
 					paramList);
 
@@ -144,6 +149,21 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 		}
 	}
 
+	protected byte[] getInputHeaderMessage(byte[] inputMessage)
+			throws Exception {
+		byte[] inputHeaderMessage = new byte[900];
+		System.arraycopy(inputMessage, 0, inputHeaderMessage, 0,
+				inputHeaderMessage.length);
+		return inputHeaderMessage;
+	}
+
+	protected byte[] getInputDataMessage(byte[] inputMessage) throws Exception {
+		byte[] inputDataMessage = new byte[inputMessage.length - 900];
+		System.arraycopy(inputMessage, 900, inputDataMessage, 0,
+				inputDataMessage.length);
+		return inputDataMessage;
+	}
+
 	protected String getServiceName(String message) throws Exception {
 		String serviceName = message.substring(12, 23);
 		if (log.isDebugEnabled()) {
@@ -153,5 +173,4 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 		}
 		return serviceName;
 	}
-
 }

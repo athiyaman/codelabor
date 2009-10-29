@@ -81,7 +81,7 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 			int messageLength = Integer.parseInt(messageLengthString);
 
 			// read input stream
-			byte[] buffer = new byte[128];
+			byte[] buffer = new byte[8 * 1024];
 			byteArrayOutputStream = new ByteArrayOutputStream();
 			bufferedOutputStream = new BufferedOutputStream(
 					byteArrayOutputStream);

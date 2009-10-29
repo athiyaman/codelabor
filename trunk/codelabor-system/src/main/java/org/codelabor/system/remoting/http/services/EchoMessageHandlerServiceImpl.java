@@ -6,13 +6,18 @@ import org.apache.commons.logging.LogFactory;
 public class EchoMessageHandlerServiceImpl implements MessageHandlerService {
 	Log log = LogFactory.getLog(EchoMessageHandlerServiceImpl.class);
 
-	public String handleMessage(String message) throws Exception {
+	public String handleMessage(String inputHeaderMessage,
+			String inputDataMessage) throws Exception {
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append("message: ").append(message);
+			sb.append("inputHeaderMessage: ").append(inputHeaderMessage);
+			sb.append(", ");
+			sb.append("inputDataMessage: ").append(inputDataMessage);
 			log.debug(sb.toString());
 		}
-		return message;
+		StringBuilder sb = new StringBuilder();
+		sb.append(inputHeaderMessage).append(inputDataMessage);
+		return sb.toString();
 	}
 
 }
