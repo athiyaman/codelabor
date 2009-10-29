@@ -10,22 +10,23 @@ import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 public class HttpAdapterServiceTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
-	private HttpAdapterService httpAdapterService;
 	protected Log log = LogFactory.getLog(this.getClass());
 
 	@Override
 	public void onSetUp() throws Exception {
-		httpAdapterService = (HttpAdapterService) applicationContext
-				.getBean("httpAdapterService");
 
 	}
 
 	public void testRequestByGetMethod() {
 		try {
+			HttpAdapterService httpAdapterService;
+			httpAdapterService = (HttpAdapterService) applicationContext
+					.getBean("httpAdapterService");
+
 			// test
 			Map<String, String> parameterMap = new HashMap<String, String>();
 			parameterMap.put("q", "codelabor");
-			String responseBody = this.httpAdapterService
+			String responseBody = httpAdapterService
 					.requestByGetMethod(parameterMap);
 
 			// assert
@@ -45,10 +46,14 @@ public class HttpAdapterServiceTest extends
 
 	public void testRequestByPostMethod() {
 		try {
+			HttpAdapterService httpAdapterService;
+			httpAdapterService = (HttpAdapterService) applicationContext
+					.getBean("messageHandlerHttpAdapterService");
+
 			// test
 			String requestMessage = "00001611SKSFWORKFLOW001109905P0LB IUS208160000910231458554546000IUS208160000910231458554546                                0S 0000000000010.10.101.204          1          2009102314585570                                                                                                                                       IUSIUS0 WORKFLOW001                             101 0210125020816김성오              1    N                    00   20091023                                                                                                                                                                                                                                                                                                                                                                                                                                                                      2                   20816   0                                                                                                                                                                 00000        ;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ";
 			String responseMessage;
-			responseMessage = this.httpAdapterService
+			responseMessage = httpAdapterService
 					.requestByPostMethod(requestMessage);
 
 			// assert
