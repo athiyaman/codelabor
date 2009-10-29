@@ -1,4 +1,4 @@
-package org.codelabor.system.remoting.http.utils;
+package org.codelabor.system.remoting.message.utils;
 
 public class MessageUtil {
 

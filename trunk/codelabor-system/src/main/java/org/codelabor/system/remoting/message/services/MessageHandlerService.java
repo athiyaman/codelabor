@@ -20,7 +20,7 @@ es/LICENSE-2.0
  * limitations under the License.
  */
 
-package org.codelabor.system.remoting.http.services;
+package org.codelabor.system.remoting.message.services;
 
 public interface MessageHandlerService {
 	public String handleMessage(String inputMessage) throws Exception;

@@ -1,8 +1,8 @@
-package org.codelabor.system.remoting.http.services;
+package org.codelabor.system.remoting.message.services;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.remoting.http.utils.MessageUtil;
+import org.codelabor.system.remoting.message.utils.MessageUtil;
 
 public class EchoMessageHandlerServiceImpl implements MessageHandlerService {
 	Log log = LogFactory.getLog(EchoMessageHandlerServiceImpl.class);

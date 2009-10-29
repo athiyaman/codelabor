@@ -1,4 +1,4 @@
-package org.codelabor.system.remoting.http.servlets;
+package org.codelabor.system.remoting.message.servlets;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.remoting.http.services.MessageHandlerService;
-import org.codelabor.system.remoting.http.utils.MessageUtil;
+import org.codelabor.system.remoting.message.services.MessageHandlerService;
+import org.codelabor.system.remoting.message.utils.MessageUtil;
 import org.codelabor.system.servlets.BaseHttpServlet;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
