@@ -124,6 +124,7 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 
 			// response
 			response.setContentType(contentType);
+			response.setCharacterEncoding(charsetName);
 			response.getWriter().write(outputMessage);
 
 			// log
