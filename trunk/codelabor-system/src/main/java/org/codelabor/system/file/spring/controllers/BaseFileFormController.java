@@ -6,6 +6,7 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
+@SuppressWarnings("deprecation")
 public class BaseFileFormController extends SimpleFormController {
 
 	protected FileManager fileManager;

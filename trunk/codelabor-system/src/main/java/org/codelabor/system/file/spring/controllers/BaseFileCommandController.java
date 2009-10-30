@@ -6,6 +6,7 @@ import org.springframework.web.servlet.mvc.AbstractCommandController;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
+@SuppressWarnings("deprecation")
 public abstract class BaseFileCommandController extends
 		AbstractCommandController {
 
