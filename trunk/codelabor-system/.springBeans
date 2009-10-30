@@ -7,47 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/configurations/example/user/applicationContext-userDAO.xml</config>
-		<config>src/main/resources/configurations/example/user/applicationContext-userManager.xml</config>
-		<config>src/main/resources/configurations/example/user/applicationContext-userRoleMapDAO.xml</config>
-		<config>src/main/resources/configurations/example/user/applicationContext-userRoleMapManager.xml</config>
-		<config>src/main/resources/configurations/example/user/applicationContext-userService.xml</config>
-		<config>src/main/resources/configurations/example/emp/applicationContext-empManager.xml</config>
-		<config>src/main/resources/configurations/example/applicationContext-idGenerationService-oracle.xml</config>
-		<config>src/main/resources/configurations/example/remoting/tcp/applicationContext-sockeAdapterService.xml</config>
-		<config>src/main/resources/configurations/system/remoting/applicationContext-messageAdapterService.xml</config>
-		<config>src/main/resources/configurations/system/remoting/http/applicationContext-messageHandlerService.xml</config>
 	</configs>
 	<configSets>
-		<configSet>
-			<name><![CDATA[user service]]></name>
-			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
-			<incomplete>false</incomplete>
-			<configs>
-				<config>src/main/resources/configurations/example/user/applicationContext-userDAO.xml</config>
-				<config>src/main/resources/configurations/example/user/applicationContext-userManager.xml</config>
-				<config>src/main/resources/configurations/example/user/applicationContext-userRoleMapDAO.xml</config>
-				<config>src/main/resources/configurations/example/user/applicationContext-userRoleMapManager.xml</config>
-				<config>src/main/resources/configurations/example/user/applicationContext-userService.xml</config>
-			</configs>
-		</configSet>
-		<configSet>
-			<name><![CDATA[emp manager]]></name>
-			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
-			<incomplete>false</incomplete>
-			<configs>
-				<config>src/main/resources/configurations/example/applicationContext-idGenerationService-oracle.xml</config>
-				<config>src/main/resources/configurations/example/emp/applicationContext-empManager.xml</config>
-			</configs>
-		</configSet>
-		<configSet>
-			<name><![CDATA[message adapter service]]></name>
-			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
-			<incomplete>false</incomplete>
-			<configs>
-				<config>src/main/resources/configurations/example/remoting/tcp/applicationContext-sockeAdapterService.xml</config>
-				<config>src/main/resources/configurations/system/remoting/applicationContext-messageAdapterService.xml</config>
-			</configs>
-		</configSet>
 	</configSets>
 </beansProjectDescription>
