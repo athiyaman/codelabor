@@ -17,14 +17,16 @@ import org.codelabor.system.remoting.message.dtos.SystemHeaderDTO;
 import org.codelabor.system.remoting.message.dtos.TransactionHeaderDTO;
 import org.codelabor.system.services.BaseServiceImpl;
 
-public class FinancialServiceImpl extends BaseServiceImpl implements FinancialService {
+public class FinancialServiceImpl extends BaseServiceImpl implements
+		FinancialService {
 
 	@SuppressWarnings("unused")
-	private Log log = LogFactory.getLog(FinancialServiceImpl.class);
+	private final Log log = LogFactory.getLog(FinancialServiceImpl.class);
 
 	@SuppressWarnings("unchecked")
 	public List search(Date fromDate, Date toDate) throws Exception {
-		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd", Locale
+				.getDefault());
 
 		// input data
 		Saaa001001rInputDTO inputData = new Saaa001001rInputDTO();
@@ -69,7 +71,7 @@ public class FinancialServiceImpl extends BaseServiceImpl implements FinancialSe
 		transactionHeaderDTO.setHndEmpno("ep133");
 		transactionHeaderDTO.setOptrNm("정준호");
 		// transactionHeaderDTO.setLgnYn(1);
-		transactionHeaderDTO.setRsprAprvTrObjYn(0);
+		transactionHeaderDTO.setRsprAprvTrObjYn("0");
 		transactionHeaderDTO.setCncTlgDscd(0);
 		transactionHeaderDTO.setTlgTrTpcd(0);
 		transactionHeaderDTO.setSlsDt("20090818");
@@ -90,7 +92,8 @@ public class FinancialServiceImpl extends BaseServiceImpl implements FinancialSe
 		Saaa001001rOutputDTO outputData = new Saaa001001rOutputDTO();
 
 		// call
-		messageAdapterService.call(inputHeader, inputData, outputHeader, outputData);
+		messageAdapterService.call(inputHeader, inputData, outputHeader,
+				outputData);
 
 		if (outputHeader.isError()) {
 			messageHeaderDTO = outputHeader.getMessageHeaderDTO();
@@ -99,7 +102,8 @@ public class FinancialServiceImpl extends BaseServiceImpl implements FinancialSe
 			// String messageSupplementCode = messageHeaderDTO.getSplmMsgCd();
 			// String messageSupplementDescription = messageHeaderDTO
 			// .getSplmMsgDesc();
-			throw new RollbackCommonException(this.messageSource, messageCode, messageDescription);
+			throw new RollbackCommonException(this.messageSource, messageCode,
+					messageDescription);
 		} else {
 			return outputData.getSaaa001001rOutstrSub();
 		}

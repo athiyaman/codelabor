@@ -50,7 +50,7 @@ public class TransactionHeaderDTO {
 	private String iccdRdrInpYn;
 	private String pinpdInpYn;
 	private String bkbkPrtrInpYn;
-	private int rsprAprvTrObjYn;
+	private String rsprAprvTrObjYn;
 	private String rsprAprvRscd;
 	private String rsprTmnlNo;
 	private String rsplEmpno;
@@ -194,12 +194,12 @@ public class TransactionHeaderDTO {
 		this.bkbkPrtrInpYn = bkbkPrtrInpYn;
 	}
 
-	public int getRsprAprvTrObjYn() {
+	public String getRsprAprvTrObjYn() {
 		return rsprAprvTrObjYn;
 	}
 
-	public void setRsprAprvTrObjYn(int rsprAprvTrObjYn) {
-		this.rsprAprvTrObjYn = rsprAprvTrObjYn;
+	public void setRsprAprvTrObjYn(String string) {
+		this.rsprAprvTrObjYn = string;
 	}
 
 	public String getRsprAprvRscd() {
@@ -495,7 +495,7 @@ public class TransactionHeaderDTO {
 						+ CLSN_BF_AF_DSCD_LENGTH + ICCD_RDR_INP_YN_LENGTH
 						+ PINPD_INP_YN_LENGTH + BKBK_PRTR_INP_YN_LENGTH,
 				charsetName).trim());
-		setRsprAprvTrObjYn(Integer.parseInt(IOUtil.substr(
+		setRsprAprvTrObjYn(IOUtil.substr(
 				bytes,
 				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH
 						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
@@ -505,7 +505,7 @@ public class TransactionHeaderDTO {
 						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
 						+ CLSN_BF_AF_DSCD_LENGTH + ICCD_RDR_INP_YN_LENGTH
 						+ PINPD_INP_YN_LENGTH + BKBK_PRTR_INP_YN_LENGTH
-						+ RSPR_APRV_TR_OBJ_YN_LENGTH, charsetName).trim()));
+						+ RSPR_APRV_TR_OBJ_YN_LENGTH, charsetName).trim());
 		setRsprAprvRscd(IOUtil.substr(
 				bytes,
 				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH

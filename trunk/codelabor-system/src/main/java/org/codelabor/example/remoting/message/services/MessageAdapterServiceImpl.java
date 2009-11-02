@@ -51,16 +51,20 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		this.charsetName = charsetName;
 	}
 
-	public void setSocketAdapterService(SocketAdapterService socketAdapterService) {
+	public void setSocketAdapterService(
+			SocketAdapterService socketAdapterService) {
 		this.socketAdapterService = socketAdapterService;
 	}
 
-	public void call(HeaderDTO inputHeaderDTO, DataDTO inputDataDTO, HeaderDTO outputHeaderDTO, DataDTO outputDataDTO) throws Exception {
+	public void call(HeaderDTO inputHeaderDTO, DataDTO inputDataDTO,
+			HeaderDTO outputHeaderDTO, DataDTO outputDataDTO) throws Exception {
 
 		// stnd_tlg_thwh_len
 		KsfcHeaderDTO ksfcInputHeaderDTO = (KsfcHeaderDTO) inputHeaderDTO;
-		int stndTlgThwhLen = ksfcInputHeaderDTO.getLength() + inputDataDTO.toBytes().length;
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setStndTlgThwhLen(stndTlgThwhLen);
+		int stndTlgThwhLen = ksfcInputHeaderDTO.getLength()
+				+ inputDataDTO.toBytes().length;
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setStndTlgThwhLen(
+				stndTlgThwhLen);
 
 		// tlg_dscd
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTlgDscd("S");
@@ -74,11 +78,15 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		// tr_id
 		String nextId = idGenerationService.getNextStringId();
 		String pid = nextId.substring(3, 11);
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdChCode(nextId.substring(0, 3));
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdChCode(
+				nextId.substring(0, 3));
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdPid(pid);
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdReqDt(nextId.substring(11, 17));
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdReqTm(nextId.substring(17, 25));
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdSeq(nextId.substring(25, 27));
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdReqDt(
+				nextId.substring(11, 17));
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdReqTm(
+				nextId.substring(17, 25));
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrIdSeq(
+				nextId.substring(25, 27));
 
 		// lnkg_sno
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setLnkgSno("000");
@@ -101,7 +109,8 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		// nxt_tr_yn
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setNxtTrYn(0);
 		// tmnl_ip
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTmnlIp(SecurityContextUtil.getRemoteAddress());
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setTmnlIp(
+				SecurityContextUtil.getRemoteAddress());
 
 		// tr_rqs_chnl_cd
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrRqsChnlCd("IBS");
@@ -135,7 +144,7 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		ksfcInputHeaderDTO.getTransactionHeaderDTO().setBkbkPrtrInpYn("N");
 
 		// rspr_aprv_tr_obj_yn
-		ksfcInputHeaderDTO.getTransactionHeaderDTO().setRsprAprvTrObjYn(0);
+		ksfcInputHeaderDTO.getTransactionHeaderDTO().setRsprAprvTrObjYn("0");
 
 		// cnc_tlg_dscd
 		ksfcInputHeaderDTO.getTransactionHeaderDTO().setCncTlgDscd(0);
@@ -145,7 +154,8 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 
 		byte[] inputHeaderBytes = inputHeaderDTO.toBytes();
 		byte[] inputDataBytes = inputDataDTO.toBytes();
-		byte[] inputMessageBytes = ArrayUtils.addAll(inputHeaderBytes, inputDataBytes);
+		byte[] inputMessageBytes = ArrayUtils.addAll(inputHeaderBytes,
+				inputDataBytes);
 
 		String inputMessage = new String(inputMessageBytes, charsetName);
 		String outputMessage = socketAdapterService.send(inputMessage);
@@ -159,8 +169,10 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		}
 
 		byte[] outputMessageBytes = outputMessage.getBytes(charsetName);
-		byte[] outputHeaderBytes = ArrayUtils.subarray(outputMessageBytes, 0, outputHeaderDTO.getLength());
-		byte[] outputDataBytes = ArrayUtils.subarray(outputMessageBytes, outputHeaderDTO.getLength(), outputMessageBytes.length);
+		byte[] outputHeaderBytes = ArrayUtils.subarray(outputMessageBytes, 0,
+				outputHeaderDTO.getLength());
+		byte[] outputDataBytes = ArrayUtils.subarray(outputMessageBytes,
+				outputHeaderDTO.getLength(), outputMessageBytes.length);
 		outputHeaderDTO.fromBytes(outputHeaderBytes);
 		if (!outputHeaderDTO.isError()) {
 			outputDataDTO.fromBytes(outputDataBytes);
