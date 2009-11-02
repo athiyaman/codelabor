@@ -10,12 +10,12 @@
 	<head>
 		<title><tiles:getAsString name="title"/></title>
 		<style type="text/css" media="screen">
-	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.base"/>);
-	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.theme"/>);
-	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);
+	  		@import url(/codelabor-system-file-struts1/themes/maven/css/maven-base.css);
+	  		@import url(/codelabor-system-file-struts1/themes/maven/css/maven-theme.css);
+	  		@import url(/codelabor-system-file-struts1/themes/maven/css/site.css);
 		</style>
 		<style type="text/css" media="print">
-			@import url(${pageContext.request.contextPath}/css/print.css);
+			@import url(/codelabor-system-file-struts1/css/print.css);
 		</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
