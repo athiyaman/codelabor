@@ -176,6 +176,7 @@
 					<path>/codelabor-system-file-struts1</path>
 				</configuration>
 			</plugin>
+			<!--  
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -184,6 +185,7 @@
 					<webappDirectory>C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps/codelabor-system-file-struts1</webappDirectory>
 				</configuration>
 			</plugin>
+			-->
 		</plugins>
 	</build>
 </project>
