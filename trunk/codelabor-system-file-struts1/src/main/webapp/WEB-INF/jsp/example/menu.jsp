@@ -7,6 +7,6 @@
 				<h5><spring:message code="menu.example.upload"/></h5>
 				<ul>
 					<li>
-  						<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=list'/>"><spring:message code="label.example.file.struts1"/></a>
+  						<a href="<c:url value='/example/file/uploadFile.do?method=list'/>"><spring:message code="menu.example.file.struts1"/></a>
 					</li>
 				</ul>

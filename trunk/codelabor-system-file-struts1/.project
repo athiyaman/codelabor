@@ -3,6 +3,8 @@
 	<name>codelabor-system-file-struts1</name>
 	<comment></comment>
 	<projects>
+		<project>codelabor-system-file</project>
+		<project>codelabor-system-core</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
