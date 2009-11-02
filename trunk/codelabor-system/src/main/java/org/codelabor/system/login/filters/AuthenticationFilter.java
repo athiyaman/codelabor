@@ -1,4 +1,4 @@
-package org.codelabor.system.filters;
+package org.codelabor.system.login.filters;
 
 import java.io.IOException;
 
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.codelabor.system.Constants;
+import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
