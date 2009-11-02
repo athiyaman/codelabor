@@ -11,13 +11,10 @@
 	</context-param>
 	
 	<!-- encoding filter -->
+	<!--  
 	<filter>
 		<filter-name>encodingFilter</filter-name>
-		<!--  for struts -->
-		<filter-class>struts.filter.EncodingFilter</filter-class>
-		<!-- 
 		<filter-class>org.codelabor.system.filters.EncodingFilter</filter-class>
-		-->
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -26,7 +23,8 @@
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>	
+	</filter-mapping>
+	-->	
 	
 	<!-- spring support -->
 	<listener>
