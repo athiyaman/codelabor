@@ -4,9 +4,19 @@
           "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 <struts-config>
 	<form-beans>
+		<form-bean name="fileUploadForm" type="org.codelabor.system.struts.forms.FileUploadForm"/>	
 	</form-beans>
 	<action-mappings>
-		<action path="/example/file/servlet/list" forward="example.file.servlet.list.definition" />
-		<action path="/example/file/servlet/xecure/list" forward="example.file.servlet.xecure.list.definition" />
+		<action path="/example/file/uploadFile" 
+			type="org.codelabor.system.struts.actions.FileUploadAction" 
+			name="fileUploadForm" scope="request" parameter="method">
+			<forward name="list" path="/example/file/struts/list.jsp" />
+			<forward name="read" path="/example/file/struts/read.jsp" />
+			<forward name="upload" path="/example/file/uploadFile.do?method=list" />
+			<forward name="delete" path="/example/file/uploadFile.do?method=list" />
+		</action>
+		<action path="/example/file/downloadFile"
+			type="org.codelabor.system.struts.actions.FileDownloadAction" 
+			scope="request"/>
 	</action-mappings>
 </struts-config>
