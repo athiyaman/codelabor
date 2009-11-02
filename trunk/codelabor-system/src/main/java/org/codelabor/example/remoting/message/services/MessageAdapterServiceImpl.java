@@ -25,7 +25,7 @@ import org.codelabor.system.remoting.message.dtos.HeaderDTO;
 import org.codelabor.system.remoting.message.services.MessageAdapterService;
 import org.codelabor.system.remoting.tcp.services.SimpleSocketAdapterServiceImpl;
 import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
-import org.codelabor.system.spring.utils.SecurityContextUtil;
+import org.codelabor.system.security.utils.SecurityContextUtil;
 
 import anyframe.core.idgen.IIdGenerationService;
 

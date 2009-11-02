@@ -15,12 +15,13 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.services;
+package org.codelabor.system.access;
 
 import org.codelabor.system.dtos.AccessLogDTO;
 import org.codelabor.system.exceptions.CommonException;
 import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.managers.AccessLogManager;
+import org.codelabor.system.services.BaseServiceImpl;
 
 /**
  * @author Sang Jae Shin

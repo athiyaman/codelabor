@@ -1,10 +1,11 @@
-package org.codelabor.system.services;
+package org.codelabor.system.access;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codelabor.system.access.AccessLogService;
 import org.codelabor.system.dtos.AccessLogDTO;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.services;
+package org.codelabor.system.access;
 
 import org.codelabor.system.dtos.AccessLogDTO;
 
