@@ -3,8 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+	<!-- spring -->
+	<!--  
 	<bean
 		id="commonExceptionHandler"
 		class="org.codelabor.system.spring.handlers.CommonExceptionHandler">
 	</bean>
+	-->
+	<!-- struts1 -->
+	<!--  
+	<bean id="commonExceptionHandler"
+		class="org.codelabor.system.struts.handlers.CommonExceptionHandler"
+		parent="baseExceptionHandler">
+	</bean>
+	-->	
 </beans>
