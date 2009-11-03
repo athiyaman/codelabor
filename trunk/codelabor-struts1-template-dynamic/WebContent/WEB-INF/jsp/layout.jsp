@@ -10,9 +10,9 @@
 	<head>
 		<title><tiles:getAsString name="title"/></title>
 		<style type="text/css" media="screen">
-	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.base"/>);
-	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.theme"/>);
-	  		@import url(${pageContext.request.contextPath}<spring:theme code="stylesheet.site"/>);
+	  		@import url(${pageContext.request.contextPath}/themes/maven/css/maven-base.css);
+	  		@import url(${pageContext.request.contextPath}/themes/maven/css/maven-theme.css);
+	  		@import url(${pageContext.request.contextPath}/themes/maven/css/site.css);
 		</style>
 		<style type="text/css" media="print">
 			@import url(${pageContext.request.contextPath}/css/print.css);
