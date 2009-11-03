@@ -101,7 +101,7 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setSyncDscd("S");
 
 		// rsp_tpcd
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setRspTpcd(0);
+		ksfcInputHeaderDTO.getSystemHeaderDTO().setRspTrcd(0);
 
 		// tlg_pout_tpcd
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTlgPoutTpcd(0);
