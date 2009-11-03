@@ -90,7 +90,7 @@ public class SystemHeaderDTO {
 	private int cdVlStupDscd;
 	private String syncDscd;
 	private String asyncTpcd;
-	private int rspTrcd;
+	private int rspTpcd;
 	private int tlgPoutTpcd;
 	private int nxtTrYn;
 	private String lqPoutSno;
@@ -279,12 +279,12 @@ public class SystemHeaderDTO {
 		this.asyncTpcd = asyncTpcd;
 	}
 
-	public int getRspTrcd() {
-		return rspTrcd;
+	public int getRspTpcd() {
+		return rspTpcd;
 	}
 
-	public void setRspTrcd(int rspTrcd) {
-		this.rspTrcd = rspTrcd;
+	public void setRspTpcd(int rspTpcd) {
+		this.rspTpcd = rspTpcd;
 	}
 
 	public int getTlgPoutTpcd() {
@@ -606,7 +606,7 @@ public class SystemHeaderDTO {
 						+ POUT_TLG_TRN_DT_LENGTH + POUT_TLG_TRN_DTL_TM_LENGTH
 						+ CD_VL_STUP_DSCD_LENGTH + SYNC_DSCD_LENGTH,
 				ASYNC_TPCD_LENGTH, ' ', charsetName);
-		IOUtil.bytecopy(this.getRspTrcd(), destBytes,
+		IOUtil.bytecopy(this.getRspTpcd(), destBytes,
 				STND_TLG_THWH_LEN_LENGTH + TLG_DSCD_LENGTH + ITN_INCD_LENGTH
 						+ TR_CD_LENGTH + SCRN_NO_LENGTH + SYS_DSCD_LENGTH
 						+ TR_ID_CH_CODE_LENGTH + TR_ID_PID_LENGTH
@@ -1249,7 +1249,7 @@ public class SystemHeaderDTO {
 						+ POUT_TLG_TRN_DT_LENGTH + POUT_TLG_TRN_DTL_TM_LENGTH
 						+ CD_VL_STUP_DSCD_LENGTH + SYNC_DSCD_LENGTH
 						+ ASYNC_TPCD_LENGTH, charsetName).trim());
-		setRspTrcd(Integer.parseInt(IOUtil.substr(
+		setRspTpcd(Integer.parseInt(IOUtil.substr(
 				bytes,
 				STND_TLG_THWH_LEN_LENGTH + TLG_DSCD_LENGTH + ITN_INCD_LENGTH
 						+ TR_CD_LENGTH + SCRN_NO_LENGTH + SYS_DSCD_LENGTH
@@ -2096,7 +2096,7 @@ public class SystemHeaderDTO {
 				.append(this.poutTlgTrnDt).append(TAB).append(
 						"poutTlgTrnDtlTm = ").append(this.poutTlgTrnDtlTm)
 				.append(TAB).append("reserved1 = ").append(this.reserved1)
-				.append(TAB).append("rspTpcd = ").append(this.rspTrcd).append(
+				.append(TAB).append("rspTpcd = ").append(this.rspTpcd).append(
 						TAB).append("scrnNo = ").append(this.scrnNo)
 				.append(TAB).append("stndTlgThwhLen = ").append(
 						this.stndTlgThwhLen).append(TAB).append("syncDscd = ")
@@ -2119,5 +2119,4 @@ public class SystemHeaderDTO {
 
 		return retValue.toString();
 	}
-
 }
