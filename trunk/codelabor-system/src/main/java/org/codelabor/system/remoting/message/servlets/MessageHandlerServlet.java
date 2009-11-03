@@ -20,7 +20,7 @@ import org.codelabor.system.servlets.BaseHttpServlet;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-public class MessageHandlerServlet extends BaseHttpServlet {
+public abstract class MessageHandlerServlet extends BaseHttpServlet {
 
 	/**
 	 * 
@@ -66,9 +66,11 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			int contentLength = request.getContentLength();
+		int contentLength = request.getContentLength();
+		String inputMessage = null;
+		String outputMessage = null;
 
+		try {
 			// get input message
 			InputStream inputStream = request.getInputStream();
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -92,9 +94,8 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 			}
 
 			// message
-			String inputMessage = new String(byteArrayOutputStream
-					.toByteArray(), charsetName);
-			String outputMessage = null;
+			inputMessage = new String(byteArrayOutputStream.toByteArray(),
+					charsetName);
 
 			// get bean
 			WebApplicationContext ctx = WebApplicationContextUtils
@@ -113,6 +114,10 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 			outputMessage = (String) serviceMethod.invoke(stringHandlerService,
 					paramList);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			outputMessage = this.makeExceptionalOutputMessage(e);
+		} finally {
 			// response
 			response.setContentType(contentType);
 			response.setCharacterEncoding(charsetName);
@@ -135,9 +140,9 @@ public class MessageHandlerServlet extends BaseHttpServlet {
 						outputMessage.getBytes().length);
 				log.debug(sb.toString());
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ServletException(e);
 		}
+
 	}
+
+	protected abstract String makeExceptionalOutputMessage(Exception e);
 }
