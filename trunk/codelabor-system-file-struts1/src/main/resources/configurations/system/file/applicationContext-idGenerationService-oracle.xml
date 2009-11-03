@@ -7,6 +7,7 @@
 						http://www.anyframejava.org/schema/service
 						http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
+
 	<bean name="sequenceFileIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
