@@ -80,29 +80,6 @@
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<!--
-		<location>/system/error/httpStatusCode500.do</location>
-		-->
 		<location>/system/error/error.do</location>
 	</error-page>
-
-	<!-- static error page -->
-	<!--
-	<error-page>
-		<error-code>401</error-code>
-		<location>/system/error/http-status-code-401.html</location>
-	</error-page>
-	<error-page>
-		<error-code>403</error-code>
-		<location>/system/error/http-status-code-403.html</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/system/error/http-status-code-404.html</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/system/error/http-status-code-500.html</location>
-	</error-page>
-	-->  
 </web-app>
