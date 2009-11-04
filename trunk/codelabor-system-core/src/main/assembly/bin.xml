@@ -7,12 +7,12 @@
 	<fileSets>
 		<fileSet>
 			<includes>
-				<include>README</include>
+				<include>readme.txt</include>
 			</includes>
 		</fileSet>
 		<fileSet>
 			<directory>target</directory>
-			<outputDirectory></outputDirectory>
+			<outputDirectory>dist</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 			</includes>
