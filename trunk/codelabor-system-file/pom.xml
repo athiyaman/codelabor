@@ -9,13 +9,6 @@
 	<url>http://codelabor.org</url>
 	<dependencies>          	   	  	  	
 		<dependency>
-			<groupId>anyframe</groupId>
-			<artifactId>anyframe.common</artifactId>
-			<version>3.2.1</version>
-			<type>jar</type>
-			<optional>false</optional>
-		</dependency>		
-		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-core</artifactId>
 			<version>1.0-SNAPSHOT</version>
