@@ -7,7 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>codelabor-system-core</name>
 	<url>http://codelabor.org</url>
-	<dependencies>          	   	  	  	
+	<dependencies>          	   	  	  								
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -22,14 +22,14 @@
 			<version>1.3.10</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc-struts</artifactId>
 			<version>2.5.6</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.common</artifactId>
@@ -57,18 +57,40 @@
 			<version>3.2.1</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>			
-						
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-api</artifactId>
+			<version>2.1.3</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>2.1.3</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-servlet</artifactId>
+			<version>2.1.3</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>				
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.1</version>
+			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
+			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
 	</dependencies>
