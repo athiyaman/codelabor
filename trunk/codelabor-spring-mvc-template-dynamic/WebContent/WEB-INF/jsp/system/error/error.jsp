@@ -21,21 +21,21 @@
 				if (exception != null) {
 					cause = exception.getCause();
 
-					if (exception instanceof BaseException) {
-						BaseException baseException = (BaseException) exception;
+					if (cause instanceof BaseException) {
+						BaseException baseException = (BaseException) cause;
 						pageContext.setAttribute("baseException", baseException);
 						Message message = baseException.getMessages();
 						messageKey = message.getMessageKey();
 						userMessage = message.getUserMessage();
 						reason = message.getReason();
 						solution = message.getSolution();
-						if (exception instanceof CommonException) {
-							CommonException commonException = (CommonException) exception;
+						if (cause instanceof CommonException) {
+							CommonException commonException = (CommonException) cause;
 							pageContext.setAttribute("commonException", commonException);
 							messageCode = commonException.getMessageCode();
 						}
 					} else {
-						userMessage = exception.getMessage();
+						userMessage = cause.getMessage();
 					}
 				}
 
