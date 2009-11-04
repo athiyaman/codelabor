@@ -78,7 +78,17 @@
 			<id>com.springsource.repository.bundles.snapshot</id>
 			<name>SpringSource Enterprise Bundle Repository - External Bundle Snapshots</name>
 			<url>http://repository.springsource.com/maven/bundles/snapshot</url>
-		</repository>    
+		</repository>
+		<repository>
+		    <id>spring-milestone</id>
+		    <name>Spring Portfolio Milestone Repository</name>
+		    <url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
+		</repository>		
+		<repository>
+		    <id>spring-snapshot</id>
+		    <name>Spring Portfolio Snapshot Repository</name>
+		    <url>http://s3.amazonaws.com/maven.springframework.org/snapshot</url>
+		</repository>		
 		<repository>
 			<id>anyframe-repository</id>
 			<name>repository for Anyframe</name>                 
