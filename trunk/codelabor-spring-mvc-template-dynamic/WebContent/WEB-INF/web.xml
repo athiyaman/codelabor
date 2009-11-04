@@ -10,20 +10,7 @@
 		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
 
-	<!-- spring support -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 
-	<!-- spring security http session event publisher -->
-	<listener>
-		<!-- for spring security 2.0.4 -->
-		<!--
- 		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
- 		-->
-		<!-- for spring security 3.0.0.M1 -->
-		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
-	</listener>
 
 	<!-- spring log4j listener -->
     <context-param>
@@ -38,6 +25,79 @@
         <param-name>log4jRefreshInterval</param-name>
         <param-value>60000</param-value>
     </context-param>
+	
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Xecure filter -->
+	<filter>
+		<filter-name>xecureFilter</filter-name>
+		<filter-class>org.codelabor.system.security.xecure.filters.XecureFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>xecureFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- encoding filter -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<!-- does not work
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		-->
+		<filter-class>org.codelabor.system.filters.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- sniffer filter -->
+	<filter>
+		<filter-name>snifferFilter</filter-name>
+		<filter-class>org.codelabor.system.sniffer.filters.SnifferFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>snifferFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- spring security filter -->
+ 	<filter>
+    	<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+    	<filter-name>springSecurityFilterChain</filter-name>
+    	<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- spring support -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- spring security http session event publisher -->
+	<listener>
+		<!-- for spring security 2.0.4 -->
+		<!--
+ 		<listener-class>org.springframework.security.ui.session.HttpSessionEventPublisher</listener-class>
+ 		-->
+		<!-- for spring security 3.0.0.M1 -->
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+	
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
@@ -182,63 +242,7 @@
 	<servlet-mapping>
 		<servlet-name>Message Handler Servlet</servlet-name>
 		<url-pattern>/servlet/system/remoting/message/messageHandlerServlet</url-pattern>
-	</servlet-mapping>	
-
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-
-	<!-- Xecure filter -->
-	<filter>
-		<filter-name>xecureFilter</filter-name>
-		<filter-class>org.codelabor.system.security.xecure.filters.XecureFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>xecureFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- encoding filter -->
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<!-- does not work
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		-->
-		<filter-class>org.codelabor.system.filters.EncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- sniffer filter -->
-	<filter>
-		<filter-name>snifferFilter</filter-name>
-		<filter-class>org.codelabor.system.sniffer.filters.SnifferFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>snifferFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- spring security filter -->
- 	<filter>
-    	<filter-name>springSecurityFilterChain</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-	<filter-mapping>
-    	<filter-name>springSecurityFilterChain</filter-name>
-    	<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</servlet-mapping>		
 
 	<!-- dynamic error page -->
 	<error-page>
@@ -260,24 +264,4 @@
 		-->
 		<location>/system/error/error.do</location>
 	</error-page>
-
-	<!-- static error page -->
-	<!--
-	<error-page>
-		<error-code>401</error-code>
-		<location>/system/error/http-status-code-401.html</location>
-	</error-page>
-	<error-page>
-		<error-code>403</error-code>
-		<location>/system/error/http-status-code-403.html</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/system/error/http-status-code-404.html</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/system/error/http-status-code-500.html</location>
-	</error-page>
-	-->
 </web-app>
