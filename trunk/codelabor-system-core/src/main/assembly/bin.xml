@@ -7,7 +7,7 @@
 	<fileSets>
 		<fileSet>
 			<includes>
-				<include>readme.txt</include>
+				<include>*.txt</include>
 			</includes>
 		</fileSet>
 		<fileSet>
