@@ -31,10 +31,13 @@ public abstract class MessageHandlerServlet extends BaseHttpServlet {
 	protected String contentType = "text/html;charset=EUC-KR";
 	protected String charsetName = "EUC-KR";
 	protected int bufferSize = 8 * 1024;
+	protected WebApplicationContext webApplicationContext = null;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		webApplicationContext = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(config.getServletContext());
 
 		// get init parameter
 		String paramContentType = config.getInitParameter("contentType");
@@ -98,11 +101,9 @@ public abstract class MessageHandlerServlet extends BaseHttpServlet {
 					charsetName);
 
 			// get bean
-			WebApplicationContext ctx = WebApplicationContextUtils
-					.getRequiredWebApplicationContext(getServletConfig()
-							.getServletContext());
+
 			String serviceName = MessageUtil.getServiceName(inputMessage);
-			MessageHandlerService stringHandlerService = (MessageHandlerService) ctx
+			MessageHandlerService stringHandlerService = (MessageHandlerService) webApplicationContext
 					.getBean(serviceName);
 
 			// invoke
