@@ -55,12 +55,12 @@
 				<value>classpath:messages/system/error/messages</value>
 
 				<!-- system file -->
-				<value>classpath:messages/system/file/error/button</value>
-				<value>classpath:messages/system/file/error/errors</value>
-				<value>classpath:messages/system/file/error/images</value>
-				<value>classpath:messages/system/file/error/label</value>
-				<value>classpath:messages/system/file/error/menu</value>
-				<value>classpath:messages/system/file/error/messages</value>
+				<value>classpath:messages/system/file/button</value>
+				<value>classpath:messages/system/file/errors</value>
+				<value>classpath:messages/system/file/images</value>
+				<value>classpath:messages/system/file/label</value>
+				<value>classpath:messages/system/file/menu</value>
+				<value>classpath:messages/system/file/messages</value>
 				
 				<!-- system preferences -->
 				<value>classpath:messages/system/preferences/button</value>
