@@ -86,7 +86,7 @@
 				<exclusion>
 					<groupId>javax.servlet</groupId>
 					<artifactId>jsp-api</artifactId>
-				</exclusion>					
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -138,8 +138,16 @@
 			<version>3.0.0.RC1</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>
+		</dependency>		
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.0.0.RC1</version>
+			<type>jar</type>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
