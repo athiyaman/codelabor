@@ -46,7 +46,7 @@
 				<value>classpath:classes/messages/system/error/menu</value>
 				<value>classpath:classes/messages/system/error/messages</value>
 
-				<!-- system fileupload -->
+				<!-- system file -->
 				<value>classpath:messages/system/file/button</value>
 				<value>classpath:messages/system/file/label</value>
 
