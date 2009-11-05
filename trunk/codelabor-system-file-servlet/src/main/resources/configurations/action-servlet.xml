@@ -7,5 +7,11 @@
 		id="defaultUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
 		abstract="true">
+		<property name="interceptors">
+			<list>
+				<ref bean="themeChangeInterceptor"/>
+				<ref bean="localeChangeInterceptor"/>
+			</list>
+		</property>		
 	</bean>
 </beans>
