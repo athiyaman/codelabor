@@ -175,7 +175,7 @@
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>archiva.internal</id>
+			<id>codelabor.archiva.internal</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
