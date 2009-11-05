@@ -55,8 +55,20 @@
 				<value>classpath:messages/system/error/messages</value>
 
 				<!-- system file -->
-				<value>classpath:messages/system/file/button</value>
-				<value>classpath:messages/system/file/label</value>
+				<value>classpath:messages/file/error/button</value>
+				<value>classpath:messages/file/error/errors</value>
+				<value>classpath:messages/file/error/images</value>
+				<value>classpath:messages/file/error/label</value>
+				<value>classpath:messages/file/error/menu</value>
+				<value>classpath:messages/file/error/messages</value>
+				
+				<!-- system preferences -->
+				<value>classpath:messages/preferences/error/button</value>
+				<value>classpath:messages/preferences/error/errors</value>
+				<value>classpath:messages/preferences/error/images</value>
+				<value>classpath:messages/preferences/error/label</value>
+				<value>classpath:messages/preferences/error/menu</value>
+				<value>classpath:messages/preferences/error/messages</value>				
 
 				<!-- tempate (directory) -->
 				<!--
