@@ -46,7 +46,7 @@
 				<value>classpath:classes/messages/system/error/menu</value>
 				<value>classpath:classes/messages/system/error/messages</value>
 
-				<!-- codelabor system fileupload -->
+				<!-- system fileupload -->
 				<value>classpath:messages/system/file/button</value>
 				<value>classpath:messages/system/file/label</value>
 
