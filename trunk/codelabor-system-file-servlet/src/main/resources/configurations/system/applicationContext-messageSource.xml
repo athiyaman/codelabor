@@ -31,7 +31,10 @@
 				<value>classpath:messages/button</value>
 				<value>classpath:messages/errors</value>
 				<value>classpath:messages/images</value>
+				<!--  
 				<value>classpath:messages/label</value>
+				-->
+				<value>/WEB-INF/classes/messages/label</value>
 				<value>classpath:messages/menu</value>
 				<value>classpath:messages/messages</value>				
 				
