@@ -23,6 +23,9 @@
 				</a> |			
 				<a href="<c:url value='/example/home.do'/>">
 					<spring:message code="menu.example"/>
+				</a> |
+				<a href="<c:url value='/system/preferences/home.do'/>">
+					<spring:message code="menu.system.preferences"/>
 				</a>
 			</div>
 		  	<div class="clear"><hr/></div>
