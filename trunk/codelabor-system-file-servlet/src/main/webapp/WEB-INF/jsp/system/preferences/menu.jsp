@@ -6,14 +6,10 @@
 				<h5><spring:message code="menu.system.preferences.profile"/></h5>
 				<ul>
 					<li class="none">
-						<a href="">
-							<spring:message code="menu.system.preferences.personalInfo"/>
-						</a>
+						<spring:message code="menu.system.preferences.personalInfo"/>
 					</li>
 					<li class="none">
-						<a href="">
-							<spring:message code="menu.system.preferences.changePassword"/>
-						</a>
+						<spring:message code="menu.system.preferences.changePassword"/>
 					</li>					
 				</ul>
 				
@@ -30,8 +26,6 @@
 						</a>
 					</li>
 					<li class="none">
-						<a href="">
-							<spring:message code="menu.system.preferences.favorites"/>
-						</a>
+						<spring:message code="menu.system.preferences.favorites"/>
 					</li>					
 				</ul>													
