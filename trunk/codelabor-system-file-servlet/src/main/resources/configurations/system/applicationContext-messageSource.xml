@@ -28,7 +28,12 @@
 				-->
 				
 				<!-- root -->
-				<value>classpath:messages/menu</value>				
+				<value>classpath:messages/button</value>
+				<value>classpath:messages/errors</value>
+				<value>classpath:messages/images</value>
+				<value>classpath:messages/label</value>
+				<value>classpath:messages/menu</value>
+				<value>classpath:messages/messages</value>				
 				
 				<!-- system -->
 				<value>classpath:messages/system/button</value>
