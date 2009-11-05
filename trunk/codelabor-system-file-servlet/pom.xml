@@ -106,7 +106,8 @@
 			<version>3.0.0.RC1</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>		
+		</dependency>
+
 	</dependencies>
 	<repositories>
 		<repository>
