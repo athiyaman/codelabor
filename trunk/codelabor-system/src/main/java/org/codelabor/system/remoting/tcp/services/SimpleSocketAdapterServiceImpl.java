@@ -111,8 +111,8 @@ public class SimpleSocketAdapterServiceImpl implements SocketAdapterService {
 
 			if (log.isDebugEnabled()) {
 				StringBuilder sb = new StringBuilder();
-				sb.append("receivedMessage: [").append(receivedMessage).append(
-						"]");
+				sb.append("received message: [").append(receivedMessage)
+						.append("]");
 				log.debug(sb.toString());
 			}
 		} catch (UnknownHostException e) {
