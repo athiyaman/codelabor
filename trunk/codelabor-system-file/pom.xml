@@ -151,10 +151,13 @@
 				</dependencies>
 				<configuration>
 					<driver>oracle.jdbc.driver.OracleDriver</driver>
-					<url>jdbc:oracle:thin:@localhost:1521:orcl</url>
+					<url>${jdbc.url}</url>
 					<settingsKey>database.codelabor-system.oracle</settingsKey>
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>		
+	</build>
+	<properties>
+		<jdbc.url>jdbc:oracle:thin:@localhost:1521:orcl</jdbc.url>
+	</properties>		
 </project>
