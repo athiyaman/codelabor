@@ -27,7 +27,9 @@ public class TransactionHeaderDTO {
 	private final static int TR_ATR_CD_LENGTH = 1;
 	private final static int TR_DT_LENGTH = 8;
 	private final static int ERR_MSG_PRCS_YN_LENGTH = 1;
-	private final static int RESERVED2_LENGTH = 31;
+	private final static int RSP_FRW_YN_LENGTH = 1;
+	private final static int INBK_ID_LENGTH = 15;
+	private final static int RESERVED2_LENGTH = 15;
 
 	public final static int LENGTH = HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH
 			+ TEAM_BDCD_LENGTH + HND_EMPNO_LENGTH + OPTR_NM_LENGTH
@@ -38,7 +40,7 @@ public class TransactionHeaderDTO {
 			+ TLG_TR_TPCD_LENGTH + OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH
 			+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
 			+ TR_ATR_CD_LENGTH + TR_DT_LENGTH + ERR_MSG_PRCS_YN_LENGTH
-			+ RESERVED2_LENGTH;
+			+ RSP_FRW_YN_LENGTH + INBK_ID_LENGTH + RESERVED2_LENGTH;
 
 	private String hdbrBdcd;
 	private String sctnBdcd;
@@ -64,6 +66,8 @@ public class TransactionHeaderDTO {
 	private String trAtrCd;
 	private String trDt;
 	private String errMsgPrcsYn;
+	private String rspFrwYn;
+	private String inbkId;
 	private String reserved;
 
 	public String getSlsDt() {
@@ -104,6 +108,22 @@ public class TransactionHeaderDTO {
 
 	public void setErrMsgPrcsYn(String errMsgPrcsYn) {
 		this.errMsgPrcsYn = errMsgPrcsYn;
+	}
+
+	public String getRspFrwYn() {
+		return rspFrwYn;
+	}
+
+	public void setRspFrwYn(String rspFrwYn) {
+		this.rspFrwYn = rspFrwYn;
+	}
+
+	public String getInbkId() {
+		return inbkId;
+	}
+
+	public void setInbkId(String inbkId) {
+		this.inbkId = inbkId;
 	}
 
 	public String getReserved() {
@@ -417,6 +437,28 @@ public class TransactionHeaderDTO {
 				+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH + HDY_DSCD_LENGTH
 				+ SLS_DT_LENGTH + SLP_NO_LENGTH + TR_ATR_CD_LENGTH
 				+ TR_DT_LENGTH, ERR_MSG_PRCS_YN_LENGTH, ' ', charsetName);
+		IOUtil.bytecopy(this.getRspFrwYn(), destBytes, HDBR_BDCD_LENGTH
+				+ SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH + HND_EMPNO_LENGTH
+				+ OPTR_NM_LENGTH + LGN_YN_LENGTH + CLSN_BF_AF_DSCD_LENGTH
+				+ ICCD_RDR_INP_YN_LENGTH + PINPD_INP_YN_LENGTH
+				+ BKBK_PRTR_INP_YN_LENGTH + RSPR_APRV_TR_OBJ_YN_LENGTH
+				+ RSPR_APRV_RSCD_LENGTH + RSPR_TMNL_NO_LENGTH
+				+ RSPL_EMPNO_LENGTH + CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
+				+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH + HDY_DSCD_LENGTH
+				+ SLS_DT_LENGTH + SLP_NO_LENGTH + TR_ATR_CD_LENGTH
+				+ TR_DT_LENGTH + ERR_MSG_PRCS_YN_LENGTH, RSP_FRW_YN_LENGTH,
+				' ', charsetName);
+		IOUtil.bytecopy(this.getInbkId(), destBytes, HDBR_BDCD_LENGTH
+				+ SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH + HND_EMPNO_LENGTH
+				+ OPTR_NM_LENGTH + LGN_YN_LENGTH + CLSN_BF_AF_DSCD_LENGTH
+				+ ICCD_RDR_INP_YN_LENGTH + PINPD_INP_YN_LENGTH
+				+ BKBK_PRTR_INP_YN_LENGTH + RSPR_APRV_TR_OBJ_YN_LENGTH
+				+ RSPR_APRV_RSCD_LENGTH + RSPR_TMNL_NO_LENGTH
+				+ RSPL_EMPNO_LENGTH + CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
+				+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH + HDY_DSCD_LENGTH
+				+ SLS_DT_LENGTH + SLP_NO_LENGTH + TR_ATR_CD_LENGTH
+				+ TR_DT_LENGTH + ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH,
+				INBK_ID_LENGTH, ' ', charsetName);
 		IOUtil.bytecopy(this.getReserved(), destBytes, HDBR_BDCD_LENGTH
 				+ SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH + HND_EMPNO_LENGTH
 				+ OPTR_NM_LENGTH + LGN_YN_LENGTH + CLSN_BF_AF_DSCD_LENGTH
@@ -426,8 +468,8 @@ public class TransactionHeaderDTO {
 				+ RSPL_EMPNO_LENGTH + CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
 				+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH + HDY_DSCD_LENGTH
 				+ SLS_DT_LENGTH + SLP_NO_LENGTH + TR_ATR_CD_LENGTH
-				+ TR_DT_LENGTH + ERR_MSG_PRCS_YN_LENGTH, RESERVED2_LENGTH, ' ',
-				charsetName);
+				+ TR_DT_LENGTH + ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH
+				+ INBK_ID_LENGTH, RESERVED2_LENGTH, ' ', charsetName);
 
 		return destBytes;
 	}
@@ -747,7 +789,7 @@ public class TransactionHeaderDTO {
 						+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
 						+ TR_ATR_CD_LENGTH + TR_DT_LENGTH
 						+ ERR_MSG_PRCS_YN_LENGTH, charsetName).trim());
-		setReserved(IOUtil.substr(
+		setRspFrwYn(IOUtil.substr(
 				bytes,
 				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH
 						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
@@ -770,8 +812,60 @@ public class TransactionHeaderDTO {
 						+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH
 						+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
 						+ TR_ATR_CD_LENGTH + TR_DT_LENGTH
-						+ ERR_MSG_PRCS_YN_LENGTH + RESERVED2_LENGTH,
+						+ ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH,
 				charsetName).trim());
+		setInbkId(IOUtil.substr(
+				bytes,
+				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH
+						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
+						+ CLSN_BF_AF_DSCD_LENGTH + ICCD_RDR_INP_YN_LENGTH
+						+ PINPD_INP_YN_LENGTH + BKBK_PRTR_INP_YN_LENGTH
+						+ RSPR_APRV_TR_OBJ_YN_LENGTH + RSPR_APRV_RSCD_LENGTH
+						+ RSPR_TMNL_NO_LENGTH + RSPL_EMPNO_LENGTH
+						+ CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
+						+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH
+						+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
+						+ TR_ATR_CD_LENGTH + TR_DT_LENGTH
+						+ ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH,
+				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH
+						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
+						+ CLSN_BF_AF_DSCD_LENGTH + ICCD_RDR_INP_YN_LENGTH
+						+ PINPD_INP_YN_LENGTH + BKBK_PRTR_INP_YN_LENGTH
+						+ RSPR_APRV_TR_OBJ_YN_LENGTH + RSPR_APRV_RSCD_LENGTH
+						+ RSPR_TMNL_NO_LENGTH + RSPL_EMPNO_LENGTH
+						+ CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
+						+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH
+						+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
+						+ TR_ATR_CD_LENGTH + TR_DT_LENGTH
+						+ ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH
+						+ INBK_ID_LENGTH, charsetName).trim());
+		setReserved(IOUtil.substr(
+				bytes,
+				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH
+						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
+						+ CLSN_BF_AF_DSCD_LENGTH + ICCD_RDR_INP_YN_LENGTH
+						+ PINPD_INP_YN_LENGTH + BKBK_PRTR_INP_YN_LENGTH
+						+ RSPR_APRV_TR_OBJ_YN_LENGTH + RSPR_APRV_RSCD_LENGTH
+						+ RSPR_TMNL_NO_LENGTH + RSPL_EMPNO_LENGTH
+						+ CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
+						+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH
+						+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
+						+ TR_ATR_CD_LENGTH + TR_DT_LENGTH
+						+ ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH
+						+ INBK_ID_LENGTH,
+				HDBR_BDCD_LENGTH + SCTN_BDCD_LENGTH + TEAM_BDCD_LENGTH
+						+ HND_EMPNO_LENGTH + OPTR_NM_LENGTH + LGN_YN_LENGTH
+						+ CLSN_BF_AF_DSCD_LENGTH + ICCD_RDR_INP_YN_LENGTH
+						+ PINPD_INP_YN_LENGTH + BKBK_PRTR_INP_YN_LENGTH
+						+ RSPR_APRV_TR_OBJ_YN_LENGTH + RSPR_APRV_RSCD_LENGTH
+						+ RSPR_TMNL_NO_LENGTH + RSPL_EMPNO_LENGTH
+						+ CNC_TLG_DSCD_LENGTH + TLG_TR_TPCD_LENGTH
+						+ OSD_TR_TPCD_LENGTH + DTM_NTM_DSCD_LENGTH
+						+ HDY_DSCD_LENGTH + SLS_DT_LENGTH + SLP_NO_LENGTH
+						+ TR_ATR_CD_LENGTH + TR_DT_LENGTH
+						+ ERR_MSG_PRCS_YN_LENGTH + RSP_FRW_YN_LENGTH
+						+ INBK_ID_LENGTH + RESERVED2_LENGTH, charsetName)
+				.trim());
 
 	}
 
@@ -789,8 +883,9 @@ public class TransactionHeaderDTO {
 
 		retValue.append("TransactionHeaderDTO ( ").append(super.toString())
 				.append(TAB).append("bkbkPrtrInpYn = ").append(
-						this.bkbkPrtrInpYn).append(TAB).append(
-						"clsnBfAfDscd = ").append(this.clsnBfAfDscd)
+						this.bkbkPrtrInpYn).append(TAB)
+				.append("charsetName = ").append(this.charsetName).append(TAB)
+				.append("clsnBfAfDscd = ").append(this.clsnBfAfDscd)
 				.append(TAB).append("cncTlgDscd = ").append(this.cncTlgDscd)
 				.append(TAB).append("dtmNtmDscd = ").append(this.dtmNtmDscd)
 				.append(TAB).append("errMsgPrcsYn = ")
@@ -798,12 +893,14 @@ public class TransactionHeaderDTO {
 				.append(this.hdbrBdcd).append(TAB).append("hdyDscd = ").append(
 						this.hdyDscd).append(TAB).append("hndEmpno = ").append(
 						this.hndEmpno).append(TAB).append("iccdRdrInpYn = ")
-				.append(this.iccdRdrInpYn).append(TAB).append("lgnYn = ")
-				.append(this.lgnYn).append(TAB).append("optrNm = ").append(
+				.append(this.iccdRdrInpYn).append(TAB).append("inbkId = ")
+				.append(this.inbkId).append(TAB).append("lgnYn = ").append(
+						this.lgnYn).append(TAB).append("optrNm = ").append(
 						this.optrNm).append(TAB).append("osdTrTpcd = ").append(
 						this.osdTrTpcd).append(TAB).append("pinpdInpYn = ")
 				.append(this.pinpdInpYn).append(TAB).append("reserved = ")
-				.append(this.reserved).append(TAB).append("rsplEmpno = ")
+				.append(this.reserved).append(TAB).append("rspFrwYn = ")
+				.append(this.rspFrwYn).append(TAB).append("rsplEmpno = ")
 				.append(this.rsplEmpno).append(TAB).append("rsprAprvRscd = ")
 				.append(this.rsprAprvRscd).append(TAB).append(
 						"rsprAprvTrObjYn = ").append(this.rsprAprvTrObjYn)
