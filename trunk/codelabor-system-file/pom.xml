@@ -111,6 +111,38 @@
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
+	<developers>
+		<developer>
+			<id>bomber</id>
+			<name>Sang Jae Shin</name>
+			<email>codelabor@gmail.com</email>
+			<url>http://codelabor.org</url>
+			<organization>CODELABOR</organization>
+			<organizationUrl>http://codelabor.org</organizationUrl>
+			<timezone>+9</timezone>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file/</url>
+	</scm>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>	
 	<build>
 		<plugins>
 			<plugin>
@@ -121,6 +153,38 @@
 					<encoding>UTF-8</encoding>
         		</configuration>
       		</plugin>
+<plugin>
+      			<groupId>org.apache.maven.plugins</groupId>
+      			<artifactId>maven-source-plugin</artifactId>
+      			<executions>
+      				<execution>
+	      				<id>attach-soruces</id>
+	      				<goals>
+	      					<goal>jar</goal>
+	      				</goals>
+      				</execution>
+      			</executions>
+      		</plugin>
+      		<plugin>
+      			<groupId>org.apache.maven.plugins</groupId>
+      			<artifactId>maven-javadoc-plugin</artifactId>
+      			<executions>
+      				<execution>
+      					<id>attach-javadoc</id>
+      					<goals>
+      						<goal>jar</goal>
+      					</goals>
+      				</execution>
+      			</executions>
+      		</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0-beta-8</version>
+				<configuration>
+					<tagBase>https://codelabor.googlecode.com/svn</tagBase>
+				</configuration>
+			</plugin>      		
       		<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
