@@ -191,12 +191,37 @@
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
+	<developers>
+		<developer>
+			<id>bomber</id>
+			<name>Sang Jae Shin</name>
+			<email>codelabor@gmail.com</email>
+			<url>http://codelabor.org</url>
+			<organization>CODELABOR</organization>
+			<organizationUrl>http://codelabor.org</organizationUrl>
+			<timezone>+9</timezone>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
 	<scm>
 		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</connection>
 		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</developerConnection>
 		<tag>HEAD</tag>
 		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</url>
 	</scm>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
 	<build>
 		<plugins>
 			<plugin>
