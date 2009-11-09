@@ -191,6 +191,12 @@
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
+	<scm>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</url>
+	</scm>
 	<build>
 		<plugins>
 			<plugin>
@@ -201,6 +207,14 @@
 					<encoding>UTF-8</encoding>
         		</configuration>
       		</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0-beta-8</version>
+				<configuration>
+					<tagBase>https://codelabor.googlecode.com/svn</tagBase>
+				</configuration>
+			</plugin>      		
 		</plugins>
 	</build>
 	<properties>
