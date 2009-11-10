@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter;
 
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class EncrypServiceTest extends AbstractDependencyInjectionSpringContextTests {
+public class EncryptServiceTest extends AbstractDependencyInjectionSpringContextTests {
 
 	private EncryptService encryptService;
 
