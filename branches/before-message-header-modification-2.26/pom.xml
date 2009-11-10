@@ -36,6 +36,30 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-source-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>attach-soruces</id>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>attach-javadoc</id>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
@@ -96,7 +120,7 @@
         </configuration>
       </plugin>
     </plugins>
-  </build>  
+  </build>
   <dependencies>
     <dependency>
       <groupId>javax.mail</groupId>
@@ -151,77 +175,77 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-acl</artifactId>
-      <version>3.0.0.M2</version>
+      <version>${spring.security.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
-      <version>3.0.0.M2</version>
+      <version>${spring.security.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-core</artifactId>
-      <version>3.0.0.M2</version>
+      <version>${spring.security.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-ldap</artifactId>
-      <version>3.0.0.M2</version>
+      <version>${spring.security.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-ntlm</artifactId>
-      <version>3.0.0.M2</version>
+      <version>${spring.security.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-openid</artifactId>
-      <version>3.0.0.M2</version>
+      <version>${spring.security.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>anyframe</groupId>
       <artifactId>anyframe.common</artifactId>
-      <version>3.2.1</version>
+      <version>${anyframe.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>anyframe</groupId>
       <artifactId>anyframe.core.cache</artifactId>
-      <version>3.2.1</version>
+      <version>${anyframe.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>anyframe</groupId>
       <artifactId>anyframe.core.idgen</artifactId>
-      <version>3.2.1</version>
+      <version>${anyframe.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>anyframe</groupId>
       <artifactId>anyframe.core.properties</artifactId>
-      <version>3.2.1</version>
+      <version>${anyframe.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
     <dependency>
       <groupId>anyframe</groupId>
       <artifactId>anyframe.core.query</artifactId>
-      <version>3.2.1</version>
+      <version>${anyframe.version}</version>
       <type>jar</type>
       <optional>false</optional>
     </dependency>
@@ -300,7 +324,7 @@
     <repository>
       <id>codelabor.internal</id>
       <url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-     </repository> 
+     </repository>
      <repository>
       <id>codelabor.internal</id>
       <url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
@@ -308,7 +332,7 @@
      <repository>
       <id>codelabor.snapshot</id>
       <url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
-    </repository>     
+    </repository>
     <repository>
       <id>codelabor.commercial</id>
       <url>http://viper.codelabor.org:8080/archiva/repository/commercial/</url>
@@ -332,27 +356,27 @@
       <id>com.springsource.repository.bundles.snapshot</id>
       <name>SpringSource Enterprise Bundle Repository - External Bundle Snapshots</name>
       <url>http://repository.springsource.com/maven/bundles/snapshot</url>
-    </repository>    
+    </repository>
     <repository>
       <id>anyframe-repository</id>
-      <name>repository for Anyframe</name>                 
+      <name>repository for Anyframe</name>
       <url>http://dev.anyframejava.org/artifactory/anyframe-repository</url>
       <snapshots>
       <enabled>true</enabled>
       </snapshots>
-    </repository>    
-  </repositories>   
+    </repository>
+  </repositories>
   <pluginRepositories>
     <pluginRepository>
-      <id>central</id> 
-      <name>Internal Mirror of Central Plugins Repository</name>       
-      <url>http://www.ibiblio.org/maven2/plugins</url>           
+      <id>central</id>
+      <name>Internal Mirror of Central Plugins Repository</name>
+      <url>http://www.ibiblio.org/maven2/plugins</url>
     </pluginRepository>
     <pluginRepository>
-      <id>remote</id> 
-      <name>Internal Mirror of Central Plugins Repository</name>       
-      <url>http://repo1.maven.org/maven2</url>           
-    </pluginRepository>    
+      <id>remote</id>
+      <name>Internal Mirror of Central Plugins Repository</name>
+      <url>http://repo1.maven.org/maven2</url>
+    </pluginRepository>
   </pluginRepositories>
   <distributionManagement>
     <repository>
@@ -364,4 +388,8 @@
       <url>sftp://viper.codelabor.org/</url>
     </site>
   </distributionManagement>
+  <properties>
+  	<anyframe.version>3.2.1</anyframe.version>
+  	<spring.security.version>3.0.0.M2</spring.security.version>
+  </properties>
 </project>
