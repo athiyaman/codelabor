@@ -7,12 +7,12 @@ import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.remoting.message.dtos.MessageHeaderDTO;
 import org.codelabor.system.remoting.message.dtos.SystemHeaderDTO;
 import org.codelabor.system.remoting.message.dtos.TransactionHeaderDTO;
-import org.codelabor.system.remoting.message.services.MessageAdapterService;
 import org.springframework.context.MessageSource;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 @SuppressWarnings("deprecation")
-public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpringContextTests {
+public class MessageAdapterServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	protected MessageAdapterService messageAdapterService;
 	protected MessageSource messageSource;
@@ -20,8 +20,10 @@ public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpring
 	@Override
 	protected void onSetUp() throws Exception {
 		super.onSetUp();
-		messageAdapterService = (MessageAdapterService) applicationContext.getBean("exampleRemotingMessageAdapterService");
-		messageSource = (MessageSource) applicationContext.getBean("messageSource");
+		messageAdapterService = (MessageAdapterService) applicationContext
+				.getBean("exampleRemotingMessageAdapterService");
+		messageSource = (MessageSource) applicationContext
+				.getBean("messageSource");
 	}
 
 	public void testLogin() throws Exception {
@@ -29,7 +31,7 @@ public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpring
 		Saaa020005rInputDTO inputData = new Saaa020005rInputDTO();
 
 		// 개인
-		inputData.setInbkId("KSY4607");
+		inputData.setInbkId("1234567890ab");
 		inputData.setInbkPwd("1111");
 
 		// 법인
@@ -42,6 +44,7 @@ public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpring
 
 		// input header - transaction header
 		TransactionHeaderDTO transactionHeaderDTO = new TransactionHeaderDTO();
+		transactionHeaderDTO.setInbkId("1234567890ab");
 
 		// input header - message header
 		MessageHeaderDTO messageHeaderDTO = new MessageHeaderDTO();
@@ -59,13 +62,15 @@ public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpring
 		Saaa020005rOutputDTO outputData = new Saaa020005rOutputDTO();
 
 		// call
-		messageAdapterService.call(inputHeader, inputData, outputHeader, outputData);
+		messageAdapterService.call(inputHeader, inputData, outputHeader,
+				outputData);
 
 		if (outputHeader.isError()) {
 			messageHeaderDTO = outputHeader.getMessageHeaderDTO();
 			String messageCode = messageHeaderDTO.getMsgCd();
 			String messageDescription = messageHeaderDTO.getMsgDesc();
-			throw new RollbackCommonException(messageSource, messageCode, messageDescription);
+			throw new RollbackCommonException(messageSource, messageCode,
+					messageDescription);
 		} else {
 			logger.info(outputData);
 		}
@@ -74,6 +79,6 @@ public class MessageAdapterServiceTest extends AbstractDependencyInjectionSpring
 
 	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext-*.xml"};
+		return new String[] { "classpath*:/**/applicationContext-*.xml" };
 	}
 }
