@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -67,8 +67,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			}
 			Map userMap = (Map) userMapCollection.toArray()[0];
 			String password = (String) userMap.get("password");
-			boolean enabled = ((BigDecimal) userMap.get("enabled")).intValue() == 1 ? true
-					: false;
+
+			boolean enabled = false;
+			Object enabledObj = userMap.get("enabled");
+			if (enabledObj != null
+					&& ((BigDecimal) userMap.get("enabled")).intValue() == 1) {
+				enabled = true;
+			}
 
 			// get authorities
 			queryId = "system.userdetails.select.authorities.by.username";
