@@ -1,15 +1,13 @@
 package org.codelabor.system.security.xecure.encoders;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.security.services.EncryptService;
 import org.springframework.dao.RecoverableDataAccessException;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
 
 public class XecureDBPasswordEncoderImpl implements PasswordEncoder {
 
-	private final Log log = LogFactory
-			.getLog(XecureDBPasswordEncoderImpl.class);
+	// private final Log log = LogFactory
+	// .getLog(XecureDBPasswordEncoderImpl.class);
 
 	protected EncryptService encryptService;
 
