@@ -58,7 +58,10 @@
 		<property name="userDetailsService" ref="pkiAuthenticatedUserDetailsService"/>
 	</bean>
 	<security:authentication-provider user-service-ref="queryServiceUserDetailsService">
+		<!--
 		<security:password-encoder hash="sha"/>
+		-->
+		<security:password-encoder ref="xecureDBPasswordEncoder" />
 	</security:authentication-provider>
 
 	<security:global-method-security>
