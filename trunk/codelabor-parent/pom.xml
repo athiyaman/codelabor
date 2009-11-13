@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-parent</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<version>1.0</version>
 	<name>codelabor parent project</name>
 	<url>http://codelabor.org</url>
