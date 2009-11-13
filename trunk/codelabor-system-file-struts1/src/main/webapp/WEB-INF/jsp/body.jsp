@@ -3,5 +3,5 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>	
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 					
-					<h2><spring:message code="label.header"/></h2>
+					<h2><spring:message code="label.body"/></h2>
 					<p>body page</p>
