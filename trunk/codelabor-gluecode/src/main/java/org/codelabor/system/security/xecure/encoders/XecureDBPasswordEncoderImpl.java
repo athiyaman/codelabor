@@ -8,7 +8,8 @@ import org.springframework.security.authentication.encoding.PasswordEncoder;
 
 public class XecureDBPasswordEncoderImpl implements PasswordEncoder {
 
-	private final Log log = LogFactory.getLog(XecureDBPasswordEncoderImpl.class);
+	private final Log log = LogFactory
+			.getLog(XecureDBPasswordEncoderImpl.class);
 
 	protected EncryptService encryptService;
 
@@ -19,11 +20,11 @@ public class XecureDBPasswordEncoderImpl implements PasswordEncoder {
 	public String encodePassword(String rawPass, Object salt) {
 		assert salt == null;
 		try {
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb.append("rawPass: ").append(rawPass);
-				log.debug(sb.toString());
-			}
+			// if (log.isDebugEnabled()) {
+			// StringBuilder sb = new StringBuilder();
+			// sb.append("rawPass: ").append(rawPass);
+			// log.debug(sb.toString());
+			// }
 			return encryptService.hash64(rawPass);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,13 +35,13 @@ public class XecureDBPasswordEncoderImpl implements PasswordEncoder {
 	public boolean isPasswordValid(String encPass, String rawPass, Object salt) {
 		assert salt == null;
 		try {
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb.append("encPass: ").append(encPass);
-				sb.append(", ");
-				sb.append("rawPass: ").append(rawPass);
-				log.debug(sb.toString());
-			}
+			// if (log.isDebugEnabled()) {
+			// StringBuilder sb = new StringBuilder();
+			// sb.append("encPass: ").append(encPass);
+			// sb.append(", ");
+			// sb.append("rawPass: ").append(rawPass);
+			// log.debug(sb.toString());
+			// }
 			return encryptService.hash64(rawPass).equals(encPass);
 		} catch (Exception e) {
 			e.printStackTrace();
