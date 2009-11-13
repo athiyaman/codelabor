@@ -10,10 +10,10 @@ public class XecurePasswordEncoder implements PasswordEncoder {
 
 	private final Log log = LogFactory.getLog(XecurePasswordEncoder.class);
 
-	protected EncryptService xecureDBEncryptService;
+	protected EncryptService encryptService;
 
 	public void setEncryptService(EncryptService encryptService) {
-		this.xecureDBEncryptService = encryptService;
+		this.encryptService = encryptService;
 	}
 
 	public String encodePassword(String rawPass, Object salt) {
@@ -24,7 +24,7 @@ public class XecurePasswordEncoder implements PasswordEncoder {
 				sb.append("rawPass: ").append(rawPass);
 				log.debug(sb.toString());
 			}
-			return xecureDBEncryptService.hash64(rawPass);
+			return encryptService.hash64(rawPass);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RecoverableDataAccessException(e.getMessage(), e);
@@ -41,7 +41,7 @@ public class XecurePasswordEncoder implements PasswordEncoder {
 				sb.append("rawPass: ").append(rawPass);
 				log.debug(sb.toString());
 			}
-			return xecureDBEncryptService.hash64(rawPass).equals(encPass);
+			return encryptService.hash64(rawPass).equals(encPass);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RecoverableDataAccessException(e.getMessage(), e);
