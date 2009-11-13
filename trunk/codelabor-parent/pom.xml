@@ -8,8 +8,8 @@
 	<name>codelabor parent project</name>
 	<url>http://codelabor.org</url>
 	<modules>
-		<module>codelabor-system-core</module>
-		<module>codelabor-system-file</module>
+		<module>../codelabor-system-core</module>
+		<module>../codelabor-system-file</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
