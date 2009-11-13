@@ -302,7 +302,6 @@
       <artifactId>quartz</artifactId>
       <version>1.5.2</version>
       <type>jar</type>
-      <scope>test</scope>
       <optional>false</optional>
     </dependency>
     <dependency>
