@@ -14,7 +14,7 @@ import com.signkorea.Lra.SKLrac;
 import com.signkorea.Lra.SKLracStatus;
 import com.signkorea.Lra.SKLracUserInfo;
 
-public class SignkoreaRAServiceImpl extends RegistrationAuthorityService {
+public class SignkoreaRAServiceImpl implements RegistrationAuthorityService {
 	private boolean isTest;
 	private String raServerIp;
 	private int raServerPort;
@@ -57,15 +57,13 @@ public class SignkoreaRAServiceImpl extends RegistrationAuthorityService {
 		return userInfo;
 	}
 
-	@Override
 	public void enroll(RegistrationDTO registrationDTO) throws Exception {
 		this.loadRegistrationInfo(registrationDTO);
 		this.enrollRA(registrationDTO);
 		this.saveRegistrationInfo(registrationDTO);
 	}
 
-	@Override
-	protected void enrollRA(RegistrationDTO registrationDTO) throws Exception {
+	public void enrollRA(RegistrationDTO registrationDTO) throws Exception {
 		boolean isNew = true;
 		String distinguishedName = registrationDTO.getDistinguishedName();
 		if (StringUtil.isNotEmpty(distinguishedName)) {
@@ -118,17 +116,15 @@ public class SignkoreaRAServiceImpl extends RegistrationAuthorityService {
 		registrationDTO.setSerial(status.serial);
 	}
 
-	@Override
-	protected void saveRegistrationInfo(RegistrationDTO registrationDTO)
+	public void saveRegistrationInfo(RegistrationDTO registrationDTO)
 			throws Exception {
 		// TODO Auto-generated method stub
 	}
 
-	@Override
-	protected void loadRegistrationInfo(RegistrationDTO registrationDTO)
+	public void loadRegistrationInfo(RegistrationDTO registrationDTO)
 			throws Exception {
 		// TODO get registration data
-		//		
+		//
 		// String queryId = "";
 		// Object[] params = new Object[] { registrationDTO.getId() };
 		// registrationDTO = (RegistrationDTO) queryService.find(queryId,
