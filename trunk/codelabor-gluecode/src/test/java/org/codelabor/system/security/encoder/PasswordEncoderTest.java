@@ -6,11 +6,11 @@ import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 public class PasswordEncoderTest extends
 		AbstractDependencyInjectionSpringContextTests {
 
-	private PasswordEncoder xecurePasswordEncoder;
+	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public void onSetUp() throws Exception {
-		xecurePasswordEncoder = (PasswordEncoder) applicationContext
+		passwordEncoder = (PasswordEncoder) applicationContext
 				.getBean("xecurePasswordEncoder");
 	}
 
@@ -18,7 +18,7 @@ public class PasswordEncoderTest extends
 		try {
 			String plainPassword = "user1";
 			String expectedEncodedPassword = "s9qne0wEqVUbh4HQMZH+CY8yXmc=";
-			String encodedPassword = xecurePasswordEncoder.encodePassword(
+			String encodedPassword = passwordEncoder.encodePassword(
 					plainPassword, null);
 
 			System.out.println("plainPassword: " + plainPassword);
@@ -39,7 +39,7 @@ public class PasswordEncoderTest extends
 			System.out.println("expectedEncodedPassword: "
 					+ expectedEncodedPassword);
 
-			assertTrue(xecurePasswordEncoder.isPasswordValid(
+			assertTrue(passwordEncoder.isPasswordValid(
 					expectedEncodedPassword, plainPassword, null));
 		} catch (Exception e) {
 			e.printStackTrace();
