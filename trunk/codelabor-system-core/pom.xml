@@ -44,6 +44,13 @@
 		</dependency>
 		<dependency>
 			<groupId>anyframe</groupId>
+			<artifactId>anyframe.core.cache</artifactId>
+			<version>${anyframe.version}</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>anyframe</groupId>
 			<artifactId>anyframe.web.springmvc</artifactId>
 			<version>${anyframe.version}</version>
 			<type>jar</type>
