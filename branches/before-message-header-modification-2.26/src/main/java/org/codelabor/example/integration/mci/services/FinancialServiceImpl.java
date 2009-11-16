@@ -15,13 +15,20 @@ import org.codelabor.system.exceptions.RollbackCommonException;
 import org.codelabor.system.remoting.message.dtos.MessageHeaderDTO;
 import org.codelabor.system.remoting.message.dtos.SystemHeaderDTO;
 import org.codelabor.system.remoting.message.dtos.TransactionHeaderDTO;
+import org.codelabor.system.remoting.message.services.MessageAdapterService;
 import org.codelabor.system.services.BaseServiceImpl;
 
 public class FinancialServiceImpl extends BaseServiceImpl implements
 		FinancialService {
 
+	public void setMessageAdapterService(
+			MessageAdapterService messageAdapterService) {
+		this.messageAdapterService = messageAdapterService;
+	}
+
 	@SuppressWarnings("unused")
 	private final Log log = LogFactory.getLog(FinancialServiceImpl.class);
+	private MessageAdapterService messageAdapterService;
 
 	@SuppressWarnings("unchecked")
 	public List search(Date fromDate, Date toDate) throws Exception {
