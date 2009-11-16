@@ -22,10 +22,9 @@ import anyframe.core.query.IQueryService;
 public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 
 	protected IQueryService queryService;
-
 	protected IIdGenerationService uuidGenerationService;
-
-	protected IIdGenerationService sequenceIdGenerationService;
+	protected IIdGenerationService sequenceMapIdGenerationService;
+	protected IIdGenerationService sequenceFileIdGenerationService;
 
 	private File sourceFile;
 	private File targetFile;
@@ -37,8 +36,10 @@ public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 				.getBean("oracleQueryService");
 		uuidGenerationService = (IIdGenerationService) applicationContext
 				.getBean("uniqueFileNameGenerationService");
-		sequenceIdGenerationService = (IIdGenerationService) applicationContext
+		sequenceFileIdGenerationService = (IIdGenerationService) applicationContext
 				.getBean("sequenceFileIdGenerationService");
+		sequenceMapIdGenerationService = (IIdGenerationService) applicationContext
+				.getBean("sequenceMapIdGenerationService");
 
 		// prepare data
 		sourceFile = new File("C:/WINDOWS/Help/Tours/htmlTour/intro_logo.jpg");
@@ -54,6 +55,7 @@ public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 		ReadableByteChannel inputChannel = null;
 		WritableByteChannel outputChannel = null;
 		String fileId;
+		String mapId;
 		try {
 			inputStream = new FileInputStream(sourceFile);
 			outputStream = new ByteArrayOutputStream();
@@ -61,12 +63,14 @@ public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 			outputChannel = Channels.newChannel(outputStream);
 			int sourceFileSize = ChannelUtil.copy(inputChannel, outputChannel);
 
-			fileId = sequenceIdGenerationService.getNextStringId();
+			fileId = sequenceFileIdGenerationService.getNextStringId();
+			mapId = sequenceMapIdGenerationService.getNextStringId();
 			String uniqueFileName = uuidGenerationService.getNextStringId();
 
 			// test
 			FileDTO fileDTO = new FileDTO();
 			fileDTO.setFileId(fileId);
+			fileDTO.setMapId(mapId);
 			fileDTO.setRealFileName(sourceFile.getName());
 			fileDTO.setUniqueFileName(uniqueFileName);
 			fileDTO.setRepositoryPath(null);
@@ -113,6 +117,7 @@ public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 		ReadableByteChannel inputChannel = null;
 		WritableByteChannel outputChannel = null;
 		String fileId;
+		String mapId;
 		try {
 			inputStream = new FileInputStream(sourceFile);
 			outputStream = new ByteArrayOutputStream();
@@ -120,13 +125,15 @@ public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 			outputChannel = Channels.newChannel(outputStream);
 			int sourceFileSize = ChannelUtil.copy(inputChannel, outputChannel);
 
-			fileId = sequenceIdGenerationService.getNextStringId();
+			fileId = sequenceFileIdGenerationService.getNextStringId();
+			mapId = sequenceMapIdGenerationService.getNextStringId();
 			String uniqueFileName = uuidGenerationService.getNextStringId();
 
 			// test
 			String queryId = "system.insert.file";
-			Object[] params = new Object[] { fileId, sourceFile.getName(),
-					uniqueFileName, null, "image/jpeg", sourceFileSize,
+			Object[] params = new Object[] { fileId, mapId,
+					sourceFile.getName(), uniqueFileName, null, "image/jpeg",
+					sourceFileSize,
 					((ByteArrayOutputStream) outputStream).toByteArray() };
 			queryService.create(queryId, params);
 
