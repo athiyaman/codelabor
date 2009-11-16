@@ -163,10 +163,6 @@
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 		<repository>
-			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository>
-		<repository>
 			<id>codelabor.snapshot</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
 		</repository>
@@ -215,6 +211,12 @@
 			<url>http://repo1.maven.org/maven2</url>
 		</pluginRepository>
 	</pluginRepositories>
+	<distributionManagement>
+		<repository>
+			<id>codelabor.internal</id>
+			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<finalName>codelabor-system-file-struts1</finalName>
 		<plugins>

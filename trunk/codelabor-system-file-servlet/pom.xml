@@ -7,7 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>codelabor-system-file-servlet Maven Webapp</name>
 	<url>http://codelabor.org</url>
-	<dependencies>	
+	<dependencies>
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-file</artifactId>
@@ -95,7 +95,7 @@
 			<version>2.2</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -124,14 +124,14 @@
 			<version>${springframework.version}</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${springframework.version}</version>
 			<type>jar</type>
 			<optional>false</optional>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -152,15 +152,11 @@
 		<repository>
 			<id>codelabor.internal</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository> 
-		<repository>
-			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 		<repository>
 			<id>codelabor.snapshot</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
-		</repository>     
+		</repository>
 		<repository>
 			<id>codelabor.commercial</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/commercial/</url>
@@ -189,7 +185,7 @@
 		    <id>spring-milestone</id>
 		    <name>Spring Portfolio Milestone Repository</name>
 		    <url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
-		</repository>		
+		</repository>
 		<repository>
 		    <id>spring-snapshot</id>
 		    <name>Spring Portfolio Snapshot Repository</name>
@@ -197,28 +193,28 @@
 		</repository>
 		<repository>
 			<id>anyframe-repository</id>
-			<name>repository for Anyframe</name>                 
+			<name>repository for Anyframe</name>
 			<url>http://dev.anyframejava.org/artifactory/anyframe-repository</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-		</repository>    
-	</repositories>   
+		</repository>
+	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
-			<id>central</id> 
-			<name>Internal Mirror of Central Plugins Repository</name>       
-			<url>http://www.ibiblio.org/maven2/plugins</url>           
+			<id>central</id>
+			<name>Internal Mirror of Central Plugins Repository</name>
+			<url>http://www.ibiblio.org/maven2/plugins</url>
 		</pluginRepository>
 		<pluginRepository>
-			<id>remote</id> 
-			<name>Internal Mirror of Central Plugins Repository</name>       
-			<url>http://repo1.maven.org/maven2</url>           
-		</pluginRepository>    
+			<id>remote</id>
+			<name>Internal Mirror of Central Plugins Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</pluginRepository>
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>codelabor.archiva.internal</id>
+			<id>codelabor.internal</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
@@ -253,7 +249,7 @@
 	<organization>
 		<name>CODELABOR</name>
 		<url>http://codelabor.org</url>
-	</organization>	
+	</organization>
 	<build>
 		<finalName>codelabor-system-file-servlet</finalName>
 		<plugins>
@@ -296,7 +292,7 @@
 				<configuration>
 					<tagBase>https://codelabor.googlecode.com/svn</tagBase>
 				</configuration>
-			</plugin>       				
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
@@ -309,7 +305,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.0</version>
-				<!--  
+				<!--
 				<configuration>
 					<webappDirectory>C:/Program Files/Apache Software Foundation/Tomcat 6.0/webapps/codelabor-system-file-servlet</webappDirectory>
 				</configuration>

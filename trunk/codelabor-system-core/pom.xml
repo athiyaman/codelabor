@@ -167,10 +167,6 @@
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 		<repository>
-			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository>
-		<repository>
 			<id>codelabor.snapshot</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
 		</repository>
@@ -231,7 +227,7 @@
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>codelabor.archiva.internal</id>
+			<id>codelabor.internal</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
