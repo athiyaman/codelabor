@@ -19,6 +19,12 @@
 				<version>${anyframe.version}</version>
 				<type>jar</type>
 				<optional>false</optional>
+				<exclusions>
+					<exclusion>
+						<groupId>cglib</groupId>
+						<artifactId>cglib</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>anyframe</groupId>
@@ -37,6 +43,13 @@
 			<dependency>
 				<groupId>anyframe</groupId>
 				<artifactId>anyframe.core.query</artifactId>
+				<version>${anyframe.version}</version>
+				<type>jar</type>
+				<optional>false</optional>
+			</dependency>
+			<dependency>
+				<groupId>anyframe</groupId>
+				<artifactId>anyframe.core.cache</artifactId>
 				<version>${anyframe.version}</version>
 				<type>jar</type>
 				<optional>false</optional>
@@ -129,10 +142,6 @@
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 		<repository>
-			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository>
-		<repository>
 			<id>codelabor.snapshot</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
 		</repository>
@@ -193,7 +202,7 @@
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-			<id>codelabor.archiva.internal</id>
+			<id>codelabor.internal</id>
 			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
@@ -288,6 +297,11 @@
 						<descriptors>
 							<descriptor>src/assemble/bin.xml</descriptor>
 						</descriptors>
+						<!--
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						-->
 					</configuration>
 					<executions>
 						<execution>
