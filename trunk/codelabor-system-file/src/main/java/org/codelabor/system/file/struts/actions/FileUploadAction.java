@@ -41,6 +41,8 @@ public class FileUploadAction extends BaseDispatchAction {
 				.getRequiredWebApplicationContext(getServlet()
 						.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
+				.getBean("mapIdGenerationService");
 		List<FileDTO> fileDTOList = null;
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
@@ -48,7 +50,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		} else {
 			switch (RepositoryType.valueOf(repositoryType)) {
 			case DATABASE:
-				fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.DATABASE);
+				fileDTOList = fileManager
+						.selectFileByRepositoryType(RepositoryType.DATABASE);
 				break;
 			case FILE_SYSTEM:
 				fileDTOList = fileManager
@@ -56,6 +59,8 @@ public class FileUploadAction extends BaseDispatchAction {
 				break;
 			}
 		}
+		request.setAttribute(Constants.MAP_ID, mapIdGenerationService
+				.getNextStringId());
 		request.setAttribute(Constants.FILE_LIST_KEY, fileDTOList);
 		return mapping.findForward("list");
 	}
