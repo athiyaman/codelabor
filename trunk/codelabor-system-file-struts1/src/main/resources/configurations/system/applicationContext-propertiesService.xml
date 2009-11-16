@@ -7,11 +7,11 @@
 						http://www.anyframejava.org/schema/service
 						http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
-	
+
 	<bean name="propertiesService"
 		class="anyframe.core.properties.impl.PropertiesServiceImpl">
 		<config:configuration>
-			<fileName>classpath*:properties/**/*.properties</fileName>
+			<fileName>classpath:properties/**/*.properties</fileName>
 		</config:configuration>
 	</bean>
 </beans>
