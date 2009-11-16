@@ -42,7 +42,7 @@ public class FileUploadAction extends BaseDispatchAction {
 						.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
-				.getBean("mapIdGenerationService");
+				.getBean("sequenceMapIdGenerationService");
 		List<FileDTO> fileDTOList = null;
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
