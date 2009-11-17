@@ -49,6 +49,13 @@
 			<version>1.3.10</version>
 			<type>jar</type>
 			<optional>false</optional>
+		<dependency>
+			<groupId>kr.co.tmax</groupId>
+			<artifactId>jclient_jaxb</artifactId>
+			<version>6.0.0.5</version>
+			<type>jar</type>
+			<scope>test</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>kr.co.tmax</groupId>
@@ -61,14 +68,6 @@
 		<dependency>
 			<groupId>kr.co.tmax</groupId>
 			<artifactId>jclient</artifactId>
-			<version>6.0.0.5</version>
-			<type>jar</type>
-			<scope>test</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>kr.co.tmax</groupId>
-			<artifactId>jclient_jaxb</artifactId>
 			<version>6.0.0.5</version>
 			<type>jar</type>
 			<scope>test</scope>
