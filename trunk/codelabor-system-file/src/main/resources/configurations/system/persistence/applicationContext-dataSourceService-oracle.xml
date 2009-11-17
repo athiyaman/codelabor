@@ -7,7 +7,7 @@
 		<property name="dataSource" ref="oracleRealDatasource"/>
 	</bean>
 
-	<!-- direct -->
+	<!-- jdbc -->
 	<bean id="oracleRealDatasource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
