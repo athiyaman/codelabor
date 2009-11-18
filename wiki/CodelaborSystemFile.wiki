@@ -26,3 +26,9 @@
   * codelabor-system-file-servlet
   * codelabor-system-file-struts1
   * codelabor-system-file-spring-mvc
+
+= SCM =
+
+아래 경로에서 소스 코드를 받아보실 수 있습니다.
+
+  * http://codelabor.googlecode.com/svn/trunk/codelabor-system-file
