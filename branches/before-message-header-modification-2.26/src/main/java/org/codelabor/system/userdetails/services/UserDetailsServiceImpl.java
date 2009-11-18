@@ -23,6 +23,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
@@ -40,7 +42,8 @@ import anyframe.core.query.QueryServiceException;
  */
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	private IQueryService queryService = null;
+	protected Log log = LogFactory.getLog(UserDetailsServiceImpl.class);
+	protected IQueryService queryService = null;
 
 	public void setQueryService(IQueryService queryService) {
 		this.queryService = queryService;
@@ -67,13 +70,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			}
 			Map userMap = (Map) userMapCollection.toArray()[0];
 			String password = (String) userMap.get("password");
-
-			boolean enabled = false;
-			Object enabledObj = userMap.get("enabled");
-			if (enabledObj != null
-					&& ((BigDecimal) userMap.get("enabled")).intValue() == 1) {
-				enabled = true;
-			}
+			boolean enabled = ((BigDecimal) userMap.get("enabled")).intValue() == 1 ? true
+					: false;
 
 			// get authorities
 			queryId = "system.userdetails.select.authorities.by.username";
@@ -83,6 +81,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			List authorityList = new ArrayList();
 			while (authorityIterator.hasNext()) {
 				Map authorityMap = (Map) authorityIterator.next();
+				if (log.isDebugEnabled()) {
+					StringBuilder sb = new StringBuilder();
+					sb.append("authorityMap: ").append(authorityMap);
+					log.debug(sb.toString());
+				}
 				GrantedAuthority authority = new GrantedAuthorityImpl(
 						(String) authorityMap.get("authority"));
 				authorityList.add(authority);
