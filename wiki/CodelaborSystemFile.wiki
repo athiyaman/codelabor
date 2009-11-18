@@ -5,10 +5,9 @@
 = 특징 =
 
 코드레이버 파일 모듈은 다음과 같은 기능을 제공합니다.
-  * Spring 기반 FileManager 제공
   * File 저장 방식 선택 가능
-    # File system
-    # RDBMS BLOB)
+    # 파일 시스템 저장 방식
+    # 데이터베이스 BLOB 저장 방식
   * 다양한 Presentation Layer 기술 구조 제공
     # Servlet
     # Struts1
