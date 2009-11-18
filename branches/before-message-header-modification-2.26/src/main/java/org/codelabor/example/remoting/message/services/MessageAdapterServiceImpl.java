@@ -25,7 +25,6 @@ import org.codelabor.system.remoting.message.dtos.HeaderDTO;
 import org.codelabor.system.remoting.message.services.MessageAdapterService;
 import org.codelabor.system.remoting.tcp.services.SimpleSocketAdapterServiceImpl;
 import org.codelabor.system.remoting.tcp.services.SocketAdapterService;
-import org.codelabor.system.security.utils.SecurityContextUtil;
 
 import anyframe.core.idgen.IIdGenerationService;
 
@@ -108,10 +107,11 @@ public class MessageAdapterServiceImpl implements MessageAdapterService {
 
 		// nxt_tr_yn
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setNxtTrYn(0);
-		// tmnl_ip
-		ksfcInputHeaderDTO.getSystemHeaderDTO().setTmnlIp(
-				SecurityContextUtil.getRemoteAddress());
 
+		// tmnl_ip
+		// TODO IP 정보 취득하여 정보 입력할 것
+		// ksfcInputHeaderDTO.getSystemHeaderDTO().setTmnlIp(
+		// SecurityContextUtil.getRemoteAddress());
 		// tr_rqs_chnl_cd
 		ksfcInputHeaderDTO.getSystemHeaderDTO().setTrRqsChnlCd("IBS");
 
