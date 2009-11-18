@@ -9,6 +9,20 @@
     # 파일 시스템 저장 방식
     # 데이터베이스 BLOB 저장 방식
   * 다양한 Presentation Layer 기술 구조와 연계 가능
-    # Servlet (codelabor-system-file-servlet)
-    # Struts1 (codelabor-system-file-struts1)
-    # Spring MVC (codelabor-system-file-spring-mvc)
+    # Servlet
+    # Struts1
+    # Spring MVC
+
+= 의존 모듈 =
+
+다음 모듈을 필요로 합니다.
+
+  * codelabor-system-core
+
+= 활용 모듈 =
+
+다음과 같은 모듈을 사용하여 다양한 Presentation Layer의 기술 구조에서 활용이 가능합니다.
+
+  * codelabor-system-file-servlet
+  * codelabor-system-file-struts1
+  * codelabor-system-file-spring-mvc
