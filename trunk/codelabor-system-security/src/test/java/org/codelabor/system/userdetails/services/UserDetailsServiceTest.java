@@ -24,7 +24,7 @@ public class UserDetailsServiceTest extends
 	}
 
 	public void testLoadUserByUsername() {
-		String userName = "bomber";
+		String userName = "admin";
 		UserDetails userDetails = queryServiceUserDetailsService
 				.loadUserByUsername(userName);
 		if (log.isDebugEnabled()) {
