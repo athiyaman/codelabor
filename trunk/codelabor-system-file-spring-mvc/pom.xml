@@ -4,7 +4,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-file-spring-mvc</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>codelabor-system-file-spring-mvc Maven Webapp</name>
 	<url>http://codelabor.org</url>
 	<dependencies>
