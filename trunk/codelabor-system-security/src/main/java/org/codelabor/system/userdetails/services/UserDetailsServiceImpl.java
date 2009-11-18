@@ -43,7 +43,6 @@ import anyframe.core.query.QueryServiceException;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	protected Log log = LogFactory.getLog(UserDetailsServiceImpl.class);
-
 	protected IQueryService queryService = null;
 
 	public void setQueryService(IQueryService queryService) {
@@ -71,13 +70,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			}
 			Map userMap = (Map) userMapCollection.toArray()[0];
 			String password = (String) userMap.get("password");
-
-			boolean enabled = false;
-			Object enabledObj = userMap.get("enabled");
-			if (enabledObj != null
-					&& ((BigDecimal) userMap.get("enabled")).intValue() == 1) {
-				enabled = true;
-			}
+			boolean enabled = ((BigDecimal) userMap.get("enabled")).intValue() == 1 ? true
+					: false;
 
 			// get authorities
 			queryId = "system.userdetails.select.authorities.by.username";
