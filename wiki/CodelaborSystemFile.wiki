@@ -8,7 +8,7 @@
   * File 저장 방식 선택 가능
     # 파일 시스템 저장 방식
     # 데이터베이스 BLOB 저장 방식
-  * 다양한 Presentation Layer 기술 구조 제공
-    # Servlet
-    # Struts1
-    # Spring MVC
+  * 다양한 Presentation Layer 기술 구조와 연계 가능
+    # Servlet (codelabor-system-file-servlet)
+    # Struts1 (codelabor-system-file-struts1)
+    # Spring MVC (codelabor-system-file-spring-mvc)
