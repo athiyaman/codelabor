@@ -1,4 +1,4 @@
-= 모듈명: codelabor-system-file =
+= codelabor system file =
 
 파일 업로드/다운로드 모듈
 
