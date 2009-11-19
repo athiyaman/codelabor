@@ -8,6 +8,87 @@
 	<name>codelabor-system-file-servlet Maven Webapp</name>
 	<url>http://codelabor.org</url>
 	<dependencies>
+<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-file</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>jar</type>
+			<optional>false</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>ojdbc</groupId>
+					<artifactId>ojdbc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-orm</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc-struts</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc-portlet</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>hsqldb</groupId>
+					<artifactId>hsqldb</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.easymock</groupId>
+					<artifactId>easymock</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.easymock</groupId>
+					<artifactId>easymockclassextension</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>jasperreports</groupId>
+					<artifactId>jasperreports</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>jfree</groupId>
+					<artifactId>jfreechart</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>jfree</groupId>
+					<artifactId>jcommon</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>rhino</groupId>
+					<artifactId>js</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.axis</groupId>
+					<artifactId>axis</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>wsdl4j</groupId>
+					<artifactId>wsdl4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.aspectj</groupId>
+					<artifactId>aspectjweaver</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jsp-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
@@ -63,13 +144,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-			<type>jar</type>
-			<optional>false</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-file</artifactId>
-			<version>1.0.0</version>
 			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
