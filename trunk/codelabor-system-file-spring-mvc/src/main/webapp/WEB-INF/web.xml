@@ -6,7 +6,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
-	
+
 	<!-- encoding filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -20,13 +20,18 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- spring support -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!--file cleaner -->
+	<!--file upload progress listner -->
+  	<listener>
+  		<listener-class>org.codelabor.system.file.listeners.FileUploadProgressListener</listener-class>
+	</listener>
+
+	<!--file cleaner listner -->
   	<listener>
   		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
 	</listener>
@@ -52,7 +57,7 @@
 	<!-- file upload servlet -->
   	<servlet>
   		<servlet-name>fileUploadServlet</servlet-name>
-  		<!-- 
+  		<!--
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadServlet</servlet-class>
   		 -->
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadStreamServlet</servlet-class>
@@ -84,7 +89,7 @@
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>	
+	</welcome-file-list>
 
 	<!-- dynamic error page -->
 	<error-page>
