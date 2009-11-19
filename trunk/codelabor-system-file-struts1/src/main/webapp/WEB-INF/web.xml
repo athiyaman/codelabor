@@ -6,7 +6,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
 	</context-param>
-	
+
 	<!-- encoding filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -20,16 +20,21 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<!-- spring support -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!--file cleaner -->
+	<!--file upload progress listner -->
+  	<listener>
+  		<listener-class>org.codelabor.system.file.listeners.FileUploadProgressListener</listener-class>
+	</listener>
+
+	<!--file cleaner listner -->
   	<listener>
   		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
-	</listener>	
+	</listener>
 
 	<!-- struts1 -->
 	<servlet>
@@ -48,18 +53,18 @@
 		<init-param>
 			<param-name>chainConfig</param-name>
 			<param-value>org/apache/struts/tiles/chain-config.xml</param-value>
-		</init-param>	      
+		</init-param>
 	    <load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		  <servlet-name>action</servlet-name>
 		  <url-pattern>*.do</url-pattern>
-	</servlet-mapping>	
+	</servlet-mapping>
 
 	<!-- file upload servlet -->
   	<servlet>
   		<servlet-name>fileUploadServlet</servlet-name>
-  		<!-- 
+  		<!--
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadServlet</servlet-class>
   		 -->
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadStreamServlet</servlet-class>
@@ -91,7 +96,7 @@
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>	
+	</welcome-file-list>
 
 	<!-- dynamic error page -->
 	<error-page>
