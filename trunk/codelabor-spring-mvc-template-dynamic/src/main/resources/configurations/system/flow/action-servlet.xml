@@ -36,10 +36,6 @@
 			<property name="viewResolvers" ref="ajaxUrlBasedViewResolver" />
 		</bean>
 
-
-
-
-
 		<!-- for spring security 2.5.x -->
 		<!--
 		<bean id="securityFlowExecutionListener"
