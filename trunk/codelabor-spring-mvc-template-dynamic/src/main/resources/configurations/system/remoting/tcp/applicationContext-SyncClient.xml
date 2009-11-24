@@ -15,7 +15,7 @@
 
 	<bean id="syncClient" class="anyframe.es.tcp.client.SyncClient">
 	  <property name="connector" ref="socketConnector"/>
-      <property name="address" value=":9090" />
+      <property name="address" value="172.25.33.6:9085" />
 	  <property name="connectorConfig" ref="connectorConfig"/>
 	  <property name="syncClientIoHandler" ref="clientIoHandler"/>
 	</bean>

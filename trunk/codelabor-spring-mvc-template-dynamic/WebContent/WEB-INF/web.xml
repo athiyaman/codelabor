@@ -25,7 +25,7 @@
         <param-name>log4jRefreshInterval</param-name>
         <param-value>60000</param-value>
     </context-param>
-	
+
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -82,10 +82,25 @@
     	<filter-name>springSecurityFilterChain</filter-name>
     	<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
+	<!-- anyframe monitoring -->
+	<filter>
+	    <filter-name>infrared</filter-name>
+	    <filter-class>net.sf.infrared.aspects.servlet.InfraREDServletFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>infrared</filter-name>
+	    <url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
 	<!-- spring support -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- anyframe monitoring -->
+	<listener>
+    	<listener-class>net.sf.infrared.agent.setup.InfraREDServletContextListener</listener-class>
 	</listener>
 
 	<!-- spring security http session event publisher -->
@@ -97,7 +112,7 @@
 		<!-- for spring security 3.0.0.M1 -->
 		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
 	</listener>
-	
+
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
@@ -168,11 +183,11 @@
   		<servlet-name>snifferServlet</servlet-name>
 		<url-pattern>/servlet/system/snifferServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- file upload servlet -->
   	<servlet>
   		<servlet-name>fileUploadServlet</servlet-name>
-  		<!-- 
+  		<!--
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadServlet</servlet-class>
   		 -->
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadStreamServlet</servlet-class>
@@ -233,7 +248,7 @@
 		<servlet-name>Resource Servlet</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- message handler servlet -->
 	<servlet>
 		<servlet-name>Message Handler Servlet</servlet-name>
@@ -242,7 +257,7 @@
 	<servlet-mapping>
 		<servlet-name>Message Handler Servlet</servlet-name>
 		<url-pattern>/servlet/system/remoting/message/messageHandlerServlet</url-pattern>
-	</servlet-mapping>		
+	</servlet-mapping>
 
 	<!-- dynamic error page -->
 	<error-page>

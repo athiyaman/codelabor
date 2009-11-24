@@ -7,7 +7,7 @@
 		id="baseManager" abstract="true"
 		class="org.codelabor.system.managers.BaseManagerImpl">
 		<property name="messageSource" ref="messageSource"/>
-		<property name="messageAdapterService" ref="exampleRemotingMessageAdapterService"/>
+		<property name="messageAdapterService" ref="remotingMessageAdapterService"/>
 		<property name="propertiesService" ref="propertiesService"/>
 	</bean>
 </beans>
