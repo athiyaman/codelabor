@@ -25,9 +25,9 @@ public class EncryptServiceTest extends
 			String charsetName = "EUC-KR";
 
 			FileInputStream fileInputStream = new FileInputStream(
-					"password-decrypted.txt");
+					"./src/test/resources/password-decrypted.txt");
 			FileOutputStream fileOutputStream = new FileOutputStream(
-					"password-encrypted.txt");
+					"./src/test/resources/password-encrypted.txt");
 			InputStreamReader inputStreamReader = new InputStreamReader(
 					fileInputStream, charsetName);
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
@@ -69,9 +69,9 @@ public class EncryptServiceTest extends
 			String charsetName = "EUC-KR";
 
 			FileInputStream fileInputStream = new FileInputStream(
-					"password-encrypted.txt");
+					"./src/test/resources/password-encrypted.txt");
 			FileOutputStream fileOutputStream = new FileOutputStream(
-					"password-decrypted.txt");
+					"./src/test/resources/password-decrypted.txt");
 			InputStreamReader inputStreamReader = new InputStreamReader(
 					fileInputStream, charsetName);
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
