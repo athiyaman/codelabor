@@ -10,11 +10,10 @@ public class RegistrationAuthorityServiceTest extends
 
 	public void testEnroll() {
 		try {
-
 			// RegistrationDTO registrationDTO = new RegistrationDTO();
 			// registrationDTO.setId("bomber");
 			// registrationDTO.setPassword("bomber");
-			// registrationDTO.setRegistrationNumber("7504181117115");
+			// registrationDTO.setRegistrationNumber("");
 			// raService.enroll(registrationDTO);
 			// System.out.println(registrationDTO);
 		} catch (Exception e) {
