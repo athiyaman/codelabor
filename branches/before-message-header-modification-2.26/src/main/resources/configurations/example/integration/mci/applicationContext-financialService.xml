@@ -10,7 +10,7 @@
 		id="exampleIntegrationMciFinancialService"
 		class="org.codelabor.example.integration.mci.services.FinancialServiceImpl"
 		parent="baseService">
-		<property name="messageAdapterService" ref="exampleRemotingMessageAdapterService"/>
+		<property name="messageAdapterService" ref="remotingMessageAdapterService"/>
 	</bean>
 </beans>
 
