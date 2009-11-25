@@ -1,4 +1,4 @@
-package apache.commons.lang;
+package org.apache.commons.lang;
 
 import junit.framework.TestCase;
 
