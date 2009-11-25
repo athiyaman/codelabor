@@ -40,10 +40,10 @@ public class EncryptServiceTest extends
 			String encryptedLine = null;
 			while ((encryptedLine = bufferedReader.readLine()) != null) {
 				String[] splitedLines = encryptedLine.split(", ");
-				String id = splitedLines[0].substring(1, splitedLines[0]
-						.length() - 1);
-				String encryptedPassword = splitedLines[1].substring(1,
-						splitedLines[1].length() - 1);
+				String id = splitedLines[0].substring(0, splitedLines[0]
+						.length());
+				String encryptedPassword = splitedLines[1].substring(0,
+						splitedLines[1].length());
 				String decryptedPassword = null;
 				if (encryptedPassword.equals("null")) {
 					decryptedPassword = encryptedPassword;
@@ -52,8 +52,8 @@ public class EncryptServiceTest extends
 							.encrypt64(encryptedPassword);
 				}
 				StringBuilder sb = new StringBuilder();
-				sb.append("\"").append(id).append("\", \"");
-				sb.append(decryptedPassword).append("\"");
+				sb.append(id).append(", ");
+				sb.append(decryptedPassword);
 				sb.append(System.getProperty("line.separator"));
 				bufferedWriter.write(sb.toString());
 				bufferedWriter.flush();
@@ -84,10 +84,10 @@ public class EncryptServiceTest extends
 			String encryptedLine = null;
 			while ((encryptedLine = bufferedReader.readLine()) != null) {
 				String[] splitedLines = encryptedLine.split(", ");
-				String id = splitedLines[0].substring(1, splitedLines[0]
-						.length() - 1);
-				String encryptedPassword = splitedLines[1].substring(1,
-						splitedLines[1].length() - 1);
+				String id = splitedLines[0].substring(0, splitedLines[0]
+						.length());
+				String encryptedPassword = splitedLines[1].substring(0,
+						splitedLines[1].length());
 				String decryptedPassword = null;
 				if (encryptedPassword.equals("null")) {
 					decryptedPassword = encryptedPassword;
@@ -96,8 +96,8 @@ public class EncryptServiceTest extends
 							.decrypt64(encryptedPassword);
 				}
 				StringBuilder sb = new StringBuilder();
-				sb.append("\"").append(id).append("\", \"");
-				sb.append(decryptedPassword).append("\"");
+				sb.append(id).append(", ");
+				sb.append(decryptedPassword);
 				sb.append(System.getProperty("line.separator"));
 				bufferedWriter.write(sb.toString());
 				bufferedWriter.flush();
