@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-	<bean 
+	<bean
 		id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
@@ -12,8 +12,8 @@
 				<value>anyframe/core/idgen/messages/idgeneration</value>
 				<value>anyframe/core/process/messages/process</value>
 				<value>anyframe/core/adaptormanager/messages/adaptormanager</value>
-				<value>anyframe/core/query/messages/query</value>				
-				
+				<value>anyframe/core/query/messages/query</value>
+
 				<!-- example message -->
 				<value>messages/example/example</value>
 				<value>messages/example/curd/crudService</value>
@@ -22,11 +22,7 @@
 
 				<!-- system message -->
 				<value>messages/system/accessLogService</value>
-				<value>messages/system/httpAdapterService</value>
-				<value>messages/system/login/loginService</value>
-				<value>messages/system/mailService</value>
-				
 			</list>
 		</property>
-	</bean>	
+	</bean>
 </beans>
