@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-core</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0.0</version>
 			<type>jar</type>
 			<optional>false</optional>
 			<exclusions>
