@@ -147,7 +147,13 @@ public class IOUtil {
 		if (bd == null) {
 			bytes = "".getBytes();
 		} else {
-			bytes = String.valueOf(bd).getBytes();
+			if(bd.equals(bd.abs())) {
+				bytes = String.valueOf(bd).getBytes();
+			} else {	// negative number
+				bytes = lpad(String.valueOf(bd.abs()).getBytes(), length, pad);
+				bytes[0] = 45;		//	 "-".getBytes()[0]
+				return bytes;
+			}
 		}
 		return lpad(bytes, length, pad);
 	}
