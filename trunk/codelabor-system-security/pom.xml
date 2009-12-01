@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-core</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
