@@ -160,6 +160,13 @@
 			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>quartz</artifactId>
+			<version>1.6.3</version>
+			<type>jar</type>
+			<optional>false</optional>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
