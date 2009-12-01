@@ -14,12 +14,6 @@
 			<version>${anyframe.version}</version>
 			<type>jar</type>
 			<optional>false</optional>
-			<exclusions>
-				<exclusion>
-					<groupId>cglib</groupId>
-					<artifactId>cglib</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>anyframe</groupId>
