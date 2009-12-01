@@ -8,6 +8,5 @@
 		class="org.codelabor.system.daos.BaseDAOImpl">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="queryService" ref="oracleQueryService"/>
-		<property name="propertiesService" ref="propertiesService"/>
 	</bean>
 </beans>
