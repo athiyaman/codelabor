@@ -29,7 +29,7 @@ import org.springframework.security.core.userdetails.User;
  * @author "Sang Jae Shin"
  * 
  */
-public class UserDTO extends User {
+public class AddressbookUserDTO extends User {
 
 	/**
 	 *
@@ -65,14 +65,14 @@ public class UserDTO extends User {
 	 * @param accountNonLocked
 	 * @param authorities
 	 */
-	public UserDTO(String username, String password, boolean enabled,
+	public AddressbookUserDTO(String username, String password, boolean enabled,
 			boolean accountNonExpired, boolean credentialsNonExpired,
 			boolean accountNonLocked, List<GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired,
 				credentialsNonExpired, accountNonLocked, authorities);
 	}
 
-	public UserDTO(String username, String password, boolean enabled,
+	public AddressbookUserDTO(String username, String password, boolean enabled,
 			boolean accountNonExpired, boolean credentialsNonExpired,
 			boolean accountNonLocked, List<GrantedAuthority> authorities,
 			ContactDTO contactData, OtherDTO otherData, PrivateDTO privateData,
