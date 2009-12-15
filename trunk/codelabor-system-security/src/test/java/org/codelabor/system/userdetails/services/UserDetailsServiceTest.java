@@ -28,7 +28,9 @@ public class UserDetailsServiceTest extends
 		UserDetails userDetails = queryServiceUserDetailsService
 				.loadUserByUsername(userName);
 		if (log.isDebugEnabled()) {
-			log.debug(userDetails);
+			StringBuilder sb = new StringBuilder();
+			sb.append("userDetails: ").append(userDetails);
+			log.debug(sb.toString());
 		}
 		assertEquals(userName, userDetails.getUsername());
 	}
