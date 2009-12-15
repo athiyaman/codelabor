@@ -32,6 +32,13 @@ public class ContactDTO implements Serializable {
 	private String display;
 	private String nickName;
 	private String email;
+	private String additionalEmail;
+	private String ScreenName;
+	private String workPhoneNumber;
+	private String homePhoneNumber;
+	private String mobilePhoneNumber;
+	private String pagerNumber;
+	private String faxNumber;
 
 	public String getFirstName() {
 		return firstName;
@@ -128,14 +135,6 @@ public class ContactDTO implements Serializable {
 	public void setFaxNumber(String faxNumber) {
 		this.faxNumber = faxNumber;
 	}
-
-	private String additionalEmail;
-	private String ScreenName;
-	private String workPhoneNumber;
-	private String homePhoneNumber;
-	private String mobilePhoneNumber;
-	private String pagerNumber;
-	private String faxNumber;
 
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
