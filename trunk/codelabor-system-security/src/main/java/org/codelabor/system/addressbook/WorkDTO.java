@@ -14,17 +14,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.user.dtos;
+package org.codelabor.system.addressbook;
 
 import java.io.Serializable;
 import java.net.URL;
-import java.util.Date;
 
 /**
  * @author "Sang Jae Shin"
  * 
  */
-public class PrivateDTO implements Serializable {
+public class WorkDTO implements Serializable {
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public String getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
 
 	public String getAddress() {
 		return address;
@@ -74,25 +97,19 @@ public class PrivateDTO implements Serializable {
 		this.webPage = webPage;
 	}
 
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 5287753358140876186L;
+	private static final long serialVersionUID = 8014137934420044832L;
+	private String title;
+	private String department;
+	private String organization;
 	private String address;
 	private String city;
 	private String state;
 	private String zip;
 	private String Country;
 	private URL webPage;
-	private Date birthday;
 
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
@@ -106,16 +123,17 @@ public class PrivateDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("PrivateDTO ( ").append(super.toString()).append(TAB)
+		retValue.append("WorkDTO ( ").append(super.toString()).append(TAB)
 				.append("Country = ").append(this.Country).append(TAB).append(
 						"address = ").append(this.address).append(TAB).append(
-						"birthday = ").append(this.birthday).append(TAB)
-				.append("city = ").append(this.city).append(TAB).append(
-						"state = ").append(this.state).append(TAB).append(
+						"city = ").append(this.city).append(TAB).append(
+						"department = ").append(this.department).append(TAB)
+				.append("organization = ").append(this.organization)
+				.append(TAB).append("state = ").append(this.state).append(TAB)
+				.append("title = ").append(this.title).append(TAB).append(
 						"webPage = ").append(this.webPage).append(TAB).append(
 						"zip = ").append(this.zip).append(TAB).append(" )");
 
 		return retValue.toString();
 	}
-
 }
