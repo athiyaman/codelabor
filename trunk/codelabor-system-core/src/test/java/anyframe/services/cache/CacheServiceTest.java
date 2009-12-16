@@ -3,12 +3,11 @@ package anyframe.services.cache;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
 import anyframe.core.cache.ICacheService;
 
-public class CacheServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class CacheServiceTest extends BaseTestCase {
 
 	protected ICacheService cacheService;
 
@@ -37,10 +36,5 @@ public class CacheServiceTest extends
 			e.printStackTrace();
 			fail();
 		}
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }

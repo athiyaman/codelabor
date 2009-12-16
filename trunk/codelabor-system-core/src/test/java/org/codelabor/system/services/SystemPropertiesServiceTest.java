@@ -1,10 +1,9 @@
 package org.codelabor.system.services;
 
 import org.codelabor.system.dtos.SystemPropertiesDTO;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
-public class SystemPropertiesServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class SystemPropertiesServiceTest extends BaseTestCase {
 
 	private SystemPropertiesService systemPropertiesService;
 
@@ -24,10 +23,5 @@ public class SystemPropertiesServiceTest extends
 			e.printStackTrace();
 		}
 
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
