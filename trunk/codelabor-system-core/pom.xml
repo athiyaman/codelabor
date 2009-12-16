@@ -246,15 +246,15 @@
 	<repositories>
 		<repository>
 			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
+			<url>http://griffin.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 		<repository>
 			<id>codelabor.snapshot</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
+			<url>http://griffin.codelabor.org:8080/archiva/repository/snapshot/</url>
 		</repository>
 		<repository>
 			<id>codelabor.commercial</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/commercial/</url>
+			<url>http://griffin.codelabor.org:8080/archiva/repository/commercial/</url>
 		</repository>
 		<repository>
 			<id>com.springsource.repository.bundles.release</id>
@@ -310,7 +310,7 @@
 	<distributionManagement>
 		<repository>
 			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
+			<url>http://griffin.codelabor.org:8080/archiva/repository/internal/</url>
 		</repository>
 	</distributionManagement>
 	<developers>
