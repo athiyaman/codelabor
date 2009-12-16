@@ -7,31 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/configurations/system/file/applicationContext-fileManager.xml</config>
-		<config>src/main/resources/configurations/system/file/applicationContext-idGenerationService-oracle.xml</config>
-		<config>src/main/resources/configurations/system/applicationContext-messageSource.xml</config>
-		<config>src/main/resources/configurations/system/applicationContext-propertiesService.xml</config>
-		<config>src/main/resources/configurations/system/base/applicationContext-baseDAO.xml</config>
-		<config>src/main/resources/configurations/system/base/applicationContext-baseManager.xml</config>
-		<config>src/main/resources/configurations/system/persistence/applicationContext-dataSourceService-oracle.xml</config>
-		<config>src/main/resources/configurations/system/persistence/applicationContext-jndiTemplate.xml</config>
-		<config>src/main/resources/configurations/system/persistence/applicationContext-lobHandler.xml</config>
-		<config>src/main/resources/configurations/system/persistence/applicationContext-nativeJdbcExtractor.xml</config>
-		<config>src/main/resources/configurations/system/persistence/applicationContext-queryService-oracle.xml</config>
 	</configs>
 	<configSets>
-		<configSet>
-			<name><![CDATA[modules]]></name>
-			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
-			<incomplete>false</incomplete>
-			<configs>
-				<config>src/main/resources/configurations/system/file/applicationContext-fileManager.xml</config>
-				<config>src/main/resources/configurations/system/persistence/applicationContext-queryService-oracle.xml</config>
-				<config>src/main/resources/configurations/system/base/applicationContext-baseDAO.xml</config>
-				<config>src/main/resources/configurations/system/base/applicationContext-baseManager.xml</config>
-				<config>src/main/resources/configurations/system/file/applicationContext-idGenerationService-oracle.xml</config>
-				<config>src/main/resources/configurations/system/applicationContext-propertiesService.xml</config>
-			</configs>
-		</configSet>
 	</configSets>
 </beansProjectDescription>
