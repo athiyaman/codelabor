@@ -52,6 +52,18 @@
 			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-security</artifactId>
+			<version>1.0.1</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-banking</artifactId>
+			<version>1.0.0</version>
+			<optional>false</optional>
+		</dependency>
   </dependencies>
 	<repositories>
 		<repository>
