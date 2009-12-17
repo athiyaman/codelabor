@@ -37,7 +37,6 @@ public class IOUtil {
 		System.arraycopy(srcBytes, 0, destBytes, destPos, length);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static BigDecimal getBigDecimal(Map map, String key) {
 		String wrkvar = null;
 		if ( map.get(key) == null)
@@ -86,7 +85,6 @@ public class IOUtil {
 		return new BigInteger(wrkvar);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static boolean getBoolean(Map map, String key) {
 		if(map.get(key) == null) {
 			return false;
@@ -94,8 +92,7 @@ public class IOUtil {
 			return Boolean.valueOf(map.get(key).toString());
 		}
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	public static int getInt(Map map, String key) {
 		String wrkvar = null;
 		if ( map.get(key) == null)
@@ -118,7 +115,6 @@ public class IOUtil {
 		return Integer.parseInt(wrkvar);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static Integer getInteger(Map map, String key) {
 		String wrkvar = null;
 		if ( map.get(key) == null)
@@ -141,7 +137,6 @@ public class IOUtil {
 		return new Integer(wrkvar);
 	}
 
-	@SuppressWarnings("unchecked")
 	public static String getString(Map map, String key) {
 		if ( map.get(key) == null)
 			return "";
@@ -312,6 +307,14 @@ public class IOUtil {
 		byte[] outbytes = new byte[length];
 		System.arraycopy(bytes, spos, outbytes, 0, length);
 		return new String(outbytes, charSet);
+	}
+	
+	public static String null2str(String str) {
+		if(str == null || str.equals("null")) {
+			return "";
+		} else {
+			return str;
+		}
 	}
 
 }
