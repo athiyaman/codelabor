@@ -5,10 +5,9 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
-public class HttpAdapterServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class HttpAdapterServiceTest extends BaseTestCase {
 
 	protected Log log = LogFactory.getLog(this.getClass());
 	protected HttpAdapterService httpAdapterService;
@@ -47,10 +46,5 @@ public class HttpAdapterServiceTest extends
 			e.printStackTrace();
 			fail();
 		}
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
