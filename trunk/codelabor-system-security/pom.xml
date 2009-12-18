@@ -4,7 +4,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-security</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.1</version>
+  <version>1.0.3</version>
   <name>codelabor-system-security</name>
 	<url>http://codelabor.org</url>
 	<dependencies>
@@ -67,16 +67,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-file-struts1</artifactId>
-			<version>1.0.0</version>
+			<artifactId>codelabor-system-core</artifactId>
+			<version>1.0.3</version>
 			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-core</artifactId>
+			<artifactId>codelabor-system-file</artifactId>
 			<version>1.0.1</version>
-			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
 	</dependencies>
