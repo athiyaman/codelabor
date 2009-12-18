@@ -6,13 +6,11 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.access.dtos.AccessLogDTO;
-import org.codelabor.system.access.services.AccessLogService;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
 import anyframe.core.query.IQueryService;
 
-public class AccessLogServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class AccessLogServiceTest extends BaseTestCase {
 
 	private AccessLogService accessLogService;
 	protected IQueryService queryService;
@@ -84,10 +82,5 @@ public class AccessLogServiceTest extends
 			e.printStackTrace();
 			fail();
 		}
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
