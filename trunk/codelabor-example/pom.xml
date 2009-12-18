@@ -4,7 +4,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-example</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>codelabor-example</name>
 	<url>http://codelabor.org</url>
   <dependencies>
@@ -47,21 +47,21 @@
 		</dependency>
 		<dependency>
 			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-core</artifactId>
-			<version>1.0.1</version>
-			<type>jar</type>
+			<artifactId>codelabor-system-banking</artifactId>
+			<version>1.0.0</version>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-security</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-banking</artifactId>
-			<version>1.0.0</version>
+			<artifactId>codelabor-system-core</artifactId>
+			<version>1.0.3</version>
+			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
   </dependencies>
