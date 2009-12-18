@@ -64,6 +64,12 @@
 			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-sniffer</artifactId>
+			<version>1.0.0</version>
+			<optional>false</optional>
+		</dependency>
   </dependencies>
 	<repositories>
 		<repository>
