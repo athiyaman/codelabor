@@ -5,11 +5,11 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.sign.dtos.SignDTO;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
 import anyframe.core.query.IQueryService;
 
-public class SignManagerTest extends AbstractDependencyInjectionSpringContextTests {
+public class SignManagerTest extends BaseTestCase {
 
 	private SignManager signManager;
 	private IQueryService queryService;
@@ -18,7 +18,8 @@ public class SignManagerTest extends AbstractDependencyInjectionSpringContextTes
 	@Override
 	public void onSetUp() throws Exception {
 		signManager = (SignManager) applicationContext.getBean("signManager");
-		queryService = (IQueryService) applicationContext.getBean("oracleQueryService");
+		queryService = (IQueryService) applicationContext
+				.getBean("oracleQueryService");
 
 		// clear data
 		// queryService.remove("system.delete.sign.list", new Object[] {});
@@ -41,7 +42,8 @@ public class SignManagerTest extends AbstractDependencyInjectionSpringContextTes
 			// assert
 			String queryId = "system.select.sign.list";
 			Object[] param = new Object[] {};
-			List<SignDTO> signDTOList = (List<SignDTO>) queryService.find(queryId, param);
+			List<SignDTO> signDTOList = (List<SignDTO>) queryService.find(
+					queryId, param);
 			assertTrue(signDTOList.size() > 0);
 
 			// log
@@ -53,10 +55,5 @@ public class SignManagerTest extends AbstractDependencyInjectionSpringContextTes
 			e.printStackTrace();
 			fail();
 		}
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
