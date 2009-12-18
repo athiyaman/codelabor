@@ -319,5 +319,6 @@
 	</build>
 	<properties>
 		<springframework.version>3.0.0.RC1</springframework.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 </project>
