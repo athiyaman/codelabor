@@ -11,11 +11,11 @@
 				<value>classpath:org/springframework/security/messages</value>
 
 				<!-- anyframe message -->
-				<value>classpath:anyframe/core/properties/messages/properties</value>
-				<value>classpath:anyframe/core/idgen/messages/idgeneration</value>
-				<value>classpath:anyframe/core/process/messages/process</value>
-				<value>classpath:anyframe/core/adaptormanager/messages/adaptormanager</value>
-				<value>classpath:anyframe/core/query/messages/query</value>
+				<value>anyframe/core/properties/messages/properties</value>
+				<value>anyframe/core/idgen/messages/idgeneration</value>
+				<value>anyframe/core/process/messages/process</value>
+				<value>anyframe/core/adaptormanager/messages/adaptormanager</value>
+				<value>anyframe/core/query/messages/query</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
