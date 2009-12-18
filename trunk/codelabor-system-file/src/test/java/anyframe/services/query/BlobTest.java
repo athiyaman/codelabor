@@ -13,13 +13,13 @@ import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.test.BaseTestCase;
 import org.codelabor.system.utils.ChannelUtil;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.query.IQueryService;
 
-public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
+public class BlobTest extends BaseTestCase {
 
 	protected IQueryService queryService;
 	protected IIdGenerationService uuidGenerationService;
@@ -165,10 +165,5 @@ public class BlobTest extends AbstractDependencyInjectionSpringContextTests {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
