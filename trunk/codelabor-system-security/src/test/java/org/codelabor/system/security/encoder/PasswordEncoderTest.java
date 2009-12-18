@@ -1,10 +1,9 @@
 package org.codelabor.system.security.encoder;
 
+import org.codelabor.system.test.BaseTestCase;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class PasswordEncoderTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class PasswordEncoderTest extends BaseTestCase {
 
 	private PasswordEncoder passwordEncoder;
 
@@ -39,8 +38,8 @@ public class PasswordEncoderTest extends
 			System.out.println("expectedEncodedPassword: "
 					+ expectedEncodedPassword);
 
-			assertTrue(passwordEncoder.isPasswordValid(
-					expectedEncodedPassword, plainPassword, null));
+			assertTrue(passwordEncoder.isPasswordValid(expectedEncodedPassword,
+					plainPassword, null));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -50,7 +49,7 @@ public class PasswordEncoderTest extends
 	@Override
 	protected String[] getConfigLocations() {
 		return new String[] {
-				"classpath*:/**/applicationContext-passwordEncoder.xml",
-				"classpath*:/**/applicationContext-encryptService.xml" };
+				"classpath:/**/applicationContext-passwordEncoder.xml",
+				"classpath:/**/applicationContext-encryptService.xml" };
 	}
 }
