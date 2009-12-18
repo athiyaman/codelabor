@@ -10,7 +10,7 @@ public class BaseTestCase extends AbstractDependencyInjectionSpringContextTests 
 
 	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
+		return new String[] { "classpath:/**/applicationContext*.xml" };
 	}
 
 	public void test() {
