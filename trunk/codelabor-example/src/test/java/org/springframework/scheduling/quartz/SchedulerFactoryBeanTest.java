@@ -11,7 +11,7 @@ public class SchedulerFactoryBeanTest extends BaseTestCase {
 
 	public void testSchedule() {
 		try {
-			Thread.sleep(1000 * 60 * 5);
+			Thread.sleep(1000 * 30);
 		} catch (Exception e) {
 		}
 	}
