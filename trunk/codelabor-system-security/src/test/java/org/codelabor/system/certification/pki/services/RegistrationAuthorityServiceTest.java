@@ -1,10 +1,9 @@
 package org.codelabor.system.certification.pki.services;
 
+import org.codelabor.system.test.BaseTestCase;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class RegistrationAuthorityServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class RegistrationAuthorityServiceTest extends BaseTestCase {
 	@Autowired
 	protected RegistrationAuthorityService raService;
 
@@ -26,10 +25,5 @@ public class RegistrationAuthorityServiceTest extends
 	public void onSetUp() throws Exception {
 		raService = (RegistrationAuthorityService) applicationContext
 				.getBean("registrationAuthorityService");
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext-*.xml" };
 	}
 }
