@@ -11,10 +11,13 @@
 				<ref bean="exampleHelloWorldServiceTrigger"/>
 			</list>
 		</property>
-		<property name="globalTriggerListeners" ref="globalTriggerListener" />
+		<property name="globalTriggerListeners">
+			<list>
+				<ref bean="snifferTriggerListener" />
+			</list>
+		</property>
 	</bean>
-	<bean id="globalTriggerListener" class="anyframe.example.scheduling.listener.GlobalTriggerListener">
-			<property name="listenerType" value="Global"/>
-	</bean>
+	<bean id="snifferTriggerListener"
+		class="org.codelabor.system.sniffer.listeners.SnifferTriggerListener"/>
 </beans>
 
