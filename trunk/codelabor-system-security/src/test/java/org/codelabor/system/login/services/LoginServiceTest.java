@@ -5,12 +5,11 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.login.dtos.LoginDTO;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
 import anyframe.core.query.IQueryService;
 
-public class LoginServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class LoginServiceTest extends BaseTestCase {
 
 	private LoginService loginService;
 	private IQueryService queryService;
@@ -74,10 +73,5 @@ public class LoginServiceTest extends
 			e.printStackTrace();
 			fail();
 		}
-	}
-
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext*.xml" };
 	}
 }
