@@ -474,5 +474,6 @@
 	<properties>
 		<anyframe.version>3.2.1</anyframe.version>
 		<jdbc.url>jdbc:oracle:thin:@localhost:1521:orcl</jdbc.url>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 </project>
