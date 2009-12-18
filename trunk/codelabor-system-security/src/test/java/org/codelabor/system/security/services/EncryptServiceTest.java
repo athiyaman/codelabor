@@ -7,10 +7,9 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import org.codelabor.system.test.BaseTestCase;
 
-public class EncryptServiceTest extends
-		AbstractDependencyInjectionSpringContextTests {
+public class EncryptServiceTest extends BaseTestCase {
 
 	private EncryptService encryptService;
 
@@ -110,6 +109,6 @@ public class EncryptServiceTest extends
 
 	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext-encryptService.xml" };
+		return new String[] { "classpath:/**/applicationContext-encryptService.xml" };
 	}
 }
