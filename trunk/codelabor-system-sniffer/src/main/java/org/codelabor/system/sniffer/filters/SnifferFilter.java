@@ -25,7 +25,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.codelabor.system.filters.BaseFilterImpl;
-import org.codelabor.system.utils.SnifferUtil;
+import org.codelabor.system.sniffer.utils.SnifferUtil;
 
 /**
  * @author Sang Jae Shin

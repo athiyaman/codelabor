@@ -1,6 +1,8 @@
-package org.codelabor.system.utils;
+package org.codelabor.system.sniffer.utils;
 
 import javax.servlet.ServletRequest;
+
+import org.codelabor.system.utils.RequestUtil;
 
 public class SnifferUtil {
 
