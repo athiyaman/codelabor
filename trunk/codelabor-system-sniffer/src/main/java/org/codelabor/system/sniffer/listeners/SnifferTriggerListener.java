@@ -44,7 +44,10 @@ public class SnifferTriggerListener implements TriggerListener {
 			int triggerInstructionCode) {
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(trigger.getJobName()).append(" complete");
+			sb.append("triggerComplete: ");
+			sb.append(trigger.getJobName());
+			sb.append(", ");
+			sb.append(trigger.toString());
 			log.debug(sb.toString());
 		}
 	}
@@ -58,7 +61,10 @@ public class SnifferTriggerListener implements TriggerListener {
 	public void triggerFired(Trigger trigger, JobExecutionContext context) {
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(trigger.getJobName()).append(" fired");
+			sb.append("triggerFired: ");
+			sb.append(trigger.getJobName());
+			sb.append(", ");
+			sb.append(trigger.toString());
 			log.debug(sb.toString());
 		}
 	}
@@ -71,7 +77,10 @@ public class SnifferTriggerListener implements TriggerListener {
 	public void triggerMisfired(Trigger trigger) {
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(trigger.getJobName()).append(" misfired");
+			sb.append("triggerMisfired: ");
+			sb.append(trigger.getJobName());
+			sb.append(", ");
+			sb.append(trigger.toString());
 			log.debug(sb.toString());
 		}
 	}
@@ -85,7 +94,10 @@ public class SnifferTriggerListener implements TriggerListener {
 	public boolean vetoJobExecution(Trigger trigger, JobExecutionContext context) {
 		if (log.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
-			sb.append(trigger.getJobName()).append(" fired");
+			sb.append("vetoJobExecution: ");
+			sb.append(trigger.getJobName());
+			sb.append(", ");
+			sb.append(trigger.toString());
 			log.debug(sb.toString());
 		}
 		return false;
