@@ -4,11 +4,11 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-	
+
 	<aop:config>
 		<!-- pointcut -->
 		<aop:pointcut id="handlerMethod"
-			expression="execution(public * org.codelabor..*ExceptionHandler.*(..))"/>		
+			expression="execution(public * org.codelabor..*ExceptionHandler.*(..))"/>
 		<aop:pointcut id="actionMethod"
 			expression="execution(public * org.codelabor..*Action.*(..))"/>
 		<aop:pointcut id="controllerMethod"
