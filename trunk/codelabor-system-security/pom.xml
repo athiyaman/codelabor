@@ -4,7 +4,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-security</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <name>codelabor-system-security</name>
 	<url>http://codelabor.org</url>
 	<dependencies>
