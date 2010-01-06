@@ -54,7 +54,7 @@ public class SocketPoolFactory extends BasePoolableObjectFactory {
 
 	@Override
 	public boolean validateObject(Object obj) {
-		return super.validateObject(obj);
+		return (!((Socket) obj).isClosed());
 	}
 
 	/*
