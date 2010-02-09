@@ -26,6 +26,9 @@ import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.RequestEntity;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.params.DefaultHttpParams;
 import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.params.HttpMethodParams;
@@ -150,5 +153,46 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 
 	public void setRetry(int retry) {
 		this.retry = retry;
+	}
+
+	public String requestByPostMethod(String content) throws Exception {
+		String responseBody = null;
+		PostMethod method = null;
+		RequestEntity requestEntity = null;
+	
+		try {
+			requestEntity = new StringRequestEntity(content, contentType,
+					charsetName);
+			method = new PostMethod(url);
+			method.setRequestEntity(requestEntity);
+			HttpClient httpClient = new HttpClient();
+			int statusCode = httpClient.executeMethod(method);
+			if (log.isDebugEnabled()) {
+				StringBuilder sb = new StringBuilder();
+				sb = new StringBuilder();
+				sb.append("statusCode: ").append(statusCode);
+				log.debug(sb.toString());
+			}
+			switch (statusCode) {
+	
+			case HttpStatus.SC_OK:
+				responseBody = method.getResponseBodyAsString();
+				if (log.isDebugEnabled()) {
+					StringBuilder sb = new StringBuilder();
+					sb = new StringBuilder();
+					sb.append("responseBody: ").append(responseBody);
+					log.debug(sb.toString());
+				}
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (method != null) {
+				method.releaseConnection();
+			}
+		}
+		return responseBody;
 	}
 }
