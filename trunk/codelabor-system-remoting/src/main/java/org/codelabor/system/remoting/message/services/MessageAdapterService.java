@@ -16,8 +16,8 @@
  */
 package org.codelabor.system.remoting.message.services;
 
-import org.codelabor.system.remoting.message.dto.DataDTO;
-import org.codelabor.system.remoting.message.dto.HeaderDTO;
+import org.codelabor.system.remoting.message.dtos.DataDTO;
+import org.codelabor.system.remoting.message.dtos.HeaderDTO;
 
 /**
  * @author bomber

@@ -1,4 +1,4 @@
-package org.codelabor.system.remoting.message.dto;
+package org.codelabor.system.remoting.message.dtos;
 
 import java.io.Serializable;
 import java.util.Map;
