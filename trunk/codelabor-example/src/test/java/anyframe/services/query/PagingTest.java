@@ -16,6 +16,7 @@ public class PagingTest extends BaseTestCase {
 	@Override
 	protected void onSetUp() throws Exception {
 		super.onSetUp();
+
 		queryService = (IQueryService) applicationContext
 				.getBean("oracleQueryService");
 	}
