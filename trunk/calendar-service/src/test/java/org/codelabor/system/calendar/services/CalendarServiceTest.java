@@ -24,7 +24,7 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 	public void testGetHolidayDate() {
 		try {
 			// test
-			int amount = 3;
+			int amount = 10;
 			Date baseDate = Calendar.getInstance().getTime();
 			Date holidayDate = this.calendarService.getHolidayDate(baseDate,
 					amount);
@@ -43,7 +43,7 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 	public void testGetBusinessdayDate() {
 		try {
 			// test
-			int amount = 3;
+			int amount = 10;
 			Date baseDate = Calendar.getInstance().getTime();
 			Date businessdayDate = this.calendarService.getBusinessdayDate(
 					baseDate, amount);
