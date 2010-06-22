@@ -20,12 +20,11 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	private final Logger logger = LoggerFactory
 			.getLogger(HolidayCalendarServiceImpl.class);
 
-	private Properties holidayMap = new Properties();
-	private String formatPattern;
-	private SimpleDateFormat dateFormat;
-	private Date upperLimitDate = null;
-
-	private Date lowerLimitDate = null;
+	protected Properties holidayMap = new Properties();
+	protected String formatPattern;
+	protected SimpleDateFormat dateFormat;
+	protected Date dateRangeTo = null;
+	protected Date dateRangeFrom = null;
 
 	public Date getBusinessdayDate(Date date, int amount)
 			throws ParseException, NoSuchDateException, DateOutOfRangeException {
@@ -117,12 +116,13 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		return holidayMap.containsKey(date);
 	}
 
-	private boolean isInRange(Date date) {
+	protected boolean isInRange(Date date) {
 		Assert.notNull(date);
-		return (date.after(lowerLimitDate) && date.before(upperLimitDate));
+		return ((date.equals(dateRangeFrom) || date.after(dateRangeFrom)) && (date
+				.equals(dateRangeTo) || date.before(dateRangeTo)));
 	}
 
-	private boolean isInRange(String dateString) throws ParseException {
+	protected boolean isInRange(String dateString) throws ParseException {
 		return isInRange(this.dateFormat.parse(dateString));
 	}
 
@@ -146,16 +146,25 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		this.holidayMap = holidayMap;
 	}
 
+	public void setDateRangeTo(Date dateRangeTo) {
+		this.dateRangeTo = dateRangeTo;
+	}
+
+	public void setDateRangeFrom(Date dateRangeFrom) {
+		this.dateRangeFrom = dateRangeFrom;
+	}
+
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();
-		upperLimitDate = DateUtils.addYears(currentDate, 1);
-		upperLimitDate = DateUtils.addMonths(upperLimitDate, 1);
-		lowerLimitDate = DateUtils.addYears(currentDate, -1);
-		lowerLimitDate = DateUtils.addMonths(lowerLimitDate, -1);
 		logger.debug("currentDate: {}", currentDate);
-		logger.debug("upperLimitDate: {}", upperLimitDate);
-		logger.debug("lowerLimitDate: {}", lowerLimitDate);
+		if (dateRangeTo == null && dateRangeFrom == null) {
+			dateRangeTo = DateUtils.addYears(currentDate, 1);
+			dateRangeFrom = DateUtils.addYears(currentDate, -1);
+		}
+		logger.debug("dateRangeTo: {}", dateRangeTo);
+		logger.debug("dateRangeFrom: {}", dateRangeFrom);
+
 	}
 
 }

@@ -13,7 +13,9 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 	private CalendarService calendarService;
 
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath:/**/applicationContext-calendarService.xml" };
+		return new String[] {
+				"classpath:/**/applicationContext-calendarService.xml",
+				"classpath:/**/applicationContext-customEditorConfigurer.xml" };
 	}
 
 	public void onSetUp() throws Exception {
