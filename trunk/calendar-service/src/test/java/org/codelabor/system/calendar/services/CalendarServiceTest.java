@@ -18,7 +18,7 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 
 	public void onSetUp() throws Exception {
 		this.calendarService = (CalendarService) applicationContext
-				.getBean("calendarService");
+				.getBean("holidayCalendarService");
 	}
 
 	public void testGetHolidayDate() {
