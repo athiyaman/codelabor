@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean
-		id="calendarService"
-		class="org.codelabor.system.calendar.services.SimpleCalendarServiceImpl">
+		id="holidayCalendarService"
+		class="org.codelabor.system.calendar.services.HolidayCalendarServiceImpl">
 		<property name="formatPattern" value="yyyy-MM-dd"/>
 		<property name="holidayMap">
 			<map>
