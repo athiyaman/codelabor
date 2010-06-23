@@ -126,11 +126,13 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		return isInRange(this.dateFormat.parse(dateString));
 	}
 
-	public String getHolidayDescription(Date date) throws NoSuchDateException {
+	public String getHolidayDescription(Date date) throws NoSuchDateException,
+			ParseException {
 		return getHolidayDescription(dateFormat.format(date));
 	}
 
-	public String getHolidayDescription(String date) throws NoSuchDateException {
+	public String getHolidayDescription(String date)
+			throws NoSuchDateException, ParseException {
 		if (holidayMap.containsKey(date)) {
 			return (String) holidayMap.get(date);
 		} else {

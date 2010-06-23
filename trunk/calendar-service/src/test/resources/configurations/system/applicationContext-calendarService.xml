@@ -11,6 +11,7 @@
 		<property name="dateRangeTo" value="2010-12-31"/>
 		<property name="holidayMap">
 			<map>
+				<!-- 2010 법정 공휴일, 토요일, 일요일 -->
 				<!-- 1월 -->
 				<entry key="2010-01-01" value="신정" />
 				<entry key="2010-01-02" value="토요일" />
@@ -26,8 +27,8 @@
 				<!-- 2월 -->
 				<entry key="2010-02-06" value="토요일" />
 				<entry key="2010-02-07" value="일요일" />
-				<entry key="2010-02-13" value="토요일, 설연휴" />
-				<entry key="2010-02-14" value="일요일, 설연휴(설날)" />
+				<entry key="2010-02-13" value="설연휴" />
+				<entry key="2010-02-14" value="설연휴(설날)" />
 				<entry key="2010-02-15" value="설연휴" />
 				<entry key="2010-02-20" value="토요일" />
 				<entry key="2010-02-21" value="일요일" />
@@ -53,19 +54,19 @@
 				<entry key="2010-04-24" value="토요일" />
 				<entry key="2010-04-25" value="일요일" />
 				<!-- 5월 -->
-				<entry key="2010-05-01" value="토요일, 근로자의 날" />
+				<entry key="2010-05-01" value="토요일" />
 				<entry key="2010-05-02" value="일요일" />
 				<entry key="2010-05-05" value="어린이날" />
-				<entry key="2010-05-08" value="토요일, 어버이날" />
+				<entry key="2010-05-08" value="토요일" />
 				<entry key="2010-05-09" value="일요일" />
-				<entry key="2010-05-15" value="토요일, 스승의 날" />
+				<entry key="2010-05-15" value="토요일" />
 				<entry key="2010-05-16" value="일요일" />
 				<entry key="2010-05-21" value="석가탄신일" />
 				<entry key="2010-05-22" value="토요일" />
 				<entry key="2010-05-23" value="일요일" />
 				<!-- 6월 -->
 				<entry key="2010-06-05" value="토요일" />
-				<entry key="2010-06-06" value="일요일, 현충일" />
+				<entry key="2010-06-06" value="현충일" />
 				<entry key="2010-06-12" value="토요일" />
 				<entry key="2010-06-13" value="일요일" />
 				<entry key="2010-06-19" value="토요일" />
@@ -77,7 +78,7 @@
 				<entry key="2010-07-04" value="일요일" />
 				<entry key="2010-07-10" value="토요일" />
 				<entry key="2010-07-11" value="일요일" />
-				<entry key="2010-07-17" value="토요일, 제헌절" />
+				<entry key="2010-07-17" value="제헌절" />
 				<entry key="2010-07-18" value="일요일" />
 				<entry key="2010-07-24" value="토요일" />
 				<entry key="2010-07-25" value="일요일" />
@@ -87,7 +88,7 @@
 				<entry key="2010-08-07" value="토요일" />
 				<entry key="2010-08-08" value="일요일" />
 				<entry key="2010-08-14" value="토요일" />
-				<entry key="2010-08-15" value="일요일, 광복절" />
+				<entry key="2010-08-15" value="광복절" />
 				<entry key="2010-08-21" value="토요일" />
 				<entry key="2010-08-22" value="일요일" />
 				<entry key="2010-08-28" value="토요일" />
@@ -131,8 +132,47 @@
 				<entry key="2010-12-12" value="일요일" />
 				<entry key="2010-12-18" value="토요일" />
 				<entry key="2010-12-19" value="일요일" />
-				<entry key="2010-12-25" value="토요일, 성탄절" />
+				<entry key="2010-12-25" value="성탄절" />
 				<entry key="2010-12-26" value="일요일" />
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="fiveDayWorkweekCalendarService"
+		class="org.codelabor.system.calendar.services.FiveDayWorkweekCalendarServiceImpl">
+		<property name="formatPattern" value="yyyy-MM-dd"/>
+		<property name="dateRangeFrom" value="2010-01-01"/>
+		<property name="dateRangeTo" value="2010-12-31"/>
+		<property name="holidayMap">
+			<map>
+				<!-- 2010 법정 공휴일 -->
+				<!-- 1월 -->
+				<entry key="2010-01-01" value="신정" />
+				<!-- 2월 -->
+				<entry key="2010-02-13" value="설연휴" />
+				<entry key="2010-02-14" value="설연휴(설날)" />
+				<entry key="2010-02-15" value="설연휴" />
+				<!-- 3월 -->
+				<entry key="2010-03-01" value="삼일절" />
+				<!-- 4월 -->
+				<!-- 5월 -->
+				<entry key="2010-05-05" value="어린이날" />
+				<entry key="2010-05-21" value="석가탄신일" />
+				<!-- 6월 -->
+				<entry key="2010-06-06" value="현충일" />
+				<!-- 7월 -->
+				<!-- 8월 -->
+				<entry key="2010-08-15" value="광복절" />
+				<!-- 9월 -->
+				<entry key="2010-09-21" value="추석연휴" />
+				<entry key="2010-09-22" value="추석연휴(추석)" />
+				<entry key="2010-09-23" value="추석연휴" />
+				<!-- 10월 -->
+				<entry key="2010-10-03" value="개천절" />
+				<!-- 11월 -->
+				<!-- 12월 -->
+				<entry key="2010-12-25" value="성탄절" />
 			</map>
 		</property>
 	</bean>
