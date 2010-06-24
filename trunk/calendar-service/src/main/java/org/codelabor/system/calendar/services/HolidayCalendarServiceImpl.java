@@ -25,6 +25,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	protected SimpleDateFormat dateFormat;
 	protected Date dateRangeTo = null;
 	protected Date dateRangeFrom = null;
+	protected int dateRangeByYears = 1;
 
 	public Date getBusinessdayDate(Date date, int amount)
 			throws ParseException, NoSuchDateException, DateOutOfRangeException {
@@ -156,13 +157,17 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		this.dateRangeFrom = dateRangeFrom;
 	}
 
+	public void setDateRangeByYears(int dateRangeByYears) {
+		this.dateRangeByYears = dateRangeByYears;
+	}
+
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();
 		logger.debug("currentDate: {}", currentDate);
 		if (dateRangeTo == null && dateRangeFrom == null) {
-			dateRangeTo = DateUtils.addYears(currentDate, 1);
-			dateRangeFrom = DateUtils.addYears(currentDate, -1);
+			dateRangeTo = DateUtils.addYears(currentDate, dateRangeByYears);
+			dateRangeFrom = DateUtils.addYears(currentDate, -dateRangeByYears);
 		}
 		logger.debug("dateRangeTo: {}", dateRangeTo);
 		logger.debug("dateRangeFrom: {}", dateRangeFrom);
