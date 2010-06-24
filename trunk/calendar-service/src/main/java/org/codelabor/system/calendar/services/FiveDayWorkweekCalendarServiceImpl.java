@@ -18,6 +18,10 @@ public class FiveDayWorkweekCalendarServiceImpl extends
 	public boolean isHoliday(Date date) throws ParseException,
 			DateOutOfRangeException {
 		logger.debug("date: {}", date);
+		if (!this.isInRange(date)) {
+			throw new DateOutOfRangeException();
+		}
+
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		switch (calendar.get(Calendar.DAY_OF_WEEK)) {
