@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        id="WebApp_ID" version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>requestIDGenerationFilter</filter-name>
+  	<filter-class>org.codelabor.system.filters.RequestIDGenerationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>requestIDGenerationFilter</filter-name>
+  	<url-pattern>*</url-pattern>
+  </filter-mapping>
+  
+  <listener>
+  	<listener-class>org.codelabor.system.listeners.SessionListener</listener-class>
+  </listener>
+  
+  <session-config>
+  	<session-timeout>1</session-timeout>
+  	
+  </session-config>
+</web-app>

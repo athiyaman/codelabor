@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:config="http://www.anyframejava.org/schema/service"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+
+	<bean
+		id="exampleRemotingTcpSimpleSocketAdapterService"
+		class="org.codelabor.system.remoting.tcp.services.SimpleSocketAdapterServiceImpl">
+		<property name="host" value="172.25.33.6"/>
+		<property name="port" value="9085"/>
+		<property name="charsetName" value="EUC-KR"/>
+	</bean>
+</beans>
+

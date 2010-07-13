@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="system.preferences.definition" extends="default.definition">
+    	<put-attribute name="title"  value="Preferences"/>
+		<put-attribute name="menu"   value="/WEB-INF/jsp/system/preferences/menu.jsp"/>
+	</definition>
+	<definition name="system.preferences.home.definition" extends="system.preferences.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/preferences/home.jsp"/>
+	</definition>
+	<definition name="system.preferences.themes.home.definition" extends="system.preferences.definition">
+    	<put-attribute name="title"  value="Themes"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/preferences/themes/home.jsp"/>
+	</definition>
+	<definition name="system.preferences.locale.home.definition" extends="system.preferences.definition">
+    	<put-attribute name="title"  value="Locale"/>
+    	<put-attribute name="body"   value="/WEB-INF/jsp/system/preferences/locale/home.jsp"/>
+	</definition>		
+</tiles-definitions>
