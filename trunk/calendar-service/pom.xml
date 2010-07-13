@@ -8,7 +8,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>calendar-service</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>calendar-service</name>
   <url>http://codelabor.googlecode.com</url>
   <description>
@@ -37,10 +37,10 @@
 		</license>
 	</licenses>
   <scm>
-  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/</connection>
-  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/</developerConnection>
+  	<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/calendar-service-0.0.1</connection>
+  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/calendar-service-0.0.1</developerConnection>
   	<tag>HEAD</tag>
-  	<url>http://codelabor.googlecode.com</url>
+  	<url>http://codelabor.googlecode.com/tags/calendar-service-0.0.1</url>
   </scm>
   <organization>
   	<name>CODELABOR</name>
