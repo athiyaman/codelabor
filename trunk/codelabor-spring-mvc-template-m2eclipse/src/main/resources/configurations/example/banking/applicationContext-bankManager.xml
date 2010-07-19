@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!--
+	<bean
+		id="exampleBankingBankDao"
+		class="org.codelabor.example.banking.bank.daos.BankDAOImpl"
+		parent="baseDAO">
+		<property name="idGenerationService">
+			<ref bean="bankNoGenerationService" />
+		</property>
+	</bean>
+	<bean
+		id="exampleBankingBankManager"
+		class="org.codelabor.example.banking.bank.managers.BankManagerImpl"
+		parent="baseManager">
+		<property name="bankDAO" ref="exampleBankingBankDao"/>
+	</bean>
+	-->
+	<bean
+		id="exampleBankingBankManager"
+		class="org.codelabor.example.banking.bank.managers.BankManagerMock"
+		parent="baseManager">
+	</bean>
+</beans>

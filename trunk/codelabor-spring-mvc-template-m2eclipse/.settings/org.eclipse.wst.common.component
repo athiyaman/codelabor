@@ -3,6 +3,8 @@
     <wb-module deploy-name="codelabor-spring-mvc-template-m2eclipse">
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="context-root" value="codelabor-spring-mvc-template-m2eclipse"/>
         <property name="java-output-path" value="/codelabor-spring-mvc-template-m2eclipse/target/classes"/>
     </wb-module>
