@@ -3,7 +3,7 @@
 	import="org.springframework.web.servlet.support.RequestContext"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-					
+
 					<h2><spring:message code="label.system.preferences.locale"/></h2>
 					<p></p>
 					<div class="section">
@@ -16,4 +16,3 @@
 						Current Locale: <%= (new RequestContext(request)).getLocale() %>
 						</p>
 					</div>
-					
