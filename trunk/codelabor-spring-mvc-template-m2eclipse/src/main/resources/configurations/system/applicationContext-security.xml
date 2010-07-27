@@ -7,7 +7,6 @@
                         http://www.springframework.org/schema/security
                         http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 	<security:http
-		session-fixation-protection="migrateSession"
 		lowercase-comparisons="false"
 		entry-point-ref="loginUrlAuthenticationEntryPoint">
 		<security:intercept-url pattern="/index.*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
