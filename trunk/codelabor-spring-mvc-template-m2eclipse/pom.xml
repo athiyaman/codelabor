@@ -15,14 +15,23 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>javax.servlet</groupId>
-    	<artifactId>jstl</artifactId>
-    	<version>1.2</version>
+    	<groupId>org.codelabor</groupId>
+    	<artifactId>codelabor-system-core</artifactId>
+    	<version>2.0.0-SNAPSHOT</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>taglibs</groupId>
-    	<artifactId>standard</artifactId>
-    	<version>1.1.2</version>
+    	<groupId>org.codelabor</groupId>
+    	<artifactId>codelabor-system-file</artifactId>
+    	<version>2.0.0-SNAPSHOT</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.codelabor</groupId>
+    	<artifactId>codelabor-system-security</artifactId>
+    	<version>2.0.0-SNAPSHOT</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>

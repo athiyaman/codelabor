@@ -2,6 +2,7 @@ package org.codelabor.system.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,14 +30,14 @@ public class ReloadableDefaultFilterInvocationSecurityMetaSource extends
 	 * Stores request maps keyed by specific HTTP methods. A null key matches
 	 * any method
 	 */
-	private Map<String, Map<Object, List<ConfigAttribute>>> httpMethodMap = new HashMap<String, Map<Object, List<ConfigAttribute>>>();
+	private final Map<String, Map<Object, List<ConfigAttribute>>> httpMethodMap = new HashMap<String, Map<Object, List<ConfigAttribute>>>();
 	private UrlMatcher urlMatcher;
 	@SuppressWarnings("unused")
 	private boolean stripQueryStringFromUrls;
 
 	public ReloadableDefaultFilterInvocationSecurityMetaSource(
 			UrlMatcher urlMatcher,
-			LinkedHashMap<RequestKey, List<ConfigAttribute>> requestMap) {
+			LinkedHashMap<RequestKey, Collection<ConfigAttribute>> requestMap) {
 		super(urlMatcher, requestMap);
 	}
 

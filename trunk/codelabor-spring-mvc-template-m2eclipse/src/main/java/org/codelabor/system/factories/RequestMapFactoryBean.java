@@ -9,7 +9,7 @@ import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.access.intercept.RequestKey;
 
-public class RequestMapFactoryBean implements FactoryBean<Object> {
+public class RequestMapFactoryBean implements FactoryBean {
 
 	public Object getObject() throws Exception {
 		LinkedHashMap<RequestKey, List<ConfigAttribute>> requestMap = new LinkedHashMap<RequestKey, List<ConfigAttribute>>();
