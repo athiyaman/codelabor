@@ -2,6 +2,7 @@ package org.codelabor.system.security.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,7 +37,7 @@ public class ReloadableDefaultFilterInvocationSecurityMetaSource extends
 
 	public ReloadableDefaultFilterInvocationSecurityMetaSource(
 			UrlMatcher urlMatcher,
-			LinkedHashMap<RequestKey, List<ConfigAttribute>> requestMap) {
+			LinkedHashMap<RequestKey, Collection<ConfigAttribute>> requestMap) {
 		super(urlMatcher, requestMap);
 	}
 
