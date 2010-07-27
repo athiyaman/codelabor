@@ -348,7 +348,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!--
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
@@ -383,7 +382,6 @@
 					<settingsKey>database.codelabor-system.oracle</settingsKey>
 				</configuration>
 			</plugin>
-			-->
 		</plugins>
 	</build>
 	<properties>

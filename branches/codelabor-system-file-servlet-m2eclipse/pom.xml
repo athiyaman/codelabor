@@ -255,10 +255,10 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-servlet/</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file-servlet/</developerConnection>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/branches/codelabor-system-file-servlet-m2eclipse/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/branches/codelabor-system-file-servlet-m2eclipse/</developerConnection>
 		<tag>HEAD</tag>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-servlet/</url>
+		<url>http://codelabor.googlecode.com/svn/branches/codelabor-system-file-servlet-m2eclipse/</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
