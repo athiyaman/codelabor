@@ -155,52 +155,6 @@
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository>
-		<repository>
-			<id>codelabor.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository>
-		<repository>
-			<id>codelabor.snapshot</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/snapshot/</url>
-		</repository>
-		<repository>
-			<id>codelabor.commercial</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/commercial/</url>
-		</repository>
-		<repository>
-			<id>com.springsource.repository.bundles.release</id>
-			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
-			<url>http://repository.springsource.com/maven/bundles/release</url>
-		</repository>
-		<repository>
-			<id>com.springsource.repository.bundles.external</id>
-			<name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
-			<url>http://repository.springsource.com/maven/bundles/external</url>
-		</repository>
-		<repository>
-			<id>com.springsource.repository.bundles.milestone</id>
-			<name>SpringSource Enterprise Bundle Repository - External Bundle Milestones</name>
-			<url>http://repository.springsource.com/maven/bundles/milestone</url>
-		</repository>
-		<repository>
-			<id>com.springsource.repository.bundles.snapshot</id>
-			<name>SpringSource Enterprise Bundle Repository - External Bundle Snapshots</name>
-			<url>http://repository.springsource.com/maven/bundles/snapshot</url>
-		</repository>
-		<repository>
-		    <id>spring-milestone</id>
-		    <name>Spring Portfolio Milestone Repository</name>
-		    <url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
-		</repository>
-		<repository>
-		    <id>spring-snapshot</id>
-		    <name>Spring Portfolio Snapshot Repository</name>
-		    <url>http://s3.amazonaws.com/maven.springframework.org/snapshot</url>
-		</repository>
-		<repository>
 			<id>anyframe-repository</id>
 			<name>repository for Anyframe</name>
 			<url>http://dev.anyframejava.org/artifactory/anyframe-repository</url>
@@ -209,24 +163,6 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<name>Internal Mirror of Central Plugins Repository</name>
-			<url>http://www.ibiblio.org/maven2/plugins</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>remote</id>
-			<name>Internal Mirror of Central Plugins Repository</name>
-			<url>http://repo1.maven.org/maven2</url>
-		</pluginRepository>
-	</pluginRepositories>
-	<distributionManagement>
-		<repository>
-			<id>codelabor.archiva.internal</id>
-			<url>http://viper.codelabor.org:8080/archiva/repository/internal/</url>
-		</repository>
-	</distributionManagement>
 	<developers>
 		<developer>
 			<id>bomber</id>
