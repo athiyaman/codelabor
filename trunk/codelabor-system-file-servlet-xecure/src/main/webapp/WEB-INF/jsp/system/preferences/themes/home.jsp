@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-					
+
 					<h2><spring:message code="label.system.preferences.themes"/></h2>
 					<p></p>
 					<div class="section">

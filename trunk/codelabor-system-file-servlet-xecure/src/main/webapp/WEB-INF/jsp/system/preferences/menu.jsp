@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-				
+
 				<h5><spring:message code="menu.system.preferences.profile"/></h5>
 				<ul>
 					<li class="none">
@@ -10,9 +10,9 @@
 					</li>
 					<li class="none">
 						<spring:message code="menu.system.preferences.changePassword"/>
-					</li>					
+					</li>
 				</ul>
-				
+
 				<h5><spring:message code="menu.system.preferences.preferences"/></h5>
 				<ul>
 					<li class="none">
@@ -27,5 +27,5 @@
 					</li>
 					<li class="none">
 						<spring:message code="menu.system.preferences.favorites"/>
-					</li>					
-				</ul>													
+					</li>
+				</ul>

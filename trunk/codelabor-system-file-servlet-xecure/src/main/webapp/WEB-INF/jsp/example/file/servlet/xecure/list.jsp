@@ -45,17 +45,17 @@
 							<input type="reset" value="<spring:message code='button.reset'/>" />
 							<input type="submit" value="<spring:message code='button.delete'/>" />
 						</form>
-						
+
 						<div class="section">
 							<h3><spring:message code="label.example.file.upload.file.chooser"/></h3>
-							
+
 							<div class="section">
 								<h4><spring:message code="label.example.file.upload.filesystem"/></h4>
 								<ul>
 									<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('',this,2,949); window.location.reload();">upload</a></li>
 								</ul>
 							</div>
-		
+
 							<div class="section">
 								<h4><spring:message code="label.example.file.upload.database"/></h4>
 								<ul>
@@ -63,17 +63,17 @@
 								</ul>
 							</div>
 						</div>
-						
+
 						<div class="section">
 							<h3><spring:message code="label.example.file.upload.absolute.path"/></h3>
-							
+
 							<div class="section">
 								<h4><spring:message code="label.example.file.upload.filesystem"/></h4>
 								<ul>
 									<li><a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=upload&repositoryType=FILE_SYSTEM&mapId=${mapId}'/>" onclick="MultiFileUploadExWithCP('C:\\intro_logo.jpg',this,2,949); window.location.reload();">upload (C:\intro_logo.jpg)</a></li>
 								</ul>
 							</div>
-		
+
 							<div class="section">
 								<h4><spring:message code="label.example.file.upload.database"/></h4>
 								<ul>
@@ -82,6 +82,6 @@
 							</div>
 						</div>
 					</div>
-					
-										
+
+
 

@@ -64,7 +64,7 @@
 									<td>
 										<input type="file" name="file[0]" /><br/>
 										<input type="file" name="file[1]" /><br/>
-										<input type="file" name="file[2]" /><br/>			
+										<input type="file" name="file[2]" /><br/>
 									</td>
 								</tr>
 							</table>
@@ -73,7 +73,7 @@
 							<input type="submit" value="<spring:message code='button.upload'/>" />
 						</form>
 					</div>
-					
+
 					<div class="section">
 						<h3><spring:message code="label.example.file.upload.database"/></h3>
 						<form
@@ -83,13 +83,13 @@
 								<tr class="b">
 									<th><spring:message code="label.system.file.map.id"/></th>
 									<td>${mapId}</td>
-								</tr>		
+								</tr>
 								<tr class="b">
 									<th>files</th>
 									<td>
 										<input type="file" name="file[0]" /><br/>
 										<input type="file" name="file[1]" /><br/>
-										<input type="file" name="file[2]" /><br/>			
+										<input type="file" name="file[2]" /><br/>
 									</td>
 								</tr>
 							</table>
