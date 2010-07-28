@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.codelabor</groupId>
-  <artifactId>codelabor-spring-mvc-template-m2eclipse</artifactId>
+  <artifactId>codelabor-spring-mvc-template</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>codelabor-spring-mvc-template-m2eclipse Maven Webapp</name>
+  <name>codelabor-spring-mvc-template Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -37,6 +37,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>codelabor-spring-mvc-template-m2eclipse</finalName>
+    <finalName>codelabor-spring-mvc-template</finalName>
   </build>
 </project>
