@@ -67,18 +67,6 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<name>Internal Mirror of Central Plugins Repository</name>
-			<url>http://www.ibiblio.org/maven2/plugins</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>remote</id>
-			<name>Internal Mirror of Central Plugins Repository</name>
-			<url>http://repo1.maven.org/maven2</url>
-		</pluginRepository>
-	</pluginRepositories>
 	<developers>
 		<developer>
 			<id>bomber</id>
