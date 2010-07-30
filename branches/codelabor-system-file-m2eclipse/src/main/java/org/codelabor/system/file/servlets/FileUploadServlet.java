@@ -27,6 +27,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileCleaningTracker;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
@@ -44,7 +45,7 @@ import anyframe.core.properties.IPropertiesService;
 
 public class FileUploadServlet extends HttpServlet {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
 	private final static Log log = LogFactory.getLog(FileUploadServlet.class);
@@ -259,11 +260,22 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
+
+		String mapId = (String) paramMap.get("mapId");
+		String repositoryType = (String) paramMap.get("repositoryType");
+
 		List<FileDTO> fileDTOList = null;
-		String repositoryType = request.getParameter("repositoryType");
 		try {
-			if (repositoryType == null) {
-				fileDTOList = fileManager.selectFile();
+			if (StringUtils.isEmpty(repositoryType)) {
+				if (StringUtils.isEmpty(mapId)) {
+					fileDTOList = fileManager.selectFile();
+				} else {
+					fileDTOList = fileManager.selectFileByMapId(mapId);
+				}
 			} else {
 				switch (RepositoryType.valueOf(repositoryType)) {
 				case DATABASE:
@@ -273,9 +285,6 @@ public class FileUploadServlet extends HttpServlet {
 				case FILE_SYSTEM:
 					fileDTOList = fileManager
 							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
-					break;
-				default:
-					fileDTOList = fileManager.selectFile();
 					break;
 				}
 			}

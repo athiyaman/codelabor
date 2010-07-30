@@ -6,10 +6,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -21,6 +23,7 @@ import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.struts.forms.FileUploadForm;
 import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.struts.actions.BaseDispatchAction;
+import org.codelabor.system.utils.RequestUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -43,10 +46,23 @@ public class FileUploadAction extends BaseDispatchAction {
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
 				.getBean("sequenceMapIdGenerationService");
+
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
+
+		String mapId = (String) paramMap.get("mapId");
+		String repositoryType = (String) paramMap.get("repositoryType");
+
 		List<FileDTO> fileDTOList = null;
-		String repositoryType = request.getParameter("repositoryType");
-		if (repositoryType == null) {
-			fileDTOList = fileManager.selectFile();
+
+		if (StringUtils.isEmpty(repositoryType)) {
+			if (StringUtils.isEmpty(mapId)) {
+				fileDTOList = fileManager.selectFile();
+			} else {
+				fileDTOList = fileManager.selectFileByMapId(mapId);
+			}
 		} else {
 			switch (RepositoryType.valueOf(repositoryType)) {
 			case DATABASE:
