@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.utils.RequestUtil;
 import org.springframework.web.servlet.ModelAndView;
 
 import anyframe.common.util.StringUtil;
@@ -24,8 +26,14 @@ public class FileDownloadController extends BaseFileController {
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
+
+		String fileId = (String) paramMap.get("fileId");
+
 		StringBuilder stringBuilder = null;
-		String fileId = request.getParameter("fileId");
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);

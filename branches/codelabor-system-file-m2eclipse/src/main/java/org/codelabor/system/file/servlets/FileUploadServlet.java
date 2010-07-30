@@ -301,8 +301,14 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		if (log.isDebugEnabled()) {
+			log.debug(paramMap);
+		}
+
+		String fileId = (String) paramMap.get("fileId");
+
 		StringBuilder stringBuilder = null;
-		String fileId = request.getParameter("fileId");
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);
