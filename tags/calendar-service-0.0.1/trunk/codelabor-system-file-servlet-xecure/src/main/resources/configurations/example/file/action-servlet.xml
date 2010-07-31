@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleFileUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/file/servlet/list.do"
+					value-ref="exampleFileServletFileListController"/>
+				<entry key="/example/file/servlet/xecure/list.do"
+					value-ref="exampleFileServletXecureFileListController"/>
+			</map>
+		</property>
+	</bean>
+
+	<!-- servlet file upload -->
+	<bean
+		id="exampleFileServletFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.servlet.list.definition"/>
+	</bean>
+		<bean
+		id="exampleFileServletXecureFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.servlet.xecure.list.definition"/>
+	</bean>
+</beans>

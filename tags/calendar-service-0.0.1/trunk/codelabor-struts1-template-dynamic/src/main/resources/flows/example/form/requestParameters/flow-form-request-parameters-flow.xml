@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+        start-state="form" >
+
+	<view-state id="form" view="example.form.form.request.parameters.definition">
+		<transition on="submit" to="result">
+			<evaluate expression="exampleEchoService.echo(requestParameters.checkboxItems)" result="flowScope.checkboxItems" />
+			<set name="flowScope.checkboxItems2" value="requestParameters.checkboxItems" />
+		</transition>
+	</view-state>
+
+	<end-state id="result" view="example.form.result.request.parameters.definition"/>
+
+</flow>

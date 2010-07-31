@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<TITLE>렉스퍼트 뷰어 예제입니다.</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<SCRIPT language="JavaScript">
+
+function fnCreatePageCombo(pageCount)
+{
+	var pageCombo = document.all.pageCombo;
+ 	for(i = pageCombo.length-1 ; i >= 0 ; i--)
+ 		pageCombo.options[i] = null;
+ 	for(i = 0; i < RexpertViewCtl.GetPageCount(); i++)
+ 	    pageCombo.options[i] = new Option((i+1)+" 페이지", i+1);
+ }
+ 
+ function fnChangePage()
+ {
+ 	var pageCombo = document.all.pageCombo;
+ 	RexpertViewCtl.MovePage(pageCombo.selectedIndex+1);
+ }
+
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="RexpertViewCtl" EVENT="EndLoadReport">
+	fnCreatePageCombo();
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="RexpertViewCtl" EVENT="MovePage(CurrentPage)">
+	var pageCombo = document.all.pageCombo;
+	pageCombo.selectedIndex = CurrentPage - 1;
+</SCRIPT>
+
+</HEAD>
+<BODY topmargin = 0 leftmargin = 0 NOSCROLL>
+<div align="center"><BR>
+  <font color="#333333" size="5"><strong>렉스퍼트 뷰어 예제입니다. </strong></font><BR>
+  <BR>
+  <SELECT name="pageCombo" ID="pageCombo" OnChange="fnChangePage()">
+  </SELECT>
+  <INPUT type="button" value="이전페이지" onClick="javascript:RexpertViewCtl.MovePrevPage();">
+  <INPUT type="button" value="이후페이지" onClick="javascript:RexpertViewCtl.MoveNextPage();">
+  <INPUT type="button" value="현재페이지번호" onClick="javascript:alert(RexpertViewCtl.GetCurrentPage());">
+  
+  <BR>
+  <BR>
+  <script src="./script/rexsample.js"></script>
+</div>
+</BODY>
+</HTML>

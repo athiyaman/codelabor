@@ -1,0 +1,146 @@
+//--- 버젼 조회
+http://localhost:8080/RexServer/RexService.jsp?designtype=version
+
+//--- 서비스 조회
+http://localhost:8080/RexServer/RexService.jsp?designtype=service
+
+//--- 스키마 조회 ORACLE 170
+http://localhost:8080/RexServer/RexService.jsp?designtype=schema&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger
+http://localhost:8080/RexServer/RexService.jsp?designtype=schema&service=Ora1&servicetype=run
+
+//--- 테이블 조회 SQLSERVER 2000
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=SQLSERVER&servicetype=design&Driver=com.microsoft.jdbc.sqlserver.SQLServerDriver&Connection=jdbc:microsoft:sqlserver://124.137.28.170:1433;DatabaseName=northwind&User=sa&Password=clip815mail
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=Sql1&servicetype=run
+
+//--- 테이블 조회 SQLSERVER 2005
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=SQLSERVER&servicetype=design&Driver=com.microsoft.sqlserver.jdbc.SQLServerDriver&Connection=jdbc:sqlserver://localhost:1433;DatabaseName=northwind&User=sa&Password=ADMIN2005
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=Sql2&servicetype=run
+
+//--- 테이블 조회 ORACLE 170
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger&schema=SCOTT
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=Ora1&servicetype=run
+
+//--- 테이블 조회 JNDI
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=JNDI&servicetype=design&JNDI=java:comp/env/datasource&databasetype=ORACLE
+
+//--- 테이블 조회 DB2
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=DB2&servicetype=design&Driver=com.ibm.db2.jcc.DB2Driver&Connection=jdbc:db2:dbname&User=scott&Password=tiger&schema=
+
+http://localhost:8080/RexServer/RexService.jsp?designtype=table&service=Ora1&servicetype=run
+
+
+// --- 필드 조회 ORACLE 170
+http://localhost:8080/RexServer/RexService.jsp?designtype=field&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger&table=EMP&schema=SCOTT
+http://localhost:8080/RexServer/RexService.jsp?designtype=field&service=Ora1&servicetype=run&table=EMP
+
+// --- 필드 조회 JNDI
+http://localhost:8080/RexServer/RexService.jsp?designtype=field&service=JNDI&servicetype=design&JNDI=java:comp/env/datasource&databasetype=ORACLE&table=EMP
+http://localhost:8080/RexServer/RexService.jsp?designtype=field&service=JNDI1&servicetype=run&table=EMP
+
+// --- 데이터 조회 - ORACLE 170
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger&sql=select * from emp&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger&sql=call CURSPKG_JOIN.OPEN_JOIN_CURSOR1('7369')&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=Ora1&servicetype=run&datatype=XML&sql=select * from emp&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=Ora1&servicetype=run&datatype=CSV&datasetsep=|@|&columnsep=|*|&sql=select * from emp&maxcount=100
+
+// --- 데이터 조회 - SQLSERVER 2000 SP
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=SQLSERVER&servicetype=design&Driver=com.microsoft.jdbc.sqlserver.SQLServerDriver&Connection=jdbc:microsoft:sqlserver://124.137.28.170:1433;DatabaseName=northwind&User=sa&Password=clip815mail&sql=call dbo.CustOrdersDetail('10248')
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=Sql1&servicetype=run&datatype=XML&sql=call dbo.CustOrdersDetail('10248')
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=Sql1&servicetype=run&datatype=CSV&datasetsep=|@|&columnsep=|*|&sql=call dbo.CustOrdersDetail('10248')
+
+// --- 데이터 조회 - SQLSERVER 2005
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=SQLSERVER&servicetype=design&Driver=com.microsoft.sqlserver.jdbc.SQLServerDriver&Connection=jdbc:sqlserver://localhost:1433;DatabaseName=Northwind&User=sa&Password=ADMIN2005&sql=select * from customers&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=Sql2&servicetype=run&datatype=XML&sql=select * from customers&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=Sql2&servicetype=run&datatype=CSV&datasetsep=|@|&columnsep=|*|&sql=select * from customers&maxcount=100
+
+// --- 데이터 조회 - SAP
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=SAP&servicetype=design&Client=000&User=BCUSER&Password=minisap&Language=EN&HostName=124.137.28.186&SystemNumber=00&sql=call Z_TS_PLUS_DATE(123,123)&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=SAP1&servicetype=run&datatype=XML&sql=call Z_TS_PLUS_DATE(123,123)&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=SAP1&servicetype=run&datatype=CSV&datasetsep=|@|&columnsep=|*|&sql=call Z_TS_PLUS_DATE(123,123)&maxcount=100
+
+// --- 데이터 조회 JNDI
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=JNDI&servicetype=design&JNDI=java:comp/env/datasource&databasetype=ORACLE&sql=select * from emp&maxcount=100
+http://localhost:8080/RexServer/RexService.jsp?designtype=data&service=JNDI1&servicetype=run&sql=select * from emp&maxcount=100
+
+// --- 실행한 필드 조회 - ORACLE 170
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger&sql=select * from emp
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=Ora1&servicetype=run&sql=select * from emp
+
+// --- 실행한 필드 조회 - ORACLE SP
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=ORACLE&servicetype=design&Driver=oracle.jdbc.driver.OracleDriver&Connection=jdbc:oracle:thin:@124.137.28.170:1521:orcl&User=scott&Password=tiger&sql=call CURSPKG_JOIN.OPEN_JOIN_CURSOR1('7369')
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=Ora1&servicetype=run&sql=call CURSPKG_JOIN.OPEN_JOIN_CURSOR1('7369')
+
+// --- 실행한 필드 조회 - SAP
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=SAP&servicetype=design&Client=000&User=BCUSER&Password=minisap&Language=EN&HostName=124.137.28.186&SystemNumber=00&sql=call Z_TS_PLUS_DATE(123,123)
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=SAP1&servicetype=run&sql=call Z_TS_PLUS_DATE(123,123)
+
+// --- 실행한 필드 조회 JNDI
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=JNDI&servicetype=design&JNDI=java:comp/env/datasource&databasetype=ORACLE&sql=select * from emp
+http://localhost:8080/RexServer/RexService.jsp?designtype=execfield&service=JNDI1&servicetype=run&sql=select * from emp
+
+
+
+// -- 실행시 데이터 조회 - sqlserver 2005
+http://localhost:8080/RexServer/RexService.jsp?designtype=run&userservice=Sql2&sql=select * from customers&sql=select * from orders
+
+
+// SP, SAP 호출
+
+// Stored Procedure 또는 SAP 호출 문법
+call z_function_test('213,jjj', 32, '123''44', '3e\'3e')  //  문법에러
+                                                                       ^
+
+call z_function_test('213,jjj', 32, '123''44', '3e''3e')  // 정상
+
+call z_function_test('213,jjj', 32, '123'44', '3e3e')   // 문법 에러
+
+call z_function_test('213,jjj', 32, '12344',  1,234)   // 논리 에러 (3 parameter 인지 4 parameter 인지 )
+                                                                ^
+
+call z_function_test('21(3,jjj', 32, '123)44',  1234)   // 정상
+
+
+// Regular Expression 문법
+
+\t	- tab
+\n	- 새줄
+\r	- 리턴
+\f	- form feed
+\\	- \
+\*	- *
+
+예) "a\bc*"   -    "a\\bc\*"
+
+[a-zA-Z]	  - a에서 z까지, 그리고 A에서 Z사이에 있는 모든 문자
+[^a-zA-Z] - 위와 반대. 즉 a에서 z까지, A에서 Z까지 사이에 없으면 매치
+
+예) [a-z] 또는 [^A-Z] - 소문자, [0-9] - 숫자, [^0-9] - 숫자가 아닌 것
+
+\w	- 알파벳 또는 _
+\W	- 알파벳 또는 _이 아닌 것
+\s	- 빈 공간
+\S	- 빈 공간이 아닌 것
+\d	- 숫자
+\D	- 숫자가 아닌 것
+
+예) "1a 2a"   또는 "3g 9i"     -   "\d\S\s\d\S"
+
+^	- 줄의 맨앞
+$	- 줄의 맨끝
+\b	- 단어와 단어의 경계
+
+예) "aaaaa"    - "^aaaaa$"
+
+A|B	- A 또는 B
+(A)	- A와 매치한 것을 나중에 다시 사용
+\1	- 첫번째 괄호에 매치된 부분
+\2	- 두번째 관호에 매치된 부분
+
+예) "1 - 1"    - "(\d+) \- \1)
+
+A*	- A를 0번, 아니면 그 이상
+A+	- A를 한번, 아니면 그 이상
+A?	- A를 0번, 아니면 한번만
+A{n}	- A를 정확히 n번
+A{n,}	- A를 n번 이상
+A{n,m}	- A를 최소한 n번, 하지만 m번 이하

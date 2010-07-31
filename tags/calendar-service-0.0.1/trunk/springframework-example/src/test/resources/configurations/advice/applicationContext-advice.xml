@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- service -->
+	<tx:advice id="serviceTxAdvice" transaction-manager="dataSourceTransactionManager">
+		<tx:attributes>
+			<tx:method name="select*" read-only="true"/>
+			<tx:method name="list*" read-only="true"/>
+			<tx:method name="read*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="retreive*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="search*" read-only="true"/>
+			<tx:method name="*"
+				rollback-for="org.codelabor.system.exceptions.RollbackCommonException"
+				no-rollback-for="org.codelabor.system.exceptions.NoRollbackCommonException"
+				propagation="REQUIRED" timeout="600" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- manager -->
+	<tx:advice id="managerTxAdvice" transaction-manager="dataSourceTransactionManager">
+		<tx:attributes>
+			<tx:method name="select*" read-only="true"/>
+			<tx:method name="list*" read-only="true"/>
+			<tx:method name="read*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="retreive*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="search*" read-only="true"/>
+			<tx:method name="*"
+				rollback-for="org.codelabor.system.exceptions.RollbackCommonException"
+				no-rollback-for="org.codelabor.system.exceptions.NoRollbackCommonException"
+				propagation="REQUIRED" timeout="600" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- dao -->
+	<tx:advice id="daoTxAdvice" transaction-manager="dataSourceTransactionManager">
+		<tx:attributes>
+			<tx:method name="select*" read-only="true"/>
+			<tx:method name="list*" read-only="true"/>
+			<tx:method name="read*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="retreive*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="search*" read-only="true"/>
+			<tx:method name="*"
+				rollback-for="org.codelabor.system.exceptions.RollbackCommonException"
+				no-rollback-for="org.codelabor.system.exceptions.NoRollbackCommonException"
+				propagation="REQUIRED" timeout="600" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- tx advice -->
+	<aop:config>
+		<aop:advisor advice-ref="serviceTxAdvice" pointcut-ref="serviceMethod" />
+		<aop:advisor advice-ref="managerTxAdvice" pointcut-ref="managerMethod" />
+		<aop:advisor advice-ref="daoTxAdvice" pointcut-ref="daoMethod" />
+	</aop:config>
+</beans>
