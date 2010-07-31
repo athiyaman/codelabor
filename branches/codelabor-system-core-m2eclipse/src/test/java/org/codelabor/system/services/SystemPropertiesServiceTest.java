@@ -1,11 +1,19 @@
 package org.codelabor.system.services;
 
 import org.codelabor.system.dtos.SystemPropertiesDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
-public class SystemPropertiesServiceTest extends BaseTestCase {
+public class SystemPropertiesServiceTest extends
+		AbstractSingleSpringContextTests {
 
 	private SystemPropertiesService systemPropertiesService;
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] {
+				"classpath:/**/applicationContext-configurableCallBack.xml",
+				"classpath:/**/applicationContext-systemPropertiesService.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
