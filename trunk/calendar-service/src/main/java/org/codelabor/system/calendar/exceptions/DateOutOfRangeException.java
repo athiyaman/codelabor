@@ -18,6 +18,8 @@
 package org.codelabor.system.calendar.exceptions;
 
 /**
+ * 해당 일이 휴일, 영업일 관리 범위를 벗어날 경우 발생하는 예외
+ * 
  * @author Shin Sangjae
  * 
  */

@@ -209,8 +209,11 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	}
 
 	/**
+	 * 기준일이 휴일, 영업일 관리 범위안에 있는지 확인한다.
+	 * 
 	 * @param date
-	 * @return
+	 *            기준일
+	 * @return 관리 범위안에 들어가는지 여부
 	 */
 	protected boolean isInRange(Date date) {
 		Assert.notNull(date);
@@ -220,7 +223,8 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 
 	/**
 	 * @param dateString
-	 * @return
+	 *            기준일
+	 * @return 관리 범위 안에 들어가는지 여부
 	 * @throws ParseException
 	 */
 	protected boolean isInRange(String dateString) throws ParseException {
@@ -303,12 +307,6 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		this.dateRangeByYears = dateRangeByYears;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
-	 */
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();
