@@ -56,10 +56,7 @@ public class Timer extends Thread {
 					try {
 						timeout();
 					} catch (TimeoutException e) {
-						// TODO
-						if (logger.isErrorEnabled()) {
-							logger.equals(e);
-						}
+						logger.equals(e);
 						e.printStackTrace();
 					}
 				}

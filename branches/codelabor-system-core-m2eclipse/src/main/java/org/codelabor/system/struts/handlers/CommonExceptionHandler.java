@@ -46,9 +46,7 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			ActionMapping mapping, ActionForm formInstance,
 			HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
-		if (logger.isDebugEnabled()) {
-			logger.debug("ExceptionHandler executing for exception " + ex);
-		}
+		logger.debug("ExceptionHandler executing for exception: {}", ex);
 
 		ActionForward forward;
 		ActionMessage error;
@@ -118,21 +116,17 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			return forward;
 		}
 
-		if (logger.isDebugEnabled()) {
-			logger
-					.debug("Response is already committed, so forwarding will not work."
-							+ " Attempt alternate handling.");
-		}
+		logger
+				.debug("Response is already committed, so forwarding will not work. Attempt alternate handling.");
 
 		if (!silent(ae)) {
 			handleCommittedResponse(ex, ae, mapping, formInstance, request,
 					response, forward);
 		} else {
-			if (logger.isWarnEnabled()) {
-				logger.warn("ExceptionHandler configured with "
-						+ SILENT_IF_COMMITTED + " and response is committed.",
-						ex);
-			}
+			logger
+					.warn(
+							"ExceptionHandler configured with {}s and response is committed.",
+							SILENT_IF_COMMITTED);
 		}
 
 		return null;
