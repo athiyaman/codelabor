@@ -3,13 +3,18 @@ package anyframe.services.cache;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.cache.ICacheService;
 
-public class CacheServiceTest extends BaseTestCase {
+public class CacheServiceTest extends AbstractSingleSpringContextTests {
 
 	protected ICacheService cacheService;
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath:/**/applicationContext-cacheService.xml" };
+	}
 
 	@Override
 	protected void onSetUp() throws Exception {
