@@ -24,6 +24,7 @@ public class ProcessCreateAction extends BaseAction {
 
 	private String caDnList;
 
+	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -37,11 +38,7 @@ public class ProcessCreateAction extends BaseAction {
 
 		// get caDnList
 		caDnList = propertiesService.getString("ca.dn.list");
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("caDnList: ").append(caDnList);
-			log.debug(sb.toString());
-		}
+		logger.debug("caDnList: {}", caDnList);
 
 		// exeucte biz logic
 		String signedMessage = WebUtils.findParameterValue(request,
