@@ -20,7 +20,7 @@ package org.codelabor.system.file.dtos;
 import java.io.Serializable;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae 
  * 
  */
 public class FileDTO implements Serializable {

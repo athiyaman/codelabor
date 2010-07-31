@@ -23,7 +23,7 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae 
  * 
  */
 public interface FileDAO {

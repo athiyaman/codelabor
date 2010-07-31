@@ -25,7 +25,7 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae 
  * 
  */
 public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
