@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,8 +27,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Sang Jae Shin
@@ -36,13 +36,11 @@ import org.apache.commons.logging.LogFactory;
  */
 public abstract class BaseFilterImpl implements Filter {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	protected ServletContext servletContext;
 
 	public void destroy() {
-		if (log.isDebugEnabled()) {
-			log.debug("destroy()");
-		}
+		logger.debug("destroy()");
 	}
 
 	public abstract void doFilter(ServletRequest request,
@@ -50,9 +48,7 @@ public abstract class BaseFilterImpl implements Filter {
 			throws IOException, ServletException;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
-		if (log.isDebugEnabled()) {
-			log.debug("init()");
-		}
+		logger.debug("init()");
 		this.servletContext = filterConfig.getServletContext();
 	}
 }

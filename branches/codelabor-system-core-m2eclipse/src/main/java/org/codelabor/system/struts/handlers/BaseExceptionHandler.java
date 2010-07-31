@@ -1,15 +1,15 @@
 package org.codelabor.system.struts.handlers;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ExceptionHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
 import anyframe.core.properties.IPropertiesService;
 
 public class BaseExceptionHandler extends ExceptionHandler {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	protected String loggerName = this.getClass().getName();
 	protected MessageSource messageSource;
 	protected IPropertiesService propertiesService;
@@ -28,7 +28,7 @@ public class BaseExceptionHandler extends ExceptionHandler {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.log = LogFactory.getLog(loggerName);
+		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
 	public void setMessageSource(MessageSource messageSource) {

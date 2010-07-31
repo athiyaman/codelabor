@@ -46,8 +46,8 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			ActionMapping mapping, ActionForm formInstance,
 			HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
-		if (log.isDebugEnabled()) {
-			log.debug("ExceptionHandler executing for exception " + ex);
+		if (logger.isDebugEnabled()) {
+			logger.debug("ExceptionHandler executing for exception " + ex);
 		}
 
 		ActionForward forward;
@@ -79,14 +79,14 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 		this.logException(ex);
 
 		// framework log
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append(System.getProperty("line.separator"));
 			stringBuilder.append("-------------------------------");
 			stringBuilder.append(System.getProperty("line.separator"));
 			stringBuilder.append("StackTrace");
 			stringBuilder.append(System.getProperty("line.separator"));
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 
 			Throwable throwable = ex;
 			for (int i = 0; throwable != null; i++) {
@@ -101,13 +101,13 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 					stringBuilder.append(stackTraceList[j].toString());
 					stringBuilder.append(System.getProperty("line.separator"));
 				}
-				log.debug(stringBuilder.toString());
+				logger.debug(stringBuilder.toString());
 
 				throwable = throwable.getCause();
 			}
 			stringBuilder = new StringBuilder();
 			stringBuilder.append("-------------------------------");
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 
 		// Store the exception
@@ -118,8 +118,8 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			return forward;
 		}
 
-		if (log.isDebugEnabled()) {
-			log
+		if (logger.isDebugEnabled()) {
+			logger
 					.debug("Response is already committed, so forwarding will not work."
 							+ " Attempt alternate handling.");
 		}
@@ -128,8 +128,8 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			handleCommittedResponse(ex, ae, mapping, formInstance, request,
 					response, forward);
 		} else {
-			if (log.isWarnEnabled()) {
-				log.warn("ExceptionHandler configured with "
+			if (logger.isWarnEnabled()) {
+				logger.warn("ExceptionHandler configured with "
 						+ SILENT_IF_COMMITTED + " and response is committed.",
 						ex);
 			}

@@ -1,15 +1,15 @@
 package org.codelabor.system.spring.actions;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.actions.DispatchAction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
 import anyframe.core.properties.IPropertiesService;
 
 public class BaseDispatchAction extends DispatchAction {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	protected IPropertiesService propertiesService;
 
@@ -39,6 +39,6 @@ public class BaseDispatchAction extends DispatchAction {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.log = LogFactory.getLog(loggerName);
+		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 }

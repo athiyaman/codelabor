@@ -26,10 +26,7 @@ public class PropertiesServiceTest extends BaseTestCase {
 			// debug properties
 			while (iter.hasNext()) {
 				String key = iter.next();
-				StringBuilder stringBuilder = new StringBuilder();
-				stringBuilder.append(key).append(": ").append(
-						propertiesService.getString(key));
-				log.debug(stringBuilder);
+				logger.debug("{}: {}", key, propertiesService.getString(key));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

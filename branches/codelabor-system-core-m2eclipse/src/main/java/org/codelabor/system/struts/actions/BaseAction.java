@@ -1,10 +1,10 @@
 package org.codelabor.system.struts.actions;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.Action;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BaseAction extends Action {
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 }

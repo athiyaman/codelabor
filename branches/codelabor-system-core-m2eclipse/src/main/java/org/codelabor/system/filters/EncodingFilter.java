@@ -45,7 +45,7 @@ public class EncodingFilter extends BaseFilterImpl {
 
 		String requestAfterCharacterEncoding = request.getCharacterEncoding();
 		String responseAfterCharacterEncoding = response.getCharacterEncoding();
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("request character encoding: ");
 			sb.append(requestBeforeCharacterEncoding);
@@ -56,7 +56,7 @@ public class EncodingFilter extends BaseFilterImpl {
 			sb.append(responseBeforeCharacterEncoding);
 			sb.append(" -> ");
 			sb.append(responseAfterCharacterEncoding);
-			log.debug(sb.toString());
+			logger.debug(sb.toString());
 		}
 		filterChain.doFilter(request, response);
 	}

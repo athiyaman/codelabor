@@ -18,15 +18,15 @@ package org.codelabor.system.timer;
 
 import java.util.concurrent.TimeoutException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author "Sang Jae Shin"
  * 
  */
 public class Timer extends Thread {
-	private final Log log = LogFactory.getLog(Timer.class);
+	private final Logger logger = LoggerFactory.getLogger(Timer.class);
 	protected final int intervalTime = 100;
 	protected int elapsedTime = 0;
 	protected int timeout = 1000 * 60;
@@ -57,8 +57,8 @@ public class Timer extends Thread {
 						timeout();
 					} catch (TimeoutException e) {
 						// TODO
-						if (log.isErrorEnabled()) {
-							log.equals(e);
+						if (logger.isErrorEnabled()) {
+							logger.equals(e);
 						}
 						e.printStackTrace();
 					}

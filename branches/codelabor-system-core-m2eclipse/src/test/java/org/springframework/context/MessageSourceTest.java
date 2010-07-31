@@ -23,7 +23,7 @@ public class MessageSourceTest extends BaseTestCase {
 					"error.properties.refresh.files", null, null);
 			// assert
 			assertEquals(expectedMessage, message);
-			log.debug(message);
+			logger.debug(message);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

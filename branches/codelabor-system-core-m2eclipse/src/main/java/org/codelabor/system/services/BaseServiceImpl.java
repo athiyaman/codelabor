@@ -17,8 +17,8 @@
 
 package org.codelabor.system.services;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
 import anyframe.core.idgen.IIdGenerationService;
@@ -30,7 +30,7 @@ import anyframe.core.query.IQueryService;
  * 
  */
 public class BaseServiceImpl {
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	protected String loggerName = this.getClass().getName();
 
 	protected MessageSource messageSource;
@@ -40,7 +40,7 @@ public class BaseServiceImpl {
 
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
-		this.log = LogFactory.getLog(loggerName);
+		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
 	public MessageSource getMessageSource() {

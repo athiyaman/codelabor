@@ -1,4 +1,5 @@
 package com.x.web.tiles2;
+
 /*
  * Copyright 2002-2007 the original author or authors.
  *
@@ -15,16 +16,12 @@ package com.x.web.tiles2;
  * limitations under the License.
  */
 
-
-
 import java.util.Enumeration;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.tiles.TilesApplicationContext;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.TilesException;
@@ -39,6 +36,8 @@ import org.apache.tiles.preparer.BasicPreparerFactory;
 import org.apache.tiles.servlet.context.ServletTilesApplicationContext;
 import org.apache.tiles.servlet.context.wildcard.WildcardServletTilesApplicationContextFactory;
 import org.apache.tiles.web.util.ServletContextAdapter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.CollectionUtils;
@@ -95,8 +94,8 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
 public class SpringTilesConfigurer implements ServletContextAware,
 		InitializingBean, DisposableBean {
 
-	protected final static Log logger = LogFactory
-			.getLog(SpringTilesConfigurer.class);
+	protected final static Logger logger = LoggerFactory
+			.getLogger(SpringTilesConfigurer.class);
 
 	private final Properties tilesPropertyMap = new Properties();
 
@@ -131,10 +130,7 @@ public class SpringTilesConfigurer implements ServletContextAware,
 	public void setDefinitions(String[] definitions) {
 		if (definitions != null) {
 			String defs = StringUtils.arrayToCommaDelimitedString(definitions);
-			if (logger.isInfoEnabled()) {
-				logger.info("TilesConfigurer: adding definitions [" + defs
-						+ "]");
-			}
+			logger.info("TilesConfigurer: adding definitions [{}]", defs);
 			this.tilesPropertyMap.put(DefinitionsFactory.DEFINITIONS_CONFIG,
 					defs);
 		}
