@@ -17,6 +17,10 @@
 
 package org.codelabor.system.calendar.exceptions;
 
+/**
+ * @author Shin Sangjae
+ * 
+ */
 public class NoSuchDateException extends Exception {
 
 	/**

@@ -31,19 +31,58 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 
+/**
+ * 휴일만 관리하는 휴일, 영업일 관리 서비스
+ * 
+ * <p>
+ * 휴일만 관리하고, 그 외의 날짜는 영업일로 간주한다. 휴일 정보는 holidayMap 프로퍼티에 등록한다. holidayMap 프로퍼티에
+ * 휴일 정보만 관리하고 영업일 정보는 등록하지 않는다. 휴일, 영업일 검색 범위를 지정하기 위해 dateRangeFrom,
+ * dateRangeTo 프로퍼티를 사용한다. 프로퍼티에 사용되는 날짜 형식은 <a
+ * href="http://www.w3.org/TR/NOTE-datetime">ISO 8601 표준</a>(YYYY-MM-DD)을 따른다.
+ * (java 포맷으로는 yyyy-MM-dd으로 표현)
+ * </p>
+ * 
+ * @author Shin Sangjae
+ */
 public class HolidayCalendarServiceImpl implements CalendarService,
 		InitializingBean {
 
 	private final Logger logger = LoggerFactory
 			.getLogger(HolidayCalendarServiceImpl.class);
 
+	/**
+	 * 휴일 정보를 담고있는 Properties 타입의 프로퍼티
+	 */
 	protected Properties holidayMap = new Properties();
+	/**
+	 * 프로퍼티에 사용될 날짜의 문자열 포맷
+	 */
 	protected String formatPattern;
+	/**
+	 * formatPattern을 지원하는 SimpleDateFormat
+	 */
 	protected SimpleDateFormat dateFormat;
+	/**
+	 * 휴일, 영업일의 상한 범위 일자
+	 */
 	protected Date dateRangeTo = null;
+	/**
+	 * 휴일, 영업일의 하한 범위 일자
+	 */
 	protected Date dateRangeFrom = null;
+	/**
+	 * 휴일, 영업일의 상한, 하한 범위를 지정하지 않을 경우, 현재 일자 기준, 몇 년 전, 후를 상한, 하한 범위로 지정 (기본 값은
+	 * 현재 날짜 기준 1년 전이 하한 범위, 1년 후가 상한 범위가 됨)
+	 */
 	protected int dateRangeByYears = 1;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#getBusinessdayDate
+	 * (java.util.Date, int)
+	 */
 	public Date getBusinessdayDate(Date date, int amount)
 			throws ParseException, NoSuchDateException, DateOutOfRangeException {
 		Date businessdayDate = null;
@@ -77,6 +116,13 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		return businessdayDate;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#getHolidayDate
+	 * (java.util.Date, int)
+	 */
 	public Date getHolidayDate(Date date, int amount) throws ParseException,
 			NoSuchDateException, DateOutOfRangeException {
 		Date holidayDate = null;
@@ -110,20 +156,48 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		return holidayDate;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#isBusinessday(
+	 * java.lang.String)
+	 */
 	public boolean isBusinessday(String date) {
 		return !holidayMap.containsKey(date);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#isBusinessday(
+	 * java.util.Date)
+	 */
 	public boolean isBusinessday(Date date) throws ParseException,
 			DateOutOfRangeException {
 		return !isHoliday(date);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#isHoliday(java
+	 * .util.Date)
+	 */
 	public boolean isHoliday(Date date) throws ParseException,
 			DateOutOfRangeException {
 		return this.isHoliday(dateFormat.format(date));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#isHoliday(java
+	 * .lang.String)
+	 */
 	public boolean isHoliday(String date) throws ParseException,
 			DateOutOfRangeException {
 		logger.debug("date: {}", date);
@@ -134,21 +208,44 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		return holidayMap.containsKey(date);
 	}
 
+	/**
+	 * @param date
+	 * @return
+	 */
 	protected boolean isInRange(Date date) {
 		Assert.notNull(date);
 		return ((date.equals(dateRangeFrom) || date.after(dateRangeFrom)) && (date
 				.equals(dateRangeTo) || date.before(dateRangeTo)));
 	}
 
+	/**
+	 * @param dateString
+	 * @return
+	 * @throws ParseException
+	 */
 	protected boolean isInRange(String dateString) throws ParseException {
 		return isInRange(this.dateFormat.parse(dateString));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#getHolidayDescription
+	 * (java.util.Date)
+	 */
 	public String getHolidayDescription(Date date) throws NoSuchDateException,
 			ParseException {
 		return getHolidayDescription(dateFormat.format(date));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.calendar.services.CalendarService#getHolidayDescription
+	 * (java.lang.String)
+	 */
 	public String getHolidayDescription(String date)
 			throws NoSuchDateException, ParseException {
 		if (holidayMap.containsKey(date)) {
@@ -158,26 +255,60 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		}
 	}
 
+	/**
+	 * 문자열 형태의 날짜 포맷을 지정한다.
+	 * 
+	 * @param formatPattern
+	 *            문자열 형태의 날짜 포맷 (<a
+	 *            href="http://download.oracle.com/javase/1.4.2/docs/api
+	 *            /java/text/SimpleDateFormat.html">Date and Time Patterns</a>)
+	 */
 	public void setFormatPattern(String formatPattern) {
 		this.formatPattern = formatPattern;
 	}
 
+	/**
+	 * java.util.Date 타입의 휴일을 관리한다.
+	 * 
+	 * @param holidayMap
+	 */
 	public void setHolidayMap(Properties holidayMap) {
 		this.holidayMap = holidayMap;
 	}
 
+	/**
+	 * 휴일, 영업일 관리의 상한 범위를 지정한다.
+	 * 
+	 * @param dateRangeTo
+	 */
 	public void setDateRangeTo(Date dateRangeTo) {
 		this.dateRangeTo = dateRangeTo;
 	}
 
+	/**
+	 * 휴일, 영업일 관리의 하한 범위를 지정한다.
+	 * 
+	 * @param dateRangeFrom
+	 */
 	public void setDateRangeFrom(Date dateRangeFrom) {
 		this.dateRangeFrom = dateRangeFrom;
 	}
 
+	/**
+	 * 휴일, 영업일 관리의 상한, 하한 범위를 현재 일 기준, 몇 년 전, 후로 지정한다. (기본 값은 1년 전, 후)
+	 * 
+	 * @param dateRangeByYears
+	 */
 	public void setDateRangeByYears(int dateRangeByYears) {
 		this.dateRangeByYears = dateRangeByYears;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();
@@ -190,5 +321,4 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		logger.debug("dateRangeFrom: {}", dateRangeFrom);
 
 	}
-
 }

@@ -29,12 +29,14 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 			.getLogger(CalendarServiceTest.class);
 	private CalendarService calendarService;
 
+	@Override
 	protected String[] getConfigLocations() {
 		return new String[] {
 				"classpath:/**/applicationContext-calendarService.xml",
 				"classpath:/**/applicationContext-customEditorConfigurer.xml" };
 	}
 
+	@Override
 	public void onSetUp() throws Exception {
 		// this.calendarService = (CalendarService)
 		// applicationContext.getBean("holidayCalendarService");
