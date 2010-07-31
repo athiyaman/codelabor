@@ -48,9 +48,7 @@ public class FileUploadAction extends BaseDispatchAction {
 				.getBean("sequenceMapIdGenerationService");
 
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (logger.isDebugEnabled()) {
-			logger.debug(paramMap.toString());
-		}
+		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
 		String repositoryType = (String) paramMap.get("repositoryType");
@@ -110,13 +108,7 @@ public class FileUploadAction extends BaseDispatchAction {
 					"file.default.real.repository.type", "FILE_SYSTEM");
 		}
 		RepositoryType.valueOf(repositoryType);
-
-		if (logger.isDebugEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("repositoryType: ");
-			stringBuilder.append(repositoryType);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("repositoryType: {}", repositoryType);
 
 		// get form
 		FileUploadForm uploadForm = (FileUploadForm) form;

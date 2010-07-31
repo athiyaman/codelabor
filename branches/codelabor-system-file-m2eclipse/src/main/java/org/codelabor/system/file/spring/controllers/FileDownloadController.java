@@ -36,11 +36,7 @@ public class FileDownloadController extends BaseFileController {
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);
-		if (logger.isDebugEnabled()) {
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(fileDTO);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFileName = fileDTO.getUniqueFileName();

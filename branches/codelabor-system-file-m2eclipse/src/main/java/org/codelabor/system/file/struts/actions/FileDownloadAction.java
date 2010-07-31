@@ -47,11 +47,7 @@ public class FileDownloadAction extends DownloadAction {
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		FileDTO fileDTO = fileManager.selectFile(fileId);
-		if (logger.isDebugEnabled()) {
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(fileDTO);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFileName = fileDTO.getUniqueFileName();

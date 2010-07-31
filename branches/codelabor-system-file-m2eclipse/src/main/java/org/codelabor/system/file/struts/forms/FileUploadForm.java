@@ -12,7 +12,7 @@ import org.codelabor.system.struts.forms.BaseForm;
 public class FileUploadForm extends BaseForm {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -163569058243568483L;
 	protected String[] fileId = {};
@@ -41,12 +41,7 @@ public class FileUploadForm extends BaseForm {
 			fileName = formFile.getFileName();
 			this.formFileList.add(formFile);
 		}
-		if (logger.isDebugEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("index: ").append(index);
-			stringBuilder.append("fileName: ").append(fileName);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("index: {}, fileName: {}", index, fileName);
 	}
 
 	public FormFile getFile(int index) {
@@ -55,12 +50,7 @@ public class FileUploadForm extends BaseForm {
 		if (formFile != null) {
 			fileName = formFile.getFileName();
 		}
-		if (logger.isDebugEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("index: ").append(index);
-			stringBuilder.append("fileName: ").append(fileName);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("index: {}, fileName: {}", index, fileName);
 		return formFile;
 	}
 

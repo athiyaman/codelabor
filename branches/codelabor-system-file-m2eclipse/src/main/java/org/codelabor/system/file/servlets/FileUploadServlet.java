@@ -163,18 +163,12 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void processParameters(Map<String, Object> paramMap)
 			throws Exception {
-		if (logger.isDebugEnabled()) {
-			logger.debug(paramMap.toString());
-		}
+		logger.debug("paramMap: {}", paramMap.toString());
 	}
 
 	protected void dispatch(HttpServletRequest request,
 			HttpServletResponse response, String path) throws Exception {
-		if (logger.isDebugEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("dispatch path: ").append(path);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("dispatch path: ", path);
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
 				.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
@@ -185,9 +179,7 @@ public class FileUploadServlet extends HttpServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (logger.isDebugEnabled()) {
-			logger.debug(paramMap.toString());
-		}
+		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
 		RepositoryType acceptedRepositoryType = repositoryType;
@@ -215,9 +207,7 @@ public class FileUploadServlet extends HttpServlet {
 
 				while (iter.hasNext()) {
 					FileItem fileItem = iter.next();
-					if (logger.isDebugEnabled()) {
-						logger.debug(fileItem.toString());
-					}
+					logger.debug("fileItem: {}", fileItem.toString());
 					FileDTO fileDTO = null;
 					if (fileItem.isFormField()) {
 						paramMap.put(fileItem.getFieldName(), fileItem
@@ -234,9 +224,7 @@ public class FileUploadServlet extends HttpServlet {
 						fileDTO.setUniqueFileName(getUniqueFileName());
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
-						if (logger.isDebugEnabled()) {
-							logger.debug(fileDTO.toString());
-						}
+						logger.debug("fileDTO: {}", fileDTO.toString());
 						UploadUtil.processFile(acceptedRepositoryType, fileItem
 								.getInputStream(), fileDTO);
 					}
@@ -262,9 +250,7 @@ public class FileUploadServlet extends HttpServlet {
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (logger.isDebugEnabled()) {
-			logger.debug(paramMap.toString());
-		}
+		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
 		String repositoryType = (String) paramMap.get("repositoryType");
@@ -303,9 +289,7 @@ public class FileUploadServlet extends HttpServlet {
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (logger.isDebugEnabled()) {
-			logger.debug(paramMap.toString());
-		}
+		logger.debug("paramMap: {}", paramMap.toString());
 
 		String fileId = (String) paramMap.get("fileId");
 
@@ -313,11 +297,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);
-		if (logger.isDebugEnabled()) {
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(fileDTO);
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFileName = fileDTO.getUniqueFileName();

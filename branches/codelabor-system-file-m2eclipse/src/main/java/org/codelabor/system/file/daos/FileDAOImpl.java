@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,16 +25,16 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 
 /**
- * @author Shin Sangjae 
+ * @author Shin Sangjae
  * 
  */
 public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	public int insertFile(FileDTO fileDTO) throws Exception {
 		int nextId = idGenerationService.getNextIntegerId();
-		if (logger.isDebugEnabled()) {
-			logger.debug("fileId: " + nextId);
-		}
+
+		logger.debug("fileId: {}", nextId);
+
 		fileDTO.setFileId(String.valueOf(nextId));
 		return queryService.create(fileDTO);
 	}
@@ -65,8 +65,8 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<FileDTO> selectFileByRepositoryType(RepositoryType repositoryType)
-			throws Exception {
+	public List<FileDTO> selectFileByRepositoryType(
+			RepositoryType repositoryType) throws Exception {
 		String queryId = "system.select.file.list.by.repository.type";
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("REPOSITORY_TYPE=");

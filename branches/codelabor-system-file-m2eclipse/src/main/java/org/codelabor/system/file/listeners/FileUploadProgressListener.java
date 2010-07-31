@@ -36,23 +36,13 @@ public class FileUploadProgressListener implements ProgressListener {
 			return;
 		}
 		megaBytes = mBytes;
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("reading item: ").append(items);
-		if (logger.isInfoEnabled()) {
-			logger.info(stringBuilder.toString());
-		}
+		logger.info("reading item: {}", items);
 
-		stringBuilder = new StringBuilder();
-		stringBuilder.append(bytesRead);
 		if (contentLength == -1) {
-			stringBuilder.append(" bytes have been read.");
+			logger.info("{} bytes have been read.", bytesRead);
 		} else {
-			stringBuilder.append(" of ");
-			stringBuilder.append(contentLength);
-			stringBuilder.append(" bytes have been read.");
-		}
-		if (logger.isInfoEnabled()) {
-			logger.info(stringBuilder.toString());
+			logger.info("{} of {} bytes have been read.", bytesRead,
+					contentLength);
 		}
 	}
 }
