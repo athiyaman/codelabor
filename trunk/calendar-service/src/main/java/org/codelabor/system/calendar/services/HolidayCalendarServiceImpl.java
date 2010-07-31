@@ -21,7 +21,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;
+import java.util.Map;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.codelabor.system.calendar.exceptions.DateOutOfRangeException;
@@ -53,7 +53,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	/**
 	 * 휴일 정보를 담고있는 Properties 타입의 프로퍼티
 	 */
-	protected Properties holidayMap = new Properties();
+	protected Map<Date, String> holidayMap = null;
 	/**
 	 * 프로퍼티에 사용될 날짜의 문자열 포맷
 	 */
@@ -249,7 +249,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	public String getHolidayDescription(String date)
 			throws NoSuchDateException, ParseException {
 		if (holidayMap.containsKey(date)) {
-			return (String) holidayMap.get(date);
+			return holidayMap.get(date);
 		} else {
 			throw new NoSuchDateException();
 		}
@@ -272,7 +272,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	 * 
 	 * @param holidayMap
 	 */
-	public void setHolidayMap(Properties holidayMap) {
+	public void setHolidayMap(Map<Date, String> holidayMap) {
 		this.holidayMap = holidayMap;
 	}
 
