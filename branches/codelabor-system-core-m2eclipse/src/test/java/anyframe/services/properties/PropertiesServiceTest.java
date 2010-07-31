@@ -2,17 +2,28 @@ package anyframe.services.properties;
 
 import java.util.Iterator;
 
-import org.codelabor.system.test.BaseTestCase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.properties.IPropertiesService;
 
-public class PropertiesServiceTest extends BaseTestCase {
+public class PropertiesServiceTest extends AbstractSingleSpringContextTests {
+	private final static Logger logger = LoggerFactory
+			.getLogger(PropertiesServiceTest.class);
 
 	protected IPropertiesService propertiesService;
 
 	@Override
+	protected String[] getConfigLocations() {
+		return new String[] {
+				"classpath:/**/applicationContext-configurableCallBack.xml",
+				"classpath:/**/applicationContext-messageSource.xml",
+				"classpath:/**/applicationContext-propertiesService.xml" };
+	}
+
+	@Override
 	protected void onSetUp() throws Exception {
-		super.onSetUp();
 		propertiesService = (IPropertiesService) applicationContext
 				.getBean("propertiesService");
 	}

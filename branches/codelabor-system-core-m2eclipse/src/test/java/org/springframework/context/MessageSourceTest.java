@@ -1,15 +1,17 @@
 package org.springframework.context;
 
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
-public class MessageSourceTest extends BaseTestCase {
+public class MessageSourceTest extends AbstractSingleSpringContextTests {
 
 	private MessageSource messageSource;
 
+	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:/**/applicationContext-messageSource.xml" };
+		return new String[] { "classpath:/**/applicationContext-messageSource.xml" };
 	}
 
+	@Override
 	public void onSetUp() throws Exception {
 		this.messageSource = (MessageSource) applicationContext
 				.getBean("messageSource");
