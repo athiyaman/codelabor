@@ -28,14 +28,14 @@ import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.utils.RequestUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -48,7 +48,8 @@ public class FileUploadServlet extends HttpServlet {
 	 *
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
-	private final static Log log = LogFactory.getLog(FileUploadServlet.class);
+	private final static Logger logger = LoggerFactory
+			.getLogger(FileUploadServlet.class);
 
 	protected ServletConfig servletConfig;
 	protected String parameterName;
@@ -162,17 +163,17 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void processParameters(Map<String, Object> paramMap)
 			throws Exception {
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
+		if (logger.isDebugEnabled()) {
+			logger.debug(paramMap.toString());
 		}
 	}
 
 	protected void dispatch(HttpServletRequest request,
 			HttpServletResponse response, String path) throws Exception {
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.append("dispatch path: ").append(path);
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 		RequestDispatcher dispatcher = servletConfig.getServletContext()
 				.getRequestDispatcher(path);
@@ -184,8 +185,8 @@ public class FileUploadServlet extends HttpServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
+		if (logger.isDebugEnabled()) {
+			logger.debug(paramMap.toString());
 		}
 
 		String mapId = (String) paramMap.get("mapId");
@@ -214,8 +215,8 @@ public class FileUploadServlet extends HttpServlet {
 
 				while (iter.hasNext()) {
 					FileItem fileItem = iter.next();
-					if (log.isDebugEnabled()) {
-						log.debug(fileItem);
+					if (logger.isDebugEnabled()) {
+						logger.debug(fileItem.toString());
 					}
 					FileDTO fileDTO = null;
 					if (fileItem.isFormField()) {
@@ -233,8 +234,8 @@ public class FileUploadServlet extends HttpServlet {
 						fileDTO.setUniqueFileName(getUniqueFileName());
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
-						if (log.isDebugEnabled()) {
-							log.debug(fileDTO);
+						if (logger.isDebugEnabled()) {
+							logger.debug(fileDTO.toString());
 						}
 						UploadUtil.processFile(acceptedRepositoryType, fileItem
 								.getInputStream(), fileDTO);
@@ -261,8 +262,8 @@ public class FileUploadServlet extends HttpServlet {
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
+		if (logger.isDebugEnabled()) {
+			logger.debug(paramMap.toString());
 		}
 
 		String mapId = (String) paramMap.get("mapId");
@@ -302,8 +303,8 @@ public class FileUploadServlet extends HttpServlet {
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
+		if (logger.isDebugEnabled()) {
+			logger.debug(paramMap.toString());
 		}
 
 		String fileId = (String) paramMap.get("fileId");
@@ -312,10 +313,10 @@ public class FileUploadServlet extends HttpServlet {
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			stringBuilder = new StringBuilder();
 			stringBuilder.append(fileDTO);
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 
 		String repositoryPath = fileDTO.getRepositoryPath();

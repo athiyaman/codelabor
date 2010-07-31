@@ -10,14 +10,14 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.utils.ChannelUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class UploadUtil {
-	public static final Log log = LogFactory.getLog(UploadUtil.class);
+	public static final Logger log = LoggerFactory.getLogger(UploadUtil.class);
 
 	static public void processFile(RepositoryType repositoryType,
 			InputStream inputStream, List<FileDTO> fileDTOList)

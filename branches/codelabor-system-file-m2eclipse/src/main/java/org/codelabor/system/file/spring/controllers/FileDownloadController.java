@@ -12,24 +12,23 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.utils.RequestUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 
 import anyframe.common.util.StringUtil;
 
 public class FileDownloadController extends BaseFileController {
-	private final Log log = LogFactory.getLog(FileDownloadController.class);
+	private final Logger logger = LoggerFactory
+			.getLogger(FileDownloadController.class);
 
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
-		}
+		logger.debug(paramMap.toString());
 
 		String fileId = (String) paramMap.get("fileId");
 
@@ -37,10 +36,10 @@ public class FileDownloadController extends BaseFileController {
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			stringBuilder = new StringBuilder();
 			stringBuilder.append(fileDTO);
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 
 		String repositoryPath = fileDTO.getRepositoryPath();

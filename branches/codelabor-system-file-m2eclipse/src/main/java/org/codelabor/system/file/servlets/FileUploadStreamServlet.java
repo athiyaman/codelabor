@@ -11,20 +11,21 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.utils.RequestUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FileUploadStreamServlet extends FileUploadServlet {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -5122173090841307836L;
-	private final Log log = LogFactory.getLog(FileUploadStreamServlet.class);
+	private final Logger log = LoggerFactory
+			.getLogger(FileUploadStreamServlet.class);
 
 	@Override
 	protected void upload(HttpServletRequest request,
@@ -32,7 +33,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
 		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
+			log.debug(paramMap.toString());
 		}
 
 		String mapId = (String) paramMap.get("mapId");
@@ -56,7 +57,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 				while (iter.hasNext()) {
 					FileItemStream fileItemSteam = iter.next();
 					if (log.isDebugEnabled()) {
-						log.debug(fileItemSteam);
+						log.debug(fileItemSteam.toString());
 					}
 					FileDTO fileDTO = null;
 					if (fileItemSteam.isFormField()) {
@@ -77,7 +78,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						fileDTO.setContentType(fileItemSteam.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
 						if (log.isDebugEnabled()) {
-							log.debug(fileDTO);
+							log.debug(fileDTO.toString());
 						}
 						UploadUtil.processFile(acceptedRepositoryType,
 								fileItemSteam.openStream(), fileDTO);

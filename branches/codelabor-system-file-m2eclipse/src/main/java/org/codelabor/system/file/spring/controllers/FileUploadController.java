@@ -8,12 +8,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.spring.commands.FileList;
 import org.codelabor.system.file.utils.UploadUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,7 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 import anyframe.common.util.StringUtil;
 
 public class FileUploadController extends BaseFileFormController {
-	private final Log log = LogFactory.getLog(FileUploadController.class);
+	private final Logger logger = LoggerFactory
+			.getLogger(FileUploadController.class);
 	protected RepositoryType repositoryType;
 	protected String repositoryPath;
 
@@ -67,9 +68,8 @@ public class FileUploadController extends BaseFileFormController {
 			fileDTO.setUniqueFileName(getUniqueFileName());
 			fileDTO.setContentType(uploadedFile.getContentType());
 			fileDTO.setRepositoryPath(repositoryPath);
-			if (log.isDebugEnabled()) {
-				log.debug(fileDTO);
-			}
+			logger.debug(fileDTO.toString());
+
 			UploadUtil.processFile(acceptedRepositoryType, uploadedFile
 					.getInputStream(), fileDTO);
 

@@ -9,14 +9,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DownloadAction;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.utils.RequestUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -28,16 +28,14 @@ public class FileDownloadAction extends DownloadAction {
 
 	private static final String responseHeaderName = "Content-Disposition";
 
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap);
-		}
+		logger.debug(paramMap.toString());
 
 		String fileId = (String) paramMap.get("fileId");
 
@@ -49,10 +47,10 @@ public class FileDownloadAction extends DownloadAction {
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		FileDTO fileDTO = fileManager.selectFile(fileId);
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			stringBuilder = new StringBuilder();
 			stringBuilder.append(fileDTO);
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 
 		String repositoryPath = fileDTO.getRepositoryPath();

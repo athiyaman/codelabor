@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author bomber
+ * @author Shin Sangjae
  * 
  */
 public class FileList implements Serializable {
