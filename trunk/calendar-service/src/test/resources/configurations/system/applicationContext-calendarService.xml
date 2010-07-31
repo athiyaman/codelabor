@@ -11,7 +11,7 @@
 		<property name="dateRangeTo" value="2010-12-31"/>
 		<property name="holidayMap">
 			<map>
-				<!-- 2010 법정 공휴일, 토요일, 일요일 -->
+				<!-- 2010 공휴일, 토요일, 일요일 -->
 				<!-- 1월 -->
 				<entry key="2010-01-01" value="신정" />
 				<entry key="2010-01-02" value="토요일" />
