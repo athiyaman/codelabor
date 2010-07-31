@@ -20,7 +20,7 @@ package org.codelabor.system.dtos;
 import java.io.Serializable;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class AffectedRowCountDTO implements Serializable {

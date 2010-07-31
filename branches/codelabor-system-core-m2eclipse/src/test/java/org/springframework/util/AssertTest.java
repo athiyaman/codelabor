@@ -19,7 +19,7 @@ package org.springframework.util;
 import junit.framework.TestCase;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class AssertTest extends TestCase {

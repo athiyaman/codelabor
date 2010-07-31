@@ -20,7 +20,7 @@ package org.codelabor.system.exceptions;
 import org.springframework.context.MessageSource;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class NoRollbackCommonException extends CommonException implements

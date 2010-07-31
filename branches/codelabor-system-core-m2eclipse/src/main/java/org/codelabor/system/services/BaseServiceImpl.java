@@ -26,7 +26,7 @@ import anyframe.core.properties.IPropertiesService;
 import anyframe.core.query.IQueryService;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class BaseServiceImpl {

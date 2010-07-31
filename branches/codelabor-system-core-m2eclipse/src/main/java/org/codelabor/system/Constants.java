@@ -18,7 +18,7 @@
 package org.codelabor.system;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class Constants {

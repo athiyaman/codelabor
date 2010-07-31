@@ -25,7 +25,7 @@ import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class MessageUtil {

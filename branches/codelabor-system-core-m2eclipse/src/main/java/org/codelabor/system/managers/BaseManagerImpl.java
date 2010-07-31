@@ -24,7 +24,7 @@ import org.springframework.context.MessageSource;
 import anyframe.core.properties.IPropertiesService;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class BaseManagerImpl {

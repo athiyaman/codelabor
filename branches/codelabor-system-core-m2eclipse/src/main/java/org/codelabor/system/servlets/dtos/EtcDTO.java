@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.Locale;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class EtcDTO implements Serializable {
