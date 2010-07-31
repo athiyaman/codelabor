@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author bomber
+ * @author Shin Sangjae
  * 
  */
 public class MenuItemDTO implements Serializable {

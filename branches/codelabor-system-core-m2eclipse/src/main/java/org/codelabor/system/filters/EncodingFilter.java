@@ -27,7 +27,7 @@ import javax.servlet.ServletResponse;
 import anyframe.common.util.StringUtil;
 
 /**
- * @author bomber
+ * @author Shin Sangjae
  * 
  */
 public class EncodingFilter extends BaseFilterImpl {

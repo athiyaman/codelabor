@@ -12,7 +12,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * @author bomber
+ * @author Shin Sangjae
  * 
  */
 public class BaseServlet implements Servlet {

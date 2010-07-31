@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 /**
- * @author bomber
+ * @author Shin Sangjae
  * 
  */
 public class ForwardController implements Controller {
