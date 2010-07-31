@@ -2,8 +2,7 @@ package org.codelabor.system.services;
 
 import org.codelabor.system.dtos.SystemPropertiesDTO;
 
-public class SystemPropertiesServiceImpl extends BaseServiceImpl implements
-		SystemPropertiesService {
+public class SystemPropertiesServiceImpl implements SystemPropertiesService {
 
 	public String getProperty(String key) {
 		return System.getProperty(key);

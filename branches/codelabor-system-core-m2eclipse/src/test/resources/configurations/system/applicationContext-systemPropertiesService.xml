@@ -12,7 +12,6 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 	<bean
 		id="systemPropertiesService"
-		class="org.codelabor.system.services.SystemPropertiesServiceImpl"
-		parent="baseService">
+		class="org.codelabor.system.services.SystemPropertiesServiceImpl">
 	</bean>
 </beans>
