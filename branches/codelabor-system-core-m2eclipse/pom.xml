@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.common</artifactId>
-			<version>${anyframe.version}</version>
+			<version>3.2.1</version>
 			<type>jar</type>
 			<optional>false</optional>
 			<exclusions>
@@ -137,7 +137,7 @@
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.core.properties</artifactId>
-			<version>${anyframe.version}</version>
+			<version>3.2.1</version>
 			<type>jar</type>
 			<exclusions>
 				<exclusion>
@@ -198,7 +198,7 @@
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.core.idgen</artifactId>
-			<version>${anyframe.version}</version>
+			<version>3.2.1</version>
 			<type>jar</type>
 			<exclusions>
 				<exclusion>
@@ -259,7 +259,7 @@
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.core.query</artifactId>
-			<version>${anyframe.version}</version>
+			<version>3.2.1</version>
 			<type>jar</type>
 			<exclusions>
 				<exclusion>
@@ -324,7 +324,7 @@
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.core.cache</artifactId>
-			<version>${anyframe.version}</version>
+			<version>3.2.1</version>
 			<type>jar</type>
 			<exclusions>
 				<exclusion>
@@ -385,7 +385,7 @@
 		<dependency>
 			<groupId>anyframe</groupId>
 			<artifactId>anyframe.web.springmvc</artifactId>
-			<version>${anyframe.version}</version>
+			<version>3.2.1</version>
 			<type>jar</type>
 			<exclusions>
 				<exclusion>
@@ -749,7 +749,6 @@
 		</plugins>
 	</build>
 	<properties>
-		<anyframe.version>3.2.1</anyframe.version>
 		<jdbc.url>jdbc:oracle:thin:@localhost:1521:orcl</jdbc.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
