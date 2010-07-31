@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.net.URL;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class WorkDTO implements Serializable {

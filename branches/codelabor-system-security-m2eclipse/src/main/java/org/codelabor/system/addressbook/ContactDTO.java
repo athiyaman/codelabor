@@ -19,7 +19,7 @@ package org.codelabor.system.addressbook;
 import java.io.Serializable;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class ContactDTO implements Serializable {

@@ -20,7 +20,7 @@ package org.codelabor.example.user.managers;
 import java.util.List;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public interface UserRoleMapManager {

@@ -26,7 +26,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class AddressbookUserDTO extends User {

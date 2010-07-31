@@ -20,7 +20,7 @@ package org.codelabor.system.login.dtos;
 import java.sql.Timestamp;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class LoginDTO {

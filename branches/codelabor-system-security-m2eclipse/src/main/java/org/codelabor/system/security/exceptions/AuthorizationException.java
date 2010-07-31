@@ -17,7 +17,7 @@
 package org.codelabor.system.security.exceptions;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class AuthorizationException extends Exception {

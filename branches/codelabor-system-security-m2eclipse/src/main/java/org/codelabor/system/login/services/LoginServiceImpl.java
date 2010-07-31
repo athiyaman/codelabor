@@ -26,7 +26,7 @@ import org.codelabor.system.login.managers.LoginManager;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class LoginServiceImpl extends BaseServiceImpl implements LoginService {

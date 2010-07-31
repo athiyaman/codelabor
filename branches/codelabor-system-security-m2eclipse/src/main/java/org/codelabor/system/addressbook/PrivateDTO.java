@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Date;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class PrivateDTO implements Serializable {

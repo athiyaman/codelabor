@@ -22,7 +22,7 @@ import java.util.List;
 import org.codelabor.example.user.dtos.RoleDTO;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public interface RoleDAO {

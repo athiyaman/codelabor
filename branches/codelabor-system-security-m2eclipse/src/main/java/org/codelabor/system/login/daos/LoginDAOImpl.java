@@ -27,7 +27,7 @@ import org.codelabor.system.daos.BaseDAOImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {

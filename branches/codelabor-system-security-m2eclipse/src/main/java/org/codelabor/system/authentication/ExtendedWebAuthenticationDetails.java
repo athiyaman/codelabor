@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 
 /**
- * @author "Sang Jae Shin"
+ * @author "Shin Sangjae"
  * 
  */
 public class ExtendedWebAuthenticationDetails extends WebAuthenticationDetails {
