@@ -322,6 +322,8 @@ public class FileUploadServlet extends HttpServlet {
 			inputStream = new ByteArrayInputStream(bytes);
 
 		}
+
+		// set response contenttype, header
 		response
 				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
 		stringBuilder = new StringBuilder();
@@ -329,6 +331,12 @@ public class FileUploadServlet extends HttpServlet {
 		response.setHeader(
 				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
 				stringBuilder.toString());
+
+		logger.debug("header: {}", stringBuilder.toString());
+		logger.debug("character encoding: {}", response.getCharacterEncoding());
+		logger.debug("content type: {}", response.getContentType());
+		logger.debug("bufferSize: {}", response.getBufferSize());
+		logger.debug("locale: {}", response.getLocale());
 
 		BufferedInputStream bufferdInputStream = new BufferedInputStream(
 				inputStream);
