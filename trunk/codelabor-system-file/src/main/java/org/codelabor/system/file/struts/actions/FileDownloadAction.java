@@ -24,11 +24,8 @@ import anyframe.common.util.StringUtil;
 
 public class FileDownloadAction extends DownloadAction {
 
-	private static final String contentType = "Application/octet-stream";
-
-	private static final String responseHeaderName = "Content-Disposition";
-
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory
+			.getLogger(FileDownloadAction.class);
 
 	@Override
 	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form,
@@ -62,15 +59,19 @@ public class FileDownloadAction extends DownloadAction {
 			}
 			stringBuilder.append(uniqueFileName);
 			File file = new File(stringBuilder.toString());
-			streamInfo = new FileStreamInfo(contentType, file);
+			streamInfo = new FileStreamInfo(
+					org.codelabor.system.file.Constants.CONTENT_TYPE, file);
 			// DATABASE
 		} else {
 			byte[] bytes = fileDTO.getBytes();
-			streamInfo = new ByteArrayStreamInfo(contentType, bytes);
+			streamInfo = new ByteArrayStreamInfo(
+					org.codelabor.system.file.Constants.CONTENT_TYPE, bytes);
 		}
 		stringBuilder = new StringBuilder();
 		stringBuilder.append("attachment; filename=").append(realFileName);
-		response.setHeader(responseHeaderName, stringBuilder.toString());
+		response.setHeader(
+				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
+				stringBuilder.toString());
 		return streamInfo;
 	}
 

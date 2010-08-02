@@ -326,6 +326,7 @@ public class FileUploadServlet extends HttpServlet {
 		// set response contenttype, header
 		response
 				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
+		// response.setContentType("application/octet-strem; charset=UTF-8");
 		stringBuilder = new StringBuilder();
 		stringBuilder.append("attachment; filename=").append(realFileName);
 		response.setHeader(
