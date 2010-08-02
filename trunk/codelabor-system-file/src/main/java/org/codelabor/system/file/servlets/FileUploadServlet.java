@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -324,11 +325,19 @@ public class FileUploadServlet extends HttpServlet {
 		}
 
 		// set response contenttype, header
+		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
+		logger.debug("realFileName: {}", realFileName);
+		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+
 		response
 				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
-		// response.setContentType("application/octet-strem; charset=UTF-8");
-		stringBuilder = new StringBuilder();
-		stringBuilder.append("attachment; filename=").append(realFileName);
+		stringBuilder.setLength(0);
+		if (request.getHeader("User-Agent").indexOf("MSIE5.5") > -1) {
+			stringBuilder.append("filename=");
+		} else {
+			stringBuilder.append("attachment; filename=");
+		}
+		stringBuilder.append(encodedRealFileName);
 		response.setHeader(
 				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
 				stringBuilder.toString());

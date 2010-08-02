@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
@@ -61,13 +62,29 @@ public class FileDownloadController extends BaseFileController {
 			inputStream = new ByteArrayInputStream(bytes);
 
 		}
+		// set response contenttype, header
+		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
+		logger.debug("realFileName: {}", realFileName);
+		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+
 		response
 				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
-		stringBuilder = new StringBuilder();
-		stringBuilder.append("attachment; filename=").append(realFileName);
+		stringBuilder.setLength(0);
+		if (request.getHeader("User-Agent").indexOf("MSIE5.5") > -1) {
+			stringBuilder.append("filename=");
+		} else {
+			stringBuilder.append("attachment; filename=");
+		}
+		stringBuilder.append(encodedRealFileName);
 		response.setHeader(
 				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
 				stringBuilder.toString());
+
+		logger.debug("header: {}", stringBuilder.toString());
+		logger.debug("character encoding: {}", response.getCharacterEncoding());
+		logger.debug("content type: {}", response.getContentType());
+		logger.debug("bufferSize: {}", response.getBufferSize());
+		logger.debug("locale: {}", response.getLocale());
 
 		BufferedInputStream bufferdInputStream = new BufferedInputStream(
 				inputStream);
