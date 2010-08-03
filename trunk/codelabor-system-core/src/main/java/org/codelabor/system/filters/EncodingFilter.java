@@ -40,17 +40,26 @@ public class EncodingFilter extends BaseFilterImpl {
 		String responseBeforeCharacterEncoding = response
 				.getCharacterEncoding();
 
-		request.setCharacterEncoding(encoding);
-		response.setCharacterEncoding(encoding);
-
-		String requestAfterCharacterEncoding = request.getCharacterEncoding();
-		String responseAfterCharacterEncoding = response.getCharacterEncoding();
-		logger.debug("request character encoding: {} -> {}",
-				requestBeforeCharacterEncoding, requestAfterCharacterEncoding);
-		logger
-				.debug("response character encoding: {} -> {}",
-						responseBeforeCharacterEncoding,
-						responseAfterCharacterEncoding);
+		if (requestBeforeCharacterEncoding.equalsIgnoreCase(encoding)) {
+			logger.debug("request character encoding: {}", encoding);
+		} else {
+			request.setCharacterEncoding(encoding);
+			String requestAfterCharacterEncoding = request
+					.getCharacterEncoding();
+			logger.debug("request character encoding: {} -> {}",
+					requestBeforeCharacterEncoding,
+					requestAfterCharacterEncoding);
+		}
+		if (responseBeforeCharacterEncoding.equalsIgnoreCase(encoding)) {
+			logger.debug("response character encoding: {}", encoding);
+		} else {
+			response.setCharacterEncoding(encoding);
+			String responseAfterCharacterEncoding = response
+					.getCharacterEncoding();
+			logger.debug("response character encoding: {} -> {}",
+					responseBeforeCharacterEncoding,
+					responseAfterCharacterEncoding);
+		}
 		filterChain.doFilter(request, response);
 	}
 
@@ -58,7 +67,8 @@ public class EncodingFilter extends BaseFilterImpl {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
 		String tempEncoding = filterConfig.getInitParameter("encoding");
-		if (StringUtil.isNotEmpty(tempEncoding))
+		if (StringUtil.isNotEmpty(tempEncoding)) {
 			encoding = tempEncoding;
+		}
 	}
 }
