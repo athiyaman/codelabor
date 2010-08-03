@@ -36,29 +36,29 @@ public class EncodingFilter extends BaseFilterImpl {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
-		String requestBeforeCharacterEncoding = request.getCharacterEncoding();
-		String responseBeforeCharacterEncoding = response
+		String requestBeforeEncoding = request.getCharacterEncoding();
+		String responseBeforeEncoding = response
 				.getCharacterEncoding();
 
-		if (requestBeforeCharacterEncoding.equalsIgnoreCase(encoding)) {
+		if (isSameEncoding(encoding, requestBeforeEncoding)) {
 			logger.debug("request character encoding: {}", encoding);
 		} else {
 			request.setCharacterEncoding(encoding);
-			String requestAfterCharacterEncoding = request
+			String requestAfterEncoding = request
 					.getCharacterEncoding();
 			logger.debug("request character encoding: {} -> {}",
-					requestBeforeCharacterEncoding,
-					requestAfterCharacterEncoding);
+					requestBeforeEncoding,
+					requestAfterEncoding);
 		}
-		if (responseBeforeCharacterEncoding.equalsIgnoreCase(encoding)) {
+		if (isSameEncoding(encoding, responseBeforeEncoding)) {
 			logger.debug("response character encoding: {}", encoding);
 		} else {
 			response.setCharacterEncoding(encoding);
-			String responseAfterCharacterEncoding = response
+			String responseAfterEncoding = response
 					.getCharacterEncoding();
 			logger.debug("response character encoding: {} -> {}",
-					responseBeforeCharacterEncoding,
-					responseAfterCharacterEncoding);
+					responseBeforeEncoding,
+					responseAfterEncoding);
 		}
 		filterChain.doFilter(request, response);
 	}
@@ -70,5 +70,9 @@ public class EncodingFilter extends BaseFilterImpl {
 		if (StringUtil.isNotEmpty(tempEncoding)) {
 			encoding = tempEncoding;
 		}
+	}
+
+	protected boolean isSameEncoding(String expected, String actual) {
+		return expected.equalsIgnoreCase(actual);
 	}
 }
