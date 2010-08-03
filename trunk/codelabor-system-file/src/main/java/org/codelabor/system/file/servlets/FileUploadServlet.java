@@ -296,7 +296,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		String fileId = (String) paramMap.get("fileId");
 
-		StringBuilder stringBuilder = null;
+		StringBuilder stringBuilder = new StringBuilder();
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFile(fileId);
@@ -308,7 +308,7 @@ public class FileUploadServlet extends HttpServlet {
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
-			stringBuilder = new StringBuilder();
+			stringBuilder.setLength(0);
 			stringBuilder.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {
 				stringBuilder.append(File.separator);
