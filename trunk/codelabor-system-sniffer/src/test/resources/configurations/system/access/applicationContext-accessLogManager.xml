@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean
+		id="accessLogDAO"
+		class="org.codelabor.system.access.daos.AccessLogDAOImpl"
+		parent="baseDAO">
+		<property name="idGenerationService" ref="accessLogSeqGenerationService"/>
+	</bean>
+	<bean
+		id="accessLogManager"
+		class="org.codelabor.system.access.managers.AccessLogManagerImpl"
+		parent="baseManager">
+		<property name="accessLogDAO" ref="accessLogDAO"/>
+	</bean>
+
+	<bean
+		id="accessLogService"
+		class="org.codelabor.system.access.services.AccessLogServiceImpl"
+		parent="baseService">
+		<property name="accessLogManager" ref="accessLogManager"/>
+	</bean>
+</beans>

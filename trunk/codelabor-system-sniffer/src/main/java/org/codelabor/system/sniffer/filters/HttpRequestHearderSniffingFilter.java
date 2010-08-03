@@ -1,0 +1,31 @@
+package org.codelabor.system.sniffer.filters;
+
+import java.io.IOException;
+import java.util.Enumeration;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+
+import org.codelabor.system.filters.BaseFilterImpl;
+
+public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain filterChain) throws IOException, ServletException {
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
+		String headerName = null;
+		Enumeration headerValues = null;
+		while (headerNames.hasMoreElements()) {
+			headerName = headerNames.nextElement();
+			headerValues = httpServletRequest.getHeaders(headerName);
+			logger.debug("{}: {}", headerName, headerValues);
+		}
+		filterChain.doFilter(request, response);
+	}
+}
