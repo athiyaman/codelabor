@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -28,7 +28,7 @@ import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class SnifferAdvice extends BaseAdvice implements Ordered {
@@ -38,7 +38,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 	}
 
 	public void dumpArguments(JoinPoint joinPoint) {
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			String className = joinPoint.getTarget().getClass().getName();
 			String methodName = joinPoint.getSignature().getName() + "()";
 
@@ -56,12 +56,12 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 					stringBuilder.append(", ");
 				}
 			}
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 	}
 
 	public void dumpReturn(JoinPoint joinPoint, Object returnObject) {
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			String className = joinPoint.getTarget().getClass().getName();
 			String methodName = joinPoint.getSignature().getName() + "()";
 
@@ -74,12 +74,12 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 			stringBuilder.append("return: ");
 			stringBuilder.append(returnObject);
 
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 	}
 
 	public void dumpException(JoinPoint joinPoint, Exception exception) {
-		if (log.isErrorEnabled()) {
+		if (logger.isErrorEnabled()) {
 			StringBuilder stringBuilder = new StringBuilder();
 			String messageCode = null;
 			String messageKey = null;
@@ -153,7 +153,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 			stringBuilder.append("-----------------------");
 			stringBuilder.append(System.getProperty("line.separator"));
 
-			log.error(stringBuilder.toString());
+			logger.error(stringBuilder.toString());
 		}
 	}
 
@@ -168,7 +168,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 	public Object getElapsedTime(ProceedingJoinPoint joinPoint)
 			throws Throwable {
 		Object returnValue = null;
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			String className = joinPoint.getTarget().getClass().getName();
 			String methodName = joinPoint.getSignature().getName() + "()";
 
@@ -186,7 +186,7 @@ public class SnifferAdvice extends BaseAdvice implements Ordered {
 			stringBuilder.append("total time (millis): ").append(
 					stopWatch.getTotalTimeMillis());
 
-			log.debug(stringBuilder.toString());
+			logger.debug(stringBuilder.toString());
 		}
 		return returnValue;
 	}

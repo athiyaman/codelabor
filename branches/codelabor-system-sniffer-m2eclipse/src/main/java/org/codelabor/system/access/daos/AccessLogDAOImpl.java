@@ -21,7 +21,7 @@ import org.codelabor.system.access.dtos.AccessLogDTO;
 import org.codelabor.system.daos.BaseDAOImpl;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public class AccessLogDAOImpl extends BaseDAOImpl implements AccessLogDAO {

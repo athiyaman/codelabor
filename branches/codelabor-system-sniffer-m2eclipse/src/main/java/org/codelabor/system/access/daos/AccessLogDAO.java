@@ -20,7 +20,7 @@ package org.codelabor.system.access.daos;
 import org.codelabor.system.access.dtos.AccessLogDTO;
 
 /**
- * @author Sang Jae Shin
+ * @author Shin Sangjae
  * 
  */
 public interface AccessLogDAO {
