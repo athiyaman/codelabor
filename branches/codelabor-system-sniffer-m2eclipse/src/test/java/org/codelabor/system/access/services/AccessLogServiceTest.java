@@ -36,31 +36,31 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 	public void testAccessLog() {
 		// test
 		AccessLogDTO accessLogDTO1 = new AccessLogDTO();
-		accessLogDTO1.setUserId("bomber");
+		accessLogDTO1.setUsername("bomber");
 		accessLogDTO1.setIpAddress("127.0.0.1");
-		accessLogDTO1.setResourceId("menu:mypage");
-		accessLogDTO1.setMessage("select");
+		accessLogDTO1.setTarget("menu:mypage");
+		accessLogDTO1.setEvent("select");
 		accessLogDTO1.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
 		AccessLogDTO accessLogDTO2 = new AccessLogDTO();
-		accessLogDTO2.setUserId("bomber");
+		accessLogDTO2.setUsername("bomber");
 		accessLogDTO2.setIpAddress("127.0.0.1");
-		accessLogDTO2.setResourceId("button:submit");
-		accessLogDTO2.setMessage("click");
+		accessLogDTO2.setTarget("button:submit");
+		accessLogDTO2.setEvent("click");
 		accessLogDTO2.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
 		AccessLogDTO accessLogDTO3 = new AccessLogDTO();
-		accessLogDTO3.setUserId("bomber");
+		accessLogDTO3.setUsername("bomber");
 		accessLogDTO3.setIpAddress("127.0.0.1");
-		accessLogDTO3.setResourceId("page:index.html");
-		accessLogDTO3.setMessage("view");
+		accessLogDTO3.setTarget("page:index.html");
+		accessLogDTO3.setEvent("view");
 		accessLogDTO3.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
 		AccessLogDTO accessLogDTO4 = new AccessLogDTO();
-		accessLogDTO4.setUserId("bomber");
+		accessLogDTO4.setUsername("bomber");
 		accessLogDTO4.setIpAddress("127.0.0.1");
-		accessLogDTO4.setResourceId("url:http://codelabor.org");
-		accessLogDTO4.setMessage("request");
+		accessLogDTO4.setTarget("url:http://codelabor.org");
+		accessLogDTO4.setEvent("request");
 		accessLogDTO4.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
 		try {
@@ -77,12 +77,12 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 					.find(accessLogDTO2)).get(0);
 			AccessLogDTO returnedAccessLogDTO3 = (AccessLogDTO) ((List) queryService
 					.find(accessLogDTO3)).get(0);
-			assertEquals(accessLogDTO1.getMessage(), returnedAccessLogDTO1
-					.getMessage());
-			assertEquals(accessLogDTO2.getMessage(), returnedAccessLogDTO2
-					.getMessage());
-			assertEquals(accessLogDTO3.getMessage(), returnedAccessLogDTO3
-					.getMessage());
+			assertEquals(accessLogDTO1.getEvent(), returnedAccessLogDTO1
+					.getEvent());
+			assertEquals(accessLogDTO2.getEvent(), returnedAccessLogDTO2
+					.getEvent());
+			assertEquals(accessLogDTO3.getEvent(), returnedAccessLogDTO3
+					.getEvent());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,7 +27,7 @@ import java.sql.Timestamp;
 public class AccessLogDTO implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -8079212665085519859L;
 
@@ -35,13 +35,13 @@ public class AccessLogDTO implements Serializable {
 	private int seq;
 
 	// who
-	private String userId;
+	private String username;
 
 	// what
-	private String resourceId;
+	private String target;
 
 	// why, how
-	private String message;
+	private String event;
 
 	// where
 	private String ipAddress;
@@ -57,20 +57,20 @@ public class AccessLogDTO implements Serializable {
 		this.ipAddress = ipAddress;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getEvent() {
+		return event;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setEvent(String message) {
+		this.event = message;
 	}
 
-	public String getResourceId() {
-		return resourceId;
+	public String getTarget() {
+		return target;
 	}
 
-	public void setResourceId(String resourceId) {
-		this.resourceId = resourceId;
+	public void setTarget(String resourceId) {
+		this.target = resourceId;
 	}
 
 	public Timestamp getTimestamp() {
@@ -81,12 +81,12 @@ public class AccessLogDTO implements Serializable {
 		this.timestamp = timestamp;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public int getSeq() {
@@ -111,9 +111,9 @@ public class AccessLogDTO implements Serializable {
 
 		retValue.append("AccessLogDTO ( ").append(super.toString()).append(TAB)
 				.append("seq = ").append(this.seq).append(TAB).append(
-						"userId = ").append(this.userId).append(TAB).append(
-						"resourceId = ").append(this.resourceId).append(TAB)
-				.append("message = ").append(this.message).append(TAB).append(
+						"userId = ").append(this.username).append(TAB).append(
+						"resource = ").append(this.target).append(TAB)
+				.append("message = ").append(this.event).append(TAB).append(
 						"ipAddress = ").append(this.ipAddress).append(TAB)
 				.append("timestamp = ").append(this.timestamp).append(TAB)
 				.append(" )");

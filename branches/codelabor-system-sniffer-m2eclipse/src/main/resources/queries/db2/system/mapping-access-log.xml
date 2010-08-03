@@ -9,16 +9,16 @@
 				<class-attribute>seq</class-attribute>
 			</field-mapping>
 			<field-mapping>
-				<dbms-column>USER_ID</dbms-column>
-				<class-attribute>userId</class-attribute>
+				<dbms-column>USERNAME</dbms-column>
+				<class-attribute>username</class-attribute>
 			</field-mapping>
 			<field-mapping>
-				<dbms-column>RESOURCE_ID</dbms-column>
-				<class-attribute>resourceId</class-attribute>
+				<dbms-column>TARGET</dbms-column>
+				<class-attribute>target</class-attribute>
 			</field-mapping>
 			<field-mapping>
-				<dbms-column>MESSAGE</dbms-column>
-				<class-attribute>message</class-attribute>
+				<dbms-column>EVENT</dbms-column>
+				<class-attribute>event</class-attribute>
 			</field-mapping>
 			<field-mapping>
 				<dbms-column>TIMESTAMP</dbms-column>
