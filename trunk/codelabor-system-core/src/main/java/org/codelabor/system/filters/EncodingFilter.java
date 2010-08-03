@@ -54,11 +54,11 @@ public class EncodingFilter extends BaseFilterImpl {
 			logger.debug("response character encoding: {}", encoding);
 		} else {
 			response.setCharacterEncoding(encoding);
-			String responseAfterEncoding = response
+			String responseAfterCharacterEncoding = response
 					.getCharacterEncoding();
 			logger.debug("response character encoding: {} -> {}",
 					responseBeforeEncoding,
-					responseAfterEncoding);
+					responseAfterCharacterEncoding);
 		}
 		filterChain.doFilter(request, response);
 	}
