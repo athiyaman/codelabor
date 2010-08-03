@@ -10,6 +10,6 @@
   						<a href="<c:url value='/servlet/system/file/fileUploadServlet?method=list'/>"><spring:message code="label.example.file.servlet"/></a>
 					</li>
 					<li class="none">
-						<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=list'/>"><spring:message code="label.example.file.servlet"/></a>
+						<a href="<c:url value='/servlet/system/file/xecureFileUploadServlet?method=list'/>"><spring:message code="menu.example.file.xecure"/></a>
 					</li>
 				</ul>
