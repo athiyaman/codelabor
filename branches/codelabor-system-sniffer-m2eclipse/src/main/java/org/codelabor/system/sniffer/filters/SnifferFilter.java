@@ -25,7 +25,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.codelabor.system.filters.BaseFilterImpl;
-import org.codelabor.system.sniffer.utils.SnifferUtil;
+import org.codelabor.system.sniffer.utils.SnifferUtils;
 
 /**
  * @author Shin Sangjae
@@ -37,7 +37,7 @@ public class SnifferFilter extends BaseFilterImpl {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		try {
-			logger.debug("request: {}", SnifferUtil.toString(request));
+			logger.debug("request: {}", SnifferUtils.toString(request));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

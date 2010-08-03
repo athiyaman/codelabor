@@ -5,7 +5,7 @@ import javax.servlet.ServletRequest;
 import org.codelabor.system.utils.RequestUtils;
 import org.quartz.Trigger;
 
-public class SnifferUtil {
+public class SnifferUtils {
 
 	public static String toString(Trigger trigger) throws Exception {
 		StringBuilder sb = new StringBuilder();
