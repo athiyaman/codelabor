@@ -64,13 +64,13 @@ public class RequestUtils {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static Map<String, Object> getRequestMap(ServletRequest request) {
+	public static Map<String, Object> getAttributeMap(ServletRequest request) {
 		Map<String, Object> attribMap = new HashMap<String, Object>();
 		Enumeration attribEnum = request.getAttributeNames();
 		while (attribEnum.hasMoreElements()) {
 			String attribName = (String) attribEnum.nextElement();
-			Object attribObject = request.getAttribute(attribName);
-			attribMap.put(attribName, attribObject);
+			Object attribValue = request.getAttribute(attribName);
+			attribMap.put(attribName, attribValue);
 		}
 		return attribMap;
 	}
