@@ -38,7 +38,7 @@ import org.codelabor.system.servlets.dtos.ServerDTO;
  * @author Shin Sangjae
  * 
  */
-public class RequestUtil {
+public class RequestUtils {
 	public static ServerDTO getServerDTO(ServletRequest request)
 			throws Exception {
 		ServerDTO serverDTO = new ServerDTO();

@@ -26,7 +26,7 @@ import java.nio.channels.WritableByteChannel;
  * @author Shin Sangjae
  * 
  */
-public class ChannelUtil {
+public class ChannelUtils {
 
 	public static int copy(ReadableByteChannel inputChannel,
 			WritableByteChannel outputChannel) throws IOException {

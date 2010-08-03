@@ -28,7 +28,7 @@ import anyframe.common.exception.message.Message;
  * @author Shin Sangjae
  * 
  */
-public class MessageUtil {
+public class MessageUtils {
 	static public MessageDTO exceptionToMessageDTO(Exception e) {
 		MessageDTO messageDTO = new MessageDTO();
 		String messageCode = null;
