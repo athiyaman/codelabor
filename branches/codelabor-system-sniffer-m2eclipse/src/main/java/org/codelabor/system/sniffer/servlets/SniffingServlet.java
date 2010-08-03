@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.codelabor.system.sniffer.utils.SnifferUtils;
+import org.codelabor.system.sniffer.utils.SniffingUtils;
 
 /**
  * @author Shin Sangjae
@@ -22,7 +22,7 @@ public class SniffingServlet implements Servlet {
 		PrintWriter writer = response.getWriter();
 
 		try {
-			writer.write(SnifferUtils.toHTML(request));
+			writer.write(SniffingUtils.toHTML(request));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
