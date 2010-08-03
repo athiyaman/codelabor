@@ -102,10 +102,10 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/branches/codelabor-system-file-m2eclipse/</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/branches/codelabor-system-file-m2eclipse/</developerConnection>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file/</developerConnection>
 		<tag>HEAD</tag>
-		<url>http://codelabor.googlecode.com/svn/branches/codelabor-system-file-m2eclipse/</url>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file/</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
