@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.spring.commands.FileList;
-import org.codelabor.system.file.utils.UploadUtil;
+import org.codelabor.system.file.utils.UploadUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
@@ -64,13 +64,13 @@ public class FileUploadController extends BaseFileFormController {
 			// set DTO
 			FileDTO fileDTO = new FileDTO();
 			fileDTO.setMapId(mapId);
-			fileDTO.setRealFileName(UploadUtil.stripPathInfo(originalFilename));
+			fileDTO.setRealFileName(UploadUtils.stripPathInfo(originalFilename));
 			fileDTO.setUniqueFileName(getUniqueFileName());
 			fileDTO.setContentType(uploadedFile.getContentType());
 			fileDTO.setRepositoryPath(repositoryPath);
 			logger.debug(fileDTO.toString());
 
-			UploadUtil.processFile(acceptedRepositoryType, uploadedFile
+			UploadUtils.processFile(acceptedRepositoryType, uploadedFile
 					.getInputStream(), fileDTO);
 
 			if (fileDTO != null)

@@ -33,7 +33,7 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
 import org.codelabor.system.file.managers.FileManager;
-import org.codelabor.system.file.utils.UploadUtil;
+import org.codelabor.system.file.utils.UploadUtils;
 import org.codelabor.system.servlets.HttpRequestHeader;
 import org.codelabor.system.servlets.HttpResponseHeader;
 import org.codelabor.system.utils.RequestUtils;
@@ -222,13 +222,13 @@ public class FileUploadServlet extends HttpServlet {
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFileName(UploadUtil
+						fileDTO.setRealFileName(UploadUtils
 								.stripPathInfo(fileItem.getName()));
 						fileDTO.setUniqueFileName(getUniqueFileName());
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
 						logger.debug("fileDTO: {}", fileDTO.toString());
-						UploadUtil.processFile(acceptedRepositoryType, fileItem
+						UploadUtils.processFile(acceptedRepositoryType, fileItem
 								.getInputStream(), fileDTO);
 					}
 					if (fileDTO != null)

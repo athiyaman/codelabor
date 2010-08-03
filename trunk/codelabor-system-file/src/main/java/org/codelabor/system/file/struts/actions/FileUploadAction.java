@@ -21,7 +21,7 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.struts.forms.FileUploadForm;
-import org.codelabor.system.file.utils.UploadUtil;
+import org.codelabor.system.file.utils.UploadUtils;
 import org.codelabor.system.struts.actions.BaseDispatchAction;
 import org.codelabor.system.utils.RequestUtils;
 import org.springframework.web.context.WebApplicationContext;
@@ -158,7 +158,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		fileDTO.setRepositoryPath(repositoryPath);
 		logger.debug(fileDTO.toString());
 
-		UploadUtil.processFile(repositoryType, inputStream, fileDTO);
+		UploadUtils.processFile(repositoryType, inputStream, fileDTO);
 		return fileDTO;
 	}
 

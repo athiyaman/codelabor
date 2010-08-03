@@ -16,8 +16,8 @@ import org.codelabor.system.utils.ChannelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UploadUtil {
-	public static final Logger log = LoggerFactory.getLogger(UploadUtil.class);
+public class UploadUtils {
+	public static final Logger log = LoggerFactory.getLogger(UploadUtils.class);
 
 	static public void processFile(RepositoryType repositoryType,
 			InputStream inputStream, List<FileDTO> fileDTOList)
