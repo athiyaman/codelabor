@@ -31,10 +31,10 @@ import anyframe.common.exception.message.Message;
  * @author Shin Sangjae
  * 
  */
-public class SnifferAdvice extends BaseAdvice implements Ordered {
+public class SniffingAdvice extends BaseAdvice implements Ordered {
 	protected int order;
 
-	public SnifferAdvice() {
+	public SniffingAdvice() {
 	}
 
 	public void dumpArguments(JoinPoint joinPoint) {

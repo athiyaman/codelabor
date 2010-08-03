@@ -32,7 +32,7 @@ public class SnifferUtils {
 		sb.append(RequestUtils.getParameterMap(request).toString());
 		sb.append("<hr/>");
 		sb.append("<h3>request attribute</h3>");
-		sb.append(RequestUtils.getRequestMap(request).toString());
+		sb.append(RequestUtils.getAttributeMap(request).toString());
 		sb.append("<hr/>");
 		sb.append("<h3>http servlet request attribute</h3>");
 		sb.append(RequestUtils.getHttpServletRequestMap(request).toString());
@@ -72,7 +72,7 @@ public class SnifferUtils {
 		sb.append(System.getProperty("line.separator"));
 		sb.append("[request attribute]");
 		sb.append(System.getProperty("line.separator"));
-		sb.append(RequestUtils.getRequestMap(request).toString());
+		sb.append(RequestUtils.getAttributeMap(request).toString());
 		sb.append(System.getProperty("line.separator"));
 		sb.append("[http servlet request attribute]");
 		sb.append(System.getProperty("line.separator"));

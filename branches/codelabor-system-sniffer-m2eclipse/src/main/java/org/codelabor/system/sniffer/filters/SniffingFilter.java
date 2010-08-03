@@ -31,7 +31,7 @@ import org.codelabor.system.sniffer.utils.SnifferUtils;
  * @author Shin Sangjae
  * 
  */
-public class SnifferFilter extends BaseFilterImpl {
+public class SniffingFilter extends BaseFilterImpl {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,

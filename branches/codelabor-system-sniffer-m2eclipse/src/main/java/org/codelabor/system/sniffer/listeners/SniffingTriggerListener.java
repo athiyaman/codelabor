@@ -21,9 +21,9 @@ import org.quartz.JobExecutionContext;
 import org.quartz.Trigger;
 import org.quartz.TriggerListener;
 
-public class SnifferTriggerListener implements TriggerListener {
+public class SniffingTriggerListener implements TriggerListener {
 
-	protected Log log = LogFactory.getLog(SnifferTriggerListener.class);
+	protected Log log = LogFactory.getLog(SniffingTriggerListener.class);
 
 	/*
 	 * (non-Javadoc)
@@ -31,7 +31,7 @@ public class SnifferTriggerListener implements TriggerListener {
 	 * @see org.quartz.TriggerListener#getName()
 	 */
 	public String getName() {
-		return SnifferTriggerListener.class.toString();
+		return SniffingTriggerListener.class.toString();
 	}
 
 	/*

@@ -15,7 +15,7 @@ import org.codelabor.system.sniffer.utils.SnifferUtils;
  * @author Shin Sangjae
  * 
  */
-public class SnifferServlet implements Servlet {
+public class SniffingServlet implements Servlet {
 
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
