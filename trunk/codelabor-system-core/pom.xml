@@ -626,10 +626,10 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/branches/codelabor-system-core-m2eclipse/</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/branches/codelabor-system-core-m2eclipse/</developerConnection>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</developerConnection>
 		<tag>HEAD</tag>
-		<url>http://codelabor.googlecode.com/svn/branches/codelabor-system-core-m2eclipse/</url>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-core/</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
