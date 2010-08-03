@@ -15,6 +15,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DownloadAction;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
+import org.codelabor.system.servlets.HttpRequestHeader;
+import org.codelabor.system.servlets.HttpResponseHeader;
 import org.codelabor.system.utils.RequestUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,7 +78,7 @@ public class FileDownloadAction extends DownloadAction {
 		response
 				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
 		stringBuilder.setLength(0);
-		if (request.getHeader("User-Agent").indexOf("MSIE5.5") > -1) {
+		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			stringBuilder.append("filename=");
 		} else {
 			stringBuilder.append("attachment; filename=");
@@ -84,8 +86,7 @@ public class FileDownloadAction extends DownloadAction {
 		// stringBuilder.append("\"");
 		stringBuilder.append(encodedRealFileName);
 		// stringBuilder.append("\"");
-		response.setHeader(
-				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
+		response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION,
 				stringBuilder.toString());
 
 		logger.debug("header: {}", stringBuilder.toString());
