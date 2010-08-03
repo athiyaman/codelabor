@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.utils.ChannelUtil;
+import org.codelabor.system.utils.ChannelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,7 +68,7 @@ public class UploadUtil {
 			// copy channel
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			fileSize = ChannelUtil.copy(inputChannel, outputChannel);
+			fileSize = ChannelUtils.copy(inputChannel, outputChannel);
 			break;
 		case DATABASE:
 			// prepare steam
@@ -77,7 +77,7 @@ public class UploadUtil {
 			// copy channel
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			fileSize = ChannelUtil.copy(inputChannel, outputChannel);
+			fileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			// set vo
 			fileDTO.setBytes(((ByteArrayOutputStream) outputStream)

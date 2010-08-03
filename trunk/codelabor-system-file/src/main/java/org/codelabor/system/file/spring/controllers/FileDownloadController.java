@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.servlets.HttpRequestHeader;
 import org.codelabor.system.servlets.HttpResponseHeader;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +30,7 @@ public class FileDownloadController extends BaseFileController {
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug(paramMap.toString());
 
 		String fileId = (String) paramMap.get("fileId");

@@ -36,7 +36,7 @@ import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.servlets.HttpRequestHeader;
 import org.codelabor.system.servlets.HttpResponseHeader;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -181,7 +181,7 @@ public class FileUploadServlet extends HttpServlet {
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
@@ -240,7 +240,7 @@ public class FileUploadServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else {
-			paramMap = RequestUtil.getParameterMap(request);
+			paramMap = RequestUtils.getParameterMap(request);
 		}
 		try {
 			processParameters(paramMap);
@@ -252,7 +252,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
@@ -291,7 +291,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
 		String fileId = (String) paramMap.get("fileId");

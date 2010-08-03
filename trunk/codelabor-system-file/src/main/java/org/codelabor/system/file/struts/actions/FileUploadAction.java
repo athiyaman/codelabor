@@ -23,7 +23,7 @@ import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.struts.forms.FileUploadForm;
 import org.codelabor.system.file.utils.UploadUtil;
 import org.codelabor.system.struts.actions.BaseDispatchAction;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.RequestUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -47,7 +47,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
 				.getBean("sequenceMapIdGenerationService");
 
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");

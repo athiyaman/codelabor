@@ -10,7 +10,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.Constants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.RequestUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 public class FileListController extends BaseFileController {
@@ -19,7 +19,7 @@ public class FileListController extends BaseFileController {
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug(paramMap);
 
 		String mapId = (String) paramMap.get("mapId");

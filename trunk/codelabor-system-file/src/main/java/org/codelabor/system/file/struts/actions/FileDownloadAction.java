@@ -17,7 +17,7 @@ import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.servlets.HttpRequestHeader;
 import org.codelabor.system.servlets.HttpResponseHeader;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -34,7 +34,7 @@ public class FileDownloadAction extends DownloadAction {
 	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug(paramMap.toString());
 
 		String fileId = (String) paramMap.get("fileId");

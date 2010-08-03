@@ -14,7 +14,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.utils.UploadUtil;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		if (log.isDebugEnabled()) {
 			log.debug(paramMap.toString());
 		}
@@ -92,7 +92,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 				e.printStackTrace();
 			}
 		} else {
-			paramMap = RequestUtil.getParameterMap(request);
+			paramMap = RequestUtils.getParameterMap(request);
 		}
 		try {
 			processParameters(paramMap);

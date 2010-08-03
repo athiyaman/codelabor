@@ -13,7 +13,7 @@ import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.utils.ChannelUtil;
+import org.codelabor.system.utils.ChannelUtils;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.idgen.IIdGenerationService;
@@ -66,7 +66,7 @@ public class BlobTest extends AbstractSingleSpringContextTests {
 			outputStream = new ByteArrayOutputStream();
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			int sourceFileSize = ChannelUtil.copy(inputChannel, outputChannel);
+			int sourceFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			fileId = sequenceFileIdGenerationService.getNextStringId();
 			mapId = sequenceMapIdGenerationService.getNextStringId();
@@ -95,7 +95,7 @@ public class BlobTest extends AbstractSingleSpringContextTests {
 			outputStream = new FileOutputStream(targetFile);
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			int targetFileSize = ChannelUtil.copy(inputChannel, outputChannel);
+			int targetFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			assertEquals(sourceFileSize, targetFileSize);
 			assertEquals(fileDTO.getUniqueFileName(), returnedFileDTO
@@ -128,7 +128,7 @@ public class BlobTest extends AbstractSingleSpringContextTests {
 			outputStream = new ByteArrayOutputStream();
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			int sourceFileSize = ChannelUtil.copy(inputChannel, outputChannel);
+			int sourceFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			fileId = sequenceFileIdGenerationService.getNextStringId();
 			mapId = sequenceMapIdGenerationService.getNextStringId();
@@ -153,7 +153,7 @@ public class BlobTest extends AbstractSingleSpringContextTests {
 			outputStream = new FileOutputStream(targetFile);
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
-			int targetFileSize = ChannelUtil.copy(inputChannel, outputChannel);
+			int targetFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			assertEquals(sourceFileSize, targetFileSize);
 			assertEquals(uniqueFileName, returnedFileDTO.getUniqueFileName());
