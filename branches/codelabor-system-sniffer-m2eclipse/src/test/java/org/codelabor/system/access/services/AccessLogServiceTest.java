@@ -6,15 +6,20 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.access.dtos.AccessLogDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
-public class AccessLogServiceTest extends BaseTestCase {
+public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 
 	private AccessLogService accessLogService;
 	protected IQueryService queryService;
 	protected Log log = LogFactory.getLog(this.getClass());
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath:/**/applicationContext*.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
