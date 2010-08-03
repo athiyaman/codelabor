@@ -81,7 +81,9 @@ public class FileDownloadAction extends DownloadAction {
 		} else {
 			stringBuilder.append("attachment; filename=");
 		}
+		stringBuilder.append("\"");
 		stringBuilder.append(encodedRealFileName);
+		stringBuilder.append("\"");
 		response.setHeader(
 				org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
 				stringBuilder.toString());
