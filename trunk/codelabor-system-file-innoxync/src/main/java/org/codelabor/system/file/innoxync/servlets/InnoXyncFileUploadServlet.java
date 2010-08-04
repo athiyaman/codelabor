@@ -1,6 +1,5 @@
 package org.codelabor.system.file.innoxync.servlets;
 
-
 import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
 
 import java.io.IOException;
@@ -16,8 +15,8 @@ import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.servlets.FileUploadServlet;
-import org.codelabor.system.file.utils.UploadUtil;
-import org.codelabor.system.utils.RequestUtil;
+import org.codelabor.system.file.utils.UploadUtils;
+import org.codelabor.system.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,7 +66,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 
 	protected void save(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap);
 
 		RepositoryType acceptedRepositoryType = repositoryType;
@@ -109,14 +108,14 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 						FileDTO fileDTO = null;
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFileName(UploadUtil
+						fileDTO.setRealFileName(UploadUtils
 								.stripPathInfo(fileName));
 						fileDTO
 								.setUniqueFileName(uniqueFileNameGenerationService
 										.getNextStringId());
 						// fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
-						UploadUtil.processFile(acceptedRepositoryType, is,
+						UploadUtils.processFile(acceptedRepositoryType, is,
 								fileDTO);
 						if (fileDTO != null)
 							fileManager.insertFile(fileDTO);
@@ -139,7 +138,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 	@Override
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		Map<String, Object> paramMap = RequestUtil.getParameterMap(request);
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
