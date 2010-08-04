@@ -6,10 +6,10 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
   <groupId>org.codelabor</groupId>
-  <artifactId>calendar-service</artifactId>
+  <artifactId>codelabor-common-calendar</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>calendar-service</name>
+  <name>codelabor-common-calendar</name>
   <url>http://codelabor.googlecode.com</url>
   <description>
 	Business day, holiday calendar service

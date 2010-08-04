@@ -15,15 +15,15 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.calendar.services;
+package org.codelabor.common.calendar.services;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.codelabor.system.calendar.exceptions.DateOutOfRangeException;
-import org.codelabor.system.calendar.exceptions.NoSuchDateException;
+import org.codelabor.common.calendar.exceptions.DateOutOfRangeException;
+import org.codelabor.common.calendar.exceptions.NoSuchDateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

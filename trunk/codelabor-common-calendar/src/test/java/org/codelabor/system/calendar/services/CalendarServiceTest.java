@@ -20,6 +20,7 @@ package org.codelabor.system.calendar.services;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.codelabor.common.calendar.services.CalendarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractSingleSpringContextTests;

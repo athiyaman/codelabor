@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.calendar.services;
+package org.codelabor.common.calendar.services;
 
 import java.util.Date;
 

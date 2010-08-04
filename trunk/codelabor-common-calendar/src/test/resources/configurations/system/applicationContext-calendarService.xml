@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean
 		id="holidayCalendarService"
-		class="org.codelabor.system.calendar.services.HolidayCalendarServiceImpl">
+		class="org.codelabor.common.calendar.services.HolidayCalendarServiceImpl">
 		<property name="formatPattern" value="yyyy-MM-dd"/>
 		<property name="dateRangeFrom" value="2010-01-01"/>
 		<property name="dateRangeTo" value="2010-12-31"/>
@@ -140,7 +140,7 @@
 
 	<bean
 		id="fiveDayWorkweekCalendarService"
-		class="org.codelabor.system.calendar.services.FiveDayWorkweekCalendarServiceImpl">
+		class="org.codelabor.common.calendar.services.FiveDayWorkweekCalendarServiceImpl">
 		<property name="formatPattern" value="yyyy-MM-dd"/>
 		<property name="dateRangeFrom" value="2009-01-01"/>
 		<property name="dateRangeTo" value="2011-12-31"/>
