@@ -88,25 +88,25 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		Date businessdayDate = null;
 		Date tempDate = date;
 
-		if (amount > 0) {
+		if (amount == 0) {
+			if (this.isBusinessday(tempDate)) {
+				businessdayDate = tempDate;
+			}
+		} else if (amount > 0) {
 			while (amount > 0) {
+				tempDate = DateUtils.addDays(tempDate, 1);
 				if (isBusinessday(tempDate)) {
 					businessdayDate = tempDate;
 					amount--;
 				}
-				tempDate = DateUtils.addDays(tempDate, 1);
 			}
 		} else if (amount < 0) {
 			while (amount < 0) {
+				tempDate = DateUtils.addDays(tempDate, -1);
 				if (isBusinessday(tempDate)) {
 					businessdayDate = tempDate;
 					amount++;
 				}
-				tempDate = DateUtils.addDays(tempDate, -1);
-			}
-		} else {
-			if (this.isBusinessday(date)) {
-				businessdayDate = date;
 			}
 		}
 
@@ -128,25 +128,25 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		Date holidayDate = null;
 		Date tempDate = date;
 
-		if (amount > 0) {
+		if (amount == 0) {
+			if (this.isHoliday(tempDate)) {
+				holidayDate = tempDate;
+			}
+		} else if (amount > 0) {
 			while (amount > 0) {
+				tempDate = DateUtils.addDays(tempDate, 1);
 				if (isHoliday(tempDate)) {
 					holidayDate = tempDate;
 					amount--;
 				}
-				tempDate = DateUtils.addDays(tempDate, 1);
 			}
 		} else if (amount < 0) {
 			while (amount < 0) {
+				tempDate = DateUtils.addDays(tempDate, -1);
 				if (isHoliday(tempDate)) {
 					holidayDate = tempDate;
 					amount++;
 				}
-				tempDate = DateUtils.addDays(tempDate, -1);
-			}
-		} else {
-			if (this.isHoliday(date)) {
-				holidayDate = date;
 			}
 		}
 
