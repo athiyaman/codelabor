@@ -1,6 +1,7 @@
 package org.codelabor.system.sniffer.filters;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Enumeration;
 
 import javax.servlet.FilterChain;
@@ -24,7 +25,8 @@ public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
 		while (headerNames.hasMoreElements()) {
 			headerName = headerNames.nextElement();
 			headerValues = httpServletRequest.getHeaders(headerName);
-			logger.debug("{}: {}", headerName, headerValues);
+			logger.debug("{}: {}", headerName, Collections.list(headerValues)
+					.toArray());
 		}
 		filterChain.doFilter(request, response);
 	}
