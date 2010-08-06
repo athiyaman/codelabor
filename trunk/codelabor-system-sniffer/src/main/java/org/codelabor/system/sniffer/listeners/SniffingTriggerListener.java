@@ -15,15 +15,16 @@
  */
 package org.codelabor.system.sniffer.listeners;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.quartz.JobExecutionContext;
 import org.quartz.Trigger;
 import org.quartz.TriggerListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SniffingTriggerListener implements TriggerListener {
 
-	protected Log log = LogFactory.getLog(SniffingTriggerListener.class);
+	protected Logger logger = LoggerFactory
+			.getLogger(SniffingTriggerListener.class);
 
 	/*
 	 * (non-Javadoc)
@@ -42,14 +43,7 @@ public class SniffingTriggerListener implements TriggerListener {
 	 */
 	public void triggerComplete(Trigger trigger, JobExecutionContext context,
 			int triggerInstructionCode) {
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("triggerComplete: ");
-			sb.append(trigger.getJobName());
-			sb.append(", ");
-			sb.append(trigger.toString());
-			log.debug(sb.toString());
-		}
+		logger.debug("jobName: {}", trigger.getJobName());
 	}
 
 	/*
@@ -59,14 +53,7 @@ public class SniffingTriggerListener implements TriggerListener {
 	 * org.quartz.JobExecutionContext)
 	 */
 	public void triggerFired(Trigger trigger, JobExecutionContext context) {
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("triggerFired: ");
-			sb.append(trigger.getJobName());
-			sb.append(", ");
-			sb.append(trigger.toString());
-			log.debug(sb.toString());
-		}
+		logger.debug("jobName: {}", trigger.getJobName());
 	}
 
 	/*
@@ -75,14 +62,7 @@ public class SniffingTriggerListener implements TriggerListener {
 	 * @see org.quartz.TriggerListener#triggerMisfired(org.quartz.Trigger)
 	 */
 	public void triggerMisfired(Trigger trigger) {
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("triggerMisfired: ");
-			sb.append(trigger.getJobName());
-			sb.append(", ");
-			sb.append(trigger.toString());
-			log.debug(sb.toString());
-		}
+		logger.debug("jobName: {}", trigger.getJobName());
 	}
 
 	/*
@@ -92,14 +72,7 @@ public class SniffingTriggerListener implements TriggerListener {
 	 * org.quartz.JobExecutionContext)
 	 */
 	public boolean vetoJobExecution(Trigger trigger, JobExecutionContext context) {
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("vetoJobExecution: ");
-			sb.append(trigger.getJobName());
-			sb.append(", ");
-			sb.append(trigger.toString());
-			log.debug(sb.toString());
-		}
+		logger.debug("jobName: {}", trigger.getJobName());
 		return false;
 	}
 }

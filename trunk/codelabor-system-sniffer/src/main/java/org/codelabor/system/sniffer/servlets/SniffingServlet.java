@@ -20,7 +20,6 @@ public class SniffingServlet implements Servlet {
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter writer = response.getWriter();
-
 		try {
 			writer.write(SniffingUtils.toHTML(request));
 		} catch (Exception e) {
