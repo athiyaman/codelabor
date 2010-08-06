@@ -17,6 +17,8 @@
 
 package org.codelabor.system.sniffer.advices;
 
+import java.util.Arrays;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.codelabor.system.advices.BaseAdvice;
@@ -38,49 +40,19 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 	}
 
 	public void dumpArguments(JoinPoint joinPoint) {
-		if (logger.isDebugEnabled()) {
-			String className = joinPoint.getTarget().getClass().getName();
-			String methodName = joinPoint.getSignature().getName() + "()";
-
-			Object[] args = joinPoint.getArgs();
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("class: ").append(className);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("method: ").append(methodName);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("args: ");
-			for (int i = 0; i < args.length; i++) {
-				stringBuilder.append(args[i]);
-				if (i != (args.length - 1)) {
-					stringBuilder.append(", ");
-				}
-			}
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
+		logger.debug("method: {}", joinPoint.getSignature().getName());
+		logger.debug("args: {}", Arrays.toString(joinPoint.getArgs()));
 	}
 
 	public void dumpReturn(JoinPoint joinPoint, Object returnObject) {
-		if (logger.isDebugEnabled()) {
-			String className = joinPoint.getTarget().getClass().getName();
-			String methodName = joinPoint.getSignature().getName() + "()";
-
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("class: ").append(className);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("method: ").append(methodName);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("return: ");
-			stringBuilder.append(returnObject);
-
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
+		logger.debug("method: {}", joinPoint.getSignature().getName());
+		logger.debug("return: {}", returnObject);
 	}
 
 	public void dumpException(JoinPoint joinPoint, Exception exception) {
 		if (logger.isErrorEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
 			String messageCode = null;
 			String messageKey = null;
 			String userMessage = null;
@@ -103,58 +75,49 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 				userMessage = exception.getMessage();
 			}
 
-			String className = joinPoint.getTarget().getClass().getName();
-			String methodName = joinPoint.getSignature().getName() + "()";
 			// SourceLocation sourceLocation = joinPoint.getSourceLocation();
 			// String fileName = sourceLocation.getFileName();
 			// int line = sourceLocation.getLine();
 
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("-----------------------");
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("class: ").append(className);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("method: ").append(methodName);
-			stringBuilder.append(System.getProperty("line.separator"));
-			// stringBuilder.append("file: ").append(fileName);
-			// stringBuilder.append(System.getProperty("line.separator"));
-			// stringBuilder.append("line: ").append(line);
-			// stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("exception class: ").append(
-					exception.getClass());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("message code: ").append(messageCode);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("message key: ").append(messageKey);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("user message: ").append(userMessage);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("reason: ").append(reason);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("solution: ").append(solution);
-			stringBuilder.append(System.getProperty("line.separator"));
+			logger.debug("class: {}", joinPoint.getTarget().getClass()
+					.getName());
+			logger.debug("method: {}", joinPoint.getSignature().getName());
+			logger.error("exception class: {}", exception.getClass());
+			logger.error("message code: {}", messageCode);
+			logger.error("message key: {}", messageKey);
+			logger.error("user message: {}", userMessage);
+			logger.error("reason: {}", reason);
+			logger.error("solution: {}", solution);
 
 			if (cause != null) {
 				StackTraceElement stackTraceElement = cause.getStackTrace()[0];
-				stringBuilder.append("cause class: ").append(
-						stackTraceElement.getClassName());
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append("cause method: ").append(
-						stackTraceElement.getMethodName());
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append("cause file: ").append(
-						stackTraceElement.getFileName());
-				stringBuilder.append(System.getProperty("line.separator"));
-				stringBuilder.append("cause line: ").append(
-						stackTraceElement.getLineNumber());
-				stringBuilder.append(System.getProperty("line.separator"));
+				logger.error("cause class: {}", stackTraceElement
+						.getClassName());
+				logger.error("cause method: {}", stackTraceElement
+						.getMethodName());
+				logger.error("cause file: {}", stackTraceElement.getFileName());
+				logger.error("cause line: {}", stackTraceElement
+						.getLineNumber());
 			}
-
-			stringBuilder.append("-----------------------");
-			stringBuilder.append(System.getProperty("line.separator"));
-
-			logger.error(stringBuilder.toString());
 		}
+	}
+
+	public Object getElapsedTime(ProceedingJoinPoint joinPoint)
+			throws Throwable {
+		Object returnValue = null;
+		if (logger.isDebugEnabled()) {
+			StopWatch stopWatch = new StopWatch(getClass().getName());
+			stopWatch.start(joinPoint.toShortString());
+			returnValue = joinPoint.proceed();
+			stopWatch.stop();
+
+			logger.debug("class: {}", joinPoint.getTarget().getClass()
+					.getName());
+			logger.debug("method: {}", joinPoint.getSignature().getName());
+			logger.debug("total time (millis): {}", stopWatch
+					.getTotalTimeMillis());
+		}
+		return returnValue;
 	}
 
 	public int getOrder() {
@@ -163,31 +126,5 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 
 	public void setOrder(int order) {
 		this.order = order;
-	}
-
-	public Object getElapsedTime(ProceedingJoinPoint joinPoint)
-			throws Throwable {
-		Object returnValue = null;
-		if (logger.isDebugEnabled()) {
-			String className = joinPoint.getTarget().getClass().getName();
-			String methodName = joinPoint.getSignature().getName() + "()";
-
-			StopWatch stopWatch = new StopWatch(getClass().getName());
-			stopWatch.start(joinPoint.toShortString());
-			returnValue = joinPoint.proceed();
-			stopWatch.stop();
-
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("class: ").append(className);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("method: ").append(methodName);
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("total time (millis): ").append(
-					stopWatch.getTotalTimeMillis());
-
-			logger.debug(stringBuilder.toString());
-		}
-		return returnValue;
 	}
 }
