@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="intIdArrayForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="int[]" />
+		</form-bean>
+		<form-bean name="longIdArrayForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="long[]" />
+		</form-bean>		
+		<form-bean name="stringIdArrayForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="java.lang.String[]" />
+		</form-bean>
+	</form-beans>
+	<message-resources 
+		parameter="messages.MessageResources" />
+	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+		<set-property property="definitions-config" 
+			value="/WEB-INF/classes/definitions/tiles-defs.xml,
+				/WEB-INF/classes/definitions/example/tiles-defs.xml,
+				/WEB-INF/classes/definitions/example/file/tiles-defs.xml,
+				/WEB-INF/classes/definitions/system/tiles-defs.xml,
+				/WEB-INF/classes/definitions/system/error/tiles-defs.xml" />
+		<set-property property="definitions-parser-validate" value="true" />
+	</plug-in>
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+			/WEB-INF/classes/validations/validation.xml
+			" />
+		<set-property property="stopOnFirstError" value="false" />
+	</plug-in>	
+</struts-config>
