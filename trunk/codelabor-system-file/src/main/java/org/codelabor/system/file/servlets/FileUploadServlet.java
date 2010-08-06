@@ -77,7 +77,6 @@ public class FileUploadServlet extends HttpServlet {
 
 	// configuration
 	protected String characterEncoding = "UTF-8";
-	protected boolean isRename = true;
 	protected int sizeThreshold = DiskFileItemFactory.DEFAULT_SIZE_THRESHOLD;
 	protected long fileSizeMax = 1024 * 1024 * 10;
 	protected long requestSizeMax = 1024 * 1024 * 100;
@@ -110,8 +109,6 @@ public class FileUploadServlet extends HttpServlet {
 		// overwrite configuration
 		characterEncoding = propertiesService.getString(
 				"file.default.character.encoding", characterEncoding);
-		isRename = propertiesService.getBoolean("file.default.rename.flag",
-				isRename);
 		sizeThreshold = propertiesService.getInt(
 				"file.default.file.size.threshold", sizeThreshold);
 		fileSizeMax = propertiesService.getLong("file.default.file.size.max",
@@ -228,8 +225,8 @@ public class FileUploadServlet extends HttpServlet {
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
 						logger.debug("fileDTO: {}", fileDTO.toString());
-						UploadUtils.processFile(acceptedRepositoryType, fileItem
-								.getInputStream(), fileDTO);
+						UploadUtils.processFile(acceptedRepositoryType,
+								fileItem.getInputStream(), fileDTO);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
