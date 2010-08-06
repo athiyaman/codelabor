@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -29,7 +29,7 @@ import org.codelabor.system.dtos.MessageDTO;
 import org.codelabor.system.listeners.BaseListener;
 import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.login.services.LoginService;
-import org.codelabor.system.utils.MessageUtil;
+import org.codelabor.system.utils.MessageUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -80,7 +80,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 								loginDTO);
 			} catch (Exception e) {
 				e.printStackTrace();
-				MessageDTO messageDTO = MessageUtil.exceptionToMessageDTO(e);
+				MessageDTO messageDTO = MessageUtils.exceptionToMessageDTO(e);
 				if (logger.isErrorEnabled()) {
 					logger.error(messageDTO.getUserMessage(), e);
 				}
@@ -121,7 +121,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 				loginService.logout(loginDTO);
 			} catch (Exception e) {
 				e.printStackTrace();
-				MessageDTO messageDTO = MessageUtil.exceptionToMessageDTO(e);
+				MessageDTO messageDTO = MessageUtils.exceptionToMessageDTO(e);
 				if (logger.isErrorEnabled()) {
 					logger.error(messageDTO.getUserMessage(), e);
 				}

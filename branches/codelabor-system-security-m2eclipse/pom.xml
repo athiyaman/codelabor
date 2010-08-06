@@ -66,6 +66,13 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
@@ -80,7 +87,7 @@
 	<developers>
 		<developer>
 			<id>bomber</id>
-			<name>Sang Jae Shin</name>
+			<name>Shin Sangjae</name>
 			<email>codelabor@gmail.com</email>
 			<url>http://codelabor.org</url>
 			<organization>CODELABOR</organization>
