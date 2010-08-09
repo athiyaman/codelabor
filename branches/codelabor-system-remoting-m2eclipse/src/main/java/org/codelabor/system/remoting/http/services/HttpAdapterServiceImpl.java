@@ -98,10 +98,7 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 			}
 
 			String encodedURI = URIUtil.encodeQuery(sb.toString());
-
-			if (log.isDebugEnabled()) {
-				log.debug(encodedURI);
-			}
+			logger.debug("encodedURI: {}", encodedURI);
 
 			method = new GetMethod(encodedURI);
 			HttpParams httpParams = new DefaultHttpParams();
@@ -113,29 +110,20 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 					httpParams));
 
 			int statusCode = httpClient.executeMethod(method);
-			if (log.isDebugEnabled()) {
-				sb = new StringBuilder();
-				sb.append("statusCode: ").append(statusCode);
-				log.debug(sb.toString());
-			}
+			logger.debug("statusCode: {}", statusCode);
 			switch (statusCode) {
 			case HttpStatus.SC_OK:
 				responseBody = method.getResponseBodyAsString();
-				if (log.isDebugEnabled()) {
-					sb = new StringBuilder();
-					sb = new StringBuilder();
-					sb.append("responseBody: ").append(responseBody);
-					log.debug(sb.toString());
-				}
+				logger.debug("responseBody: {}", responseBody);
 				break;
 			}
 		} catch (Exception e) {
-			if (log.isErrorEnabled()) {
+			if (logger.isErrorEnabled()) {
 				String messageKey = "error.http.request";
 				String userMessage = messageSource
 						.getMessage(messageKey, new String[] {},
 								"default message", Locale.getDefault());
-				log.error(userMessage, e);
+				logger.error(userMessage, e);
 			}
 			e.printStackTrace();
 			throw e;
@@ -159,7 +147,7 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 		String responseBody = null;
 		PostMethod method = null;
 		RequestEntity requestEntity = null;
-	
+
 		try {
 			requestEntity = new StringRequestEntity(content, contentType,
 					charsetName);
@@ -167,22 +155,12 @@ public class HttpAdapterServiceImpl extends BaseServiceImpl implements
 			method.setRequestEntity(requestEntity);
 			HttpClient httpClient = new HttpClient();
 			int statusCode = httpClient.executeMethod(method);
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb = new StringBuilder();
-				sb.append("statusCode: ").append(statusCode);
-				log.debug(sb.toString());
-			}
+			logger.debug("statusCode: {}", statusCode);
+
 			switch (statusCode) {
-	
 			case HttpStatus.SC_OK:
 				responseBody = method.getResponseBodyAsString();
-				if (log.isDebugEnabled()) {
-					StringBuilder sb = new StringBuilder();
-					sb = new StringBuilder();
-					sb.append("responseBody: ").append(responseBody);
-					log.debug(sb.toString());
-				}
+				logger.debug("responseBody: {}", responseBody);
 				break;
 			}
 		} catch (Exception e) {
