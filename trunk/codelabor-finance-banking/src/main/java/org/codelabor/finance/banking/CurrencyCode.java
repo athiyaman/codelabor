@@ -1,4 +1,4 @@
-package org.codelabor.system.banking;
+package org.codelabor.finance.banking;
 
 public enum CurrencyCode {
 	// ISO 4217
