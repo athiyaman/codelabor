@@ -39,7 +39,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			.getLogger(InnoXyncFileUploadServlet.class);
 
 	public enum Parameter {
-		save, download, list
+		save, download, list, getMapId
 	};
 
 	@Override
@@ -58,9 +58,49 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			case list:
 				list(request, response);
 				break;
+			case getMapId:
+				getMapId(request, response);
+				break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	protected void getMapId(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
+		logger.debug("paramMap: {}", paramMap.toString());
+
+		IXyncOutputStream gos = null;
+
+		try {
+			// innoxync stream
+			gos = ((HttpIXyncResponse) response).getIXyncOutputStream();
+
+			// TODO get map id
+			String mapId = this.mapIdGenerationService.getNextStringId();
+			logger.debug("mapId: {}", mapId);
+
+			// make dataset
+			IXyncDataSet dataset = new IXyncDataSet("mapId");
+			dataset.addDataColumn(new IXyncDataColumn("map_id",
+					IXyncDataColumn.TB_STRING, 255));
+			IXyncDataRow dataRow = dataset.newDataRow();
+			dataRow.addColumnValue(mapId);
+			dataset.addDataRow(dataRow);
+
+			logger.debug("dataset: {}", dataset);
+			logger.debug("dataset row count: {}", dataset.getDataRowCnt());
+			logger.debug("dataset column count: {}", dataset.getDataColCnt());
+
+			gos.write(dataset);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (gos != null) {
+				gos.close();
+			}
 		}
 	}
 
