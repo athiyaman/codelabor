@@ -17,6 +17,7 @@
 
 package org.codelabor.system.file.strategies;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
@@ -54,15 +55,13 @@ public class UniqueFileNameStrategy implements IdGenerationStrategy {
 	}
 
 	public String makeId(String originalId) {
-		SimpleDateFormat dateAndTimeFormat = new SimpleDateFormat(
-				dateAndTimePattern, Locale.getDefault());
-		String dateAndTimeString = dateAndTimeFormat.format(System
-				.currentTimeMillis());
+		DateFormat dateFormat = new SimpleDateFormat(dateAndTimePattern, Locale
+				.getDefault());
+		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
 		sb.append(prefix);
-		sb.append(dateAndTimeString);
-		sb.append(StringUtil
-				.fillString(originalId, fillChar, cipers));
+		sb.append(dateFormatString);
+		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
 		return sb.toString();
 	}
 }
