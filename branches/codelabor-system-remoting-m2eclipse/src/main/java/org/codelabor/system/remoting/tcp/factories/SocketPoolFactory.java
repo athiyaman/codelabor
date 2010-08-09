@@ -21,7 +21,7 @@ import java.net.Socket;
 import org.apache.commons.pool.BasePoolableObjectFactory;
 
 /**
- * @author "Sang Jae Shin"
+ * @author Shin Sangjae
  * 
  */
 public class SocketPoolFactory extends BasePoolableObjectFactory {

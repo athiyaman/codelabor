@@ -26,7 +26,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author "Sang Jae Shin"
+ * @author Shin Sangjae
  * 
  */
 public class SocketPoolTest {
