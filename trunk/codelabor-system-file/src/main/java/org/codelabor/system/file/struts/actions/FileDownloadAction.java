@@ -46,7 +46,7 @@ public class FileDownloadAction extends DownloadAction {
 				.getRequiredWebApplicationContext(servlet.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
-		FileDTO fileDTO = fileManager.selectFile(fileId);
+		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();

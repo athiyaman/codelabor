@@ -38,7 +38,7 @@ public class FileDownloadController extends BaseFileController {
 		StringBuilder stringBuilder = null;
 
 		FileDTO fileDTO;
-		fileDTO = fileManager.selectFile(fileId);
+		fileDTO = fileManager.selectFileByFileId(fileId);
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();

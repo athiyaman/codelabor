@@ -61,8 +61,8 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 		return fileDAO.selectFile();
 	}
 
-	public FileDTO selectFile(String fileId) throws Exception {
-		return fileDAO.selectFile(fileId);
+	public FileDTO selectFileByFileId(String fileId) throws Exception {
+		return fileDAO.selectFileByFileId(fileId);
 	}
 
 	public FileDAO getFileDAO() {

@@ -87,7 +87,7 @@ public class FileUploadAction extends BaseDispatchAction {
 						.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
-		FileDTO fileDTO = fileManager.selectFile(fileId);
+		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
 		request.setAttribute(Constants.FILE_KEY, fileDTO);
 		return mapping.findForward("read");
 	}

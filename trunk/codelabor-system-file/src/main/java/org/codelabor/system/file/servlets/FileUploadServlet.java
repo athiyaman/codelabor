@@ -296,7 +296,7 @@ public class FileUploadServlet extends HttpServlet {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		FileDTO fileDTO;
-		fileDTO = fileManager.selectFile(fileId);
+		fileDTO = fileManager.selectFileByFileId(fileId);
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
@@ -384,7 +384,7 @@ public class FileUploadServlet extends HttpServlet {
 	protected void read(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String fileId = request.getParameter("fileId");
-		FileDTO fileDTO = fileManager.selectFile(fileId);
+		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
 		request.setAttribute(org.codelabor.system.file.Constants.FILE_KEY,
 				fileDTO);
 		dispatch(request, response, forwardPathRead);

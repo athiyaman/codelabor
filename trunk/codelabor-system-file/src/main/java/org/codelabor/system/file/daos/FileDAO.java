@@ -41,7 +41,7 @@ public interface FileDAO {
 
 	public List<FileDTO> selectFile() throws Exception;
 
-	public FileDTO selectFile(String fileId) throws Exception;
+	public FileDTO selectFileByFileId(String fileId) throws Exception;
 
 	public List<FileDTO> selectFileByMapId(String mapId) throws Exception;
 

@@ -83,8 +83,8 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public FileDTO selectFile(String fileId) throws Exception {
-		String queryId = "system.select.file";
+	public FileDTO selectFileByFileId(String fileId) throws Exception {
+		String queryId = "system.select.file.by.file.id";
 		Object[] param = new Object[] { fileId };
 		Collection<FileDTO> fileCol = queryService.find(queryId, param);
 		if (fileCol == null || fileCol.size() == 0)

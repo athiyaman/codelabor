@@ -41,7 +41,7 @@ public interface FileManager {
 	public List<FileDTO> selectFileByRepositoryType(RepositoryType repositoryType)
 			throws Exception;
 
-	public FileDTO selectFile(String fileId) throws Exception;
+	public FileDTO selectFileByFileId(String fileId) throws Exception;
 
 	public List<FileDTO> selectFileByMapId(String mapId) throws Exception;
 
