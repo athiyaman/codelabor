@@ -5,10 +5,11 @@ import anyframe.core.idgen.IdGenerationStrategy;
 public class PostfixStrategy implements IdGenerationStrategy {
 
 	protected String postfix;
+	protected String delimeter;
 
 	public String makeId(String originalId) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(originalId);
+		sb.append(originalId).append(delimeter);
 		sb.append(postfix);
 		return sb.toString();
 	}
@@ -19,6 +20,10 @@ public class PostfixStrategy implements IdGenerationStrategy {
 
 	public void setPostfix(String prefix) {
 		this.postfix = prefix;
+	}
+
+	public void setDelimeter(String delimeter) {
+		this.delimeter = delimeter;
 	}
 
 }
