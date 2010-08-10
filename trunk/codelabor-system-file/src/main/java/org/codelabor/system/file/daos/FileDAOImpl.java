@@ -31,7 +31,7 @@ import org.codelabor.system.file.dtos.FileDTO;
 public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	public int insertFile(FileDTO fileDTO) throws Exception {
-		int nextId = idGenerationService.getNextIntegerId();
+		String nextId = idGenerationService.getNextStringId();
 
 		logger.debug("fileId: {}", nextId);
 
