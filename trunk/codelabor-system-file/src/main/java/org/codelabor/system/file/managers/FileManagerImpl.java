@@ -23,15 +23,13 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.daos.FileDAO;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 
 /**
  * @author Shin Sangjae
  * 
  */
-public class FileManagerImpl extends BaseManagerImpl implements FileManager,
-		InitializingBean {
+public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 
 	FileDAO fileDAO;
 
@@ -73,11 +71,7 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 	}
 
 	public void setFileDAO(FileDAO fileDAO) {
+		Assert.notNull(fileDAO);
 		this.fileDAO = fileDAO;
 	}
-
-	public void afterPropertiesSet() throws Exception {
-		Assert.notNull(fileDAO);
-	}
-
 }
