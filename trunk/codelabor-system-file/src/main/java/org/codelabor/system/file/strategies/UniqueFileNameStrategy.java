@@ -38,6 +38,8 @@ public class UniqueFileNameStrategy implements IdGenerationStrategy {
 
 	protected char fillChar;
 
+	protected String delimiter;
+
 	public void setCipers(int cipers) {
 		this.cipers = cipers;
 	}
@@ -60,8 +62,18 @@ public class UniqueFileNameStrategy implements IdGenerationStrategy {
 		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
 		sb.append(prefix);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
 		sb.append(dateFormatString);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
 		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
 		return sb.toString();
+	}
+
+	public void setDelimiter(String delimiter) {
+		this.delimiter = delimiter;
 	}
 }
