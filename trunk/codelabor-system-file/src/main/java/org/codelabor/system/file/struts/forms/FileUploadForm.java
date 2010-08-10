@@ -17,6 +17,7 @@ public class FileUploadForm extends BaseForm {
 	private static final long serialVersionUID = -163569058243568483L;
 	protected String[] fileId = {};
 	protected List<FormFile> formFileList = new Vector<FormFile>();
+	private String mapId;
 
 	public FileUploadForm() {
 	}
@@ -56,5 +57,13 @@ public class FileUploadForm extends BaseForm {
 
 	public List<FormFile> getFormFileList() {
 		return formFileList;
+	}
+
+	public String getMapId() {
+		return mapId;
+	}
+
+	public void setMapId(String mapId) {
+		this.mapId = mapId;
 	}
 }

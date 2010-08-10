@@ -113,10 +113,11 @@ public class FileUploadAction extends BaseDispatchAction {
 		// get form
 		FileUploadForm uploadForm = (FileUploadForm) form;
 		List<FormFile> formFileList = uploadForm.getFormFileList();
+		String mapId = uploadForm.getMapId();
 
 		// upload
 		List<FileDTO> fileDTOList = this.saveFile(RepositoryType
-				.valueOf(repositoryType), formFileList);
+				.valueOf(repositoryType), mapId, formFileList);
 
 		// invoke manager
 
@@ -127,8 +128,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		return mapping.findForward("upload");
 	}
 
-	protected FileDTO saveFile(RepositoryType repositoryType, FormFile formFile)
-			throws Exception {
+	protected FileDTO saveFile(RepositoryType repositoryType, String mapId,
+			FormFile formFile) throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(getServlet()
 						.getServletContext());
@@ -151,6 +152,7 @@ public class FileUploadAction extends BaseDispatchAction {
 
 		// set dto
 		FileDTO fileDTO = new FileDTO();
+		fileDTO.setMapId(mapId);
 		fileDTO.setRealFileName(realFileName);
 		fileDTO.setUniqueFileName(uniqueFileName);
 		fileDTO.setFileSize(fileSize);
@@ -163,7 +165,7 @@ public class FileUploadAction extends BaseDispatchAction {
 	}
 
 	protected List<FileDTO> saveFile(RepositoryType repositoryType,
-			List<FormFile> formFileList) throws Exception {
+			String mapId, List<FormFile> formFileList) throws Exception {
 		List<FileDTO> fileDTOList = new ArrayList<FileDTO>();
 		Iterator<FormFile> iter = formFileList.iterator();
 		while (iter.hasNext()) {
@@ -172,7 +174,7 @@ public class FileUploadAction extends BaseDispatchAction {
 			if (realFileName == null || realFileName.length() == 0) {
 				continue;
 			}
-			FileDTO fileDTO = saveFile(repositoryType, formFile);
+			FileDTO fileDTO = saveFile(repositoryType, mapId, formFile);
 			fileDTOList.add(fileDTO);
 		}
 		return fileDTOList;
