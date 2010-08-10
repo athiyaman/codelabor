@@ -52,6 +52,7 @@
 	<bean name="fileNameStrategy"
 		class="org.codelabor.system.file.strategies.UniqueFileNameStrategy">
 		<property name="prefix" value="FILE" />
+		<property name="delimiter" value="-" />
 		<property name="dateAndTimePattern" value="yyyyMMddHHmmssSSS" />
 		<property name="cipers" value="3" />
 		<property name="fillChar" value="0" />
