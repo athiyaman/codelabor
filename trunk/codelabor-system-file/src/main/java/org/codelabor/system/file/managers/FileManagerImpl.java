@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,12 +23,15 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.daos.FileDAO;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.util.Assert;
 
 /**
- * @author Shin Sangjae 
+ * @author Shin Sangjae
  * 
  */
-public class FileManagerImpl extends BaseManagerImpl implements FileManager {
+public class FileManagerImpl extends BaseManagerImpl implements FileManager,
+		InitializingBean {
 
 	FileDAO fileDAO;
 
@@ -48,8 +51,8 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 		return fileDAO.insertFile(fileDTOList);
 	}
 
-	public List<FileDTO> selectFileByRepositoryType(RepositoryType repositoryType)
-			throws Exception {
+	public List<FileDTO> selectFileByRepositoryType(
+			RepositoryType repositoryType) throws Exception {
 		return fileDAO.selectFileByRepositoryType(repositoryType);
 	}
 
@@ -71,6 +74,10 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager {
 
 	public void setFileDAO(FileDAO fileDAO) {
 		this.fileDAO = fileDAO;
+	}
+
+	public void afterPropertiesSet() throws Exception {
+		Assert.notNull(fileDAO);
 	}
 
 }
