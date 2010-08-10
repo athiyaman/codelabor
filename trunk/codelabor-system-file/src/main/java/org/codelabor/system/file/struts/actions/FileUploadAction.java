@@ -115,6 +115,9 @@ public class FileUploadAction extends BaseDispatchAction {
 		List<FormFile> formFileList = uploadForm.getFormFileList();
 		String mapId = uploadForm.getMapId();
 
+		logger.debug("formFileList: {}", formFileList);
+		logger.debug("mapId: {}", mapId);
+
 		// upload
 		List<FileDTO> fileDTOList = this.saveFile(RepositoryType
 				.valueOf(repositoryType), mapId, formFileList);
