@@ -9,7 +9,10 @@ public class PrefixStrategy implements IdGenerationStrategy {
 
 	public String makeId(String originalId) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(prefix).append(delimiter);
+		sb.append(prefix);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
 		sb.append(originalId);
 		return sb.toString();
 	}

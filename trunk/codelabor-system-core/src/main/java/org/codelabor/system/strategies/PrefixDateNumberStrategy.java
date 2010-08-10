@@ -44,8 +44,14 @@ public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 				.getDefault());
 		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
-		sb.append(prefix).append(delimiter);
-		sb.append(dateFormatString).append(delimiter);
+		sb.append(prefix);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
+		sb.append(dateFormatString);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
 		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
 		return sb.toString();
 	}

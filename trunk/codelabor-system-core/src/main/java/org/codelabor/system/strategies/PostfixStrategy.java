@@ -9,7 +9,10 @@ public class PostfixStrategy implements IdGenerationStrategy {
 
 	public String makeId(String originalId) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(originalId).append(delimiter);
+		sb.append(originalId);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
 		sb.append(postfix);
 		return sb.toString();
 	}
