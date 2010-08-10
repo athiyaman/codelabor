@@ -11,7 +11,7 @@ public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 
 	protected String prefix;
 
-	protected String delimeter;
+	protected String delimiter;
 
 	protected String datePattern;
 
@@ -35,8 +35,8 @@ public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 		this.prefix = prefix;
 	}
 
-	public void setDelimeter(String delimeter) {
-		this.delimeter = delimeter;
+	public void setDelimiter(String delimeter) {
+		this.delimiter = delimeter;
 	}
 
 	public String makeId(String originalId) {
@@ -44,8 +44,8 @@ public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 				.getDefault());
 		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
-		sb.append(prefix).append(delimeter);
-		sb.append(dateFormatString).append(delimeter);
+		sb.append(prefix).append(delimiter);
+		sb.append(dateFormatString).append(delimiter);
 		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
 		return sb.toString();
 	}

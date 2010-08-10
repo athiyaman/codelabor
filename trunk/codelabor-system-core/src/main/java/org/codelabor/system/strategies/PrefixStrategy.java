@@ -5,11 +5,11 @@ import anyframe.core.idgen.IdGenerationStrategy;
 public class PrefixStrategy implements IdGenerationStrategy {
 
 	protected String prefix;
-	protected String delimeter;
+	protected String delimiter;
 
 	public String makeId(String originalId) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(prefix).append(delimeter);
+		sb.append(prefix).append(delimiter);
 		sb.append(originalId);
 		return sb.toString();
 	}
@@ -22,8 +22,8 @@ public class PrefixStrategy implements IdGenerationStrategy {
 		this.prefix = prefix;
 	}
 
-	public void setDelimeter(String delimeter) {
-		this.delimeter = delimeter;
+	public void setDelimiter(String delimiter) {
+		this.delimiter = delimiter;
 	}
 
 }
