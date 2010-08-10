@@ -66,4 +66,25 @@ public class FileUploadForm extends BaseForm {
 	public void setMapId(String mapId) {
 		this.mapId = mapId;
 	}
+
+	/**
+	 * Constructs a <code>String</code> with all attributes in name = value
+	 * format.
+	 * 
+	 * @return a <code>String</code> representation of this object.
+	 */
+	@Override
+	public String toString() {
+		final String TAB = "    ";
+
+		StringBuilder retValue = new StringBuilder();
+
+		retValue.append("FileUploadForm ( ").append(super.toString()).append(
+				TAB).append("fileId = ").append(this.fileId).append(TAB)
+				.append("formFileList = ").append(this.formFileList)
+				.append(TAB).append("mapId = ").append(this.mapId).append(TAB)
+				.append(" )");
+
+		return retValue.toString();
+	}
 }
