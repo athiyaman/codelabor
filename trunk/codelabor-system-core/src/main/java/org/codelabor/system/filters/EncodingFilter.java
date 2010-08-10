@@ -24,7 +24,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import anyframe.common.util.StringUtil;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author Shin Sangjae
@@ -37,18 +37,15 @@ public class EncodingFilter extends BaseFilterImpl {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		String requestBeforeEncoding = request.getCharacterEncoding();
-		String responseBeforeEncoding = response
-				.getCharacterEncoding();
+		String responseBeforeEncoding = response.getCharacterEncoding();
 
 		if (isSameEncoding(encoding, requestBeforeEncoding)) {
 			logger.debug("request character encoding: {}", encoding);
 		} else {
 			request.setCharacterEncoding(encoding);
-			String requestAfterEncoding = request
-					.getCharacterEncoding();
+			String requestAfterEncoding = request.getCharacterEncoding();
 			logger.debug("request character encoding: {} -> {}",
-					requestBeforeEncoding,
-					requestAfterEncoding);
+					requestBeforeEncoding, requestAfterEncoding);
 		}
 		if (isSameEncoding(encoding, responseBeforeEncoding)) {
 			logger.debug("response character encoding: {}", encoding);
@@ -57,8 +54,7 @@ public class EncodingFilter extends BaseFilterImpl {
 			String responseAfterCharacterEncoding = response
 					.getCharacterEncoding();
 			logger.debug("response character encoding: {} -> {}",
-					responseBeforeEncoding,
-					responseAfterCharacterEncoding);
+					responseBeforeEncoding, responseAfterCharacterEncoding);
 		}
 		filterChain.doFilter(request, response);
 	}
@@ -67,7 +63,7 @@ public class EncodingFilter extends BaseFilterImpl {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
 		String tempEncoding = filterConfig.getInitParameter("encoding");
-		if (StringUtil.isNotEmpty(tempEncoding)) {
+		if (!StringUtils.isEmpty(tempEncoding)) {
 			encoding = tempEncoding;
 		}
 	}
