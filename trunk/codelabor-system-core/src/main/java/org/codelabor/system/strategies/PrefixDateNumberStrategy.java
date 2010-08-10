@@ -35,8 +35,8 @@ public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 		this.prefix = prefix;
 	}
 
-	public void setDelimiter(String delimeter) {
-		this.delimiter = delimeter;
+	public void setDelimiter(String delimiter) {
+		this.delimiter = delimiter;
 	}
 
 	public String makeId(String originalId) {
