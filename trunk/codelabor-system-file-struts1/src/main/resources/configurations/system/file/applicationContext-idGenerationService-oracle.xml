@@ -12,19 +12,33 @@
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
+		<property name="strategy" ref="fileIdStrategy" />
 		<config:configuration big-decimals="true">
 			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
-	
+
+	<bean name="fileIdStrategy"
+		class="org.codelabor.system.strategies.PrefixStrategy">
+		<property name="prefix" value="FILE" />
+		<property name="delimiter" value="-" />
+	</bean>
+
 	<bean name="sequenceMapIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
+		<property name="strategy" ref="mapIdStrategy" />
 		<config:configuration big-decimals="true">
 			<query>SELECT MAP_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
-	</bean>		
+	</bean>
+
+	<bean name="mapIdStrategy"
+		class="org.codelabor.system.strategies.PrefixStrategy">
+		<property name="prefix" value="MAP" />
+		<property name="delimiter" value="-" />
+	</bean>
 
 	<bean name="uniqueFileNameGenerationService"
 		class="anyframe.core.idgen.impl.TableIdGenerationService"
@@ -34,7 +48,7 @@
 		<config:configuration
 			block-size="1" table="ID" key-table="UNIQUE_FILE_NAME" />
 	</bean>
-	
+
 	<bean name="fileNameStrategy"
 		class="org.codelabor.system.file.strategies.UniqueFileNameStrategy">
 		<property name="prefix" value="FILE" />

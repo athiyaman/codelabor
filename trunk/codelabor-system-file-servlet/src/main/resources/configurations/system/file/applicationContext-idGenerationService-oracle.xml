@@ -11,6 +11,7 @@
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="oracleDataSource" />
+		<property name="strategy" ref="fileIdStrategy" />
 		<config:configuration big-decimals="true">
 			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
