@@ -12,7 +12,7 @@
 	<appender
 		name="defaultDailyRollingFile"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="${anyframe.log.dir}/anyframe.log"/>
+		<param name="File" value="/logs/anyframe.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
@@ -21,7 +21,7 @@
 	<appender
 		name="codelaborDailyRollingFile"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="${anyframe.log.dir}/codelabor.log"/>
+		<param name="File" value="/logs/codelabor.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
