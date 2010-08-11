@@ -10,6 +10,9 @@
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-core/codelabor-system-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-xecure/codelabor-system-xecure">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-security/codelabor-system-security">
             <dependency-type>uses</dependency-type>
         </dependent-module>
