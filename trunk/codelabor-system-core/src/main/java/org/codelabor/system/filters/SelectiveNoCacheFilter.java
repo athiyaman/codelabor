@@ -10,8 +10,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
-import org.codelabor.system.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,50 +32,15 @@ public abstract class SelectiveNoCacheFilter extends NoCacheFilter {
 			FilterChain filterChain) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		String requestURI = httpServletRequest.getRequestURI();
-		String extension = FileUtils.getExtension(requestURI);
-		if (!StringUtils.isBlank(extension)) {
-			extension = extension.toLowerCase();
-		}
 		logger.debug("request uri: {}", requestURI);
-		logger.debug("extension: {}", extension);
 
-		if (this.isNoCacheRequired(extension)) {
+		if (this.isNoCacheRequired(requestURI)) {
 			this.setNoCache(request, response);
 		}
 		filterChain.doFilter(request, response);
 	}
 
-	protected boolean isNoCacheRequired(String extension) {
-		boolean noCacheRequired = false;
-		if (excludePatterns != null) {
-			if (excludePatterns.contains(extension)) {
-				// bypass
-			} else {
-				if (includePatterns != null) {
-					if (includePatterns.contains(extension)) {
-						noCacheRequired = true;
-					} else {
-						noCacheRequired = false;
-					}
-				} else {
-					noCacheRequired = true;
-				}
-			}
-		} else {
-			if (includePatterns != null) {
-				if (includePatterns.contains(extension)) {
-					noCacheRequired = true;
-				} else {
-					noCacheRequired = false;
-				}
-			} else {
-				noCacheRequired = true;
-			}
-		}
-		logger.debug("extension: {}", extension);
-		logger.debug("noCacheRequired: {}", noCacheRequired);
-		return noCacheRequired;
-	}
+	abstract protected boolean isNoCacheRequired(String requestURI);
 
 	abstract protected List<String> getIncludePatterns(FilterConfig filterConfig);
 
