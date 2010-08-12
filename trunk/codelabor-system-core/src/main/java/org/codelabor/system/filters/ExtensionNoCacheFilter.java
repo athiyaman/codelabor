@@ -16,7 +16,7 @@ public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 
 	@Override
 	protected List<String> getIncludePatterns(FilterConfig filterConfig) {
-		String tempIncludePattern = filterConfig.getInitParameter("include");
+		String tempIncludePattern = filterConfig.getInitParameter("includes");
 		List<String> includePatterns = null;
 		if (!StringUtils.isBlank(tempIncludePattern)) {
 			String[] includePatternsString = tempIncludePattern.toLowerCase()
@@ -32,7 +32,7 @@ public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 
 	@Override
 	protected List<String> getExcludePatterns(FilterConfig filterConfig) {
-		String tempExcludePattern = filterConfig.getInitParameter("include");
+		String tempExcludePattern = filterConfig.getInitParameter("excludes");
 		List<String> excludePatterns = null;
 		if (!StringUtils.isBlank(tempExcludePattern)) {
 			String[] excludePatternsString = tempExcludePattern.toLowerCase()
@@ -46,6 +46,7 @@ public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 		return excludePatterns;
 	}
 
+	@Override
 	protected boolean isNoCacheRequired(String requestURI) {
 		String extension = FileUtils.getExtension(requestURI);
 		if (!StringUtils.isBlank(extension)) {
