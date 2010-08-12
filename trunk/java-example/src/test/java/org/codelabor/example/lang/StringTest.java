@@ -12,7 +12,7 @@ public class StringTest extends TestCase {
 		String[] filePatterns = filePatternString.split(regexpPattern);
 		Assert.assertEquals(3, filePatterns.length);
 		for (String filePattern : filePatterns) {
-			System.out.println(filePattern);
+			System.out.println("filePattern: " + filePattern);
 		}
 	}
 
