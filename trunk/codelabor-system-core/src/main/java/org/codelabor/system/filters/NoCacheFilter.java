@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 public class NoCacheFilter extends BaseFilterImpl {
 
+	@SuppressWarnings("unused")
 	private final Logger logger = LoggerFactory.getLogger(NoCacheFilter.class);
 
 	@Override
