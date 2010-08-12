@@ -26,27 +26,8 @@ public class ExtensionNoCacheFilter extends NoCacheFilter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
-		String tempIncludePattern = filterConfig.getInitParameter("include");
-		if (!StringUtils.isBlank(tempIncludePattern)) {
-			String[] includePatternsString = tempIncludePattern.toLowerCase()
-					.split(delimeterPattern);
-			if (includePatternsString != null
-					&& includePatternsString.length > 0) {
-				includePatterns = Arrays.asList(includePatternsString);
-				logger.debug("includePatterns: {}", includePatterns);
-			}
-		}
-
-		String tempExcludePattern = filterConfig.getInitParameter("exclude");
-		if (!StringUtils.isBlank(tempExcludePattern)) {
-			String[] excludePatternsString = tempExcludePattern.toLowerCase()
-					.split(delimeterPattern);
-			if (excludePatternsString != null
-					&& excludePatternsString.length > 0) {
-				excludePatterns = Arrays.asList();
-				logger.debug("excludePatterns: {}", excludePatterns);
-			}
-		}
+		includePatterns = this.getIncludePatterns(filterConfig);
+		excludePatterns = this.getExcludePatterns(filterConfig);
 	}
 
 	@Override
@@ -61,28 +42,71 @@ public class ExtensionNoCacheFilter extends NoCacheFilter {
 		logger.debug("request uri: {}", requestURI);
 		logger.debug("extension: {}", extension);
 
-		if (excludePatterns != null) {
-			if (excludePatterns.contains(extension)) {
-				// bypass
-			} else {
-				this.processInclude(request, response, extension);
-			}
-		} else {
-			this.processInclude(request, response, extension);
+		if (this.isNoCacheRequired(extension)) {
+			this.setNoCache(request, response);
 		}
 		filterChain.doFilter(request, response);
 	}
 
-	protected void processInclude(ServletRequest request,
-			ServletResponse response, String extension) {
-		if (includePatterns != null) {
-			if (includePatterns.contains(extension)) {
-				this.setNoCache(request, response);
-			} else {
+	protected boolean isNoCacheRequired(String extension) {
+		boolean noCacheRequired = false;
+		if (excludePatterns != null) {
+			if (excludePatterns.contains(extension)) {
 				// bypass
+			} else {
+				if (includePatterns != null) {
+					if (includePatterns.contains(extension)) {
+						noCacheRequired = true;
+					} else {
+						noCacheRequired = false;
+					}
+				} else {
+					noCacheRequired = true;
+				}
 			}
 		} else {
-			this.setNoCache(request, response);
+			if (includePatterns != null) {
+				if (includePatterns.contains(extension)) {
+					noCacheRequired = true;
+				} else {
+					noCacheRequired = false;
+				}
+			} else {
+				noCacheRequired = true;
+			}
 		}
+		logger.debug("extension: {}", extension);
+		logger.debug("noCacheRequired: {}", noCacheRequired);
+		return noCacheRequired;
+	}
+
+	protected List<String> getIncludePatterns(FilterConfig filterConfig) {
+		String tempIncludePattern = filterConfig.getInitParameter("include");
+		List<String> includePatterns = null;
+		if (!StringUtils.isBlank(tempIncludePattern)) {
+			String[] includePatternsString = tempIncludePattern.toLowerCase()
+					.split(delimeterPattern);
+			if (includePatternsString != null
+					&& includePatternsString.length > 0) {
+				includePatterns = Arrays.asList(includePatternsString);
+			}
+		}
+		logger.debug("includePatterns: {}", includePatterns);
+		return includePatterns;
+	}
+
+	protected List<String> getExcludePatterns(FilterConfig filterConfig) {
+		String tempExcludePattern = filterConfig.getInitParameter("include");
+		List<String> excludePatterns = null;
+		if (!StringUtils.isBlank(tempExcludePattern)) {
+			String[] excludePatternsString = tempExcludePattern.toLowerCase()
+					.split(delimeterPattern);
+			if (excludePatternsString != null
+					&& excludePatternsString.length > 0) {
+				excludePatterns = Arrays.asList(excludePatternsString);
+			}
+		}
+		logger.debug("excludePatterns: {}", excludePatterns);
+		return excludePatterns;
 	}
 }
