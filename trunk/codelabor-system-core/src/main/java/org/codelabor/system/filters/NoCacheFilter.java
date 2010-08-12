@@ -15,6 +15,11 @@ public class NoCacheFilter extends BaseFilterImpl {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
+		this.setNoCache(request, response);
+		filterChain.doFilter(request, response);
+	}
+
+	protected void setNoCache(ServletRequest request, ServletResponse response) {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
 		// Prevents caching at the proxy server.
@@ -32,7 +37,5 @@ public class NoCacheFilter extends BaseFilterImpl {
 		// Set IE extended HTTP/1.1 no-cache headers (use addHeader).
 		// httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
 		// "post-check=0, pre-check=0");
-
-		filterChain.doFilter(request, response);
 	}
 }
