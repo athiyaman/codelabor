@@ -22,14 +22,15 @@ import junit.framework.TestCase;
  * @author Shin Sangjae
  * 
  */
-public class AssertTest extends TestCase {
+public class AntPathMatcherTest extends TestCase {
 
-	/**
-	 * Test method for
-	 * {@link org.springframework.util.Assert#hasText(java.lang.String)}.
-	 */
-	public void testHasTextString() {
-		Assert.hasText("000");
+	public void testMatch() {
+		AntPathMatcher antPathMatcher = new AntPathMatcher();
+		String pattern = "/**/*.xml";
+		String path = "/WEB-INF/web.xml";
+
+		System.out.println("match: " + antPathMatcher.match(pattern, path));
+		assertTrue(antPathMatcher.match(pattern, path));
 	}
 
 }
