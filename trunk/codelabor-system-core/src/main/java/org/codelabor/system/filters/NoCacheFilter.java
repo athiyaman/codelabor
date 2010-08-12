@@ -9,8 +9,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.system.servlets.HttpResponseHeader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class NoCacheFilter extends BaseFilterImpl {
+
+	private final Logger logger = LoggerFactory.getLogger(NoCacheFilter.class);
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -31,6 +35,7 @@ public class NoCacheFilter extends BaseFilterImpl {
 		// Set standard HTTP/1.1 no-cache headers.
 		httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
 				"no-cache");
+
 		// httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
 		// "no-store, no-cache, must-revalidate");
 

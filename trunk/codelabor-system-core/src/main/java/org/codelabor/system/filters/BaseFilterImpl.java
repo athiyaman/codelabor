@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class BaseFilterImpl implements Filter {
 
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(BaseFilterImpl.class);
 	protected ServletContext servletContext;
 
 	public void destroy() {

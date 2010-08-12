@@ -25,12 +25,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sangjae
  * 
  */
 public class EncodingFilter extends BaseFilterImpl {
+	private final Logger logger = LoggerFactory.getLogger(EncodingFilter.class);
 	protected String encoding = "UTF-8";
 
 	@Override
