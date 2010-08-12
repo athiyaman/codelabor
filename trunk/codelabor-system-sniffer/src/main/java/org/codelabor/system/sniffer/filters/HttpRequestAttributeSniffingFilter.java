@@ -10,8 +10,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.codelabor.system.filters.BaseFilterImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HttpRequestAttributeSniffingFilter extends BaseFilterImpl {
+	private final Logger logger = LoggerFactory
+			.getLogger(HttpRequestAttributeSniffingFilter.class);
 
 	@SuppressWarnings("unchecked")
 	@Override

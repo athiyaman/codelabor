@@ -11,8 +11,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.codelabor.system.filters.BaseFilterImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HttpRequestParameterSniffingFilter extends BaseFilterImpl {
+	private final Logger logger = LoggerFactory
+			.getLogger(HttpRequestParameterSniffingFilter.class);
 
 	@SuppressWarnings("unchecked")
 	@Override

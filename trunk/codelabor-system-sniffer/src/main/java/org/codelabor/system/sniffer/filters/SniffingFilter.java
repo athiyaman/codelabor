@@ -26,12 +26,15 @@ import javax.servlet.ServletResponse;
 
 import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.sniffer.utils.SniffingUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sangjae
  * 
  */
 public class SniffingFilter extends BaseFilterImpl {
+	private final Logger logger = LoggerFactory.getLogger(SniffingFilter.class);
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
