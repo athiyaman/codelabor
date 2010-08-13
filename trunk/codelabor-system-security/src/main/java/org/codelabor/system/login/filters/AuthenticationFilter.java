@@ -2,7 +2,6 @@ package org.codelabor.system.login.filters;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -30,31 +29,6 @@ public class AuthenticationFilter extends BaseFilterImpl {
 	public void init(FilterConfig filterConfig) throws ServletException {
 	}
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("doFilter()");
-
-		if (logger.isDebugEnabled()) {
-			logger.debug(stringBuilder.toString());
-		}
-
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		HttpServletResponse httpResponse = (HttpServletResponse) response;
-
-		if (!isAuthenticated(httpRequest, httpResponse)) {
-			LoginDTO loginDTO = new LoginDTO();
-			// TODO fetch user id
-			loginDTO.setUserId("tester");
-			loginDTO.setIpAddress(httpRequest.getRemoteAddr());
-			httpRequest.getSession().setAttribute(
-					Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
-
-		}
-		filterChain.doFilter(request, response);
-	}
-
 	public boolean isAuthenticated(HttpServletRequest request,
 			HttpServletResponse response) {
 		boolean isAuthenticated = false;
@@ -71,5 +45,27 @@ public class AuthenticationFilter extends BaseFilterImpl {
 		}
 
 		return isAuthenticated;
+	}
+
+	@Override
+	public void doFilterAfterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+	}
+
+	@Override
+	public void doFilterBeforeChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+		if (!isAuthenticated(httpRequest, httpResponse)) {
+			LoginDTO loginDTO = new LoginDTO();
+			// TODO fetch user id
+			loginDTO.setUserId("tester");
+			loginDTO.setIpAddress(httpRequest.getRemoteAddr());
+			httpRequest.getSession().setAttribute(
+					Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
+
+		}
 	}
 }
