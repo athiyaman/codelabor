@@ -100,11 +100,11 @@ public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 		logger.debug("request uri: {}", requestURI);
 
 		if (this.isFilterRequired(requestURI)) {
-			this.doFilterBeforeChain(request, response);
+			this.preprocessFilterChain(request, response);
 		}
 		filterChain.doFilter(request, response);
 		if (this.isFilterRequired(requestURI)) {
-			this.doFilterAfterChain(request, response);
+			this.postprocessFilterChain(request, response);
 		}
 	}
 

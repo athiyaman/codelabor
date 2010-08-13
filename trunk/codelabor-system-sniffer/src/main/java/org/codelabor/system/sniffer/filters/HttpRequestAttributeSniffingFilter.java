@@ -3,7 +3,6 @@ package org.codelabor.system.sniffer.filters;
 import java.io.IOException;
 import java.util.Enumeration;
 
-import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -17,10 +16,15 @@ public class HttpRequestAttributeSniffingFilter extends BaseFilterImpl {
 	private final Logger logger = LoggerFactory
 			.getLogger(HttpRequestAttributeSniffingFilter.class);
 
+	@Override
+	public void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
+	public void preprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 
 		Enumeration<String> attributeNames = httpServletRequest
@@ -32,6 +36,6 @@ public class HttpRequestAttributeSniffingFilter extends BaseFilterImpl {
 			attribValues = httpServletRequest.getAttribute(attribName);
 			logger.debug("{}: {}", attribName, attribValues);
 		}
-		filterChain.doFilter(request, response);
+
 	}
 }

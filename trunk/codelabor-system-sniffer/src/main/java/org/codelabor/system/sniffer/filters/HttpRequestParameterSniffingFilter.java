@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Enumeration;
 
-import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -18,10 +17,17 @@ public class HttpRequestParameterSniffingFilter extends BaseFilterImpl {
 	private final Logger logger = LoggerFactory
 			.getLogger(HttpRequestParameterSniffingFilter.class);
 
+	@Override
+	public void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
+	public void preprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 
 		Enumeration<String> parameterNames = httpServletRequest
@@ -33,6 +39,6 @@ public class HttpRequestParameterSniffingFilter extends BaseFilterImpl {
 			paramValues = httpServletRequest.getParameterValues(paramName);
 			logger.debug("{}: {}", paramName, Arrays.toString(paramValues));
 		}
-		filterChain.doFilter(request, response);
+
 	}
 }

@@ -17,7 +17,7 @@ public class NoCacheFilter extends BaseFilterImpl {
 	private final Logger logger = LoggerFactory.getLogger(NoCacheFilter.class);
 
 	@Override
-	public void doFilterBeforeChain(ServletRequest request,
+	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
@@ -40,7 +40,7 @@ public class NoCacheFilter extends BaseFilterImpl {
 	}
 
 	@Override
-	public void doFilterAfterChain(ServletRequest request,
+	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
 }

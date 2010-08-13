@@ -48,12 +48,12 @@ public class AuthenticationFilter extends BaseFilterImpl {
 	}
 
 	@Override
-	public void doFilterAfterChain(ServletRequest request,
+	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
 
 	@Override
-	public void doFilterBeforeChain(ServletRequest request,
+	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;

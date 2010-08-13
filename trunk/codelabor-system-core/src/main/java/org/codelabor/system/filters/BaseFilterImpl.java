@@ -55,14 +55,14 @@ public abstract class BaseFilterImpl implements Filter {
 		String requestURI = httpServletRequest.getRequestURI();
 		logger.debug("request uri: {}", requestURI);
 
-		this.doFilterBeforeChain(request, response);
+		this.preprocessFilterChain(request, response);
 		filterChain.doFilter(request, response);
-		this.doFilterAfterChain(request, response);
+		this.postprocessFilterChain(request, response);
 	}
 
-	public abstract void doFilterBeforeChain(ServletRequest request,
+	public abstract void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException;
 
-	public abstract void doFilterAfterChain(ServletRequest request,
+	public abstract void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException;
 }

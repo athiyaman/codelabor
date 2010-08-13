@@ -19,7 +19,6 @@ package org.codelabor.system.sniffer.filters;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -37,13 +36,19 @@ public class SniffingFilter extends BaseFilterImpl {
 	private final Logger logger = LoggerFactory.getLogger(SniffingFilter.class);
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
+	public void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void preprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
 		try {
 			logger.debug("request: {}", SniffingUtils.toString(request));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		filterChain.doFilter(request, response);
 	}
 }
