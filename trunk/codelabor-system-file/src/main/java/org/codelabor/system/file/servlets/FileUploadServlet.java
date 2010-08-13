@@ -1,6 +1,6 @@
 package org.codelabor.system.file.servlets;
 
-import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
+import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -372,7 +372,7 @@ public class FileUploadServlet extends HttpServlet {
 		String[] fileIdList = request.getParameterValues("fileId");
 		try {
 			affectedRowCount = fileManager.deleteFile(fileIdList);
-			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
+			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

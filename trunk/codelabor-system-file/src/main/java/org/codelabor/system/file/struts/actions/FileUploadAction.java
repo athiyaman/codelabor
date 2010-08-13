@@ -1,6 +1,6 @@
 package org.codelabor.system.file.struts.actions;
 
-import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
+import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -125,7 +125,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		// invoke manager
 
 		int affectedRowCount = fileManager.insertFile(fileDTOList);
-		request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
+		request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 
 		// forward
 		return mapping.findForward("upload");
@@ -195,7 +195,7 @@ public class FileUploadAction extends BaseDispatchAction {
 			FileUploadForm uploadForm = (FileUploadForm) form;
 			String[] fileIdList = uploadForm.getFileId();
 			affectedRowCount = fileManager.deleteFile(fileIdList);
-			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
+			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		}
 		return mapping.findForward("delete");
 	}

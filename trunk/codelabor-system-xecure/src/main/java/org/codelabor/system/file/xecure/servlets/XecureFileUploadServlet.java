@@ -1,6 +1,6 @@
 package org.codelabor.system.file.xecure.servlets;
 
-import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT_KEY;
+import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -246,7 +246,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		String[] fileIdList = request.getParameterValues("fileId");
 		try {
 			affectedRowCount = fileManager.deleteFile(fileIdList);
-			request.setAttribute(AFFECTED_ROW_COUNT_KEY, affectedRowCount);
+			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
