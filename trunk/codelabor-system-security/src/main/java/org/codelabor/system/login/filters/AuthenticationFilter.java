@@ -14,12 +14,17 @@ import javax.servlet.http.HttpSession;
 import org.codelabor.system.Constants;
 import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sangjae
  * 
  */
 public class AuthenticationFilter extends BaseFilterImpl {
+
+	private final Logger logger = LoggerFactory
+			.getLogger(AuthenticationFilter.class);
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
