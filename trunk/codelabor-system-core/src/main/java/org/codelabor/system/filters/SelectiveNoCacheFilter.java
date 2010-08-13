@@ -1,6 +1,7 @@
 package org.codelabor.system.filters;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.FilterChain;
@@ -10,15 +11,17 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class SelectiveNoCacheFilter extends NoCacheFilter {
+public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
+		SelectiveFilter {
 	private final Logger logger = LoggerFactory
 			.getLogger(SelectiveNoCacheFilter.class);
-	protected String delimeterPattern = "([ ]*[,; ][ ]*)";
-	protected List<String> includePatterns = null;
-	protected List<String> excludePatterns = null;
+
+	public List<String> excludePatterns = null;
+	public List<String> includePatterns = null;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -42,7 +45,34 @@ public abstract class SelectiveNoCacheFilter extends NoCacheFilter {
 
 	abstract protected boolean isNoCacheRequired(String requestURI);
 
-	abstract protected List<String> getIncludePatterns(FilterConfig filterConfig);
+	public List<String> getExcludePatterns(FilterConfig filterConfig) {
+		String tempExcludePattern = filterConfig.getInitParameter("excludes");
+		List<String> excludePatterns = null;
+		if (!StringUtils.isBlank(tempExcludePattern)) {
+			String[] excludePatternsString = tempExcludePattern.toLowerCase()
+					.split(delimeterPattern);
+			if (excludePatternsString != null
+					&& excludePatternsString.length > 0) {
+				excludePatterns = Arrays.asList(excludePatternsString);
+			}
+		}
+		logger.debug("excludePatterns: {}", excludePatterns);
+		return excludePatterns;
+	}
 
-	abstract protected List<String> getExcludePatterns(FilterConfig filterConfig);
+	public List<String> getIncludePatterns(FilterConfig filterConfig) {
+		String tempIncludePattern = filterConfig.getInitParameter("includes");
+		List<String> includePatterns = null;
+		if (!StringUtils.isBlank(tempIncludePattern)) {
+			String[] includePatternsString = tempIncludePattern.toLowerCase()
+					.split(delimeterPattern);
+			if (includePatternsString != null
+					&& includePatternsString.length > 0) {
+				includePatterns = Arrays.asList(includePatternsString);
+			}
+		}
+		logger.debug("includePatterns: {}", includePatterns);
+		return includePatterns;
+	}
+
 }
