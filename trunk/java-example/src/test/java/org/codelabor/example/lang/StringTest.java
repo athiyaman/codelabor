@@ -21,6 +21,15 @@ public class StringTest extends TestCase {
 		int index = fileName.lastIndexOf(".");
 		String extension = fileName.substring(index + 1);
 		Assert.assertEquals("txt", extension);
-		System.out.println(extension);
+		System.out.println("extention: " + extension);
+	}
+
+	public void testSubstring2() {
+		String fileName = "/qwer/qwer/qwer/test";
+		int index = fileName.lastIndexOf(".");
+		System.out.println("index: " + index);
+		String extension = fileName.substring(index + 1);
+		Assert.assertEquals("txt", extension);
+		System.out.println("extention: " + extension);
 	}
 }
