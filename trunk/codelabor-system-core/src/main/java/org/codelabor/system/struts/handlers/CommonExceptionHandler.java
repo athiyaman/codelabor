@@ -1,6 +1,6 @@
 package org.codelabor.system.struts.handlers;
 
-import static org.codelabor.system.Constants.COMMON_EXCEPTION_KEY;
+import static org.codelabor.system.Constants.COMMON_EXCEPTION;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -67,7 +67,7 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 		} else {
 			if (ex instanceof CommonException) {
 				CommonException commonException = (CommonException) ex;
-				request.setAttribute(COMMON_EXCEPTION_KEY, commonException);
+				request.setAttribute(COMMON_EXCEPTION, commonException);
 			}
 			error = new ActionMessage(ae.getKey(), ex.getMessage());
 			property = error.getKey();
