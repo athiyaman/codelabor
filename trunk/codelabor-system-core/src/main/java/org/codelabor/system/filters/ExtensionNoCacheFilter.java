@@ -79,7 +79,6 @@ public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 				noCacheRequired = true;
 			}
 		}
-		logger.debug("extension: {}", extension);
 		logger.debug("noCacheRequired: {}", noCacheRequired);
 		return noCacheRequired;
 	}

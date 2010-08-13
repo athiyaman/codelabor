@@ -23,6 +23,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -39,6 +40,10 @@ public class EncodingFilter extends BaseFilterImpl {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		String requestURI = httpServletRequest.getRequestURI();
+		logger.debug("request uri: {}", requestURI);
+
 		String requestBeforeEncoding = request.getCharacterEncoding();
 		String responseBeforeEncoding = response.getCharacterEncoding();
 
