@@ -22,7 +22,8 @@ import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.servlets.FileUploadServlet;
-import org.codelabor.system.file.utils.UploadUtil;
+import org.codelabor.system.file.utils.UploadUtils;
+import org.codelabor.system.servlets.HttpResponseHeader;
 
 import xecure.file.XecureFileInputStream;
 import xecure.file.XecureFileOutputStream;
@@ -142,15 +143,15 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 					xservlet.getXecureSession(), xservlet.request,
 					xservlet.response, response.getOutputStream());
 
-			StringBuilder stringBuilder = null;
+			StringBuilder sb = null;
 			String fileId = request.getParameter("fileId");
 
 			FileDTO fileDTO;
-			fileDTO = fileManager.selectFile(fileId);
+			fileDTO = fileManager.selectFileByFileId(fileId);
 			if (log.isDebugEnabled()) {
-				stringBuilder = new StringBuilder();
-				stringBuilder.append(fileDTO);
-				log.debug(stringBuilder.toString());
+				sb = new StringBuilder();
+				sb.append(fileDTO);
+				log.debug(sb.toString());
 			}
 
 			String repositoryPath = fileDTO.getRepositoryPath();
@@ -159,13 +160,13 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			InputStream inputStream = null;
 			if (StringUtil.isNotEmpty(repositoryPath)) {
 				// FILE_SYSTEM
-				stringBuilder = new StringBuilder();
-				stringBuilder.append(repositoryPath);
+				sb = new StringBuilder();
+				sb.append(repositoryPath);
 				if (!repositoryPath.endsWith(File.separator)) {
-					stringBuilder.append(File.separator);
+					sb.append(File.separator);
 				}
-				stringBuilder.append(uniqueFileName);
-				File file = new File(stringBuilder.toString());
+				sb.append(uniqueFileName);
+				File file = new File(sb.toString());
 				inputStream = new FileInputStream(file);
 			} else {
 				// DATABASE
@@ -181,11 +182,10 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 
 			response
 					.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
-			stringBuilder = new StringBuilder();
-			stringBuilder.append("attachment; filename=").append(realFileName);
-			response.setHeader(
-					org.codelabor.system.file.Constants.RESPONSE_HEADER_NAME,
-					stringBuilder.toString());
+			sb = new StringBuilder();
+			sb.append("attachment; filename=").append(realFileName);
+			response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION,
+					sb.toString());
 
 			BufferedInputStream bufferdInputStream = new BufferedInputStream(
 					inputStream);
@@ -235,7 +235,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		if (log.isDebugEnabled()) {
 			log.debug(fileDTO);
 		}
-		UploadUtil.processFile(repositoryType, xecureFileInputStream, fileDTO);
+		UploadUtils.processFile(repositoryType, xecureFileInputStream, fileDTO);
 		return fileDTO;
 	}
 

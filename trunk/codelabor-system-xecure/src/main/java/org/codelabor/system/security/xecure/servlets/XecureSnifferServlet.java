@@ -7,13 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.codelabor.system.utils.SnifferUtil;
+import org.codelabor.system.sniffer.utils.SniffingUtils;
 
 import xecure.servlet.XecureHttpServlet;
 
 public class XecureSnifferServlet extends XecureHttpServlet {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -716194662373559921L;
 
@@ -25,7 +25,7 @@ public class XecureSnifferServlet extends XecureHttpServlet {
 		try {
 			writer.write(this.sXecureClientObject);
 			writer.write("<!---BEGIN_ENC--->");
-			writer.write(SnifferUtil.toHTML(request));
+			writer.write(SniffingUtils.toHTML(request));
 			writer.write("<!---END_ENC--->");
 		} catch (Exception e) {
 			e.printStackTrace();

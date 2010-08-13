@@ -293,7 +293,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		String fileId = (String) paramMap.get("fileId");
 
-		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 
 		FileDTO fileDTO;
 		fileDTO = fileManager.selectFileByFileId(fileId);
@@ -305,13 +305,13 @@ public class FileUploadServlet extends HttpServlet {
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
-			stringBuilder.setLength(0);
-			stringBuilder.append(repositoryPath);
+			sb.setLength(0);
+			sb.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {
-				stringBuilder.append(File.separator);
+				sb.append(File.separator);
 			}
-			stringBuilder.append(uniqueFileName);
-			File file = new File(stringBuilder.toString());
+			sb.append(uniqueFileName);
+			File file = new File(sb.toString());
 			inputStream = new FileInputStream(file);
 		} else {
 			// DATABASE
@@ -330,19 +330,17 @@ public class FileUploadServlet extends HttpServlet {
 
 		response
 				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
-		stringBuilder.setLength(0);
+		sb.setLength(0);
 		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
-			stringBuilder.append("filename=");
+			sb.append("filename=");
 		} else {
-			stringBuilder.append("attachment; filename=");
+			sb.append("attachment; filename=");
 		}
-		// stringBuilder.append("\"");
-		stringBuilder.append(encodedRealFileName);
-		// stringBuilder.append("\"");
+		sb.append(encodedRealFileName);
 		response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION,
-				stringBuilder.toString());
+				sb.toString());
 
-		logger.debug("header: {}", stringBuilder.toString());
+		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());
