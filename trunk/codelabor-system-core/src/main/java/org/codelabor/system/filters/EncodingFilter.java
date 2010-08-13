@@ -18,12 +18,10 @@ package org.codelabor.system.filters;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -38,36 +36,6 @@ public class EncodingFilter extends BaseFilterImpl {
 	protected String encoding = "UTF-8";
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
-		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		String requestURI = httpServletRequest.getRequestURI();
-		logger.debug("request uri: {}", requestURI);
-
-		String requestBeforeEncoding = request.getCharacterEncoding();
-		String responseBeforeEncoding = response.getCharacterEncoding();
-
-		if (isSameEncoding(encoding, requestBeforeEncoding)) {
-			logger.debug("request character encoding: {}", encoding);
-		} else {
-			request.setCharacterEncoding(encoding);
-			String requestAfterEncoding = request.getCharacterEncoding();
-			logger.debug("request character encoding: {} -> {}",
-					requestBeforeEncoding, requestAfterEncoding);
-		}
-		if (isSameEncoding(encoding, responseBeforeEncoding)) {
-			logger.debug("response character encoding: {}", encoding);
-		} else {
-			response.setCharacterEncoding(encoding);
-			String responseAfterCharacterEncoding = response
-					.getCharacterEncoding();
-			logger.debug("response character encoding: {} -> {}",
-					responseBeforeEncoding, responseAfterCharacterEncoding);
-		}
-		filterChain.doFilter(request, response);
-	}
-
-	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
 		String tempEncoding = filterConfig.getInitParameter("encoding");
@@ -76,7 +44,33 @@ public class EncodingFilter extends BaseFilterImpl {
 		}
 	}
 
-	protected boolean isSameEncoding(String expected, String actual) {
-		return expected.equalsIgnoreCase(actual);
+	@Override
+	public void doFilterAfterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+	}
+
+	@Override
+	public void doFilterBeforeChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+		String requestBeforeEncoding = request.getCharacterEncoding();
+		String responseBeforeEncoding = response.getCharacterEncoding();
+
+		if (encoding.equalsIgnoreCase(requestBeforeEncoding)) {
+			logger.debug("request character encoding: {}", encoding);
+		} else {
+			request.setCharacterEncoding(encoding);
+			String requestAfterEncoding = request.getCharacterEncoding();
+			logger.debug("request character encoding: {} -> {}",
+					requestBeforeEncoding, requestAfterEncoding);
+		}
+		if (encoding.equalsIgnoreCase(responseBeforeEncoding)) {
+			logger.debug("response character encoding: {}", encoding);
+		} else {
+			response.setCharacterEncoding(encoding);
+			String responseAfterCharacterEncoding = response
+					.getCharacterEncoding();
+			logger.debug("response character encoding: {} -> {}",
+					responseBeforeEncoding, responseAfterCharacterEncoding);
+		}
 	}
 }

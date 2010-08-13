@@ -21,4 +21,12 @@ public interface SelectiveFilter {
 	 * @return 예외 항목의 리스트
 	 */
 	public List<String> getExcludePatterns(FilterConfig filterConfig);
+
+	/**
+	 * 최종적으로 필터 로직 수행 여부를 판단한다.
+	 * 
+	 * @param requestURI
+	 * @return 필터 로직 수행 여부
+	 */
+	public boolean isFilterRequired(String requestURI);
 }

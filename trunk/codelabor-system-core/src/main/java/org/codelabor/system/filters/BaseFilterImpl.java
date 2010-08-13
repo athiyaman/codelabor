@@ -26,6 +26,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,12 +44,25 @@ public abstract class BaseFilterImpl implements Filter {
 		logger.debug("destroy()");
 	}
 
-	public abstract void doFilter(ServletRequest request,
-			ServletResponse response, FilterChain filterChain)
-			throws IOException, ServletException;
-
 	public void init(FilterConfig filterConfig) throws ServletException {
 		logger.debug("init()");
 		this.servletContext = filterConfig.getServletContext();
 	}
+
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain filterChain) throws IOException, ServletException {
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		String requestURI = httpServletRequest.getRequestURI();
+		logger.debug("request uri: {}", requestURI);
+
+		this.doFilterBeforeChain(request, response);
+		filterChain.doFilter(request, response);
+		this.doFilterAfterChain(request, response);
+	}
+
+	public abstract void doFilterBeforeChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException;
+
+	public abstract void doFilterAfterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException;
 }

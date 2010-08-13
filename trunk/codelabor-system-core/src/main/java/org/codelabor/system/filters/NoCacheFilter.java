@@ -2,7 +2,6 @@ package org.codelabor.system.filters;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -18,13 +17,8 @@ public class NoCacheFilter extends BaseFilterImpl {
 	private final Logger logger = LoggerFactory.getLogger(NoCacheFilter.class);
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
-		this.setNoCache(request, response);
-		filterChain.doFilter(request, response);
-	}
-
-	protected void setNoCache(ServletRequest request, ServletResponse response) {
+	public void doFilterBeforeChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
 		// Prevents caching at the proxy server.
@@ -43,5 +37,10 @@ public class NoCacheFilter extends BaseFilterImpl {
 		// Set IE extended HTTP/1.1 no-cache headers (use addHeader).
 		// httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
 		// "post-check=0, pre-check=0");
+	}
+
+	@Override
+	public void doFilterAfterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
 	}
 }

@@ -1,7 +1,5 @@
 package org.codelabor.system.filters;
 
-
-
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.utils.FileUtils;
 import org.slf4j.Logger;
@@ -11,8 +9,7 @@ public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 	private final Logger logger = LoggerFactory
 			.getLogger(ExtensionNoCacheFilter.class);
 
-	@Override
-	protected boolean isNoCacheRequired(String requestURI) {
+	public boolean isFilterRequired(String requestURI) {
 		String extension = FileUtils.getExtension(requestURI);
 		if (!StringUtils.isBlank(extension)) {
 			extension = extension.toLowerCase();

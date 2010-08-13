@@ -15,10 +15,10 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
+public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 		SelectiveFilter {
 	private final Logger logger = LoggerFactory
-			.getLogger(SelectiveNoCacheFilter.class);
+			.getLogger(SelectiveEncodingFilter.class);
 
 	/**
 	 * 예외 패턴의 리스트
@@ -98,7 +98,7 @@ public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		String requestURI = httpServletRequest.getRequestURI();
 		logger.debug("request uri: {}", requestURI);
-	
+
 		if (this.isFilterRequired(requestURI)) {
 			this.doFilterBeforeChain(request, response);
 		}
