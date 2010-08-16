@@ -319,4 +319,14 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		logger.debug("dateRangeFrom: {}", dateRangeFrom);
 
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getCurrentDate()
+	 */
+	public Date getCurrentDate() throws Exception {
+		return Calendar.getInstance().getTime();
+	}
 }

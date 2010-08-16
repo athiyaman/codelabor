@@ -31,6 +31,14 @@ import java.util.Date;
  */
 public interface CalendarService {
 	/**
+	 * 현재 날짜를 가져온다.
+	 * 
+	 * @return 현재 날짜
+	 * @throws Exception
+	 */
+	public Date getCurrentDate() throws Exception;
+
+	/**
 	 * 기준일 이전, 이후의 영업일을 가져온다.
 	 * 
 	 * @param date
