@@ -329,4 +329,47 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	public Date getCurrentDate() throws Exception {
 		return Calendar.getInstance().getTime();
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getNextBusinessdayDate
+	 * (java.util.Date)
+	 */
+	public Date getNextBusinessdayDate(Date date) throws Exception {
+		return this.getBusinessdayDate(date, 1);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getNextHolidayDate
+	 * (java.util.Date)
+	 */
+	public Date getNextHolidayDate(Date date) throws Exception {
+		return this.getHolidayDate(date, 1);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.common.calendar.services.CalendarService#
+	 * getPreviousBusinessDate(java.util.Date)
+	 */
+	public Date getPreviousBusinessDate(Date date) throws Exception {
+		return this.getBusinessdayDate(date, -1);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getPreviousHolidayDate
+	 * (java.util.Date)
+	 */
+	public Date getPreviousHolidayDate(Date date) throws Exception {
+		return this.getHolidayDate(date, -1);
+	}
 }

@@ -30,6 +30,47 @@ import java.util.Date;
  * 
  */
 public interface CalendarService {
+
+	/**
+	 * 다음 영업일을 가져온다.
+	 * 
+	 * @param date
+	 *            기준일
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getNextBusinessdayDate(Date date) throws Exception;
+
+	/**
+	 * 다음 휴일을 가져온다.
+	 * 
+	 * @param date
+	 *            기준일
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getNextHolidayDate(Date date) throws Exception;
+
+	/**
+	 * 이전 영업일을 가져온다.
+	 * 
+	 * @param date
+	 *            기준일
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getPreviousBusinessDate(Date date) throws Exception;
+
+	/**
+	 * 이전 휴일을 가져온다.
+	 * 
+	 * @param date
+	 *            기준일
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getPreviousHolidayDate(Date date) throws Exception;
+
 	/**
 	 * 현재 날짜를 가져온다.
 	 * 
