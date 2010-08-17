@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.codelabor.example.banking.customer.dtos.CustomerDTO;
-import org.codelabor.system.banking.InformType;
-import org.codelabor.system.banking.SecurityType;
+import org.codelabor.financial.banking.InformType;
+import org.codelabor.financial.banking.SecurityType;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 public class CustomerManagerMock extends BaseManagerImpl implements CustomerManager {

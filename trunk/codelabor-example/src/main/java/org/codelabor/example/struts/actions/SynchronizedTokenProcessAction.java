@@ -31,45 +31,32 @@ public class SynchronizedTokenProcessAction extends BaseAction {
 
 		boolean valid = isTokenValid(request, true);
 		if (valid) {
-			if (log.isDebugEnabled()) {
-				stringBuilder = new StringBuilder();
-				stringBuilder.append("Token is valid. Token Key: ");
-				stringBuilder.append(tokenKey);
-				log.debug(stringBuilder);
-			}
+			logger.debug("Token is valid. Token Key: {}", tokenKey);
 
 			// process something
-			if (log.isDebugEnabled()) {
-				log.debug("process something.");
-			}
+			logger.debug("process something.");
 			DynaActionForm dynaActionForm = (DynaActionForm) form;
 			Map requestMap = dynaActionForm.getMap();
 			request.setAttribute("field1", requestMap.get("field1"));
 			request.setAttribute("field2", requestMap.get("field2"));
 			forward = mapping.findForward("success");
 		} else {
-			if (log.isDebugEnabled()) {
-				stringBuilder = new StringBuilder();
-				stringBuilder.append("Token is invalid. Token Key: ");
-				stringBuilder.append(tokenKey);
-				log.debug(stringBuilder);
-			}
+			logger.debug("Token is invalid. Token Key: {}");
 			errors.add(GLOBAL_MESSAGE, new ActionMessage("errors.token"));
 			forward = new ActionForward(mapping.getInput());
 		}
 		// reset token
-		if (log.isDebugEnabled()) {
-			log
-					.debug("Reset the saved transaction token in the user's session.");
-		}
+		logger
+				.debug("Reset the saved transaction token in the user's session.");
+
 		resetToken(request);
 
 		if (!errors.isEmpty()) {
 			// save token
-			if (log.isDebugEnabled()) {
-				log
-						.debug("Save a new transaction token in the user's current session, creating a new session if necessary.");
-			}
+
+			logger
+					.debug("Save a new transaction token in the user's current session, creating a new session if necessary.");
+
 			saveToken(request);
 
 			// save errors

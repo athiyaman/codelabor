@@ -3,8 +3,8 @@ package org.codelabor.example.banking.customer.dtos;
 import java.io.Serializable;
 import java.util.List;
 
-import org.codelabor.system.banking.InformType;
-import org.codelabor.system.banking.SecurityType;
+import org.codelabor.financial.banking.InformType;
+import org.codelabor.financial.banking.SecurityType;
 
 public class CustomerDTO implements Serializable {
 	/**

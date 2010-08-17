@@ -15,13 +15,11 @@ public class SynchronizedTokenPrepareAction extends BaseAction {
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		// prepare something
-		if (log.isDebugEnabled()) {
-			log.debug("Prepare something.");
-		}
-		if (log.isDebugEnabled()) {
-			log
-					.debug("Save a new transaction token in the user's current session, creating a new session if necessary.");
-		}
+		logger.debug("Prepare something.");
+
+		logger
+				.debug("Save a new transaction token in the user's current session, creating a new session if necessary.");
+
 		saveToken(request);
 		return mapping.findForward("success");
 	}

@@ -3,8 +3,8 @@ package org.codelabor.example.banking.transfer.dtos;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.codelabor.system.banking.CurrencyCode;
-import org.codelabor.system.banking.TransferType;
+import org.codelabor.financial.banking.CurrencyCode;
+import org.codelabor.financial.banking.TransferType;
 
 public class TransferDTO implements Serializable {
 

@@ -1,6 +1,6 @@
 package org.codelabor.example.banking.customer.services;
 
-import org.codelabor.system.banking.SecurityType;
+import org.codelabor.financial.banking.SecurityType;
 
 public interface CustomerService {
 	public SecurityType getSecurityType(String customerId) throws Exception;

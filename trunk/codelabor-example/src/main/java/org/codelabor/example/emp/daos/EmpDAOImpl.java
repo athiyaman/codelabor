@@ -144,12 +144,7 @@ public class EmpDAOImpl extends BaseDAOImpl implements EmpDAO {
 		affectedRowCountDTO.setInsertedRowCount(insertEmp(insertEmpDTOList));
 		affectedRowCountDTO.setUpdatedRowCount(updateEmpList(updateEmpDTOList));
 		affectedRowCountDTO.setDeletedRowCount(deleteEmpList(deleteEmpDTOList));
-
-		if (log.isDebugEnabled()) {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(affectedRowCountDTO);
-			log.debug(stringBuilder.toString());
-		}
+		logger.debug("affectedRowCountDTO {}", affectedRowCountDTO);
 		return affectedRowCountDTO;
 	}
 
