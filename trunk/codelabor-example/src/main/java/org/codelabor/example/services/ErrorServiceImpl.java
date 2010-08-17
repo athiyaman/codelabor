@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -38,26 +38,17 @@ public class ErrorServiceImpl extends BaseServiceImpl implements ErrorService {
 			commonException.setMessageCode("EXAMPLE-ERROR-CODE");
 
 			// log
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("message: ").append(
-					commonException.getMessage());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("key: ").append(
-					commonException.getMessageKey());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("message key: ").append(
-					commonException.getMessages().getMessageKey());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("user message: ").append(
-					commonException.getMessages().getUserMessage());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("reson: ").append(
-					commonException.getMessages().getReason());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("solution: ").append(
-					commonException.getMessages().getSolution());
-			stringBuilder.append(System.getProperty("line.separator"));
-			log.debug(stringBuilder.toString());
+			logger.debug("message: {}", commonException.getMessage());
+			logger.debug("key: {}", commonException.getMessageKey());
+			logger.debug("message key: {}", commonException.getMessages()
+					.getMessageKey());
+			logger.debug("user message: {}", commonException.getMessages()
+					.getUserMessage());
+			logger
+					.debug("reson: {}", commonException.getMessages()
+							.getReason());
+			logger.debug("solution: {}", commonException.getMessages()
+					.getSolution());
 
 			throw commonException;
 		}
@@ -74,27 +65,17 @@ public class ErrorServiceImpl extends BaseServiceImpl implements ErrorService {
 			commonException.setMessageCode("EXAMPLE-ERROR-CODE");
 
 			// log
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append("message: ").append(
-					commonException.getMessage());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("key: ").append(
-					commonException.getMessageKey());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("message key: ").append(
-					commonException.getMessages().getMessageKey());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("user message: ").append(
-					commonException.getMessages().getUserMessage());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("reson: ").append(
-					commonException.getMessages().getReason());
-			stringBuilder.append(System.getProperty("line.separator"));
-			stringBuilder.append("solution: ").append(
-					commonException.getMessages().getSolution());
-			stringBuilder.append(System.getProperty("line.separator"));
-			log.debug(stringBuilder.toString());
-
+			logger.debug("message: {}", commonException.getMessage());
+			logger.debug("key: {}", commonException.getMessageKey());
+			logger.debug("message key: {}", commonException.getMessages()
+					.getMessageKey());
+			logger.debug("user message: {}", commonException.getMessages()
+					.getUserMessage());
+			logger
+					.debug("reson: {}", commonException.getMessages()
+							.getReason());
+			logger.debug("solution: {}", commonException.getMessages()
+					.getSolution());
 			throw commonException;
 		}
 	}
