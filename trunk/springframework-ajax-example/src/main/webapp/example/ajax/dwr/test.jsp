@@ -9,8 +9,17 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/dwr/engine.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/dwr/interface/HelloWorldService.js"></script>
+<script type="text/javascript">
+	function sayHello() {
+		HelloWorldService.sayHello('bomber', handleData);
+	}
+
+	function handleData(data) {
+		alert('data: '+data);
+	}
+</script>
 </head>
-<body onload="alert('sayHello: '+HelloWorldService.sayHello('bomber'))">
+<body onload="sayHello();">
 
 </body>
 </html>

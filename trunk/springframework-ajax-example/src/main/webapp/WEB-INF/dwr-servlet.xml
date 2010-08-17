@@ -10,7 +10,9 @@
 		http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
 
 	<dwr:configuration />
-	<dwr:controller id="dwrController" debug="true" />
+	<dwr:controller id="dwrController" debug="true">
+		<dwr:config-param name="crossDomainSessionSecurity" value="false"/>
+	</dwr:controller>
 
 	<bean class="org.springframework.web.servlet.hander.SimpleUrlHandlerMapping">
 		<property name="alwaysUseFullPath" value="true" />
