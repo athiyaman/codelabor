@@ -24,6 +24,16 @@
   	</dependency>
   </dependencies>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <finalName>springframework-remoting-example-client</finalName>
   </build>
+	<properties>
+		<host>localhost</host>
+		<port>18080</port>
+	</properties>
 </project>
