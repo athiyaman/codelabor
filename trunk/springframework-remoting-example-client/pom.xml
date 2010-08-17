@@ -35,6 +35,6 @@
 	<properties>
 		<host>localhost</host>
 		<port>18080</port>
-		<context.name>springframework-remoting-example-client</context.name>
+		<context.name>/springframework-remoting-example-client</context.name>
 	</properties>
 </project>
