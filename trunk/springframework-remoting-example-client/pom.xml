@@ -40,8 +40,8 @@
     <finalName>springframework-remoting-example-client</finalName>
   </build>
 	<properties>
-		<host>localhost</host>
-		<port>18080</port>
-		<context.name>/springframework-remoting-example-server</context.name>
+		<remote.server.host>localhost</remote.server.host>
+		<remote.server.port>18080</remote.server.port>
+		<remote.server.context.name>/springframework-remoting-example-server</remote.server.context.name>
 	</properties>
 </project>
