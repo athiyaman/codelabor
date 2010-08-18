@@ -9,9 +9,10 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/dwr/engine.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/dwr/interface/HelloWorldService.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/dwr/util.js"></script>
 <script type="text/javascript">
 	function sayHello() {
-		HelloWorldService.sayHello('bomber', handleData);
+		HelloWorldService.sayHello(handleData, 'bomber');
 	}
 
 	function handleData(data) {
@@ -19,7 +20,7 @@
 	}
 </script>
 </head>
-<body onload="sayHello();">
+<body onload="DWRUtil.useLoadingMessage();sayHello();">
 
 </body>
 </html>
