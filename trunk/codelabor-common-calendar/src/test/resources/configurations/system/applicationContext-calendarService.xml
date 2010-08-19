@@ -143,8 +143,8 @@
 	<!-- 주5일제 휴일, 영업일 캘린더 -->
 	<bean
 		id="fiveDayWorkweekCalendarService"
-		class="org.codelabor.common.calendar.services.FiveDayWorkweekCalendarServiceImpl">
-		<property name="formatPattern" value="yyyy-MM-dd"/>
+		class="org.codelabor.common.calendar.services.FiveDayWorkweekCalendarServiceImpl"
+		parent="holidayCalendarService">
 		<property name="dateRangeFrom" value="2009-01-01"/>
 		<property name="dateRangeTo" value="2011-12-31"/>
 		<property name="holidayMap">
