@@ -32,6 +32,14 @@ import java.util.Date;
 public interface CalendarService {
 
 	/**
+	 * 금일 기준 다음 영업일을 가져온다.
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getNextBusinessdayDate() throws Exception;
+
+	/**
 	 * 다음 영업일을 가져온다.
 	 * 
 	 * @param date
@@ -40,6 +48,14 @@ public interface CalendarService {
 	 * @throws Exception
 	 */
 	public Date getNextBusinessdayDate(Date date) throws Exception;
+
+	/**
+	 * 금일 기준 다음 휴일을 가져온다.
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getNextHolidayDate() throws Exception;
 
 	/**
 	 * 다음 휴일을 가져온다.
@@ -52,6 +68,14 @@ public interface CalendarService {
 	public Date getNextHolidayDate(Date date) throws Exception;
 
 	/**
+	 * 금일 기준 이전 영업일을 가져온다.
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getPreviousBusinessDate() throws Exception;
+
+	/**
 	 * 이전 영업일을 가져온다.
 	 * 
 	 * @param date
@@ -60,6 +84,16 @@ public interface CalendarService {
 	 * @throws Exception
 	 */
 	public Date getPreviousBusinessDate(Date date) throws Exception;
+
+	/**
+	 * 금일 기준 이전 휴일을 가져온다.
+	 * 
+	 * @param date
+	 *            기준일
+	 * @return
+	 * @throws Exception
+	 */
+	public Date getPreviousHolidayDate() throws Exception;
 
 	/**
 	 * 이전 휴일을 가져온다.
