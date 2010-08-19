@@ -358,6 +358,10 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		this.dateRangeByYears = dateRangeByYears;
 	}
 
+	public void setBaseDateIncluded(boolean isBaseDateIncluded) {
+		this.isBaseDateIncluded = isBaseDateIncluded;
+	}
+
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();

@@ -20,7 +20,6 @@ package org.codelabor.common.calendar.services;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.codelabor.common.calendar.services.CalendarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractSingleSpringContextTests;
@@ -41,8 +40,10 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 	public void onSetUp() throws Exception {
 		// this.calendarService = (CalendarService)
 		// applicationContext.getBean("holidayCalendarService");
+		// this.calendarService = (CalendarService) applicationContext
+		// .getBean("fiveDayWorkweekCalendarService");
 		this.calendarService = (CalendarService) applicationContext
-				.getBean("fiveDayWorkweekCalendarService");
+				.getBean("baseDateIncludedFiveDayWorkweekCalendarService");
 	}
 
 	public void testGetHolidayDate() {

@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- 기본 휴일, 영업일 캘린더 -->
 	<bean
 		id="holidayCalendarService"
 		class="org.codelabor.common.calendar.services.HolidayCalendarServiceImpl">
@@ -138,6 +140,7 @@
 		</property>
 	</bean>
 
+	<!-- 주5일제 휴일, 영업일 캘린더 -->
 	<bean
 		id="fiveDayWorkweekCalendarService"
 		class="org.codelabor.common.calendar.services.FiveDayWorkweekCalendarServiceImpl">
@@ -230,5 +233,13 @@
 				<entry key="2011-12-25" value="성탄절" />
 			</map>
 		</property>
+	</bean>
+
+	<!-- 주5일제 휴일, 영업일 캘린더 (기준일 포함) -->
+	<bean
+		id="baseDateIncludedFiveDayWorkweekCalendarService"
+		class="org.codelabor.common.calendar.services.FiveDayWorkweekCalendarServiceImpl"
+		parent="fiveDayWorkweekCalendarService">
+		<property name="baseDateIncluded" value="true"/>
 	</bean>
 </beans>
