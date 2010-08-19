@@ -51,6 +51,11 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 			.getLogger(HolidayCalendarServiceImpl.class);
 
 	/**
+	 * 기준일 포함 여부
+	 */
+	protected boolean isBaseDateIncluded = false;
+
+	/**
 	 * 휴일 정보를 담고있는 Properties 타입의 프로퍼티
 	 */
 	protected Map<Date, String> holidayMap = null;
@@ -88,28 +93,50 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		Date businessdayDate = null;
 		Date tempDate = date;
 
-		if (amount == 0) {
-			if (this.isBusinessday(tempDate)) {
-				businessdayDate = tempDate;
-			}
-		} else if (amount > 0) {
-			while (amount > 0) {
-				tempDate = DateUtils.addDays(tempDate, 1);
-				if (isBusinessday(tempDate)) {
-					businessdayDate = tempDate;
-					amount--;
+		if (isBaseDateIncluded) {
+			// TODO
+			if (amount == 0) {
+				// no such date
+			} else if (amount > 0) {
+				while (amount > 0) {
+					tempDate = DateUtils.addDays(tempDate, 1);
+					if (isBusinessday(tempDate)) {
+						businessdayDate = tempDate;
+						amount--;
+					}
+				}
+			} else if (amount < 0) {
+				while (amount < 0) {
+					tempDate = DateUtils.addDays(tempDate, -1);
+					if (isBusinessday(tempDate)) {
+						businessdayDate = tempDate;
+						amount++;
+					}
 				}
 			}
-		} else if (amount < 0) {
-			while (amount < 0) {
-				tempDate = DateUtils.addDays(tempDate, -1);
-				if (isBusinessday(tempDate)) {
+		} else {
+			if (amount == 0) {
+				if (this.isBusinessday(tempDate)) {
 					businessdayDate = tempDate;
-					amount++;
+				}
+			} else if (amount > 0) {
+				while (amount > 0) {
+					tempDate = DateUtils.addDays(tempDate, 1);
+					if (isBusinessday(tempDate)) {
+						businessdayDate = tempDate;
+						amount--;
+					}
+				}
+			} else if (amount < 0) {
+				while (amount < 0) {
+					tempDate = DateUtils.addDays(tempDate, -1);
+					if (isBusinessday(tempDate)) {
+						businessdayDate = tempDate;
+						amount++;
+					}
 				}
 			}
 		}
-
 		if (businessdayDate == null) {
 			throw new NoSuchDateException();
 		}
@@ -128,28 +155,31 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		Date holidayDate = null;
 		Date tempDate = date;
 
-		if (amount == 0) {
-			if (this.isHoliday(tempDate)) {
-				holidayDate = tempDate;
-			}
-		} else if (amount > 0) {
-			while (amount > 0) {
-				tempDate = DateUtils.addDays(tempDate, 1);
-				if (isHoliday(tempDate)) {
+		if (isBaseDateIncluded) {
+			// TODO
+		} else {
+			if (amount == 0) {
+				if (this.isHoliday(tempDate)) {
 					holidayDate = tempDate;
-					amount--;
 				}
-			}
-		} else if (amount < 0) {
-			while (amount < 0) {
-				tempDate = DateUtils.addDays(tempDate, -1);
-				if (isHoliday(tempDate)) {
-					holidayDate = tempDate;
-					amount++;
+			} else if (amount > 0) {
+				while (amount > 0) {
+					tempDate = DateUtils.addDays(tempDate, 1);
+					if (isHoliday(tempDate)) {
+						holidayDate = tempDate;
+						amount--;
+					}
+				}
+			} else if (amount < 0) {
+				while (amount < 0) {
+					tempDate = DateUtils.addDays(tempDate, -1);
+					if (isHoliday(tempDate)) {
+						holidayDate = tempDate;
+						amount++;
+					}
 				}
 			}
 		}
-
 		if (holidayDate == null) {
 			throw new NoSuchDateException();
 		}
@@ -414,5 +444,24 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	 */
 	public Date getPreviousHolidayDate() throws Exception {
 		return this.getPreviousHolidayDate(Calendar.getInstance().getTime());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#isBusinessday()
+	 */
+	public boolean isBusinessday() throws Exception {
+		return this.isBusinessday(Calendar.getInstance().getTime());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.codelabor.common.calendar.services.CalendarService#isHoliday()
+	 */
+	public boolean isHoliday() throws Exception {
+		return this.isHoliday(Calendar.getInstance().getTime());
 	}
 }

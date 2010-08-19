@@ -138,6 +138,14 @@ public interface CalendarService {
 	public Date getHolidayDate(Date date, int amount) throws Exception;
 
 	/**
+	 * 금일이 영업일 여부를 확인한다.
+	 * 
+	 * @return 영업일 여부
+	 * @throws Exception
+	 */
+	public boolean isBusinessday() throws Exception;
+
+	/**
 	 * 영업일 여부를 확인한다.
 	 * 
 	 * @param date
@@ -156,6 +164,14 @@ public interface CalendarService {
 	 * @throws Exception
 	 */
 	public boolean isBusinessday(String date) throws Exception;
+
+	/**
+	 * 금일이 휴일 여부를 확인한다.
+	 * 
+	 * @return 휴일 여부
+	 * @throws Exception
+	 */
+	public boolean isHoliday() throws Exception;
 
 	/**
 	 * 휴일 여부를 확인한다.
