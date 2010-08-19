@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+	<definition name="example.error.error.page.misuse.definition" extends="system.error.definition">
+    	<put name="body"
+    		value="/WEB-INF/jsp/example/error/error-page/errorPageMisuse.jsp"/>
+	</definition>
+	<definition name="example.error.error.page.use.definition" extends="system.error.definition">
+    	<put name="body"
+    		value="/WEB-INF/jsp/example/error/error-page/errorPageUse.jsp"/>
+	</definition>
+	<definition name="example.error.custom.message.anyframe.base.exception.definition" extends="system.error.definition">
+    	<put name="body"
+    		value="/WEB-INF/jsp/example/error/custom-message/anyframeBaseException.jsp"/>
+	</definition>
+	<definition name="example.error.custom.message.codelabor.common.exception.definition" extends="system.error.definition">
+    	<put name="body"
+    		value="/WEB-INF/jsp/example/error/custom-message/codelaborCommonException.jsp"/>
+	</definition>
+
+
+	<definition name="example.error.jsp.exception.base.exception.definition" extends="system.error.definition">
+    	<put name="body"
+    		value="/WEB-INF/jsp/example/error/jspExceptionBaseException.jsp"/>
+	</definition>
+	<definition name="example.error.jsp.exception.common.exception.definition" extends="system.error.definition">
+    	<put name="body"
+    		value="/WEB-INF/jsp/example/error/jspExceptionCommonException.jsp"/>
+	</definition>
+</tiles-definitions>

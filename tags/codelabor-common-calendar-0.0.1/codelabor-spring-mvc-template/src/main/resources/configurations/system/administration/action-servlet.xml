@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="systemAdministrationUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/system/administration/home.do" value-ref="systemAdministrationHomeController"/>
+				<entry key="/system/administration/authorization/reload.do" value-ref="systemAdministrationReloadAuthorizationController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="systemAdministrationHomeController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="system.administration.home.definition"/>
+	</bean>
+
+	<bean
+		id="systemAdministrationReloadAuthorizationController"
+		class="org.codelabor.system.security.authorization.spring.controllers.ReloadController">
+		<!--
+		<property name="securityMetadataSource" ref="securityMetadataSource" />
+		-->
+		<property name="successView" value="system.administration.authorization.reload.definition"/>
+	</bean>
+</beans>

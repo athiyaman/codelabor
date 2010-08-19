@@ -1,0 +1,171 @@
+<HTML>
+<HEAD>
+<TITLE>렉스퍼트 뷰어 예제입니다.</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<SCRIPT language="JavaScript">
+
+   var d, s = "현재 로컬 시간: ";
+   var c = ":";
+   d = new Date();
+   s += d.getHours() + c;
+   s += d.getMinutes() + c;
+   s += d.getSeconds() + c;
+   s += d.getMilliseconds();
+   alert(s);
+
+	
+function fnPreView()
+{
+	
+	var oReport;
+	var oConnection;
+	
+	
+	//**************************************************************************
+	//  리포트 파일(rex)이 있는 경로를 지정합니다.
+	//**************************************************************************
+	//oReport = RexCtl.OpenReport("http://" + location.host + "/rexpert25/rexfiles/csvtest.rex");
+	//oReport = RexCtl.OpenReport("D:\\work\\project\\doosan\\AEG004_RPT.rex");
+	oReport = RexCtl.OpenReport(txtRexFileNm.value);
+	
+	if(oReport == null)
+	{
+		alert("리포트 파일을 열 수 없습니다!");
+		return;
+	}
+	
+	//**************************************************************************
+	// Connection 객체를 생성합니다.
+	//**************************************************************************
+	try 
+	{
+		oConnection = RexCtl.CreateConnection("http.csv");
+	}
+	catch(e)
+	{
+		alert(e.message);	
+		return;
+	}
+	
+	var oSQL = oReport.GetSQLControl();
+	
+	//**************************************************************************
+	// ASP/ASPX/JSP 주소 및 웹 파라미터를 설정합니다.
+	//**************************************************************************  
+	//oConnection.Path = "D:\\work\\project\\doosan\\AEG004_1_1.tmp";
+	oConnection.Path = txtCsvFileNm.value;
+	//oConnection.Path = fnGetRexServer();
+	//oConnection.AddParameter("con", oSQL.GetConnectionString());
+	//oConnection.AddParameter("sql", oSQL.GetSQL());
+	//oConnection.TempFileName = "c:\\test.csv";
+	//oConnection.DeleteTempFile = false;
+	try
+	{
+		oConnection.Send();
+	}
+	catch(e)
+	{
+		alert(e.message);
+		alert(oConnection.Response());
+		return;
+	}
+	
+	
+	var oDataSet;
+	
+	
+	//**************************************************************************
+	// DataSet를 생성합니다.
+	//
+	// * 첫번째 파라미터 : Connection 객체
+	// * 두번째 파라미터 : XML 루트
+	// * 세번째 파라미터 : 바인딩 모드(0:이름바인딩, 1:인덱스 바인딩)
+	//************************************************************************** 
+	try
+	{     
+		//oDataSet = oReport.CreateDataSetCSV(oConnection, 0, "@", "", "*", "");
+		oDataSet = oReport.CreateDataSetCSV(oConnection, 0, "|@|", "", ",", "");
+		
+		if(oDataSet.RowCount == 0)
+		{
+			//*************************************************************
+			//
+			// 이부분에 데이터가 없을 때 처리를 하시면 됩니다..^^
+			//
+			//*************************************************************
+			alert("데이터가 없습니다.");
+	
+		}
+	}
+	catch(e)
+	{
+		alert(e.message);
+		return;
+	}
+	
+	
+	
+	//**************************************************************************
+	// 리포트를 생성합니다.
+	//**************************************************************************
+	RexCtl.Run();
+ 
+}
+
+
+
+function fnGetRexServer()
+{
+   var szPath;
+ 
+   switch(cbOption.value)
+   {
+    case "0":
+      szPath = "http://" + location.host + "/rexpert25/rexserver_csv.asp";
+      break;
+ 	
+    case "1":
+      szPath = "http://" + location.host + ":8080/rexpert/rexserver_customer.jsp";  
+      break;
+      
+    case "2":
+      szPath = "http://" + location.host + "/rexpert/rexserver_customer.aspx";
+      break;
+          
+   }
+   
+   return szPath;
+}
+
+</SCRIPT>
+
+<!-- Rexpert Event Start-->
+<script language="javascript" for="RexCtl" event="EndLoadReport()">
+   var d2, s2 = "현재 로컬 시간: ";
+   var c2 = ":";
+   d2 = new Date();
+   s2 += d2.getHours() + c2;
+   s2 += d2.getMinutes() + c2;
+   s2 += d2.getSeconds() + c2;
+   s2 += d2.getMilliseconds();
+   alert(s + " - " + s2);
+		   	
+</script>
+<!-- Rexpert Evnet End-->
+</HEAD>
+<BODY topmargin = 0 leftmargin = 0 NOSCROLL>
+<div align="center"><BR>
+  <font color="#333333" size="5"><strong>렉스퍼트 뷰어 예제입니다. </strong></font><BR>
+  <BR>
+  rex파일
+  <INPUT type="text" value="D:\\rexpert\\RexServer\\samples\\test.rex" id="txtRexFileNm" style="width:100%">
+  <BR>
+  csv파일
+  <INPUT type="text" value="D:\\rexpert\\RexServer\\samples\\test.csv" id="txtCsvFileNm" style="width:100%">
+  <INPUT type="button" value="미리보기" onClick="fnPreView()">
+  <BR>
+  <BR>
+  <script src="../rexscript/rexplugin.js"></script>
+</div>
+</BODY>
+</HTML>

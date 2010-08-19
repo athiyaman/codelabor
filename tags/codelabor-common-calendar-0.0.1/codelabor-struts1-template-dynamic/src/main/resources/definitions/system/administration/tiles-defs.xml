@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+	<definition name="system.administration.definition" extends="default.definition">
+    	<put name="title"  value="Administration"/>
+		<put name="menu"   value="/WEB-INF/jsp/system/administration/menu.jsp"/>
+	</definition>
+	<definition name="system.administration.home.definition" extends="system.administration.definition">
+    	<put name="title"  value="home"/>
+    	<put name="body"   value="/WEB-INF/jsp/system/administration/home.jsp"/>
+	</definition>
+	<definition name="system.administration.authorization.reload.definition" extends="system.administration.definition">
+    	<put name="title"  value="home"/>
+    	<put name="body"   value="/WEB-INF/jsp/system/administration/authorization/reload.jsp"/>
+	</definition>
+</tiles-definitions>
