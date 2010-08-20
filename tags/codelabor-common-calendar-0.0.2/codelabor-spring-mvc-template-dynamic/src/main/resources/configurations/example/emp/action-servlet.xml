@@ -1,0 +1,78 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleEmpUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/emp/create.do" value-ref="exampleEmpCreateController"/>
+				<entry key="/example/emp/read.do" value-ref="exampleEmpReadController"/>
+				<entry key="/example/emp/list.do" value-ref="exampleEmpListController"/>
+				<entry key="/example/emp/update.do" value-ref="exampleEmpUpdateController"/>
+				<entry key="/example/emp/delete.do" value-ref="exampleEmpDeleteController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="exampleEmpBaseEmpController"
+		class="org.codelabor.example.emp.spring.controllers.BaseEmpController"
+		abstract="true">
+		<property name="empManager" ref="exampleEmpEmpManager"/>
+	</bean>
+	<bean
+		id="exampleEmpBaseEmpCommandController"
+		class="org.codelabor.example.emp.spring.controllers.BaseEmpCommandController"
+		abstract="true">
+		<property name="empManager" ref="exampleEmpEmpManager"/>
+	</bean>
+	<bean
+		id="exampleEmpBaseEmpFormController"
+		class="org.codelabor.example.emp.spring.controllers.BaseEmpFormController"
+		abstract="true">
+		<property name="customDateEditor" ref="customDateEditor"/>
+		<property name="empManager" ref="exampleEmpEmpManager"/>
+	</bean>
+	<bean
+ 		id="exampleEmpCreateController"
+		class="org.codelabor.example.emp.spring.controllers.CreateController"
+		parent="exampleEmpBaseEmpFormController">
+		<property name="commandName" value="empDTO"/>
+		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
+		<property name="formView" value="example.emp.create.definition"/>
+		<property name="successView" value="redirect:/example/emp/list.do"/>
+	</bean>
+	<bean
+		id="exampleEmpReadController"
+		class="org.codelabor.example.emp.spring.controllers.ReadController"
+		parent="exampleEmpBaseEmpController" >
+		<property name="successView" value="example.emp.read.definition"/>
+	</bean>
+	<bean
+		id="exampleEmpListController"
+		class="org.codelabor.example.emp.spring.controllers.ListController"
+		parent="exampleEmpBaseEmpController">
+		<property name="successView" value="example.emp.list.definition"/>
+	</bean>
+	<bean
+		id="exampleEmpUpdateController"
+		class="org.codelabor.example.emp.spring.controllers.UpdateController"
+		parent="exampleEmpBaseEmpFormController">
+		<property name="sessionForm" value="true"/>
+		<property name="commandName" value="updateForm"/>
+		<property name="commandClass" value="org.codelabor.example.emp.dtos.EmpDTO"/>
+		<property name="formView" value="example.emp.update.definition"/>
+		<property name="successView" value="forward:/example/emp/read.do"/>
+	</bean>
+	<bean
+		id="exampleEmpDeleteController"
+		class="org.codelabor.example.emp.spring.controllers.DeleteController"
+		parent="exampleEmpBaseEmpCommandController">
+		<property name="commandName" value="idArray"/>
+		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
+		<property name="successView" value="redirect:/example/emp/list.do"/>
+	</bean>
+</beans>

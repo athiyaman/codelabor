@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="configure-database" default="configure">
+	<typedef resource="net/sf/antcontrib/antlib.xml"/>
+	
+	<property environment="env"/>
+	<property file="../custom.properties"/>	
+	<property file="${project.dir}/setup/database/database.properties"/>
+	<property file="${project.dir}/setup/common.properties"/>
+	
+	<ant antfile="${project.dir}/setup/build-info.xml"/>
+
+	<target name="configure">
+		<echo level="info" message="database: ${database.product.name} found" />
+		<ant 
+			antfile="${project.dir}/setup/database/${database.product.name}/configure-database.xml" 
+			inheritAll="false"/>
+	</target>
+</project>

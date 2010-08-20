@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<queries>
+		<query id="system.userdetails.select.user.by.distinguishedName" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* system.userdetails.select.user.by.distinguishedName */
+					USERS.USERNAME,
+					USERS.PASSWORD,
+					USERS.ENABLED			
+				FROM 
+					CERTIFICATES_USERS_MAP, USERS
+				WHERE
+					CERTIFICATES_USERS_MAP.USERNAME = USERS.USERNAME
+					AND
+					CERTIFICATES_USERS_MAP.DN = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>
+	</queries>
+</queryservice>

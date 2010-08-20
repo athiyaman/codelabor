@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="build-info">
+	<property environment="env"/>
+	<property file="./custom.properties"/>	
+	<property file="${reference.project.dir}/setup/custom.properties"/>
+	<property file="${reference.project.dir}/setup/common.properties"/>
+	
+	<condition property="os.family"	value="unix">
+		<os family="unix"/>
+	</condition>	
+	<condition 
+		property="os.family" value="windows">
+		<os family="windows"/>
+	</condition>
+	<tstamp>
+		<format property="build.time" pattern="yyyy-MM-dd HH:mm:ss"/>
+	</tstamp>
+			
+	<echo level="info" message="build.time: ${build.time}"/>
+	<echo level="info" message="env.COMPUTERNAME: ${env.COMPUTERNAME}"/>
+	<echo level="info" message="user.name: ${user.name}"/>	
+	<echo level="info" message="os.family: ${os.family}"/>
+	<echo level="info" message="os.name: ${os.name}"/>
+	<echo level="info" message="os.version: ${os.version}"/>	
+	<echo level="info" message="java.home: ${java.home}"/>
+	<echo level="info" message="java.version: ${java.version}"/>
+	<echo level="info" message="java.vendor: ${java.vendor}"/>
+	<echo level="info" message="java.vm.name: ${java.vm.name}"/>	
+	<echo level="info" message="java.vm.version: ${java.vm.version}"/>
+	<echo level="info" message="java.vm.vendor: ${java.vm.vendor}"/>	
+	<echo level="info" message="ant.home: ${ant.home}"/>
+	<echo level="info" message="ant.version: ${ant.version}"/>
+</project>

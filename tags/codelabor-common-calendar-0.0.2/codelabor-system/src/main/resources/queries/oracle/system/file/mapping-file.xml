@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<table-mapping>
+		<table 
+			name="FILE_REPOSITORY" 
+			class="org.codelabor.system.file.dtos.FileDTO">
+			<field-mapping>
+				<dbms-column>FILE_ID</dbms-column>
+				<class-attribute>fileId</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>MAP_ID</dbms-column>
+				<class-attribute>mapId</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>REAL_FILE_NAME</dbms-column>
+				<class-attribute>realFileName</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>UNIQUE_FILE_NAME</dbms-column>
+				<class-attribute>uniqueFileName</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>REPOSITORY_PATH</dbms-column>
+				<class-attribute>repositoryPath</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>CONTENT_TYPE</dbms-column>
+				<class-attribute>contentType</class-attribute>
+			</field-mapping>			
+			<field-mapping>
+				<dbms-column>FILE_SIZE</dbms-column>
+				<class-attribute>fileSize</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>BLOB_DATA</dbms-column>
+				<class-attribute>bytes</class-attribute>
+			</field-mapping>
+			<primary-key>
+				<dbms-column>FILE_ID</dbms-column>
+			</primary-key>
+		</table>
+	</table-mapping>
+	<queries>
+		
+		<!-- delete -->
+		<query id="system.delete.file" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.file */
+				FROM 
+					FILE_REPOSITORY
+				WHERE
+					FILE_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>		
+		<query id="system.delete.file.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.file.list */
+				FROM 
+					FILE_REPOSITORY
+				]]>
+			</statement>
+		</query>	
+			
+		<!-- insert -->
+		<query id="system.insert.file" isDynamic="false">
+			<statement>
+				<![CDATA[
+				INSERT /* system.insert.file */ 
+				INTO FILE_REPOSITORY (
+					FILE_ID,
+					MAP_ID,
+					REAL_FILE_NAME,
+					UNIQUE_FILE_NAME,
+					REPOSITORY_PATH,
+					CONTENT_TYPE,
+					FILE_SIZE,
+					BLOB_DATA					
+				) VALUES (
+					?, ?, ?, ?, ?, ?, ?, ?
+				)
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="BIGINT"/>
+			<param type="BLOB"/>
+		</query>
+		
+		<!-- select -->
+		<query id="system.select.file" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* system.select.file */
+					FILE_ID,
+					MAP_ID,
+					REAL_FILE_NAME,
+					UNIQUE_FILE_NAME,
+					REPOSITORY_PATH,
+					CONTENT_TYPE,
+					FILE_SIZE,
+					BLOB_DATA
+				FROM 
+					FILE_REPOSITORY
+				WHERE 
+					FILE_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<result class="org.codelabor.system.file.dtos.FileDTO">
+				<result-mapping column="FILE_ID" attribute="fileId"/>
+				<result-mapping column="MAP_ID" attribute="mapId"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
+				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
+				<result-mapping column="FILE_SIZE" attribute="fileSize"/>
+				<result-mapping column="BLOB_DATA" attribute="bytes"/>
+			</result>			
+		</query>
+		<query id="system.select.file.list.by.repository.type" isDynamic="true">
+			<statement>
+				<![CDATA[
+				SELECT /* system.select.file.list.by.repository.type */
+					FILE_ID,
+					MAP_ID,
+					REAL_FILE_NAME,
+					UNIQUE_FILE_NAME,
+					REPOSITORY_PATH,
+					CONTENT_TYPE,
+					FILE_SIZE				
+				FROM 
+					FILE_REPOSITORY
+				#if ($REPOSITORY_TYPE == "FILE_SYSTEM")
+					WHERE REPOSITORY_PATH IS NOT NULL
+				#elseif ($REPOSITORY_TYPE == "DATABASE")
+					WHERE REPOSITORY_PATH IS NULL
+				#end
+				]]>
+			</statement>
+			<result class="org.codelabor.system.file.dtos.FileDTO">
+				<result-mapping column="FILE_ID" attribute="fileId"/>
+				<result-mapping column="MAP_ID" attribute="mapId"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
+				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
+				<result-mapping column="FILE_SIZE" attribute="fileSize"/>				
+			</result>			
+		</query>
+		<query id="system.select.file.list.by.map.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* system.select.file.list.by.map.id */
+					FILE_ID,
+					MAP_ID,
+					REAL_FILE_NAME,
+					UNIQUE_FILE_NAME,
+					REPOSITORY_PATH,
+					CONTENT_TYPE,
+					FILE_SIZE				
+				FROM 
+					FILE_REPOSITORY
+				WHERE 
+					MAP_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<result class="org.codelabor.system.file.dtos.FileDTO">
+				<result-mapping column="FILE_ID" attribute="fileId"/>
+				<result-mapping column="MAP_ID" attribute="mapId"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
+				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
+				<result-mapping column="FILE_SIZE" attribute="fileSize"/>				
+			</result>			
+		</query>			
+		<query id="system.select.file.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* system.select.file.list */
+					FILE_ID,
+					MAP_ID,
+					REAL_FILE_NAME,
+					UNIQUE_FILE_NAME,
+					REPOSITORY_PATH,
+					CONTENT_TYPE,
+					FILE_SIZE						
+				FROM 
+					FILE_REPOSITORY
+				]]>
+			</statement>
+			<result class="org.codelabor.system.file.dtos.FileDTO">
+				<result-mapping column="FILE_ID" attribute="fileId"/>
+				<result-mapping column="MAP_ID" attribute="mapId"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
+				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>				
+				<result-mapping column="FILE_SIZE" attribute="fileSize"/>	
+			</result>			
+		</query>
+	</queries>
+</queryservice>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<table-mapping>
+		<table name="ACCESS_LOG" class="org.codelabor.system.dtos.AccessLogDTO">
+			<field-mapping>
+				<dbms-column>SEQ</dbms-column>
+				<class-attribute>seq</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>USER_ID</dbms-column>
+				<class-attribute>userId</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>RESOURCE_ID</dbms-column>
+				<class-attribute>resourceId</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>MESSAGE</dbms-column>
+				<class-attribute>message</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>TIMESTAMP</dbms-column>
+				<class-attribute>timestamp</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>IP_ADDRESS</dbms-column>
+				<class-attribute>ipAddress</class-attribute>
+			</field-mapping>
+			<primary-key>
+				<dbms-column>SEQ</dbms-column>
+			</primary-key>
+		</table>
+	</table-mapping>
+	<queries>
+		<query id="system.delete.access.log.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.access.log.list */
+				FROM 
+					ACCESS_LOG
+				]]>
+			</statement>
+		</query>
+	</queries>
+</queryservice>
