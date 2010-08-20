@@ -159,8 +159,6 @@ public interface CalendarService {
 	/**
 	 * 금일 기준 이전 휴일을 가져온다. 기준일은 휴일 계산에 포함하지 않는다.
 	 * 
-	 * @param date
-	 *            기준일
 	 * @return 이전 휴일
 	 * @throws Exception
 	 */
@@ -169,8 +167,6 @@ public interface CalendarService {
 	/**
 	 * 금일 기준 이전 휴일을 가져온다.
 	 * 
-	 * @param date
-	 *            기준일
 	 * @param isBaseDateIncluded
 	 *            기준일 포함 여부
 	 * @return 이전 휴일
