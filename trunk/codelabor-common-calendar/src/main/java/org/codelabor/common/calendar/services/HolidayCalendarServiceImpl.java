@@ -364,14 +364,25 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();
-		logger.debug("currentDate: {}", currentDate);
-		if (dateRangeTo == null && dateRangeFrom == null) {
-			dateRangeTo = DateUtils.addYears(currentDate, dateRangeByYears);
+
+		if (dateRangeFrom == null) {
 			dateRangeFrom = DateUtils.addYears(currentDate, -dateRangeByYears);
 		}
-		logger.debug("dateRangeTo: {}", dateRangeTo);
-		logger.debug("dateRangeFrom: {}", dateRangeFrom);
+		if (dateRangeTo == null) {
+			dateRangeTo = DateUtils.addYears(currentDate, dateRangeByYears);
+		}
 
+		logger.debug("dateRangeFrom: {}", dateRangeFrom);
+		logger.debug("currentDate: {}", currentDate);
+		logger.debug("dateRangeTo: {}", dateRangeTo);
+
+		Assert.isTrue(currentDate.after(dateRangeFrom));
+		Assert.isTrue(currentDate.before(dateRangeTo));
+
+		// warn
+		if (currentDate.after(DateUtils.addWeeks(dateRangeTo, -1))) {
+			logger.warn("please renewer date range.");
+		}
 	}
 
 	/*
