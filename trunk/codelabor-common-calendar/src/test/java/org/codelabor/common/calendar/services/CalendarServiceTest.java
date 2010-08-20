@@ -40,20 +40,30 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 	public void onSetUp() throws Exception {
 		// this.calendarService = (CalendarService)
 		// applicationContext.getBean("holidayCalendarService");
-		// this.calendarService = (CalendarService) applicationContext
-		// .getBean("fiveDayWorkweekCalendarService");
 		this.calendarService = (CalendarService) applicationContext
-				.getBean("baseDateIncludedFiveDayWorkweekCalendarService");
+				.getBean("fiveDayWorkweekCalendarService");
 	}
 
 	public void testGetHolidayDate() {
 		try {
 			// test
 			int amount = 1;
+
+			// default
 			Date baseDate = Calendar.getInstance().getTime();
 			Date holidayDate = this.calendarService.getHolidayDate(baseDate,
 					amount);
 			String holidayDescription = this.calendarService
+					.getHolidayDescription(holidayDate);
+			logger.debug("baseDate: {}", baseDate);
+			logger.debug("amount: {}", amount);
+			logger.debug("holidayDate: {}", holidayDate);
+			logger.debug("holidayDescription: {}", holidayDescription);
+
+			// base date included
+			holidayDate = this.calendarService.getHolidayDate(baseDate, amount,
+					true);
+			holidayDescription = this.calendarService
 					.getHolidayDescription(holidayDate);
 			logger.debug("baseDate: {}", baseDate);
 			logger.debug("amount: {}", amount);
@@ -69,9 +79,19 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 		try {
 			// test
 			int amount = 1;
+
+			// default
 			Date baseDate = Calendar.getInstance().getTime();
 			Date businessdayDate = this.calendarService.getBusinessdayDate(
 					baseDate, amount);
+			logger.debug("baseDate: {}", baseDate);
+			logger.debug("amount: {}", amount);
+			logger.debug("businessdayDate: {}", businessdayDate);
+
+			// base date included
+			baseDate = Calendar.getInstance().getTime();
+			businessdayDate = this.calendarService.getBusinessdayDate(baseDate,
+					amount, true);
 			logger.debug("baseDate: {}", baseDate);
 			logger.debug("amount: {}", amount);
 			logger.debug("businessdayDate: {}", businessdayDate);

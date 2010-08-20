@@ -51,11 +51,6 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 			.getLogger(HolidayCalendarServiceImpl.class);
 
 	/**
-	 * 기준일 포함 여부
-	 */
-	protected boolean isBaseDateIncluded = false;
-
-	/**
 	 * 휴일 정보를 담고있는 Properties 타입의 프로퍼티
 	 */
 	protected Map<Date, String> holidayMap = null;
@@ -85,18 +80,19 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.calendar.services.CalendarService#getBusinessdayDate
-	 * (java.util.Date, int)
+	 * org.codelabor.common.calendar.services.CalendarService#getBusinessdayDate
+	 * (java.util.Date, int, boolean)
 	 */
-	public Date getBusinessdayDate(Date date, int amount)
-			throws ParseException, NoSuchDateException, DateOutOfRangeException {
+	public Date getBusinessdayDate(Date date, int amount,
+			boolean isBaseDateIncluded) throws ParseException,
+			NoSuchDateException, DateOutOfRangeException {
 		Date businessdayDate = null;
 		Date tempDate = date;
 
-		if (isBaseDateIncluded) {
-			if (amount == 0) {
+		if (isBaseDateIncluded) {// 기준일 포함
+			if (amount == 0) { // 기준일 당일
 				// no such date
-			} else if (amount > 0) {
+			} else if (amount > 0) { // 기준일 이후
 				tempDate = DateUtils.addDays(tempDate, -1);
 				while (amount > 0) {
 					tempDate = DateUtils.addDays(tempDate, 1);
@@ -105,7 +101,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 						amount--;
 					}
 				}
-			} else if (amount < 0) {
+			} else if (amount < 0) { // 기준일 이전
 				tempDate = DateUtils.addDays(tempDate, 1);
 				while (amount < 0) {
 					tempDate = DateUtils.addDays(tempDate, -1);
@@ -115,12 +111,13 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 					}
 				}
 			}
-		} else {
-			if (amount == 0) {
+
+		} else { // 기준일 미포함
+			if (amount == 0) { // 기준일 당일
 				if (this.isBusinessday(tempDate)) {
 					businessdayDate = tempDate;
 				}
-			} else if (amount > 0) {
+			} else if (amount > 0) { // 기준일 이후
 				while (amount > 0) {
 					tempDate = DateUtils.addDays(tempDate, 1);
 					if (isBusinessday(tempDate)) {
@@ -128,7 +125,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 						amount--;
 					}
 				}
-			} else if (amount < 0) {
+			} else if (amount < 0) { // 기준일 이전
 				while (amount < 0) {
 					tempDate = DateUtils.addDays(tempDate, -1);
 					if (isBusinessday(tempDate)) {
@@ -148,18 +145,18 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.calendar.services.CalendarService#getHolidayDate
-	 * (java.util.Date, int)
+	 * org.codelabor.common.calendar.services.CalendarService#getHolidayDate
+	 * (java.util.Date, int, boolean)
 	 */
-	public Date getHolidayDate(Date date, int amount) throws ParseException,
-			NoSuchDateException, DateOutOfRangeException {
+	public Date getHolidayDate(Date date, int amount, boolean isBaseDateIncluded)
+			throws ParseException, NoSuchDateException, DateOutOfRangeException {
 		Date holidayDate = null;
 		Date tempDate = date;
 
-		if (isBaseDateIncluded) {
-			if (amount == 0) {
+		if (isBaseDateIncluded) { // 기준일 포함
+			if (amount == 0) { // 기준일 당일
 				// no such date
-			} else if (amount > 0) {
+			} else if (amount > 0) { // 기준일 이후
 				tempDate = DateUtils.addDays(tempDate, -1);
 				while (amount > 0) {
 					tempDate = DateUtils.addDays(tempDate, 1);
@@ -168,7 +165,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 						amount--;
 					}
 				}
-			} else if (amount < 0) {
+			} else if (amount < 0) { // 기준일 이전
 				tempDate = DateUtils.addDays(tempDate, 1);
 				while (amount < 0) {
 					tempDate = DateUtils.addDays(tempDate, -1);
@@ -178,12 +175,12 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 					}
 				}
 			}
-		} else {
-			if (amount == 0) {
+		} else { // 기준일 미포함
+			if (amount == 0) { // 기준일 당일
 				if (this.isHoliday(tempDate)) {
 					holidayDate = tempDate;
 				}
-			} else if (amount > 0) {
+			} else if (amount > 0) { // 기준일 이후
 				while (amount > 0) {
 					tempDate = DateUtils.addDays(tempDate, 1);
 					if (isHoliday(tempDate)) {
@@ -191,7 +188,7 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 						amount--;
 					}
 				}
-			} else if (amount < 0) {
+			} else if (amount < 0) { // 기준일 이전
 				while (amount < 0) {
 					tempDate = DateUtils.addDays(tempDate, -1);
 					if (isHoliday(tempDate)) {
@@ -358,10 +355,12 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		this.dateRangeByYears = dateRangeByYears;
 	}
 
-	public void setBaseDateIncluded(boolean isBaseDateIncluded) {
-		this.isBaseDateIncluded = isBaseDateIncluded;
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
 	public void afterPropertiesSet() {
 		this.dateFormat = new SimpleDateFormat(formatPattern);
 		Date currentDate = Calendar.getInstance().getTime();
@@ -488,5 +487,111 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 	 */
 	public boolean isHoliday() throws Exception {
 		return this.isHoliday(Calendar.getInstance().getTime());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getBusinessdayDate
+	 * (java.util.Date, int)
+	 */
+	public Date getBusinessdayDate(Date date, int amount) throws Exception {
+		return this.getBusinessdayDate(date, amount, false);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getHolidayDate
+	 * (java.util.Date, int)
+	 */
+	public Date getHolidayDate(Date date, int amount) throws Exception {
+		return this.getHolidayDate(date, amount, false);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getNextBusinessdayDate
+	 * (boolean)
+	 */
+	public Date getNextBusinessdayDate(boolean isBaseDateInclude)
+			throws Exception {
+		return this.getPreviousBusinessDate(Calendar.getInstance().getTime(),
+				isBaseDateInclude);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getNextBusinessdayDate
+	 * (java.util.Date, boolean)
+	 */
+	public Date getNextBusinessdayDate(Date date, boolean isBaseDateIncluded)
+			throws Exception {
+		return this.getBusinessdayDate(date, 1, isBaseDateIncluded);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getNextHolidayDate
+	 * (boolean)
+	 */
+	public Date getNextHolidayDate(boolean isBaseDateIncluded) throws Exception {
+		return this.getNextHolidayDate(Calendar.getInstance().getTime(),
+				isBaseDateIncluded);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getNextHolidayDate
+	 * (java.util.Date, boolean)
+	 */
+	public Date getNextHolidayDate(Date date, boolean isBaseDateIncluded)
+			throws Exception {
+		return this.getHolidayDate(date, 1, isBaseDateIncluded);
+	}
+
+	public Date getPreviousBusinessDate(boolean isBaseDateIncluded)
+			throws Exception {
+		return this.getPreviousBusinessDate(Calendar.getInstance().getTime(),
+				isBaseDateIncluded);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.common.calendar.services.CalendarService#
+	 * getPreviousBusinessDate(java.util.Date, boolean)
+	 */
+	public Date getPreviousBusinessDate(Date date, boolean isBaseDateIncluded)
+			throws Exception {
+		return this.getBusinessdayDate(date, -1, isBaseDateIncluded);
+	}
+
+	public Date getPreviousHolidayDate(boolean isBaseDateIncluded)
+			throws Exception {
+		return this.getPreviousHolidayDate(Calendar.getInstance().getTime(),
+				isBaseDateIncluded);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.common.calendar.services.CalendarService#getPreviousHolidayDate
+	 * (java.util.Date, boolean)
+	 */
+	public Date getPreviousHolidayDate(Date date, boolean isBaseDateIncluded)
+			throws Exception {
+		return this.getHolidayDate(date, -1, isBaseDateIncluded);
 	}
 }

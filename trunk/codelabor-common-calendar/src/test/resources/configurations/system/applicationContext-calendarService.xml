@@ -234,12 +234,4 @@
 			</map>
 		</property>
 	</bean>
-
-	<!-- 주5일제 휴일, 영업일 캘린더 (기준일 포함) -->
-	<bean
-		id="baseDateIncludedFiveDayWorkweekCalendarService"
-		class="org.codelabor.common.calendar.services.FiveDayWorkweekCalendarServiceImpl"
-		parent="fiveDayWorkweekCalendarService">
-		<property name="baseDateIncluded" value="true"/>
-	</bean>
 </beans>
