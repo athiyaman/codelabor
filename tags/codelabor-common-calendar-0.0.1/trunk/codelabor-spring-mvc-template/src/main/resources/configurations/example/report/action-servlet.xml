@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleReportMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/report/rexpert/main/rdbms.do"
+					value-ref="exampleReportXecureMainRdbmsController"/>
+				<entry key="/example/report/rexpert/main/xml.do"
+					value-ref="exampleReportXecureMainXmlController"/>
+				<entry key="/example/report/rexpert/main/json.do"
+					value-ref="exampleReportXecureMainJsonController"/>
+				<entry key="/example/report/rexpert/sub/rdbms.do"
+					value-ref="exampleReportXecureSubRdbmsController"/>
+				<entry key="/example/report/rexpert/sub/xml.do"
+					value-ref="exampleReportXecureSubXmlController"/>
+				<entry key="/example/report/rexpert/sub/json.do"
+					value-ref="exampleReportXecureSubJsonController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="exampleReportXecureMainRdbmsController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.report.rexpert.main.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureMainXmlController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.report.rexpert.main.xml.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureMainJsonController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.report.rexpert.main.json.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureSubRdbmsController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.report.rexpert.sub.rdbms.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureSubXmlController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.report.rexpert.sub.xml.definition"/>
+	</bean>
+	<bean
+		id="exampleReportXecureSubJsonController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.report.rexpert.sub.json.definition"/>
+	</bean>
+</beans>

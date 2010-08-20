@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+        start-state="step1">
+
+    <var name="empDTO" class="org.codelabor.example.emp.dtos.EmpDTO"/>
+
+	<view-state id="step1" view="example.emp.create.step1.definition" model="empDTO">
+		<binder>
+			<binding property="ename" required="true"/>
+			<binding property="job" required="true"/>
+		</binder>
+		<transition on="next" to="step2" />
+		<transition on="cancel" to="cancelled" />
+	</view-state>
+
+	<view-state id="step2" view="example.emp.create.step2.definition" model="empDTO">
+		<binder>
+			<binding property="mgr" required="true"/>
+			<binding property="hireDate" required="true"/>
+		</binder>
+		<on-render>
+			<evaluate expression="exampleEmpEmpManager.getManagerMap()" result="viewScope.managerMap" />
+		</on-render>
+		<transition on="previous" to="step1" />
+		<transition on="next" to="step3" />
+		<transition on="cancel" to="cancelled" bind="false"/>
+	</view-state>
+
+	<view-state id="step3" view="example.emp.create.step3.definition" model="empDTO">
+		<binder>
+			<binding property="sal" required="true"/>
+			<binding property="comm" required="true"/>
+		</binder>
+		<transition on="previous" to="step2" />
+		<transition on="submit" to="insertEmp" />
+		<transition on="cancel" to="cancelled" bind="false"/>
+	</view-state>
+
+	<action-state id="insertEmp">
+		<evaluate expression="exampleEmpEmpManager.insertEmp(empDTO)"/>
+		<transition on="success" to="confirmed" />
+	</action-state>
+
+	<end-state id="confirmed" view="redirect:/example/emp/list.do"/>
+	<end-state id="cancelled" view="redirect:/example/emp/list.do"/>
+</flow>

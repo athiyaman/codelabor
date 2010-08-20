@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:b="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<b:bean id="securedObjectService" class="anyframe.iam.core.securedobject.impl.SecuredObjectServiceImpl" >
+        <b:property name="securedObjectDAO" ref="securedObjectDAO" />
+    </b:bean>
+
+    <b:bean id="securedObjectDAO" class="anyframe.iam.core.securedobject.impl.SecuredObjectDAO">
+    	<b:property name="sqlRolesAndUrl">
+    		<b:value>
+    			/*
+    			SELECT '/index.*' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+    			SELECT '/XecureObject/**' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+    			SELECT '/system/login/home.do*' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+    			SELECT '/system/login/xecure/login.do*' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+    			SELECT '/servlet/system/snifferServlet*' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+				SELECT '/servlet/system/sniffer/xecureSnifferServlet*' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+				SELECT '/servlet/system/file/xecureFileUploadServlet*' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+				SELECT '/system/error/**' url, 'IS_AUTHENTICATED_ANONYMOUSLY' authority FROM DUAL
+				UNION ALL
+				SELECT '/system/administration/**' url, 'ROLE_ADMIN' authority FROM DUAL
+				UNION ALL
+				SELECT '/system/preferences/**' url, 'ROLE_ADMIN' authority FROM DUAL
+				UNION ALL
+				SELECT '/system/preferences/**' url, 'ROLE_USER' authority FROM DUAL
+				UNION ALL
+				SELECT '/**' url, 'ROLE_USER' authority FROM DUAL
+				UNION ALL
+				SELECT '/**' url, 'ROLE_ADMIN' authority FROM DUAL
+				*/
+
+				SELECT a.resource_pattern as url, b.authority as authority
+				FROM RESOURCES A, RESOURCES_AUTHORITIES_MAP B
+				WHERE a.resource_id = b.resource_id
+				ORDER BY a.sort_order
+    		</b:value>
+    	</b:property>
+        <b:property name="dataSource" ref="oracleDataSource" />
+    </b:bean>
+
+    <b:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+        <b:property name="allowIfAllAbstainDecisions" value="false" />
+        <b:property name="decisionVoters">
+            <b:list>
+                <b:bean class="org.springframework.security.access.vote.RoleVoter">
+                    <b:property name="rolePrefix" value="" />
+                </b:bean>
+                <b:bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+            </b:list>
+        </b:property>
+    </b:bean>
+
+
+    <b:bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+        <custom-filter before="FILTER_SECURITY_INTERCEPTOR" />
+        <b:property name="authenticationManager" ref="authenticationManager" />
+        <b:property name="accessDecisionManager" ref="accessDecisionManager" />
+        <b:property name="securityMetadataSource" ref="securityMetadataSource" />
+    </b:bean>
+
+
+    <b:bean id="securityMetadataSource"
+        class="org.springframework.security.web.access.intercept.AnyframeReloadableDefaultFilterInvocationSecurityMetadataSource">
+        <b:constructor-arg ref="antUrlPathMatcher" />
+        <b:constructor-arg ref="requestMap" />
+        <b:property name="securedObjectService" ref="securedObjectService" />
+    </b:bean>
+
+	<!-- path matcher -->
+	<b:bean id="antUrlPathMatcher" class="org.springframework.security.web.util.AntUrlPathMatcher" />
+	<b:bean id="regexUrlPathMatcher" class="org.springframework.security.web.util.RegexUrlPathMatcher" />
+
+    <b:bean id="requestMap" class="anyframe.iam.core.intercept.ResourcesMapFactoryBean" init-method="init">
+        <b:property name="securedObjectService" ref="securedObjectService" />
+        <b:property name="resourceType" value="url" />
+    </b:bean>
+
+    <http auto-config="false"
+		lowercase-comparisons="false"
+   		session-fixation-protection="migrateSession"
+		entry-point-ref="loginUrlAuthenticationEntryPoint" >
+
+		<intercept-url pattern="/css/**" filters="none"/>
+		<intercept-url pattern="/images/**" filters="none"/>
+		<intercept-url pattern="/themes/**" filters="none"/>
+		<intercept-url pattern="/resources/**" filters="none"/>
+
+
+		<!-- move to DB -->
+		<!--
+		<intercept-url pattern="/index.*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/XecureObject/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/system/login/home.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/system/login/xecure/login.do*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/servlet/system/snifferServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/servlet/system/sniffer/xecureSnifferServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/servlet/system/file/xecureFileUploadServlet*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/system/error/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/system/administration/**" access="ROLE_ADMIN"/>
+		<intercept-url pattern="/system/preferences/**" access="ROLE_ADMIN,ROLE_USER"/>
+		<intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN"/>
+		 -->
+
+        <!--  <form-login login-page="/system/login/home.do" login-processing-url="/j_spring_security_check"
+            authentication-failure-url="/system/login/home.do?login_error=1"
+            default-target-url="/system/login/success.do" /> -->
+
+        <anonymous username="anonymous"/>
+        <!--http-basic / -->
+        <remember-me user-service-ref="jdbcUserService" data-source-ref="oracleDataSource"/>
+        <logout logout-success-url="/system/login/home.do" />
+        <!--  if you wish to use Concurrent Session Control - see also listener configuration of web.xml - HttpSessionEventPublisher -->
+        <concurrent-session-control max-sessions="1" expired-url="/system/login/home.do"/>
+    </http>
+
+	<!-- authentication manager -->
+	<authentication-manager alias="authenticationManager"/>
+
+	<!-- authentication provider -->
+	<b:bean
+		id="pkiAuthProvider"
+		class="org.codelabor.system.authentication.PKIAuthenticationProvider">
+		<custom-authentication-provider/>
+		<b:property name="userDetailsService" ref="pkiAuthenticatedUserDetailsService"/>
+	</b:bean>
+	<authentication-provider user-service-ref="jdbcUserService">
+		<password-encoder hash="sha"/>
+	</authentication-provider>
+
+    <!--
+    <jdbc-user-service id="jdbcUserService" data-source-ref="dataSource"
+        users-by-username-query="SELECT USER_ID,PASSWORD,ENABLED FROM USERS WHERE USER_ID = ?"
+        authorities-by-username-query="SELECT USER_ID,AUTHORITY FROM AUTHORITIES WHERE USER_ID = ?" />
+    -->
+
+    <b:bean id="jdbcUserService"
+            class="anyframe.iam.core.userdetails.jdbc.ExtJdbcUserDetailsManager" >
+        <!-- USER_ID, PASSWORD, ENABLED 는 항상 1,2,3 번째 순서로 나타나야 함! -->
+        <b:property name="usersByUsernameQuery" >
+        	<b:value>
+				SELECT
+					USERNAME, PASSWORD, ENABLED
+				FROM
+					USERS
+				WHERE
+					USERNAME = ?
+			</b:value>
+		</b:property>
+        <b:property name="authoritiesByUsernameQuery" >
+        	<b:value>
+				SELECT /* system.userdetails.select.authorities.by.username */
+					USERNAME, AUTHORITY
+				FROM
+					USERS_AUTHORITIES_MAP
+				WHERE
+					USERNAME = ?
+        	</b:value>
+        </b:property>
+        <b:property name="dataSource" ref="oracleDataSource"/>
+        <!-- 아래 mapClass를 지정하지 않으면 ExtUsersByUsernameMapping 에 의해 default 로 위 쿼리에 의한 사용자 정보는 Map 으로 처리됨 -->
+        <!--<b:property name="mapClass" value="anyframe.iam.core.userdetails.jdbc.CustomUsersByUsernameMapping"/>-->
+    </b:bean>
+
+	<global-method-security secured-annotations="enabled" jsr250-annotations="enabled">
+		<protect-pointcut expression="execution(* org.codelabor.system.administration.**.*(..))" access="ROLE_ADMIN"/>
+	</global-method-security>
+
+	<!-- filter -->
+	<b:bean
+		id="pkiAuthenticationProcessingFilter"
+		class="org.codelabor.system.security.xecure.filters.XecurePKIAuthenticationProcessingFilter">
+		<custom-filter position="AUTHENTICATION_PROCESSING_FILTER"/>
+		<b:property name="authenticationManager" ref="authenticationManager"/>
+		<b:property name="authenticationSuccessHandler" ref="authenticationSuccessHandler"/>
+		<b:property name="authenticationFailureHandler" ref="authenticationFailureHandler"/>
+	</b:bean>
+
+	<!-- authentication handler -->
+	<b:bean id="authenticationSuccessHandler"
+		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+		<b:property name="defaultTargetUrl" value="/system/login/success.do"/>
+	</b:bean>
+	<b:bean id="authenticationFailureHandler"
+		class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+		<b:property name="defaultFailureUrl" value="/system/login/home.do?login_error=true"/>
+		<!--
+		<b:property name="exceptionMapping">
+			<b:map>
+				<b:entry key="org.springframework.security.authentication.AuthenticationServiceException
+				" value=""/>
+			</b:map>
+		</b:property>
+		 -->
+	</b:bean>
+
+	<!-- entiry point -->
+	<b:bean id="loginUrlAuthenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<b:property name="loginFormUrl" value="/system/login/home.do"></b:property>
+	</b:bean>
+
+</b:beans>

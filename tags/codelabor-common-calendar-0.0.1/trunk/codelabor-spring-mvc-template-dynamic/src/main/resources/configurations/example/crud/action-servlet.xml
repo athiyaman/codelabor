@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean
+		id="exampleCrudUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/crud/create.do" value-ref="exampleCrudCreateController"/>
+				<entry key="/example/crud/read.do" value-ref="exampleCrudReadController"/>
+				<entry key="/example/crud/list.do" value-ref="exampleCrudListController"/>
+				<entry key="/example/crud/update.do" value-ref="exampleCrudUpdateController"/>
+				<entry key="/example/crud/delete.do" value-ref="exampleCrudDeleteController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="exampleCrudBaseCrudController"
+		class="org.codelabor.example.crud.spring.controllers.BaseCrudController"
+		abstract="true">
+		<property name="crudService" ref="exampleCrudCrudService"/>
+	</bean>
+	<bean
+		id="exampleCrudBaseCrudCommandController"
+		class="org.codelabor.example.crud.spring.controllers.BaseCrudCommandController"
+		abstract="true">
+		<property name="crudService" ref="exampleCrudCrudService"/>
+	</bean>	
+	<bean
+		id="exampleCrudBaseCrudFormController"
+		class="org.codelabor.example.crud.spring.controllers.BaseCrudFormController"
+		abstract="true">
+		<property name="crudService" ref="exampleCrudCrudService"/>
+	</bean>
+	<bean
+ 		id="exampleCrudCreateController"
+		class="org.codelabor.example.crud.spring.controllers.CreateController"
+		parent="exampleCrudBaseCrudFormController">
+		<property name="commandName" value="crudDTO"/>
+		<property name="commandClass" value="org.codelabor.example.crud.dtos.CrudDTO"/>
+		<property name="formView" value="example.crud.create.definition"/>
+		<property name="successView" value="redirect:/example/crud/list.do"/>
+	</bean>
+	<bean
+		id="exampleCrudReadController"
+		class="org.codelabor.example.crud.spring.controllers.ReadController"
+		parent="exampleCrudBaseCrudController" >
+		<property name="successView" value="example.crud.read.definition"/>
+	</bean>
+	<bean
+		id="exampleCrudListController"
+		class="org.codelabor.example.crud.spring.controllers.ListController"
+		parent="exampleCrudBaseCrudController">
+		<property name="successView" value="example.crud.list.definition"/>
+	</bean>
+	<bean
+		id="exampleCrudUpdateController"
+		class="org.codelabor.example.crud.spring.controllers.UpdateController"
+		parent="exampleCrudBaseCrudFormController">
+		<property name="sessionForm" value="true"/>
+		<property name="commandName" value="updateForm"/>
+		<property name="commandClass" value="org.codelabor.example.crud.dtos.CrudDTO"/>
+		<property name="formView" value="example.crud.update.definition"/>
+		<property name="successView" value="forward:/example/crud/read.do"/>
+	</bean>
+	<bean
+		id="exampleCrudDeleteController"
+		class="org.codelabor.example.crud.spring.controllers.DeleteController"
+		parent="exampleCrudBaseCrudCommandController">
+		<property name="commandName" value="idArray"/>
+		<property name="commandClass" value="org.codelabor.system.dtos.IntIDArrayDTO"/>
+		<property name="successView" value="redirect:/example/crud/list.do"/>
+	</bean>
+</beans>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<project name="jdown" default="jdown">
+	<typedef resource="net/sf/antcontrib/antlib.xml"/>
+	
+	<property environment="env"/>
+	<property file="../../custom.properties"/>		
+	<property file="${reference.project.dir}/setup/custom.properties"/>
+	<property file="${project.dir}/setup/was/was.properties"/>
+	<property file="${reference.project.dir}/setup/was/was.properties"/>
+	<property file="${project.dir}/setup/was/jeus/was.properties"/>
+	<property file="${reference.project.dir}/setup/was/jeus/was.properties"/>
+	<property file="${project.dir}/setup/framework/systemier/systemier.properties"/>	
+	<property file="${reference.project.dir}/setup/framework/systemier/systemier.properties"/>	
+	<property file="${reference.project.dir}/setup/common.properties"/>	
+	
+	<ant antfile="${project.dir}/setup/build-info.xml"/>
+
+	<!-- ant 1.7 이후는 osfamily 지원함 -->
+	<osfamily property="os.family"/>
+	<echo message="os.family: ${os.family}"/>	
+
+	<target name="jdown">
+		<switch value="${os.family}">
+			<case value="windows">
+				<if>
+					<equals arg1="${was.product.version}" arg2="4.2"/>
+					<then>
+						<exec 
+						 	dir="${jeus.home.dir}/bin" 
+						 	executable="jeusadmin.bat">
+						 	<arg line="${env.COMPUTERNAME} jeusexit -U${jeus.username} -P${jeus.password}"/>
+						</exec>	
+					</then>
+					<elseif>
+						<equals arg1="${was.product.version}" arg2="5.0"/>
+						<then>
+							<exec 
+							 	dir="${jeus.home.dir}/bin" 
+							 	executable="jeusadmin.cmd">
+							 	<arg line="${env.COMPUTERNAME} -U${jeus.username} -P${jeus.password} jeusexit"/>
+							</exec>										
+						</then>
+					</elseif>
+					<else>
+						<echo message="unknoun was version" />
+					</else>
+				</if>
+			</case>
+			<case value="unix">
+				 <exec 
+				 	dir="${jeus.home.dir}/bin" 
+				 	executable="jeusadmin">
+				 	<arg line="${jeus.node.name} jeusexit -U${jeus.username} -P${jeus.password}"/>
+				 </exec>
+			</case>
+			<default>
+				<echo message="unknoun os family" />
+			</default>
+		</switch>		 
+	</target>
+</project>
+
+
+
