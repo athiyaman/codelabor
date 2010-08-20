@@ -379,8 +379,23 @@ public class HolidayCalendarServiceImpl implements CalendarService,
 		Assert.isTrue(currentDate.after(dateRangeFrom));
 		Assert.isTrue(currentDate.before(dateRangeTo));
 
-		// warn
-		if (currentDate.after(DateUtils.addWeeks(dateRangeTo, -1))) {
+		if (logger.isDebugEnabled()) {
+			Calendar calendar1 = Calendar.getInstance();
+			Calendar calendar2 = Calendar.getInstance();
+			calendar2.setTime(dateRangeTo);
+			int yearRemains = calendar2.get(Calendar.YEAR)
+					- calendar1.get(Calendar.YEAR);
+			int monthRemains = calendar2.get(Calendar.MONTH)
+					- calendar1.get(Calendar.MONTH);
+			int dateRemains = calendar2.get(Calendar.DATE)
+					- calendar1.get(Calendar.DATE);
+			logger.debug("dateRangeTo remains: year: {}, month: {}, day: {}",
+					new Object[] { yearRemains, monthRemains, dateRemains });
+		}
+
+		Date beforeOneWeekDateRangeTo = DateUtils.addWeeks(dateRangeTo, -1);
+		if (currentDate.after(beforeOneWeekDateRangeTo)) {
+
 			logger.warn("please renewer date range.");
 		}
 	}
