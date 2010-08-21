@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service" 
+    class="flex.messaging.services.RemotingService">
+    
+	<destination id="sessionRO">
+		<properties>
+			<source>org.codelabor.system.flex.ros.SessionRO</source>
+		</properties>
+	</destination>    
+    
+	<destination id="empManagerMockRO">
+		<properties>
+			<source>org.codelabor.example.managers.EmpManagerMock</source>
+		</properties>
+	</destination>    
+	    
+	<destination id="empManagerRO">
+		<properties>
+			<factory>springFactory</factory>
+			<source>empManager</source>
+		</properties>
+	</destination>
+	 
+	<destination id="queryServiceRO">
+		<properties>
+			<factory>springFactory</factory>
+			<source>queryService</source>
+		</properties>
+	</destination>
+	
+	<destination id="messageSourceRO">
+		<properties>
+			<factory>springFactory</factory>
+			<source>messageSource</source>
+		</properties>
+	</destination>			 
+
+    <adapters>
+        <adapter-definition id="java-object" class="flex.messaging.services.remoting.adapters.JavaAdapter" default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="my-amf"/>
+    </default-channels>
+
+</service>

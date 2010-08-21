@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+        start-state="step1" >
+
+	<view-state id="step1" view="example.flow.step1.definition">
+		<transition on="next" to="step2" />
+		<transition on="cancel" to="cancelled" />
+	</view-state>
+
+	<view-state id="step2" view="example.flow.step2.definition">
+		<transition on="previous" to="step1" />
+		<transition on="next" to="step3" />
+		<transition on="cancel" to="cancelled" />
+	</view-state>
+
+	<view-state id="step3" view="example.flow.step3.definition">
+		<transition on="previous" to="step2" />
+		<transition on="submit" to="confirmed" />
+		<transition on="cancel" to="cancelled" />
+	</view-state>
+
+	<end-state id="confirmed" view="example.flow.confirm.definition"/>
+	<end-state id="cancelled" view="example.flow.cancel.definition"/>
+</flow>
