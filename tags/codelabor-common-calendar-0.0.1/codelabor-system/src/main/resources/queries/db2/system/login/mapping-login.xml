@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<queries>
+		<!-- delete -->
+		<query id="system.delete.login.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.login.list */
+				FROM 
+					LOGIN 
+				]]>
+			</statement>
+		</query>	
+		
+		<!-- insert -->
+		<!-- DB2 -->					
+		<query id="system.insert.login" isDynamic="false">
+			<statement>
+				<![CDATA[
+				INSERT /* system.insert.login */
+				INTO LOGIN ( 
+					SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP
+				) VALUES (
+					?, ?, ?, CURRENT_TIMESTAMP
+				)
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>			
+		</query>
+					
+		<!-- select -->			
+		<query id="system.select.login.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* system.select.login.list */
+					SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP
+				FROM LOGIN
+				]]>
+			</statement>
+			<result class="org.codelabor.system.login.dtos.LoginDTO">
+				<result-mapping column="SESSION_ID" attribute="sessionId"/>
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
+				<result-mapping column="LOGIN_TIMESTAMP" attribute="loginTimestamp"/>
+				<result-mapping column="LOGOUT_TIMESTAMP" attribute="logoutTimestamp"/>								
+			</result>
+		</query>
+		<!-- DB2 -->
+		<query id="system.select.login" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT * FROM 
+				(SELECT /* system.select.login */
+					ROWNUMBER() OVER() AS ROWNUM, SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP 
+				FROM 
+					LOGIN 
+				WHERE 
+					SESSION_ID = ?
+				ORDER BY 
+					LOGIN_TIMESTAMP DESC	
+				) AS INNER_TABLE WHERE ROWNUM = 1				
+				]]>
+			</statement>
+			<param type="INTEGER"/>
+			<result class="org.codelabor.system.login.dtos.LoginDTO">
+				<result-mapping column="SESSION_ID" attribute="sessionId"/>
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
+				<result-mapping column="LOGIN_TIMESTAMP" attribute="loginTimestamp"/>
+				<result-mapping column="LOGOUT_TIMESTAMP" attribute="logoutTimestamp"/>								
+			</result>
+		</query>
+		<query id="system.select.login.by.last.logout.user.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT * FROM 
+				(SELECT /* system.select.login.by.last.logout.user.id */
+					ROWNUMBER() OVER() AS ROWNUM, SESSION_ID, USER_ID, IP_ADDRESS, LOGIN_TIMESTAMP, LOGOUT_TIMESTAMP 
+				FROM 
+					LOGIN 
+				WHERE 
+					USER_ID = ?
+					AND LOGOUT_TIMESTAMP IS NOT NULL
+				ORDER BY 
+					LOGIN_TIMESTAMP DESC	
+				) AS INNER_TABLE WHERE ROWNUM = 1						
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<result class="org.codelabor.system.login.dtos.LoginDTO">
+				<result-mapping column="SESSION_ID" attribute="sessionId"/>
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
+				<result-mapping column="LOGIN_TIMESTAMP" attribute="loginTimestamp"/>
+				<result-mapping column="LOGOUT_TIMESTAMP" attribute="logoutTimestamp"/>								
+			</result>
+		</query>
+	
+
+		<!-- update -->
+		<!-- DB2 -->
+		<query id="system.update.login" isDynamic="false">
+			<statement>
+				<![CDATA[
+				UPDATE /* system.update.login */
+				LOGIN 
+				SET 
+					LOGOUT_TIMESTAMP = CURRENT_TIMESTAMP
+				WHERE
+					SESSION_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>		 
+	</queries>
+</queryservice>
+
+	

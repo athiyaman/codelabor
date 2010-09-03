@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+	<definition name="example.form.form.command.definition" extends="example.definition">
+    	<put name="body"   value="/WEB-INF/jsp/example/form/command/form.jsp"/>
+	</definition>
+	<definition name="example.form.result.command.definition" extends="example.definition">
+    	<put name="body"   value="/WEB-INF/jsp/example/form/command/result.jsp"/>
+	</definition>
+
+	<definition name="example.form.form.request.parameters.definition" extends="example.definition">
+    	<put name="body"   value="/WEB-INF/jsp/example/form/requestParameters/form.jsp"/>
+	</definition>
+	<definition name="example.form.result.request.parameters.definition" extends="example.definition">
+    	<put name="body"   value="/WEB-INF/jsp/example/form/requestParameters/result.jsp"/>
+	</definition>
+
+</tiles-definitions>

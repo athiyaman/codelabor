@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="example.file.springMvc.listFile.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/file/spring-mvc/list.jsp"/>
+	</definition>
+	<definition name="example.file.xecure.listFile.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/file/xecure/list.jsp"/>
+	</definition>		
+</tiles-definitions>
