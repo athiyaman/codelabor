@@ -8,7 +8,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-common-calendar</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>codelabor-common-calendar</name>
   <url>http://codelabor.googlecode.com</url>
   <description>
@@ -37,9 +37,9 @@
 		</license>
 	</licenses>
   <scm>
-  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-common-calendar</connection>
-  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-common-calendar</developerConnection>
-  	<url>http://codelabor.googlecode.com</url>
+  	<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-common-calendar-0.0.1</connection>
+  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-common-calendar-0.0.1</developerConnection>
+  	<url>http://codelabor.googlecode.com/tags/codelabor-common-calendar-0.0.1</url>
   </scm>
   <organization>
   	<name>CODELABOR</name>
