@@ -37,8 +37,8 @@
 		</license>
 	</licenses>
   <scm>
-  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/</connection>
-  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/</developerConnection>
+  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-common-calendar</connection>
+  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-common-calendar</developerConnection>
   	<url>http://codelabor.googlecode.com</url>
   </scm>
   <organization>
