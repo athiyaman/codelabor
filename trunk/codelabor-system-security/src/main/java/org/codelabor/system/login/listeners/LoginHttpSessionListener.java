@@ -24,12 +24,12 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.codelabor.system.Constants;
 import org.codelabor.system.dtos.MessageDTO;
 import org.codelabor.system.listeners.BaseListener;
 import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.login.services.LoginService;
 import org.codelabor.system.utils.MessageUtils;
+import org.codelabor.system.web.SessionConstants;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -67,17 +67,16 @@ public class LoginHttpSessionListener extends BaseListener implements
 			logger.debug(stringBuilder.toString());
 		}
 
-		if (event.getName().equals(Constants.SESSION_LOGIN_INFO_KEY)) {
+		if (event.getName().equals(SessionConstants.SESSION_LOGIN_INFO)) {
 			HttpSession session = event.getSession();
 			LoginDTO loginDTO = (LoginDTO) session
-					.getAttribute(Constants.SESSION_LOGIN_INFO_KEY);
+					.getAttribute(SessionConstants.SESSION_LOGIN_INFO);
 			loginDTO.setSessionId(session.getId());
 			try {
 				loginService.login(loginDTO);
 				loginDTO = loginService.selectLogin(loginDTO);
-				session
-						.setAttribute(Constants.SESSION_LOGIN_INFO_KEY,
-								loginDTO);
+				session.setAttribute(SessionConstants.SESSION_LOGIN_INFO,
+						loginDTO);
 			} catch (Exception e) {
 				e.printStackTrace();
 				MessageDTO messageDTO = MessageUtils.exceptionToMessageDTO(e);
@@ -114,7 +113,7 @@ public class LoginHttpSessionListener extends BaseListener implements
 			logger.debug(stringBuilder.toString());
 		}
 
-		if (event.getName().equals(Constants.SESSION_LOGIN_INFO_KEY)) {
+		if (event.getName().equals(SessionConstants.SESSION_LOGIN_INFO)) {
 			LoginDTO loginDTO = new LoginDTO();
 			loginDTO.setSessionId(event.getSession().getId());
 			try {

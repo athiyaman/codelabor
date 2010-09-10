@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.codelabor.system.Constants;
 import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.web.SessionConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public class AuthenticationFilter extends BaseFilterImpl {
 		boolean isAuthenticated = false;
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			if (session.getAttribute(Constants.SESSION_LOGIN_INFO_KEY) != null) {
+			if (session.getAttribute(SessionConstants.SESSION_LOGIN_INFO) != null) {
 				isAuthenticated = true;
 			}
 		}
@@ -64,7 +64,7 @@ public class AuthenticationFilter extends BaseFilterImpl {
 			loginDTO.setUserId("tester");
 			loginDTO.setIpAddress(httpRequest.getRemoteAddr());
 			httpRequest.getSession().setAttribute(
-					Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
+					SessionConstants.SESSION_LOGIN_INFO, loginDTO);
 
 		}
 	}

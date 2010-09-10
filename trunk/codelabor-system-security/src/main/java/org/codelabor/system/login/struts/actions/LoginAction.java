@@ -10,9 +10,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-import org.codelabor.system.Constants;
 import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.struts.actions.BaseDispatchAction;
+import org.codelabor.system.web.SessionConstants;
 
 public abstract class LoginAction extends BaseDispatchAction {
 
@@ -51,14 +51,15 @@ public abstract class LoginAction extends BaseDispatchAction {
 
 		// set attribute
 		HttpSession session = request.getSession();
-		session.setAttribute(Constants.SESSION_LOGIN_INFO_KEY, loginDTO);
+		session.setAttribute(SessionConstants.SESSION_LOGIN_INFO, loginDTO);
 
 		// log
 		if (logger.isDebugEnabled()) {
 			stringBuilder = new StringBuilder();
-			stringBuilder.append(Constants.SESSION_LOGIN_INFO_KEY).append(": ");
+			stringBuilder.append(SessionConstants.SESSION_LOGIN_INFO).append(
+					": ");
 			stringBuilder.append(session
-					.getAttribute(Constants.SESSION_LOGIN_INFO_KEY));
+					.getAttribute(SessionConstants.SESSION_LOGIN_INFO));
 			logger.debug(stringBuilder.toString());
 		}
 		return mapping.findForward("processLogin");
