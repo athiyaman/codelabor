@@ -19,17 +19,37 @@ package org.codelabor.system.dtos;
 
 import java.io.Serializable;
 
+/**
+ * int 타입 ID 배열 DTO
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class IntIDArrayDTO implements Serializable {
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = -6048823796450581245L;
+	/**
+	 * ID 배열
+	 */
 	private int[] id;
 
+	/**
+	 * ID를 가져온다.
+	 * 
+	 * @return ID 배열
+	 */
 	public int[] getId() {
 		return id;
 	}
 
+	/**
+	 * ID를 설정한다.
+	 * 
+	 * @param id
+	 *            ID 배열
+	 */
 	public void setId(int[] id) {
 		this.id = id;
 	}
