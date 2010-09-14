@@ -23,10 +23,9 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 
 /**
- * @author Shin Sangjae
- *
- */
-/**
+ * 파일 관리자</br> 파일 업로드 모듈을 위한 파일 관리자로 파일 시스템 저장 방식과 데이터베이스 BLOB 저장 방식을 지원한다. 추상화된
+ * API를 통해 물리적인 파일 경로나 테이블 정보를 숨기는 역할을 한다.
+ * 
  * @author Shin Sangjae
  * 
  */
