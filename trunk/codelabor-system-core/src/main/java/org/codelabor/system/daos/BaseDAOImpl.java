@@ -26,67 +26,143 @@ import anyframe.core.properties.IPropertiesService;
 import anyframe.core.query.IQueryService;
 
 /**
+ * 기본 DAO 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class BaseDAOImpl {
-
-	protected IQueryService queryService;
-
-	protected MessageSource messageSource;
-
+	/**
+	 * 로거
+	 */
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * 로거명
+	 */
 	protected String loggerName = this.getClass().getName();
 
+	/**
+	 * 쿼리 서비스
+	 */
+	protected IQueryService queryService;
+
+	/**
+	 * 메시지 소스
+	 */
+	protected MessageSource messageSource;
+
+	/**
+	 * 프로퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
 
+	/**
+	 * ID 제네레이션 서비스
+	 */
 	protected IIdGenerationService idGenerationService;
 
+	/**
+	 * 생성자
+	 */
 	public BaseDAOImpl() {
 		super();
 	}
 
+	/**
+	 * 로거명을 가져온다.
+	 * 
+	 * @return 로거명
+	 */
 	public String getLoggerName() {
 		return loggerName;
 	}
 
+	/**
+	 * 로거명을 설정한다.
+	 * 
+	 * @param loggerName
+	 *            로거명
+	 */
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
 		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
+	/**
+	 * 메시지 소스를 가져온다.
+	 * 
+	 * @return 메시지 소스
+	 */
 	public MessageSource getMessageSource() {
 		return messageSource;
 	}
 
+	/**
+	 * 메시지 소스를 설정한다.
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 */
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
 	}
 
+	/**
+	 * 쿼리 서비스를 가져온다.
+	 * 
+	 * @return 쿼리 서비스
+	 */
 	public IQueryService getQueryService() {
 		return queryService;
 	}
 
+	/**
+	 * 쿼리 서비스를 설정한다.
+	 * 
+	 * @param queryService
+	 *            쿼리 서비스
+	 */
 	public void setQueryService(IQueryService queryService) {
 		this.queryService = queryService;
 	}
 
+	/**
+	 * 프로퍼티 서비스를 가져온다.
+	 * 
+	 * @return 프로퍼티 서비스
+	 */
 	public IPropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
+	/**
+	 * 프로퍼티 서비스를 설정한다.
+	 * 
+	 * @param propertiesService
+	 *            프로퍼티 서비스
+	 */
 	public void setPropertiesService(IPropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 
+	/**
+	 * ID 제네레이션 서비스를 가져온다.
+	 * 
+	 * @return ID 제네레이션 서비스
+	 */
 	public IIdGenerationService getIdGenerationService() {
 		return idGenerationService;
 	}
 
-	public void setIdGenerationService(
-			IIdGenerationService sequenceIdGenerationService) {
-		this.idGenerationService = sequenceIdGenerationService;
+	/**
+	 * ID 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param idGenerationService
+	 *            ID 제네레이션 서비스
+	 */
+	public void setIdGenerationService(IIdGenerationService idGenerationService) {
+		this.idGenerationService = idGenerationService;
 	}
 
 }
