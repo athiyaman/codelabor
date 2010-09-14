@@ -35,48 +35,117 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 
 	FileDAO fileDAO;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#deleteFile(java.lang.String
+	 * )
+	 */
 	public int deleteFile(String fileId) throws Exception {
 		return fileDAO.deleteFile(fileId);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#deleteFile(java.lang.String
+	 * [])
+	 */
 	public int deleteFile(String[] fileIdList) throws Exception {
 		return fileDAO.deleteFile(fileIdList);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#insertFile(org.codelabor
+	 * .system.file.dtos.FileDTO)
+	 */
 	public int insertFile(FileDTO fileDTO) throws Exception {
 		return fileDAO.insertFile(fileDTO);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#insertFile(java.util.List)
+	 */
 	public int insertFile(List<FileDTO> fileDTOList) throws Exception {
 		return fileDAO.insertFile(fileDTOList);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#selectFileByRepositoryType
+	 * (org.codelabor.system.file.RepositoryType)
+	 */
 	public List<FileDTO> selectFileByRepositoryType(
 			RepositoryType repositoryType) throws Exception {
 		return fileDAO.selectFileByRepositoryType(repositoryType);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#selectFileByMapId(java
+	 * .lang.String)
+	 */
 	public List<FileDTO> selectFileByMapId(String mapId) throws Exception {
 		return fileDAO.selectFileByMapId(mapId);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.codelabor.system.file.managers.FileManager#selectFile()
+	 */
 	public List<FileDTO> selectFile() throws Exception {
 		return fileDAO.selectFile();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.managers.FileManager#selectFileByFileId(java
+	 * .lang.String)
+	 */
 	public FileDTO selectFileByFileId(String fileId) throws Exception {
 		return fileDAO.selectFileByFileId(fileId);
 	}
 
+	/**
+	 * 파일 DAO를 가져온다.
+	 * 
+	 * @return
+	 */
 	public FileDAO getFileDAO() {
 		return fileDAO;
 	}
 
+	/**
+	 * 파일 DAO를 설정한다.
+	 * 
+	 * @param fileDAO
+	 */
 	public void setFileDAO(FileDAO fileDAO) {
 
 		this.fileDAO = fileDAO;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
 	public void afterPropertiesSet() throws Exception {
 		Assert.notNull(fileDAO);
 	}
