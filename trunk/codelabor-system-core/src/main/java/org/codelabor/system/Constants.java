@@ -21,10 +21,19 @@ package org.codelabor.system;
  * 상수
  * 
  * @author Shin Sangjae
- * @deprecated
  */
-@Deprecated
 public class Constants {
+
+	/**
+	 * @deprecated 2.0.0 버전부터 org.codelabor.system.exceptions.COMMON_EXCEPTION로
+	 *             대체한다.
+	 */
+	@Deprecated
 	public final static String COMMON_EXCEPTION = "org.codelabor.system.COMMON_EXCEPTION";
+
+	/**
+	 * @deprecated 2.0.0버전 org.codelabor.system.daos.AFFECTED_ROW_COUNT로 대체한다.
+	 */
+	@Deprecated
 	public final static String AFFECTED_ROW_COUNT = "org.codelabor.system.AFFECTED_ROW_COUNT";
 }
