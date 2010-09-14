@@ -18,9 +18,12 @@
 package org.codelabor.system;
 
 /**
- * @author Shin Sangjae
+ * 상수
  * 
+ * @author Shin Sangjae
+ * @deprecated
  */
+@Deprecated
 public class Constants {
 	public final static String COMMON_EXCEPTION = "org.codelabor.system.COMMON_EXCEPTION";
 	public final static String AFFECTED_ROW_COUNT = "org.codelabor.system.AFFECTED_ROW_COUNT";
