@@ -22,6 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 파일 업로드 프로그래스 리스너</br> apache commons fileupload에서 사용하는 프로그래스 리스너
+ * 
  * @author Shin Sangjae
  * 
  */
@@ -30,8 +32,14 @@ public class FileUploadProgressListener implements ProgressListener {
 	private final Logger logger = LoggerFactory
 			.getLogger(FileUploadProgressListener.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.apache.commons.fileupload.ProgressListener#update(long, long,
+	 * int)
+	 */
 	public void update(long bytesRead, long contentLength, int items) {
-		long mBytes = bytesRead / 1000000;
+		long mBytes = bytesRead / (1024 * 1024);
 		if (megaBytes == mBytes) {
 			return;
 		}
