@@ -8,13 +8,13 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-host</artifactId>
   <name>codelabor-system-host</name>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <description>Server mode resolver</description>
   <url>http://codelabor.googlecode.com</url>
   <scm>
-  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-host</connection>
-  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-host</developerConnection>
-  	<url>http://codelabor.google.com</url>
+  	<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-host-1.0.1</connection>
+  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-host-1.0.1</developerConnection>
+  	<url>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-host-1.0.1</url>
   </scm>
   <organization>
   	<name>CODELABOR</name>
