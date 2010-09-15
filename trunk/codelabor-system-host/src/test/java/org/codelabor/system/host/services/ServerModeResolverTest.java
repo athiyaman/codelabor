@@ -45,6 +45,19 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 	}
 
 	/**
+	 * 로컬 장비의 서버 모드를 가져온다.
+	 */
+	public void testGetServerMode() {
+		try {
+			ServerMode serverMode = serverModeResolver.getServerMode();
+			logger.debug("serverMode: {}", serverMode.toString());
+			assertEquals(ServerMode.DEVELOPMENT, serverMode);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
 	 * InetAddress 주소로 서버 모드를 가져온다.
 	 */
 	public void testGetServerModeByIpAddress() {
@@ -129,6 +142,90 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 			logger.debug("hostName: {}, serverMode: {}", hostName, serverMode
 					.toString());
 			assertEquals(ServerMode.PRODUCTION, serverMode);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 로컬 장비의 서버 모드를 확인한다.
+	 */
+	public void testIsModeTest() {
+		try {
+			boolean isDevelopmentMode = serverModeResolver.isDevelopmentMode();
+			logger.debug("isDevelopmentMode: {}", isDevelopmentMode);
+			assertTrue(isDevelopmentMode);
+
+			boolean isStagingMode = serverModeResolver.isStagingMode();
+			logger.debug("isStagingMode: {}", isStagingMode);
+			assertFalse(isStagingMode);
+
+			boolean isProductionMode = serverModeResolver.isProductionMode();
+			logger.debug("isProductionMode: {}", isProductionMode);
+			assertFalse(isProductionMode);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Raw IP 주소로 서버 모드를 확인한다.
+	 */
+	public void testIsModeByRawIpAddressTest() {
+		try {
+			String rawIpAddress = "100.100.100.1";
+			boolean isDevelopmentMode = serverModeResolver
+					.isDevelopmentModeByRawIpAddress(rawIpAddress);
+			logger.debug("rawIpAddress: {}, isDevelopmentMode: {}",
+					rawIpAddress, isDevelopmentMode);
+			assertTrue(isDevelopmentMode);
+
+			rawIpAddress = "100.100.110.1";
+			boolean isStagingMode = serverModeResolver
+					.isStagingModeByRawIpAddress(rawIpAddress);
+			logger.debug("rawIpAddress: {}, isStagingMode: {}", rawIpAddress,
+					isStagingMode);
+			assertTrue(isStagingMode);
+
+			rawIpAddress = "100.100.120.1";
+			boolean isProductionMode = serverModeResolver
+					.isProductionModeByRawIpAddress(rawIpAddress);
+			logger.debug("rawIpAddress: {}, isProductionMode: {}",
+					rawIpAddress, isProductionMode);
+			assertTrue(isProductionMode);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Host명으로 서버 모드를 확인한다.
+	 */
+	public void testIsModeByHostNameTest() {
+		try {
+			String hostName = "development01";
+			boolean isDevelopmentMode = serverModeResolver
+					.isDevelopmentModeByHostName(hostName);
+			logger.debug("hostName: {}, isDevelopmentMode: {}", hostName,
+					isDevelopmentMode);
+			assertTrue(isDevelopmentMode);
+
+			hostName = "staging01";
+			boolean isStagingMode = serverModeResolver
+					.isStagingModeByHostName(hostName);
+			logger.debug("hostName: {}, isStagingMode: {}", hostName,
+					isStagingMode);
+			assertTrue(isStagingMode);
+
+			hostName = "production01";
+			boolean isProductionMode = serverModeResolver
+					.isProductionModeByHostName(hostName);
+			logger.debug("hostName: {}, isProductionMode: {}", hostName,
+					isProductionMode);
+			assertTrue(isProductionMode);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

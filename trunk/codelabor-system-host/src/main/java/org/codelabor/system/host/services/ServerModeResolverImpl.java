@@ -38,6 +38,16 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	 * (non-Javadoc)
 	 * 
 	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#getServerMode()
+	 */
+	public ServerMode getServerMode() throws Exception {
+		return getServerMode(InetAddress.getLocalHost());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
 	 * org.codelabor.system.host.services.ServerModeResolver#getServerMode(java
 	 * .net.InetAddress)
 	 */
@@ -89,6 +99,176 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 			serverMode = ServerMode.valueOf(hostMap.get(rowIpAddress));
 		}
 		return serverMode;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isDevelopmentMode()
+	 */
+	public boolean isDevelopmentMode() throws Exception {
+		return ServerMode.DEVELOPMENT.equals(this.getServerMode());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isDevelopmentMode
+	 * (java.net.InetAddress)
+	 */
+	public boolean isDevelopmentMode(InetAddress inetAddress) throws Exception {
+		return ServerMode.DEVELOPMENT.equals(this.getServerMode(inetAddress));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isDevelopmentModeByCanonicalHostName(java.lang.String)
+	 */
+	public boolean isDevelopmentModeByCanonicalHostName(String canonicalHostName)
+			throws Exception {
+		return ServerMode.DEVELOPMENT.equals(this
+				.getServerModeByCanonicalHostName(canonicalHostName));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isDevelopmentModeByHostName(java.lang.String)
+	 */
+	public boolean isDevelopmentModeByHostName(String hostName)
+			throws Exception {
+		return ServerMode.DEVELOPMENT.equals(this
+				.getServerModeByHostName(hostName));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isDevelopmentModeByRawIpAddress(java.lang.String)
+	 */
+	public boolean isDevelopmentModeByRawIpAddress(String rawIpAddress)
+			throws Exception {
+		return ServerMode.DEVELOPMENT.equals(this
+				.getServerModeByRawIpAddress(rawIpAddress));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isProductionMode()
+	 */
+	public boolean isProductionMode() throws Exception {
+		return ServerMode.PRODUCTION.equals(this.getServerMode());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isProductionMode
+	 * (java.net.InetAddress)
+	 */
+	public boolean isProductionMode(InetAddress inetAddress) throws Exception {
+		return ServerMode.PRODUCTION.equals(this.getServerMode(inetAddress));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isProductionModeByCanonicalHostName(java.lang.String)
+	 */
+	public boolean isProductionModeByCanonicalHostName(String canonicalHostName)
+			throws Exception {
+		return ServerMode.PRODUCTION.equals(this
+				.getServerModeByCanonicalHostName(canonicalHostName));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isProductionModeByHostName(java.lang.String)
+	 */
+	public boolean isProductionModeByHostName(String hostName) throws Exception {
+		return ServerMode.PRODUCTION.equals(this
+				.getServerModeByHostName(hostName));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isProductionModeByRawIpAddress(java.lang.String)
+	 */
+	public boolean isProductionModeByRawIpAddress(String rawIpAddress)
+			throws Exception {
+		return ServerMode.PRODUCTION.equals(this
+				.getServerModeByRawIpAddress(rawIpAddress));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isStagingMode()
+	 */
+	public boolean isStagingMode() throws Exception {
+		return ServerMode.STAGING.equals(this.getServerMode());
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isStagingMode(java
+	 * .net.InetAddress)
+	 */
+	public boolean isStagingMode(InetAddress inetAddress) throws Exception {
+		return ServerMode.STAGING.equals(this.getServerMode(inetAddress));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isStagingModeByCanonicalHostName(java.lang.String)
+	 */
+	public boolean isStagingModeByCanonicalHostName(String canonicalHostName)
+			throws Exception {
+		return ServerMode.STAGING.equals(this
+				.getServerModeByCanonicalHostName(canonicalHostName));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.host.services.ServerModeResolver#isStagingModeByHostName
+	 * (java.lang.String)
+	 */
+	public boolean isStagingModeByHostName(String hostName) throws Exception {
+		return ServerMode.STAGING
+				.equals(this.getServerModeByHostName(hostName));
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.host.services.ServerModeResolver#
+	 * isStagingModeByRawIpAddress(java.lang.String)
+	 */
+	public boolean isStagingModeByRawIpAddress(String rawIpAddress)
+			throws Exception {
+		return ServerMode.STAGING.equals(this
+				.getServerModeByRawIpAddress(rawIpAddress));
 	}
 
 	/**
