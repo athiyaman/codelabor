@@ -57,7 +57,11 @@
   		<scope>compile</scope>
   	</dependency>
   </dependencies>
-  	<developers>
+  <issueManagement>
+  	<system>Google Code</system>
+  	<url>http://code.google.com/p/codelabor/issues/</url>
+  </issueManagement>
+  <developers>
 		<developer>
 			<id>bomber</id>
 			<name>Shin Sangjae</name>
