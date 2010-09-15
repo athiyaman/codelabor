@@ -150,7 +150,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 	/**
 	 * 로컬 장비의 서버 모드를 확인한다.
 	 */
-	public void testIsModeTest() {
+	public void testIsMode() {
 		try {
 			boolean isDevelopmentMode = serverModeResolver.isDevelopmentMode();
 			logger.debug("isDevelopmentMode: {}", isDevelopmentMode);
@@ -172,7 +172,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 	/**
 	 * Raw IP 주소로 서버 모드를 확인한다.
 	 */
-	public void testIsModeByRawIpAddressTest() {
+	public void testIsModeByRawIpAddress() {
 		try {
 			String rawIpAddress = "100.100.100.1";
 			boolean isDevelopmentMode = serverModeResolver
@@ -203,7 +203,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 	/**
 	 * Host명으로 서버 모드를 확인한다.
 	 */
-	public void testIsModeByHostNameTest() {
+	public void testIsModeByHostName() {
 		try {
 			String hostName = "development01";
 			boolean isDevelopmentMode = serverModeResolver
