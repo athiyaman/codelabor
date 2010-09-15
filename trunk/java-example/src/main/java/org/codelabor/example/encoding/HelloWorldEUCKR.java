@@ -21,5 +21,4 @@ public class HelloWorldEUCKR {
 			System.out.format("%02X", bytes[i]);
 		}
 	}
-
 }
