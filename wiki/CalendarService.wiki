@@ -2,6 +2,9 @@
 휴일, 영업일 관리 서비스
 (http://code.google.com/p/codelabor/source/browse/#svn/tags/codelabor-commons-calendar-1.0.0)
 
+== Maven Repository ==
+http://mvnrepository.com/artifact/org.codelabor/codelabor-commons-calendar/1.0.0
+
 == Features ==
   * 휴일, 영업일을 모두 관리하지 않고 휴일만 관리하여 데이터 양을 경량화
   * 설치와 설정을 용이하게 하기 위한 DBMS를 사용하지 않는 경량 서비스화
