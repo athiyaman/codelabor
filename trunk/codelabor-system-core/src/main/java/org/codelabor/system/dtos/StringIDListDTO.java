@@ -20,17 +20,37 @@ package org.codelabor.system.dtos;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * String 타입의 ID List DTO
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class StringIDListDTO implements Serializable {
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 4930740279435448852L;
+	/**
+	 * ID List
+	 */
 	private List<String> id;
 
+	/**
+	 * ID를 가져온다.
+	 * 
+	 * @return ID List
+	 */
 	public List<String> getId() {
 		return id;
 	}
 
+	/**
+	 * ID를 설정한다.
+	 * 
+	 * @param id
+	 *            ID List
+	 */
 	public void setId(List<String> id) {
 		this.id = id;
 	}

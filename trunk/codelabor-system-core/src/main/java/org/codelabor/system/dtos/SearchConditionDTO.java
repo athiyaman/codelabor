@@ -20,36 +20,84 @@ package org.codelabor.system.dtos;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 검색 조건 DTO
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class SearchConditionDTO implements Serializable {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 5397867402929461708L;
+	/**
+	 * 페이지 인덱스
+	 */
 	private int pageIndex = 1;
+	/**
+	 * 시작 일자
+	 */
 	private Date fromDate;
+	/**
+	 * 종료 일자
+	 */
 	private Date toDate;
 
+	/**
+	 * 페이지 인덱스를 가져온다.
+	 * 
+	 * @return 페이지 인덱스
+	 */
 	public int getPageIndex() {
 		return pageIndex;
 	}
 
+	/**
+	 * 페이지 인덱스를 설정한다.
+	 * 
+	 * @param pageIndex
+	 *            페이지 인덱스
+	 */
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
 	}
 
+	/**
+	 * 시작 일자를 가져온다.
+	 * 
+	 * @return 시작 일자
+	 */
 	public Date getFromDate() {
 		return fromDate;
 	}
 
+	/**
+	 * 시작 일자를 설정한다.
+	 * 
+	 * @param fromDate
+	 *            시작 일자
+	 */
 	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
 
+	/**
+	 * 종료 일자를 가져온다.
+	 * 
+	 * @return 종료 일자
+	 */
 	public Date getToDate() {
 		return toDate;
 	}
 
+	/**
+	 * 종료 일자를 설정한다.
+	 * 
+	 * @param toDate
+	 *            종료 일자
+	 */
 	public void setToDate(Date toDate) {
 		this.toDate = toDate;
 	}
