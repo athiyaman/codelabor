@@ -32,21 +32,34 @@ public class SystemPropertiesDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -760395641031548481L;
 
-	private String javaVersion;
-	private String javaVendor;
-	private String javaVendorUrl;
-	private String javaHome;
-	private String javaVmSpecificationVersion;
-	private String javaVmSpecificationVendor;
-	private String javaVmSpecificationName;
-	private String javaVmVersion;
-	private String javaVmVendor;
-	private String javaVmName;
-	private String javaSpecificationVersion;
-	private String javaSpecificationVendor;
-	private String javaSpecificationName;
-	private String javaClassVersion;
-	private String javaClassPath;
+	protected String javaVersion;
+	protected String javaVendor;
+	protected String javaVendorUrl;
+	protected String javaHome;
+	protected String javaVmSpecificationVersion;
+	protected String javaVmSpecificationVendor;
+	protected String javaVmSpecificationName;
+	protected String javaVmVersion;
+	protected String javaVmVendor;
+	protected String javaVmName;
+	protected String javaSpecificationVersion;
+	protected String javaSpecificationVendor;
+	protected String javaSpecificationName;
+	protected String javaClassVersion;
+	protected String javaClassPath;
+	protected String javaLibraryPath;
+	protected String javaIoTmpdir;
+	protected String javaCompiler;
+	protected String javaExtDirs;
+	protected String osName;
+	protected String osArch;
+	protected String osVersion;
+	protected String fileSeparator;
+	protected String pathSeparator;
+	protected String lineSeparator;
+	protected String userName;
+	protected String userHome;
+	protected String userDir;
 
 	public String getJavaVersion() {
 		return javaVersion;
@@ -271,20 +284,6 @@ public class SystemPropertiesDTO implements Serializable {
 	public void setUserDir(String userDir) {
 		this.userDir = userDir;
 	}
-
-	private String javaLibraryPath;
-	private String javaIoTmpdir;
-	private String javaCompiler;
-	private String javaExtDirs;
-	private String osName;
-	private String osArch;
-	private String osVersion;
-	private String fileSeparator;
-	private String pathSeparator;
-	private String lineSeparator;
-	private String userName;
-	private String userHome;
-	private String userDir;
 
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
