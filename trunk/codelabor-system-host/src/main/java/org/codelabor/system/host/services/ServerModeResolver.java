@@ -80,7 +80,7 @@ public interface ServerModeResolver {
 	/**
 	 * 로컬 장비가 개발 모드인지 확인한다.
 	 * 
-	 * @return 서버 모드
+	 * @return 개발 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isDevelopmentMode() throws Exception;
@@ -89,7 +89,7 @@ public interface ServerModeResolver {
 	 * InetAddress로 개발 모드인지 확인한다.
 	 * 
 	 * @param inetAddress
-	 * @return 서버 모드
+	 * @return 개발 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isDevelopmentMode(InetAddress inetAddress) throws Exception;
@@ -98,7 +98,7 @@ public interface ServerModeResolver {
 	 * Raw IP 주소로 개발 모드인지 확인한다.
 	 * 
 	 * @param rawIpAddress
-	 * @return 서버 모드
+	 * @return 개발 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isDevelopmentModeByRawIpAddress(String rawIpAddress)
@@ -108,7 +108,7 @@ public interface ServerModeResolver {
 	 * Host명으로 개발 모드인지 확인한다.
 	 * 
 	 * @param hostName
-	 * @return 서버 모드
+	 * @return 개발 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isDevelopmentModeByHostName(String hostName)
@@ -118,7 +118,7 @@ public interface ServerModeResolver {
 	 * Canonical host명으로 개발 모드인지 확인한다.
 	 * 
 	 * @param canonicalHostName
-	 * @return 서버 모드
+	 * @return 개발 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isDevelopmentModeByCanonicalHostName(String canonicalHostName)
@@ -136,7 +136,7 @@ public interface ServerModeResolver {
 	 * InetAddress로 검증 모드인지 확인한다.
 	 * 
 	 * @param inetAddress
-	 * @return 서버 모드
+	 * @return 검증 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isStagingMode(InetAddress inetAddress) throws Exception;
@@ -145,7 +145,7 @@ public interface ServerModeResolver {
 	 * Raw IP 주소로 검증 모드인지 확인한다.
 	 * 
 	 * @param rawIpAddress
-	 * @return
+	 * @return 검증 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isStagingModeByRawIpAddress(String rawIpAddress)
@@ -155,7 +155,7 @@ public interface ServerModeResolver {
 	 * Host명으로 검증 모드인지 확인한다.
 	 * 
 	 * @param hostName
-	 * @return 서버 모드
+	 * @return 검증 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isStagingModeByHostName(String hostName) throws Exception;
@@ -164,7 +164,7 @@ public interface ServerModeResolver {
 	 * Canonical host명으로 검증 모드인지 확인한다.
 	 * 
 	 * @param canonicalHostName
-	 * @return
+	 * @return 검증 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isStagingModeByCanonicalHostName(String canonicalHostName)
@@ -173,7 +173,7 @@ public interface ServerModeResolver {
 	/**
 	 * 로컬 장비가 운영 모드인지 확인한다.
 	 * 
-	 * @return 서버 모드
+	 * @return 운영 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isProductionMode() throws Exception;
@@ -182,7 +182,7 @@ public interface ServerModeResolver {
 	 * InetAddress로 운영 모드인지 확인한다.
 	 * 
 	 * @param inetAddress
-	 * @return 서버 모드
+	 * @return 운영 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isProductionMode(InetAddress inetAddress) throws Exception;
@@ -191,7 +191,7 @@ public interface ServerModeResolver {
 	 * Raw IP 주소로 운영 모드인지 확인한다.
 	 * 
 	 * @param rawIpAddress
-	 * @return
+	 * @return 운영 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isProductionModeByRawIpAddress(String rawIpAddress)
@@ -201,7 +201,7 @@ public interface ServerModeResolver {
 	 * Host명으로 운영 모드인지 확인한다.
 	 * 
 	 * @param hostName
-	 * @return 서버 모드
+	 * @return 운영 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isProductionModeByHostName(String hostName) throws Exception;
@@ -210,7 +210,7 @@ public interface ServerModeResolver {
 	 * Canonical host명으로 운영 모드인지 확인한다.
 	 * 
 	 * @param canonicalHostName
-	 * @return 서버 모드
+	 * @return 운영 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isProductionModeByCanonicalHostName(String canonicalHostName)
