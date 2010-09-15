@@ -1,11 +1,14 @@
 package org.springframework.context;
 
-import org.apache.log4j.Logger;
+import java.util.Locale;
+
 import org.codelabor.system.host.services.ServerMode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
 public class MessageSourceTest extends AbstractSingleSpringContextTests {
-	private final static Logger logger = Logger
+	private final static Logger logger = LoggerFactory
 			.getLogger(MessageSourceTest.class);
 	private MessageSource messageSource;
 
@@ -23,8 +26,22 @@ public class MessageSourceTest extends AbstractSingleSpringContextTests {
 	public void testTranslate() {
 		try {
 			String message = messageSource.getMessage(ServerMode.DEVELOPMENT
-					.toString(), null, null);
-			logger.debug(message);
+					.toString(), null, Locale.KOREAN);
+			assertEquals("개발 모드", message);
+			logger.debug("locale: {}, message: {}", Locale.KOREAN.toString(),
+					message);
+
+			message = messageSource.getMessage(ServerMode.DEVELOPMENT
+					.toString(), null, Locale.US);
+			assertEquals("Development Mode", message);
+			logger.debug("locale: {}, message: {}", Locale.US.toString(),
+					message);
+
+			message = messageSource.getMessage(ServerMode.DEVELOPMENT
+					.toString(), null, Locale.JAPANESE);
+			assertEquals("Development モード", message);
+			logger.debug("locale: {}, message: {}", Locale.JAPANESE.toString(),
+					message);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
