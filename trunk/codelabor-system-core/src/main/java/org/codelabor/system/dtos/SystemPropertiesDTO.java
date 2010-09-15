@@ -19,10 +19,16 @@ package org.codelabor.system.dtos;
 
 import java.io.Serializable;
 
+/**
+ * 시스템 속성 DTO
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class SystemPropertiesDTO implements Serializable {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = -760395641031548481L;
 
