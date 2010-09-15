@@ -127,7 +127,7 @@ public interface ServerModeResolver {
 	/**
 	 * 로컬 장비가 검증 모드인지 확인한다.
 	 * 
-	 * @return
+	 * @return 검증 모드 여부
 	 * @throws Exception
 	 */
 	public boolean isStagingMode() throws Exception;
