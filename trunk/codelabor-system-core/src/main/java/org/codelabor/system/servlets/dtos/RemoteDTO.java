@@ -33,15 +33,15 @@ public class RemoteDTO implements Serializable {
 	/**
 	 * 리모트 호스트
 	 */
-	String remoteHost;
+	protected String remoteHost;
 	/**
 	 * 리모트 주소
 	 */
-	String remoteAddress;
+	protected String remoteAddress;
 	/**
 	 * 리모트 포트
 	 */
-	int remotePort;
+	protected int remotePort;
 
 	/**
 	 * 리모트 호스트를 가져온다.

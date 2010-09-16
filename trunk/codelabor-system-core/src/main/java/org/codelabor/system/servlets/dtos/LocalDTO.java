@@ -33,15 +33,15 @@ public class LocalDTO implements Serializable {
 	/**
 	 * 로컬명
 	 */
-	String localName;
+	protected String localName;
 	/**
 	 * 로컬 주소
 	 */
-	String localAddress;
+	protected String localAddress;
 	/**
 	 * 로컬 포트
 	 */
-	int localPort;
+	protected int localPort;
 
 	/**
 	 * 로컬명을 가져온다.
