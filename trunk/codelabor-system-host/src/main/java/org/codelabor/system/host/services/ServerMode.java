@@ -24,5 +24,5 @@ package org.codelabor.system.host.services;
  * 
  */
 public enum ServerMode {
-	DEVELOPMENT, STAGING, PRODUCTION
+	DEVELOPMENT, STAGING, PRODUCTION, UNKNOWN
 }

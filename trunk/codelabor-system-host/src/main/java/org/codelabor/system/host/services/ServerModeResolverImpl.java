@@ -64,7 +64,7 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	 */
 	public ServerMode getServerModeByCanonicalHostName(String canonicalHostName)
 			throws Exception {
-		ServerMode serverMode = ServerMode.DEVELOPMENT;
+		ServerMode serverMode = ServerMode.UNKNOWN;
 		if (hostMap.containsKey(canonicalHostName)) {
 			serverMode = ServerMode.valueOf(hostMap.get(canonicalHostName));
 		}
@@ -79,7 +79,7 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	 * (java.lang.String)
 	 */
 	public ServerMode getServerModeByHostName(String hostName) throws Exception {
-		ServerMode serverMode = ServerMode.DEVELOPMENT;
+		ServerMode serverMode = ServerMode.UNKNOWN;
 		if (hostMap.containsKey(hostName)) {
 			serverMode = ServerMode.valueOf(hostMap.get(hostName));
 		}
@@ -94,7 +94,7 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	 */
 	public ServerMode getServerModeByRawIpAddress(String rowIpAddress)
 			throws Exception {
-		ServerMode serverMode = ServerMode.DEVELOPMENT;
+		ServerMode serverMode = ServerMode.UNKNOWN;
 		if (hostMap.containsKey(rowIpAddress)) {
 			serverMode = ServerMode.valueOf(hostMap.get(rowIpAddress));
 		}
