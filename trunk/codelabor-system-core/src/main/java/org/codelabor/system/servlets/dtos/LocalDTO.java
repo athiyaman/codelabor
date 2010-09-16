@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,38 +20,82 @@ package org.codelabor.system.servlets.dtos;
 import java.io.Serializable;
 
 /**
+ * 로컬 DTO
+ * 
  * @author Shin Sangjae
  * 
  */
 public class LocalDTO implements Serializable {
 	/**
-	 * 
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 6420788348800357085L;
+	/**
+	 * 로컬명
+	 */
 	String localName;
+	/**
+	 * 로컬 주소
+	 */
 	String localAddress;
+	/**
+	 * 로컬 포트
+	 */
 	int localPort;
 
+	/**
+	 * 로컬명을 가져온다.
+	 * 
+	 * @return 로컬명
+	 */
 	public String getLocalName() {
 		return localName;
 	}
 
+	/**
+	 * 로컬명을 설정한다.
+	 * 
+	 * @param localName
+	 *            로컬명
+	 */
 	public void setLocalName(String localName) {
 		this.localName = localName;
 	}
 
+	/**
+	 * 로컬 주소를 가져온다.
+	 * 
+	 * @return 로컬 주소
+	 */
 	public String getLocalAddress() {
 		return localAddress;
 	}
 
+	/**
+	 * 로컬 주소를 설정한다.
+	 * 
+	 * @param localAddress
+	 *            로컬 주소
+	 */
 	public void setLocalAddress(String localAddress) {
 		this.localAddress = localAddress;
 	}
 
+	/**
+	 * 로컬 포트를 가져온다.
+	 * 
+	 * @return 로컬 포트
+	 */
 	public int getLocalPort() {
 		return localPort;
 	}
 
+	/**
+	 * 로컬 포트를 설정한다.
+	 * 
+	 * @param localPort
+	 *            로컬 포트
+	 */
 	public void setLocalPort(int localPort) {
 		this.localPort = localPort;
 	}
