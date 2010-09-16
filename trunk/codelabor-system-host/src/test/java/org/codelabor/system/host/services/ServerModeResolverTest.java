@@ -51,7 +51,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 		try {
 			ServerMode serverMode = serverModeResolver.getServerMode();
 			logger.debug("serverMode: {}", serverMode.toString());
-			assertEquals(ServerMode.DEVELOPMENT, serverMode);
+			assertEquals(ServerMode.UNKNOWN, serverMode);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -154,7 +154,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 		try {
 			boolean isDevelopmentMode = serverModeResolver.isDevelopmentMode();
 			logger.debug("isDevelopmentMode: {}", isDevelopmentMode);
-			assertTrue(isDevelopmentMode);
+			assertFalse(isDevelopmentMode);
 
 			boolean isStagingMode = serverModeResolver.isStagingMode();
 			logger.debug("isStagingMode: {}", isStagingMode);

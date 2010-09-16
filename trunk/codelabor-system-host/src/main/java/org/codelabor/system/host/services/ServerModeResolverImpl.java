@@ -20,6 +20,9 @@ package org.codelabor.system.host.services;
 import java.net.InetAddress;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * 서버 모드 리졸버 기본 구현 클래스
  * 
@@ -27,6 +30,11 @@ import java.util.Map;
  * 
  */
 public class ServerModeResolverImpl implements ServerModeResolver {
+	/**
+	 * 로거
+	 */
+	protected Logger logger = LoggerFactory
+			.getLogger(ServerModeResolverImpl.class);
 
 	/**
 	 * 호스트 정보 Map</br> IP 주소, Host명, Canonical host명이 key가 되고 서버 모드(DEVELOPMENT,
@@ -41,7 +49,23 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	 * org.codelabor.system.host.services.ServerModeResolver#getServerMode()
 	 */
 	public ServerMode getServerMode() throws Exception {
-		return getServerMode(InetAddress.getLocalHost());
+		ServerMode serverMode = ServerMode.UNKNOWN;
+		String hostName = InetAddress.getLocalHost().getHostName();
+		logger.info("hostName: {}", hostName);
+
+		if (hostMap.containsKey(hostName)) {
+			serverMode = ServerMode.valueOf(hostMap.get(hostName));
+		}
+
+		InetAddress[] inetAddressArray = InetAddress.getAllByName(hostName);
+		for (InetAddress tmpInetAddress : inetAddressArray) {
+			String hostAddress = tmpInetAddress.getHostAddress();
+			if (hostMap.containsKey(hostAddress)) {
+				serverMode = ServerMode.valueOf(hostMap.get(hostAddress));
+			}
+			logger.info("hostAddress: {}", tmpInetAddress.getHostAddress());
+		}
+		return serverMode;
 	}
 
 	/*

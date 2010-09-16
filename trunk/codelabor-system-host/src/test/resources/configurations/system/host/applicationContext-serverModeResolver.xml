@@ -8,6 +8,9 @@
 		class="org.codelabor.system.host.services.ServerModeResolverImpl">
 		<property name="hostMap">
 			<map>
+				<!-- does not work
+				<entry key="127.0.0.1" value="LOCAL"/>
+				-->
 				<entry key="100.100.100.1" value="DEVELOPMENT"/>
 				<entry key="100.100.100.2" value="DEVELOPMENT"/>
 				<entry key="100.100.110.1" value="STAGING"/>
