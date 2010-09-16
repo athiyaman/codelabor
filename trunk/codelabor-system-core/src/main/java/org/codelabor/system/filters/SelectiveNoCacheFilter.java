@@ -32,8 +32,17 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 선택적 노 캐쉬 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
 		SelectiveFilter {
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(SelectiveNoCacheFilter.class);
 
@@ -109,6 +118,12 @@ public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
 		return includePatterns;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.filters.BaseFilterImpl#doFilter(javax.servlet.
+	 * ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {

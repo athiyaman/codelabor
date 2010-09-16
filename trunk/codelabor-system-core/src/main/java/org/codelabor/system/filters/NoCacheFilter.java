@@ -28,11 +28,27 @@ import org.codelabor.system.servlets.HttpResponseHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 노 캐쉬 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class NoCacheFilter extends BaseFilterImpl {
 
+	/**
+	 * 로거
+	 */
 	@SuppressWarnings("unused")
 	private final Logger logger = LoggerFactory.getLogger(NoCacheFilter.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
@@ -56,6 +72,13 @@ public class NoCacheFilter extends BaseFilterImpl {
 		// "post-check=0, pre-check=0");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {

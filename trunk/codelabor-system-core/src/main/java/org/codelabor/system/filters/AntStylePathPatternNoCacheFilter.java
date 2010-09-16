@@ -19,8 +19,21 @@ package org.codelabor.system.filters;
 
 import org.codelabor.system.servlets.URIPatternMatcherUtils;
 
+/**
+ * Ant 패스 패턴을 적용한 노 캐쉬 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class AntStylePathPatternNoCacheFilter extends SelectiveNoCacheFilter {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.SelectiveFilter#isFilterRequired(java.lang
+	 * .String)
+	 */
 	public boolean isFilterRequired(String requestURI) {
 		return URIPatternMatcherUtils.matchByAntStylePathPattern(
 				includePatterns, excludePatterns, requestURI);

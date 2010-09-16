@@ -34,11 +34,29 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.common.exception.BaseException;
 import anyframe.core.idgen.IIdGenerationService;
 
+/**
+ * 요청 ID 생성 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class RequestIdGenerationFilter extends BaseFilterImpl {
+	/**
+	 * 로거
+	 */
 	Logger logger = LoggerFactory.getLogger(RequestIdGenerationFilter.class);
+	/**
+	 * 아이디 제네레이션 서비스
+	 */
 	protected IIdGenerationService idGenerationService = null;
+	/**
+	 * 아이디 제네레이션 서비스명 상수
+	 */
 	public final String REQUEST_ID_GENERATION_SERVICE = "requestIdGenerationService";
 
+	/**
+	 * 생성자
+	 */
 	public RequestIdGenerationFilter() {
 		super();
 		WebApplicationContext ctx = WebApplicationContextUtils
@@ -47,11 +65,25 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 				.getBean(REQUEST_ID_GENERATION_SERVICE);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {

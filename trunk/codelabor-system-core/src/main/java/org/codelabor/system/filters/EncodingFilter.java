@@ -28,13 +28,28 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 인코딩 필터
+ * 
  * @author Shin Sangjae
  * 
  */
 public class EncodingFilter extends BaseFilterImpl {
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory.getLogger(EncodingFilter.class);
+	/**
+	 * 인코딩</br>기본값은 UTF-8을 사용한다.
+	 */
 	protected String encoding = "UTF-8";
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#init(javax.servlet.FilterConfig
+	 * )
+	 */
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
@@ -44,11 +59,25 @@ public class EncodingFilter extends BaseFilterImpl {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {

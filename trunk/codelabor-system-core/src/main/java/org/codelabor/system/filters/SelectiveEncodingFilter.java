@@ -32,6 +32,12 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 선택적 인코딩 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 		SelectiveFilter {
 	private final Logger logger = LoggerFactory
@@ -109,6 +115,12 @@ public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 		return includePatterns;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.filters.BaseFilterImpl#doFilter(javax.servlet.
+	 * ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {

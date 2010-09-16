@@ -19,8 +19,21 @@ package org.codelabor.system.filters;
 
 import org.codelabor.system.servlets.URIPatternMatcherUtils;
 
+/**
+ * 확장자인식 인코딩 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class ExtensionEncodingFilter extends SelectiveEncodingFilter {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.SelectiveFilter#isFilterRequired(java.lang
+	 * .String)
+	 */
 	public boolean isFilterRequired(String requestURI) {
 		return URIPatternMatcherUtils.matchByExtension(includePatterns,
 				excludePatterns, requestURI);

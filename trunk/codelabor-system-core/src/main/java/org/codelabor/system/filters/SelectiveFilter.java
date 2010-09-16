@@ -21,6 +21,12 @@ import java.util.List;
 
 import javax.servlet.FilterConfig;
 
+/**
+ * 선택적 필터 인터페이스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public interface SelectiveFilter {
 
 	/**
