@@ -21,11 +21,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 기본 리스터 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class BaseListener {
 
+	/**
+	 * 로거
+	 */
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 }
