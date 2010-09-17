@@ -129,7 +129,7 @@ public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
 			FilterChain filterChain) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		String requestURI = httpServletRequest.getRequestURI();
-		logger.debug("request uri: {}", requestURI);
+		logger.debug("requestURI: {}", requestURI);
 
 		if (this.isFilterRequired(requestURI)) {
 			this.preprocessFilterChain(request, response);

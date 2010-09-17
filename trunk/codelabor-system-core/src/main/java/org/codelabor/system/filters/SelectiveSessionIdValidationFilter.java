@@ -33,15 +33,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 선택적 인코딩 필터
+ * 선택적 세션 확인 필터
  * 
  * @author Shin Sangjae
  * 
  */
-public abstract class SelectiveEncodingFilter extends EncodingFilter implements
-		SelectiveFilter {
+public abstract class SelectiveSessionIdValidationFilter extends EncodingFilter
+		implements SelectiveFilter {
 	private final Logger logger = LoggerFactory
-			.getLogger(SelectiveEncodingFilter.class);
+			.getLogger(SelectiveSessionIdValidationFilter.class);
 
 	/**
 	 * 예외 패턴의 리스트
