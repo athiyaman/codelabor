@@ -26,7 +26,7 @@ public class AntPathMatcherTest extends TestCase {
 
 	public void testMatch() {
 		AntPathMatcher antPathMatcher = new AntPathMatcher();
-		String pattern = "/**/*.xml";
+		String pattern = "/**/*.xml*";
 		String path = "/WEB-INF/web.xml";
 
 		System.out.println("match: " + antPathMatcher.match(pattern, path));
