@@ -118,6 +118,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 					RequestUtils.getAttributeMap(httpServletRequest));
 			httpSession.setAttribute(RequestConstants.REQUEST_PARAMETER_MAP,
 					RequestUtils.getParameterMap(httpServletRequest));
+			logger.debug("current session id: {}", httpSession.getId());
 			dispatcher.forward(request, response);
 		}
 	}
