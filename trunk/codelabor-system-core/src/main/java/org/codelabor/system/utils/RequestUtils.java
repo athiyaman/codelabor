@@ -38,8 +38,7 @@ import org.codelabor.system.servlets.dtos.ServerDTO;
  * 요청 유틸
  * 
  * @author Shin Sangjae
- * @deprecated 2.0.0 버전부터 org.codelabor.system.servlets.utils.RequestUtils로
- *             대체한다.
+ * @deprecated 2.0.0 버전부터 org.codelabor.system.web.utils.RequestUtils로 대체한다.
  */
 @Deprecated
 public class RequestUtils {

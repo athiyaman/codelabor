@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.servlets.utils;
+package org.codelabor.system.web.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

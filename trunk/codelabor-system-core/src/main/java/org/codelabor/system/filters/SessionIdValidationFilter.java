@@ -28,8 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
-import org.codelabor.system.servlets.RequestConstants;
-import org.codelabor.system.servlets.utils.RequestUtils;
+import org.codelabor.system.web.RequestConstants;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

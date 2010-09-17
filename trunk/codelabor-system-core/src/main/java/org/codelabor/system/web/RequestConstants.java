@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.servlets;
+package org.codelabor.system.web;
 
 /**
  * 요청 관련 상수
