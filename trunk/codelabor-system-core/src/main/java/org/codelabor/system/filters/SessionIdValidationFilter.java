@@ -65,7 +65,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 		if (StringUtils.isNotBlank(tempExpiredURL)) {
 			expiredURL = tempExpiredURL;
 		}
-		logger.debug("expiredUrl: {}", expiredURL);
+		logger.debug("expiredURL: {}", expiredURL);
 
 		super.init(filterConfig);
 	}
@@ -110,6 +110,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 			logger.debug("session id is valid: {}", requestedSessionId);
 		} else {
 			logger.error("session id is invalid: {}", requestedSessionId);
+			logger.error("forward to expiredURL: {}", expiredURL);
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher(expiredURL);
 			HttpSession httpSession = httpServletRequest.getSession();
