@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.utils;
+package org.codelabor.system.servlets.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,10 +38,8 @@ import org.codelabor.system.servlets.dtos.ServerDTO;
  * 요청 유틸
  * 
  * @author Shin Sangjae
- * @deprecated 2.0.0 버전부터 org.codelabor.system.servlets.utils.RequestUtils로
- *             대체한다.
+ * 
  */
-@Deprecated
 public class RequestUtils {
 	/**
 	 * 서버 정보 DTO를 가져온다.
