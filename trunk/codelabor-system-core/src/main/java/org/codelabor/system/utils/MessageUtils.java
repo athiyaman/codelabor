@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -25,10 +25,19 @@ import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
 
 /**
+ * 메시지 유틸
+ * 
  * @author Shin Sangjae
  * 
  */
 public class MessageUtils {
+	/**
+	 * 예외 클래스를 메시지 DTO로 변환한다.
+	 * 
+	 * @param e
+	 *            예외
+	 * @return 메시지 DTO
+	 */
 	static public MessageDTO exceptionToMessageDTO(Exception e) {
 		MessageDTO messageDTO = new MessageDTO();
 		String messageCode = null;

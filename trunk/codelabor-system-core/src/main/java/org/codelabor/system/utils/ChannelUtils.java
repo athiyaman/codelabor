@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,11 +23,24 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 
 /**
+ * 채널 유틸
+ * 
  * @author Shin Sangjae
  * 
  */
 public class ChannelUtils {
 
+	/**
+	 * 채널을 복사한다.
+	 * 
+	 * @param inputChannel
+	 *            입력 채널
+	 * @param outputChannel
+	 *            출력 채널
+	 * @return 복사된 크기
+	 * @throws IOException
+	 *             IO 예외
+	 */
 	public static int copy(ReadableByteChannel inputChannel,
 			WritableByteChannel outputChannel) throws IOException {
 		ByteBuffer buffer = ByteBuffer.allocateDirect(128);
