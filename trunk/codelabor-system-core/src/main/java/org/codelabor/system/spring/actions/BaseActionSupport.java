@@ -25,13 +25,34 @@ import org.springframework.web.struts.ActionSupport;
 
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 기본 Action Support 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class BaseActionSupport extends ActionSupport {
 
+	/**
+	 * 로거
+	 */
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	/**
+	 * 프로퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
+	/**
+	 * 메시지 소스
+	 */
 	protected MessageSource messageSource;
+	/**
+	 * 웹 어플리케이션 컨텍스트
+	 */
 	protected WebApplicationContext webApplicationContext;
 
+	/**
+	 * 생성자
+	 */
 	public BaseActionSupport() {
 		super();
 		webApplicationContext = getWebApplicationContext();

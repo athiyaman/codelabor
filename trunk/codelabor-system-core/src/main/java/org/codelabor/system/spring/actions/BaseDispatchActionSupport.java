@@ -25,11 +25,29 @@ import org.springframework.web.struts.DispatchActionSupport;
 
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 기본 Dispatch Action Support 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class BaseDispatchActionSupport extends DispatchActionSupport {
 
+	/**
+	 * 로거
+	 */
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	/**
+	 * 메시지 소스
+	 */
 	protected MessageSource messageSource;
+	/**
+	 * 프로퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
+	/**
+	 * 웹 어플리케이션 컨텍스트
+	 */
 	protected WebApplicationContext webApplicationContext;
 
 	public BaseDispatchActionSupport() {

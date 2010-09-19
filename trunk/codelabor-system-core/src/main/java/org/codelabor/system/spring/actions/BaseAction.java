@@ -24,36 +24,87 @@ import org.springframework.context.MessageSource;
 
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 기본 Action 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class BaseAction extends Action {
 
+	/**
+	 * 로거
+	 */
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	/**
+	 * 프로퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
 
+	/**
+	 * 메시지 소스
+	 */
 	protected MessageSource messageSource;
 
+	/**
+	 * 로거명
+	 */
 	protected String loggerName = this.getClass().getName();
 
+	/**
+	 * 프로퍼티 서비스를 가져온다.
+	 * 
+	 * @return 프로퍼티 서비스
+	 */
 	public IPropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
+	/**
+	 * 프로퍼티 서비스를 설정한다.
+	 * 
+	 * @param propertiesService
+	 *            프로퍼티 서비스
+	 */
 	public void setPropertiesService(IPropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 
+	/**
+	 * 메시지 소스를 가져온다.
+	 * 
+	 * @return 메시지 소스
+	 */
 	public MessageSource getMessageSource() {
 		return messageSource;
 	}
 
+	/**
+	 * 메시지 소스를 설정한다.
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 */
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
 	}
 
+	/**
+	 * 로거명을 가져온다.
+	 * 
+	 * @return 로거명
+	 */
 	public String getLoggerName() {
 		return loggerName;
 	}
 
+	/**
+	 * 로거명을 설정한다.
+	 * 
+	 * @param loggerName
+	 *            로거명
+	 */
 	public void setLoggerName(String loggerName) {
 		this.loggerName = loggerName;
 		this.logger = LoggerFactory.getLogger(loggerName);
