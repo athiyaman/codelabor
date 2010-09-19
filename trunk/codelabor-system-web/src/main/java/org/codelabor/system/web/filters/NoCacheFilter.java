@@ -24,7 +24,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.system.servlets.HttpResponseHeader;
+import org.codelabor.system.web.servlets.HttpResponseHeader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

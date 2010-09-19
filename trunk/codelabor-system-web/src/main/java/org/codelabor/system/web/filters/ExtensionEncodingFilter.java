@@ -17,7 +17,7 @@
 
 package org.codelabor.system.web.filters;
 
-import org.codelabor.system.servlets.URIPatternMatcherUtils;
+import org.codelabor.system.web.utils.URIPatternMatcherUtils;
 
 /**
  * 확장자인식 인코딩 필터

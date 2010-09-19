@@ -17,7 +17,7 @@
 
 package org.codelabor.system.web.filters;
 
-import org.codelabor.system.servlets.URIPatternMatcherUtils;
+import org.codelabor.system.web.utils.URIPatternMatcherUtils;
 
 /**
  * 확장자 인식 노캐쉬 필터

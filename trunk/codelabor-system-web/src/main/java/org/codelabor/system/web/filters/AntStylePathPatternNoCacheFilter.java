@@ -17,7 +17,7 @@
 
 package org.codelabor.system.web.filters;
 
-import org.codelabor.system.servlets.URIPatternMatcherUtils;
+import org.codelabor.system.web.utils.URIPatternMatcherUtils;
 
 /**
  * Ant 패스 패턴을 적용한 노 캐쉬 필터
