@@ -39,8 +39,8 @@ import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.struts.forms.FileUploadForm;
 import org.codelabor.system.file.utils.UploadUtils;
-import org.codelabor.system.struts.actions.BaseDispatchAction;
-import org.codelabor.system.utils.RequestUtils;
+import org.codelabor.system.web.struts.actions.BaseDispatchAction;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 

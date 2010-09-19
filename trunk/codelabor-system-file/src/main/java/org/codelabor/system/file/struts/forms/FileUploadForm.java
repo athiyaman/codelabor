@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
-import org.codelabor.system.struts.forms.BaseForm;
+import org.codelabor.system.web.struts.forms.BaseForm;
 
 public class FileUploadForm extends BaseForm {
 

@@ -16,6 +16,7 @@
  */
 
 package org.codelabor.system.file.servlets;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,10 +31,9 @@ import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.utils.UploadUtils;
-import org.codelabor.system.utils.RequestUtils;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 public class FileUploadStreamServlet extends FileUploadServlet {
 

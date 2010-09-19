@@ -31,9 +31,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.servlets.HttpRequestHeader;
-import org.codelabor.system.servlets.HttpResponseHeader;
-import org.codelabor.system.utils.RequestUtils;
+import org.codelabor.system.web.servlets.HttpRequestHeader;
+import org.codelabor.system.web.servlets.HttpResponseHeader;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;

@@ -16,6 +16,7 @@
  */
 
 package org.codelabor.system.file.servlets;
+
 import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT;
 
 import java.io.BufferedInputStream;
@@ -50,9 +51,9 @@ import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.utils.UploadUtils;
-import org.codelabor.system.servlets.HttpRequestHeader;
-import org.codelabor.system.servlets.HttpResponseHeader;
-import org.codelabor.system.utils.RequestUtils;
+import org.codelabor.system.web.servlets.HttpRequestHeader;
+import org.codelabor.system.web.servlets.HttpResponseHeader;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -61,7 +62,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
-
 
 public class FileUploadServlet extends HttpServlet {
 	/**

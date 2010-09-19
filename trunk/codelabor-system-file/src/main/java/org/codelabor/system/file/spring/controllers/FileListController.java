@@ -27,7 +27,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.Constants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.utils.RequestUtils;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 public class FileListController extends BaseFileController {
