@@ -27,9 +27,9 @@ import org.codelabor.system.dtos.SystemPropertiesDTO;
  */
 public interface SystemPropertiesService {
 	/**
-	 * 시스템 프로퍼티 DTO
+	 * 시스템 프로퍼티 DTO를 가져온다.
 	 * 
-	 * @return
+	 * @return 시스템 프로퍼티 DTO
 	 */
 	public SystemPropertiesDTO getSystemPropertiesDTO();
 

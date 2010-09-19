@@ -229,8 +229,6 @@ public class SpringTilesConfigurer implements ServletContextAware,
 	/**
 	 * Create a TilesContainer for this web application.
 	 * 
-	 * @param context
-	 *            this web application's ServletContext
 	 * @return the TilesContainer to expose
 	 * @throws TilesException
 	 *             in case of setup failure
