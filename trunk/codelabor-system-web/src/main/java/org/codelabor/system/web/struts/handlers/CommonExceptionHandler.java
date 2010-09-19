@@ -31,6 +31,12 @@ import org.apache.struts.util.ModuleException;
 import org.codelabor.system.exceptions.CommonException;
 import org.codelabor.system.exceptions.ExceptionConstants;
 
+/**
+ * 공통 에외 핸들러 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class CommonExceptionHandler extends BaseExceptionHandler {
 
 	/**
