@@ -24,7 +24,16 @@ package org.codelabor.system.web;
  * 
  */
 public class RequestConstants {
+	/**
+	 * 요청 받은 URI
+	 */
 	public static String REQUEST_URI = "org.codelabor.system.servlets.REQUEST_URI";
+	/**
+	 * 요청 받은 속성 Map
+	 */
 	public static String REQUEST_ATTRIBUTE_MAP = "org.codelabor.system.servlets.REQUEST_ATTRIBUTE_MAP";
+	/**
+	 * 요청 받은 파라미터 Map
+	 */
 	public static String REQUEST_PARAMETER_MAP = "org.codelabor.system.servlets.REQUEST_PARAMETER_MAP";
 }
