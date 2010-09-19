@@ -17,8 +17,6 @@
 
 package org.codelabor.system.struts.handlers;
 
-import static org.codelabor.system.Constants.COMMON_EXCEPTION;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,6 +29,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.config.ExceptionConfig;
 import org.apache.struts.util.ModuleException;
 import org.codelabor.system.exceptions.CommonException;
+import org.codelabor.system.exceptions.ExceptionConstants;
 
 public class CommonExceptionHandler extends BaseExceptionHandler {
 
@@ -84,7 +83,8 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 		} else {
 			if (ex instanceof CommonException) {
 				CommonException commonException = (CommonException) ex;
-				request.setAttribute(COMMON_EXCEPTION, commonException);
+				request.setAttribute(ExceptionConstants.COMMON_EXCEPTION,
+						commonException);
 			}
 			error = new ActionMessage(ae.getKey(), ex.getMessage());
 			property = error.getKey();
