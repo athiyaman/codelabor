@@ -17,6 +17,12 @@
 
 package org.codelabor.system.servlets;
 
+/**
+ * Http 응답 헤더 상수
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class HttpResponseHeader {
 	public final static String ACCEPT_RANGES = "Accept-Ranges";
 	public final static String AGE = "Age";

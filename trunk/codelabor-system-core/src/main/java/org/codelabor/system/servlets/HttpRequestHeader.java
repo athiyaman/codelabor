@@ -17,6 +17,12 @@
 
 package org.codelabor.system.servlets;
 
+/**
+ * Http 요청 헤더 상수
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class HttpRequestHeader {
 	public final static String ACCEPT = "Accept";
 	public final static String ACCEPT_CHARSET = "Accept-Charset";

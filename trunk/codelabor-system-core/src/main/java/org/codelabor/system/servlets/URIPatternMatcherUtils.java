@@ -25,10 +25,30 @@ import org.codelabor.system.utils.ListUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * URI 패턴 매처 유틸
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class URIPatternMatcherUtils {
+	/**
+	 * 로거
+	 */
 	private static Logger logger = LoggerFactory
 			.getLogger(URIPatternMatcherUtils.class);
 
+	/**
+	 * Ant 스타일 패스 패턴에 매칭되는지 확인한다.
+	 * 
+	 * @param includePatterns
+	 *            포함할 패턴
+	 * @param excludePatterns
+	 *            제외할 패턴
+	 * @param requestURI
+	 *            요청받은 URI
+	 * @return 매칭 여부
+	 */
 	static public boolean matchByAntStylePathPattern(
 			List<String> includePatterns, List<String> excludePatterns,
 			String requestURI) {
@@ -66,6 +86,17 @@ public class URIPatternMatcherUtils {
 		return isMatched;
 	}
 
+	/**
+	 * URI가 패턴에 매칭되는지 확인한다.
+	 * 
+	 * @param includePatterns
+	 *            포함할 패턴
+	 * @param excludePatterns
+	 *            제외할 패턴
+	 * @param requestURI
+	 *            요청받은 URI
+	 * @return 매칭 여부
+	 */
 	static public boolean matchByURI(List<String> includePatterns,
 			List<String> excludePatterns, String requestURI) {
 		boolean isMatched = false;
@@ -99,6 +130,17 @@ public class URIPatternMatcherUtils {
 		return isMatched;
 	}
 
+	/**
+	 * 확장자 패턴에 매칭되는지 확인한다.
+	 * 
+	 * @param includePatterns
+	 *            포함할 패턴
+	 * @param excludePatterns
+	 *            제외할 패턴
+	 * @param requestURI
+	 *            요청 받은 URI
+	 * @return 매칭 여부
+	 */
 	static public boolean matchByExtension(List<String> includePatterns,
 			List<String> excludePatterns, String requestURI) {
 		boolean isMatched = false;

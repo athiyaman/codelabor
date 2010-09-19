@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.codelabor.system.servlets;
 
@@ -12,11 +12,16 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
+ * 기본 서블릿
+ * 
  * @author Shin Sangjae
  * 
  */
 public class BaseServlet implements Servlet {
 
+	/**
+	 * 서블릿 컨피그
+	 */
 	protected ServletConfig servletConfig;
 
 	/*
@@ -60,6 +65,11 @@ public class BaseServlet implements Servlet {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.Servlet#getServletConfig()
+	 */
 	public ServletConfig getServletConfig() {
 		return this.servletConfig;
 	}

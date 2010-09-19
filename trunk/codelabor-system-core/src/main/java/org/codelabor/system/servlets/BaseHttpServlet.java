@@ -21,14 +21,28 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
+/**
+ * 기본 Http Servlet
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class BaseHttpServlet extends HttpServlet {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = -8511717937606209944L;
+	/**
+	 * 서블릿 컨피그
+	 */
 	protected ServletConfig servletConfig;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.GenericServlet#getServletConfig()
+	 */
 	@Override
 	public ServletConfig getServletConfig() {
 		return this.servletConfig;
