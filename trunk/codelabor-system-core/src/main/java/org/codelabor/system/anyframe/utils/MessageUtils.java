@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.utils;
+package org.codelabor.system.anyframe.utils;
 
 import org.codelabor.system.MessageType;
 import org.codelabor.system.anyframe.exceptions.CommonException;
