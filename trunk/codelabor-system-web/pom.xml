@@ -167,6 +167,20 @@
       <type>jar</type>
       <optional>false</optional>
     </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc-struts</artifactId>
+    	<version>2.5.6.SEC02</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework.webflow</groupId>
+    	<artifactId>spring-webflow</artifactId>
+    	<version>2.1.1.RELEASE</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
