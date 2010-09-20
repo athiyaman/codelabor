@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * String 타입의 ID List DTO
+ * String 타입의 Id List DTO
  * 
  * @author Shin Sangjae
  * 
@@ -32,24 +32,24 @@ public class StringIdListDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 4930740279435448852L;
 	/**
-	 * ID List
+	 * Id List
 	 */
 	private List<String> id;
 
 	/**
-	 * ID를 가져온다.
+	 * Id를 가져온다.
 	 * 
-	 * @return ID List
+	 * @return Id List
 	 */
 	public List<String> getId() {
 		return id;
 	}
 
 	/**
-	 * ID를 설정한다.
+	 * Id를 설정한다.
 	 * 
 	 * @param id
-	 *            ID List
+	 *            Id List
 	 */
 	public void setId(List<String> id) {
 		this.id = id;
@@ -67,7 +67,7 @@ public class StringIdListDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("StringIDListDTO ( ").append(super.toString()).append(
+		retValue.append("StringIdListDTO ( ").append(super.toString()).append(
 				TAB).append("id = ").append(this.id).append(TAB).append(" )");
 
 		return retValue.toString();

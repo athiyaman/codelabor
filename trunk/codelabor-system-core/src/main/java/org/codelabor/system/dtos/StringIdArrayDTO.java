@@ -20,7 +20,7 @@ package org.codelabor.system.dtos;
 import java.io.Serializable;
 
 /**
- * String 타입 ID 배열 DTO
+ * String 타입 Id 배열 DTO
  * 
  * @author Shin Sangjae
  * 
@@ -32,24 +32,24 @@ public class StringIdArrayDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 6296998747458539246L;
 	/**
-	 * ID 배열
+	 * Id 배열
 	 */
 	private String[] id;
 
 	/**
-	 * ID를 가져온다.
+	 * Id를 가져온다.
 	 * 
-	 * @return ID 배열
+	 * @return Id 배열
 	 */
 	public String[] getId() {
 		return id;
 	}
 
 	/**
-	 * ID를 설정한다.
+	 * Id를 설정한다.
 	 * 
 	 * @param id
-	 *            ID 배열
+	 *            Id 배열
 	 */
 	public void setId(String[] id) {
 		this.id = id;
@@ -67,7 +67,7 @@ public class StringIdArrayDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("StringIDArrayDTO ( ").append(super.toString()).append(
+		retValue.append("StringIdArrayDTO ( ").append(super.toString()).append(
 				TAB).append("id = ").append(this.id).append(TAB).append(" )");
 
 		return retValue.toString();
