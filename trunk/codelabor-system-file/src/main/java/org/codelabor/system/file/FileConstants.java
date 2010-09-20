@@ -17,7 +17,7 @@
 
 package org.codelabor.system.file;
 
-public class Constants {
+public class FileConstants {
 
 	public final static String FILE_LIST_KEY = "org.codelabor.system.FILE_LIST";
 	public final static String FILE_KEY = "org.codelabor.system.FILE";

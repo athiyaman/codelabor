@@ -87,7 +87,7 @@ public class FileDownloadController extends BaseFileController {
 		logger.debug("encodedRealFileName: {}", encodedRealFileName);
 
 		response
-				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
+				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		stringBuilder.setLength(0);
 		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			stringBuilder.append("filename=");

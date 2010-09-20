@@ -293,9 +293,9 @@ public class FileUploadServlet extends HttpServlet {
 				}
 			}
 			request.setAttribute(
-					org.codelabor.system.file.Constants.FILE_LIST_KEY,
+					org.codelabor.system.file.FileConstants.FILE_LIST_KEY,
 					fileDTOList);
-			request.setAttribute(org.codelabor.system.file.Constants.MAP_ID,
+			request.setAttribute(org.codelabor.system.file.FileConstants.MAP_ID,
 					mapIdGenerationService.getNextStringId());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -346,7 +346,7 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("encodedRealFileName: {}", encodedRealFileName);
 
 		response
-				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
+				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		sb.setLength(0);
 		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			sb.append("filename=");
@@ -400,7 +400,7 @@ public class FileUploadServlet extends HttpServlet {
 			throws Exception {
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
-		request.setAttribute(org.codelabor.system.file.Constants.FILE_KEY,
+		request.setAttribute(org.codelabor.system.file.FileConstants.FILE_KEY,
 				fileDTO);
 		dispatch(request, response, forwardPathRead);
 	}

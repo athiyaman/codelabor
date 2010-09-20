@@ -33,7 +33,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
-import org.codelabor.system.file.Constants;
+import org.codelabor.system.file.FileConstants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.file.managers.FileManager;
@@ -90,9 +90,9 @@ public class FileUploadAction extends BaseDispatchAction {
 				break;
 			}
 		}
-		request.setAttribute(Constants.MAP_ID, mapIdGenerationService
+		request.setAttribute(FileConstants.MAP_ID, mapIdGenerationService
 				.getNextStringId());
-		request.setAttribute(Constants.FILE_LIST_KEY, fileDTOList);
+		request.setAttribute(FileConstants.FILE_LIST_KEY, fileDTOList);
 		return mapping.findForward("list");
 	}
 
@@ -105,7 +105,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
-		request.setAttribute(Constants.FILE_KEY, fileDTO);
+		request.setAttribute(FileConstants.FILE_KEY, fileDTO);
 		return mapping.findForward("read");
 	}
 

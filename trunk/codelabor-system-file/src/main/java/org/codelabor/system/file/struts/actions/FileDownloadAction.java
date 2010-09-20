@@ -80,12 +80,12 @@ public class FileDownloadAction extends DownloadAction {
 			stringBuilder.append(uniqueFileName);
 			File file = new File(stringBuilder.toString());
 			streamInfo = new FileStreamInfo(
-					org.codelabor.system.file.Constants.CONTENT_TYPE, file);
+					org.codelabor.system.file.FileConstants.CONTENT_TYPE, file);
 			// DATABASE
 		} else {
 			byte[] bytes = fileDTO.getBytes();
 			streamInfo = new ByteArrayStreamInfo(
-					org.codelabor.system.file.Constants.CONTENT_TYPE, bytes);
+					org.codelabor.system.file.FileConstants.CONTENT_TYPE, bytes);
 		}
 		// set response contenttype, header
 		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
@@ -93,7 +93,7 @@ public class FileDownloadAction extends DownloadAction {
 		logger.debug("encodedRealFileName: {}", encodedRealFileName);
 
 		response
-				.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
+				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		stringBuilder.setLength(0);
 		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			stringBuilder.append("filename=");

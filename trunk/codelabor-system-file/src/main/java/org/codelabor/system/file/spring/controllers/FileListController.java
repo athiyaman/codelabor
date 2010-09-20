@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.codelabor.system.file.Constants;
+import org.codelabor.system.file.FileConstants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.web.utils.RequestUtils;
@@ -64,8 +64,8 @@ public class FileListController extends BaseFileController {
 				}
 			}
 			mav = new ModelAndView(getSuccessView());
-			mav.addObject(Constants.FILE_LIST_KEY, fileDTOList);
-			mav.addObject(Constants.MAP_ID, mapIdGenerationService
+			mav.addObject(FileConstants.FILE_LIST_KEY, fileDTOList);
+			mav.addObject(FileConstants.MAP_ID, mapIdGenerationService
 					.getNextStringId());
 
 		} catch (Exception e) {
