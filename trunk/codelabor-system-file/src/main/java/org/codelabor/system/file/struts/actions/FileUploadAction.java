@@ -17,7 +17,7 @@
 
 package org.codelabor.system.file.struts.actions;
 
-import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT;
+import static org.codelabor.system.daos.DAOConstants.AFFECTED_ROW_COUNT;
 
 import java.io.InputStream;
 import java.util.ArrayList;
