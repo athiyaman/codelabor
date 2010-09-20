@@ -15,28 +15,29 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.exceptions;
+package org.codelabor.system.anyframe.exceptions;
 
+import org.codelabor.system.exceptions.NoRollbackable;
 import org.springframework.context.MessageSource;
 
 /**
- * 롤백을 하는 예외를 위한 공통 예외 클래스
+ * 롤백을 하지 않는 예외를 위한 공통 예외 클래스
  * 
  * @author Shin Sangjae
  * 
  */
-public class RollbackCommonException extends CommonException implements
-		Rollbackable {
+public class NoRollbackCommonException extends CommonException implements
+		NoRollbackable {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = -6177604106387046530L;
+	private static final long serialVersionUID = -3414460040784097981L;
 
 	/**
 	 * 생성자
 	 */
-	public RollbackCommonException() {
+	public NoRollbackCommonException() {
 		super();
 
 	}
@@ -55,7 +56,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, Object[] messageParameters,
 			String defaultMessage, Throwable wrappedException) {
 		super(messageSource, messageKey, messageParameters, defaultMessage,
@@ -75,7 +76,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param defaultMessage
 	 *            기본 메시지
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, Object[] messageParameters, String defaultMessage) {
 		super(messageSource, messageKey, messageParameters, defaultMessage);
 
@@ -93,7 +94,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, Object[] messageParameters,
 			Throwable wrappedException) {
 		super(messageSource, messageKey, messageParameters, wrappedException);
@@ -110,7 +111,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param messageParameters
 	 *            메시지 파라미터
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, Object[] messageParameters) {
 		super(messageSource, messageKey, messageParameters);
 
@@ -128,7 +129,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, String defaultMessage, Throwable wrappedException) {
 		super(messageSource, messageKey, defaultMessage, wrappedException);
 
@@ -144,7 +145,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param defaultMessage
 	 *            기본 메시지
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, String defaultMessage) {
 		super(messageSource, messageKey, defaultMessage);
 
@@ -160,7 +161,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey, Throwable wrappedException) {
 		super(messageSource, messageKey, wrappedException);
 
@@ -174,7 +175,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param messageKey
 	 *            메시지 키
 	 */
-	public RollbackCommonException(MessageSource messageSource,
+	public NoRollbackCommonException(MessageSource messageSource,
 			String messageKey) {
 		super(messageSource, messageKey);
 
@@ -190,7 +191,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public RollbackCommonException(String messageKey,
+	public NoRollbackCommonException(String messageKey,
 			Object[] messageParameters, Throwable wrappedException) {
 		super(messageKey, messageParameters, wrappedException);
 
@@ -204,7 +205,8 @@ public class RollbackCommonException extends CommonException implements
 	 * @param messageParameters
 	 *            메시지 파라미터
 	 */
-	public RollbackCommonException(String messageKey, Object[] messageParameters) {
+	public NoRollbackCommonException(String messageKey,
+			Object[] messageParameters) {
 		super(messageKey, messageParameters);
 
 	}
@@ -217,7 +219,8 @@ public class RollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public RollbackCommonException(String messageKey, Throwable wrappedException) {
+	public NoRollbackCommonException(String messageKey,
+			Throwable wrappedException) {
 		super(messageKey, wrappedException);
 
 	}
@@ -228,7 +231,7 @@ public class RollbackCommonException extends CommonException implements
 	 * @param messageKey
 	 *            메시지 키
 	 */
-	public RollbackCommonException(String messageKey) {
+	public NoRollbackCommonException(String messageKey) {
 		super(messageKey);
 
 	}

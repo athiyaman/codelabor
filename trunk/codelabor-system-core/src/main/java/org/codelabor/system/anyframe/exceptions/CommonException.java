@@ -15,30 +15,44 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.exceptions;
+package org.codelabor.system.anyframe.exceptions;
 
 import org.springframework.context.MessageSource;
 
+import anyframe.common.exception.BaseException;
+import anyframe.common.exception.message.Message;
+
 /**
- * 롤백을 하지 않는 예외를 위한 공통 예외 클래스
+ * 공통 예외 클래스
  * 
  * @author Shin Sangjae
  * 
  */
-public class NoRollbackCommonException extends CommonException implements
-		NoRollbackable {
+public abstract class CommonException extends BaseException {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = -3414460040784097981L;
+	private static final long serialVersionUID = -2522334283452895450L;
+	/**
+	 * 메시지 코드
+	 */
+	private String messageCode;
 
 	/**
 	 * 생성자
 	 */
-	public NoRollbackCommonException() {
+	public CommonException() {
 		super();
+	}
 
+	/**
+	 * 메시지 코드
+	 * 
+	 * @param messageCode
+	 */
+	public void setMessageCode(String messageCode) {
+		this.messageCode = messageCode;
 	}
 
 	/**
@@ -55,12 +69,11 @@ public class NoRollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, Object[] messageParameters,
-			String defaultMessage, Throwable wrappedException) {
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters, String defaultMessage,
+			Throwable wrappedException) {
 		super(messageSource, messageKey, messageParameters, defaultMessage,
 				wrappedException);
-
 	}
 
 	/**
@@ -75,10 +88,9 @@ public class NoRollbackCommonException extends CommonException implements
 	 * @param defaultMessage
 	 *            기본 메시지
 	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, Object[] messageParameters, String defaultMessage) {
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters, String defaultMessage) {
 		super(messageSource, messageKey, messageParameters, defaultMessage);
-
 	}
 
 	/**
@@ -93,107 +105,98 @@ public class NoRollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, Object[] messageParameters,
-			Throwable wrappedException) {
-		super(messageSource, messageKey, messageParameters, wrappedException);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, Object[] messageParameters) {
-		super(messageSource, messageKey, messageParameters);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param defaultMessage
-	 *            기본 메시지
-	 * @param wrappedException
-	 *            예외
-	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, String defaultMessage, Throwable wrappedException) {
-		super(messageSource, messageKey, defaultMessage, wrappedException);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param defaultMessage
-	 *            기본 메시지
-	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, String defaultMessage) {
-		super(messageSource, messageKey, defaultMessage);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param wrappedException
-	 *            예외
-	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey, Throwable wrappedException) {
-		super(messageSource, messageKey, wrappedException);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 */
-	public NoRollbackCommonException(MessageSource messageSource,
-			String messageKey) {
-		super(messageSource, messageKey);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 * @param wrappedException
-	 *            예외
-	 */
-	public NoRollbackCommonException(String messageKey,
+	public CommonException(MessageSource messageSource, String messageKey,
 			Object[] messageParameters, Throwable wrappedException) {
-		super(messageKey, messageParameters, wrappedException);
+		super(messageSource, messageKey, messageParameters, wrappedException);
+	}
 
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters) {
+		super(messageSource, messageKey, messageParameters);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param defaultMessage
+	 *            기본 메시지
+	 * @param wrappedException
+	 *            예외
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			String defaultMessage, Throwable wrappedException) {
+		super(messageSource, messageKey, defaultMessage, wrappedException);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param defaultMessage
+	 *            기본 메시지
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			String defaultMessage) {
+		super(messageSource, messageKey, defaultMessage);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param wrappedException
+	 *            예외
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			Throwable wrappedException) {
+		super(messageSource, messageKey, wrappedException);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 */
+	public CommonException(MessageSource messageSource, String messageKey) {
+		super(messageSource, messageKey);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 * @param wrappedException
+	 *            예외
+	 */
+	public CommonException(String messageKey, Object[] messageParameters,
+			Throwable wrappedException) {
+		super(messageKey, messageParameters, wrappedException);
 	}
 
 	/**
@@ -204,10 +207,8 @@ public class NoRollbackCommonException extends CommonException implements
 	 * @param messageParameters
 	 *            메시지 파라미터
 	 */
-	public NoRollbackCommonException(String messageKey,
-			Object[] messageParameters) {
+	public CommonException(String messageKey, Object[] messageParameters) {
 		super(messageKey, messageParameters);
-
 	}
 
 	/**
@@ -218,10 +219,8 @@ public class NoRollbackCommonException extends CommonException implements
 	 * @param wrappedException
 	 *            예외
 	 */
-	public NoRollbackCommonException(String messageKey,
-			Throwable wrappedException) {
+	public CommonException(String messageKey, Throwable wrappedException) {
 		super(messageKey, wrappedException);
-
 	}
 
 	/**
@@ -230,9 +229,80 @@ public class NoRollbackCommonException extends CommonException implements
 	 * @param messageKey
 	 *            메시지 키
 	 */
-	public NoRollbackCommonException(String messageKey) {
+	public CommonException(String messageKey) {
 		super(messageKey);
+	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Throwable#getMessage()
+	 */
+	@Override
+	public String getMessage() {
+		return super.getMessage();
+	}
+
+	/**
+	 * 메시지 키를 가져온다.
+	 * 
+	 * @return 메시지 키
+	 */
+	@Override
+	public String getMessageKey() {
+		return super.getMessageKey();
+	}
+
+	/**
+	 * 메시지 파라미터를 가져온다.
+	 * 
+	 * @return 메시지 파라미터 배열
+	 */
+	@Override
+	public Object[] getMessageParameters() {
+		return super.getMessageParameters();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * anyframe.common.exception.message.AnyFrameMessageSource#getMessages()
+	 */
+	@Override
+	public Message getMessages() {
+		return super.getMessages();
+	}
+
+	/**
+	 * 메시지 키를 설정한다.
+	 * 
+	 * @param messageKey
+	 *            메시지 키
+	 */
+	@Override
+	public void setMessageKey(String messageKey) {
+		super.setMessageKey(messageKey);
+	}
+
+	/**
+	 * 메시지 파라미터를 설정한다.
+	 * 
+	 * @param param
+	 *            메시지 파라미터 배열
+	 */
+	@Override
+	public void setMessageParameters(Object[] param) {
+		super.setMessageParameters(param);
+	}
+
+	/**
+	 * 메시지 코드를 가져온다.
+	 * 
+	 * @return 메시지 코드
+	 */
+	public String getMessageCode() {
+		return this.messageCode;
 	}
 
 }

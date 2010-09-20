@@ -18,8 +18,8 @@
 package org.codelabor.system.utils;
 
 import org.codelabor.system.MessageType;
+import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.dtos.MessageDTO;
-import org.codelabor.system.exceptions.CommonException;
 
 import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
