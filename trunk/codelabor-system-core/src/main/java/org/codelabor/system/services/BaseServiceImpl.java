@@ -110,17 +110,17 @@ public class BaseServiceImpl {
 	/**
 	 * 아이디 제네레이션 서비스를 가져온다.
 	 * 
-	 * @return ID 제네레이션 서비스
+	 * @return Id 제네레이션 서비스
 	 */
 	public IIdGenerationService getIdGenerationService() {
 		return idGenerationService;
 	}
 
 	/**
-	 * ID 제네레이션 서비스를 설정한다.
+	 * Id 제네레이션 서비스를 설정한다.
 	 * 
 	 * @param sequenceIdGenerationService
-	 *            ID 제네레이션 서비스
+	 *            Id 제네레이션 서비스
 	 */
 	public void setIdGenerationService(
 			IIdGenerationService sequenceIdGenerationService) {
