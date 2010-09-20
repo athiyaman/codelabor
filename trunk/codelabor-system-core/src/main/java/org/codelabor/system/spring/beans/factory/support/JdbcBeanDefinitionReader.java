@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.beans.factory.support;
+package org.codelabor.system.spring.beans.factory.support;
 
 import org.springframework.beans.factory.BeanDefinitionStoreException;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
