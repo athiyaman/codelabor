@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @author Shin Sangjae
  * 
  */
-public class IntegerIDArrayDTO implements Serializable {
+public class IntegerIdArrayDTO implements Serializable {
 
 	/**
 	 * 시리얼 버전 UID

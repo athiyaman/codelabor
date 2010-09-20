@@ -18,30 +18,30 @@
 package org.codelabor.system.dtos;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
- * Integer 타입 ID List DTO
+ * String 타입 ID 배열 DTO
  * 
  * @author Shin Sangjae
  * 
  */
-public class IntegerIDListDTO implements Serializable {
+public class StringIdArrayDTO implements Serializable {
+
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = 4384445118698439928L;
+	private static final long serialVersionUID = 6296998747458539246L;
 	/**
-	 * ID List
+	 * ID 배열
 	 */
-	private List<Integer> id;
+	private String[] id;
 
 	/**
 	 * ID를 가져온다.
 	 * 
-	 * @return ID List
+	 * @return ID 배열
 	 */
-	public List<Integer> getId() {
+	public String[] getId() {
 		return id;
 	}
 
@@ -49,9 +49,9 @@ public class IntegerIDListDTO implements Serializable {
 	 * ID를 설정한다.
 	 * 
 	 * @param id
-	 *            ID List
+	 *            ID 배열
 	 */
-	public void setId(List<Integer> id) {
+	public void setId(String[] id) {
 		this.id = id;
 	}
 
@@ -67,9 +67,10 @@ public class IntegerIDListDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("IntegerIDListDTO ( ").append(super.toString()).append(
+		retValue.append("StringIDArrayDTO ( ").append(super.toString()).append(
 				TAB).append("id = ").append(this.id).append(TAB).append(" )");
 
 		return retValue.toString();
 	}
+
 }

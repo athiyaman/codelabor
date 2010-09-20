@@ -26,7 +26,7 @@ import java.util.List;
  * @author Shin Sangjae
  * 
  */
-public class StringIDListDTO implements Serializable {
+public class StringIdListDTO implements Serializable {
 	/**
 	 * 시리얼 버전 UID
 	 */
