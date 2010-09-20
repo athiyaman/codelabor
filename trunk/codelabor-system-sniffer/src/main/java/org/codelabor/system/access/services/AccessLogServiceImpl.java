@@ -19,8 +19,8 @@ package org.codelabor.system.access.services;
 
 import org.codelabor.system.access.dtos.AccessLogDTO;
 import org.codelabor.system.access.managers.AccessLogManager;
-import org.codelabor.system.exceptions.CommonException;
-import org.codelabor.system.exceptions.RollbackCommonException;
+import org.codelabor.system.anyframe.exceptions.CommonException;
+import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**

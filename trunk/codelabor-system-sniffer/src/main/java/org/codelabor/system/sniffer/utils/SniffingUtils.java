@@ -2,7 +2,7 @@ package org.codelabor.system.sniffer.utils;
 
 import javax.servlet.ServletRequest;
 
-import org.codelabor.system.utils.RequestUtils;
+import org.codelabor.system.web.utils.RequestUtils;
 import org.quartz.Trigger;
 
 public class SniffingUtils {

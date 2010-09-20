@@ -1,6 +1,6 @@
 package org.codelabor.system.sign.exceptions;
 
-import org.codelabor.system.exceptions.RollbackCommonException;
+import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
 import org.springframework.context.MessageSource;
 
 public class NotVerifiedException extends RollbackCommonException {

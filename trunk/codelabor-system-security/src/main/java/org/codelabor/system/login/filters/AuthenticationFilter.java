@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.web.SessionConstants;
+import org.codelabor.system.web.filters.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

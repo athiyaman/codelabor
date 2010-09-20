@@ -2,7 +2,7 @@ package org.codelabor.system.web.spring.handlers;
 
 import java.io.IOException;
 
-import org.codelabor.system.exceptions.CommonException;
+import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.webflow.engine.FlowExecutionExceptionHandler;
 import org.springframework.webflow.engine.RequestControlContext;

@@ -23,8 +23,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.codelabor.system.filters.BaseFilterImpl;
 import org.codelabor.system.sniffer.utils.SniffingUtils;
+import org.codelabor.system.web.filters.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

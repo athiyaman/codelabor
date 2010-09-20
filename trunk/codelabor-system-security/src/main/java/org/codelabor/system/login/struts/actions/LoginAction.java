@@ -11,8 +11,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.codelabor.system.login.dtos.LoginDTO;
-import org.codelabor.system.struts.actions.BaseDispatchAction;
 import org.codelabor.system.web.SessionConstants;
+import org.codelabor.system.web.struts.actions.BaseDispatchAction;
 
 public abstract class LoginAction extends BaseDispatchAction {
 

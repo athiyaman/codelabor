@@ -22,7 +22,7 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.codelabor.system.advices.BaseAdvice;
-import org.codelabor.system.exceptions.CommonException;
+import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.springframework.core.Ordered;
 import org.springframework.util.StopWatch;
 

@@ -28,7 +28,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.config.ExceptionConfig;
 import org.apache.struts.util.ModuleException;
-import org.codelabor.system.exceptions.CommonException;
+import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.exceptions.ExceptionConstants;
 
 /**

@@ -19,8 +19,8 @@ package org.codelabor.system.login.services;
 
 import java.util.List;
 
-import org.codelabor.system.exceptions.CommonException;
-import org.codelabor.system.exceptions.RollbackCommonException;
+import org.codelabor.system.anyframe.exceptions.CommonException;
+import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
 import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.login.managers.LoginManager;
 import org.codelabor.system.services.BaseServiceImpl;
