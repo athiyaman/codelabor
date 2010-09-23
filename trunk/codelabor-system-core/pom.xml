@@ -21,6 +21,18 @@
 			<type>jar</type>
 			<optional>false</optional>
 			<exclusions>
+                <exclusion>
+                  <groupId>org.springframework</groupId>
+                  <artifactId>spring-test</artifactId>
+                </exclusion>
+                <exclusion>
+                  <groupId>joda-time</groupId>
+                  <artifactId>joda-time</artifactId>
+                </exclusion>
+                <exclusion>
+                  <groupId>commons-pool</groupId>
+                  <artifactId>commons-pool</artifactId>
+                </exclusion>
 				<exclusion>
 					<groupId>ojdbc</groupId>
 					<artifactId>ojdbc</artifactId>
@@ -381,109 +393,6 @@
 					<groupId>org.springframework</groupId>
 				</exclusion>
 			</exclusions>
-			<optional>false</optional>
-		</dependency>
-		<dependency>
-			<groupId>anyframe</groupId>
-			<artifactId>anyframe.web.springmvc</artifactId>
-			<version>3.2.1</version>
-			<type>jar</type>
-			<exclusions>
-				<exclusion>
-					<artifactId>spring-aop</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-beans</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-context</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-context-support</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-core</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-jdbc</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-jms</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-orm</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-tx</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-web</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-webmvc</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-webmvc-portlet</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>spring-webmvc-struts</artifactId>
-					<groupId>org.springframework</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>servlet-api</artifactId>
-					<groupId>javax.servlet</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jasperreports</artifactId>
-					<groupId>jasperreports</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>org.springplugins.web</artifactId>
-					<groupId>org.springplugins</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>jfreechart</artifactId>
-					<groupId>jfree</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>axis</artifactId>
-					<groupId>org.apache.axis</groupId>
-				</exclusion>
-			</exclusions>
-			<optional>false</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.1</version>
-			<type>jar</type>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>2.2</version>
-			<type>jar</type>
-			<optional>false</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.opensymphony.quartz</groupId>
-			<artifactId>quartz</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
