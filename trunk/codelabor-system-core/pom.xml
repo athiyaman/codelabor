@@ -145,6 +145,14 @@
           <artifactId>log4j</artifactId>
           <groupId>log4j</groupId>
         </exclusion>
+        <exclusion>
+        	<artifactId>c3p0</artifactId>
+        	<groupId>c3p0</groupId>
+        </exclusion>
+        <exclusion>
+        	<artifactId>ehcache</artifactId>
+        	<groupId>ehcache</groupId>
+        </exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -208,6 +216,10 @@
         <exclusion>
           <artifactId>spring-test</artifactId>
           <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
+        	<artifactId>c3p0</artifactId>
+        	<groupId>c3p0</groupId>
         </exclusion>
       </exclusions>
       <optional>false</optional>
@@ -273,6 +285,10 @@
         <exclusion>
           <artifactId>spring-test</artifactId>
           <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
+        	<artifactId>c3p0</artifactId>
+        	<groupId>c3p0</groupId>
         </exclusion>
       </exclusions>
       <optional>false</optional>
@@ -343,6 +359,10 @@
           <artifactId>spring-test</artifactId>
           <groupId>org.springframework</groupId>
         </exclusion>
+        <exclusion>
+        	<artifactId>c3p0</artifactId>
+        	<groupId>c3p0</groupId>
+        </exclusion>
       </exclusions>
       <optional>false</optional>
     </dependency>
@@ -407,6 +427,10 @@
         <exclusion>
           <artifactId>spring-test</artifactId>
           <groupId>org.springframework</groupId>
+        </exclusion>
+        <exclusion>
+        	<artifactId>c3p0</artifactId>
+        	<groupId>c3p0</groupId>
         </exclusion>
       </exclusions>
       <optional>false</optional>
