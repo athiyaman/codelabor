@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.file.spring.commands.FileList;
 import org.codelabor.system.file.utils.UploadUtils;
+import org.codelabor.system.file.web.spring.commands.FileList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
