@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.file.strategies;
+package org.codelabor.system.file.anyframe.idgen.strategies;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
