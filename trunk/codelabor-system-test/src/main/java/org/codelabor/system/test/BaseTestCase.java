@@ -17,6 +17,7 @@
 
 package org.codelabor.system.test;
 
+import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
@@ -49,6 +50,7 @@ public class BaseTestCase extends AbstractDependencyInjectionSpringContextTests 
 	/**
 	 * 빈 테스트 메소드
 	 */
+	@Ignore
 	public void test() {
 	}
 
