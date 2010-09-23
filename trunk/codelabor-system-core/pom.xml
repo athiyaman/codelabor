@@ -205,6 +205,10 @@
 					<artifactId>spring-webmvc-struts</artifactId>
 					<groupId>org.springframework</groupId>
 				</exclusion>
+				<exclusion>
+					<artifactId>spring-test</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
 			</exclusions>
 			<optional>false</optional>
 		</dependency>
@@ -264,6 +268,10 @@
 				</exclusion>
 				<exclusion>
 					<artifactId>spring-webmvc-struts</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-test</artifactId>
 					<groupId>org.springframework</groupId>
 				</exclusion>
 			</exclusions>
@@ -331,6 +339,10 @@
 					<artifactId>ojdbc</artifactId>
 					<groupId>ojdbc</groupId>
 				</exclusion>
+				<exclusion>
+					<artifactId>spring-test</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
 			</exclusions>
 			<optional>false</optional>
 		</dependency>
@@ -392,6 +404,10 @@
 					<artifactId>spring-webmvc-struts</artifactId>
 					<groupId>org.springframework</groupId>
 				</exclusion>
+				<exclusion>
+					<artifactId>spring-test</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
 			</exclusions>
 			<optional>false</optional>
 		</dependency>
@@ -423,17 +439,24 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
+			<artifactId>spring-beans</artifactId>
 			<version>2.5.6.SEC02</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
+			<artifactId>spring-context</artifactId>
 			<version>2.5.6.SEC02</version>
 			<type>jar</type>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>2.5.6.SEC02</version>
+			<type>jar</type>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<repositories>
