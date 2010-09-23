@@ -29,8 +29,8 @@ import java.util.Set;
 
 import javax.mail.internet.MimeMessage;
 
-import org.codelabor.system.exceptions.CommonException;
-import org.codelabor.system.exceptions.RollbackCommonException;
+import org.codelabor.system.anyframe.exceptions.CommonException;
+import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
 import org.codelabor.system.remoting.smtp.dtos.MailDTO;
 import org.codelabor.system.services.BaseServiceImpl;
 import org.springframework.mail.javamail.JavaMailSender;
