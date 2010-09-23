@@ -17,7 +17,7 @@
 
 package org.codelabor.system.anyframe.utils;
 
-import org.codelabor.system.MessageType;
+import org.codelabor.system.anyframe.MessageType;
 import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.dtos.MessageDTO;
 

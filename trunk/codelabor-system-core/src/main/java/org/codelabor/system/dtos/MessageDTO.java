@@ -19,7 +19,7 @@ package org.codelabor.system.dtos;
 
 import java.io.Serializable;
 
-import org.codelabor.system.MessageType;
+import org.codelabor.system.anyframe.MessageType;
 
 /**
  * 에러 메시지 DTO
