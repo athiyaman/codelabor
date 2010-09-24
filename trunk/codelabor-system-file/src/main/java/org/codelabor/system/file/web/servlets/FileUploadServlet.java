@@ -63,44 +63,125 @@ import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 파일 업로드 서블릿
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileUploadServlet extends HttpServlet {
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
+	/**
+	 * 로거
+	 */
 	private final static Logger logger = LoggerFactory
 			.getLogger(FileUploadServlet.class);
 
+	/**
+	 * 서블릿 컨피그
+	 */
 	protected ServletConfig servletConfig;
+	/**
+	 * 파라미터명
+	 */
 	protected String parameterName;
+	/**
+	 * 업로드 후, 포워드 경로
+	 */
 	protected String forwardPathUpload;
+	/**
+	 * 다운로드 후, 포워드 경로
+	 */
 	protected String forwardPathDownload;
+	/**
+	 * 목록 조회 후, 포워드 경로
+	 */
 	protected String forwardPathList;
+	/**
+	 * 파일 읽기 후, 포워드 경로
+	 */
 	protected String forwardPathRead;
+	/**
+	 * 파일 삭제 후, 포워드 경로
+	 */
 	protected String forwardPathDelete;
+	/**
+	 * 파일 제거 트래커
+	 */
 	protected FileCleaningTracker fileCleaningTracker;
+	/**
+	 * 파일 업로드 프로그레스 리스너
+	 */
 	protected FileUploadProgressListener fileUploadProgressListener;
 
+	/**
+	 * 파라미터
+	 * 
+	 * @author Shin Sangjae
+	 * 
+	 */
 	public enum Parameter {
 		upload, download, list, read, delete
 	};
 
-	// service
+	/**
+	 * 웹 어플리케이션 컨텍스트
+	 */
 	protected WebApplicationContext ctx;
+	/**
+	 * 파일 매니저
+	 */
 	protected FileManager fileManager;
+	/**
+	 * 프로퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
+	/**
+	 * 고유 파일명 Id 제네레이션 서비스
+	 */
 	protected IIdGenerationService uniqueFileNameGenerationService;
+	/**
+	 * Map Id 제네레이션 서비스
+	 */
 	protected IIdGenerationService mapIdGenerationService;
 
-	// configuration
+	/**
+	 * 캐릭터 인코딩</br>기본 값은 UTF-8이다.
+	 */
 	protected String characterEncoding = "UTF-8";
+	/**
+	 * 메모리 파일 크기 한계치
+	 */
 	protected int sizeThreshold = DiskFileItemFactory.DEFAULT_SIZE_THRESHOLD;
+	/**
+	 * 파일 당 최대 파일 크기</br>기본 값은 10MB이다.
+	 */
 	protected long fileSizeMax = 1024 * 1024 * 10;
+	/**
+	 * 한 요청 당 최대 파일 크기</br>기본 값은 100MB이다.
+	 */
 	protected long requestSizeMax = 1024 * 1024 * 100;
+	/**
+	 * 파일 저장 경로</br>기본 값은 시스템 환경 변수 user.dir가 가리키는 경로다.
+	 */
 	protected String realRepositoryPath = System.getProperty("user.dir");
+	/**
+	 * 임시 파일 저장 경로</br>기본 값은 시스템 환경 변수 java.io.tempdir이 가리키는 경로다.
+	 */
 	protected String tempRepositoryPath = System.getProperty("java.io.tmpdir");
+	/**
+	 * 파일 저장 방식</br>기본 값은 FILE_SYSTEM이다.
+	 */
 	protected RepositoryType repositoryType = RepositoryType.FILE_SYSTEM;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.GenericServlet#init(javax.servlet.ServletConfig)
+	 */
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// get init param
@@ -147,10 +228,13 @@ public class FileUploadServlet extends HttpServlet {
 		fileUploadProgressListener = new FileUploadProgressListener();
 	}
 
-	protected String getUniqueFileName() throws Exception {
-		return uniqueFileNameGenerationService.getNextStringId();
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * javax.servlet.http.HttpServlet#service(javax.servlet.http.HttpServletRequest
+	 * , javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -264,6 +348,30 @@ public class FileUploadServlet extends HttpServlet {
 		dispatch(request, response, forwardPathUpload);
 	}
 
+	/**
+	 * 고유 파일명을 가져온다.
+	 * 
+	 * @return 고유 파일명
+	 * @throws Exception
+	 *             예외
+	 */
+	protected String getUniqueFileName() throws Exception {
+		return uniqueFileNameGenerationService.getNextStringId();
+	}
+
+	/**
+	 * 파일 목록을 가져온다.</br>파일 목록은
+	 * org.codelabor.system.file.FileConstants.FILE_LIST_KEY라는 키로 attribute에
+	 * 등록된다. Map Id도 함께 발급하는데 Map Id는
+	 * org.codelabor.system.file.FileConstants.MAP_ID라는 키로 attribute에 등록된다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -295,7 +403,8 @@ public class FileUploadServlet extends HttpServlet {
 			request.setAttribute(
 					org.codelabor.system.file.FileConstants.FILE_LIST_KEY,
 					fileDTOList);
-			request.setAttribute(org.codelabor.system.file.FileConstants.MAP_ID,
+			request.setAttribute(
+					org.codelabor.system.file.FileConstants.MAP_ID,
 					mapIdGenerationService.getNextStringId());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -303,6 +412,16 @@ public class FileUploadServlet extends HttpServlet {
 		dispatch(request, response, forwardPathList);
 	}
 
+	/**
+	 * 파일을 다운로드 한다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -383,6 +502,17 @@ public class FileUploadServlet extends HttpServlet {
 		bufferedOutputStream.close();
 	}
 
+	/**
+	 * 파일을 삭제한다.</br>삭제할 파일의 파일 Id를 파라미터 fileId로 지정하여 요청한다. 삭제 건수는
+	 * org.codelabor.system.daos.AFFECTED_ROW_COUNT라는 키로 attribute에 등록된다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void delete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		int affectedRowCount = 0;
@@ -396,6 +526,17 @@ public class FileUploadServlet extends HttpServlet {
 		dispatch(request, response, forwardPathDelete);
 	}
 
+	/**
+	 * 파일 정보를 가져온다.</br>읽어올 파일의 파일 Id를 파라미터 fileID로 전달하면 해당 파일의 DTO가
+	 * org.codelabor.system.file.FileConstants.FILE_KEY라는 키로 attribute에 등록된다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void read(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String fileId = request.getParameter("fileId");
@@ -405,6 +546,11 @@ public class FileUploadServlet extends HttpServlet {
 		dispatch(request, response, forwardPathRead);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.GenericServlet#getServletConfig()
+	 */
 	@Override
 	public ServletConfig getServletConfig() {
 		return this.servletConfig;

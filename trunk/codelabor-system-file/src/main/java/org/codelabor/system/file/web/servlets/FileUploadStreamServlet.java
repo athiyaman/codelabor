@@ -35,15 +35,31 @@ import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 파일 업로드 스트림 서블릿
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileUploadStreamServlet extends FileUploadServlet {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = -5122173090841307836L;
+	/**
+	 * 로거
+	 */
 	private final Logger log = LoggerFactory
 			.getLogger(FileUploadStreamServlet.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#upload(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

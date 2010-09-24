@@ -17,6 +17,12 @@
 
 package org.codelabor.system.file;
 
+/**
+ * 파일 관련 상수
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileConstants {
 
 	public final static String FILE_LIST_KEY = "org.codelabor.system.FILE_LIST";
