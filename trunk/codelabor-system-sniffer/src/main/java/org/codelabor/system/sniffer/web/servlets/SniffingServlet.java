@@ -1,4 +1,4 @@
-package org.codelabor.system.sniffer.servlets;
+package org.codelabor.system.sniffer.web.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

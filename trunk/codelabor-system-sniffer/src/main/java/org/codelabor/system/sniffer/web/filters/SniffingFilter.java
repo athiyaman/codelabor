@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.sniffer.filters;
+package org.codelabor.system.sniffer.web.filters;
 
 import java.io.IOException;
 

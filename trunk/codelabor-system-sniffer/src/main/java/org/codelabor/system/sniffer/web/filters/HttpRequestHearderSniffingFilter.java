@@ -1,4 +1,4 @@
-package org.codelabor.system.sniffer.filters;
+package org.codelabor.system.sniffer.web.filters;
 
 import java.io.IOException;
 import java.util.Arrays;
