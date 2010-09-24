@@ -29,19 +29,36 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 스니핑 필터
+ * 
  * @author Shin Sangjae
  * 
  */
 public class SniffingFilter extends BaseFilterImpl {
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory.getLogger(SniffingFilter.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.web.filters.BaseFilterImpl#postprocessFilterChain
+	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
+	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {

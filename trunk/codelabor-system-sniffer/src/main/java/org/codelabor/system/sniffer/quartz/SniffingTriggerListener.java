@@ -21,8 +21,17 @@ import org.quartz.TriggerListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 스니핑 트리거 리스너
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class SniffingTriggerListener implements TriggerListener {
 
+	/**
+	 * 로거
+	 */
 	protected Logger logger = LoggerFactory
 			.getLogger(SniffingTriggerListener.class);
 

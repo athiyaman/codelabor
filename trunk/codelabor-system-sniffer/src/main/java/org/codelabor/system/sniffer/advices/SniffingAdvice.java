@@ -30,27 +30,57 @@ import anyframe.common.exception.BaseException;
 import anyframe.common.exception.message.Message;
 
 /**
+ * 스니핑 어드바이스 구현 클래스ㅣ
+ * 
  * @author Shin Sangjae
  * 
  */
 public class SniffingAdvice extends BaseAdvice implements Ordered {
+	/**
+	 * 순서
+	 */
 	protected int order;
 
+	/**
+	 * 생성자
+	 */
 	public SniffingAdvice() {
 	}
 
+	/**
+	 * 아규먼트를 출력한다.
+	 * 
+	 * @param joinPoint
+	 *            조인 포인트
+	 */
 	public void dumpArguments(JoinPoint joinPoint) {
 		logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
 		logger.debug("method: {}", joinPoint.getSignature().getName());
 		logger.debug("args: {}", Arrays.toString(joinPoint.getArgs()));
 	}
 
+	/**
+	 * 리턴 값을 출력한다.
+	 * 
+	 * @param joinPoint
+	 *            조인 포인트
+	 * @param returnObject
+	 *            리턴 값
+	 */
 	public void dumpReturn(JoinPoint joinPoint, Object returnObject) {
 		logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
 		logger.debug("method: {}", joinPoint.getSignature().getName());
 		logger.debug("return: {}", returnObject);
 	}
 
+	/**
+	 * 예외를 출력한다.
+	 * 
+	 * @param joinPoint
+	 *            조인 포인트
+	 * @param exception
+	 *            예외
+	 */
 	public void dumpException(JoinPoint joinPoint, Exception exception) {
 		if (logger.isErrorEnabled()) {
 			String messageCode = null;
@@ -102,28 +132,49 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 		}
 	}
 
+	/**
+	 * 경과 시간을 가져온다.
+	 * 
+	 * @param joinPoint
+	 *            조인 포인트
+	 * @return 경고 시간
+	 * @throws Throwable
+	 *             예외
+	 */
 	public Object getElapsedTime(ProceedingJoinPoint joinPoint)
 			throws Throwable {
-		Object returnValue = null;
+		Object totalTimeMillis = null;
 		if (logger.isDebugEnabled()) {
 			StopWatch stopWatch = new StopWatch(getClass().getName());
 			stopWatch.start(joinPoint.toShortString());
-			returnValue = joinPoint.proceed();
+			joinPoint.proceed();
 			stopWatch.stop();
+			totalTimeMillis = stopWatch.getTotalTimeMillis();
 
 			logger.debug("class: {}", joinPoint.getTarget().getClass()
 					.getName());
 			logger.debug("method: {}", joinPoint.getSignature().getName());
-			logger.debug("total time (millis): {}", stopWatch
-					.getTotalTimeMillis());
+			logger.debug("total time (millis): {}", totalTimeMillis);
+
 		}
-		return returnValue;
+		return totalTimeMillis;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.springframework.core.Ordered#getOrder()
+	 */
 	public int getOrder() {
 		return this.order;
 	}
 
+	/**
+	 * 순서를 설정한다.
+	 * 
+	 * @param order
+	 *            순서
+	 */
 	public void setOrder(int order) {
 		this.order = order;
 	}

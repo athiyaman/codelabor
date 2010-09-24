@@ -14,15 +14,38 @@ import org.codelabor.system.web.filters.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 요청 헤더 스니핑 필터
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(HttpRequestHearderSniffingFilter.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.web.filters.BaseFilterImpl#postprocessFilterChain
+	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
+	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void preprocessFilterChain(ServletRequest request,

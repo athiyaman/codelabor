@@ -4,8 +4,23 @@ import javax.servlet.ServletRequest;
 
 import org.codelabor.system.web.utils.RequestUtils;
 
+/**
+ * 스티핑 유틸리티
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class SniffingUtils {
 
+	/**
+	 * 요청 관련 정보를 HTML 형태로 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 요청 관련 정보
+	 * @throws Exception
+	 *             예외
+	 */
 	public static String toHTML(ServletRequest request) throws Exception {
 		StringBuilder sb = new StringBuilder();
 
@@ -40,6 +55,15 @@ public class SniffingUtils {
 		return sb.toString();
 	}
 
+	/**
+	 * 요청 관련 정보를 String 형태로 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 요청 관련 정보
+	 * @throws Exception
+	 *             예외
+	 */
 	public static String toString(ServletRequest request) throws Exception {
 		StringBuilder sb = new StringBuilder();
 
