@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:config="http://www.anyframejava.org/schema/service"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+
+	<!-- 
+	<bean id="db2QueryService" 
+		class="anyframe.core.query.impl.QueryServiceImpl">
+		<property name="jdbcTemplate">
+			<ref bean="db2PagingJdbcTemplate"/>
+		</property>		
+		<property name="sqlRepository">
+			<ref bean="db2SqlLoader"/>
+		</property>	
+		<property name="lobHandler">
+			<ref bean="defaultLobHanlder"/>
+		</property>
+		<property name="pagingSQLGenerator" 
+			ref="db2PagingSQLGenerator"/>
+	</bean>	
+	
+	<bean id="db2PagingJdbcTemplate" 
+		class="anyframe.core.query.impl.jdbc.PagingJdbcTemplate">
+	  	<constructor-arg ref="db2DataSource"/>
+	</bean>
+	
+	<bean id="db2PagingSQLGenerator" 
+		class="anyframe.core.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
+	
+	<bean id="db2SqlLoader" 
+		class="anyframe.core.query.impl.config.loader.SQLLoader">
+		<config:configuration>
+	        <filename>classpath*:queries/db2/**/mapping-*.xml</filename>
+	   	    <nullcheck type="VARCHAR" default-value=""/> 
+		</config:configuration>					
+	</bean>	
+	-->
+
+</beans>
