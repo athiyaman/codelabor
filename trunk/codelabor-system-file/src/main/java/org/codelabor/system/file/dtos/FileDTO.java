@@ -20,6 +20,7 @@ package org.codelabor.system.file.dtos;
 import java.io.Serializable;
 
 /**
+ * 파일DTO
  * @author Shin Sangjae
  *
  */

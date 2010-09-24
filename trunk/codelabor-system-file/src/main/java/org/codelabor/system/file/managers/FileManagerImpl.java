@@ -27,6 +27,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 
 /**
+ * 파일 관리자 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */

@@ -23,6 +23,8 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 
 /**
+ * 파일 DAO 인터페이스
+ * 
  * @author Shin Sangjae
  * 
  */

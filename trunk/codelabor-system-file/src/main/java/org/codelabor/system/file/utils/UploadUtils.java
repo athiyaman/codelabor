@@ -33,9 +33,31 @@ import org.codelabor.system.utils.ChannelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 업로드 유티릴티
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class UploadUtils {
-	public static final Logger log = LoggerFactory.getLogger(UploadUtils.class);
+	/**
+	 * 로거
+	 */
+	public static final Logger logger = LoggerFactory.getLogger(UploadUtils.class);
 
+	/**
+	 * 파일을 처리한다.</br> 파일 저장 방식이 FILE_SYSTEM인 경우, 디스크에 저장하고 DATABASE인 경우 byte[]로
+	 * 변환하여 DTO에 담는다.
+	 * 
+	 * @param repositoryType
+	 *            파일 저장 방식
+	 * @param inputStream
+	 *            입력 스트림
+	 * @param fileDTOList
+	 *            파일 DTO List
+	 * @throws Exception
+	 *             예외
+	 */
 	static public void processFile(RepositoryType repositoryType,
 			InputStream inputStream, List<FileDTO> fileDTOList)
 			throws Exception {
@@ -46,6 +68,19 @@ public class UploadUtils {
 		}
 	}
 
+	/**
+	 * 파일을 처리한다.</br> 파일 저장 방식이 FILE_SYSTEM인 경우, 디스크에 저장하고 DATABASE인 경우 byte[]로
+	 * 변환하여 DTO에 담는다.
+	 * 
+	 * @param repositoryType
+	 *            파일 저장 방식
+	 * @param inputStream
+	 *            입력 스트림
+	 * @param fileDTO
+	 *            파일 DTO
+	 * @throws Exception
+	 *             예외
+	 */
 	static public void processFile(RepositoryType repositoryType,
 			InputStream inputStream, FileDTO fileDTO) throws Exception {
 		// prepare io
@@ -60,7 +95,7 @@ public class UploadUtils {
 			// prepare repository
 			File repository = new File(fileDTO.getRepositoryPath());
 
-			if (log.isDebugEnabled()) {
+			if (logger.isDebugEnabled()) {
 				stringBuilder = new StringBuilder();
 				stringBuilder.append("repositoryPath: ").append(
 						fileDTO.getRepositoryPath());
@@ -70,7 +105,7 @@ public class UploadUtils {
 						repository.exists());
 				stringBuilder.append(", repository.isDirectory(): ").append(
 						repository.isDirectory());
-				log.debug(stringBuilder.toString());
+				logger.debug(stringBuilder.toString());
 			}
 
 			// prepare stream
@@ -111,19 +146,25 @@ public class UploadUtils {
 		outputStream.close();
 	}
 
+	/**
+	 * 파일명을 가져온다.
+	 * 
+	 * @param realFileNameWithPath
+	 *            경로를 포함한 파일명
+	 * @return 파일명
+	 */
 	static public String stripPathInfo(String realFileNameWithPath) {
 		int lastIndex = realFileNameWithPath.lastIndexOf(System
 				.getProperty("file.separator"));
 		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
 		String realFileName = realFileNameWithPath.substring(beginIndex);
 
-		if (log.isDebugEnabled()) {
+		if (logger.isDebugEnabled()) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("realFileNameWithPath: ").append(realFileNameWithPath);
 			sb.append(", realFileName: ").append(realFileName);
-			log.debug(sb.toString());
+			logger.debug(sb.toString());
 		}
 		return realFileName;
 	}
-
 }

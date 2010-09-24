@@ -25,6 +25,8 @@ import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 
 /**
+ * 파일 DAO 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
