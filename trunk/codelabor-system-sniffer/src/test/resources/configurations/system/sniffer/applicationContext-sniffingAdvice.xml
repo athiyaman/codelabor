@@ -17,7 +17,7 @@
 			<aop:before method="dumpArguments" pointcut-ref="handlerMethod" />
 			<aop:after-throwing throwing="exception"
 				method="dumpException" pointcut-ref="handlerMethod" />
-			<aop:around method="getElapsedTime" pointcut-ref="handlerMethod" />
+			<aop:around method="dumpElapsedTime" pointcut-ref="handlerMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="handlerMethod" />
 
@@ -25,7 +25,7 @@
 			<aop:before method="dumpArguments" pointcut-ref="actionMethod" />
 			<aop:after-throwing throwing="exception"
 				method="dumpException" pointcut-ref="actionMethod" />
-			<aop:around method="getElapsedTime" pointcut-ref="actionMethod" />
+			<aop:around method="dumpElapsedTime" pointcut-ref="actionMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="actionMethod" />
 
@@ -33,7 +33,7 @@
 			<aop:before method="dumpArguments" pointcut-ref="controllerMethod" />
 			<aop:after-throwing throwing="exception"
 				method="dumpException" pointcut-ref="controllerMethod" />
-			<aop:around method="getElapsedTime" pointcut-ref="controllerMethod" />
+			<aop:around method="dumpElapsedTime" pointcut-ref="controllerMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="controllerMethod" />
 
@@ -42,7 +42,7 @@
 				pointcut-ref="serviceMethod" />
 			<aop:after-throwing throwing="exception"
 				method="dumpException" pointcut-ref="serviceMethod" />
-			<aop:around method="getElapsedTime"
+			<aop:around method="dumpElapsedTime"
 				pointcut-ref="serviceMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="serviceMethod" />
@@ -52,7 +52,7 @@
 				pointcut-ref="managerMethod" />
 			<aop:after-throwing throwing="exception"
 				method="dumpException" pointcut-ref="managerMethod" />
-			<aop:around method="getElapsedTime"
+			<aop:around method="dumpElapsedTime"
 				pointcut-ref="managerMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="managerMethod" />
@@ -61,7 +61,7 @@
 			<aop:before method="dumpArguments" pointcut-ref="daoMethod" />
 			<aop:after-throwing throwing="exception"
 				method="dumpException" pointcut-ref="daoMethod" />
-			<aop:around method="getElapsedTime"
+			<aop:around method="dumpElapsedTime"
 				pointcut-ref="daoMethod" />
 			<aop:after-returning returning="returnObject"
 				method="dumpReturn" pointcut-ref="daoMethod" />

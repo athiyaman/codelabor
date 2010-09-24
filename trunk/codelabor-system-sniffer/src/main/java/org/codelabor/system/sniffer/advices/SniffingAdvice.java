@@ -141,23 +141,22 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 	 * @throws Throwable
 	 *             예외
 	 */
-	public Object getElapsedTime(ProceedingJoinPoint joinPoint)
+	public Object dumpElapsedTime(ProceedingJoinPoint joinPoint)
 			throws Throwable {
-		Object totalTimeMillis = null;
+		Object retrunValue = null;
 		if (logger.isDebugEnabled()) {
 			StopWatch stopWatch = new StopWatch(getClass().getName());
 			stopWatch.start(joinPoint.toShortString());
-			joinPoint.proceed();
+			retrunValue = joinPoint.proceed();
 			stopWatch.stop();
-			totalTimeMillis = stopWatch.getTotalTimeMillis();
+			long totalTimeMillis = stopWatch.getTotalTimeMillis();
 
 			logger.debug("class: {}", joinPoint.getTarget().getClass()
 					.getName());
 			logger.debug("method: {}", joinPoint.getSignature().getName());
 			logger.debug("total time (millis): {}", totalTimeMillis);
-
 		}
-		return totalTimeMillis;
+		return retrunValue;
 	}
 
 	/*
