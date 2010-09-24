@@ -18,7 +18,7 @@
 	</bean>
 
 	<bean name="fileIdStrategy"
-		class="org.codelabor.system.strategies.PrefixStrategy">
+		class="org.codelabor.system.file.anyframe.idgen.strategies.PrefixStrategy">
 		<property name="prefix" value="FILE" />
 		<property name="delimiter" value="-" />
 	</bean>
@@ -34,7 +34,7 @@
 	</bean>
 
 	<bean name="mapIdStrategy"
-		class="org.codelabor.system.strategies.PrefixStrategy">
+		class="org.codelabor.system.file.anyframe.idgen.strategies.PrefixStrategy">
 		<property name="prefix" value="MAP" />
 		<property name="delimiter" value="-" />
 	</bean>
