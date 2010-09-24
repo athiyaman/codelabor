@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,11 +21,20 @@ import org.codelabor.system.access.dtos.AccessLogDTO;
 import org.codelabor.system.daos.BaseDAOImpl;
 
 /**
+ * 접속 로그 DAO 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class AccessLogDAOImpl extends BaseDAOImpl implements AccessLogDAO {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.access.daos.AccessLogDAO#insert(org.codelabor.system
+	 * .access.dtos.AccessLogDTO)
+	 */
 	public int insert(AccessLogDTO accessLogDTO) throws Exception {
 		accessLogDTO.setSeq(idGenerationService.getNextIntegerId());
 		return this.queryService.create(accessLogDTO);

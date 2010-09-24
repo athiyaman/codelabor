@@ -22,23 +22,47 @@ import org.codelabor.system.access.dtos.AccessLogDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
+ * 접근 로그 매니저 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class AccessLogManagerImpl extends BaseManagerImpl implements
 		AccessLogManager {
 
+	/**
+	 * 접근 로그 DAO
+	 */
 	private AccessLogDAO accessLogDAO;
 
+	/**
+	 * 접근 로그 DAO를 설정한다.
+	 * 
+	 * @param accessLogDAO
+	 *            접근 로그 DAO
+	 */
 	public void setAccessLogAO(AccessLogDAO accessLogDAO) {
 		this.accessLogDAO = accessLogDAO;
 	}
 
-	public void accessLog(AccessLogDTO accessLogDTO) throws Exception {
-		this.accessLogDAO.insert(accessLogDTO);
-	}
-
+	/**
+	 * 접근 로그 DAO를 설정한다.
+	 * 
+	 * @param accessLogDAO
+	 *            접근 로그 DA0
+	 */
 	public void setAccessLogDAO(AccessLogDAO accessLogDAO) {
 		this.accessLogDAO = accessLogDAO;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.access.managers.AccessLogManager#accessLog(org.codelabor
+	 * .system.access.dtos.AccessLogDTO)
+	 */
+	public void accessLog(AccessLogDTO accessLogDTO) throws Exception {
+		this.accessLogDAO.insert(accessLogDTO);
 	}
 }

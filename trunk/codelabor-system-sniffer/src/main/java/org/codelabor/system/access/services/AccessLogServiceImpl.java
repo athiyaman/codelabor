@@ -24,14 +24,26 @@ import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**
+ * 접근 로그 서비스 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class AccessLogServiceImpl extends BaseServiceImpl implements
 		AccessLogService {
 
+	/**
+	 * 접근 로그 매니저
+	 */
 	private AccessLogManager accessLogManager;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.access.services.AccessLogService#accessLog(org.codelabor
+	 * .system.access.dtos.AccessLogDTO)
+	 */
 	public void accessLog(AccessLogDTO accessLogDTO) throws Exception {
 		try {
 			accessLogManager.accessLog(accessLogDTO);
@@ -46,10 +58,21 @@ public class AccessLogServiceImpl extends BaseServiceImpl implements
 		}
 	}
 
+	/**
+	 * 접근 로그 매니저를 가져온다.
+	 * 
+	 * @return 접근 로그 매니저
+	 */
 	public AccessLogManager getAccessLogManager() {
 		return accessLogManager;
 	}
 
+	/**
+	 * 접근 로그 매니저를 설정한다.
+	 * 
+	 * @param accessLogManager
+	 *            접근 로그 매니저
+	 */
 	public void setAccessLogManager(AccessLogManager accessLogManager) {
 		this.accessLogManager = accessLogManager;
 	}
