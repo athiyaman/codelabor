@@ -3,15 +3,8 @@ package org.codelabor.system.sniffer.utils;
 import javax.servlet.ServletRequest;
 
 import org.codelabor.system.web.utils.RequestUtils;
-import org.quartz.Trigger;
 
 public class SniffingUtils {
-
-	public static String toString(Trigger trigger) throws Exception {
-		StringBuilder sb = new StringBuilder();
-
-		return sb.toString();
-	}
 
 	public static String toHTML(ServletRequest request) throws Exception {
 		StringBuilder sb = new StringBuilder();
