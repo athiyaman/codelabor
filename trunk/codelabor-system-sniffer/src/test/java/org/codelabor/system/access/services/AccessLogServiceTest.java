@@ -3,24 +3,52 @@ package org.codelabor.system.access.services;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.access.dtos.AccessLogDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
+/**
+ * 접근 로그 서비스 테스트 케이스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 
+	/**
+	 * 접근 로그 서비스
+	 */
 	private AccessLogService accessLogService;
+	/**
+	 * 쿼리 서비스
+	 */
 	protected IQueryService queryService;
-	protected Log log = LogFactory.getLog(this.getClass());
+	/**
+	 * 로거
+	 */
+	protected Logger logger = LoggerFactory
+			.getLogger(AccessLogServiceTest.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.test.AbstractSingleSpringContextTests#getConfigLocations
+	 * ()
+	 */
 	@Override
 	protected String[] getConfigLocations() {
 		return new String[] { "classpath:/**/applicationContext*.xml" };
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.springframework.test.AbstractSingleSpringContextTests#onSetUp()
+	 */
 	@Override
 	public void onSetUp() throws Exception {
 		accessLogService = (AccessLogService) applicationContext
@@ -32,6 +60,9 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 		queryService.remove("system.delete.access.log.list", new Object[] {});
 	}
 
+	/**
+	 * 접근 로그 테스트
+	 */
 	@SuppressWarnings("unchecked")
 	public void testAccessLog() {
 		// test
