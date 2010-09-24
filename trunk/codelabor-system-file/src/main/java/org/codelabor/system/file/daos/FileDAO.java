@@ -75,21 +75,23 @@ public interface FileDAO {
 	public int insertFile(List<FileDTO> fileDTOList) throws Exception;
 
 	/**
-	 * 현재 관리되고 있는 모든 파일 정보를 가져온다.
-	 * 
-	 * @return 파일 DTO의 List
-	 * @throws Exception
-	 */
-	public List<FileDTO> selectFileByRepositoryType(
-			RepositoryType repositoryType) throws Exception;
-
-	/**
 	 * 현재 관리되고 있는 파일들 중 지정한 저장 방식(Repository Type)에 해당하는 파일 정보만 가져온다.
 	 * 
 	 * @param repositoryType
 	 *            파일 저장 방식
 	 * @return 파일 DTO의 List
 	 * @throws Exception
+	 *             예외
+	 */
+	public List<FileDTO> selectFileByRepositoryType(
+			RepositoryType repositoryType) throws Exception;
+
+	/**
+	 * 현재 관리되고 있는 모든 파일 정보를 가져온다.
+	 * 
+	 * @return 파일 DTO의 List
+	 * @throws Exception
+	 *             예외
 	 */
 	public List<FileDTO> selectFile() throws Exception;
 
@@ -100,6 +102,7 @@ public interface FileDAO {
 	 *            파일 ID
 	 * @return 파일 DTO
 	 * @throws Exception
+	 *             예외
 	 */
 	public FileDTO selectFileByFileId(String fileId) throws Exception;
 

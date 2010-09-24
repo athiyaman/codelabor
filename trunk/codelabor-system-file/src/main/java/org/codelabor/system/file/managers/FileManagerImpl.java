@@ -126,7 +126,7 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 	/**
 	 * 파일 DAO를 가져온다.
 	 * 
-	 * @return
+	 * @return 파일 DAO
 	 */
 	public FileDAO getFileDAO() {
 		return fileDAO;
