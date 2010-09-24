@@ -23,37 +23,93 @@ import org.springframework.web.servlet.mvc.AbstractCommandController;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 기본 파일 Command Controller 추상 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public abstract class BaseFileCommandController extends
 		AbstractCommandController {
 
+	/**
+	 * 파일 매니저
+	 */
 	protected FileManager fileManager;
+	/**
+	 * 프로퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
+	/**
+	 * 고유 파일명 제네레이션 서비스
+	 */
 	protected IIdGenerationService uniqueFileNameGenerationService;
+	/**
+	 * Map Id 제네레이션 서비스
+	 */
 	protected IIdGenerationService mapIdGenerationService;
+	/**
+	 * 성공 뷰
+	 */
 	protected String successView;
 
+	/**
+	 * Map Id 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param mapIdGenerationService
+	 *            Map Id 제네레이션 서비스
+	 */
 	public void setMapIdGenerationService(
 			IIdGenerationService mapIdGenerationService) {
 		this.mapIdGenerationService = mapIdGenerationService;
 	}
 
+	/**
+	 * 파일 매니저를 설정한다.
+	 * 
+	 * @param fileManager
+	 *            파일 매니저
+	 */
 	public void setFileManager(FileManager fileManager) {
 		this.fileManager = fileManager;
 	}
 
+	/**
+	 * 프로퍼티 서비스를 설정한다.
+	 * 
+	 * @param propertiesService
+	 *            프로퍼티 서비스
+	 */
 	public void setPropertiesService(IPropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 
+	/**
+	 * 고유 파일명 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param uniqueFileNameGenerationService
+	 *            고유 파일명 제네레이션 서비스
+	 */
 	public void setUniqueFileNameGenerationService(
 			IIdGenerationService uniqueFileNameGenerationService) {
 		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
 	}
 
+	/**
+	 * 성공 뷰를 가져온다.
+	 * 
+	 * @return 성공 뷰
+	 */
 	public String getSuccessView() {
 		return successView;
 	}
 
+	/**
+	 * 성공 뷰를 설정한다.
+	 * 
+	 * @param successView
+	 *            성공 뷰
+	 */
 	public void setSuccessView(String successView) {
 		this.successView = successView;
 	}

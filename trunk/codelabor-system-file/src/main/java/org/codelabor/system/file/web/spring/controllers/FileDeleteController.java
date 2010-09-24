@@ -17,21 +17,46 @@
 
 package org.codelabor.system.file.web.spring.controllers;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.system.dtos.StringIdArrayDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 파일 삭제 Controller 구현 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileDeleteController extends BaseFileCommandController {
+	/**
+	 * 로거
+	 */
+	private final Logger logger = LoggerFactory
+			.getLogger(FileDeleteController.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.AbstractCommandController#handle(
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse, java.lang.Object,
+	 * org.springframework.validation.BindException)
+	 */
 	@Override
 	protected ModelAndView handle(HttpServletRequest request,
 			HttpServletResponse response, Object command, BindException errors)
 			throws Exception {
 		StringIdArrayDTO springIDArrayDTO = (StringIdArrayDTO) command;
 		String[] idArray = springIDArrayDTO.getId();
+		logger.debug("file id: {}", Arrays.asList(idArray));
 		fileManager.deleteFile(idArray);
 		return new ModelAndView(getSuccessView());
 	}

@@ -37,26 +37,67 @@ import org.springframework.web.servlet.ModelAndView;
 
 import anyframe.common.util.StringUtil;
 
+/**
+ * 파일 업로드 Controller
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileUploadController extends BaseFileFormController {
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(FileUploadController.class);
+	/**
+	 * 파일 저장 방식
+	 */
 	protected RepositoryType repositoryType;
+	/**
+	 * 파일 저장 경로
+	 */
 	protected String repositoryPath;
 
+	/**
+	 * 파일 저장 방식을 설정한다.
+	 * 
+	 * @param repositoryType
+	 *            파일 저장 방식
+	 */
 	public void setRepositoryType(String repositoryType) {
 		this.repositoryType = RepositoryType.valueOf(repositoryType);
 	}
 
+	/**
+	 * 파일 저장 경로를 설정한다.
+	 * 
+	 * @param repositoryPath
+	 *            파일 저장 경로
+	 */
 	public void setRepositoryPath(String repositoryPath) {
 		this.repositoryPath = repositoryPath;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.AbstractFormController#formBackingObject
+	 * (javax.servlet.http.HttpServletRequest)
+	 */
 	@Override
 	protected Object formBackingObject(HttpServletRequest request)
 			throws Exception {
 		return new FileList();
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.SimpleFormController#doSubmitAction
+	 * (java.lang.Object)
+	 */
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
 		FileList fileList = (FileList) command;
@@ -98,6 +139,14 @@ public class FileUploadController extends BaseFileFormController {
 		super.doSubmitAction(command);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.SimpleFormController#showForm(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
+	 * org.springframework.validation.BindException)
+	 */
 	@Override
 	protected ModelAndView showForm(HttpServletRequest request,
 			HttpServletResponse response, BindException errors)
@@ -106,6 +155,13 @@ public class FileUploadController extends BaseFileFormController {
 		return super.showForm(request, response, errors, controlModel);
 	}
 
+	/**
+	 * 고유 파일명을 가져온다.
+	 * 
+	 * @return 고유 파일명
+	 * @throws Exception
+	 *             예외
+	 */
 	protected String getUniqueFileName() throws Exception {
 		return uniqueFileNameGenerationService.getNextStringId();
 	}

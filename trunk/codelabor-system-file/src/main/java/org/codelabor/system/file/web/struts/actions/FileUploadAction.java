@@ -47,13 +47,40 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 파일 업로드 Action
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileUploadAction extends BaseDispatchAction {
 
+	/**
+	 * 생성자
+	 */
 	public FileUploadAction() {
 		super();
 
 	}
 
+	/**
+	 * 파일 목록을 가져온다.</br>파일 목록은
+	 * org.codelabor.system.file.FileConstants.FILE_LIST_KEY라는 키로 attribute에
+	 * 등록된다. Map Id도 함께 발급하는데 Map Id는
+	 * org.codelabor.system.file.FileConstants.MAP_ID라는 키로 attribute에 등록된다.
+	 * 
+	 * @param mapping
+	 *            액션 매핑
+	 * @param form
+	 *            액션 폼
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward list(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -96,8 +123,24 @@ public class FileUploadAction extends BaseDispatchAction {
 		return mapping.findForward("list");
 	}
 
+	/**
+	 * 파일 정보를 가져온다.</br>읽어올 파일의 파일 Id를 파라미터 fileID로 전달하면 해당 파일의 DTO가
+	 * org.codelabor.system.file.FileConstants.FILE_KEY라는 키로 attribute에 등록된다.
+	 * 
+	 * @param mapping
+	 *            액션 매핑
+	 * @param form
+	 *            액션 폼
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward read(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse args)
+			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(getServlet()
@@ -109,6 +152,23 @@ public class FileUploadAction extends BaseDispatchAction {
 		return mapping.findForward("read");
 	}
 
+	/**
+	 * 파일을 업로드 한다.</br> 파일 외의 데이터와 매핑이 필요할 경우, (예: 게시판) 파라미터로 mapId를 입력 받는다. 파일
+	 * 저장 방식은 파라미터 repositoryType으로 지정하며, 그 값은
+	 * org.codelabor.system.file.RepositoryType를 따른다.
+	 * 
+	 * @param mapping
+	 *            액션 매핑
+	 * @param form
+	 *            액션 폼
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward upload(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -148,6 +208,19 @@ public class FileUploadAction extends BaseDispatchAction {
 		return mapping.findForward("upload");
 	}
 
+	/**
+	 * 파일을 저장한다.
+	 * 
+	 * @param repositoryType
+	 *            파일 저장 방식
+	 * @param mapId
+	 *            Map Id
+	 * @param formFile
+	 *            폼 파일
+	 * @return 파일 DTO
+	 * @throws Exception
+	 *             예외
+	 */
 	protected FileDTO saveFile(RepositoryType repositoryType, String mapId,
 			FormFile formFile) throws Exception {
 		WebApplicationContext ctx = WebApplicationContextUtils
@@ -184,6 +257,19 @@ public class FileUploadAction extends BaseDispatchAction {
 		return fileDTO;
 	}
 
+	/**
+	 * 파일을 저장한다.
+	 * 
+	 * @param repositoryType
+	 *            파일 저장 방식
+	 * @param mapId
+	 *            Map Id
+	 * @param formFileList
+	 *            Form File List
+	 * @return 파일 DTO List
+	 * @throws Exception
+	 *             예외
+	 */
 	protected List<FileDTO> saveFile(RepositoryType repositoryType,
 			String mapId, List<FormFile> formFileList) throws Exception {
 		List<FileDTO> fileDTOList = new ArrayList<FileDTO>();
@@ -200,6 +286,22 @@ public class FileUploadAction extends BaseDispatchAction {
 		return fileDTOList;
 	}
 
+	/**
+	 * 파일을 삭제한다.</br>삭제할 파일의 파일 Id를 파라미터 fileId로 지정하여 요청한다. 삭제 건수는
+	 * org.codelabor.system.daos.AFFECTED_ROW_COUNT라는 키로 attribute에 등록된다.
+	 * 
+	 * @param mapping
+	 *            액션 매핑
+	 * @param form
+	 *            액션 폼
+	 * @param request
+	 *            요청
+	 * @param args
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward delete(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse args)
 			throws Exception {

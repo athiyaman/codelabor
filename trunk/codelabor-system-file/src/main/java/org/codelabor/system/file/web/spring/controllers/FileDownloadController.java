@@ -40,10 +40,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 import anyframe.common.util.StringUtil;
 
+/**
+ * 파일 다운로드 Controller 구현 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileDownloadController extends BaseFileController {
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(FileDownloadController.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.AbstractController#handleRequestInternal
+	 * (javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

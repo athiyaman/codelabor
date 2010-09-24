@@ -23,26 +23,67 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.properties.IPropertiesService;
 
+/**
+ * 기본 파일 Form Controller 구현 클래스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class BaseFileFormController extends SimpleFormController {
-
+	/**
+	 * 파일 매니저
+	 */
 	protected FileManager fileManager;
+	/**
+	 * 프러퍼티 서비스
+	 */
 	protected IPropertiesService propertiesService;
+	/**
+	 * 고유 파일명 제네레이션 서비스
+	 */
 	protected IIdGenerationService uniqueFileNameGenerationService;
+	/**
+	 * Map Id 제네레이션 서비스
+	 */
 	protected IIdGenerationService mapIdGenerationService;
 
+	/**
+	 * 파일 매니저를 설정한다.
+	 * 
+	 * @param fileManager
+	 *            파일 매니저
+	 */
 	public void setFileManager(FileManager fileManager) {
 		this.fileManager = fileManager;
 	}
 
+	/**
+	 * 프로퍼티 서비스를 설정한다.
+	 * 
+	 * @param propertiesService
+	 *            프로퍼티 서비스
+	 */
 	public void setPropertiesService(IPropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 
+	/**
+	 * 고유 파일명 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param uniqueFileNameGenerationService
+	 *            고유 파일명 제네레이션 서비스
+	 */
 	public void setUniqueFileNameGenerationService(
 			IIdGenerationService uniqueFileNameGenerationService) {
 		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
 	}
 
+	/**
+	 * Map Id 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param mapIdGenerationService
+	 *            Map Id 제네레이션 서비스
+	 */
 	public void setMapIdGenerationService(
 			IIdGenerationService mapIdGenerationService) {
 		this.mapIdGenerationService = mapIdGenerationService;

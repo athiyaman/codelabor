@@ -28,16 +28,37 @@ import org.codelabor.system.file.FileConstants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
 import org.codelabor.system.web.utils.RequestUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 파일 목록 조회 Controller
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileListController extends BaseFileController {
+	/**
+	 * 로거
+	 */
+	private final Logger logger = LoggerFactory
+			.getLogger(FileListController.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.AbstractController#handleRequestInternal
+	 * (javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
-		logger.debug(paramMap);
+		logger.debug("paramMap", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
 		String repositoryType = (String) paramMap.get("repositoryType");

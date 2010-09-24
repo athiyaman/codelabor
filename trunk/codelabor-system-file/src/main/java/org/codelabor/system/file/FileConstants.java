@@ -25,9 +25,21 @@ package org.codelabor.system.file;
  */
 public class FileConstants {
 
-	public final static String FILE_LIST_KEY = "org.codelabor.system.FILE_LIST";
-	public final static String FILE_KEY = "org.codelabor.system.FILE";
+	/**
+	 * 파일 DTO List 키
+	 */
+	public final static String FILE_LIST_KEY = "org.codelabor.system.file.FILE_LIST";
+	/**
+	 * 파일 DTO 키
+	 */
+	public final static String FILE_KEY = "org.codelabor.system.file.FILE";
+	/**
+	 * 컨텐트 타입
+	 */
 	public static final String CONTENT_TYPE = "application/octet-stream";
+	/**
+	 * Map Id
+	 */
 	public static final String MAP_ID = "mapId";
 
 }

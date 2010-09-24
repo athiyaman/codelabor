@@ -26,33 +26,76 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 import org.codelabor.system.web.struts.forms.BaseForm;
 
+/**
+ * 파일 업로드 Form
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileUploadForm extends BaseForm {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = -163569058243568483L;
+	/**
+	 * 파일 Id 배열
+	 */
 	protected String[] fileId = {};
+	/**
+	 * Form File List
+	 */
 	protected List<FormFile> formFileList = new Vector<FormFile>();
+	/**
+	 * Map Id
+	 */
 	protected String mapId;
 
+	/**
+	 * 생성자
+	 */
 	public FileUploadForm() {
 	}
 
+	/**
+	 * 파일 Id를 가져온다.
+	 * 
+	 * @return 파일 Id 배열
+	 */
 	public String[] getFileId() {
 		return fileId;
 	}
 
+	/**
+	 * 파일 배열을 설정한다.
+	 * 
+	 * @param fileId
+	 *            파일 Id 배열
+	 */
 	public void setFileId(String[] fileId) {
 		this.fileId = fileId;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.apache.struts.action.ActionForm#reset(org.apache.struts.action.
+	 * ActionMapping, javax.servlet.http.HttpServletRequest)
+	 */
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 		super.reset(mapping, request);
 		this.formFileList.clear();
 	}
 
+	/**
+	 * Form File을 설정한다.
+	 * 
+	 * @param index
+	 *            인덱스
+	 * @param formFile
+	 *            Form File
+	 */
 	public void setFile(int index, FormFile formFile) {
 		String fileName = null;
 		if (formFile != null) {
@@ -62,6 +105,13 @@ public class FileUploadForm extends BaseForm {
 		logger.debug("index: {}, fileName: {}", index, fileName);
 	}
 
+	/**
+	 * Form File을 가져온다.
+	 * 
+	 * @param index
+	 *            인덱스
+	 * @return Form File
+	 */
 	public FormFile getFile(int index) {
 		FormFile formFile = this.formFileList.get(index);
 		String fileName = null;
@@ -72,14 +122,30 @@ public class FileUploadForm extends BaseForm {
 		return formFile;
 	}
 
+	/**
+	 * Form File List를 가져온다.
+	 * 
+	 * @return Form File List
+	 */
 	public List<FormFile> getFormFileList() {
 		return formFileList;
 	}
 
+	/**
+	 * Map Id를 가져온다.
+	 * 
+	 * @return Map Id
+	 */
 	public String getMapId() {
 		return mapId;
 	}
 
+	/**
+	 * Map Id를 설정한다.
+	 * 
+	 * @param mapId
+	 *            Map Id
+	 */
 	public void setMapId(String mapId) {
 		this.mapId = mapId;
 	}

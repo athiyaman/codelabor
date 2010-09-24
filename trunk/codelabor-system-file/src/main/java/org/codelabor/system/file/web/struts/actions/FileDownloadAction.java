@@ -42,11 +42,29 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import anyframe.common.util.StringUtil;
 
+/**
+ * 파일 다운로드 Action
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class FileDownloadAction extends DownloadAction {
 
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(FileDownloadAction.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.apache.struts.actions.DownloadAction#getStreamInfo(org.apache.struts
+	 * .action.ActionMapping, org.apache.struts.action.ActionForm,
+	 * javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -114,20 +132,52 @@ public class FileDownloadAction extends DownloadAction {
 		return streamInfo;
 	}
 
+	/**
+	 * 바이크 배열 스트림 정보 클래스
+	 * 
+	 * @author Shin Sangjae
+	 * 
+	 */
 	public class ByteArrayStreamInfo implements StreamInfo {
+		/**
+		 * 컨텐트 타입
+		 */
 		protected String contentType;
 
+		/**
+		 * 바이트 배열
+		 */
 		protected byte[] bytes;
 
+		/**
+		 * 생성자
+		 * 
+		 * @param contentType
+		 *            컨탠트 타입
+		 * @param bytes
+		 *            바이트 배열
+		 */
 		public ByteArrayStreamInfo(String contentType, byte[] bytes) {
 			this.contentType = contentType;
 			this.bytes = bytes;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.apache.struts.actions.DownloadAction.StreamInfo#getContentType()
+		 */
 		public String getContentType() {
 			return contentType;
 		}
 
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see
+		 * org.apache.struts.actions.DownloadAction.StreamInfo#getInputStream()
+		 */
 		public InputStream getInputStream() throws IOException {
 			return new ByteArrayInputStream(bytes);
 		}
