@@ -262,11 +262,31 @@ public class FileUploadServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * 파라미터를 처리한다.
+	 * 
+	 * @param paramMap
+	 *            파라미터 Map
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void processParameters(Map<String, Object> paramMap)
 			throws Exception {
 		logger.debug("paramMap: {}", paramMap.toString());
 	}
 
+	/**
+	 * 페이지를 전환한다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @param path
+	 *            경로
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void dispatch(HttpServletRequest request,
 			HttpServletResponse response, String path) throws Exception {
 		logger.debug("dispatch path: ", path);
@@ -275,6 +295,18 @@ public class FileUploadServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	/**
+	 * 파일을 업로드 한다.</br> 파일 외의 데이터와 매핑이 필요할 경우, (예: 게시판) 파라미터로 mapId를 입력 받는다. 파일
+	 * 저장 방식은 파라미터 repositoryType으로 지정하며, 그 값은
+	 * org.codelabor.system.file.RepositoryType를 따른다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	@SuppressWarnings("unchecked")
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

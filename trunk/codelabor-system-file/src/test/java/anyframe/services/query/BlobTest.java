@@ -36,21 +36,57 @@ import org.springframework.test.AbstractSingleSpringContextTests;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.query.IQueryService;
 
+/**
+ * BLOB 테스트 케이스
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class BlobTest extends AbstractSingleSpringContextTests {
 
+	/**
+	 * 쿼리 서비스
+	 */
 	protected IQueryService queryService;
+	/**
+	 * UUID 제네레이션 서비스
+	 */
 	protected IIdGenerationService uuidGenerationService;
+	/**
+	 * Map Id 제네레이션 서비스
+	 */
 	protected IIdGenerationService sequenceMapIdGenerationService;
+	/**
+	 * File Id 제네레이션 서비스
+	 */
 	protected IIdGenerationService sequenceFileIdGenerationService;
 
+	/**
+	 * 원본 파일
+	 */
 	private File sourceFile;
+	/**
+	 * 대상 파일
+	 */
 	private File targetFile;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.test.AbstractSingleSpringContextTests#getConfigLocations
+	 * ()
+	 */
 	@Override
 	protected String[] getConfigLocations() {
 		return new String[] { "classpath:/**/applicationContext*.xml" };
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.springframework.test.AbstractSingleSpringContextTests#onSetUp()
+	 */
 	@Override
 	protected void onSetUp() throws Exception {
 		super.onSetUp();
@@ -70,6 +106,9 @@ public class BlobTest extends AbstractSingleSpringContextTests {
 		// queryService.remove("system.delete.file.list", new Object[] {});
 	}
 
+	/**
+	 * DTO로 BLOB에 입력한다.
+	 */
 	@SuppressWarnings("unchecked")
 	public void testInsertBlobByDTO() {
 		InputStream inputStream = null;
@@ -132,6 +171,9 @@ public class BlobTest extends AbstractSingleSpringContextTests {
 		}
 	}
 
+	/**
+	 * 바이트 배열로 BLOB에 입력한다.
+	 */
 	@SuppressWarnings("unchecked")
 	public void testInsertBlobByObjectArray() {
 		InputStream inputStream = null;
