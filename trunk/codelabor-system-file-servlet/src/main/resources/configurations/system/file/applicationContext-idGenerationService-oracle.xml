@@ -49,7 +49,7 @@
 	</bean>
 
 	<bean name="fileNameStrategy"
-		class="org.codelabor.system.file.strategies.UniqueFileNameStrategy">
+		class="org.codelabor.system.file.anyframe.idgen.strategies.UniqueFileNameStrategy">
 		<property name="prefix" value="FILE" />
 		<property name="delimiter" value="-" />
 		<property name="dateAndTimePattern" value="yyyyMMddHHmmssSSS" />
