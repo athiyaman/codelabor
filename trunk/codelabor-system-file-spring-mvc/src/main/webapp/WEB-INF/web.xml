@@ -26,11 +26,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!--file upload progress listner -->
-  	<listener>
-  		<listener-class>org.codelabor.system.file.listeners.FileUploadProgressListener</listener-class>
-	</listener>
-
 	<!--file cleaner listner -->
   	<listener>
   		<listener-class>org.apache.commons.fileupload.servlet.FileCleanerCleanup</listener-class>
