@@ -67,7 +67,7 @@
   		<!--
   		<servlet-class>org.codelabor.system.file.servlets.FileUploadServlet</servlet-class>
   		 -->
-  		<servlet-class>org.codelabor.system.file.servlets.FileUploadStreamServlet</servlet-class>
+  		<servlet-class>org.codelabor.system.file.web.servlets.FileUploadStreamServlet</servlet-class>
 	  	<init-param>
 	  		<param-name>parameterName</param-name>
 	  		<param-value>method</param-value>
