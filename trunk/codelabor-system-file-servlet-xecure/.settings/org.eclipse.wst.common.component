@@ -4,16 +4,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-file/codelabor-system-file">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-xecure/codelabor-system-xecure">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-security/codelabor-system-security">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-sniffer/codelabor-system-sniffer">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="codelabor-system-file-servlet"/>
