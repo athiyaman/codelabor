@@ -10,7 +10,7 @@
 	<!-- encoding filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.codelabor.system.filters.EncodingFilter</filter-class>
+		<filter-class>org.codelabor.system.web.filters.EncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
