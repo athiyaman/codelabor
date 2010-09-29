@@ -199,6 +199,20 @@
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
+    <dependency>
+    	<groupId>anyframe</groupId>
+    	<artifactId>anyframe.web.common</artifactId>
+    	<version>3.2.1</version>
+    	<type>pom</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>anyframe</groupId>
+    	<artifactId>anyframe.web.springmvc</artifactId>
+    	<version>3.2.1</version>
+    	<type>pom</type>
+    	<scope>compile</scope>
+    </dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
