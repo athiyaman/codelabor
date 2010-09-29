@@ -180,9 +180,9 @@
     	<scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>commons-el</groupId>
-    	<artifactId>commons-el</artifactId>
-    	<version>1.0</version>
+    	<groupId>org.apache.tiles</groupId>
+    	<artifactId>tiles-el</artifactId>
+    	<version>2.2.2</version>
     	<type>jar</type>
     	<scope>compile</scope>
     </dependency>
