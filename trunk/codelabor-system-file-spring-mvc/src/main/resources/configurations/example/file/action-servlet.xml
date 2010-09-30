@@ -71,7 +71,7 @@
 		id="exampleFileSpringMvcFileUploadController"
 		class="org.codelabor.system.file.web.spring.controllers.FileUploadController"
 		parent="exampleFileBaseFormController">
-		<property name="commandClass" value="org.codelabor.system.file.spring.commands.FileList"/>
+		<property name="commandClass" value="org.codelabor.system.file.web.spring.commands.FileList"/>
 		<property name="formView" value="example.file.spring.mvc.list.definition"/>
 		<property name="successView" value="redirect:/example/file/spring/mvc/list.do"/>
 		<property name="repositoryType" value="FILE_SYSTEM" />
