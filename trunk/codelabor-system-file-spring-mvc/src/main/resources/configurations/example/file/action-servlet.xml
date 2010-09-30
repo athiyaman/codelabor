@@ -64,7 +64,7 @@
 		class="org.codelabor.system.file.web.spring.controllers.FileDeleteController"
 		parent="exampleFileBaseCommandController">
 		<property name="commandName" value="stringArray"/>
-		<property name="commandClass" value="org.codelabor.system.dtos.StringIDArrayDTO"/>
+		<property name="commandClass" value="org.codelabor.system.dtos.StringIdArrayDTO"/>
 		<property name="successView" value="redirect:/example/file/spring/mvc/list.do"/>
 	</bean>
 	<bean
