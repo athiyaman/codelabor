@@ -125,7 +125,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * 
 	 */
 	public enum Parameter {
-		upload, download, list, read, delete
+		upload, download, list, read, view, delete
 	};
 
 	/**
@@ -448,7 +448,7 @@ public class FileUploadServlet extends HttpServlet {
 	}
 
 	/**
-	 * 파일을 다운로드 한다.
+	 * 파일을 렌더링한다.
 	 * 
 	 * @param request
 	 *            요청
@@ -457,8 +457,8 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void download(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	protected void view(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
@@ -499,8 +499,7 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("realFileName: {}", realFileName);
 		logger.debug("encodedRealFileName: {}", encodedRealFileName);
 
-		response
-				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
+		response.setContentType(fileDTO.getContentType());
 		sb.setLength(0);
 		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			sb.append("filename=");
@@ -608,5 +607,95 @@ public class FileUploadServlet extends HttpServlet {
 	@Override
 	public String getServletInfo() {
 		return null;
+	}
+
+	/**
+	 * 파일을 다운로드 한다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
+	protected void download(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
+		logger.debug("paramMap: {}", paramMap.toString());
+
+		String fileId = (String) paramMap.get("fileId");
+
+		StringBuilder sb = new StringBuilder();
+
+		FileDTO fileDTO;
+		fileDTO = fileManager.selectFileByFileId(fileId);
+		logger.debug("fileDTO: {}", fileDTO);
+
+		String repositoryPath = fileDTO.getRepositoryPath();
+		String uniqueFileName = fileDTO.getUniqueFileName();
+		String realFileName = fileDTO.getRealFileName();
+		InputStream inputStream = null;
+		if (StringUtil.isNotEmpty(repositoryPath)) {
+			// FILE_SYSTEM
+			sb.setLength(0);
+			sb.append(repositoryPath);
+			if (!repositoryPath.endsWith(File.separator)) {
+				sb.append(File.separator);
+			}
+			sb.append(uniqueFileName);
+			File file = new File(sb.toString());
+			inputStream = new FileInputStream(file);
+		} else {
+			// DATABASE
+			byte[] bytes = new byte[] {};
+			if (fileDTO.getFileSize() > 0) {
+				bytes = fileDTO.getBytes();
+			}
+			inputStream = new ByteArrayInputStream(bytes);
+
+		}
+
+		// set response contenttype, header
+		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
+		logger.debug("realFileName: {}", realFileName);
+		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+
+		response
+				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
+		sb.setLength(0);
+		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
+			sb.append("filename=");
+		} else {
+			sb.append("attachment; filename=");
+		}
+		sb.append(encodedRealFileName);
+		response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION, sb
+				.toString());
+
+		logger.debug("header: {}", sb.toString());
+		logger.debug("character encoding: {}", response.getCharacterEncoding());
+		logger.debug("content type: {}", response.getContentType());
+		logger.debug("bufferSize: {}", response.getBufferSize());
+		logger.debug("locale: {}", response.getLocale());
+
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(
+				inputStream);
+		ServletOutputStream servletOutputStream = response.getOutputStream();
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
+				servletOutputStream);
+		int bytesRead;
+		byte buffer[] = new byte[2048];
+		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {
+			bufferedOutputStream.write(buffer, 0, bytesRead);
+		}
+		// flush stream
+		bufferedOutputStream.flush();
+
+		// close stream
+		inputStream.close();
+		bufferdInputStream.close();
+		servletOutputStream.close();
+		bufferedOutputStream.close();
 	}
 }

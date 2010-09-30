@@ -36,6 +36,7 @@ import org.apache.struts.upload.FormFile;
 import org.codelabor.system.file.FileConstants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.file.exceptions.InvalidRepositoryTypeException;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.utils.UploadUtils;
 import org.codelabor.system.file.web.struts.forms.FileUploadForm;
@@ -115,6 +116,8 @@ public class FileUploadAction extends BaseDispatchAction {
 				fileDTOList = fileManager
 						.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 				break;
+			default:
+				throw new InvalidRepositoryTypeException(repositoryType);
 			}
 		}
 		request.setAttribute(FileConstants.MAP_ID, mapIdGenerationService
