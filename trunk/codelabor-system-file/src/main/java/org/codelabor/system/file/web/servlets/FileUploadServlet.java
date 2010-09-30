@@ -48,6 +48,7 @@ import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.file.exceptions.InvalidRepositoryTypeException;
 import org.codelabor.system.file.listeners.FileUploadProgressListener;
 import org.codelabor.system.file.managers.FileManager;
 import org.codelabor.system.file.utils.UploadUtils;
@@ -430,6 +431,8 @@ public class FileUploadServlet extends HttpServlet {
 					fileDTOList = fileManager
 							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
+				default:
+					throw new InvalidRepositoryTypeException(repositoryType);
 				}
 			}
 			request.setAttribute(

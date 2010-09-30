@@ -27,6 +27,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.FileConstants;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.file.exceptions.InvalidRepositoryTypeException;
 import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,7 +83,10 @@ public class FileListController extends BaseFileController {
 					fileDTOList = fileManager
 							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
+				default:
+					throw new InvalidRepositoryTypeException(repositoryType);
 				}
+
 			}
 			mav = new ModelAndView(getSuccessView());
 			mav.addObject(FileConstants.FILE_LIST_KEY, fileDTOList);
