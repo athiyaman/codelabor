@@ -17,6 +17,8 @@
 					value-ref="exampleFileSpringMvcFileUploadController"/>
 				<entry key="/example/file/spring/mvc/download.do"
 					value-ref="exampleFileSpringMvcFileDownloadController"/>
+                <entry key="/example/file/spring/mvc/view.do"
+                  value-ref="exampleFileSpringMvcFileViewController"/>
 			</map>
 		</property>
 	</bean>
@@ -24,7 +26,7 @@
 	<!-- base controller -->
 	<bean
 		id="exampleFileBaseController"
-		class="org.codelabor.system.file.spring.controllers.BaseFileController"
+		class="org.codelabor.system.file.web.spring.controllers.BaseFileController"
 		abstract="true">
 		<property name="fileManager" ref="fileManager" />
 		<property name="propertiesService" ref="propertiesService" />
@@ -33,7 +35,7 @@
 	</bean>
 	<bean
 		id="exampleFileBaseCommandController"
-		class="org.codelabor.system.file.spring.controllers.BaseFileCommandController"
+		class="org.codelabor.system.file.web.spring.controllers.BaseFileCommandController"
 		abstract="true">
 		<property name="fileManager" ref="fileManager" />
 		<property name="propertiesService" ref="propertiesService" />
@@ -42,7 +44,7 @@
 	</bean>
 	<bean
 		id="exampleFileBaseFormController"
-		class="org.codelabor.system.file.spring.controllers.BaseFileFormController"
+		class="org.codelabor.system.file.web.spring.controllers.BaseFileFormController"
 		abstract="true">
 		<property name="fileManager" ref="fileManager" />
 		<property name="propertiesService" ref="propertiesService" />
@@ -53,13 +55,13 @@
 	<!-- spring mvc file upload -->
 	<bean
 		id="exampleFileSpringMvcFileListController"
-		class="org.codelabor.system.file.spring.controllers.FileListController"
+		class="org.codelabor.system.file.web.spring.controllers.FileListController"
 		parent="exampleFileBaseController">
 		<property name="successView" value="example.file.spring.mvc.list.definition"/>
 	</bean>
 	<bean
 		id="exampleFileSpringMvcFileDeleteController"
-		class="org.codelabor.system.file.spring.controllers.FileDeleteController"
+		class="org.codelabor.system.file.web.spring.controllers.FileDeleteController"
 		parent="exampleFileBaseCommandController">
 		<property name="commandName" value="stringArray"/>
 		<property name="commandClass" value="org.codelabor.system.dtos.StringIDArrayDTO"/>
@@ -67,7 +69,7 @@
 	</bean>
 	<bean
 		id="exampleFileSpringMvcFileUploadController"
-		class="org.codelabor.system.file.spring.controllers.FileUploadController"
+		class="org.codelabor.system.file.web.spring.controllers.FileUploadController"
 		parent="exampleFileBaseFormController">
 		<property name="commandClass" value="org.codelabor.system.file.spring.commands.FileList"/>
 		<property name="formView" value="example.file.spring.mvc.list.definition"/>
@@ -77,7 +79,12 @@
 	</bean>
 	<bean
 		id="exampleFileSpringMvcFileDownloadController"
-		class="org.codelabor.system.file.spring.controllers.FileDownloadController"
+		class="org.codelabor.system.file.web.spring.controllers.FileDownloadController"
 		parent="exampleFileBaseController">
 	</bean>
+    <bean
+      id="exampleFileSpringMvcFileViewController"
+      class="org.codelabor.system.file.web.spring.controllers.FileViewController"
+      parent="exampleFileBaseController">
+    </bean>
 </beans>

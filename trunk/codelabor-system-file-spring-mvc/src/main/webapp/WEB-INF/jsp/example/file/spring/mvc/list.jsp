@@ -19,6 +19,7 @@
 										<th><spring:message code="label.system.file.id"/></th>
 										<th><spring:message code="label.system.file.map.id"/></th>
 										<th><spring:message code="label.system.file.real.name"/></th>
+										<th><spring:message code="label.system.file.action"/></th>
 										<th><spring:message code="label.system.file.unique.name"/></th>
 										<th><spring:message code="label.system.file.repository.path"/></th>
 										<th><spring:message code="label.system.file.content.type"/></th>
@@ -31,7 +32,11 @@
 											</td>
 											<td>${fileDTO.mapId}</td>
 											<td>
-												<a href="<c:url value='/example/file/spring/mvc/download.do?fileId=${fileDTO.fileId}'/>">${fileDTO.realFileName}</a>
+												${fileDTO.realFileName}
+											</td>
+											<td>
+												<a href="<c:url value='/example/file/spring/mvc/download.do?fileId=${fileDTO.fileId}'/>"><spring:message code="button.download"/></a>
+												<a href="<c:url value='/example/file/spring/mvc/view.do?fileId=${fileDTO.fileId}'/>"><spring:message code="button.view"/></a>
 											</td>
 											<td>${fileDTO.uniqueFileName}</td>
 											<td>${fileDTO.repositoryPath}</td>
