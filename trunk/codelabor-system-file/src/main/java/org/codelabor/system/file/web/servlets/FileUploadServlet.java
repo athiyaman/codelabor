@@ -262,6 +262,7 @@ public class FileUploadServlet extends HttpServlet {
 				read(request, response);
 				break;
 			default:
+				logger.error("Invalid parameter: {}", parameterValue);
 				throw new InvalidParameterException(parameterValue);
 			}
 		} catch (Exception e) {
@@ -438,6 +439,7 @@ public class FileUploadServlet extends HttpServlet {
 							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
 				default:
+					logger.error("Invalid repository type: {}", repositoryType);
 					throw new InvalidRepositoryTypeException(repositoryType);
 				}
 			}

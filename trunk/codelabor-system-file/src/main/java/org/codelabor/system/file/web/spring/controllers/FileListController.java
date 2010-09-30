@@ -84,6 +84,7 @@ public class FileListController extends BaseFileController {
 							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
 				default:
+					logger.error("Invalid repository type: {}", repositoryType);
 					throw new InvalidRepositoryTypeException(repositoryType);
 				}
 
