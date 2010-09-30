@@ -9,6 +9,7 @@ import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.access.intercept.RequestKey;
 
+@SuppressWarnings("unchecked")
 public class RequestMapFactoryBean implements FactoryBean {
 
 	public Object getObject() throws Exception {
@@ -21,7 +22,6 @@ public class RequestMapFactoryBean implements FactoryBean {
 		return requestMap;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Class getObjectType() {
 		return LinkedHashMap.class;
 	}
