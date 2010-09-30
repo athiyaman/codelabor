@@ -35,7 +35,7 @@ public class FileUtils {
 	 * 파일명을 가져온다.</br> 파일명에 경로명을 포함하고 있을 경우, 경로명을 제외한 파일명만 가져온다.
 	 * 
 	 * @param fileNameWithPath
-	 * @return
+	 * @return 파일명
 	 */
 	static public String getFileName(String fileNameWithPath) {
 		int lastIndex = fileNameWithPath.lastIndexOf(System
