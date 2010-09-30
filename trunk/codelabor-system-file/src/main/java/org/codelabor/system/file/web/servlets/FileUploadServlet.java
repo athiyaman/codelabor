@@ -27,6 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.security.InvalidParameterException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -248,6 +249,9 @@ public class FileUploadServlet extends HttpServlet {
 			case download:
 				download(request, response);
 				break;
+			case view:
+				view(request, response);
+				break;
 			case list:
 				list(request, response);
 				break;
@@ -257,6 +261,8 @@ public class FileUploadServlet extends HttpServlet {
 			case read:
 				read(request, response);
 				break;
+			default:
+				throw new InvalidParameterException(parameterValue);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
