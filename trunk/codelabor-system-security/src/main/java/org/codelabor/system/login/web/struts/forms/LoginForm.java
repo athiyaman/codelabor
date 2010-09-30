@@ -1,4 +1,4 @@
-package org.codelabor.system.login.struts.forms;
+package org.codelabor.system.login.web.struts.forms;
 
 import org.apache.struts.validator.ValidatorForm;
 

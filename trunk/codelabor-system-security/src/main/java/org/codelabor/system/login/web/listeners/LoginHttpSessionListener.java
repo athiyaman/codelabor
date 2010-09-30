@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.listeners;
+package org.codelabor.system.login.web.listeners;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionActivationListener;

@@ -1,4 +1,4 @@
-package org.codelabor.system.login.struts.actions;
+package org.codelabor.system.login.web.struts.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
