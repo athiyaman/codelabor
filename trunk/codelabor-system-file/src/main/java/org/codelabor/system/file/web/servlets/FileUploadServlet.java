@@ -508,17 +508,19 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("encodedRealFileName: {}", encodedRealFileName);
 
 		response.setContentType(fileDTO.getContentType());
-		sb.setLength(0);
-		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
-			sb.append("filename=");
-		} else {
-			sb.append("attachment; filename=");
-		}
-		sb.append(encodedRealFileName);
-		response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION, sb
-				.toString());
+		// sb.setLength(0);
+		// if
+		// (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") >
+		// -1) {
+		// sb.append("filename=");
+		// } else {
+		// sb.append("attachment; filename=");
+		// }
+		// sb.append(encodedRealFileName);
+		// response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION, sb
+		// .toString());
 
-		logger.debug("header: {}", sb.toString());
+		// logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());
