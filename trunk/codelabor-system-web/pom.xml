@@ -121,6 +121,10 @@
       		<artifactId>junit</artifactId>
       		<groupId>junit</groupId>
       	</exclusion>
+      	<exclusion>
+      		<artifactId>collector</artifactId>
+      		<groupId>infrared</groupId>
+      	</exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -204,12 +208,84 @@
     	<artifactId>anyframe.web.common</artifactId>
     	<version>3.2.1</version>
     	<scope>compile</scope>
+    	<exclusions>
+    		<exclusion>
+    			<artifactId>c3p0</artifactId>
+    			<groupId>c3p0</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>junit</artifactId>
+    			<groupId>junit</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>spring-test</artifactId>
+    			<groupId>org.springframework</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>jsp-api</artifactId>
+    			<groupId>javax.servlet</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>spring-webmvc-portlet</artifactId>
+    			<groupId>org.springframework</groupId>
+    		</exclusion>
+    	</exclusions>
     </dependency>
     <dependency>
     	<groupId>anyframe</groupId>
     	<artifactId>anyframe.web.springmvc</artifactId>
     	<version>3.2.1</version>
     	<scope>compile</scope>
+    	<exclusions>
+    		<exclusion>
+    			<artifactId>axis</artifactId>
+    			<groupId>org.apache.axis</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>c3p0</artifactId>
+    			<groupId>c3p0</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>junit</artifactId>
+    			<groupId>junit</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>jasperreports</artifactId>
+    			<groupId>jasperreports</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>jfreechart</artifactId>
+    			<groupId>jfree</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>jaxrpc</artifactId>
+    			<groupId>javax.xml</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>jcommon</artifactId>
+    			<groupId>jfree</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>js</artifactId>
+    			<groupId>rhino</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>spring-test</artifactId>
+    			<groupId>org.springframework</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>wsdl4j</artifactId>
+    			<groupId>wsdl4j</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>spring-webmvc-portlet</artifactId>
+    			<groupId>org.springframework</groupId>
+    		</exclusion>
+    		<exclusion>
+    			<artifactId>org.springplugins.web</artifactId>
+    			<groupId>org.springplugins</groupId>
+    		</exclusion>
+    	</exclusions>
     </dependency>
   </dependencies>
   <properties>
