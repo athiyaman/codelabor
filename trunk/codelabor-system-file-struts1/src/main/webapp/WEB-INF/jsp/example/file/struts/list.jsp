@@ -24,7 +24,7 @@
 										<th><spring:message code="label.system.file.content.type"/></th>
 										<th><spring:message code="label.system.file.size"/></th>
 									</tr>
-									<c:forEach var="fileDTO" items="${requestScope['org.codelabor.system.FILE_LIST']}">
+									<c:forEach var="fileDTO" items="${requestScope['org.codelabor.system.file.FILE_LIST']}">
 										<tr class="b">
 											<td>
 												<input type="checkbox" name="fileId" value="${fileDTO.fileId}"/>
