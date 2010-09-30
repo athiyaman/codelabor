@@ -17,7 +17,7 @@
 package org.codelabor.system.file.exceptions;
 
 /**
- * 파일 업로드 방식 불일치 예외
+ * 유효하지 않은 파일 업로드 방식 예외
  * 
  * @author Shin Sangjae
  * 
