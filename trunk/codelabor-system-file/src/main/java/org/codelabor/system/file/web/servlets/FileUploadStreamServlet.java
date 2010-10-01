@@ -50,7 +50,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	/**
 	 * 로거
 	 */
-	private final Logger log = LoggerFactory
+	private final Logger logger = LoggerFactory
 			.getLogger(FileUploadStreamServlet.class);
 
 	/*
@@ -65,8 +65,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 			HttpServletResponse response) throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
-		if (log.isDebugEnabled()) {
-			log.debug(paramMap.toString());
+		if (logger.isDebugEnabled()) {
+			logger.debug(paramMap.toString());
 		}
 
 		String mapId = (String) paramMap.get("mapId");
@@ -89,8 +89,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 
 				while (iter.hasNext()) {
 					FileItemStream fileItemSteam = iter.next();
-					if (log.isDebugEnabled()) {
-						log.debug(fileItemSteam.toString());
+					if (logger.isDebugEnabled()) {
+						logger.debug(fileItemSteam.toString());
 					}
 					FileDTO fileDTO = null;
 					if (fileItemSteam.isFormField()) {
@@ -110,8 +110,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						fileDTO.setUniqueFileName(getUniqueFileName());
 						fileDTO.setContentType(fileItemSteam.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
-						if (log.isDebugEnabled()) {
-							log.debug(fileDTO.toString());
+						if (logger.isDebugEnabled()) {
+							logger.debug(fileDTO.toString());
 						}
 						UploadUtils.processFile(acceptedRepositoryType,
 								fileItemSteam.openStream(), fileDTO);
@@ -121,8 +121,10 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 				}
 			} catch (FileUploadException e) {
 				e.printStackTrace();
+				logger.error(e.getMessage());
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 		} else {
 			paramMap = RequestUtils.getParameterMap(request);
@@ -131,6 +133,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 			processParameters(paramMap);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		dispatch(request, response, forwardPathUpload);
 

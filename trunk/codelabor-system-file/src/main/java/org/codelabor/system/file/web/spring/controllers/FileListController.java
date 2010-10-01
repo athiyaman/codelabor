@@ -96,6 +96,7 @@ public class FileListController extends BaseFileController {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		return mav;
 	}

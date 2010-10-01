@@ -267,6 +267,7 @@ public class FileUploadServlet extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 
@@ -374,8 +375,10 @@ public class FileUploadServlet extends HttpServlet {
 				}
 			} catch (FileUploadException e) {
 				e.printStackTrace();
+				logger.error(e.getMessage());
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 		} else {
 			paramMap = RequestUtils.getParameterMap(request);
@@ -451,6 +454,7 @@ public class FileUploadServlet extends HttpServlet {
 					mapIdGenerationService.getNextStringId());
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		dispatch(request, response, forwardPathList);
 	}
@@ -552,6 +556,7 @@ public class FileUploadServlet extends HttpServlet {
 			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		dispatch(request, response, forwardPathDelete);
 	}
