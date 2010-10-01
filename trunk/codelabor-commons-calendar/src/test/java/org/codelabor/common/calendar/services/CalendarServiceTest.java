@@ -33,7 +33,7 @@ public class CalendarServiceTest extends AbstractSingleSpringContextTests {
 	@Override
 	protected String[] getConfigLocations() {
 		return new String[] {
-				"classpath:/**/applicationContext-calendarService.xml",
+				"classpath:/**/applicationContext-fiveDayWorkweekCalendarService.xml",
 				"classpath:/**/applicationContext-customEditorConfigurer.xml" };
 	}
 
