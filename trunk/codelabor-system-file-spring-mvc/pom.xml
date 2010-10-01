@@ -9,14 +9,14 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-file-spring-mvc</artifactId>
   <packaging>war</packaging>
-  <version>2.0.0-SNAPSHOT</version>
+  <version>2.0.1-SNAPSHOT</version>
   <name>codelabor-system-file-spring-mvc Maven Webapp</name>
   <url>http://codelabor.org</url>
   <dependencies>
     <dependency>
       <groupId>org.codelabor</groupId>
       <artifactId>codelabor-system-file</artifactId>
-      <version>2.0.1-SNAPSHOT</version>
+      <version>2.0.1</version>
       <type>jar</type>
       <optional>false</optional>
       <exclusions>
