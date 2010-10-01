@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="fileUploadForm" type="org.codelabor.system.file.struts.forms.FileUploadForm"/>
+	</form-beans>
+	<action-mappings>
+		<action path="/example/file/uploadFile"
+			type="org.codelabor.system.file.struts.actions.FileUploadAction"
+			name="fileUploadForm" scope="request" parameter="method">
+			<forward name="list" path="example.file.struts.list.definition" />
+			<forward name="upload" path="/example/file/uploadFile.do?method=list" />
+			<forward name="delete" path="/example/file/uploadFile.do?method=list" />
+		</action>
+		<action path="/example/file/downloadFile"
+			type="org.codelabor.system.file.struts.actions.FileDownloadAction"
+			scope="request"/>
+	</action-mappings>
+</struts-config>
