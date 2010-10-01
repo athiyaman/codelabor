@@ -4,6 +4,7 @@ import static org.codelabor.system.daos.DAOConstants.AFFECTED_ROW_COUNT;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.Map;
 
@@ -30,18 +31,40 @@ import com.ixync.http.HttpIXyncResponse;
 import com.ixync.io.IXyncInputStream;
 import com.ixync.io.IXyncOutputStream;
 
+/**
+ * InnoXync 파일 업로드 서블릿
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class InnoXyncFileUploadServlet extends FileUploadServlet {
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 6060491747750865553L;
+	/**
+	 * 로거
+	 */
 	private final static Logger logger = LoggerFactory
 			.getLogger(InnoXyncFileUploadServlet.class);
 
+	/**
+	 * 파라미터
+	 * 
+	 * @author Shin Sangjae
+	 * 
+	 */
 	public enum Parameter {
 		save, download, list, getMapId
 	};
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#service(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -61,12 +84,26 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			case getMapId:
 				getMapId(request, response);
 				break;
+			default:
+				logger.error("Invalid parameter: {}", parameterValue);
+				throw new InvalidParameterException(parameterValue);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 
+	/**
+	 * Map Id를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void getMapId(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -78,7 +115,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			// innoxync stream
 			gos = ((HttpIXyncResponse) response).getIXyncOutputStream();
 
-			// TODO get map id
+			// get map id
 			String mapId = this.mapIdGenerationService.getNextStringId();
 			logger.debug("mapId: {}", mapId);
 
@@ -97,6 +134,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			gos.write(dataset);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (gos != null) {
 				gos.close();
@@ -104,6 +142,16 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 		}
 	}
 
+	/**
+	 * 파일을 저장한다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws Exception
+	 *             예외
+	 */
 	protected void save(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -168,6 +216,8 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 				}
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (gos != null) {
 				gos.close();
@@ -175,6 +225,13 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#list(javax.servlet
+	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -243,6 +300,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			gos.write(dataset);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		} finally {
 			if (gos != null) {
 				gos.close();
@@ -250,6 +308,13 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#delete(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void delete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -260,6 +325,7 @@ public class InnoXyncFileUploadServlet extends FileUploadServlet {
 			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 
