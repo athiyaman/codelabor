@@ -38,7 +38,7 @@
 											</td>
 											<td>
 												<a href="<c:url value='/example/file/downloadFile.do?fileId=${fileDTO.fileId}'/>"><spring:message code="button.download"/></a>
-												<a href="<c:url value='/example/file/viewFile.do?fileId=${fileDTO.fileId}'/>"><spring:message code="button.view"/></a>
+												<a href="<c:url value='/example/file/uploadFile.do?method=view&fileId=${fileDTO.fileId}'/>"><spring:message code="button.view"/></a>
 											</td>
 											<td>${fileDTO.uniqueFileName}</td>
 											<td>${fileDTO.repositoryPath}</td>
