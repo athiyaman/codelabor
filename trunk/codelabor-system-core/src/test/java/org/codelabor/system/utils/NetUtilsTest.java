@@ -1,6 +1,7 @@
 package org.codelabor.system.utils;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.net.UnknownHostException;
 
@@ -23,6 +24,7 @@ public class NetUtilsTest {
 			assertTrue(!NetUtils.isLocalhostByHostName("dummyhost"));
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
