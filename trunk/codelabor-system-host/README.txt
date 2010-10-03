@@ -7,6 +7,7 @@ Features
 	해당 시스템이 어떤 환경에서 가동되고 있는지 식별할 때 사용한다.
 
 
-
+1.0.2
+	Server alias resolver 추가
 
 
