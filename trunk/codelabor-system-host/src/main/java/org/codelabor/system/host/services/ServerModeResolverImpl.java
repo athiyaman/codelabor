@@ -54,14 +54,23 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 		logger.info("hostName: {}", hostName);
 
 		if (hostMap.containsKey(hostName)) {
-			serverMode = ServerMode.valueOf(hostMap.get(hostName));
+			try {
+				serverMode = ServerMode.valueOf(hostMap.get(hostName));
+			} catch (IllegalArgumentException e) {
+				logger.error("Invalid server mode: {}", hostMap.get(hostName));
+			}
 		}
 
 		InetAddress[] inetAddressArray = InetAddress.getAllByName(hostName);
 		for (InetAddress tmpInetAddress : inetAddressArray) {
 			String hostAddress = tmpInetAddress.getHostAddress();
 			if (hostMap.containsKey(hostAddress)) {
-				serverMode = ServerMode.valueOf(hostMap.get(hostAddress));
+				try {
+					serverMode = ServerMode.valueOf(hostMap.get(hostAddress));
+				} catch (IllegalArgumentException e) {
+					logger.error("Invalid server mode: {}", hostMap
+							.get(hostAddress));
+				}
 			}
 			logger.info("hostAddress: {}", tmpInetAddress.getHostAddress());
 		}
@@ -90,7 +99,12 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 			throws Exception {
 		ServerMode serverMode = ServerMode.UNKNOWN;
 		if (hostMap.containsKey(canonicalHostName)) {
-			serverMode = ServerMode.valueOf(hostMap.get(canonicalHostName));
+			try {
+				serverMode = ServerMode.valueOf(hostMap.get(canonicalHostName));
+			} catch (IllegalArgumentException e) {
+				logger.error("Invalid server mode: {}", hostMap
+						.get(canonicalHostName));
+			}
 		}
 		return serverMode;
 	}
@@ -105,7 +119,11 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	public ServerMode getServerModeByHostName(String hostName) throws Exception {
 		ServerMode serverMode = ServerMode.UNKNOWN;
 		if (hostMap.containsKey(hostName)) {
-			serverMode = ServerMode.valueOf(hostMap.get(hostName));
+			try {
+				serverMode = ServerMode.valueOf(hostMap.get(hostName));
+			} catch (IllegalArgumentException e) {
+				logger.error("Invalid server mode: {}", hostMap.get(hostName));
+			}
 		}
 		return serverMode;
 	}
@@ -120,7 +138,12 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 			throws Exception {
 		ServerMode serverMode = ServerMode.UNKNOWN;
 		if (hostMap.containsKey(rowIpAddress)) {
-			serverMode = ServerMode.valueOf(hostMap.get(rowIpAddress));
+			try {
+				serverMode = ServerMode.valueOf(hostMap.get(rowIpAddress));
+			} catch (IllegalArgumentException e) {
+				logger.error("Invalid server mode: {}", hostMap
+						.get(rowIpAddress));
+			}
 		}
 		return serverMode;
 	}
