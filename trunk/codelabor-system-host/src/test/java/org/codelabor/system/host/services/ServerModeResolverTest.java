@@ -8,9 +8,9 @@ import org.springframework.test.AbstractSingleSpringContextTests;
 
 /**
  * 서버 모드 리졸버 테스트 케이스
- * 
+ *
  * @author Shin Sangjae
- * 
+ *
  */
 public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 	private final Logger logger = LoggerFactory
@@ -23,19 +23,20 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.springframework.test.AbstractSingleSpringContextTests#getConfigLocations
 	 * ()
 	 */
 	@Override
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath:/**/applicationContext-serverModeResolver.xml" };
+		return new String[] {
+				"classpath:/**/applicationContext-serverModeResolver.xml"};
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.test.AbstractSingleSpringContextTests#onSetUp()
 	 */
 	@Override
@@ -54,6 +55,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 			assertEquals(ServerMode.UNKNOWN, serverMode);
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -86,6 +88,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 			assertEquals(ServerMode.PRODUCTION, serverMode);
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -116,6 +119,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 			assertEquals(ServerMode.PRODUCTION, serverMode);
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -144,6 +148,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 			assertEquals(ServerMode.PRODUCTION, serverMode);
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -166,6 +171,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -197,6 +203,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
@@ -228,6 +235,7 @@ public class ServerModeResolverTest extends AbstractSingleSpringContextTests {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 }

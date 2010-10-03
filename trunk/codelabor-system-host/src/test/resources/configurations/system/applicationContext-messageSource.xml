@@ -8,6 +8,7 @@
 		<property name="basenames">
 			<list>
 				<value>classpath:/messages/system/host/server-mode</value>
+                <value>classpath:/messages/system/host/server-alias</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>

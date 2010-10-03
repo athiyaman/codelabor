@@ -51,7 +51,7 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 	public ServerMode getServerMode() throws Exception {
 		ServerMode serverMode = ServerMode.UNKNOWN;
 		String hostName = InetAddress.getLocalHost().getHostName();
-		logger.info("hostName: {}", hostName);
+		logger.debug("hostName: {}", hostName);
 
 		if (hostMap.containsKey(hostName)) {
 			try {
@@ -72,7 +72,7 @@ public class ServerModeResolverImpl implements ServerModeResolver {
 							.get(hostAddress));
 				}
 			}
-			logger.info("hostAddress: {}", tmpInetAddress.getHostAddress());
+			logger.debug("hostAddress: {}", hostAddress);
 		}
 		return serverMode;
 	}

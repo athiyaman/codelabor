@@ -18,6 +18,7 @@
 package org.codelabor.system.host.services;
 
 import java.net.InetAddress;
+import java.util.Locale;
 
 /**
  * 서버 별명 리졸버</br> 서버의 ip 주소나 host명을 입력 받아 해당 서버의 모드 정보를 가져온다. 서버 별명는
@@ -32,8 +33,20 @@ public interface ServerAliasResolver {
 	 * 
 	 * @return 서버 별명
 	 * @throws Exception
+	 *             예외
 	 */
 	public String getServerAlias() throws Exception;
+
+	/**
+	 * 로컬 장비의 서버 별명를 가져온다.
+	 * 
+	 * @param locale
+	 *            로케일
+	 * @return 서버 별명
+	 * @throws Exception
+	 *             예외
+	 */
+	public String getServerAlias(Locale locale) throws Exception;
 
 	/**
 	 * 서버 별명를 가져온다.
@@ -42,8 +55,23 @@ public interface ServerAliasResolver {
 	 *            InetAddress 타입의 주소
 	 * @return 서버 별명
 	 * @throws Exception
+	 *             예외
 	 */
 	public String getServerAlias(InetAddress inetAddress) throws Exception;
+
+	/**
+	 * 서버 별명를 가져온다.
+	 * 
+	 * @param inetAddress
+	 *            InetAddress 타입의 주소
+	 * @param locale
+	 *            로케일
+	 * @return 서버 별명
+	 * @throws Exception
+	 *             예외
+	 */
+	public String getServerAlias(InetAddress inetAddress, Locale locale)
+			throws Exception;
 
 	/**
 	 * Raw IP 주소로 서버 별명를 가져온다.
@@ -57,6 +85,19 @@ public interface ServerAliasResolver {
 			throws Exception;
 
 	/**
+	 * Raw IP 주소로 서버 별명를 가져온다.
+	 * 
+	 * @param rowIpAddress
+	 *            Raw IP 주소
+	 * @param locale
+	 *            로케일
+	 * @return 서버 별명
+	 * @throws Exception
+	 */
+	public String getServerAliasByRawIpAddress(String rowIpAddress,
+			Locale locale) throws Exception;
+
+	/**
 	 * Host명 서버 별명를 가져온다.
 	 * 
 	 * @param hostName
@@ -65,6 +106,19 @@ public interface ServerAliasResolver {
 	 * @throws Exception
 	 */
 	public String getServerAliasByHostName(String hostName) throws Exception;
+
+	/**
+	 * Host명 서버 별명를 가져온다.
+	 * 
+	 * @param hostName
+	 *            Host명
+	 * @param locale
+	 *            로케일
+	 * @return 서버 별명
+	 * @throws Exception
+	 */
+	public String getServerAliasByHostName(String hostName, Locale locale)
+			throws Exception;
 
 	/**
 	 * 서버 별명를 가져온다.
@@ -76,5 +130,18 @@ public interface ServerAliasResolver {
 	 */
 	public String getServerAliasByCanonicalHostName(String canonicalHostName)
 			throws Exception;
+
+	/**
+	 * 서버 별명를 가져온다.
+	 * 
+	 * @param canonicalHostName
+	 *            Canonical host명
+	 * @param locale
+	 *            로케일
+	 * @return 서버 별명
+	 * @throws Exception
+	 */
+	public String getServerAliasByCanonicalHostName(String canonicalHostName,
+			Locale locale) throws Exception;
 
 }

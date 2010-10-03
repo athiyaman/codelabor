@@ -47,4 +47,26 @@ public class MessageSourceTest extends AbstractSingleSpringContextTests {
 			fail();
 		}
 	}
+
+	public void testTranslate2() {
+		try {
+			String message = messageSource.getMessage("100.100.100.1", null,
+					Locale.KOREAN);
+			logger.debug("locale: {}, message: {}", Locale.KOREAN.toString(),
+					message);
+
+			message = messageSource
+					.getMessage("100.100.100.1", null, Locale.US);
+			logger.debug("locale: {}, message: {}", Locale.US.toString(),
+					message);
+
+			message = messageSource.getMessage("100.100.100.1", null,
+					Locale.JAPANESE);
+			logger.debug("locale: {}, message: {}", Locale.JAPANESE.toString(),
+					message);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 }
