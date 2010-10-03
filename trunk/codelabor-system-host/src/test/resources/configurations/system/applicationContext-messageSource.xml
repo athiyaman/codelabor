@@ -7,7 +7,7 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
-				<value>classpath:/messages/system/host/messages</value>
+				<value>classpath:/messages/system/host/server-mode</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1"/>
