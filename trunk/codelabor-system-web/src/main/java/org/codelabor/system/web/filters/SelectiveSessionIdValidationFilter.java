@@ -38,8 +38,8 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sangjae
  * 
  */
-public abstract class SelectiveSessionIdValidationFilter extends EncodingFilter
-		implements SelectiveFilter {
+public abstract class SelectiveSessionIdValidationFilter extends
+		SessionIdValidationFilter implements SelectiveFilter {
 	private final Logger logger = LoggerFactory
 			.getLogger(SelectiveSessionIdValidationFilter.class);
 
