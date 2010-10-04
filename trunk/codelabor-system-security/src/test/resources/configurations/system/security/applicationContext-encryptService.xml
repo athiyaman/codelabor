@@ -7,13 +7,4 @@
                         http://www.springframework.org/schema/security
                         http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-	<bean
-		id="xecureDBEncryptService"
-		class="org.codelabor.system.security.xecure.services.XecureDBEncryptServiceImpl">
-		<property name="pool" value="ksfc"/>
-		<property name="database" value="AA"/>
-		<property name="owner" value="AA"/>
-		<property name="table" value="AA"/>
-		<property name="column" value="AA"/>
-    </bean>
 </beans>
