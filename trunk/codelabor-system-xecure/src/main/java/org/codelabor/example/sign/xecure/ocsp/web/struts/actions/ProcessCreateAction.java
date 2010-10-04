@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.codelabor.system.security.xecure.Constants;
+import org.codelabor.system.security.xecure.XecureConstants;
 import org.codelabor.system.sign.dtos.SignDTO;
 import org.codelabor.system.sign.exceptions.NotVerifiedException;
 import org.codelabor.system.sign.managers.SignManager;
@@ -42,7 +42,7 @@ public class ProcessCreateAction extends BaseAction {
 
 		// exeucte biz logic
 		String signedMessage = WebUtils.findParameterValue(request,
-				Constants.SECURITY_SIGNED_MESSAGE_KEY);
+				XecureConstants.SECURITY_SIGNED_MESSAGE_KEY);
 
 		if (signedMessage != null) {
 			SignVerifierM signVerifier = new SignVerifierM(new XecureConfig(),

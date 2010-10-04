@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codelabor.example.sign.xecure.web.spring.controllers.BaseSignFormController;
-import org.codelabor.system.security.xecure.Constants;
+import org.codelabor.system.security.xecure.XecureConstants;
 import org.codelabor.system.sign.dtos.SignDTO;
 import org.codelabor.system.sign.exceptions.NotVerifiedException;
 import org.springframework.validation.BindException;
@@ -46,7 +46,7 @@ public class CreateController extends BaseSignFormController {
 			HttpServletResponse response, Object command, BindException errors)
 			throws Exception {
 		String signedMessage = WebUtils.findParameterValue(request,
-				Constants.SECURITY_SIGNED_MESSAGE_KEY);
+				XecureConstants.SECURITY_SIGNED_MESSAGE_KEY);
 
 		if (signedMessage != null) {
 			SignVerifierM signVerifier = new SignVerifierM(new XecureConfig(),

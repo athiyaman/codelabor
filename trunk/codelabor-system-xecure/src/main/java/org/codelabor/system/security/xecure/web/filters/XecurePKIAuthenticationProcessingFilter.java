@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.codelabor.system.authentication.PKIAuthenticationToken;
-import org.codelabor.system.security.xecure.Constants;
+import org.codelabor.system.security.xecure.XecureConstants;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -46,7 +46,7 @@ public class XecurePKIAuthenticationProcessingFilter extends
 	public Authentication attemptAuthentication(HttpServletRequest request,
 			HttpServletResponse response) throws AuthenticationException {
 		String signedMessage = WebUtils.findParameterValue(request,
-				Constants.SECURITY_SIGNED_MESSAGE_KEY);
+				XecureConstants.SECURITY_SIGNED_MESSAGE_KEY);
 
 		if (signedMessage != null) { // PKI login
 			if (postOnly && !request.getMethod().equals("POST")) {
