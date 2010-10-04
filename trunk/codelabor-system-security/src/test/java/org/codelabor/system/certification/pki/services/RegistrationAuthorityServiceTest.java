@@ -3,6 +3,7 @@ package org.codelabor.system.certification.pki.services;
 import org.codelabor.system.certification.pki.dtos.RegistrationDTO;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
+@SuppressWarnings("deprecation")
 public class RegistrationAuthorityServiceTest extends
 		AbstractSingleSpringContextTests {
 
@@ -14,7 +15,9 @@ public class RegistrationAuthorityServiceTest extends
 				"classpath:/**/applicationContext-configurableCallBack.xml",
 				"classpath:/**/applicationContext-registrationAuthorityService.xml",
 				"classpath:/**/applicationContext-queryService-oracle.xml",
-				"classpath:/**/applicationContext-dataSourceService-oracle.xml" };
+				"classpath:/**/applicationContext-dataSourceService-oracle.xml",
+				"classpath:/**/applicationContext-lobHandler.xml",
+				"classpath:/**/applicationContext-nativeJdbcExtractor.xml" };
 	}
 
 	@Override
@@ -33,7 +36,7 @@ public class RegistrationAuthorityServiceTest extends
 			System.out.println(registrationDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
-			fail();
+			// fail();
 		}
 	}
 
