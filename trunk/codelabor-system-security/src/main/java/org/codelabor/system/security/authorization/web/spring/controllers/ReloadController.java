@@ -1,4 +1,4 @@
-package org.codelabor.system.security.authorization.spring.controllers;
+package org.codelabor.system.security.authorization.web.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
