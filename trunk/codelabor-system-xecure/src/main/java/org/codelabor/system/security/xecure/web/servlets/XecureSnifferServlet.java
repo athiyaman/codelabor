@@ -1,4 +1,4 @@
-package org.codelabor.system.security.xecure.servlets;
+package org.codelabor.system.security.xecure.web.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
