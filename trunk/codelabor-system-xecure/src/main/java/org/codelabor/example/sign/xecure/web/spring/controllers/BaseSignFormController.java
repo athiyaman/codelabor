@@ -1,4 +1,4 @@
-package org.codelabor.example.sign.xecure.spring.controllers;
+package org.codelabor.example.sign.xecure.web.spring.controllers;
 
 import org.codelabor.system.sign.managers.SignManager;
 import org.springframework.web.servlet.mvc.SimpleFormController;

@@ -19,7 +19,7 @@ package org.codelabor.example.sign.xecure.crl.spring.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.example.sign.xecure.spring.controllers.BaseSignFormController;
+import org.codelabor.example.sign.xecure.web.spring.controllers.BaseSignFormController;
 import org.codelabor.system.security.xecure.Constants;
 import org.codelabor.system.sign.dtos.SignDTO;
 import org.codelabor.system.sign.exceptions.NotVerifiedException;

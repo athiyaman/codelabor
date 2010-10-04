@@ -1,4 +1,4 @@
-package org.codelabor.example.sign.xecure.spring.controllers;
+package org.codelabor.example.sign.xecure.web.spring.controllers;
 
 import java.util.List;
 
