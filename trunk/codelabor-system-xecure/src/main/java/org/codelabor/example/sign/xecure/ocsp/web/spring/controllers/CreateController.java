@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.example.sign.xecure.ocsp.spring.controllers;
+package org.codelabor.example.sign.xecure.ocsp.web.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
