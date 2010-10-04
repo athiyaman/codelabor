@@ -1,4 +1,4 @@
-package org.codelabor.system.file.xecure.spring.controllers;
+package org.codelabor.system.file.xecure.web.spring.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
