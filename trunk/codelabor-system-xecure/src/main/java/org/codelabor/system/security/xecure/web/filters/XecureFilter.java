@@ -1,4 +1,4 @@
-package org.codelabor.system.security.xecure.filters;
+package org.codelabor.system.security.xecure.web.filters;
 
 import java.io.IOException;
 
