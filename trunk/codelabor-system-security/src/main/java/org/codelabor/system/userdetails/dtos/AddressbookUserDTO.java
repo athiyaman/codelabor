@@ -18,10 +18,10 @@ package org.codelabor.system.userdetails.dtos;
 
 import java.util.List;
 
-import org.codelabor.system.addressbook.ContactDTO;
-import org.codelabor.system.addressbook.OtherDTO;
-import org.codelabor.system.addressbook.PrivateDTO;
-import org.codelabor.system.addressbook.WorkDTO;
+import org.codelabor.system.addressbook.dtos.ContactDTO;
+import org.codelabor.system.addressbook.dtos.OtherDTO;
+import org.codelabor.system.addressbook.dtos.PrivateDTO;
+import org.codelabor.system.addressbook.dtos.WorkDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 

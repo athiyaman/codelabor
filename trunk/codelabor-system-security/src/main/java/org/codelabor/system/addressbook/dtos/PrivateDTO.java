@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.addressbook;
+package org.codelabor.system.addressbook.dtos;
 
 import java.io.Serializable;
 import java.net.URL;
