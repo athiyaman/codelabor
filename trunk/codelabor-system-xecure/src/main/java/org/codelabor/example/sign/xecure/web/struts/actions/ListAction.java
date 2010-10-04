@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.codelabor.system.sign.dtos.SignDTO;
 import org.codelabor.system.sign.managers.SignManager;
-import org.codelabor.system.struts.actions.BaseAction;
+import org.codelabor.system.web.struts.actions.BaseAction;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
