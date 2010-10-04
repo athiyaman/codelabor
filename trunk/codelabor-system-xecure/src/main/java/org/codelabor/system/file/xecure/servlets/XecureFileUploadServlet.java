@@ -1,6 +1,6 @@
 package org.codelabor.system.file.xecure.servlets;
 
-import static org.codelabor.system.Constants.AFFECTED_ROW_COUNT;
+import static org.codelabor.system.daos.DAOConstants.AFFECTED_ROW_COUNT;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Map;
 
 import javax.activation.MimetypesFileTypeMap;
@@ -17,13 +18,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
-import org.codelabor.system.file.servlets.FileUploadServlet;
 import org.codelabor.system.file.utils.UploadUtils;
-import org.codelabor.system.servlets.HttpResponseHeader;
+import org.codelabor.system.file.web.servlets.FileUploadServlet;
+import org.codelabor.system.web.servlets.HttpRequestHeader;
+import org.codelabor.system.web.servlets.HttpResponseHeader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import xecure.file.XecureFileInputStream;
 import xecure.file.XecureFileOutputStream;
@@ -40,18 +42,16 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 	 *
 	 */
 	private static final long serialVersionUID = 3747959585667212375L;
-	private final Log log = LogFactory.getLog(XecureFileUploadServlet.class);
+	private final Logger logger = LoggerFactory
+			.getLogger(XecureFileUploadServlet.class);
 
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			String qValue = request.getParameter("q");
-			if (log.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
-				sb.append("q: ").append(qValue);
-				log.debug(sb.toString());
-			}
+			logger.debug("q: {}", qValue);
+
 			if (StringUtil.isEmpty(qValue)) {
 				String parameterValue = request.getParameter(parameterName);
 				switch (Parameter.valueOf(parameterValue)) {
@@ -94,9 +94,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
 					xecureServlet.getXecureSession(), xecureServlet.request);
 			Map paramMap = xecureServlet.request.getParameterMap();
-			if (log.isDebugEnabled()) {
-				log.debug(paramMap);
-			}
+			logger.debug("paramMap: {}", paramMap.toString());
 
 			String mapId = ((String[]) paramMap.get("mapId"))[0];
 			RepositoryType acceptedRepositoryType = repositoryType;
@@ -143,16 +141,13 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 					xservlet.getXecureSession(), xservlet.request,
 					xservlet.response, response.getOutputStream());
 
-			StringBuilder sb = null;
 			String fileId = request.getParameter("fileId");
+
+			StringBuilder sb = new StringBuilder();
 
 			FileDTO fileDTO;
 			fileDTO = fileManager.selectFileByFileId(fileId);
-			if (log.isDebugEnabled()) {
-				sb = new StringBuilder();
-				sb.append(fileDTO);
-				log.debug(sb.toString());
-			}
+			logger.debug("fileDTO: {}", fileDTO);
 
 			String repositoryPath = fileDTO.getRepositoryPath();
 			String uniqueFileName = fileDTO.getUniqueFileName();
@@ -160,7 +155,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			InputStream inputStream = null;
 			if (StringUtil.isNotEmpty(repositoryPath)) {
 				// FILE_SYSTEM
-				sb = new StringBuilder();
+				sb.setLength(0);
 				sb.append(repositoryPath);
 				if (!repositoryPath.endsWith(File.separator)) {
 					sb.append(File.separator);
@@ -180,12 +175,31 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 
 			xecureFileOutputStream.writeHeader((int) fileDTO.getFileSize());
 
+			// set response contenttype, header
+			String encodedRealFileName = URLEncoder.encode(realFileName,
+					"UTF-8");
+			logger.debug("realFileName: {}", realFileName);
+			logger.debug("encodedRealFileName: {}", encodedRealFileName);
+
 			response
-					.setContentType(org.codelabor.system.file.Constants.CONTENT_TYPE);
-			sb = new StringBuilder();
-			sb.append("attachment; filename=").append(realFileName);
-			response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION,
-					sb.toString());
+					.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
+			sb.setLength(0);
+			if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf(
+					"MSIE5.5") > -1) {
+				sb.append("filename=");
+			} else {
+				sb.append("attachment; filename=");
+			}
+			sb.append(encodedRealFileName);
+			response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION, sb
+					.toString());
+
+			logger.debug("header: {}", sb.toString());
+			logger.debug("character encoding: {}", response
+					.getCharacterEncoding());
+			logger.debug("content type: {}", response.getContentType());
+			logger.debug("bufferSize: {}", response.getBufferSize());
+			logger.debug("locale: {}", response.getLocale());
 
 			BufferedInputStream bufferdInputStream = new BufferedInputStream(
 					inputStream);
@@ -205,12 +219,16 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (IOException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (XecureServletConfigException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (XecureServletException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 
@@ -232,13 +250,20 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		fileDTO.setUniqueFileName(getUniqueFileName());
 		fileDTO.setContentType(mimetypesFileTypeMap.getContentType(fileName));
 		fileDTO.setRepositoryPath(realRepositoryPath);
-		if (log.isDebugEnabled()) {
-			log.debug(fileDTO);
-		}
+
+		logger.debug("fileDTO:{}", fileDTO.toString());
+
 		UploadUtils.processFile(repositoryType, xecureFileInputStream, fileDTO);
 		return fileDTO;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#delete(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void delete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -249,6 +274,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		dispatch(request, response, forwardPathDelete);
 	}
