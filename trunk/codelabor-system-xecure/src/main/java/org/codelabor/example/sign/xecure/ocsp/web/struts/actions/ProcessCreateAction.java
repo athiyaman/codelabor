@@ -1,4 +1,4 @@
-package org.codelabor.example.sign.xecure.ocsp.struts.actions;
+package org.codelabor.example.sign.xecure.ocsp.web.struts.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
