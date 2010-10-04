@@ -1,4 +1,4 @@
-package org.codelabor.example.sign.xecure.struts.actions;
+package org.codelabor.example.sign.xecure.web.struts.actions;
 
 import java.util.List;
 
