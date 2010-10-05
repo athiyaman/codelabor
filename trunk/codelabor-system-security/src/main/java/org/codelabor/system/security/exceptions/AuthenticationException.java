@@ -17,46 +17,54 @@
 package org.codelabor.system.security.exceptions;
 
 /**
+ * 인증 오류 예외
+ * 
  * @author "Shin Sangjae"
  * 
  */
 public class AuthenticationException extends Exception {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 924196417145549685L;
 
 	/**
-	 *
+	 * 생성자
 	 */
 	public AuthenticationException() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * 생성자
+	 * 
 	 * @param message
+	 *            메시지
 	 */
 	public AuthenticationException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * 생성자
+	 * 
 	 * @param cause
+	 *            원인
 	 */
 	public AuthenticationException(Throwable cause) {
 		super(cause);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * 생성자
+	 * 
 	 * @param message
+	 *            메시지
 	 * @param cause
+	 *            원인
 	 */
 	public AuthenticationException(String message, Throwable cause) {
 		super(message, cause);
-		// TODO Auto-generated constructor stub
 	}
 
 }

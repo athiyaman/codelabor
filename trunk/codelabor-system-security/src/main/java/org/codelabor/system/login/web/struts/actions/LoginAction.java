@@ -14,12 +14,32 @@ import org.codelabor.system.login.dtos.LoginDTO;
 import org.codelabor.system.web.SessionConstants;
 import org.codelabor.system.web.struts.actions.BaseDispatchAction;
 
+/**
+ * 로그인 액션
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public abstract class LoginAction extends BaseDispatchAction {
 
+	/**
+	 * 로그인한다.
+	 * 
+	 * @param mapping
+	 *            매핑
+	 * @param form
+	 *            액션 폼
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward login(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		StringBuilder stringBuilder = new StringBuilder();
 		ActionMessages errors = new ActionMessages();
 
 		// retreive data
@@ -54,19 +74,26 @@ public abstract class LoginAction extends BaseDispatchAction {
 		session.setAttribute(SessionConstants.SESSION_LOGIN_INFO, loginDTO);
 
 		// log
-		if (logger.isDebugEnabled()) {
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(SessionConstants.SESSION_LOGIN_INFO).append(
-					": ");
-			stringBuilder.append(session
-					.getAttribute(SessionConstants.SESSION_LOGIN_INFO));
-			logger.debug(stringBuilder.toString());
-		}
+		logger.debug("session login info {}", session
+				.getAttribute(SessionConstants.SESSION_LOGIN_INFO));
 		return mapping.findForward("processLogin");
 	}
 
-	abstract protected boolean isAuthenticated(String userId, String password);
-
+	/**
+	 * 로그아웃한다.
+	 * 
+	 * @param mapping
+	 *            매핑
+	 * @param form
+	 *            액션 폼
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward logout(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -75,9 +102,35 @@ public abstract class LoginAction extends BaseDispatchAction {
 		return mapping.findForward("processLogout");
 	}
 
+	/**
+	 * 로그인 페이지로 포워딩한다.
+	 * 
+	 * @param mapping
+	 *            매핑
+	 * @param form
+	 *            폼
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 액션 포워드
+	 * @throws Exception
+	 *             예외
+	 */
 	public ActionForward prepare(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		return mapping.findForward("prepareLogin");
 	}
+
+	/**
+	 * 인증 여부를 확인한다.
+	 * 
+	 * @param userId
+	 *            사용자 Id
+	 * @param password
+	 *            패스워드
+	 * @return 인증 여부
+	 */
+	abstract protected boolean isAuthenticated(String userId, String password);
 }
