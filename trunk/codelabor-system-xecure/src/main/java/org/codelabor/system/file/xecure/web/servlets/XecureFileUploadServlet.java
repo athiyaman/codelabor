@@ -36,15 +36,31 @@ import xecure.servlet.XecureServletConfigException;
 import xecure.servlet.XecureServletException;
 import anyframe.common.util.StringUtil;
 
+/**
+ * Xecure 파일 업로드 서블릿
+ * 
+ * @author Shin Sangjae
+ * 
+ */
 public class XecureFileUploadServlet extends FileUploadServlet {
 
 	/**
-	 *
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 3747959585667212375L;
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(XecureFileUploadServlet.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#service(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -86,55 +102,13 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	protected void upload(HttpServletRequest request,
-			HttpServletResponse response, XecureServlet xecureServlet)
-			throws Exception {
-		PrintWriter writer = response.getWriter();
-		try {
-			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
-					xecureServlet.getXecureSession(), xecureServlet.request);
-			Map paramMap = xecureServlet.request.getParameterMap();
-			logger.debug("paramMap: {}", paramMap.toString());
-
-			String mapId = ((String[]) paramMap.get("mapId"))[0];
-			RepositoryType acceptedRepositoryType = repositoryType;
-			String requestedRepositoryType = ((String[]) paramMap
-					.get("repositoryType"))[0];
-
-			if (StringUtil.isNotEmpty(requestedRepositoryType)) {
-				acceptedRepositoryType = RepositoryType
-						.valueOf(requestedRepositoryType);
-			}
-
-			FileDTO fileDTO = processFile(acceptedRepositoryType,
-					xecureFileInputStream, mapId);
-			fileManager.insertFile(fileDTO);
-			processParameters(paramMap);
-			writer.println("OK");
-			writer.flush();
-		} catch (XecureServletConfigException e) {
-			e.printStackTrace();
-			writer.println("SFE20");
-			logger.error("error code: SFE20");
-		} catch (XecureServletException e) {
-			e.printStackTrace();
-			writer.println("SFE21");
-			logger.error("error code: SFE21");
-		} catch (IOException e) {
-			e.printStackTrace();
-			writer.println("SFE22");
-			logger.error("error code: SFE22");
-		} catch (Exception e) {
-			e.printStackTrace();
-			writer.println("SFE23");
-			logger.error("error code: SFE23");
-		} finally {
-			writer.flush();
-			writer.close();
-		}
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#download(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -237,9 +211,95 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.web.servlets.FileUploadServlet#delete(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	@Override
+	protected void delete(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		int affectedRowCount = 0;
+		String[] fileIdList = request.getParameterValues("fileId");
+		try {
+			affectedRowCount = fileManager.deleteFile(fileIdList);
+			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		dispatch(request, response, forwardPathDelete);
+	}
+
 	/**
+	 * 파일을 업로드한다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @param xecureServlet
+	 *            Xecure 서블릿
+	 * @throws Exception
+	 *             예외
+	 */
+	@SuppressWarnings("unchecked")
+	protected void upload(HttpServletRequest request,
+			HttpServletResponse response, XecureServlet xecureServlet)
+			throws Exception {
+		PrintWriter writer = response.getWriter();
+		try {
+			XecureFileInputStream xecureFileInputStream = new XecureFileInputStream(
+					xecureServlet.getXecureSession(), xecureServlet.request);
+			Map paramMap = xecureServlet.request.getParameterMap();
+			logger.debug("paramMap: {}", paramMap.toString());
+
+			String mapId = ((String[]) paramMap.get("mapId"))[0];
+			RepositoryType acceptedRepositoryType = repositoryType;
+			String requestedRepositoryType = ((String[]) paramMap
+					.get("repositoryType"))[0];
+
+			if (StringUtil.isNotEmpty(requestedRepositoryType)) {
+				acceptedRepositoryType = RepositoryType
+						.valueOf(requestedRepositoryType);
+			}
+
+			FileDTO fileDTO = processFile(acceptedRepositoryType,
+					xecureFileInputStream, mapId);
+			fileManager.insertFile(fileDTO);
+			processParameters(paramMap);
+			writer.println("OK");
+			writer.flush();
+		} catch (XecureServletConfigException e) {
+			e.printStackTrace();
+			writer.println("SFE20");
+			logger.error("error code: SFE20");
+		} catch (XecureServletException e) {
+			e.printStackTrace();
+			writer.println("SFE21");
+			logger.error("error code: SFE21");
+		} catch (IOException e) {
+			e.printStackTrace();
+			writer.println("SFE22");
+			logger.error("error code: SFE22");
+		} catch (Exception e) {
+			e.printStackTrace();
+			writer.println("SFE23");
+			logger.error("error code: SFE23");
+		} finally {
+			writer.flush();
+			writer.close();
+		}
+	}
+
+	/**
+	 * 파일을 처리한다.
+	 * 
 	 * @param xecureFileInputStream
-	 * @return
+	 *            Xecure 파일 입력 스트림
+	 * @return 파일 DTO
 	 */
 	protected FileDTO processFile(RepositoryType repositoryType,
 			XecureFileInputStream xecureFileInputStream, String mapId)
@@ -262,25 +322,4 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		return fileDTO;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.file.web.servlets.FileUploadServlet#delete(javax
-	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	@Override
-	protected void delete(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		int affectedRowCount = 0;
-		String[] fileIdList = request.getParameterValues("fileId");
-		try {
-			affectedRowCount = fileManager.deleteFile(fileIdList);
-			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
-		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getMessage());
-		}
-		dispatch(request, response, forwardPathDelete);
-	}
 }
