@@ -1,15 +1,27 @@
 package org.codelabor.system.userdetails.services;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.codelabor.system.test.BaseTestCase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
-public class UserDetailsServiceTest extends BaseTestCase {
+public class UserDetailsServiceTest extends AbstractSingleSpringContextTests {
 
 	private UserDetailsService queryServiceUserDetailsService;
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory
+			.getLogger(UserDetailsServiceTest.class);
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] {
+				"classpath:/**/applicationContext-configurableCallBack.xml",
+				"classpath:/**/applicationContext-userDetailsService.xml",
+				"classpath:/**/applicationContext-queryService-oracle.xml",
+				"classpath:/**/applicationContext-dataSourceService-oracle.xml",
+				"classpath:/**/applicationContext-lobHandler.xml",
+				"classpath:/**/applicationContext-nativeJdbcExtractor.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -21,11 +33,7 @@ public class UserDetailsServiceTest extends BaseTestCase {
 		String userName = "admin";
 		UserDetails userDetails = queryServiceUserDetailsService
 				.loadUserByUsername(userName);
-		if (log.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("userDetails: ").append(userDetails);
-			log.debug(sb.toString());
-		}
+		logger.debug("userDetails: {}", userDetails);
 		assertEquals(userName, userDetails.getUsername());
 	}
 }
