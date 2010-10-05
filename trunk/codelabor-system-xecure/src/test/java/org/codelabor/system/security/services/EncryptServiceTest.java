@@ -7,11 +7,20 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-import org.codelabor.system.test.BaseTestCase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
-public class EncryptServiceTest extends BaseTestCase {
+@SuppressWarnings("deprecation")
+public class EncryptServiceTest extends AbstractSingleSpringContextTests {
 
 	private EncryptService encryptService;
+	protected Logger logger = LoggerFactory.getLogger(EncryptServiceTest.class);
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath:/**/applicationContext-encryptService.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -107,8 +116,4 @@ public class EncryptServiceTest extends BaseTestCase {
 		}
 	}
 
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath:/**/applicationContext-encryptService.xml" };
-	}
 }
