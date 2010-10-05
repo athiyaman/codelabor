@@ -10,8 +10,6 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/.m2/repository/softforum/xecure/xecure-web/7.1.0/xecure-web-7.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/Administrator/.m2/repository/softforum/xecure/xecure-db/2.7/xecure-db-2.7.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
