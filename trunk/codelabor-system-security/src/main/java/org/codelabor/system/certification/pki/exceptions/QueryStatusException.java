@@ -1,4 +1,4 @@
-package org.codelabor.system.certification.pki.services;
+package org.codelabor.system.certification.pki.exceptions;
 
 public class QueryStatusException extends Exception {
 
