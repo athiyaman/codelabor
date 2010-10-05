@@ -119,10 +119,10 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/branches/codelabor-system-security-m2eclipse/</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/branches/codelabor-system-security-m2eclipse/</developerConnection>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</developerConnection>
 		<tag>HEAD</tag>
-		<url>http://codelabor.googlecode.com/svn/branches/codelabor-system-security-m2eclipse/</url>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
@@ -210,7 +210,6 @@
 					<tagBase>https://codelabor.googlecode.com/svn</tagBase>
 				</configuration>
 			</plugin>
-			<!--
       		<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>sql-maven-plugin</artifactId>
@@ -245,7 +244,6 @@
 					<settingsKey>database.codelabor-system.oracle</settingsKey>
 				</configuration>
 			</plugin>
-			-->
 		</plugins>
 	</build>
 	<properties>
