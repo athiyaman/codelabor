@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<queries>
+		<!-- delete -->
+		<query id="system.delete.sign" isDynamic="false">
+			<statement><![CDATA[
+				DELETE /* system.delete.sign */
+				FROM SIGN
+				WHERE ID = ?
+			]]></statement>
+			<param type="INTEGER" />
+		</query>
+		<query id="system.delete.sign.list" isDynamic="false">
+			<statement><![CDATA[
+				DELETE /* system.delete.sign */
+				FROM SIGN
+			]]></statement>
+		</query>
+
+		<!-- insert -->
+		<query id="system.insert.sign" isDynamic="false">
+			<statement>
+				<![CDATA[
+				INSERT /* system.insert.sign */
+				INTO SIGN (
+					ID, SUBJECT, SIGNED_MESSAGE, CERT_TYPE, CERT_PEM, SIGNED_DATE
+				) VALUES (
+					?, ?, ?, ?, ?, SYSDATE
+				)
+				]]>
+			</statement>
+			<param type="INTEGER"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+		</query>
+
+		<!-- select -->
+		<query id="system.select.sign" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* system.select.sign */
+				ID, SUBJECT, SIGNED_MESSAGE, CERT_TYPE, CERT_PEM, SIGNED_DATE
+				FROM SIGN
+				WHERE ID=?
+			]]></statement>
+			<param type="INTEGER" />
+			<result class="org.codelabor.system.sign.dtos.SignDTO">
+				<result-mapping column="ID" attribute="id"/>
+				<result-mapping column="SIGNED_MESSAGE" attribute="signedMessage"/>
+				<result-mapping column="CERT_TYPE" attribute="certType"/>
+				<result-mapping column="CERT_PEM" attribute="certPem"/>
+				<result-mapping column="SIGNED_DATE" attribute="signedDate"/>
+			</result>
+		</query>
+		<query id="system.select.sign.list" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* system.select.sign.list */
+				ID, SUBJECT, SIGNED_MESSAGE, CERT_TYPE, CERT_PEM, SIGNED_DATE
+				FROM SIGN
+			]]></statement>
+		<result class="org.codelabor.system.sign.dtos.SignDTO">
+				<result-mapping column="ID" attribute="id"/>
+				<result-mapping column="SIGNED_MESSAGE" attribute="signedMessage"/>
+				<result-mapping column="CERT_TYPE" attribute="certType"/>
+				<result-mapping column="CERT_PEM" attribute="certPem"/>
+				<result-mapping column="SIGNED_DATE" attribute="signedDate"/>
+			</result>
+		</query>
+		<query id="system.select.sign.list.by.field1" isDynamic="false">
+			<statement><![CDATA[
+				SELECT /* system.select.sign.list.by.field1 */
+				ID, FIELD1, FIELD2
+				FROM SIGN
+				WHERE FIELD1 LIKE ?
+			]]></statement>
+			<param type="VARCHAR" />
+			<result class="org.codelabor.system.sign.dtos.SignDTO">
+				<result-mapping column="ID" attribute="id"/>
+				<result-mapping column="FIELD1" attribute="field1"/>
+				<result-mapping column="FIELD2" attribute="field2"/>
+			</result>
+		</query>
+
+	</queries>
+</queryservice>
