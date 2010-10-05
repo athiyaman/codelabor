@@ -2,18 +2,35 @@ package org.codelabor.system.login.services;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.login.dtos.LoginDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
-public class LoginServiceTest extends BaseTestCase {
+public class LoginServiceTest extends AbstractSingleSpringContextTests {
 
 	private LoginService loginService;
 	private IQueryService queryService;
-	protected Log log = LogFactory.getLog(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(LoginServiceTest.class);
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] {
+				"classpath:/**/applicationContext-configurableCallBack.xml",
+				"classpath:/**/applicationContext-baseService.xml",
+				"classpath:/**/applicationContext-baseManager.xml",
+				"classpath:/**/applicationContext-baseDAO.xml",
+				"classpath:/**/applicationContext-propertiesService.xml",
+				"classpath:/**/applicationContext-messageSource.xml",
+				"classpath:/**/applicationContext-loginService.xml",
+				"classpath:/**/applicationContext-loginManager.xml",
+				"classpath:/**/applicationContext-queryService-oracle.xml",
+				"classpath:/**/applicationContext-dataSourceService-oracle.xml",
+				"classpath:/**/applicationContext-lobHandler.xml",
+				"classpath:/**/applicationContext-nativeJdbcExtractor.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -65,10 +82,7 @@ public class LoginServiceTest extends BaseTestCase {
 			assertNotNull(loginDTO.getLogoutTimestamp());
 
 			// log
-			if (log.isDebugEnabled()) {
-				log.debug(loginDTO);
-			}
-
+			logger.debug("loginDTO {}", loginDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
