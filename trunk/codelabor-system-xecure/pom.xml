@@ -44,5 +44,12 @@
   		<type>jar</type>
   		<scope>test</scope>
   	</dependency>
+  	<dependency>
+  		<groupId>softforum</groupId>
+  		<artifactId>xecure7</artifactId>
+  		<version>7</version>
+  		<systemPath>C:\softforum\xecureweb_ver7\lib\java\jsdk23\xecure7.jar</systemPath>
+        <scope>system</scope>
+  	</dependency>
   </dependencies>
 </project>
