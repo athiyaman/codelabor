@@ -8,10 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.codelabor.system.login.dtos.LoginDTO;
-import org.codelabor.system.web.SessionConstants;
 import org.codelabor.system.web.filters.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,13 +19,13 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sangjae
  * 
  */
-public class AuthenticationFilter extends BaseFilterImpl {
+public abstract class AbstractAuthenticationFilter extends BaseFilterImpl {
 
 	/**
 	 * 로거
 	 */
 	private final Logger logger = LoggerFactory
-			.getLogger(AuthenticationFilter.class);
+			.getLogger(AbstractAuthenticationFilter.class);
 
 	/*
 	 * (non-Javadoc)
@@ -38,28 +35,6 @@ public class AuthenticationFilter extends BaseFilterImpl {
 	 */
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-	}
-
-	/**
-	 * 인증 여부를 확인한다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @param response
-	 *            응답
-	 * @return 인증 여부
-	 */
-	public boolean isAuthenticated(HttpServletRequest request,
-			HttpServletResponse response) {
-		boolean isAuthenticated = false;
-		HttpSession session = request.getSession(false);
-		if (session != null) {
-			if (session.getAttribute(SessionConstants.SESSION_LOGIN_INFO) != null) {
-				isAuthenticated = true;
-			}
-		}
-		logger.debug("isAuthenticated: {}", isAuthenticated);
-		return isAuthenticated;
 	}
 
 	/*
@@ -87,15 +62,20 @@ public class AuthenticationFilter extends BaseFilterImpl {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-		if (!isAuthenticated(httpRequest, httpResponse)) {
-			LoginDTO loginDTO = new LoginDTO();
-			// TODO fetch user id
-			loginDTO.setUserId("tester");
-			loginDTO.setIpAddress(httpRequest.getRemoteAddr());
-			httpRequest.getSession().setAttribute(
-					SessionConstants.SESSION_LOGIN_INFO, loginDTO);
-
+		try {
+			if (!isAuthenticated(httpRequest, httpResponse)) {
+				this.forwardLoginPage(httpRequest, httpResponse);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.equals(e.getMessage());
 		}
 	}
+
+	public abstract boolean isAuthenticated(HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+
+	public abstract void forwardLoginPage(HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }
