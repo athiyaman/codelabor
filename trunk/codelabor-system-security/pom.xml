@@ -8,7 +8,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-security</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.0</version>
+  <version>2.0.1-SNAPSHOT</version>
   <name>codelabor-system-security</name>
   <url>http://codelabor.org</url>
   <dependencies>
@@ -80,10 +80,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-security-2.0.0</connection>
-    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-security-2.0.0</developerConnection>
-    <tag>HEAD</tag>
-    <url>http://codelabor.googlecode.com/svn/tags/codelabor-system-security-2.0.0</url>
+    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</connection>
+    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</developerConnection>
+    <url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
