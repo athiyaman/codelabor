@@ -8,7 +8,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-sniffer</artifactId>
   <packaging>jar</packaging>
-  <version>2.0.2-SNAPSHOT</version>
+  <version>2.0.2</version>
   <name>codelabor-system-sniffer</name>
   <url>http://codelabor.org</url>
   <dependencies>
@@ -87,9 +87,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-sniffer/</connection>
-    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-sniffer/</developerConnection>
-    <url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-sniffer/</url>
+    <connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-sniffer-2.0.2</connection>
+    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-sniffer-2.0.2</developerConnection>
+    <url>http://codelabor.googlecode.com/svn/tags/codelabor-system-sniffer-2.0.2</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
