@@ -2,18 +2,33 @@ package org.codelabor.system.sign.managers;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.sign.dtos.SignDTO;
-import org.codelabor.system.test.BaseTestCase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.test.AbstractSingleSpringContextTests;
 
 import anyframe.core.query.IQueryService;
 
-public class SignManagerTest extends BaseTestCase {
+@SuppressWarnings("deprecation")
+public class SignManagerTest extends AbstractSingleSpringContextTests {
 
 	private SignManager signManager;
 	private IQueryService queryService;
-	protected Log log = LogFactory.getLog(this.getClass());
+	private final Logger logger = LoggerFactory
+			.getLogger(SignManagerTest.class);
+
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] {
+				"classpath:/**/applicationContext-configurableCallBack.xml",
+				"classpath:/**/applicationContext-baseManager.xml",
+				"classpath:/**/applicationContext-baseDAO.xml",
+				"classpath:/**/applicationContext-applicationContext-signManager.xml",
+				"classpath:/**/applicationContext-queryService-oracle.xml",
+				"classpath:/**/applicationContext-dataSourceService-oracle.xml",
+				"classpath:/**/applicationContext-lobHandler.xml",
+				"classpath:/**/applicationContext-nativeJdbcExtractor.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
@@ -47,9 +62,7 @@ public class SignManagerTest extends BaseTestCase {
 			assertTrue(signDTOList.size() > 0);
 
 			// log
-			if (log.isDebugEnabled()) {
-				log.debug(signDTO);
-			}
+			logger.debug("signDTO {}", signDTO);
 
 		} catch (Exception e) {
 			e.printStackTrace();
