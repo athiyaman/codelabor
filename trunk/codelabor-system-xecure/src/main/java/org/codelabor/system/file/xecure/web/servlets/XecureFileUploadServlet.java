@@ -82,6 +82,7 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 
@@ -115,15 +116,19 @@ public class XecureFileUploadServlet extends FileUploadServlet {
 		} catch (XecureServletConfigException e) {
 			e.printStackTrace();
 			writer.println("SFE20");
+			logger.error("error code: SFE20");
 		} catch (XecureServletException e) {
 			e.printStackTrace();
 			writer.println("SFE21");
+			logger.error("error code: SFE21");
 		} catch (IOException e) {
 			e.printStackTrace();
 			writer.println("SFE22");
+			logger.error("error code: SFE22");
 		} catch (Exception e) {
 			e.printStackTrace();
 			writer.println("SFE23");
+			logger.error("error code: SFE23");
 		} finally {
 			writer.flush();
 			writer.close();
