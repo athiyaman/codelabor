@@ -8,9 +8,9 @@ ed with
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,11 +27,20 @@ import org.codelabor.system.daos.BaseDAOImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
+ * 로그인 DAO 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.daos.LoginDAO#insertLogin(org.codelabor.system
+	 * .login.dtos.LoginDTO)
+	 */
 	public int insertLogin(LoginDTO loginDTO) throws Exception {
 		String queryId = "system.insert.login";
 		Object[] param = new Object[] { loginDTO.getSessionId(),
@@ -39,6 +48,13 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 		return this.queryService.create(queryId, param);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.daos.LoginDAO#selectLogin(org.codelabor.system
+	 * .login.dtos.LoginDTO)
+	 */
 	@SuppressWarnings("unchecked")
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
 		String queryId = "system.select.login";
@@ -49,6 +65,13 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 		return (LoginDTO) loginCol.toArray()[0];
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.daos.LoginDAO#selectLoginByLastLogoutUserId
+	 * (org.codelabor.system.login.dtos.LoginDTO)
+	 */
 	@SuppressWarnings("unchecked")
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception {
@@ -60,6 +83,11 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 		return (LoginDTO) loginCol.toArray()[0];
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.codelabor.system.login.daos.LoginDAO#selectLogin()
+	 */
 	@SuppressWarnings("unchecked")
 	public List<LoginDTO> selectLogin() throws Exception {
 		String queryId = "system.select.login.list";
@@ -67,6 +95,13 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 		return (List<LoginDTO>) queryService.find(queryId, params);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.daos.LoginDAO#updateLogin(org.codelabor.system
+	 * .login.dtos.LoginDTO)
+	 */
 	public int updateLogin(LoginDTO loginDTO) throws Exception {
 		String queryId = "system.update.login";
 		Object[] param = new Object[] { loginDTO.getSessionId() };

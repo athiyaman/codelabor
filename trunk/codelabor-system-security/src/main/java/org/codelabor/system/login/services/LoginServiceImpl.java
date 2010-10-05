@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -26,21 +26,44 @@ import org.codelabor.system.login.managers.LoginManager;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**
+ * 로그인 서비스 구현 클래스
+ * 
  * @author Shin Sangjae
  * 
  */
 public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 
+	/**
+	 * 로그인 매니저
+	 */
 	public LoginManager loginManager;
 
+	/**
+	 * 로그인 매니저를 가져온다.
+	 * 
+	 * @return 로그인 매니저
+	 */
 	public LoginManager getLoginManager() {
 		return loginManager;
 	}
 
+	/**
+	 * 로그인 매니저를 설정한다.
+	 * 
+	 * @param loginManager
+	 *            로그인 매니저
+	 */
 	public void setLoginManager(LoginManager loginManager) {
 		this.loginManager = loginManager;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.services.LoginService#login(org.codelabor.
+	 * system.login.dtos.LoginDTO)
+	 */
 	public void login(LoginDTO loginDTO) throws Exception {
 		try {
 			loginManager.login(loginDTO);
@@ -55,6 +78,13 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.services.LoginService#logout(org.codelabor
+	 * .system.login.dtos.LoginDTO)
+	 */
 	public void logout(LoginDTO loginDTO) throws Exception {
 		try {
 			loginManager.logout(loginDTO);
@@ -69,6 +99,11 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.codelabor.system.login.services.LoginService#selectLogin()
+	 */
 	public List<LoginDTO> selectLogin() throws Exception {
 		List<LoginDTO> loginList;
 		try {
@@ -85,6 +120,13 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 		return loginList;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.login.services.LoginService#selectLogin(org.codelabor
+	 * .system.login.dtos.LoginDTO)
+	 */
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
 		LoginDTO returnLoginDTO;
 		try {
@@ -101,6 +143,12 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 		return returnLoginDTO;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.login.services.LoginService#
+	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dtos.LoginDTO)
+	 */
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception {
 		LoginDTO returnLoginDTO;

@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -22,18 +22,59 @@ import java.util.List;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
+ * 로그인 서비스 인터페이스
+ * 
  * @author Shin Sangjae
  * 
  */
 public interface LoginService {
+	/**
+	 * 로그인한다.
+	 * 
+	 * @param loginDTO
+	 *            로그인 정보 DTO
+	 * @throws Exception
+	 *             예외
+	 */
 	public void login(LoginDTO loginDTO) throws Exception;
 
+	/**
+	 * 로그아웃한다.
+	 * 
+	 * @param loginDTO
+	 *            로그인 정보 DTO
+	 * @throws Exception
+	 *             예외
+	 */
 	public void logout(LoginDTO loginDTO) throws Exception;
 
+	/**
+	 * 로그인 정보를 가져온다.
+	 * 
+	 * @return 로그인 정보 DTO List
+	 * @throws Exception
+	 *             예외
+	 */
 	public List<LoginDTO> selectLogin() throws Exception;
 
+	/**
+	 * 로그인 정보를 가져온다.
+	 * 
+	 * @param loginDTO
+	 * @return 로그인 정보 DTO
+	 * @throws Exception
+	 *             예외
+	 */
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception;
 
+	/**
+	 * 마지막 로그아웃한 로그인 정보를 가져온다.
+	 * 
+	 * @param loginDTO
+	 * @return 로그인 정보 DTO
+	 * @throws Exception
+	 *             예외
+	 */
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception;
 }
