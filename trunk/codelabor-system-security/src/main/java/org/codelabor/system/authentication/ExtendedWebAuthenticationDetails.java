@@ -18,7 +18,7 @@ package org.codelabor.system.authentication;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
+import org.springframework.security.ui.WebAuthenticationDetails;
 
 /**
  * @author "Shin Sangjae"

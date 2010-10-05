@@ -2,7 +2,7 @@ package org.codelabor.system.security.encoder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.providers.encoding.PasswordEncoder;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
 public class PasswordEncoderTest extends AbstractSingleSpringContextTests {

@@ -3,7 +3,7 @@ package org.codelabor.system.security.dtos;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.ConfigAttribute;
 
 public class SecureUrlDTO implements Serializable {
 	/**

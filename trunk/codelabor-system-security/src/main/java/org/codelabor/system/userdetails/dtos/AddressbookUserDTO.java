@@ -16,14 +16,12 @@
  */
 package org.codelabor.system.userdetails.dtos;
 
-import java.util.List;
-
 import org.codelabor.system.addressbook.dtos.ContactDTO;
 import org.codelabor.system.addressbook.dtos.OtherDTO;
 import org.codelabor.system.addressbook.dtos.PrivateDTO;
 import org.codelabor.system.addressbook.dtos.WorkDTO;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.GrantedAuthority;
+import org.springframework.security.userdetails.User;
 
 /**
  * @author "Shin Sangjae"
@@ -65,18 +63,19 @@ public class AddressbookUserDTO extends User {
 	 * @param accountNonLocked
 	 * @param authorities
 	 */
-	public AddressbookUserDTO(String username, String password, boolean enabled,
-			boolean accountNonExpired, boolean credentialsNonExpired,
-			boolean accountNonLocked, List<GrantedAuthority> authorities) {
+	public AddressbookUserDTO(String username, String password,
+			boolean enabled, boolean accountNonExpired,
+			boolean credentialsNonExpired, boolean accountNonLocked,
+			GrantedAuthority[] authorities) {
 		super(username, password, enabled, accountNonExpired,
 				credentialsNonExpired, accountNonLocked, authorities);
 	}
 
-	public AddressbookUserDTO(String username, String password, boolean enabled,
-			boolean accountNonExpired, boolean credentialsNonExpired,
-			boolean accountNonLocked, List<GrantedAuthority> authorities,
-			ContactDTO contactData, OtherDTO otherData, PrivateDTO privateData,
-			WorkDTO workData) {
+	public AddressbookUserDTO(String username, String password,
+			boolean enabled, boolean accountNonExpired,
+			boolean credentialsNonExpired, boolean accountNonLocked,
+			GrantedAuthority[] authorities, ContactDTO contactData,
+			OtherDTO otherData, PrivateDTO privateData, WorkDTO workData) {
 		super(username, password, enabled, accountNonExpired,
 				credentialsNonExpired, accountNonLocked, authorities);
 		this.contactData = contactData;

@@ -16,15 +16,12 @@
  */
 package org.codelabor.system.authentication;
 
-import java.util.List;
-
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.AuthenticationUserDetailsService;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.Authentication;
+import org.springframework.security.AuthenticationException;
+import org.springframework.security.providers.AuthenticationProvider;
+import org.springframework.security.userdetails.AuthenticationUserDetailsService;
+import org.springframework.security.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
 /**
@@ -56,20 +53,7 @@ public class PKIAuthenticationProvider implements AuthenticationProvider,
 		UserDetails userDetails = userDetailsService
 				.loadUserDetails(authentication);
 		String subject = ((PKIAuthenticationToken) authentication).getSubject();
-		return new PKIAuthenticationToken(userDetails.getUsername(),
-				userDetails.getPassword(), (List<GrantedAuthority>) userDetails
-						.getAuthorities(), subject);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.springframework.security.authentication.AuthenticationProvider#supports
-	 * (java.lang.Class)
-	 */
-	public boolean supports(Class<? extends Object> authentication) {
-		return (PKIAuthenticationToken.class.isAssignableFrom(authentication));
+		return new PKIAuthenticationToken(userDetails.getUsername());
 	}
 
 	/*
@@ -81,6 +65,18 @@ public class PKIAuthenticationProvider implements AuthenticationProvider,
 	public void afterPropertiesSet() throws Exception {
 		Assert.notNull(this.userDetailsService,
 				"The userDetailsService must be set");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.security.providers.AuthenticationProvider#supports
+	 * (java.lang.Class)
+	 */
+	public boolean supports(Class classz) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

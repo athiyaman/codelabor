@@ -26,12 +26,11 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.GrantedAuthority;
+import org.springframework.security.GrantedAuthorityImpl;
+import org.springframework.security.userdetails.UserDetails;
+import org.springframework.security.userdetails.UserDetailsService;
+import org.springframework.security.userdetails.UsernameNotFoundException;
 
 import anyframe.core.query.IQueryService;
 import anyframe.core.query.QueryServiceException;
@@ -92,8 +91,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			}
 
 			// create user details
-			userDetails = new User(username, password, enabled, true, true,
-					true, authorityList);
+			// userDetails = new User(username, password, enabled, true, true,
+			// true, authorityList);
 		} catch (QueryServiceException e) {
 			e.printStackTrace();
 			throw new UnkownQueryServiceException(e.getMessage());

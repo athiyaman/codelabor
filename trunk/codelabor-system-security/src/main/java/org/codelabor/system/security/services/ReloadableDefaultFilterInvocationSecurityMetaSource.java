@@ -12,14 +12,19 @@ import java.util.Map;
 import java.util.Set;
 
 import org.codelabor.system.security.dtos.SecureUrlDTO;
-import org.springframework.security.access.ConfigAttribute;
-import org.springframework.security.access.SecurityConfig;
-import org.springframework.security.web.access.intercept.DefaultFilterInvocationSecurityMetadataSource;
-import org.springframework.security.web.access.intercept.RequestKey;
-import org.springframework.security.web.util.UrlMatcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.ConfigAttribute;
+import org.springframework.security.SecurityConfig;
+import org.springframework.security.intercept.web.DefaultFilterInvocationDefinitionSource;
+import org.springframework.security.intercept.web.RequestKey;
+import org.springframework.security.util.UrlMatcher;
 
 public class ReloadableDefaultFilterInvocationSecurityMetaSource extends
-		DefaultFilterInvocationSecurityMetadataSource {
+		DefaultFilterInvocationDefinitionSource {
+
+	private final Logger logger = LoggerFactory
+			.getLogger(ReloadableDefaultFilterInvocationSecurityMetaSource.class);
 
 	private static final Set<String> HTTP_METHODS = new HashSet<String>(Arrays
 			.asList("DELETE", "GET", "HEAD", "OPTIONS", "POST", "PUT", "TRACE"));

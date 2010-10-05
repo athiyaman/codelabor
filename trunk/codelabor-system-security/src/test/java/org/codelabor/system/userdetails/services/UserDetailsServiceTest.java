@@ -2,7 +2,7 @@ package org.codelabor.system.userdetails.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.userdetails.UserDetailsService;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
 public class UserDetailsServiceTest extends AbstractSingleSpringContextTests {

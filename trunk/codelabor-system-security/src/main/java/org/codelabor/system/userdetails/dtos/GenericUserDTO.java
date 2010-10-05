@@ -16,11 +16,10 @@
  */
 package org.codelabor.system.userdetails.dtos;
 
-import java.util.List;
 import java.util.Map;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.GrantedAuthority;
+import org.springframework.security.userdetails.User;
 
 /**
  * @author "Shin Sangjae"
@@ -49,14 +48,14 @@ public class GenericUserDTO extends User {
 	 */
 	public GenericUserDTO(String username, String password, boolean enabled,
 			boolean accountNonExpired, boolean credentialsNonExpired,
-			boolean accountNonLocked, List<GrantedAuthority> authorities) {
+			boolean accountNonLocked, GrantedAuthority[] authorities) {
 		super(username, password, enabled, accountNonExpired,
 				credentialsNonExpired, accountNonLocked, authorities);
 	}
 
 	public GenericUserDTO(String username, String password, boolean enabled,
 			boolean accountNonExpired, boolean credentialsNonExpired,
-			boolean accountNonLocked, List<GrantedAuthority> authorities,
+			boolean accountNonLocked, GrantedAuthority[] authorities,
 			Map<String, Object> dataMap) {
 		super(username, password, enabled, accountNonExpired,
 				credentialsNonExpired, accountNonLocked, authorities);

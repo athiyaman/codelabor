@@ -5,9 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.security.access.ConfigAttribute;
-import org.springframework.security.access.SecurityConfig;
-import org.springframework.security.web.access.intercept.RequestKey;
+import org.springframework.security.ConfigAttribute;
+import org.springframework.security.SecurityConfig;
+import org.springframework.security.intercept.web.RequestKey;
 
 @SuppressWarnings("unchecked")
 public class RequestMapFactoryBean implements FactoryBean {

@@ -1,10 +1,10 @@
 package org.codelabor.system.security.utils;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
+import org.springframework.security.Authentication;
+import org.springframework.security.context.SecurityContext;
+import org.springframework.security.context.SecurityContextHolder;
+import org.springframework.security.ui.WebAuthenticationDetails;
+import org.springframework.security.userdetails.UserDetails;
 
 public class SecurityContextUtil {
 	public static String getUsername() throws Exception {
