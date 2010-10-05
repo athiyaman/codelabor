@@ -10,7 +10,7 @@ import org.codelabor.system.security.xecure.XecureConstants;
 import org.codelabor.system.sign.dtos.SignDTO;
 import org.codelabor.system.sign.exceptions.NotVerifiedException;
 import org.codelabor.system.sign.managers.SignManager;
-import org.codelabor.system.struts.actions.BaseAction;
+import org.codelabor.system.web.struts.actions.BaseAction;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.util.WebUtils;
@@ -21,6 +21,7 @@ import xecure.servlet.XecureConfig;
 
 public class ProcessCreateAction extends BaseAction {
 
+	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
