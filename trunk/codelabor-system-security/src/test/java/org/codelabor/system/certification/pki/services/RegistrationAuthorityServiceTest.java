@@ -1,6 +1,8 @@
 package org.codelabor.system.certification.pki.services;
 
 import org.codelabor.system.certification.pki.dtos.RegistrationDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractSingleSpringContextTests;
 
 @SuppressWarnings("deprecation")
@@ -8,6 +10,8 @@ public class RegistrationAuthorityServiceTest extends
 		AbstractSingleSpringContextTests {
 
 	private RegistrationAuthorityService registrationAuthorityService;
+	protected Logger logger = LoggerFactory
+			.getLogger(RegistrationAuthorityServiceTest.class);
 
 	@Override
 	protected String[] getConfigLocations() {
@@ -33,7 +37,7 @@ public class RegistrationAuthorityServiceTest extends
 			registrationDTO.setPassword("bomber");
 			registrationDTO.setRegistrationNumber("");
 			registrationAuthorityService.enroll(registrationDTO);
-			System.out.println(registrationDTO);
+			logger.debug("registrationDTO: {}", registrationDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// fail();
