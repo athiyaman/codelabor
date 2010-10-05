@@ -17,18 +17,38 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * 인증 필터
+ * 
  * @author Shin Sangjae
  * 
  */
 public class AuthenticationFilter extends BaseFilterImpl {
 
+	/**
+	 * 로거
+	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(AuthenticationFilter.class);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.web.filters.BaseFilterImpl#init(javax.servlet.
+	 * FilterConfig)
+	 */
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 	}
 
+	/**
+	 * 인증 여부를 확인한다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @return 인증 여부
+	 */
 	public boolean isAuthenticated(HttpServletRequest request,
 			HttpServletResponse response) {
 		boolean isAuthenticated = false;
@@ -38,20 +58,29 @@ public class AuthenticationFilter extends BaseFilterImpl {
 				isAuthenticated = true;
 			}
 		}
-		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("isAuthenticated: ").append(isAuthenticated);
-		if (logger.isDebugEnabled()) {
-			logger.debug(stringBuilder.toString());
-		}
-
+		logger.debug("isAuthenticated: {}", isAuthenticated);
 		return isAuthenticated;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.web.filters.BaseFilterImpl#postprocessFilterChain
+	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
+	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
@@ -68,4 +97,5 @@ public class AuthenticationFilter extends BaseFilterImpl {
 
 		}
 	}
+
 }
