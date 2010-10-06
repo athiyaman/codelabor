@@ -83,7 +83,7 @@ public abstract class SelectiveSessionIdValidationFilter extends
 		String tempExcludePattern = filterConfig.getInitParameter("excludes");
 		List<String> excludePatterns = null;
 		if (!StringUtils.isBlank(tempExcludePattern)) {
-			String[] excludePatternsString = tempExcludePattern.toLowerCase()
+			String[] excludePatternsString = tempExcludePattern
 					.split(delimeterPattern);
 			if (excludePatternsString != null
 					&& excludePatternsString.length > 0) {
@@ -105,7 +105,7 @@ public abstract class SelectiveSessionIdValidationFilter extends
 		String tempIncludePattern = filterConfig.getInitParameter("includes");
 		List<String> includePatterns = null;
 		if (!StringUtils.isBlank(tempIncludePattern)) {
-			String[] includePatternsString = tempIncludePattern.toLowerCase()
+			String[] includePatternsString = tempIncludePattern
 					.split(delimeterPattern);
 			if (includePatternsString != null
 					&& includePatternsString.length > 0) {
