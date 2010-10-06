@@ -54,7 +54,7 @@ public abstract class BaseFilterImpl implements Filter {
 	 * @see javax.servlet.Filter#destroy()
 	 */
 	public void destroy() {
-		logger.debug("destroy()");
+		this.logger.debug("destroy()");
 	}
 
 	/*
@@ -63,7 +63,7 @@ public abstract class BaseFilterImpl implements Filter {
 	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
 	public void init(FilterConfig filterConfig) throws ServletException {
-		logger.debug("init()");
+		this.logger.debug("init()");
 		this.servletContext = filterConfig.getServletContext();
 	}
 
@@ -77,7 +77,7 @@ public abstract class BaseFilterImpl implements Filter {
 			FilterChain filterChain) throws IOException, ServletException {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		String requestURI = httpServletRequest.getRequestURI();
-		logger.debug("request uri: {}", requestURI);
+		this.logger.debug("request uri: {}", requestURI);
 
 		this.preprocessFilterChain(request, response);
 		filterChain.doFilter(request, response);
