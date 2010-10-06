@@ -24,6 +24,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
 /**
+ * 서버 별명 리졸버</br>
+ * 서버 별명을 Message Source를 통해 얻어온다.
  * @author Shin Sangjae
  * 
  */
