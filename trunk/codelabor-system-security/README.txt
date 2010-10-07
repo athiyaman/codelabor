@@ -5,3 +5,6 @@
 
 2.0.1
 	Selective Filter에 toLowerCase() 제거
+
+2.0.2
+	SessionValidationFilter 추가
