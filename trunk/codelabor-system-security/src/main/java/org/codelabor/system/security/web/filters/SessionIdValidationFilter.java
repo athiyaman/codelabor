@@ -38,8 +38,9 @@ import org.slf4j.LoggerFactory;
  * 세션 확인 필터</br> 세션이 유효하지 않으면 정해진 페이지로 리다이렉트 시킨다.
  * 
  * @author Shin Sangjae
- * 
+ * @deprecated 2.0.2부터 SessionValidationFilter로 대체
  */
+@Deprecated
 public class SessionIdValidationFilter extends BaseFilterImpl {
 
 	/**
@@ -69,18 +70,6 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 		logger.debug("expiredURL: {}", expiredURL);
 
 		super.init(filterConfig);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
-	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
-	 */
-	@Override
-	public void postprocessFilterChain(ServletRequest request,
-			ServletResponse response) throws IOException, ServletException {
 	}
 
 	/*
@@ -125,4 +114,15 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
+	@Override
+	public void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+	}
 }

@@ -19,6 +19,7 @@ package org.codelabor.system.security.web.filters;
 
 import java.io.IOException;
 
+import javax.servlet.FilterConfig;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.web.RequestConstants;
+import org.codelabor.system.web.filters.BaseFilterImpl;
 import org.codelabor.system.web.utils.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,13 +40,36 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sangjae
  * 
  */
-public abstract class SessionValidationFilter extends SessionIdValidationFilter {
+public abstract class SessionValidationFilter extends BaseFilterImpl {
 
 	/**
 	 * 로거
 	 */
 	private final Logger logger = LoggerFactory
 			.getLogger(SessionValidationFilter.class);
+
+	/**
+	 * 리다이렉트 URL</br> 세션이 유효하지 않을 때 리다이렉트될 URL
+	 */
+	protected String expiredURL = "/";
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#init(javax.servlet.FilterConfig
+	 * )
+	 */
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		String tempExpiredURL = filterConfig.getInitParameter("expiredURL");
+		if (StringUtils.isNotBlank(tempExpiredURL)) {
+			expiredURL = tempExpiredURL;
+		}
+		logger.debug("expiredURL: {}", expiredURL);
+
+		super.init(filterConfig);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -86,6 +111,18 @@ public abstract class SessionValidationFilter extends SessionIdValidationFilter 
 			logger.debug("current session id: {}", httpSession.getId());
 			dispatcher.forward(request, response);
 		}
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
+	@Override
+	public void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
 	}
 
 	/**

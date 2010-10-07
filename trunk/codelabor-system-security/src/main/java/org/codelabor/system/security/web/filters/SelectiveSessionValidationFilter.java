@@ -37,13 +37,12 @@ import org.slf4j.LoggerFactory;
  * 선택적 세션 확인 필터
  * 
  * @author Shin Sangjae
- * @deprecated 2.0.2부터 SelectiveSessionValidationFilter로 대체
+ * 
  */
-@Deprecated
-public abstract class SelectiveSessionIdValidationFilter extends
-		SessionIdValidationFilter implements SelectiveFilter {
+public abstract class SelectiveSessionValidationFilter extends
+		SessionValidationFilter implements SelectiveFilter {
 	private final Logger logger = LoggerFactory
-			.getLogger(SelectiveSessionIdValidationFilter.class);
+			.getLogger(SelectiveSessionValidationFilter.class);
 
 	/**
 	 * 예외 패턴의 리스트

@@ -8,3 +8,4 @@
 
 2.0.2
 	SessionValidationFilter 추가
+	XXXSessionIdValidXXX 관련 모듈 deprecated

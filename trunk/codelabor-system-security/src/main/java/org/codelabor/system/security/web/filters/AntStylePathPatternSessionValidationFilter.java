@@ -17,17 +17,18 @@
 
 package org.codelabor.system.security.web.filters;
 
+import javax.servlet.ServletRequest;
+
 import org.codelabor.system.web.utils.URIPatternMatcherUtils;
 
 /**
  * Ant 패스 패턴을 적용한 세션 확인 필터
  * 
  * @author Shin Sangjae
- * @deprecated 2.0.2부터 AntStylePathPatternSessionValidationFilter로 대체
+ * 
  */
-@Deprecated
-public class AntStylePathPatternSessionIdValidationFilter extends
-		SelectiveSessionIdValidationFilter {
+public class AntStylePathPatternSessionValidationFilter extends
+		SelectiveSessionValidationFilter {
 
 	/*
 	 * (non-Javadoc)
@@ -39,5 +40,17 @@ public class AntStylePathPatternSessionIdValidationFilter extends
 	public boolean isFilterRequired(String requestURI) {
 		return URIPatternMatcherUtils.matchByAntStylePathPattern(
 				includePatterns, excludePatterns, requestURI);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seeorg.codelabor.system.security.web.filters.SessionValidationFilter#
+	 * isSessionValid(javax.servlet.ServletRequest)
+	 */
+	@Override
+	boolean isSessionValid(ServletRequest request) {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }
