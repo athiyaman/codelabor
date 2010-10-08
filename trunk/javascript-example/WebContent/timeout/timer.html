@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+var count = 0;
+var timer;
+var timerIsOn = false;
+
+function displayCount() {
+	document.getElementById("countField").value = count++;
+	timer = setTimeout("displayCount()", 1000);
+}
+
+function startTimer() {
+	if (!timerIsOn) {
+		timerIsOn = true;
+		displayCount();
+	}
+}
+
+function stopTimer() {
+	//if (timerIsOn) {
+		clearTimeout(timer);
+		timerIsOn = false;
+
+	//}
+}
+</script>
+</head>
+<body>
+	<input type="text" id="countField" readonly="readonly"/>
+	<input type="button" value="start" onclick="startTimer()"/>
+	<input type="button" value="stop" onclick="stopTimer()"/>
+</body>
+</html>
