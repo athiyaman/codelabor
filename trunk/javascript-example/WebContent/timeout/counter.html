@@ -14,14 +14,14 @@ function displayCount() {
 	timer = setTimeout("displayCount()", 1000);
 }
 
-function startCounter() {
+function startTimer() {
 	if (!timerIsOn) {
 		timerIsOn = true;
 		displayCount();
 	}
 }
 
-function stopCounter() {
+function stopTimer() {
 	if (timerIsOn) {
 		clearTimeout(timer);
 		timerIsOn = false;
@@ -33,7 +33,7 @@ function stopCounter() {
 <body>
 	count:
 	<input type="text" id="countField" readonly="readonly"/>
-	<input type="button" value="start" onclick="startCounter()"/>
-	<input type="button" value="stop" onclick="stopCounter()"/>
+	<input type="button" value="start" onclick="startTimer()"/>
+	<input type="button" value="stop" onclick="stopTimer()"/>
 </body>
 </html>
