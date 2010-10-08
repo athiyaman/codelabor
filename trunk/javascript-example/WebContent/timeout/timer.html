@@ -22,15 +22,16 @@ function startTimer() {
 }
 
 function stopTimer() {
-	//if (timerIsOn) {
+	if (timerIsOn) {
 		clearTimeout(timer);
 		timerIsOn = false;
 
-	//}
+	}
 }
 </script>
 </head>
 <body>
+	count:
 	<input type="text" id="countField" readonly="readonly"/>
 	<input type="button" value="start" onclick="startTimer()"/>
 	<input type="button" value="stop" onclick="stopTimer()"/>
