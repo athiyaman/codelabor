@@ -12,12 +12,15 @@ var timerIsOn = false;
 
 function displayCount() {
 	document.getElementById("countField").value = count;
+	if (eval(count) == 0) {
+		alert(count);
+		stopTimer();
+		return;
+	}
 	if (count == deadlineCount) {
 		alert("deadline: "+count);
 	}
-	if (count == 0) {
-		stopTimer();
-	}
+
 	count--;
 	timer = setTimeout("displayCount()", 1000);
 }
@@ -30,6 +33,7 @@ function startTimer() {
 }
 
 function stopTimer() {
+	alert(timerIsOn);
 	if (timerIsOn) {
 		clearTimeout(timer);
 		timerIsOn = false;
