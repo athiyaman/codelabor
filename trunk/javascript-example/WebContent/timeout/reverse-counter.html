@@ -5,20 +5,21 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 var defaultCount = 60;
-var deadlineCount = 10;
+var remindCount = 10;
+var deadlineCount = 0;
 var count = defaultCount;
 var timer;
 var timerIsOn = false;
 
 function displayCount() {
 	document.getElementById("countField").value = count;
-	if (eval(count) == 0) {
+	if (eval(count) == deadlineCount) {
 		alert(count);
 		stopTimer();
 		return;
 	}
-	if (count == deadlineCount) {
-		alert("deadline: "+count);
+	if (count == remindCount) {
+		alert("remindCount: "+count);
 	}
 
 	count--;
@@ -33,7 +34,6 @@ function startTimer() {
 }
 
 function stopTimer() {
-	alert(timerIsOn);
 	if (timerIsOn) {
 		clearTimeout(timer);
 		timerIsOn = false;
