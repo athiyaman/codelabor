@@ -17,5 +17,16 @@
   </dependencies>
   <build>
     <finalName>ajax-example</finalName>
+    <pluginManagement>
+    	<plugins>
+    	</plugins>
+    </pluginManagement>
+    <plugins>
+    	<plugin>
+    		<groupId>org.mortbay.jetty</groupId>
+    		<artifactId>jetty-maven-plugin</artifactId>
+    		<version>7.1.6.v20100715</version>
+    	</plugin>
+    </plugins>
   </build>
 </project>
