@@ -14,10 +14,10 @@
 	}
 
 	function getFormatedTime() {
-		var date = new Date();
-		var hours = date.getHours();
-		var minutes = paddingWithZeros(date.getMinutes());
-		var seconds = paddingWithZeros(date.getSeconds());
+		var currentDate = new Date();
+		var hours = currentDate.getHours();
+		var minutes = paddingWithZeros(currentDate.getMinutes());
+		var seconds = paddingWithZeros(currentDate.getSeconds());
 		var formatedTime = hours + ":" + minutes + ":" + seconds;
 		return formatedTime;
 	}
