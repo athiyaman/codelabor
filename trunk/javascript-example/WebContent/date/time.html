@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function initPage() {
+		displayTime();
+	}
+
+	function displayTime() {
+		document.getElementById("timeField").innerHTML = getFormatedTime();
+		setTimeout("displayTime()", 1000);
+	}
+
+	function getFormatedTime() {
+		var date = new Date();
+		var hours = date.getHours();
+		var minutes = paddingWithZeros(date.getMinutes());
+		var seconds = paddingWithZeros(date.getSeconds());
+		var formatedTime = hours + ":" + minutes + ":" + seconds;
+		return formatedTime;
+	}
+
+	function paddingWithZeros(i) {
+		if (i<10) {
+			i = "0" + i;
+		}
+		return i;
+	}
+</script>
+</head>
+<body onload="initPage()">
+	<span id="timeField"/>
+</body>
+</html>

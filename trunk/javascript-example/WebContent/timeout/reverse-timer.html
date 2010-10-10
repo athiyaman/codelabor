@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var defaultTime = 60;
+var remindTime = 10;
+var deadlineTime = 0;
+var time = defaultTime;
+var timer;
+var timerIsOn = false;
+
+function displayTime() {
+	document.getElementById("timeField").value = time;
+	if (eval(time) == deadlineTime) {
+		alert(time);
+		stopTimer();
+		return;
+	}
+	if (time == remindTime) {
+		alert("remindTime: "+time);
+	}
+
+	time--;
+	timer = setTimeout("displayTime()", 1000);
+}
+
+function startTimer() {
+	if (!timerIsOn) {
+		timerIsOn = true;
+		displayTime();
+	}
+}
+
+function stopTimer() {
+	if (timerIsOn) {
+		clearTimeout(timer);
+		timerIsOn = false;
+	}
+}
+
+function resetTimer() {
+	time = defaultTime;
+	document.getElementById("timeField").value = time;
+}
+</script>
+</head>
+<body>
+	time:
+	<input type="text" id="timeField" readonly="readonly"/>
+	<input type="button" value="start" onclick="startTimer()"/>
+	<input type="button" value="stop" onclick="stopTimer()"/>
+	<input type="button" value="reset" onclick="resetTimer()"/>
+</body>
+</html>
