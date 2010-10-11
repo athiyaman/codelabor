@@ -11,6 +11,7 @@ var deadlineTime = 0;	// 로그인 타임아웃 시간
 var time = defaultTime;	// 현재 시간
 var timer;				// 로그인 시간 타이머
 var timerIsOn = false;	// 로그인 시간 타이머 활성화 여부
+var remindWindow;		// 로그인 시간 연정 여부를 확인하는 팝업 윈도우
 
 // 로그인 시간을 표시한다.
 function displayTime() {
@@ -69,12 +70,17 @@ function paddingWithZeros(i) {
 
 // 로그인 시간 연장 여부를 확인한다.
 function remind() {
-	var remindWindow = window.open("remind-popup.html");
+	var url = "remind-popup.html";
+	var name = "_blank";
+	var specs = "witdh=100, height=100, left=50, top=50, location=no, titlebar=no, menubar=no, toolbar=no, status=no, scrollbars=no, resizable=no";
+	var replace = "false";
+	remindWindow = window.open(url, name, specs, replace);
 }
 
 // 로그아웃 처리한다.
 function logout() {
 	alert("logout");
+	remindWindow.close();
 }
 </script>
 </head>
