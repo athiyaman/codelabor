@@ -5,13 +5,13 @@
 <title>Login</title>
 <script type="text/javascript">
 	function login() {
-		document.getElementById("loginForm").submit();
+		// do something
 		window.close();
 	}
 </script>
 </head>
 <body>
-	<form id="loginForm" action="login-timer2.html" method="post" target="_parent">
+	<form id="loginForm" method="post">
 		<table>
 			<tr>
 				<th>username</th>
@@ -22,7 +22,7 @@
 				<td><input id="password" type="text" /></td>
 			</tr>
 		</table>
-		<input type="button" onclick="login()"/>
+		<input type="button" value="login" onclick="login()"/>
 	</form>
 </body>
 </html>
