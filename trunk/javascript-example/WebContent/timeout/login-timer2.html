@@ -69,12 +69,7 @@ function paddingWithZeros(i) {
 
 // 로그인 시간 연장 여부를 확인한다.
 function remind() {
-	var doExtends = confirm("Your session is about to expire. Do you want to extend it?");
-	if (doExtends) {
-		resetTimer();
-	} else {
-		// bypass
-	}
+	var remindWindow = window.open("remind-popup.html");
 }
 
 // 로그아웃 처리한다.

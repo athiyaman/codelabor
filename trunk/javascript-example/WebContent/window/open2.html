@@ -9,7 +9,8 @@
 		var name = "_blank";
 		var specs = "witdh=100, height=500, left=50, top=50, location=no, titlebar=no, menubar=no, toolbar=no, status=no, scrollbars=no, resizable=no";
 		var replace = "false";
-		window.open(url, name, specs, replace);
+		var popupWindow = window.open(url, name, specs, replace);
+		popupWindow.focus();
 	}
 </script>
 </head>
