@@ -4,15 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 <script type="text/javascript">
+	function login() {
+		document.getElementById("loginForm").submit();
+		window.close();
+	}
 </script>
 </head>
 <body>
-	<form action="" method="post" target="_parent" onsubmit="window.close()">
-		username: <input id="username" type="text" />
-		</br>
-		password: <input id="password" type="text" />
-		</br>
-		<input type="submit"/>
+	<form id="loginForm" action="login-timer2.html" method="post" target="_parent">
+		<table>
+			<tr>
+				<th>username</th>
+				<td><input id="username" type="text" /></td>
+			</tr>
+			<tr>
+				<th>password</th>
+				<td><input id="password" type="text" /></td>
+			</tr>
+		</table>
+		<input type="button" onclick="login()"/>
 	</form>
 </body>
 </html>
