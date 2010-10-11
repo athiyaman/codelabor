@@ -4,13 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-var defaultTime = 30;
-var remindTime = 10;
-var deadlineTime = 0;
-var time = defaultTime;
-var timer;
-var timerIsOn = false;
 
+var defaultTime = 30;	// 기본 로그인 시간
+var remindTime = 10;	// 로그인 시간 연장 여부를 확인하는 시간
+var deadlineTime = 0;	// 로그인 타임아웃 시간
+var time = defaultTime;	// 현재 시간
+var timer;				// 로그인 시간 타이머
+var timerIsOn = false;	// 로그인 시간 타이머 활성화 여부
+
+// 로그인 시간을 표시한다.
 function displayTime() {
 	document.getElementById("timeField").innerHTML = getFormatedTime(time);
 	if (time == deadlineTime) {
@@ -26,6 +28,7 @@ function displayTime() {
 	}
 }
 
+// 로그인 시간 타이머를 시작한다.
 function startTimer() {
 	if (!timerIsOn) {
 		timerIsOn = true;
@@ -33,6 +36,7 @@ function startTimer() {
 	}
 }
 
+// 로그인 시간 타이머를 정지한다.
 function stopTimer() {
 	if (timerIsOn) {
 		clearTimeout(timer);
@@ -40,11 +44,13 @@ function stopTimer() {
 	}
 }
 
+// 로그인 시간 타이머를 초기화한다.
 function resetTimer() {
 	time = defaultTime;
 	document.getElementById("timeField").value = time;
 }
 
+// 시간 표시 포맷으로 변환한다.
 function getFormatedTime(seconds) {
 	var hours = paddingWithZeros(Math.floor(seconds / (60 * 60)));
 	var minutes = paddingWithZeros(Math.floor(seconds / 60));
@@ -53,6 +59,7 @@ function getFormatedTime(seconds) {
 	return formatedTime;
 }
 
+// 빈 자리에 0을 채운다.
 function paddingWithZeros(i) {
 	if (i<10) {
 		i = "0" + i;
@@ -60,6 +67,7 @@ function paddingWithZeros(i) {
 	return i;
 }
 
+// 로그인 시간 연장 여부를 확인한다.
 function remind() {
 	var doExtends = confirm("Do you extends login timeout?");
 	if (doExtends) {
@@ -69,6 +77,7 @@ function remind() {
 	}
 }
 
+// 로그아웃 처리한다.
 function logout() {
 	alert("logout");
 }
