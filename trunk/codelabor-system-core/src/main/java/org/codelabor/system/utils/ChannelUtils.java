@@ -23,7 +23,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 
 /**
- * 채널 유틸
+ * 채널 유틸리티 클래스
  * 
  * @author Shin Sangjae
  * 

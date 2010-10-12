@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 파일 유틸
+ * 파일 유틸리티 클래스
  * 
  * @author Shin Sangjae
  * 

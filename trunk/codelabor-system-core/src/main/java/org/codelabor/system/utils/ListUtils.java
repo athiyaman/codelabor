@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.util.AntPathMatcher;
 
 /**
- * 리스트 유틸
+ * 리스트 유틸리티 클래스
  * 
  * @author Shin Sangjae
  * 
