@@ -39,7 +39,9 @@ public class URIPatternMatcherUtils {
 			.getLogger(URIPatternMatcherUtils.class);
 
 	/**
-	 * Ant 스타일 패스 패턴에 매칭되는지 확인한다.
+	 * Ant 스타일 패스 패턴에 매칭되는지 확인한다.</br> 제외 패턴이 존재할 경우, 제외 패턴에 포함된다면 무조건 false, 제외
+	 * 패턴에 포함되지 않고 포함 패턴이 없거나 포함 패턴에 일치하지 않으면 false를 리턴한다.</br> 제외 패턴이 없을 경우, 포함
+	 * 패턴이 없거나 패턴에 일치하지 않으면 false를 리턴한다.
 	 * 
 	 * @param includePatterns
 	 *            포함할 패턴
