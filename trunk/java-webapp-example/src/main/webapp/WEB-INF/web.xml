@@ -9,20 +9,8 @@
       <param-value>UTF-8</param-value>
     </init-param>
   </filter>
-  <filter>
-    <filter-name>codelaborEncodingFilter</filter-name>
-    <filter-class>org.codelabor.system.web.filters.EncodingFilter</filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-  </filter>
   <filter-mapping>
     <filter-name>springEncodingFilter</filter-name>
     <url-pattern>/encoding/spring-filter/*.jsp</url-pattern>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>codelaborEncodingFilter</filter-name>
-    <url-pattern>/encoding/codelabor-filter/*.jsp</url-pattern>
   </filter-mapping>
 </web-app>
