@@ -19,10 +19,10 @@
   </filter>
   <filter-mapping>
     <filter-name>springEncodingFilter</filter-name>
-    <url-pattern>/spring-filter/*.jsp</url-pattern>
+    <url-pattern>/encoding/spring-filter/*.jsp</url-pattern>
   </filter-mapping>
   <filter-mapping>
     <filter-name>codelaborEncodingFilter</filter-name>
-    <url-pattern>/codelabor-filter/*.jsp</url-pattern>
+    <url-pattern>/encoding/codelabor-filter/*.jsp</url-pattern>
   </filter-mapping>
 </web-app>
