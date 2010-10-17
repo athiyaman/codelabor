@@ -12,3 +12,5 @@
 	RequestConstants 키 명 refectoring (system.servlets > system.web.servlets)
 	BaseFilterImpl 로거 설정 변경 (this.getClass())
 	Selective Filter에 toLowerCase() 제거
+2.0.5
+	spring-binding 버전 수정 (2.0.9.RELEASE)
