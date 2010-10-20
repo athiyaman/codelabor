@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var needToConfirm = false;
+
+	window.onload = initPage;
+	window.onbeforeunload = checkUnload;
+
+	function addEventHander(obj, eventName, handler) {
+		if (document.attachEvent) {
+			obj.attachEvent("on"+eventName, handler);
+		} else if (document.addEventListener) {
+			obj.addEventListener(eventName, hanler, false);
+		} else {
+		}
+	}
+
+	function setNeedToConfirmTrue() {
+		needToConfirm = true;
+	}
+
+	function setNeedToConfirmFalse() {
+		needToConfirm = false;
+	}
+
+	function initPage() {
+		var inputElements = document.getElementsByTagName('input');
+		for (var i=0; i<inputElements.length; i++) {
+			var inputElement = inputElements[i];
+			addEventHander(inputElement, "click", setNeedToConfirmTrue);
+		}
+	}
+
+	function checkUnload() {
+		if (needToConfirm) {
+			return "You have attempted leave this page.\nIf you hava made any changes to the fields without form submit, your change will be lost.\nAre you sure want to exit this page?";
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="">
+		<label for="field1">field1</label><input id="field1" name="field1" type="text"/>
+		<br />
+		<label for="field2">field2</label><input id="field2" name="field2" type="text" />
+		<br />
+		<input type="submit" onclick="setNeedToConfirmFalse()"/>
+	</form>
+</body>
+</html>
