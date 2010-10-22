@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
   <bean id="rememberMeAuthenticationProvider"
-    class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationProvider">
+    class="org.springframework.security.authentication.RememberMeAuthenticationProvider">
     <property name="key" value="springRocks" />
   </bean>
 </beans>
