@@ -19,18 +19,18 @@
 		<config>src/main/resources/spring/security/authentication/filter/applicationContext-securityContextPersistenceFilter.xml</config>
 		<config>src/main/resources/spring/security/authentication/filter/applicationContext-usernamePasswordAuthenticationFilter.xml</config>
 		<config>src/main/resources/spring/security/authentication/handler/applicationContext-exceptionTranslationFilter.xml</config>
-		<config>src/main/resources/spring/security/authentication/manager/applicationContext-accessDecisionManager.xml</config>
-		<config>src/main/resources/spring/security/authentication/manager/applicationContext-authenticationManager.xml</config>
 		<config>src/main/resources/spring/security/authentication/provider/applicationContext-anonymousAuthenticationProvider.xml</config>
 		<config>src/main/resources/spring/security/authentication/provider/applicationContext-rememberAuthenticationProvider.xml</config>
 		<config>src/main/resources/spring/security/authentication/service/applicationContext-rememberMeServices.xml</config>
-		<config>src/main/resources/spring/security/authentication/service/applicationContext-userDetailsService.xml</config>
 		<config>src/main/resources/spring/security/authentication/strategy/applicationContext-concurrentSessionControlStrategy.xml</config>
 		<config>src/main/resources/spring/security/authentication/strategy/applicationContext-sessionAuthenticationStrategy.xml</config>
 		<config>src/main/resources/spring/security/authentication/applicationContext-filterChainProxy.xml</config>
 		<config>src/main/resources/spring/security/authentication/applicationContext-filterSecurityInterceptor.xml</config>
 		<config>src/main/resources/spring/security/authentication/applicationContext-sessionRegistry.xml</config>
 		<config>src/main/webapp/WEB-INF/applicationContext.xml</config>
+		<config>src/main/resources/spring/security/user-details/applicationContext-JdbcDaoUserDetailsService.xml</config>
+		<config>src/main/resources/spring/security/access/applicationContext-accessDecisionManager.xml</config>
+		<config>src/main/resources/spring/security/authentication/applicationContext-authenticationManager.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -53,15 +53,15 @@
 				<config>src/main/resources/spring/security/authentication/filter/applicationContext-securityContextPersistenceFilter.xml</config>
 				<config>src/main/resources/spring/security/authentication/filter/applicationContext-usernamePasswordAuthenticationFilter.xml</config>
 				<config>src/main/resources/spring/security/authentication/handler/applicationContext-exceptionTranslationFilter.xml</config>
-				<config>src/main/resources/spring/security/authentication/manager/applicationContext-accessDecisionManager.xml</config>
-				<config>src/main/resources/spring/security/authentication/manager/applicationContext-authenticationManager.xml</config>
 				<config>src/main/resources/spring/security/authentication/provider/applicationContext-anonymousAuthenticationProvider.xml</config>
 				<config>src/main/resources/spring/security/authentication/provider/applicationContext-rememberAuthenticationProvider.xml</config>
 				<config>src/main/resources/spring/security/authentication/service/applicationContext-rememberMeServices.xml</config>
-				<config>src/main/resources/spring/security/authentication/service/applicationContext-userDetailsService.xml</config>
 				<config>src/main/resources/spring/security/authentication/strategy/applicationContext-concurrentSessionControlStrategy.xml</config>
 				<config>src/main/resources/spring/security/authentication/strategy/applicationContext-sessionAuthenticationStrategy.xml</config>
 				<config>src/main/webapp/WEB-INF/applicationContext.xml</config>
+				<config>src/main/resources/spring/security/user-details/applicationContext-JdbcDaoUserDetailsService.xml</config>
+				<config>src/main/resources/spring/security/access/applicationContext-accessDecisionManager.xml</config>
+				<config>src/main/resources/spring/security/authentication/applicationContext-authenticationManager.xml</config>
 			</configs>
 		</configSet>
 	</configSets>
