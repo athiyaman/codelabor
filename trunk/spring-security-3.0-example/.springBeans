@@ -30,7 +30,39 @@
 		<config>src/main/resources/spring/security/authentication/applicationContext-filterChainProxy.xml</config>
 		<config>src/main/resources/spring/security/authentication/applicationContext-filterSecurityInterceptor.xml</config>
 		<config>src/main/resources/spring/security/authentication/applicationContext-sessionRegistry.xml</config>
+		<config>src/main/webapp/WEB-INF/applicationContext.xml</config>
 	</configs>
 	<configSets>
+		<configSet>
+			<name><![CDATA[all]]></name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>src/main/resources/spring/security/authentication/applicationContext-filterChainProxy.xml</config>
+				<config>src/main/resources/spring/security/authentication/applicationContext-filterSecurityInterceptor.xml</config>
+				<config>src/main/resources/spring/security/authentication/applicationContext-sessionRegistry.xml</config>
+				<config>src/main/resources/spring/security/authentication/entry-point/applicationContext-basicAuthenticationEntryPoint.xml</config>
+				<config>src/main/resources/spring/security/authentication/entry-point/applicationContext-digestAuthenticationEntryPoint.xml</config>
+				<config>src/main/resources/spring/security/authentication/entry-point/applicationContext-loginUrlAuthenticationEntryPoint.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-anonymousAuthenticationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-basicAuthenticationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-concurrentSessionFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-digestAuthenticationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-exceptionTranslationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-rememberMeAuthenticationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-securityContextPersistenceFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/filter/applicationContext-usernamePasswordAuthenticationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/handler/applicationContext-exceptionTranslationFilter.xml</config>
+				<config>src/main/resources/spring/security/authentication/manager/applicationContext-accessDecisionManager.xml</config>
+				<config>src/main/resources/spring/security/authentication/manager/applicationContext-authenticationManager.xml</config>
+				<config>src/main/resources/spring/security/authentication/provider/applicationContext-anonymousAuthenticationProvider.xml</config>
+				<config>src/main/resources/spring/security/authentication/provider/applicationContext-rememberAuthenticationProvider.xml</config>
+				<config>src/main/resources/spring/security/authentication/service/applicationContext-rememberMeServices.xml</config>
+				<config>src/main/resources/spring/security/authentication/service/applicationContext-userDetailsService.xml</config>
+				<config>src/main/resources/spring/security/authentication/strategy/applicationContext-concurrentSessionControlStrategy.xml</config>
+				<config>src/main/resources/spring/security/authentication/strategy/applicationContext-sessionAuthenticationStrategy.xml</config>
+				<config>src/main/webapp/WEB-INF/applicationContext.xml</config>
+			</configs>
+		</configSet>
 	</configSets>
 </beansProjectDescription>

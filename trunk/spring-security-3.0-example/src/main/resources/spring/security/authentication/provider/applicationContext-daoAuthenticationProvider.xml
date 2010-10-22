@@ -7,8 +7,10 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="userDetailsService"
-    class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
-    <property name="dataSource" ref="dataSoruce" />
+  <bean id="anonymousAuthenticationProvider"
+    class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+    <property name="userDetailService" value="inMemoryDaoImpl" />
+    <property name="saltSource" ref="saltSource" />
+    <property name="passwordEncoder" ref="passwordEncoder" />
   </bean>
 </beans>

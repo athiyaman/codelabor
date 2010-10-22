@@ -7,8 +7,11 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="userDetailsService"
-    class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
-    <property name="dataSource" ref="dataSoruce" />
+  <bean id="reflectionSaltSource"
+    class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+  </bean>
+
+  <bean id="systemWideSaltSource"
+    class="org.springframework.security.authentication.dao.SystemWideSaltSource">
   </bean>
 </beans>

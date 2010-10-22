@@ -9,7 +9,7 @@
 
   <bean id="anonymousAuthenticationFilter"
     class="org.springframework.security.web.authentication.AnonymousAuthenticationFilter">
-    <property name="key" ref="foobar" />
+    <property name="key" value="foobar" />
     <property name="userAttribute" value="anonymousUser, ROLE_ANONYMOUS" />
   </bean>
 </beans>
