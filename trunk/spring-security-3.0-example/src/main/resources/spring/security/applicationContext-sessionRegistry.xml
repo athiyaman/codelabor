@@ -7,10 +7,7 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="usernamePasswordAuthenticationFilter"
-    class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
-    <property name="authenticationManager" ref="authenticationManager" />
-    <property name="filterProcessesUrl" value="/j_spring-security_check" />
-    <property name="sessionAuthenticationStrategy" ref="concurrentSessionControlStrategy" />
+  <bean id="sessionRegistry"
+    class="org.springframework.security.core.session.SessionRegistryImpl">
   </bean>
 </beans>
