@@ -8,8 +8,5 @@
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
   <bean id="sessionFixationProtectionStrategy"
-    class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy">
-    <property name="sessionRegistry" ref="sessionRegistry" />
-    <property name="maximumSessions" value="1" />
-  </bean>
+    class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy" />
 </beans>

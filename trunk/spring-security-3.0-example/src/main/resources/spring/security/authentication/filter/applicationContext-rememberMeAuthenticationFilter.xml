@@ -8,8 +8,8 @@
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
   <bean id="rememberMeAuthenticationFilter"
-    class="org.springframework.security.web.authentication.remember.RememberMeAuthenticationFilter">
+    class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
     <property name="authenticationManager" ref="authenticationManager" />
-    <property name="rememberMeService" ref="rememberMeService" />
+    <property name="rememberMeServices" ref="rememberMeServices" />
   </bean>
 </beans>
