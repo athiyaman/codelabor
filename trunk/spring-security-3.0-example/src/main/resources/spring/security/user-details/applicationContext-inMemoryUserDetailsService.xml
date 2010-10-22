@@ -7,8 +7,12 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="userDetailsService"
-    class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
-    <property name="dataSource" ref="dataSoruce" />
+  <bean id="inMemoryUserDetailsService"
+    class="org.springframework.security.core.userdetails.memory.InMemoryDaoImpl">
+    <property name="userProperties">
+      <props>
+        <prop key=""></prop>
+      </props>
+    </property>
   </bean>
 </beans>
