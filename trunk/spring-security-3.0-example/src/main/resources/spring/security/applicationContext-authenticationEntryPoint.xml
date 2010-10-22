@@ -7,11 +7,6 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="loginUrlAuthenticationEntryPoint"
-    class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-    <property name="loginFormUrl" value="/login.jsp" />
-  </bean>
-
   <bean id="basicAuthenticationEntryPoint"
     class="org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint">
     <property name="realmName" value="CODELABOR Realm via Basic Authentication" />
@@ -22,5 +17,10 @@
     <property name="realmName" value="CODELABOR Realm via Digest Authentication"></property>
     <property name="key" value="acegi" />
     <property name="nonceValiditySeconds" value="10" />
+  </bean>
+
+  <bean id="loginUrlAuthenticationEntryPoint"
+    class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+    <property name="loginFormUrl" value="/login.jsp" />
   </bean>
 </beans>

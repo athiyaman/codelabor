@@ -17,5 +17,11 @@
     <property name="userDetailsService" ref="jdbcDaoImpl" />
     <property name="authenticationEntryPoint" ref="digestAuthenticationEntryPoint" />
     <property name="userCache" ref="userCache" />
-   </bean>
+  </bean>
+
+  <bean id="usernamePasswordAuthenticationFilter"
+    class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+    <property name="authenticationManager" ref="authenticationManager" />
+    <property name="filterProcessesUrl" value="/j_spring-security_check" />
+  </bean>
 </beans>

@@ -6,9 +6,10 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
   <bean id="exceptionTranslationFilter"
     class="org.springframework.security.web.access.ExceptionTranslationFilter">
-    <property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
+    <property name="authenticationEntryPoint" ref="basicAuthenticationEntryPoint" />
     <property name="accessDeniedHandler" ref="accessDeniedHandler" />
   </bean>
 
