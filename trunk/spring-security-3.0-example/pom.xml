@@ -22,6 +22,20 @@
     	<type>jar</type>
     	<scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-web</artifactId>
+    	<version>3.0.4.RELEASE</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework.security</groupId>
+    	<artifactId>spring-security-config</artifactId>
+    	<version>3.0.3.RELEASE</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>spring-security-example</finalName>
@@ -51,10 +65,14 @@
                   <goal>execute</goal>
                 </goals>
                 <configuration>
-                  <autocommit>true</autocommit>
-                  <srcFiles>
-                    <srcFile>src/main/sql/${jdbc.product.name}/**/*-schema.sql</srcFile>
-                  </srcFiles>
+                  <orderFile>ascending</orderFile>
+                  <fileset>
+                    <basedir>${basedir}</basedir>
+                    <includes>
+                      <include>src/main/main/sql/${jdbc.product.name}/**/*-schema.sql</include>
+                    </includes>
+                  </fileset>
+                  <onError>continue</onError>
                 </configuration>
               </execution>
               <execution>
@@ -68,13 +86,18 @@
                   <fileset>
                     <basedir>${basedir}</basedir>
                     <includes>
-                      <include>src/main/resources/sql/${jdbc.product.name}/**/*-data.sql</include>
+                      <include>src/main/main/sql/${jdbc.product.name}/**/*-data.sql</include>
                     </includes>
                   </fileset>
                   <onError>continue</onError>
                 </configuration>
               </execution>
             </executions>
+    	</plugin>
+    	<plugin>
+    		<groupId>org.mortbay.jetty</groupId>
+    		<artifactId>jetty-maven-plugin</artifactId>
+    		<version>7.1.6.v20100715</version>
     	</plugin>
     </plugins>
   </build>
