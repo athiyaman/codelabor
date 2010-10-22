@@ -7,9 +7,8 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="exceptionTranslationFilter"
-    class="org.springframework.security.web.access.ExceptionTranslationFilter">
-    <property name="authenticationEntryPoint" ref="basicAuthenticationEntryPoint" />
-    <property name="accessDeniedHandler" ref="accessDeniedHandler" />
+  <bean id="accessDeniedHandler"
+    class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+    <property name="errorPage" value="access-denied.jsp" />
   </bean>
 </beans>
