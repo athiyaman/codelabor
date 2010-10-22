@@ -7,4 +7,8 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
+  <bean id="jdbcDaoUserDetailsService"
+    class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+    <property name="dataSource" ref="dataSoruce" />
+  </bean>
 </beans>
