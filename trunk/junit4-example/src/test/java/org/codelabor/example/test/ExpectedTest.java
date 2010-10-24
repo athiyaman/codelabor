@@ -22,9 +22,9 @@ import org.junit.Test;
  * @author Shin Sangjae
  * 
  */
-public class DividedByZeroTest {
+public class ExpectedTest {
 	@Test(expected = java.lang.ArithmeticException.class)
-	public void devidedByZeroTest() throws Exception {
+	public void expectedTest() throws Exception {
 		@SuppressWarnings("unused")
 		int i = 0;
 		if (true) {
