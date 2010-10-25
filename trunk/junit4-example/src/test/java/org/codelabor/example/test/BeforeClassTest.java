@@ -16,6 +16,9 @@
  */
 package org.codelabor.example.test;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,15 +27,30 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sangjae
  * 
  */
-public class ExpectedTest {
-	private final Logger logger = LoggerFactory.getLogger(ExpectedTest.class);
+public class BeforeClassTest {
+	private final static Logger logger = LoggerFactory
+			.getLogger(BeforeClassTest.class);
 
-	@Test(expected = java.lang.ArithmeticException.class)
-	public void expectedTest() throws Exception {
-		@SuppressWarnings("unused")
-		int i = 0;
-		if (true) {
-			i = 1 / 0;
-		}
+	@BeforeClass
+	public static void beforeClassMethod() {
+		logger.debug("before class test");
+	}
+
+	@Test
+	public void someTest() {
+		int i = 1 + 1;
+		assertEquals(2, i);
+	}
+
+	@Test
+	public void someTest2() {
+		int i = 1 + 1;
+		assertEquals(2, i);
+	}
+
+	@Test
+	public void someTest3() {
+		int i = 1 + 1;
+		assertEquals(2, i);
 	}
 }
