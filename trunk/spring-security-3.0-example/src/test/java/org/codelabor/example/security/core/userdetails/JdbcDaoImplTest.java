@@ -29,11 +29,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * @author Shin Sangjae
  * 
  */
-public class InMomoryDaoImplTest {
+public class JdbcDaoImplTest {
 	private final Logger logger = LoggerFactory
-			.getLogger(InMomoryDaoImplTest.class);
+			.getLogger(JdbcDaoImplTest.class);
 	private ApplicationContext context;
-	private final String[] configLocations = new String[] { "classpath:**/user-details/applicationContext-inMemoryDaoImpl.xml" };
+	private final String[] configLocations = new String[] {
+			"classpath:**/user-details/applicationContext-jdbcDaoImpl.xml",
+			"classpath:**/jdbc/applicationContext-embeded-database.xml" };
 	private UserDetailsService userDetailsService;
 
 	/**
@@ -43,7 +45,7 @@ public class InMomoryDaoImplTest {
 	public void setUp() throws Exception {
 		context = new ClassPathXmlApplicationContext(configLocations, true);
 		userDetailsService = (UserDetailsService) context
-				.getBean("inMemoryDaoImpl");
+				.getBean("jdbcDaoImpl");
 	}
 
 	/**
