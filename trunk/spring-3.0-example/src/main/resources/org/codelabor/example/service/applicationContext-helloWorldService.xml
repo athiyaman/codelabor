@@ -5,12 +5,7 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 
-   <jdbc:embedded-database id="dataSource">
-    <jdbc:script location="classpath:*schema.sql"/>
-    <jdbc:script location="classpath:*data.sql"/>
-   </jdbc:embedded-database>
+    <bean id="helloWorldService"
+        class="org.codelabor.example.service.HelloWorldServiceImpl" />
 
-   <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource"/>
-   </bean>
 </beans>
