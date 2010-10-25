@@ -11,7 +11,7 @@
     class="org.springframework.security.core.userdetails.memory.InMemoryDaoImpl">
     <property name="userProperties">
       <props>
-        <prop key=""></prop>
+        <prop key="bomber">bomber,enabled,ROLE_USER</prop>
       </props>
     </property>
   </bean>
