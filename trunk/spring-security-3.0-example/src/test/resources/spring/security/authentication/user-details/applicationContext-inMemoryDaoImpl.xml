@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/security
     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-  <bean id="inMemoryUserDetailsService"
+  <bean id="inMemoryDaoImpl"
     class="org.springframework.security.core.userdetails.memory.InMemoryDaoImpl">
     <property name="userProperties">
       <props>

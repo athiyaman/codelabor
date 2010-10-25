@@ -33,7 +33,7 @@ public class InMomoryDaoImplTest {
 	private final Logger logger = LoggerFactory
 			.getLogger(InMomoryDaoImplTest.class);
 	private ApplicationContext context;
-	private final String[] configLocations = new String[] { "classpath:**/applicationContext-inMemoryUserDetailsService.xml" };
+	private final String[] configLocations = new String[] { "classpath:**/applicationContext-inMemoryDaoImpl.xml" };
 	private UserDetailsService userDetailsService;
 
 	/**
@@ -43,7 +43,7 @@ public class InMomoryDaoImplTest {
 	public void setUp() throws Exception {
 		context = new ClassPathXmlApplicationContext(configLocations, true);
 		userDetailsService = (UserDetailsService) context
-				.getBean("inMemoryUserDetailsService");
+				.getBean("inMemoryDaoImpl");
 	}
 
 	/**
