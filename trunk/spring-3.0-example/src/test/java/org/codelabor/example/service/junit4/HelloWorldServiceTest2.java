@@ -21,20 +21,25 @@ import junit.framework.Assert;
 import org.codelabor.example.service.HelloWorldService;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Shin Sangjae
  * 
  */
-public class HelloWorldServiceTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:**/applicationContext-helloWorldService.xml")
+public class HelloWorldServiceTest2 {
 	private final Logger logger = LoggerFactory
-			.getLogger(HelloWorldServiceTest.class);
+			.getLogger(HelloWorldServiceTest2.class);
+	@Autowired
 	private ApplicationContext context;
-	private final String[] configLocations = new String[] { "classpath:**/applicationContext-helloWorldService.xml" };
 	private HelloWorldService helloWorldService;
 
 	/**
@@ -42,7 +47,6 @@ public class HelloWorldServiceTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		context = new ClassPathXmlApplicationContext(configLocations, true);
 		helloWorldService = (HelloWorldService) context
 				.getBean("helloWorldService");
 	}
