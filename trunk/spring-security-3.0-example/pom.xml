@@ -118,7 +118,7 @@
                   <fileset>
                     <basedir>${basedir}</basedir>
                     <includes>
-                      <include>src/main/main/sql/${jdbc.product.name}/**/*-schema.sql</include>
+                      <include>src/main/test/resources/sql/${jdbc.product.name}/**/*-schema.sql</include>
                     </includes>
                   </fileset>
                   <onError>continue</onError>
@@ -135,7 +135,7 @@
                   <fileset>
                     <basedir>${basedir}</basedir>
                     <includes>
-                      <include>src/main/main/sql/${jdbc.product.name}/**/*-data.sql</include>
+                      <include>src/main/test/resources/sql/${jdbc.product.name}/**/*-data.sql</include>
                     </includes>
                   </fileset>
                   <onError>continue</onError>
