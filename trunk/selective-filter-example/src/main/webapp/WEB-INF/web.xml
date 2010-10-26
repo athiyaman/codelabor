@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>selective filter example</display-name>
-  <!--
+
+  <!-- selective filter -->
   <filter>
     <filter-name>noCacheFilter</filter-name>
     <filter-class>org.codelabor.system.web.filters.AntStylePathPatternNoCacheFilter</filter-class>
@@ -14,11 +15,15 @@
       <param-value>/**/cache/*</param-value>
     </init-param>
   </filter>
-  -->
-    <filter>
+
+  <!-- standard filter -->
+  <!--
+  <filter>
     <filter-name>noCacheFilter</filter-name>
     <filter-class>org.codelabor.system.web.filters.NoCacheFilter</filter-class>
- </filter>
+  </filter>
+  -->
+
   <filter-mapping>
     <filter-name>noCacheFilter</filter-name>
     <url-pattern>/*</url-pattern>
