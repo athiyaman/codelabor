@@ -28,6 +28,23 @@
     <name>CODELABOR</name>
     <url>http://codelabor.org</url>
   </organization>
+  <developers>
+    <developer>
+        <id>bomber</id>
+        <name>Sangjae Shin</name>
+        <email>codelabor@gmail.com</email>
+        <organization>CODELABOR</organization>
+        <organizationUrl>http://codelabor.org</organizationUrl>
+        <roles>
+            <role>archiect</role>
+            <role>developer</role>
+        </roles>
+        <timezone>+9</timezone>
+        <properties>
+            <picUrl>http://blogfiles12.naver.net/data18/2006/8/13/171/naver_bomber_trooper_face-phrack.jpg</picUrl>
+        </properties>
+    </developer>
+  </developers>
   <build>
     <plugins>
       <plugin>
