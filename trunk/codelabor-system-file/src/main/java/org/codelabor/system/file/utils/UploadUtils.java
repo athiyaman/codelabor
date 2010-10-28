@@ -43,7 +43,8 @@ public class UploadUtils {
 	/**
 	 * 로거
 	 */
-	public static final Logger logger = LoggerFactory.getLogger(UploadUtils.class);
+	public static final Logger logger = LoggerFactory
+			.getLogger(UploadUtils.class);
 
 	/**
 	 * 파일을 처리한다.</br> 파일 저장 방식이 FILE_SYSTEM인 경우, 디스크에 저장하고 DATABASE인 경우 byte[]로
@@ -151,11 +152,19 @@ public class UploadUtils {
 	 * 
 	 * @param realFileNameWithPath
 	 *            경로를 포함한 파일명
-	 * @return 파일명
+	 * @return 경로를 포함하지 않는 파일명
 	 */
 	static public String stripPathInfo(String realFileNameWithPath) {
-		int lastIndex = realFileNameWithPath.lastIndexOf(System
-				.getProperty("file.separator"));
+		// int lastIndex = realFileNameWithPath.lastIndexOf(System
+		// .getProperty("file.separator"));
+
+		// for unix client
+		int lastIndex = realFileNameWithPath.lastIndexOf("/");
+		// for windows client
+		if (lastIndex < 0) {
+			lastIndex = realFileNameWithPath.lastIndexOf("\\");
+		}
+
 		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
 		String realFileName = realFileNameWithPath.substring(beginIndex);
 
