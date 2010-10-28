@@ -27,7 +27,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @author Shin Sangjae
+ * @author Sangjae Shin
  * 
  */
 public class HelloWorldServiceTest {
