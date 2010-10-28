@@ -23,7 +23,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * @author Sangjae Shin
+ * @author Shin Sang-jae
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)

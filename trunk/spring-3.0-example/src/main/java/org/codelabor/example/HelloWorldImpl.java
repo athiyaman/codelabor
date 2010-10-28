@@ -19,7 +19,7 @@ package org.codelabor.example;
 import org.codelabor.example.service.HelloWorldService;
 
 /**
- * @author Sangjae Shin
+ * @author Shin Sang-jae
  * 
  */
 public class HelloWorldImpl implements HelloWorldService {

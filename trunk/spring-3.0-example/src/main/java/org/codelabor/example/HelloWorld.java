@@ -17,7 +17,7 @@
 package org.codelabor.example;
 
 /**
- * @author Sangjae Shin
+ * @author Shin Sang-jae
  * 
  */
 public interface HelloWorld {

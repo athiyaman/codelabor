@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 /**
- * @author Sangjae Shin
+ * @author Shin Sang-jae
  * 
  */
 @ContextConfiguration(locations = { "/jdbc/applicationContext-embeded-database.xml" })
