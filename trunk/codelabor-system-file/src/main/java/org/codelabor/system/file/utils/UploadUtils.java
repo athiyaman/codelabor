@@ -168,12 +168,8 @@ public class UploadUtils {
 		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
 		String realFileName = realFileNameWithPath.substring(beginIndex);
 
-		if (logger.isDebugEnabled()) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("realFileNameWithPath: ").append(realFileNameWithPath);
-			sb.append(", realFileName: ").append(realFileName);
-			logger.debug(sb.toString());
-		}
+		logger.debug("realFileNameWithPath: {}", realFileNameWithPath);
+		logger.debug("realFileName: {}", realFileName);
 		return realFileName;
 	}
 }
