@@ -38,8 +38,16 @@ public class FileUtils {
 	 * @return 파일명
 	 */
 	static public String getFileName(String fileNameWithPath) {
-		int lastIndex = fileNameWithPath.lastIndexOf(System
-				.getProperty("file.separator"));
+		// int lastIndex = realFileNameWithPath.lastIndexOf(System
+		// .getProperty("file.separator"));
+
+		// for unix client
+		int lastIndex = fileNameWithPath.lastIndexOf("/");
+		// for windows client
+		if (lastIndex < 0) {
+			lastIndex = fileNameWithPath.lastIndexOf("\\");
+		}
+
 		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
 		String fileName = fileNameWithPath.substring(beginIndex);
 		logger.debug("fileNameWithPath: {}", fileNameWithPath);
