@@ -38,13 +38,29 @@ public class DateUtilsTest {
 	@Test
 	public void testGetDays() {
 		// normal year
-		int days = DateUtils.getDays(1900, 2);
+		int days = DateUtils.getDays(1900, 1);
+		assertEquals(31, days);
+		logger.debug("days: {}", days);
+
+		days = DateUtils.getDays(1900, 2);
 		assertEquals(28, days);
 		logger.debug("days: {}", days);
 
+		days = DateUtils.getDays(1900, 4);
+		assertEquals(30, days);
+		logger.debug("days: {}", days);
+
 		// leap year
-		days = DateUtils.getDays(2000, 2);
+		days = DateUtils.getDays(1980, 1);
+		assertEquals(31, days);
+		logger.debug("days: {}", days);
+
+		days = DateUtils.getDays(1980, 2);
 		assertEquals(29, days);
+		logger.debug("days: {}", days);
+
+		days = DateUtils.getDays(1980, 4);
+		assertEquals(30, days);
 		logger.debug("days: {}", days);
 
 	}

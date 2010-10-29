@@ -18,6 +18,7 @@
 package org.codelabor.system.utils;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,9 +45,13 @@ public class DateUtils {
 	 * @return 최대 일 수
 	 */
 	static public int getDays(int year, int month) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		return calendar.getActualMaximum(Calendar.DATE);
+		GregorianCalendar calendar = new GregorianCalendar(year, month - 1, 1);
+		boolean isLeapYear = calendar.isLeapYear(year);
+		int lastDate = calendar.getActualMaximum(Calendar.DATE);
+
+		logger.debug("calendar.getTime(): {}", calendar.getTime());
+		logger.debug("isLeapYear: {}", isLeapYear);
+		logger.debug("lastDate: {}", lastDate);
+		return lastDate;
 	}
 }
