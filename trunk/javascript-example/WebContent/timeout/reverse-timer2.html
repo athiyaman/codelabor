@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var defaultTime = 120;
+var remindTime = 10;
+var deadlineTime = 0;
+var time = defaultTime;
+var timer;
+var timerIsOn = false;
+
+function displayTime() {
+	document.getElementById("timeField").innerHTML = getFormatedTime(time);
+	if (eval(time) == deadlineTime) {
+		alert(time);
+		stopTimer();
+		return;
+	}
+	if (time == remindTime) {
+		alert("remindTime: "+time+" seconds");
+	}
+	time--;
+}
+
+function startTimer() {
+	if (!timerIsOn) {
+		timerIsOn = true;
+		timer = setInterval("displayTime()", 1000);
+	}
+}
+
+function stopTimer() {
+	if (timerIsOn) {
+		clearInterval(timer);
+		timerIsOn = false;
+	}
+}
+
+function resetTimer() {
+	time = defaultTime;
+	document.getElementById("timeField").value = time;
+}
+
+function getFormatedTime(seconds) {
+	var hours = paddingWithZeros(Math.floor(seconds / (60 * 60)));
+	var minutes = paddingWithZeros(Math.floor(seconds / 60));
+	var seconds = paddingWithZeros(seconds % 60);
+	var formatedTime = hours + ":" + minutes + ":" + seconds;
+	return formatedTime;
+}
+
+function paddingWithZeros(i) {
+	if (i<10) {
+		i = "0" + i;
+	}
+	return i;
+}
+
+</script>
+</head>
+<body onload="startTimer()">
+	time:
+	<span id="timeField"></span></br>
+	<input type="button" value="start" onclick="startTimer()"/>
+	<input type="button" value="stop" onclick="stopTimer()"/>
+	<input type="button" value="reset" onclick="resetTimer()"/>
+</body>
+</html>
