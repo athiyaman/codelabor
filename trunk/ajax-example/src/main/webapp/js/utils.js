@@ -13,12 +13,12 @@ function createRequest() {
 		}
 	}
 	return request;
+}
 
-	function addEventHander(obj, eventName, handler) {
-		if (document.attachEvent) {
-			obj.attachEvent("on" + eventName, handler);
-		} else if (document.addEventListener) {
-			obj.addEventListener(eventName, hanler, false);
-		}
+function addEventHander(obj, eventName, handler) {
+	if (document.attachEvent) {
+		obj.attachEvent("on" + eventName, handler);
+	} else if (document.addEventListener) {
+		obj.addEventListener(eventName, hanler, false);
 	}
 }
