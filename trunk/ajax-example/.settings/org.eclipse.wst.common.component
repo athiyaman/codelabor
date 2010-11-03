@@ -3,6 +3,7 @@
     <wb-module deploy-name="ajax-example">
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="context-root" value="ajax-example"/>
         <property name="java-output-path" value="/ajax-example/target/classes"/>
     </wb-module>
