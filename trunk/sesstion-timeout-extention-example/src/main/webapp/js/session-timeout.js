@@ -148,3 +148,21 @@ function timeout() {
 	var replace = "false";
 	window.open(url, name, specs, replace);
 }
+
+// 빈 자리에 0을 채운다.
+function paddingWithZeros(i) {
+	if (i < 10) {
+		i = "0" + i;
+	}
+	return i;
+}
+
+// 밀리세컨드 시간을 포매팅된 형식으로 되돌려준다.
+function getFormatedTimeByMilliseconds(milliseconds) {
+	var date = new Date(milliseconds);
+	var hours = paddingWithZeros(date.getHours());
+	var minutes = paddingWithZeros(date.getMinutes());
+	var seconds = paddingWithZeros(date.getSeconds());
+	var formatedTime = hours + ":" + minutes + ":" + seconds;
+	return formatedTime;
+}
