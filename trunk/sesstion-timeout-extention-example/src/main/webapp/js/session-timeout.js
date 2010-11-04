@@ -6,6 +6,7 @@ var sessinoWariningTime = 60; // 세션 타임 아웃 시간 연장 여부를 �
 var sessionTimer; // 세션 타임 아웃 타이머
 var sessionTimerIsOn = false; // 세션 타임 아웃 타이머 활성화 여부
 var getSessionTimeoutRequest; // 세션 타임 아웃 요청
+var warnTimeoutWindow; // 세션 타임아웃 경고 윈도우
 
 // 세션 타임 아웃 시간을 설정한다.
 function setSessionTimeout() {
@@ -74,7 +75,7 @@ function warnTimeout() {
 	var name = "_blank";
 	var specs = "witdh=100, height=100, left=50, top=50, location=no, titlebar=no, menubar=no, toolbar=no, status=no, scrollbars=no, resizable=no";
 	var replace = "false";
-	window.open(url, name, specs, replace);
+	warnTimeoutWindow = window.open(url, name, specs, replace);
 }
 
 // //세션 유지를 위해 마지막 세션 접근 시간을 가져온다.
@@ -122,6 +123,7 @@ function stopKeepAliveTimer() {
 
 // //세션 무효화 작업
 var sessionInvalidateRequest; // 세션 무효화 요청
+var logoutWindow; // 로그 아웃 팝업 윈도우
 
 // 세션을 무효화한다.
 function invalidateSession() {
@@ -146,5 +148,5 @@ function timeout() {
 	var name = "_blank";
 	var specs = "witdh=100, height=100, left=50, top=50, location=no, titlebar=no, menubar=no, toolbar=no, status=no, scrollbars=no, resizable=no";
 	var replace = "false";
-	window.open(url, name, specs, replace);
+	logoutWindow = window.open(url, name, specs, replace);
 }
