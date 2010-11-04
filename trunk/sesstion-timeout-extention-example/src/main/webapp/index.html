@@ -110,6 +110,22 @@ function startKeepAliveTimer() {
 	}
 }
 
+//// 세션 무효화 작업
+var sessionInvalidateRequest;	// 세션 무효화 요청
+
+// 세션을 무효화한다.
+function invalidateSession() {
+	sessionInvalidateRequest = createRequest();
+	if (sessionInvalidateRequest == null) {
+		alert("Unable to create request");
+		return;
+	}
+	var url = "/session-invalidate.jsp";
+	sessionInvalidateRequest.open("GET", url, true);
+	sessionInvalidateRequest.send(null);
+}
+
+//// 초기화 작업
 // 세션 유지 타이머를 정지한다.
 function stopKeepAliveTimer() {
 	if (keepAliveTimerIsOn) {
@@ -129,6 +145,8 @@ function initPage() {
 function timeout() {
 	stopSessionTimer();			// 세션 타임 아웃  타이머를 종료한다.
 	stopKeepAliveTimer(); 		// 세션 유지 타이머를 종료한다.
+	invalidateSession();		// 세션을 무효화 한다.
+
 	// open warn timeout popup
 	var url = "logout-popup.html";
 	var name = "_blank";
