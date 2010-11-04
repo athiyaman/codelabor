@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Session Info</title>
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript">
+function displaySessionInfo() {
+	if (request.readyState == 4) {
+		if (request.status == 200) {
+			document.getElementById("lastAccessTime").innerHTML = request.responseText;
+		}
+	}
+}
+
+function sendRequest() {
+	request = createRequest();
+	if (request == null) {
+		alert("Unable to create request");
+		return;
+	}
+	var url = "/session/session-info.jsp";
+	request.open("GET", url, true);
+	request.onreadystatechange = displaySessionInfo;
+	request.send(null);
+}
+
+setInterval("sendRequest()", 1000);
+</script>
+</head>
+<body>
+	<h1>Session Info</h1>
+	<label for="lastAccessTime">LastAccessTime: </label><span id="lastAccessTime"></span>
+</body>
+</html>
