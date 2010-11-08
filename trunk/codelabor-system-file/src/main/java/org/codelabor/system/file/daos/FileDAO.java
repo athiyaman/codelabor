@@ -31,28 +31,6 @@ import org.codelabor.system.file.dtos.FileDTO;
 public interface FileDAO {
 
 	/**
-	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
-	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
-	 * 
-	 * @param fileId
-	 *            파일 ID
-	 * @return 삭제 건수
-	 * @throws Exception
-	 */
-	public int deleteFile(String fileId) throws Exception;
-
-	/**
-	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
-	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
-	 * 
-	 * @param fileIdList
-	 *            파일 ID의 배열
-	 * @return 삭제 건수
-	 * @throws Exception
-	 */
-	public int deleteFile(String[] fileIdList) throws Exception;
-
-	/**
 	 * 파일 정보를 저장한다. 파일 저장 방식(Repository Type)이 DATABASE인 경우, 파일의 내용이 BLOB 형태로 함께
 	 * 저장되나, FILE_SYSTEM인 경우, 파일 정보만 저장된다.
 	 * 
@@ -92,6 +70,7 @@ public interface FileDAO {
 	 * @return 파일 DTO의 List
 	 * @throws Exception
 	 *             예외
+	 * @deprecated Replaced by {@link #selectFileAll()}
 	 */
 	public List<FileDTO> selectFile() throws Exception;
 
@@ -116,5 +95,47 @@ public interface FileDAO {
 	 * @throws Exception
 	 */
 	public List<FileDTO> selectFileByMapId(String mapId) throws Exception;
+
+	/**
+	 * 파일 매니저에 관리되는 모든 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * @return 삭제 건수
+	 * @throws Exception
+	 */
+	public int deleteAll() throws Exception;
+
+	/**
+	 * 현재 관리되고 있는 모든 파일 정보를 가져온다.
+	 * 
+	 * @return 파일 DTO의 List
+	 * @throws Exception
+	 */
+	public List<FileDTO> selectFileAll() throws Exception;
+
+	/**
+	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
+	 * @param fileId
+	 *            파일 ID
+	 * @return 삭제 건수
+	 * @throws Exception
+	 * @deprecated Replaced by {@link #deleteFileByFileId(String)}
+	 */
+	@Deprecated
+	public int deleteFile(String fileId) throws Exception;
+
+	/**
+	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
+	 * @param fileIdList
+	 *            파일 ID의 배열
+	 * @return 삭제 건수
+	 * @throws Exception
+	 * @depreated Replaced by {@link #deleteFile(String[])}
+	 */
+	@Deprecated
+	public int deleteFile(String[] fileIdList) throws Exception;
 
 }

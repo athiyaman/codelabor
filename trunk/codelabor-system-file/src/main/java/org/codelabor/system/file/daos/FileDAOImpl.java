@@ -88,6 +88,15 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		}
 		return affectedRowCount;
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.daos.FileDAO#deleteAll()
+	 */
+	public int deleteAll() throws Exception {
+		String queryId = "system.delete.file.all";
+		Object[] param = new Object[] {};
+		return queryService.remove(queryId, param);
+	}	
 
 	/*
 	 * (non-Javadoc)
@@ -119,6 +128,16 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return (List<FileDTO>) queryService.find(queryId, param);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.daos.FileDAO#selectFileAll()
+	 */
+	@SuppressWarnings("unchecked")
+	public List<FileDTO> selectFileAll() throws Exception {
+		String queryId = "system.select.file.all";
+		Object[] param = new Object[] {};
+		return (List<FileDTO>) queryService.find(queryId, param);
+	}	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -149,4 +168,5 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		Object[] param = new Object[] { mapId };
 		return (List<FileDTO>) queryService.find(queryId, param);
 	}
+
 }
