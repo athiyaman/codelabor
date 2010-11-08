@@ -266,9 +266,14 @@ public class FileUploadServlet extends HttpServlet {
 				logger.error("Invalid parameter: {}", parameterValue);
 				throw new InvalidParameterException(parameterValue);
 			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+			throw new IOException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage());
+			throw new ServletException(e);
 		}
 	}
 
@@ -377,9 +382,11 @@ public class FileUploadServlet extends HttpServlet {
 			} catch (FileUploadException e) {
 				e.printStackTrace();
 				logger.error(e.getMessage());
+				throw e;
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e.getMessage());
+				throw e;
 			}
 		} else {
 			paramMap = RequestUtils.getParameterMap(request);
@@ -388,6 +395,8 @@ public class FileUploadServlet extends HttpServlet {
 			processParameters(paramMap);
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
+			throw e;
 		}
 		dispatch(request, response, forwardPathUpload);
 	}
@@ -562,6 +571,7 @@ public class FileUploadServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e.getMessage());
+				throw e;
 			}
 		}
 
@@ -575,6 +585,7 @@ public class FileUploadServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e.getMessage());
+				throw e;
 			}
 		}
 		request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
