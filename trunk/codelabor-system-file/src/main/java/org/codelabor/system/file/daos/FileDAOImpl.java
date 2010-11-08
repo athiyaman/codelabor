@@ -90,6 +90,46 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 	}
 	
 	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByFileId(java.lang.String)
+	 */
+	public int deleteFileByFileId(String fileId) throws Exception {
+		String queryId = "system.delete.file.by.file.id";
+		Object[] param = new Object[] { fileId };
+		return queryService.remove(queryId, param);
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByFileId(java.lang.String[])
+	 */
+	public int deleteFileByFileId(String[] fileIdList) throws Exception {
+		int affectedRowCount = 0;
+		for (String fileId : fileIdList) {
+			affectedRowCount += this.deleteFileByFileId(fileId);
+		}
+		return affectedRowCount;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByMapId(java.lang.String)
+	 */
+	public int deleteFileByMapId(String mapId) throws Exception {
+		String queryId = "system.delete.file.by.map.id";
+		Object[] param = new Object[] { mapId };
+		return queryService.remove(queryId, param);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByMapId(java.lang.String[])
+	 */
+	public int deleteFileByMapId(String[] mapIdList) throws Exception {
+		int affectedRowCount = 0;
+		for (String mapId : mapIdList) {
+			affectedRowCount += this.deleteFileByMapId(mapId);
+		}
+		return affectedRowCount;
+	}	
+	
+	/* (non-Javadoc)
 	 * @see org.codelabor.system.file.daos.FileDAO#deleteAll()
 	 */
 	public int deleteAll() throws Exception {
@@ -168,5 +208,11 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		Object[] param = new Object[] { mapId };
 		return (List<FileDTO>) queryService.find(queryId, param);
 	}
+
+
+
+
+
+
 
 }

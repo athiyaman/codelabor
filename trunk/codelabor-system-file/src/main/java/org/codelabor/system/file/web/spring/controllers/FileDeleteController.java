@@ -57,7 +57,7 @@ public class FileDeleteController extends BaseFileCommandController {
 		StringIdArrayDTO springIDArrayDTO = (StringIdArrayDTO) command;
 		String[] idArray = springIDArrayDTO.getId();
 		logger.debug("file id: {}", Arrays.asList(idArray));
-		fileManager.deleteFile(idArray);
+		fileManager.deleteFileByFileId(idArray);
 		return new ModelAndView(getSuccessView());
 	}
 

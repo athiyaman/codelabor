@@ -46,6 +46,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileCleaningTracker;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
@@ -221,8 +222,8 @@ public class FileUploadServlet extends HttpServlet {
 				"file.default.temp.repository.path", tempRepositoryPath);
 		repositoryType = RepositoryType
 				.valueOf(propertiesService.getString(
-						"file.default.real.repository.type", repositoryType
-								.toString()));
+						"file.default.real.repository.type",
+						repositoryType.toString()));
 
 		// set file listener / tracker
 		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
@@ -352,8 +353,8 @@ public class FileUploadServlet extends HttpServlet {
 					logger.debug("fileItem: {}", fileItem.toString());
 					FileDTO fileDTO = null;
 					if (fileItem.isFormField()) {
-						paramMap.put(fileItem.getFieldName(), fileItem
-								.getString(characterEncoding));
+						paramMap.put(fileItem.getFieldName(),
+								fileItem.getString(characterEncoding));
 					} else {
 						if (fileItem.getName() == null
 								|| fileItem.getName().length() == 0)
@@ -427,7 +428,7 @@ public class FileUploadServlet extends HttpServlet {
 		try {
 			if (StringUtils.isEmpty(repositoryType)) {
 				if (StringUtils.isEmpty(mapId)) {
-					fileDTOList = fileManager.selectFile();
+					fileDTOList = fileManager.selectFileAll();
 				} else {
 					fileDTOList = fileManager.selectFileByMapId(mapId);
 				}
@@ -550,14 +551,33 @@ public class FileUploadServlet extends HttpServlet {
 	protected void delete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		int affectedRowCount = 0;
+
+		// fileId로 삭제
 		String[] fileIdList = request.getParameterValues("fileId");
-		try {
-			affectedRowCount = fileManager.deleteFile(fileIdList);
-			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
-		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getMessage());
+		if (ArrayUtils.isEmpty(fileIdList)) {
+			logger.warn("fileIdList is empty.");
+		} else {
+			try {
+				affectedRowCount += fileManager.deleteFileByFileId(fileIdList);
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(e.getMessage());
+			}
 		}
+
+		// mapId로 삭제
+		String[] mapIdList = request.getParameterValues("mapId");
+		if (ArrayUtils.isEmpty(mapIdList)) {
+			logger.warn("mapIdList is empty.");
+		} else {
+			try {
+				affectedRowCount += fileManager.deleteFileByMapId(mapIdList);
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(e.getMessage());
+			}
+		}
+		request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		dispatch(request, response, forwardPathDelete);
 	}
 
@@ -662,8 +682,7 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("realFileName: {}", realFileName);
 		logger.debug("encodedRealFileName: {}", encodedRealFileName);
 
-		response
-				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
+		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		sb.setLength(0);
 		if (request.getHeader(HttpRequestHeader.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			sb.append("filename=");
@@ -671,8 +690,8 @@ public class FileUploadServlet extends HttpServlet {
 			sb.append("attachment; filename=");
 		}
 		sb.append(encodedRealFileName);
-		response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION, sb
-				.toString());
+		response.setHeader(HttpResponseHeader.CONTENT_DISPOSITION,
+				sb.toString());
 
 		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());

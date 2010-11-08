@@ -110,7 +110,7 @@ public class FileUploadAction extends BaseDispatchAction {
 
 		if (StringUtils.isEmpty(repositoryType)) {
 			if (StringUtils.isEmpty(mapId)) {
-				fileDTOList = fileManager.selectFile();
+				fileDTOList = fileManager.selectFileAll();
 			} else {
 				fileDTOList = fileManager.selectFileByMapId(mapId);
 			}
@@ -129,8 +129,8 @@ public class FileUploadAction extends BaseDispatchAction {
 				throw new InvalidRepositoryTypeException(repositoryType);
 			}
 		}
-		request.setAttribute(FileConstants.MAP_ID, mapIdGenerationService
-				.getNextStringId());
+		request.setAttribute(FileConstants.MAP_ID,
+				mapIdGenerationService.getNextStringId());
 		request.setAttribute(FileConstants.FILE_LIST_KEY, fileDTOList);
 		return mapping.findForward("list");
 	}
@@ -208,8 +208,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		logger.debug("mapId: {}", mapId);
 
 		// upload
-		List<FileDTO> fileDTOList = this.saveFile(RepositoryType
-				.valueOf(repositoryType), mapId, formFileList);
+		List<FileDTO> fileDTOList = this.saveFile(
+				RepositoryType.valueOf(repositoryType), mapId, formFileList);
 
 		// invoke manager
 
@@ -252,8 +252,8 @@ public class FileUploadAction extends BaseDispatchAction {
 
 		// set configuration
 		String repositoryPath = propertiesService.getString(
-				"file.default.real.repository.path", System
-						.getProperty("user.dir"));
+				"file.default.real.repository.path",
+				System.getProperty("user.dir"));
 
 		// set dto
 		FileDTO fileDTO = new FileDTO();
@@ -325,7 +325,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		if (form != null) {
 			FileUploadForm uploadForm = (FileUploadForm) form;
 			String[] fileIdList = uploadForm.getFileId();
-			affectedRowCount = fileManager.deleteFile(fileIdList);
+			affectedRowCount = fileManager.deleteFileByFileId(fileIdList);
 			request.setAttribute(AFFECTED_ROW_COUNT, affectedRowCount);
 		}
 		return mapping.findForward("delete");

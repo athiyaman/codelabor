@@ -46,6 +46,15 @@
 	<queries>
 
 		<!-- delete -->
+		<query id="system.delete.file.all" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.file.all */
+				FROM
+					FILE_REPOSITORY
+				]]>
+			</statement>
+		</query>		
 		<query id="system.delete.file" isDynamic="false">
 			<statement>
 				<![CDATA[
@@ -58,6 +67,30 @@
 			</statement>
 			<param type="VARCHAR"/>
 		</query>
+		<query id="system.delete.file.by.file.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.file.by.file.id */
+				FROM
+					FILE_REPOSITORY
+				WHERE
+					FILE_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>		
+		<query id="system.delete.file.by.map.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* system.delete.file */
+				FROM
+					FILE_REPOSITORY
+				WHERE
+					MAP_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>		
 		<query id="system.delete.file.list" isDynamic="false">
 			<statement>
 				<![CDATA[
@@ -98,6 +131,31 @@
 		</query>
 
 		<!-- select -->
+		<query id="system.select.file.all" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* system.select.file.list */
+					FILE_ID,
+					MAP_ID,
+					REAL_FILE_NAME,
+					UNIQUE_FILE_NAME,
+					REPOSITORY_PATH,
+					CONTENT_TYPE,
+					FILE_SIZE
+				FROM
+					FILE_REPOSITORY
+				]]>
+			</statement>
+			<result class="org.codelabor.system.file.dtos.FileDTO">
+				<result-mapping column="FILE_ID" attribute="fileId"/>
+				<result-mapping column="MAP_ID" attribute="mapId"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
+				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
+				<result-mapping column="FILE_SIZE" attribute="fileSize"/>
+			</result>
+		</query>		
 		<query id="system.select.file.by.file.id" isDynamic="false">
 			<statement>
 				<![CDATA[

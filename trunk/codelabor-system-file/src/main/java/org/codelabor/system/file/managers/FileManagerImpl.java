@@ -36,14 +36,19 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 		InitializingBean {
 
 	FileDAO fileDAO;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.file.managers.FileManager#deleteFile(java.lang.String
-	 * )
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#deleteAll()
 	 */
+	public int deleteAll() throws Exception {
+		return fileDAO.deleteAll();
+	}	
+
+
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#deleteFile(java.lang.String)
+	 */
+	@SuppressWarnings("deprecation")
 	public int deleteFile(String fileId) throws Exception {
 		return fileDAO.deleteFile(fileId);
 	}
@@ -55,9 +60,38 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 	 * org.codelabor.system.file.managers.FileManager#deleteFile(java.lang.String
 	 * [])
 	 */
+	@SuppressWarnings("deprecation")
 	public int deleteFile(String[] fileIdList) throws Exception {
 		return fileDAO.deleteFile(fileIdList);
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#deleteFileByFileId(java.lang.String)
+	 */
+	public int deleteFileByFileId(String fileId) throws Exception {
+		return fileDAO.deleteFileByFileId(fileId);
+	}	
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#deleteFileByFileId(java.lang.String[])
+	 */
+	public int deleteFileByFileId(String[] fileIdList) throws Exception {
+		return fileDAO.deleteFileByFileId(fileIdList);
+	}	
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#deleteFileByMapId(java.lang.String)
+	 */
+	public int deleteFileByMapId(String mapId) throws Exception {
+		return fileDAO.deleteFileByMapId(mapId);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#deleteFileByMapId(java.lang.String[])
+	 */
+	public int deleteFileByMapId(String[] mapIdList) throws Exception {
+		return fileDAO.deleteFileByMapId(mapIdList);
+	}	
 
 	/*
 	 * (non-Javadoc)
@@ -102,12 +136,20 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 	public List<FileDTO> selectFileByMapId(String mapId) throws Exception {
 		return fileDAO.selectFileByMapId(mapId);
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.codelabor.system.file.managers.FileManager#selectFileAll()
+	 */
+	public List<FileDTO> selectFileAll() throws Exception {
+		return fileDAO.selectFileAll();
+	}	
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.codelabor.system.file.managers.FileManager#selectFile()
 	 */
+	@SuppressWarnings("deprecation")
 	public List<FileDTO> selectFile() throws Exception {
 		return fileDAO.selectFile();
 	}
@@ -151,4 +193,14 @@ public class FileManagerImpl extends BaseManagerImpl implements FileManager,
 	public void afterPropertiesSet() throws Exception {
 		Assert.notNull(fileDAO);
 	}
+
+
+
+
+
+
+
+
+
+
 }

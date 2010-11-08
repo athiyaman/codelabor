@@ -138,4 +138,48 @@ public interface FileDAO {
 	@Deprecated
 	public int deleteFile(String[] fileIdList) throws Exception;
 
+	/**
+	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
+	 * @param fileId
+	 *            파일 ID
+	 * @return 삭제 건수
+	 * @throws Exception
+	 */
+	public int deleteFileByFileId(String fileId) throws Exception;
+
+	/**
+	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
+	 * @param fileIdList
+	 *            파일 ID의 배열
+	 * @return 삭제 건수
+	 * @throws Exception
+	 */
+	public int deleteFileByFileId(String[] fileIdList) throws Exception;
+
+	/**
+	 * 지정한 맵 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
+	 * @param mapId
+	 *            맵 ID
+	 * @return 삭제 건수
+	 * @throws Exception
+	 */
+	public int deleteFileByMapId(String mapId) throws Exception;
+
+	/**
+	 * 지정한 맵 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
+	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
+	 * @param mapIdList
+	 *            맵 ID의 배열
+	 * @return 삭제 건수
+	 * @throws Exception
+	 */
+	public int deleteFileByMapId(String[] mapIdList) throws Exception;
+
 }

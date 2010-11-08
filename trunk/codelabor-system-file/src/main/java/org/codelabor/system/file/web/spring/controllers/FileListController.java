@@ -69,7 +69,7 @@ public class FileListController extends BaseFileController {
 		try {
 			if (StringUtils.isEmpty(repositoryType)) {
 				if (StringUtils.isEmpty(mapId)) {
-					fileDTOList = fileManager.selectFile();
+					fileDTOList = fileManager.selectFileAll();
 				} else {
 					fileDTOList = fileManager.selectFileByMapId(mapId);
 				}
@@ -91,8 +91,8 @@ public class FileListController extends BaseFileController {
 			}
 			mav = new ModelAndView(getSuccessView());
 			mav.addObject(FileConstants.FILE_LIST_KEY, fileDTOList);
-			mav.addObject(FileConstants.MAP_ID, mapIdGenerationService
-					.getNextStringId());
+			mav.addObject(FileConstants.MAP_ID,
+					mapIdGenerationService.getNextStringId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
