@@ -25,8 +25,14 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
  * @author Shin Sang-jae
  * 
  */
-@ContextConfiguration(locations = { "/jdbc/applicationContext-embeded-database.xml" })
-@TransactionConfiguration(transactionManager = "txManager")
+// @ContextConfiguration(locations = {
+// "/jdbc/applicationContext-transactionManager.xml",
+// "/jdbc/applicationContext-embededDatabase.xml"
+// })
+@ContextConfiguration(locations = {
+		"/jdbc/applicationContext-transactionManager.xml",
+		"/jdbc/applicationContext-dbcpOracleDatasource.xml" })
+@TransactionConfiguration(transactionManager = "transactionManager")
 public class DataSourceTest extends
 		AbstractTransactionalJUnit4SpringContextTests {
 

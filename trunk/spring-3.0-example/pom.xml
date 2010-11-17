@@ -64,6 +64,19 @@
   		<type>jar</type>
   		<scope>compile</scope>
   	</dependency>
+  	<dependency>
+  		<groupId>commons-dbcp</groupId>
+  		<artifactId>commons-dbcp</artifactId>
+  		<version>1.4</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>ojdbc</groupId>
+  		<artifactId>ojdbc</artifactId>
+  		<version>14</version>
+  		<scope>test</scope>
+  	</dependency>
   </dependencies>
   <build>
     <finalName>spring-3.0-example</finalName>
