@@ -13,3 +13,6 @@
 	deleteAll(), selectFile() 추가
 	deleteFile(), selectFile() deprecated 
 	deleteFileByFileId(), deleteFileByMapId() 추가	
+	
+2.0.4 
+	TestCase 추가	
