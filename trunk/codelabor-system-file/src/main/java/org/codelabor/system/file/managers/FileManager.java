@@ -30,10 +30,11 @@ import org.codelabor.system.file.dtos.FileDTO;
  * 
  */
 public interface FileManager {
-	
+
 	/**
 	 * 파일 매니저에 관리되는 모든 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
 	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
+	 * 
 	 * @return 삭제 건수
 	 * @throws Exception
 	 */
@@ -62,7 +63,7 @@ public interface FileManager {
 	 * @throws Exception
 	 */
 	public int deleteFileByFileId(String[] fileIdList) throws Exception;
-	
+
 	/**
 	 * 지정한 파일 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
 	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
@@ -82,11 +83,11 @@ public interface FileManager {
 	 *            파일 ID의 배열
 	 * @return 삭제 건수
 	 * @throws Exception
-	 * @depreated Replaced by {@link #deleteFile(String[])}
+	 * @depreated Replaced by {@link #deleteFileByFileId(String[])}
 	 */
 	@Deprecated
-	public int deleteFile(String[] fileIdList) throws Exception;	
-	
+	public int deleteFile(String[] fileIdList) throws Exception;
+
 	/**
 	 * 지정한 맵 ID에 해당하는 파일 정보를 삭제한다. 파일 저장 방식(Repository Type)이 FILE_SYSTEM인 경우,
 	 * 파일 시스템에 저장한 물리적 파일은 삭제하지 않고 파일 정보만 삭제된다.
@@ -107,7 +108,7 @@ public interface FileManager {
 	 * @return 삭제 건수
 	 * @throws Exception
 	 */
-	public int deleteFileByMapId(String[] mapIdList) throws Exception;	
+	public int deleteFileByMapId(String[] mapIdList) throws Exception;
 
 	/**
 	 * 파일 정보를 저장한다. 파일 저장 방식(Repository Type)이 DATABASE인 경우, 파일의 내용이 BLOB 형태로 함께
@@ -140,7 +141,7 @@ public interface FileManager {
 	 */
 	@Deprecated
 	public List<FileDTO> selectFile() throws Exception;
-	
+
 	/**
 	 * 현재 관리되고 있는 모든 파일 정보를 가져온다.
 	 * 
@@ -148,7 +149,6 @@ public interface FileManager {
 	 * @throws Exception
 	 */
 	public List<FileDTO> selectFileAll() throws Exception;
-	
 
 	/**
 	 * 현재 관리되고 있는 파일들 중 지정한 저장 방식(Repository Type)에 해당하는 파일 정보만 가져온다.
