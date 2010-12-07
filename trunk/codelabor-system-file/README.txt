@@ -15,4 +15,5 @@
 	deleteFileByFileId(), deleteFileByMapId() 추가	
 	
 2.0.4 
-	TestCase 추가	
+	TestCase 추가
+	javadoc 보완
