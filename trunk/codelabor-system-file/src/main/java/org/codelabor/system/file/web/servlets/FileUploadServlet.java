@@ -685,7 +685,6 @@ public class FileUploadServlet extends HttpServlet {
 				bytes = fileDTO.getBytes();
 			}
 			inputStream = new ByteArrayInputStream(bytes);
-
 		}
 
 		// set response contenttype, header
