@@ -40,10 +40,9 @@ public class MimeTypesTest {
 
 	@Test
 	public void testGetMimeTypeURL() {
-		MimeTypes mimeTypes = new MimeTypes();
-		URL url;
 		try {
-			url = new URL("http://apache.org/images/feather-small.gif");
+			MimeTypes mimeTypes = new MimeTypes();
+			URL url = new URL("http://apache.org/images/feather-small.gif");
 			MimeType mimeType = mimeTypes.getMimeType(url);
 			logger.debug("mimeType: {}", mimeType);
 		} catch (MalformedURLException e) {
