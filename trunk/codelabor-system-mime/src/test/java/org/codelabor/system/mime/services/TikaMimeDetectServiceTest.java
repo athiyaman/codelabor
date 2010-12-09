@@ -109,9 +109,9 @@ public class TikaMimeDetectServiceTest extends AbstractSingleSpringContextTests 
 	@Test
 	public void testGetMimeTypeString() {
 		try {
-			String fileName = "C:/WINDOWS/SSDM.chm";
-			String mimeType = this.mimeDetectService.getMimeType(fileName);
-			logger.debug("file name: {}", fileName);
+			String path = "C:/WINDOWS/SSDM.chm";
+			String mimeType = this.mimeDetectService.getMimeType(path);
+			logger.debug("file name: {}", path);
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();

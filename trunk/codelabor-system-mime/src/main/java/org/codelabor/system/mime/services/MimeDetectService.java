@@ -66,9 +66,9 @@ public interface MimeDetectService {
 	/**
 	 * 마임타입을 가져온다.
 	 * 
-	 * @param fileName
+	 * @param path
 	 *            파일 경로
 	 * @return 마임타입
 	 */
-	public String getMimeType(String fileName) throws Exception;
+	public String getMimeType(String path) throws Exception;
 }

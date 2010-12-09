@@ -103,8 +103,8 @@ public class TikaMimeDetectServiceImpl implements MimeDetectService {
 	 * org.codelabor.system.mime.services.MimeDetectService#getMimeType(java
 	 * .lang.String)
 	 */
-	public String getMimeType(String fileName) throws Exception {
-		InputStream inputStream = new FileInputStream(new File(fileName));
+	public String getMimeType(String path) throws Exception {
+		InputStream inputStream = new FileInputStream(new File(path));
 		return this.getMimeType(inputStream);
 	}
 
