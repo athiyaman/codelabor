@@ -16,8 +16,6 @@
  */
 package org.codelabor.example.io;
 
-import static org.junit.Assert.fail;
-
 import java.io.File;
 
 import org.junit.Before;
@@ -43,12 +41,35 @@ public class FileTest {
 
 	@Test
 	public void testMkdir() {
-		fail("Not yet implemented");
+		File file = new File("C:/temp/dir1/dir1-1");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdir();
+			logger.debug("mkdir success: {}", success);
+		}
 	}
 
 	@Test
 	public void testMkdirs() {
-		fail("Not yet implemented");
+		File file = new File("C:/temp/dir2/dir2-1");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+
+		file = new File("C:/temp/dir3");
+		isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
 	}
 
 }
