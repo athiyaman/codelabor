@@ -224,6 +224,19 @@ public class FileUploadServlet extends HttpServlet {
 				.valueOf(propertiesService.getString(
 						"file.default.real.repository.type",
 						repositoryType.toString()));
+		// mkdirs
+		File file = new File(realRepositoryPath);
+		if (!file.exists()) {
+			boolean mkdirSuccess = file.mkdirs();
+			logger.debug("mkdirs: {}, success: {}", realRepositoryPath,
+					mkdirSuccess);
+		}
+		file = new File(tempRepositoryPath);
+		if (!file.exists()) {
+			boolean mkdirSuccess = file.mkdirs();
+			logger.debug("mkdirs: {}, success: {}", realRepositoryPath,
+					mkdirSuccess);
+		}
 
 		// set file listener / tracker
 		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
