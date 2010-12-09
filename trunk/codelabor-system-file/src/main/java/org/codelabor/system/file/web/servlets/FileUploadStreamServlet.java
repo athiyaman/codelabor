@@ -107,7 +107,9 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						fileDTO.setMapId(mapId);
 						fileDTO.setRealFileName(UploadUtils
 								.stripPathInfo(fileItemSteam.getName()));
-						fileDTO.setUniqueFileName(getUniqueFileName());
+						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
+							fileDTO.setUniqueFileName(getUniqueFileName());
+						}
 						fileDTO.setContentType(fileItemSteam.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
 						if (logger.isDebugEnabled()) {

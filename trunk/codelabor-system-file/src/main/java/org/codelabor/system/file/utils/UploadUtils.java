@@ -95,11 +95,11 @@ public class UploadUtils {
 		case FILE_SYSTEM:
 			// prepare repository
 			File repository = new File(fileDTO.getRepositoryPath());
+			String repositoryPath = fileDTO.getRepositoryPath();
 
 			if (logger.isDebugEnabled()) {
 				stringBuilder = new StringBuilder();
-				stringBuilder.append("repositoryPath: ").append(
-						fileDTO.getRepositoryPath());
+				stringBuilder.append("repositoryPath: ").append(repositoryPath);
 				stringBuilder.append(", repositoryType: ").append(
 						repositoryType);
 				stringBuilder.append(", repository.exists(): ").append(
@@ -107,6 +107,14 @@ public class UploadUtils {
 				stringBuilder.append(", repository.isDirectory(): ").append(
 						repository.isDirectory());
 				logger.debug(stringBuilder.toString());
+			}
+
+			// prepare directory
+			File file = new File(repositoryPath);
+			if (!file.exists()) {
+				boolean mkdirsSuccess = file.mkdirs();
+				logger.debug("mkdirs: {}, success: {}", repositoryPath,
+						mkdirsSuccess);
 			}
 
 			// prepare stream

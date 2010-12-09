@@ -369,7 +369,9 @@ public class FileUploadServlet extends HttpServlet {
 						fileDTO.setMapId(mapId);
 						fileDTO.setRealFileName(UploadUtils
 								.stripPathInfo(fileItem.getName()));
-						fileDTO.setUniqueFileName(getUniqueFileName());
+						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
+							fileDTO.setUniqueFileName(getUniqueFileName());
+						}
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
 						logger.debug("fileDTO: {}", fileDTO.toString());
