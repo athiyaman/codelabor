@@ -17,3 +17,4 @@
 2.0.4 
 	TestCase 추가
 	javadoc 보완
+	UploadUtils에서 저장 경로 없을 경우, 디렉토리 생성
