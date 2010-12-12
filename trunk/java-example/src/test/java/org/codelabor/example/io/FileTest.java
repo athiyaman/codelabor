@@ -32,7 +32,7 @@ public class FileTest {
 
 	@Test
 	public void testExists() {
-		File file = new File("C:/temp/");
+		File file = new File("/temp/");
 		boolean isExists = file.exists();
 		logger.debug("file name: {}", file.getName());
 		logger.debug("is exists: {}", isExists);
@@ -41,7 +41,7 @@ public class FileTest {
 
 	@Test
 	public void testMkdir() {
-		File file = new File("C:/temp/dir1/dir1-1/");
+		File file = new File("/temp/dir1/dir1-1/");
 		boolean isExists = file.exists();
 		logger.debug("file name: {}", file.getName());
 		logger.debug("is exists: {}", isExists);
@@ -53,7 +53,7 @@ public class FileTest {
 
 	@Test
 	public void testMkdirs() {
-		File file = new File("C:/temp/dir2/dir2-1/");
+		File file = new File("/temp/dir2/dir2-1/");
 		boolean isExists = file.exists();
 		logger.debug("file name: {}", file.getName());
 		logger.debug("is exists: {}", isExists);
@@ -62,7 +62,7 @@ public class FileTest {
 			logger.debug("mkdirs success: {}", success);
 		}
 
-		file = new File("C:/temp/dir3/");
+		file = new File("/temp/dir3/");
 		isExists = file.exists();
 		logger.debug("file name: {}", file.getName());
 		logger.debug("is exists: {}", isExists);
