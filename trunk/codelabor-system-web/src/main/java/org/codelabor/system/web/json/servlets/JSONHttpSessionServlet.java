@@ -19,6 +19,7 @@ package org.codelabor.system.web.json.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +46,10 @@ public class JSONHttpSessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 5498874994938492455L;
 	private final Logger logger = LoggerFactory
 			.getLogger(JSONHttpSessionServlet.class);
+	/**
+	 * 인코딩</br>기본값은 UTF-8을 사용한다.
+	 */
+	protected String encoding = "UTF-8";
 
 	@Override
 	protected void doGet(HttpServletRequest request,
@@ -51,8 +57,19 @@ public class JSONHttpSessionServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession();
 		JSONObject jsonObject = JSONObject.fromObject(httpSession);
 		logger.debug("jsonObject: {}", jsonObject);
+
+		response.setCharacterEncoding(encoding);
 		PrintWriter printWriter = response.getWriter();
 		printWriter.write(jsonObject.toString());
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		String tempEncoding = config.getInitParameter("encoding");
+		if (!StringUtils.isEmpty(tempEncoding)) {
+			encoding = tempEncoding;
+		}
 	}
 
 }

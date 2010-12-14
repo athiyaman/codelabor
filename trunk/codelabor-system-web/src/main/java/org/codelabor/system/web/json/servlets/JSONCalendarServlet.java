@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,14 +47,29 @@ public class JSONCalendarServlet extends HttpServlet {
 	private final Logger logger = LoggerFactory
 			.getLogger(JSONCalendarServlet.class);
 
+	/**
+	 * 인코딩</br>기본값은 UTF-8을 사용한다.
+	 */
+	protected String encoding = "UTF-8";
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		String tempEncoding = config.getInitParameter("encoding");
+		if (!StringUtils.isEmpty(tempEncoding)) {
+			encoding = tempEncoding;
+		}
+	}
+
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Calendar calendar = Calendar.getInstance();
 		JSONObject jsonObject = JSONObject.fromObject(calendar);
 		logger.debug("jsonObject: {}", jsonObject);
+
+		response.setCharacterEncoding(encoding);
 		PrintWriter printWriter = response.getWriter();
 		printWriter.write(jsonObject.toString());
 	}
-
 }
