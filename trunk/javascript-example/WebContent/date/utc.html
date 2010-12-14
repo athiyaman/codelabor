@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<script type="text/javascript">
+		var timezoneOffset = new Date().getTimezoneOffset();
+		document.write(timezoneOffset/60);
+		document.write("<br/>");
+	
+		var dateUTC = Date.UTC(1970, 0, 1, 0, 0, 0, 0);
+		document.write(dateUTC);
+		document.write("<br/>");
+		
+		var date = new Date(dateUTC);
+		document.write(date);
+		document.write("<br/>");
+		
+		var nextDateUTC = dateUTC + 1000 * 60 * 60 * 24 * 1;
+		document.write(nextDateUTC);
+		document.write("<br/>");
+		
+		var nextDate = new Date(nextDateUTC);
+		document.write(nextDate);
+		document.write("<br/>");
+		
+		var tempDate = new Date(1292311909803);
+		document.write(tempDate);
+		document.write("<br/>");		
+		
+	</script>
+</body>
+</html>
