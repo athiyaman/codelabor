@@ -2,6 +2,7 @@ package org.codelabor.example.util;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -30,7 +31,17 @@ public class DateTest extends TestCase {
 		value = afterFiveDaysDate.compareTo(currentDate);
 		logger.debug("afterFiveDaysDate.compareTo(currentDate): {}", value);
 		Assert.assertTrue(value > 0);
+	}
 
+	public void testDateInfo() {
+		Calendar calendar = Calendar.getInstance();
+		Date time = calendar.getTime();
+		long timeInMillis = calendar.getTimeInMillis();
+		TimeZone timeZone = calendar.getTimeZone();
+
+		logger.debug("time: {}", time);
+		logger.debug("timeInMillis: {}", timeInMillis);
+		logger.debug("timeZone: {}", timeZone);
 	}
 
 }
