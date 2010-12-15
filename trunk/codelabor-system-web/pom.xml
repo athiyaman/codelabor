@@ -20,9 +20,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</connection>
-    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
-    <url>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
+    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web/</connection>
+    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web/</developerConnection>
+    <url>http://codelabor.googlecode.com</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
