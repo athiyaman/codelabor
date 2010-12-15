@@ -39,6 +39,7 @@ public class DateTest extends TestCase {
 		long timeInMillis = calendar.getTimeInMillis();
 		TimeZone timeZone = calendar.getTimeZone();
 
+		logger.debug("calendar: {}", calendar);
 		logger.debug("time: {}", time);
 		logger.debug("timeInMillis: {}", timeInMillis);
 		logger.debug("timeZone: {}", timeZone);
