@@ -21,7 +21,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import anyframe.common.util.StringUtil;
+import org.apache.commons.lang.StringUtils;
+
 import anyframe.core.idgen.IdGenerationStrategy;
 
 /**
@@ -113,8 +114,8 @@ public class UniqueFileNameStrategy implements IdGenerationStrategy {
 	 * @see anyframe.core.idgen.IdGenerationStrategy#makeId(java.lang.String)
 	 */
 	public String makeId(String originalId) {
-		DateFormat dateFormat = new SimpleDateFormat(dateAndTimePattern, Locale
-				.getDefault());
+		DateFormat dateFormat = new SimpleDateFormat(dateAndTimePattern,
+				Locale.getDefault());
 		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
 		sb.append(prefix);
@@ -125,8 +126,18 @@ public class UniqueFileNameStrategy implements IdGenerationStrategy {
 		if (delimiter != null) {
 			sb.append(delimiter);
 		}
-		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
+		String trimedId = null;
+		if (originalId.length() > cipers) {
+			trimedId = originalId.substring(0, cipers);
+		} else {
+			trimedId = originalId;
+		}
+		// Anyframe StringUtil
+		// sb.append(StringUtil.fillString(trimedId, fillChar, cipers));
+
+		// Apache Commons Lang StringUtils (Java SE 1.4)
+		sb.append(StringUtils.leftPad(trimedId, cipers, fillChar));
+
 		return sb.toString();
 	}
-
 }
