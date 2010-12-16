@@ -3,7 +3,12 @@ package org.codelabor.example.lang;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class StringTest extends TestCase {
+
+	private final Logger logger = LoggerFactory.getLogger(StringTest.class);
 
 	public void testSplitString() {
 		// , ; " "에 대해서 구분자 사용
@@ -31,5 +36,14 @@ public class StringTest extends TestCase {
 		String extension = fileName.substring(index + 1);
 		Assert.assertEquals("txt", extension);
 		System.out.println("extention: " + extension);
+	}
+
+	public void testFormat() {
+		int value = 1234;
+		String formattedString = String.format("%010d", value);
+		logger.debug("formattedString: {}", formattedString);
+
+		formattedString = String.format("%02d", value);
+		logger.debug("formattedString: {}", formattedString);
 	}
 }
