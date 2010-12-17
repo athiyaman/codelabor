@@ -14,73 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.mime.services;
+package org.codelabor.system.mime.utils;
+
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.test.AbstractSingleSpringContextTests;
 
-public class TikaMimeDetectServiceTest extends AbstractSingleSpringContextTests {
+public class TikaMimeDetectUtilsTest {
 
 	private final Logger logger = LoggerFactory
-			.getLogger(TikaMimeDetectServiceTest.class);
-	private MimeDetectService mimeDetectService;
+			.getLogger(TikaMimeDetectUtilsTest.class);
 
-	@Override
-	protected String[] getConfigLocations() {
-		return new String[] { "classpath:/**/applicationContext-mimeDetectService.xml" };
-	}
-
-	@Override
-	public void onSetUp() throws Exception {
-		this.mimeDetectService = (MimeDetectService) applicationContext
-				.getBean("mimeDetectService");
-	}
-
-	@Test
-	public void testGetMimeTypeInputStream() {
-		try {
-			File file = new File("C:/WINDOWS/twain.dll");
-			InputStream inputStream = new FileInputStream(file);
-			String mimeType = this.mimeDetectService.getMimeType(inputStream);
-			logger.debug("file name: {}", file.getName());
-			logger.debug("mime type: {}", mimeType);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
-	@Test
-	public void testGetMimeTypeFile() {
-		try {
-			File file = new File("C:/WINDOWS/NOTEPAD.EXE");
-			String mimeType = this.mimeDetectService.getMimeType(file);
-			logger.debug("file name: {}", file.getName());
-			logger.debug("mime type: {}", mimeType);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
-	@Test
-	public void testGetMimeTypeURL() {
-		try {
-			URL url = new URL("http://www.google.com/images/logos/ps_logo2.png");
-			String mimeType = this.mimeDetectService.getMimeType(url);
-			logger.debug("url: {}", url.getPath());
-			logger.debug("mime type: {}", mimeType);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
+	@Before
+	public void setUp() throws Exception {
 	}
 
 	@Test
@@ -97,7 +51,34 @@ public class TikaMimeDetectServiceTest extends AbstractSingleSpringContextTests 
 				offset += readCount;
 			}
 
-			String mimeType = this.mimeDetectService.getMimeType(bytes);
+			String mimeType = TikaMimeDetectUtils.getMimeType(bytes);
+			logger.debug("file name: {}", file.getName());
+			logger.debug("mime type: {}", mimeType);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	@Test
+	public void testGetMimeTypeFile() {
+		try {
+			File file = new File("C:/WINDOWS/NOTEPAD.EXE");
+			String mimeType = TikaMimeDetectUtils.getMimeType(file);
+			logger.debug("file name: {}", file.getName());
+			logger.debug("mime type: {}", mimeType);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	@Test
+	public void testGetMimeTypeInputStream() {
+		try {
+			File file = new File("C:/WINDOWS/twain.dll");
+			InputStream inputStream = new FileInputStream(file);
+			String mimeType = TikaMimeDetectUtils.getMimeType(inputStream);
 			logger.debug("file name: {}", file.getName());
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
@@ -110,8 +91,21 @@ public class TikaMimeDetectServiceTest extends AbstractSingleSpringContextTests 
 	public void testGetMimeTypeString() {
 		try {
 			String path = "C:/WINDOWS/SSDM.chm";
-			String mimeType = this.mimeDetectService.getMimeType(path);
+			String mimeType = TikaMimeDetectUtils.getMimeType(path);
 			logger.debug("file name: {}", path);
+			logger.debug("mime type: {}", mimeType);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	@Test
+	public void testGetMimeTypeURL() {
+		try {
+			URL url = new URL("http://www.google.com/images/logos/ps_logo2.png");
+			String mimeType = TikaMimeDetectUtils.getMimeType(url);
+			logger.debug("url: {}", url.getPath());
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();

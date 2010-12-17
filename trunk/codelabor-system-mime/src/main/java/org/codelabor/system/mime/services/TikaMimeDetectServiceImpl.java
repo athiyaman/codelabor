@@ -16,20 +16,13 @@
  */
 package org.codelabor.system.mime.services;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 
-import org.apache.tika.metadata.Metadata;
-import org.apache.tika.parser.AutoDetectParser;
-import org.apache.tika.parser.ParseContext;
-import org.apache.tika.parser.Parser;
-import org.apache.tika.sax.BodyContentHandler;
+import org.codelabor.system.mime.utils.TikaMimeDetectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xml.sax.ContentHandler;
 
 /**
  * 마임타입 탐지 서비스 구현 클래스<br/>
@@ -40,6 +33,7 @@ import org.xml.sax.ContentHandler;
  */
 public class TikaMimeDetectServiceImpl implements MimeDetectService {
 
+	@SuppressWarnings("unused")
 	private final Logger logger = LoggerFactory
 			.getLogger(TikaMimeDetectServiceImpl.class);
 
@@ -51,14 +45,7 @@ public class TikaMimeDetectServiceImpl implements MimeDetectService {
 	 * .io.InputStream)
 	 */
 	public String getMimeType(InputStream inputStream) throws Exception {
-		ContentHandler contentHandler = new BodyContentHandler();
-		Metadata metadata = new Metadata();
-		Parser parser = new AutoDetectParser();
-		ParseContext parseContext = new ParseContext();
-		parser.parse(inputStream, contentHandler, metadata, parseContext);
-		String contentType = metadata.get(Metadata.CONTENT_TYPE);
-		logger.debug("content type: {}", contentType);
-		return contentType;
+		return TikaMimeDetectUtils.getMimeType(inputStream);
 	}
 
 	/*
@@ -69,8 +56,7 @@ public class TikaMimeDetectServiceImpl implements MimeDetectService {
 	 * .io.File)
 	 */
 	public String getMimeType(File file) throws Exception {
-		InputStream inputStream = new FileInputStream(file);
-		return this.getMimeType(inputStream);
+		return TikaMimeDetectUtils.getMimeType(file);
 	}
 
 	/*
@@ -81,8 +67,7 @@ public class TikaMimeDetectServiceImpl implements MimeDetectService {
 	 * .net.URL)
 	 */
 	public String getMimeType(URL url) throws Exception {
-		InputStream inputStream = url.openStream();
-		return this.getMimeType(inputStream);
+		return TikaMimeDetectUtils.getMimeType(url);
 	}
 
 	/*
@@ -92,8 +77,7 @@ public class TikaMimeDetectServiceImpl implements MimeDetectService {
 	 * org.codelabor.system.mime.services.MimeDetectService#getMimeType(byte[])
 	 */
 	public String getMimeType(byte[] byteArray) throws Exception {
-		InputStream inputStream = new ByteArrayInputStream(byteArray);
-		return this.getMimeType(inputStream);
+		return TikaMimeDetectUtils.getMimeType(byteArray);
 	}
 
 	/*
@@ -104,8 +88,7 @@ public class TikaMimeDetectServiceImpl implements MimeDetectService {
 	 * .lang.String)
 	 */
 	public String getMimeType(String path) throws Exception {
-		InputStream inputStream = new FileInputStream(new File(path));
-		return this.getMimeType(inputStream);
+		return TikaMimeDetectUtils.getMimeType(path);
 	}
 
 }
