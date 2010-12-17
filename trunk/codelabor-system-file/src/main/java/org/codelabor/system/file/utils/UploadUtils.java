@@ -27,8 +27,10 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dtos.FileDTO;
+import org.codelabor.system.mime.utils.TikaMimeDetectUtils;
 import org.codelabor.system.utils.ChannelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -130,6 +132,11 @@ public class UploadUtils {
 			inputChannel = Channels.newChannel(inputStream);
 			outputChannel = Channels.newChannel(outputStream);
 			fileSize = ChannelUtils.copy(inputChannel, outputChannel);
+
+			// set vo
+			if (StringUtils.isEmpty(fileDTO.getContentType())) {
+				fileDTO.setContentType(TikaMimeDetectUtils.getMimeType(file));
+			}
 			break;
 		case DATABASE:
 			// prepare steam
@@ -141,9 +148,12 @@ public class UploadUtils {
 			fileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			// set vo
-			fileDTO.setBytes(((ByteArrayOutputStream) outputStream)
-					.toByteArray());
+			byte[] bytes = ((ByteArrayOutputStream) outputStream).toByteArray();
+			fileDTO.setBytes(bytes);
 			fileDTO.setRepositoryPath(null);
+			if (StringUtils.isEmpty(fileDTO.getContentType())) {
+				fileDTO.setContentType(TikaMimeDetectUtils.getMimeType(bytes));
+			}
 			break;
 		}
 		fileDTO.setFileSize(fileSize);
