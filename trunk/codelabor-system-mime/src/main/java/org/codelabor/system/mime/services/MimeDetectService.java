@@ -31,7 +31,7 @@ public interface MimeDetectService {
 	 * 마임타입을 가져온다.
 	 * 
 	 * @param inputStream
-	 *            인풋 스트림
+	 *            입력 스트림
 	 * @return 마임타입
 	 */
 	public String getMimeType(InputStream inputStream) throws Exception;

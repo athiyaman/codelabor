@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.ContentHandler;
 
 /**
- * 마임타입 탐지 서비스 구현 클래스<br/>
+ * 마임타입 탐지 유틸리티 클래스<br/>
  * Apache Tika를 활용한 구현 클래스
  * 
  * @author Shin Sangjae
@@ -40,9 +40,19 @@ import org.xml.sax.ContentHandler;
  */
 public class TikaMimeDetectUtils {
 
+	/**
+	 * 로거
+	 */
 	private static final Logger logger = LoggerFactory
 			.getLogger(TikaMimeDetectUtils.class);
 
+	/**
+	 * 마임타입을 가져온다.
+	 * 
+	 * @param inputStream
+	 *            입력 스트림
+	 * @return 마임타입
+	 */
 	public static String getMimeType(InputStream inputStream) throws Exception {
 		ContentHandler contentHandler = new BodyContentHandler();
 		Metadata metadata = new Metadata();
@@ -54,21 +64,49 @@ public class TikaMimeDetectUtils {
 		return contentType;
 	}
 
+	/**
+	 * 마임타입을 가져온다.
+	 * 
+	 * @param file
+	 *            파일
+	 * @return 마임타입
+	 */
 	public static String getMimeType(File file) throws Exception {
 		InputStream inputStream = new FileInputStream(file);
 		return getMimeType(inputStream);
 	}
 
+	/**
+	 * 마임타입을 가져온다.
+	 * 
+	 * @param url
+	 *            URL
+	 * @return 마임타입
+	 */
 	public static String getMimeType(URL url) throws Exception {
 		InputStream inputStream = url.openStream();
 		return getMimeType(inputStream);
 	}
 
+	/**
+	 * 마임타입을 가져온다.
+	 * 
+	 * @param byteArray
+	 *            바이트 배열
+	 * @return 마임타입
+	 */
 	public static String getMimeType(byte[] byteArray) throws Exception {
 		InputStream inputStream = new ByteArrayInputStream(byteArray);
 		return getMimeType(inputStream);
 	}
 
+	/**
+	 * 마임타입을 가져온다.
+	 * 
+	 * @param path
+	 *            파일 경로
+	 * @return 마임타입
+	 */
 	public static String getMimeType(String path) throws Exception {
 		InputStream inputStream = new FileInputStream(new File(path));
 		return getMimeType(inputStream);
