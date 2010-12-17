@@ -144,6 +144,8 @@
 					FILE_SIZE
 				FROM
 					FILE_REPOSITORY
+				ORDER BY 
+					FILE_ID
 				]]>
 			</statement>
 			<result class="org.codelabor.system.file.dtos.FileDTO">
@@ -204,6 +206,8 @@
 				#elseif ($REPOSITORY_TYPE == "DATABASE")
 					WHERE REPOSITORY_PATH IS NULL
 				#end
+				ORDER BY 
+					FILE_ID				
 				]]>
 			</statement>
 			<result class="org.codelabor.system.file.dtos.FileDTO">
@@ -231,6 +235,8 @@
 					FILE_REPOSITORY
 				WHERE
 					MAP_ID = ?
+				ORDER BY 
+					FILE_ID					
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
@@ -257,6 +263,8 @@
 					FILE_SIZE
 				FROM
 					FILE_REPOSITORY
+				ORDER BY 
+					FILE_ID					
 				]]>
 			</statement>
 			<result class="org.codelabor.system.file.dtos.FileDTO">
