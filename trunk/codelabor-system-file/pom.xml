@@ -85,7 +85,7 @@
     <repository>
       <id>anyframe-repository</id>
       <name>repository for Anyframe</name>
-      <url>http://dev.anyframejava.org/maven/repo/</url>
+      <url>http://dev.anyframejava.org/maven/repo</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
