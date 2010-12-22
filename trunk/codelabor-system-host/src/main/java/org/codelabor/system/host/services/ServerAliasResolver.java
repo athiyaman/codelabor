@@ -21,8 +21,8 @@ import java.net.InetAddress;
 import java.util.Locale;
 
 /**
- * 서버 별명 리졸버</br> 서버의 ip 주소나 host명을 입력 받아 해당 서버의 모드 정보를 가져온다.
- * 서버 별명을 가져오는 방법은 구현 클래스에 따라 달라질 수 있다.
+ * 서버 별명 리졸버</br> 서버의 ip 주소나 host명을 입력 받아 해당 서버의 별명 정보를 가져온다. 서버 별명을 가져오는 방법은 구현
+ * 클래스에 따라 달라질 수 있다.
  * 
  * @author Shin Sangjae
  * 
