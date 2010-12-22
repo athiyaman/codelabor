@@ -13,4 +13,6 @@ Features
 1.0.3
 	javadoc 보완
 
+1.0.4
+	server info resolver 추가
 
