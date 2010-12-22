@@ -15,4 +15,7 @@ Features
 
 1.0.4
 	server info resolver 추가
+	
+1.0.5
+	불필요 설정 제거
 
