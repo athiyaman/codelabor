@@ -21,3 +21,7 @@
 	
 2.0.5
 	order by file_id 추가
+	tika util로 mime type 보완
+	
+2.0.6
+	filesystem 저장 시 tika 사용 보완	
