@@ -9,10 +9,11 @@ import javax.mail.internet.InternetAddress;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codelabor.system.remoting.smtp.dtos.MailDTO;
-import org.codelabor.system.test.BaseTestCase;
 import org.junit.Ignore;
+import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
 
-public class MailServiceTest extends BaseTestCase {
+public class MailServiceTest extends
+		AbstractDependencyInjectionSpringContextTests {
 
 	private MailService mailService;
 	private final String mailAddressFrom = "bomber@localhost";
@@ -21,6 +22,18 @@ public class MailServiceTest extends BaseTestCase {
 	private final String mailAddressCC = "bomber@localhost";
 	private final String mailAddressBCC = "bomber@localhost";
 	protected Log log = LogFactory.getLog(this.getClass());
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.test.AbstractSingleSpringContextTests#getConfigLocations
+	 * ()
+	 */
+	@Override
+	protected String[] getConfigLocations() {
+		return new String[] { "classpath:/**/applicationContext*.xml" };
+	}
 
 	@Override
 	public void onSetUp() throws Exception {
