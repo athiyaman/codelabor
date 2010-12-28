@@ -16,7 +16,10 @@
  */
 package org.codelabor.example.io;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +31,31 @@ public class FileTest {
 
 	@Before
 	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testConstructor() {
+		File tempDirectory = new File("/temp");
+		tempDirectory.mkdirs();
+		File tempFile = new File(tempDirectory, "file.ext");
+		try {
+			tempFile.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testSeparator() {
+		logger.debug("System.getProperty(\"file.separator\"): {}",
+				System.getProperty("file.separator"));
+		logger.debug("File.separator: {}", File.separator);
+
+		String path1 = "/qwer/qwer/";
+		assertTrue(!path1.endsWith(File.separator));
+		String path2 = "\\qwer\\qwer\\";
+		assertTrue(path2.endsWith(File.separator));
 	}
 
 	@Test
@@ -63,6 +91,105 @@ public class FileTest {
 		}
 
 		file = new File("/temp/dir3/");
+		isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+	}
+
+	@Test
+	public void testMkdir2() {
+		File file = new File("\\temp\\dir4\\dir4-1\\");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdir();
+			logger.debug("mkdir success: {}", success);
+		}
+	}
+
+	@Test
+	public void testMkdirs2() {
+		File file = new File("\\temp\\dir5\\dir5-1\\");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+
+		file = new File("\\temp\\dir6\\");
+		isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+	}
+
+	@Test
+	public void testMkdir3() {
+		File file = new File("/temp\\dir7/dir7-1/");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdir();
+			logger.debug("mkdir success: {}", success);
+		}
+	}
+
+	@Test
+	public void testMkdirs3() {
+		File file = new File("/temp\\dir8/dir8-1/");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+
+		file = new File("/temp\\dir9/");
+		isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+	}
+
+	@Test
+	public void testMkdir4() {
+		File file = new File("/temp" + File.separator + "dir10/dir10-1/");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdir();
+			logger.debug("mkdir success: {}", success);
+		}
+	}
+
+	@Test
+	public void testMkdirs4() {
+		File file = new File("/temp" + File.separator + "dir11/dir11-1/");
+		boolean isExists = file.exists();
+		logger.debug("file name: {}", file.getName());
+		logger.debug("is exists: {}", isExists);
+		if (!isExists) {
+			boolean success = file.mkdirs();
+			logger.debug("mkdirs success: {}", success);
+		}
+
+		file = new File("/temp" + File.separator + "dir12/");
 		isExists = file.exists();
 		logger.debug("file name: {}", file.getName());
 		logger.debug("is exists: {}", isExists);
