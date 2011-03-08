@@ -5,4 +5,12 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         id="WebApp_ID" version="2.5">
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>helloWorldServlet</servlet-name>
+  	<servlet-class>org.codelabor.example.servlet.HelloWorldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>helloWorldServlet</servlet-name>
+  	<url-pattern>/servlet/helloWorld</url-pattern>
+  </servlet-mapping>
 </web-app>
