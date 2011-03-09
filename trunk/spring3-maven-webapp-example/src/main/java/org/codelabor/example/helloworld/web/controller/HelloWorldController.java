@@ -10,7 +10,7 @@ public class HelloWorldController {
 	@RequestMapping("/helloWorld")
 	public ModelAndView helloWorld() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/example/helloworld/helloWorld.jsp");
+		mav.setViewName("/example/helloworld/helloWorld");
 		mav.addObject("message", "Hello, World!");
 		return mav;
 	}
