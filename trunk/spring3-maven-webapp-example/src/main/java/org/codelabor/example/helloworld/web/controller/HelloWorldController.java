@@ -6,11 +6,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloWorldController {
-	
+
 	@RequestMapping("/helloWorld")
 	public ModelAndView helloWorld() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/example/helloworld/helloWorld");
+		mav.addObject("message", "Hello, World!");
+		return mav;
+	}
+
+	@RequestMapping("/helloWorldPdf")
+	public ModelAndView helloWorldPdf() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("helloWorldPdfView");
+		mav.addObject("message", "Hello, World!");
+		return mav;
+	}
+
+	@RequestMapping("/helloWorldExcel")
+	public ModelAndView helloWorldExcel() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("helloWorldExcelView");
 		mav.addObject("message", "Hello, World!");
 		return mav;
 	}
