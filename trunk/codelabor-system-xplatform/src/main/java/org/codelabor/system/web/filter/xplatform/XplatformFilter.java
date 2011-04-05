@@ -29,6 +29,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.tobesoft.xplatform.data.DataSetList;
 import com.tobesoft.xplatform.data.PlatformData;
 import com.tobesoft.xplatform.data.VariableList;
@@ -41,6 +44,11 @@ import com.tobesoft.xplatform.util.StringUtils;
  * 
  */
 public class XplatformFilter implements Filter {
+
+	/**
+	 * 로거
+	 */
+	private Logger logger = LoggerFactory.getLogger(XplatformFilter.class);
 
 	/**
 	 * 입력 DataSetList 이름
@@ -68,22 +76,41 @@ public class XplatformFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 
-		HttpPlatformRequest httpPlatformRequest = new HttpPlatformRequest(
-				(HttpServletRequest) request);
-		try {
-			httpPlatformRequest.receiveData();
-			PlatformData platformData = httpPlatformRequest.getData();
-			DataSetList dataSetList = platformData.getDataSetList();
-			VariableList variableList = platformData.getVariableList();
-			request.setAttribute(inputDataSetListName, dataSetList);
-			request.setAttribute(inputVariableListName, variableList);
-		} catch (PlatformException e) {
-			e.printStackTrace();
-			throw new ServletException(e);
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		if (isXplatformRequest(httpServletRequest)) {
+			HttpPlatformRequest httpPlatformRequest = new HttpPlatformRequest(
+					httpServletRequest);
+			try {
+				httpPlatformRequest.receiveData();
+				PlatformData platformData = httpPlatformRequest.getData();
+				DataSetList dataSetList = platformData.getDataSetList();
+				VariableList variableList = platformData.getVariableList();
+				request.setAttribute(inputDataSetListName, dataSetList);
+				request.setAttribute(inputVariableListName, variableList);
+			} catch (PlatformException e) {
+				e.printStackTrace();
+				throw new ServletException(e);
+			}
 		}
-
 		filterChain.doFilter(request, response);
+	}
 
+	/**
+	 * Xplatform에서 요청된 request 인지 확인한다.
+	 * 
+	 * @param request
+	 *            HttpServletRequest
+	 * @return Xplatform 요청 여부
+	 */
+	private boolean isXplatformRequest(HttpServletRequest request) {
+		boolean isXplatformRequest = false;
+		String userAgent = request.getHeader("User-Agent");
+		if (!StringUtils.isEmpty(userAgent)
+				&& userAgent.toLowerCase().startsWith("xplatform")) {
+			isXplatformRequest = true;
+		}
+		logger.debug("isXplatform: {}", isXplatformRequest);
+		return isXplatformRequest;
 	}
 
 	/*
