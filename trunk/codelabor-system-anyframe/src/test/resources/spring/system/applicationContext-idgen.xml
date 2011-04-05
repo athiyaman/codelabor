@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
+	<!--
 	<bean name="sequenceIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
@@ -13,7 +14,7 @@
 			<query>SELECT ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
 	</bean>
-	
+
 	<bean name="prefixDateNumberSequenceIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
@@ -22,7 +23,7 @@
 		<config:configuration big-decimals="true">
 			<query>SELECT ID_SEQ.NEXTVAL FROM DUAL</query>
 		</config:configuration>
-	</bean>	
+	</bean>
 
 	<bean name="prefixDateNumberStrategy"
 		class="gscm.system.anyframe.idgen.PrefixDateNumberStrategy">
@@ -32,4 +33,5 @@
 		<property name="cipers" value="2" />
 		<property name="delimiter" value="-" />
 	</bean>
+	-->
 </beans>
