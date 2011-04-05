@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.anyframe.idgen.strategies;
+package org.codelabor.system.anyframe.idgen;
 
 import anyframe.core.idgen.IdGenerationStrategy;
 

@@ -15,44 +15,83 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.anyframe.idgen.strategies;
+package org.codelabor.system.anyframe.idgen;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
+import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IdGenerationStrategy;
 
 /**
- * 접미어 정책 클래스
+ * 날짜, 숫자 조합 접두어 정책
  * 
  * @author Shin Sangjae
  * 
  */
-public class PostfixStrategy implements IdGenerationStrategy {
+public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 
 	/**
-	 * 접미어
+	 * 접두어
 	 */
-	protected String postfix;
+	protected String prefix;
+
 	/**
 	 * 구분자
 	 */
 	protected String delimiter;
 
+	protected String datePattern;
+
 	/**
-	 * 접미어를 가져온다.
-	 * 
-	 * @return 접미어
+	 * 채우기 문자
 	 */
-	public String getPostfix() {
-		return postfix;
+	protected char fillChar;
+
+	/**
+	 * 자리 수
+	 */
+	protected int cipers;
+
+	/**
+	 * 자리 수를 설정한다.
+	 * 
+	 * @param cipers
+	 *            자리 수
+	 */
+	public void setCipers(int cipers) {
+		this.cipers = cipers;
 	}
 
 	/**
-	 * 접미어를 설정한다.
+	 * 날짜 패턴을 설정한다.
+	 * 
+	 * @param dateAndTimePattern
+	 *            날짜 패턴
+	 */
+	public void setDatePattern(String dateAndTimePattern) {
+		this.datePattern = dateAndTimePattern;
+	}
+
+	/**
+	 * 채우기 글자를 설정한다.
+	 * 
+	 * @param fillChar
+	 *            채우기 글자
+	 */
+	public void setFillChar(char fillChar) {
+		this.fillChar = fillChar;
+	}
+
+	/**
+	 * 접두어를 설정한다.
 	 * 
 	 * @param prefix
-	 *            접미어
+	 *            접두어
 	 */
-	public void setPostfix(String prefix) {
-		this.postfix = prefix;
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
 	}
 
 	/**
@@ -71,12 +110,20 @@ public class PostfixStrategy implements IdGenerationStrategy {
 	 * @see anyframe.core.idgen.IdGenerationStrategy#makeId(java.lang.String)
 	 */
 	public String makeId(String originalId) {
+		DateFormat dateFormat = new SimpleDateFormat(datePattern, Locale
+				.getDefault());
+		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
-		sb.append(originalId);
+		sb.append(prefix);
 		if (delimiter != null) {
 			sb.append(delimiter);
 		}
-		sb.append(postfix);
+		sb.append(dateFormatString);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
+		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
 		return sb.toString();
 	}
+
 }
