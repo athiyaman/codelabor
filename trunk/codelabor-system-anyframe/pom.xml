@@ -24,5 +24,61 @@
 		<type>jar</type>
 		<scope>compile</scope>
 	</dependency>
+	<dependency>
+		<groupId>anyframe</groupId>
+		<artifactId>anyframe.idgen</artifactId>
+		<version>4.5.3</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>anyframe</groupId>
+		<artifactId>anyframe.query</artifactId>
+		<version>4.5.3</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>anyframe</groupId>
+		<artifactId>anyframe.properties</artifactId>
+		<version>4.5.3</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>anyframe</groupId>
+		<artifactId>anyframe.cache</artifactId>
+		<version>4.5.3</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>		
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>1.6.1</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.6.1</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.15</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>3.0.5.RELEASE</version>
+		<type>jar</type>
+		<scope>test</scope>
+	</dependency>
   </dependencies>
 </project>
