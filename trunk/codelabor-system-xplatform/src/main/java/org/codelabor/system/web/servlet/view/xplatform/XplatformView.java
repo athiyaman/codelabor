@@ -83,7 +83,7 @@ public class XplatformView extends AbstractView {
 	 *            the outputDataSetListName to set
 	 */
 	public void setOutputDataSetListName(String outputDataSetListName) {
-		if (StringUtils.isEmpty(outputDataSetListName)) {
+		if (!StringUtils.isEmpty(outputDataSetListName)) {
 			this.outputDataSetListName = outputDataSetListName;
 		}
 	}
@@ -93,7 +93,7 @@ public class XplatformView extends AbstractView {
 	 *            the outputVariableListName to set
 	 */
 	public void setOutputVariableListName(String outputVariableListName) {
-		if (StringUtils.isEmpty(outputVariableListName)) {
+		if (!StringUtils.isEmpty(outputVariableListName)) {
 			this.outputVariableListName = outputVariableListName;
 		}
 	}
