@@ -123,10 +123,10 @@ public class XplatformFilter implements Filter {
 				.getInitParameter(inputDataSetListName);
 		String preferedInputVariableListName = filterConfig
 				.getInitParameter(inputVariableListName);
-		if (StringUtils.isEmpty(preferedInputDataSetListName)) {
+		if (!StringUtils.isEmpty(preferedInputDataSetListName)) {
 			inputDataSetListName = preferedInputDataSetListName;
 		}
-		if (StringUtils.isEmpty(preferedInputVariableListName)) {
+		if (!StringUtils.isEmpty(preferedInputVariableListName)) {
 			inputVariableListName = preferedInputVariableListName;
 		}
 	}
