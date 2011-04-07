@@ -7,7 +7,7 @@ import java.util.Date;
 public class TestDTO implements Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 9175501087889833942L;
 	private String field1;
@@ -22,7 +22,6 @@ public class TestDTO implements Serializable {
 	private Date field10;
 	private byte[] field11;
 	private Object field12;
-	private Object field13;
 
 	public String getField1() {
 		return field1;
