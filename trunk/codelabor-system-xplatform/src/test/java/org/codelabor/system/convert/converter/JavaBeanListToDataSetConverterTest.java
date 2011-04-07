@@ -22,9 +22,14 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.codelabor.example.dto.TestDTO;
+import org.codelabor.system.convert.converter.support.xlatform.JavaBeanListToDataSetConverter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.tobesoft.xplatform.data.DataSet;
 
 /**
  * @author Administrator
@@ -32,13 +37,19 @@ import org.junit.Test;
  */
 public class JavaBeanListToDataSetConverterTest {
 
-	private List<Object> beanList = null;
+	private Logger logger = LoggerFactory
+			.getLogger(JavaBeanListToDataSetConverterTest.class);
+
+	private List<Object> javaBeanList = null;
+	private JavaBeanListToDataSetConverter javaBeanListToDataSetConverter = null;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+
+		javaBeanListToDataSetConverter = new JavaBeanListToDataSetConverter();
 
 		TestDTO testDTO1 = new TestDTO();
 		testDTO1.setField1("value1");
@@ -66,9 +77,9 @@ public class JavaBeanListToDataSetConverterTest {
 		testDTO2.setField10(Calendar.getInstance().getTime());
 		testDTO2.setField11((new String("field11")).getBytes());
 
-		beanList = new ArrayList<Object>();
-		beanList.add(testDTO1);
-		beanList.add(testDTO2);
+		javaBeanList = new ArrayList<Object>();
+		javaBeanList.add(testDTO1);
+		javaBeanList.add(testDTO2);
 	}
 
 	/**
@@ -85,6 +96,7 @@ public class JavaBeanListToDataSetConverterTest {
 	 */
 	@Test
 	public void testConvert() {
-
+		DataSet dataSet = javaBeanListToDataSetConverter.convert(javaBeanList);
+		logger.debug("dataSet: {}", dataSet);
 	}
 }
