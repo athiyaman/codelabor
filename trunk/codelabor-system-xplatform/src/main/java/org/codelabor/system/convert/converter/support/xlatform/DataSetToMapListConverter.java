@@ -28,7 +28,7 @@ import com.tobesoft.xplatform.data.DataSet;
  * @author Shin Sang-jae
  * 
  */
-public class DataSetToMapListConvertor implements
+public class DataSetToMapListConverter implements
 		Converter<DataSet, List<Map<String, Object>>> {
 
 	/*

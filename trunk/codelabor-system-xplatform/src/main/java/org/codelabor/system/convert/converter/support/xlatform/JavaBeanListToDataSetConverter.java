@@ -17,9 +17,10 @@
 package org.codelabor.system.convert.converter.support.xlatform;
 
 import java.util.List;
-import java.util.Map;
 
 import org.codelabor.system.util.xplatform.XplatformUtils;
+import org.springframework.core.convert.ConversionFailedException;
+import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.Converter;
 
 import com.tobesoft.xplatform.data.DataSet;
@@ -28,8 +29,8 @@ import com.tobesoft.xplatform.data.DataSet;
  * @author Shin Sang-jae
  * 
  */
-public class MapListToDataSetConvertor implements
-		Converter<List<Map<String, Object>>, DataSet> {
+public class JavaBeanListToDataSetConverter implements
+		Converter<List<Object>, DataSet> {
 
 	/*
 	 * (non-Javadoc)
@@ -38,9 +39,14 @@ public class MapListToDataSetConvertor implements
 	 * org.springframework.core.convert.converter.Converter#convert(java.lang
 	 * .Object)
 	 */
-	public DataSet convert(List<Map<String, Object>> mapList) {
-		if (mapList == null)
-			return null;
-		return XplatformUtils.convertMapListToDataSet(mapList);
+	public DataSet convert(List<Object> javaBeanList) {
+		try {
+			return XplatformUtils.convertJavaBeanListToDataSet(javaBeanList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ConversionFailedException(
+					TypeDescriptor.valueOf(List.class),
+					TypeDescriptor.valueOf(DataSet.class), javaBeanList, e);
+		}
 	}
 }

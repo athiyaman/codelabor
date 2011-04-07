@@ -16,13 +16,11 @@
  */
 package org.codelabor.system.convert.converter.support.xlatform;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 import org.codelabor.system.util.xplatform.XplatformUtils;
-import org.springframework.core.convert.TypeDescriptor;
-import org.springframework.core.convert.converter.GenericConverter;
+import org.springframework.core.convert.converter.Converter;
 
 import com.tobesoft.xplatform.data.DataSet;
 
@@ -30,38 +28,19 @@ import com.tobesoft.xplatform.data.DataSet;
  * @author Shin Sang-jae
  * 
  */
-public class DataSetToJavaBeanListConvertor implements GenericConverter {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.springframework.core.convert.converter.GenericConverter#
-	 * getConvertibleTypes()
-	 */
-	public Set<ConvertiblePair> getConvertibleTypes() {
-		return Collections.singleton(new ConvertiblePair(DataSet.class,
-				Object.class));
-	}
+public class MapListToDataSetConverter implements
+		Converter<List<Map<String, Object>>, DataSet> {
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.springframework.core.convert.converter.GenericConverter#convert(java
-	 * .lang.Object, org.springframework.core.convert.TypeDescriptor,
-	 * org.springframework.core.convert.TypeDescriptor)
+	 * org.springframework.core.convert.converter.Converter#convert(java.lang
+	 * .Object)
 	 */
-	public List<Object> convert(Object source, TypeDescriptor sourceType,
-			TypeDescriptor targetType) {
-		if (source == null)
+	public DataSet convert(List<Map<String, Object>> mapList) {
+		if (mapList == null)
 			return null;
-		List<Object> javaBeanList = null;
-		try {
-			javaBeanList = XplatformUtils.convertDataSetToJavaBeanList(
-					(DataSet) source, targetType.getType());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return javaBeanList;
+		return XplatformUtils.convertMapListToDataSet(mapList);
 	}
 }

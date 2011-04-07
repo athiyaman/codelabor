@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.codelabor.example.dto.TestDTO;
-import org.codelabor.system.convert.converter.support.xlatform.DataSetToJavaBeanListConvertor;
+import org.codelabor.system.convert.converter.support.xlatform.DataSetToJavaBeanListConverter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,7 +41,7 @@ public class DataSetToJavaBeanListConverterTest {
 	private Logger logger = LoggerFactory
 			.getLogger(DataSetToJavaBeanListConverterTest.class);
 
-	private DataSetToJavaBeanListConvertor dataSetToJavaBeanListConvertor = null;
+	private DataSetToJavaBeanListConverter dataSetToJavaBeanListConvertor = null;
 	private DataSet dataSet;
 
 	/**
@@ -49,7 +49,7 @@ public class DataSetToJavaBeanListConverterTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		dataSetToJavaBeanListConvertor = new DataSetToJavaBeanListConvertor();
+		dataSetToJavaBeanListConvertor = new DataSetToJavaBeanListConverter();
 
 		dataSet = new DataSet("testDataSet");
 		dataSet.addColumn("field1", DataTypes.STRING);
@@ -87,7 +87,7 @@ public class DataSetToJavaBeanListConverterTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.convert.converter.support.xlatform.DataSetToMapListConvertor#convert(com.tobesoft.xplatform.data.DataSet)}
+	 * {@link org.codelabor.system.convert.converter.support.xlatform.DataSetToMapListConverter#convert(com.tobesoft.xplatform.data.DataSet)}
 	 * .
 	 */
 	@SuppressWarnings("unchecked")

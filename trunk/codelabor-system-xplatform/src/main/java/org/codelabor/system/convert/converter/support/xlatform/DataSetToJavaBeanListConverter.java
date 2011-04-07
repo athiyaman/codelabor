@@ -16,12 +16,13 @@
  */
 package org.codelabor.system.convert.converter.support.xlatform;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.codelabor.system.util.xplatform.XplatformUtils;
-import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.core.convert.TypeDescriptor;
-import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.convert.converter.GenericConverter;
 
 import com.tobesoft.xplatform.data.DataSet;
 
@@ -29,24 +30,38 @@ import com.tobesoft.xplatform.data.DataSet;
  * @author Shin Sang-jae
  * 
  */
-public class JavaBeanListToDataSetConvertor implements
-		Converter<List<Object>, DataSet> {
+public class DataSetToJavaBeanListConverter implements GenericConverter {
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.springframework.core.convert.converter.GenericConverter#
+	 * getConvertibleTypes()
+	 */
+	public Set<ConvertiblePair> getConvertibleTypes() {
+		return Collections.singleton(new ConvertiblePair(DataSet.class,
+				Object.class));
+	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.springframework.core.convert.converter.Converter#convert(java.lang
-	 * .Object)
+	 * org.springframework.core.convert.converter.GenericConverter#convert(java
+	 * .lang.Object, org.springframework.core.convert.TypeDescriptor,
+	 * org.springframework.core.convert.TypeDescriptor)
 	 */
-	public DataSet convert(List<Object> javaBeanList) {
+	public List<Object> convert(Object source, TypeDescriptor sourceType,
+			TypeDescriptor targetType) {
+		if (source == null)
+			return null;
+		List<Object> javaBeanList = null;
 		try {
-			return XplatformUtils.convertJavaBeanListToDataSet(javaBeanList);
+			javaBeanList = XplatformUtils.convertDataSetToJavaBeanList(
+					(DataSet) source, targetType.getType());
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ConversionFailedException(
-					TypeDescriptor.valueOf(List.class),
-					TypeDescriptor.valueOf(DataSet.class), javaBeanList, e);
 		}
+		return javaBeanList;
 	}
 }

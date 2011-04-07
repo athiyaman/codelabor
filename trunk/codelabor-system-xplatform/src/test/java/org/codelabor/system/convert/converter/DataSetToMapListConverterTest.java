@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-import org.codelabor.system.convert.converter.support.xlatform.DataSetToMapListConvertor;
+import org.codelabor.system.convert.converter.support.xlatform.DataSetToMapListConverter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class DataSetToMapListConverterTest {
 	private Logger logger = LoggerFactory
 			.getLogger(DataSetToMapListConverterTest.class);
 
-	private DataSetToMapListConvertor dataSetToMapListConvertor = null;
+	private DataSetToMapListConverter dataSetToMapListConvertor = null;
 	private DataSet dataSet;
 
 	/**
@@ -48,7 +48,7 @@ public class DataSetToMapListConverterTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		dataSetToMapListConvertor = new DataSetToMapListConvertor();
+		dataSetToMapListConvertor = new DataSetToMapListConverter();
 
 		dataSet = new DataSet("testDataSet");
 		dataSet.addColumn("field1", DataTypes.STRING);
@@ -86,7 +86,7 @@ public class DataSetToMapListConverterTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.convert.converter.support.xlatform.DataSetToMapListConvertor#convert(com.tobesoft.xplatform.data.DataSet)}
+	 * {@link org.codelabor.system.convert.converter.support.xlatform.DataSetToMapListConverter#convert(com.tobesoft.xplatform.data.DataSet)}
 	 * .
 	 */
 	@Test
