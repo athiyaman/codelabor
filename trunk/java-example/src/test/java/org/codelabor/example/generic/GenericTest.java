@@ -37,9 +37,11 @@ public class GenericTest {
 		stringList.add("1234");
 		stringList.add("qwer");
 
-		List<?> whildcardList = stringList;
-		logger.debug("get(0): {}", whildcardList.get(0));
-		logger.debug("get(1): {}", whildcardList.get(1));
-		// whildcardList.add("asdf"); // compile error
+		List<?> wildcardList = stringList;
+		logger.debug("get(0): {}", wildcardList.get(0));
+		logger.debug("get(1): {}", wildcardList.get(1));
+
+
+
 	}
 }
