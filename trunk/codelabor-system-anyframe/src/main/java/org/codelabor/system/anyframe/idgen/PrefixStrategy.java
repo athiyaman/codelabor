@@ -22,7 +22,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
 /**
  * 접두어 정책 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class PrefixStrategy implements IdGenerationStrategy {

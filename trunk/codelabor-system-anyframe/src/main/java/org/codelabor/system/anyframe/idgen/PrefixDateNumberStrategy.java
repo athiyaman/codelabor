@@ -27,7 +27,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
 /**
  * 날짜, 숫자 조합 접두어 정책
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class PrefixDateNumberStrategy implements IdGenerationStrategy {

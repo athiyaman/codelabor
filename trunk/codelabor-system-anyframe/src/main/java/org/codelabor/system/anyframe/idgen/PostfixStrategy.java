@@ -22,7 +22,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
 /**
  * 접미어 정책 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class PostfixStrategy implements IdGenerationStrategy {
