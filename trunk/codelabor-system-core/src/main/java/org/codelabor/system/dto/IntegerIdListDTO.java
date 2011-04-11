@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Integer 타입 Id List DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class IntegerIdListDTO implements Serializable {

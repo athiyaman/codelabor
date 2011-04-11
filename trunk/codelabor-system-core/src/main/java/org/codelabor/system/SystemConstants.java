@@ -19,7 +19,7 @@ package org.codelabor.system;
 /**
  * 시스템 관련 상수
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class SystemConstants {

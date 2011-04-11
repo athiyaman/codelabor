@@ -20,7 +20,7 @@ package org.codelabor.system.exception;
 /**
  * 롤백을 하지 않는 예외를 위한 마커 인터페이스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public interface NoRollbackable {

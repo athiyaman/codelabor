@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * 시스템 속성 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class SystemPropertiesDTO implements Serializable {

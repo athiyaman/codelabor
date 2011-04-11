@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * 메뉴 아이템 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class MenuItemDTO implements Serializable {

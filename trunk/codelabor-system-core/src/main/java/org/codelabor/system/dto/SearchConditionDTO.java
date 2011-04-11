@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * 검색 조건 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class SearchConditionDTO implements Serializable {

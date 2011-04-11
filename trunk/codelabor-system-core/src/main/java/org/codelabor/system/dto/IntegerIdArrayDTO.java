@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * Integer 타입 Id 배열 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class IntegerIdArrayDTO implements Serializable {

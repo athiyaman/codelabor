@@ -20,7 +20,7 @@ package org.codelabor.system.dto;
 /**
  * DAO 관련 상수
  *
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  *
  */
 public class DAOConstants {

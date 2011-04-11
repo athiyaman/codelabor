@@ -19,7 +19,7 @@ package org.codelabor.system.exception;
 /**
  * 유효하지 않은 파라미터 예외
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class InvalidParameterException extends Exception {

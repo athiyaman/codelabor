@@ -24,7 +24,7 @@ import org.codelabor.system.dto.SystemPropertiesDTO;
 /**
  * 시스템 프로퍼티 서비스 인터페이스
  *
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  *
  */
 public interface SystemPropertiesService {

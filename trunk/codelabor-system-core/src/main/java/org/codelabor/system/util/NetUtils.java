@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Net 패키지 관련 유틸리티 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class NetUtils {

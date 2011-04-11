@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * 데이터베이스 반영 건수 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class AffectedRowCountDTO implements Serializable {

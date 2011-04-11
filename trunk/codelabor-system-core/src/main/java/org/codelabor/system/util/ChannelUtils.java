@@ -25,7 +25,7 @@ import java.nio.channels.WritableByteChannel;
 /**
  * 채널 유틸리티 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ChannelUtils {

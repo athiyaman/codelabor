@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Date 유틸리티 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class DateUtils {

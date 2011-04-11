@@ -20,7 +20,7 @@ package org.codelabor.system.exception;
 /**
  * 필요한 파라미터가 없을 경우 발생하는 예외
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ParameterNotFoundException extends Exception {

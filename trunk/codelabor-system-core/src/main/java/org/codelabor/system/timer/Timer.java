@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 타이머
  * 
- * @author "Shin Sangjae"
+ * @author "Shin Sang-jae"
  * 
  */
 public class Timer extends Thread {

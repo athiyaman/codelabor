@@ -23,7 +23,7 @@ import org.springframework.context.ApplicationListener;
 
 
 /**
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  *
  */
 public class BaseApplicationListener implements

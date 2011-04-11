@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * String 타입의 Id List DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class StringIdListDTO implements Serializable {

@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 파일 유틸리티 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class FileUtils {

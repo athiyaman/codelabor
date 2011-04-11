@@ -27,7 +27,7 @@ import org.springframework.core.io.ResourceLoader;
 /**
  * 엑셀 파일 형식의 빈 메타 정보를 읽는 리더
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ExcelBeanDefinitionReader implements BeanDefinitionReader {

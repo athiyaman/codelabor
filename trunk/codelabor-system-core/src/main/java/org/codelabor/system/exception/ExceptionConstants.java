@@ -20,7 +20,7 @@ package org.codelabor.system.exception;
 /**
  * 예외 관련 상수
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ExceptionConstants {
