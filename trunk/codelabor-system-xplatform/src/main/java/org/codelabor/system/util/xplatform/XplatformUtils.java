@@ -16,9 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.codelabor.system.dto.xinternet.ChangedDataMapListDTO;
-import org.codelabor.system.dto.xinternet.ChangedDataObjectArrayListDTO;
-import org.codelabor.system.dto.xinternet.ChangedDataObjectListDTO;
+import org.codelabor.system.dto.xinternet.BatchUpdateDataDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,9 +28,9 @@ import com.tobesoft.xplatform.data.VariableList;
 
 /**
  * Xplatform 관련 유틸리티
- *
+ * 
  * @author bomber.shin
- *
+ * 
  */
 public class XplatformUtils {
 	/**
@@ -42,7 +40,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Class 타입에 대응하는 Xplatform 필드 타입을 가져온다.
-	 *
+	 * 
 	 * @param clazz
 	 *            Java Class
 	 * @return Xplatform 필드 타입 상수
@@ -74,7 +72,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Object에 대응하는 Xplatform 필드 타입을 가져온다.
-	 *
+	 * 
 	 * @param obj
 	 *            Java Object
 	 * @return Xplatform 필드 타입 상수
@@ -93,7 +91,7 @@ public class XplatformUtils {
 	 * Java Bean의 정보를 기반으로 Xplatform DataSet에 컬럼 헤더 정보를 설정한다.<br/>
 	 * Xplatform에서 지원하지 않는 Java Class 타입에 대해서는 무조건 Xplatform에서의 STRING 타입으로
 	 * 설정된다.
-	 *
+	 * 
 	 * @param clazz
 	 *            컬럼 명을 property로 가지는 Java Bean Class
 	 * @param targetDataSet
@@ -120,7 +118,7 @@ public class XplatformUtils {
 	 * 설정된다.<br/>
 	 * Map의 value가 null인 경우, Java Class 타입을 알 수 없으므로 무조건 Xplatform에서의 STRING
 	 * 타입으로 설정된다.<br/>
-	 *
+	 * 
 	 * @param sourceMap
 	 *            컬럼 명을 key로, 컬럼 값을 value로 가지는 Map
 	 * @param targetDataSet
@@ -139,7 +137,7 @@ public class XplatformUtils {
 
 	/**
 	 * Map을 DataSet의 특정 row 데이터로 변환한다.
-	 *
+	 * 
 	 * @param sourceMap
 	 *            컬럼 명을 key로, 컬럼 값을 value로 가지는 Map
 	 * @param targetDataSet
@@ -166,7 +164,7 @@ public class XplatformUtils {
 	 * 설정된다.<br/>
 	 * Map의 value가 null인 경우, Java Class 타입을 알 수 없으므로 무조건 Xplatform에서의 STRING
 	 * 타입으로 설정된다.<br/>
-	 *
+	 * 
 	 * @param sourceMap
 	 *            컬럼 명을 key로, 컬럼 값을 value로 가지는 Map
 	 * @return Map의 데이터를 받을 DataSet
@@ -192,7 +190,7 @@ public class XplatformUtils {
 	 * 설정된다.<br/>
 	 * Map의 value가 null인 경우, Java Class 타입을 알 수 없으므로 무조건 Xplatform에서의 STRING
 	 * 타입으로 설정된다.<br/>
-	 *
+	 * 
 	 * @param sourceMap
 	 *            컬럼 명을 key로, 컬럼 값을 value로 가지는 Map
 	 * @param dataSetName
@@ -208,7 +206,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 특정 row 데이터를 Map으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param targetMap
@@ -231,7 +229,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 삭제된 데이터 중, 특정 row 데이터를 Map으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param targetMap
@@ -255,7 +253,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 특정 row 데이터를 Map으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param rowIndex
@@ -286,7 +284,7 @@ public class XplatformUtils {
 			Object columnValue = sourceDataSet.getObject(rowIndex, columnIndex);
 			logger.debug("colunmName: {}, columnValue: {}", colunmName,
 					columnValue);
-			Object[] param = new Object[] {colunmName, columnValue};
+			Object[] param = new Object[] { colunmName, columnValue };
 			paramList.add(param);
 		}
 		return paramList.toArray();
@@ -295,7 +293,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 삭제된 데이터 중, 특정 row 데이터를 Map으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param rowIndex
@@ -328,7 +326,7 @@ public class XplatformUtils {
 					columnIndex);
 			logger.debug("colunmName: {}, columnValue: {}", colunmName,
 					columnValue);
-			Object[] param = new Object[] {colunmName, columnValue};
+			Object[] param = new Object[] { colunmName, columnValue };
 			paramList.add(param);
 		}
 		return paramList.toArray();
@@ -337,7 +335,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 특정 row 데이터를 Java Bean으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param targetJavaBean
@@ -365,7 +363,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 삭제된 데이터 중, 특정 row 데이터를 Java Bean으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param targetJavaBean
@@ -395,7 +393,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet을 Java Bean의 List로 변환한다.
-	 *
+	 * 
 	 * @param dataSet
 	 *            DataSet
 	 * @param javaBeanList
@@ -424,12 +422,12 @@ public class XplatformUtils {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public static ChangedDataObjectListDTO convertDataSetToChangedDataObjectListDTO(
+	public static BatchUpdateDataDTO convertDataSetToBatchUpdateDataDTO(
 			DataSet dataSet, Class javaBeanClass) throws SecurityException,
 			IllegalArgumentException, NoSuchMethodException,
 			InstantiationException, IllegalAccessException,
 			InvocationTargetException {
-		ChangedDataObjectListDTO changedDataDTO = new ChangedDataObjectListDTO();
+		BatchUpdateDataDTO batchUpdateDataDTO = new BatchUpdateDataDTO();
 		List<Object> insertList = new ArrayList<Object>();
 		List<Object> updateList = new ArrayList<Object>();
 		List<Object> deleteList = new ArrayList<Object>();
@@ -457,18 +455,18 @@ public class XplatformUtils {
 					javaBeanClass, rowIndex));
 		}
 
-		changedDataDTO.setInsertedDataList(insertList);
-		changedDataDTO.setUpdatedDataList(updateList);
-		changedDataDTO.setDeletedDataList(deleteList);
-		return changedDataDTO;
+		batchUpdateDataDTO.setInsertedDataList(insertList);
+		batchUpdateDataDTO.setUpdatedDataList(updateList);
+		batchUpdateDataDTO.setDeletedDataList(deleteList);
+		return batchUpdateDataDTO;
 	}
 
-	public static ChangedDataMapListDTO convertDataSetToChangedDataMapListDTO(
+	public static BatchUpdateDataDTO convertDataSetToBatchUpdateDataDTO(
 			DataSet dataSet) throws SecurityException,
 			IllegalArgumentException, NoSuchMethodException,
 			InstantiationException, IllegalAccessException,
 			InvocationTargetException {
-		ChangedDataMapListDTO changedDataMapListDTO = new ChangedDataMapListDTO();
+		BatchUpdateDataDTO batchUpdateDataDTO = new BatchUpdateDataDTO();
 		List<Map<String, Object>> insertList = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> updateList = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> deleteList = new ArrayList<Map<String, Object>>();
@@ -479,12 +477,10 @@ public class XplatformUtils {
 			int rowType = dataSet.getRowType(rowIndex);
 			switch (rowType) {
 			case DataSet.ROW_TYPE_INSERTED:
-				insertList.add(convertDataSetRowToMap(dataSet,
-						rowIndex));
+				insertList.add(convertDataSetRowToMap(dataSet, rowIndex));
 				break;
 			case DataSet.ROW_TYPE_UPDATED:
-				updateList.add(convertDataSetRowToMap(dataSet,
-						rowIndex));
+				updateList.add(convertDataSetRowToMap(dataSet, rowIndex));
 				break;
 			}
 		}
@@ -492,60 +488,19 @@ public class XplatformUtils {
 		int removedRowCount = dataSet.getRemovedRowCount();
 		logger.debug("removedRowCount: {}", removedRowCount);
 		for (int rowIndex = 0; rowIndex < removedRowCount; rowIndex++) {
-			deleteList.add(convertDeletedDataSetRowToMap(dataSet,
-					 rowIndex));
+			deleteList.add(convertDeletedDataSetRowToMap(dataSet, rowIndex));
 		}
 
-		changedDataMapListDTO.setInsertedDataList(insertList);
-		changedDataMapListDTO.setUpdatedDataList(updateList);
-		changedDataMapListDTO.setDeletedDataList(deleteList);
-		return changedDataMapListDTO;
-		// TODO
-	}
-
-	public static ChangedDataObjectArrayListDTO convertDataSetToChangedDataObjectArrayListDTO(
-			DataSet dataSet) throws SecurityException,
-			IllegalArgumentException, NoSuchMethodException,
-			InstantiationException, IllegalAccessException,
-			InvocationTargetException {
-		ChangedDataObjectArrayListDTO changedDataObjectArrayListDTO = new ChangedDataObjectArrayListDTO();
-		List<Object[]> insertList = new ArrayList<Object[]>();
-		List<Object[]> updateList = new ArrayList<Object[]>();
-		List<Object[]> deleteList = new ArrayList<Object[]>();
-
-		int rowCount = dataSet.getRowCount();
-		logger.debug("rowCount: {}", rowCount);
-		for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
-			int rowType = dataSet.getRowType(rowIndex);
-			switch (rowType) {
-			case DataSet.ROW_TYPE_INSERTED:
-				insertList.add(convertDataSetRowToObjectArray(dataSet,
-						rowIndex));
-				break;
-			case DataSet.ROW_TYPE_UPDATED:
-				updateList.add(convertDataSetRowToObjectArray(dataSet,
-						rowIndex));
-				break;
-			}
-		}
-
-		int removedRowCount = dataSet.getRemovedRowCount();
-		logger.debug("removedRowCount: {}", removedRowCount);
-		for (int rowIndex = 0; rowIndex < removedRowCount; rowIndex++) {
-			deleteList.add(convertDeletedDataSetRowToObjectArray(dataSet,
-					 rowIndex));
-		}
-
-		changedDataObjectArrayListDTO.setInsertedDataList(insertList);
-		changedDataObjectArrayListDTO.setUpdatedDataList(updateList);
-		changedDataObjectArrayListDTO.setDeletedDataList(deleteList);
-		return changedDataObjectArrayListDTO;
+		batchUpdateDataDTO.setInsertedDataList(insertList);
+		batchUpdateDataDTO.setUpdatedDataList(updateList);
+		batchUpdateDataDTO.setDeletedDataList(deleteList);
+		return batchUpdateDataDTO;
 		// TODO
 	}
 
 	/**
 	 * DataSet을 Java Bean의 List로 변환한다.
-	 *
+	 * 
 	 * @param dataSet
 	 *            DataSet
 	 * @param javaBeanClass
@@ -576,7 +531,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet을 Map의 List로 변환한다.
-	 *
+	 * 
 	 * @param dataSet
 	 *            DataSet
 	 * @param mapList
@@ -595,7 +550,7 @@ public class XplatformUtils {
 	/**
 	 * DataSetList를 Java Bean List의 Map으로 변환한다.<br/>
 	 * Map의 key는 DataSet의 이름이고 Map의 value는 Java Bean의 List이다.
-	 *
+	 * 
 	 * @param dataSetList
 	 *            DataSetList
 	 * @param targetJavaBeanClass
@@ -632,7 +587,7 @@ public class XplatformUtils {
 	/**
 	 * DataSetList를 Map List의 Map으로 변환한다.<br/>
 	 * Map의 key는 DataSet의 이름이고 Map의 value는 Map의 List이다.
-	 *
+	 * 
 	 * @param dataSetList
 	 *            DataSetList
 	 * @return
@@ -654,7 +609,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet을 Map의 List로 변환한다.
-	 *
+	 * 
 	 * @param dataSet
 	 *            DataSet
 	 * @return Map의 List
@@ -673,7 +628,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean의 List를 DataSet으로 변환한다.
-	 *
+	 * 
 	 * @param javaBeanList
 	 *            Java Bean의 List
 	 * @param dataSet
@@ -694,7 +649,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean의 List를 DataSet으로 변환한다.
-	 *
+	 * 
 	 * @param javaBeanList
 	 *            Java Bean의 List
 	 * @return DataSet
@@ -720,7 +675,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean의 List를 DataSet으로 변환한다.
-	 *
+	 * 
 	 * @param javaBeanList
 	 *            Java Bean의 List
 	 * @param dataSetName
@@ -730,7 +685,7 @@ public class XplatformUtils {
 	 * @throws InvocationTargetException
 	 * @throws NoSuchMethodException
 	 */
-	public static <T>DataSet convertJavaBeanListToDataSet(
+	public static <T> DataSet convertJavaBeanListToDataSet(
 			List<T> javaBeanList, String dataSetName)
 			throws IllegalAccessException, InvocationTargetException,
 			NoSuchMethodException {
@@ -741,7 +696,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean의 List를 DataSetList에 추가한다.
-	 *
+	 * 
 	 * @param javaBeanList
 	 *            Java Bean의 List
 	 * @param dataSetName
@@ -764,7 +719,7 @@ public class XplatformUtils {
 
 	/**
 	 * Map의 List를 DataSet으로 변환한다.
-	 *
+	 * 
 	 * @param mapList
 	 *            Map의 List
 	 * @param dataSet
@@ -786,7 +741,7 @@ public class XplatformUtils {
 
 	/**
 	 * Map의 List를 DataSet으로 변환한다.
-	 *
+	 * 
 	 * @param mapList
 	 *            Map의 List
 	 * @return DataSet
@@ -807,7 +762,7 @@ public class XplatformUtils {
 
 	/**
 	 * Map의 List를 DataSet으로 변환한다.
-	 *
+	 * 
 	 * @param mapList
 	 *            Map의 List
 	 * @param dataSetName
@@ -821,7 +776,7 @@ public class XplatformUtils {
 		return dataSet;
 	}
 
-	public static <T>void addMapListToDataSetList(
+	public static <T> void addMapListToDataSetList(
 			List<Map<String, T>> mapList, String dataSetName,
 			DataSetList dataSetList) {
 		DataSet dataSet = convertMapListToDataSet(mapList);
@@ -831,7 +786,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 특정 row 데이터를 Java Bean으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param targetJavaBeanClass
@@ -870,7 +825,7 @@ public class XplatformUtils {
 
 	/**
 	 * DataSet의 삭제된 데이터 중, 특정 row 데이터를 Java Bean으로 변환한다.
-	 *
+	 * 
 	 * @param sourceDataSet
 	 *            DataSet
 	 * @param targetJavaBeanClass
@@ -910,7 +865,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean을 DataSet의 특정 row 데이터로 변환한다.
-	 *
+	 * 
 	 * @param sourceJavaBean
 	 *            컬럼 명을 property로 가지는 Java Bean
 	 * @param targetDataSet
@@ -933,7 +888,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean을 DataSet의 특정 row 데이터로 변환한다.
-	 *
+	 * 
 	 * @param sourceJavaBean
 	 *            컬럼 명을 property로 가지는 Java Bean
 	 * @return DataSet
@@ -956,7 +911,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean을 DataSet의 특정 row 데이터로 변환한다.
-	 *
+	 * 
 	 * @param sourceJavaBean
 	 *            컬럼 명을 property로 가지는 Java Bean
 	 * @param dataSetName
@@ -976,7 +931,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean을 Variable List로 변환한다.
-	 *
+	 * 
 	 * @param sourceJavaBean
 	 *            컬럼 명을 property로 가지는 Java Bean
 	 * @param targetVariableList
@@ -997,7 +952,7 @@ public class XplatformUtils {
 
 	/**
 	 * Java Bean을 Variable List로 변환한다.
-	 *
+	 * 
 	 * @param sourceJavaBean
 	 *            컬럼 명을 property로 가지는 Java Bean
 	 * @return Variable List
@@ -1019,7 +974,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List의 데이터를 Map으로 변환한다.
-	 *
+	 * 
 	 * @param sourceVariableList
 	 *            Variable List
 	 * @param targetMap
@@ -1041,7 +996,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List의 데이터를 Map으로 변환한다.
-	 *
+	 * 
 	 * @param sourceVariableList
 	 *            Variable List
 	 * @return Variable List의 데이터를 받을 Map
@@ -1064,7 +1019,7 @@ public class XplatformUtils {
 
 	/**
 	 * Map을 Variable List로 변환한다.
-	 *
+	 * 
 	 * @param sourceMap
 	 *            Map
 	 * @param targetVariableList
@@ -1084,7 +1039,7 @@ public class XplatformUtils {
 
 	/**
 	 * Map을 Variable List로 변환한다.
-	 *
+	 * 
 	 * @param sourceMap
 	 *            Map
 	 * @return Map의 데이터를 받을 Variable List
@@ -1105,7 +1060,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List의 데이터를 Java Bean으로 변환한다.
-	 *
+	 * 
 	 * @param sourceVariableList
 	 *            Variable List
 	 * @param targetJavaBean
@@ -1135,7 +1090,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List의 데이터를 Java Bean으로 변환한다.
-	 *
+	 * 
 	 * @param sourceVariableList
 	 *            Variable List
 	 * @param targetJavaBeanClass
@@ -1174,7 +1129,7 @@ public class XplatformUtils {
 
 	/**
 	 * 에러 코드와 에러 메시지가 설정된 Variable List를 가져온다.
-	 *
+	 * 
 	 * @param code
 	 *            에러 코드
 	 * @param message
@@ -1189,7 +1144,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List에 에러 코드와 에러 메시지를 설정한다.
-	 *
+	 * 
 	 * @param code
 	 *            에러 코드
 	 * @param message
@@ -1205,7 +1160,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List에 에러 코드를 설정한다.
-	 *
+	 * 
 	 * @param code
 	 *            에러 코드
 	 * @param variableList
@@ -1217,7 +1172,7 @@ public class XplatformUtils {
 
 	/**
 	 * Variable List에 에러 메시지를 설정한다.
-	 *
+	 * 
 	 * @param message
 	 *            에러 메시지
 	 * @param variableList
@@ -1230,7 +1185,7 @@ public class XplatformUtils {
 	/**
 	 * Variable List에 성공 메시지를 설정한다.<br/>
 	 * 에러 코드는 기본적으로 0을 사용한다.
-	 *
+	 * 
 	 * @param message
 	 *            성공 메시지
 	 * @param variableList
@@ -1245,7 +1200,7 @@ public class XplatformUtils {
 	/**
 	 * Variable List에 실패 메시지를 설정한다.<br/>
 	 * 에러 코드는 기본적으로 -1을 사용한다.
-	 *
+	 * 
 	 * @param message
 	 *            실패 메시지
 	 * @param variableList

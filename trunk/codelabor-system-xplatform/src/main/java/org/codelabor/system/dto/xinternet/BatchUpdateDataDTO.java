@@ -2,32 +2,32 @@ package org.codelabor.system.dto.xinternet;
 
 import java.util.List;
 
-public class ChangedDataObjectListDTO {
-	private List<Object> insertedDataList;
-	private List<Object> updatedDataList;
-	private List<Object> deletedDataList;
+public class BatchUpdateDataDTO<E> {
+	private List<E> insertedDataList;
+	private List<E> updatedDataList;
+	private List<E> deletedDataList;
 
-	public List<Object> getInsertedDataList() {
+	public List<E> getInsertedDataList() {
 		return insertedDataList;
 	}
 
-	public void setInsertedDataList(List<Object> insertList) {
+	public void setInsertedDataList(List<E> insertList) {
 		this.insertedDataList = insertList;
 	}
 
-	public List<Object> getUpdatedDataList() {
+	public List<E> getUpdatedDataList() {
 		return updatedDataList;
 	}
 
-	public void setUpdatedDataList(List<Object> updateList) {
+	public void setUpdatedDataList(List<E> updateList) {
 		this.updatedDataList = updateList;
 	}
 
-	public List<Object> getDeletedDataList() {
+	public List<E> getDeletedDataList() {
 		return deletedDataList;
 	}
 
-	public void setDeletedDataList(List<Object> deleteList) {
+	public void setDeletedDataList(List<E> deleteList) {
 		this.deletedDataList = deleteList;
 	}
 
@@ -42,7 +42,7 @@ public class ChangedDataObjectListDTO {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("ChangedDataDTO ( ").append(super.toString()).append(TAB)
+		retValue.append("BatchUpdateDataDTO ( ").append(super.toString()).append(TAB)
 				.append("deletedDataList = ").append(this.deletedDataList).append(TAB)
 				.append("insertedDataList = ").append(this.insertedDataList).append(TAB)
 				.append("updatedDataList = ").append(this.updatedDataList).append(TAB)

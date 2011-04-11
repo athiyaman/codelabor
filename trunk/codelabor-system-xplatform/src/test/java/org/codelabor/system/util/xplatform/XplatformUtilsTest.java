@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.codelabor.example.dto.TestDTO;
-import org.codelabor.system.dto.xinternet.ChangedDataObjectListDTO;
+import org.codelabor.system.dto.xinternet.BatchUpdateDataDTO;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -282,7 +282,7 @@ public class XplatformUtilsTest {
 		testDTO2.setField10(Calendar.getInstance().getTime());
 		testDTO2.setField11((new String("field11")).getBytes());
 
-		List<Object> beanList = new ArrayList<Object>();
+		List<TestDTO> beanList = new ArrayList<TestDTO>();
 		beanList.add(testDTO1);
 		beanList.add(testDTO2);
 
@@ -1387,7 +1387,7 @@ public class XplatformUtilsTest {
 	}
 
 	@Test
-	public void testConvertDataSetToChangedDataDTO() {
+	public void testConvertDataSetToBatchUpdateDataDTO() {
 		DataSet dataSet = new DataSet("testDataSet");
 		dataSet.addColumn("field1", DataTypes.STRING);
 		dataSet.addColumn("field2", DataTypes.INT);
@@ -1488,10 +1488,9 @@ public class XplatformUtilsTest {
 		dataSet.removeRow(4);
 
 		try {
-			ChangedDataObjectListDTO changedDataDTO = XplatformUtils
-					.convertDataSetToChangedDataObjectListDTO(dataSet,
-							TestDTO.class);
-			logger.debug("changedDataDTO: {}", changedDataDTO);
+			BatchUpdateDataDTO batchUpdateDataDTO = XplatformUtils
+					.convertDataSetToBatchUpdateDataDTO(dataSet, TestDTO.class);
+			logger.debug("batchUpdateDataDTO: {}", batchUpdateDataDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
