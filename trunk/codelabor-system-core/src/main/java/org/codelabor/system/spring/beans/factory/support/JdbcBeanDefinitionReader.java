@@ -26,59 +26,88 @@ import org.springframework.core.io.ResourceLoader;
 
 /**
  * 테이블 형식의 빈 메타 정보를 읽는 리더
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class JdbcBeanDefinitionReader implements BeanDefinitionReader {
 
-	public ClassLoader getBeanClassLoader() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public BeanDefinitionRegistry getBeanFactory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public BeanNameGenerator getBeanNameGenerator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#getRegistry()
+	 */
+	@Override
 	public BeanDefinitionRegistry getRegistry() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#getResourceLoader()
+	 */
+	@Override
 	public ResourceLoader getResourceLoader() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int loadBeanDefinitions(Resource arg0)
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#getBeanClassLoader()
+	 */
+	@Override
+	public ClassLoader getBeanClassLoader() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#getBeanNameGenerator()
+	 */
+	@Override
+	public BeanNameGenerator getBeanNameGenerator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#loadBeanDefinitions(org.springframework.core.io.Resource)
+	 */
+	@Override
+	public int loadBeanDefinitions(Resource resource)
 			throws BeanDefinitionStoreException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int loadBeanDefinitions(Resource[] arg0)
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#loadBeanDefinitions(org.springframework.core.io.Resource[])
+	 */
+	@Override
+	public int loadBeanDefinitions(Resource... resources)
 			throws BeanDefinitionStoreException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int loadBeanDefinitions(String arg0)
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#loadBeanDefinitions(java.lang.String)
+	 */
+	@Override
+	public int loadBeanDefinitions(String location)
 			throws BeanDefinitionStoreException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public int loadBeanDefinitions(String[] arg0)
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.support.BeanDefinitionReader#loadBeanDefinitions(java.lang.String[])
+	 */
+	@Override
+	public int loadBeanDefinitions(String... locations)
 			throws BeanDefinitionStoreException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 }
