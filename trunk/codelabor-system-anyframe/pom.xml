@@ -29,7 +29,7 @@
   <developers>
     <developer>
         <id>bomber</id>
-        <name>Sangjae Shin</name>
+        <name>Sang-jae Shin</name>
         <email>codelabor@gmail.com</email>
         <organization>CODELABOR</organization>
         <organizationUrl>http://codelabor.org</organizationUrl>
@@ -264,6 +264,13 @@
 		<artifactId>spring-struts</artifactId>
 		<version>3.0.5.RELEASE</version>
 		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.codelabor</groupId>
+		<artifactId>codelabor-system-web</artifactId>
+		<version>3.0.0</version>
+		<type>war</type>
 		<scope>compile</scope>
 	</dependency>
   </dependencies>

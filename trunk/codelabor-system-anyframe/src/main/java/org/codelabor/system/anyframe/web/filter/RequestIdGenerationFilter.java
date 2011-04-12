@@ -17,8 +17,6 @@
 
 package org.codelabor.system.anyframe.web.filter;
 
-import static org.codelabor.system.web.SessionConstants.SESSION_REQUEST_ID;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -26,7 +24,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.codelabor.system.web.filter.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -38,7 +35,7 @@ import anyframe.core.idgen.IIdGenerationService;
 /**
  * 요청 ID 생성 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class RequestIdGenerationFilter extends BaseFilterImpl {
@@ -73,7 +70,6 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
 	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
-	@Override
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
@@ -85,7 +81,6 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
 	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
-	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 		try {

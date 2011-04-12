@@ -28,7 +28,7 @@ import anyframe.core.properties.IPropertiesService;
  * 
  * 기본 예외 핸들러 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class BaseExceptionHandler extends ExceptionHandler {

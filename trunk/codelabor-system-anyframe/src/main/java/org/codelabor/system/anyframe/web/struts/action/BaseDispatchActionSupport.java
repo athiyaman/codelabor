@@ -28,7 +28,7 @@ import anyframe.core.properties.IPropertiesService;
 /**
  * 기본 Dispatch Action Support 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class BaseDispatchActionSupport extends DispatchActionSupport {

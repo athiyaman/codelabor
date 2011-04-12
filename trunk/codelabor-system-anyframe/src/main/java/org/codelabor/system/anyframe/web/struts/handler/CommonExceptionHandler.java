@@ -34,7 +34,7 @@ import org.codelabor.system.exception.ExceptionConstants;
 /**
  * 공통 에외 핸들러 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class CommonExceptionHandler extends BaseExceptionHandler {
