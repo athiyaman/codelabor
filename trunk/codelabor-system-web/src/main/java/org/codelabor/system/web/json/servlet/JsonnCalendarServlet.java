@@ -38,14 +38,14 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class JSONCalendarServlet extends HttpServlet {
+public class JsonnCalendarServlet extends HttpServlet {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 5860293886282746503L;
 	private final Logger logger = LoggerFactory
-			.getLogger(JSONCalendarServlet.class);
+			.getLogger(JsonnCalendarServlet.class);
 
 	/**
 	 * 인코딩</br>기본값은 UTF-8을 사용한다.

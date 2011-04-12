@@ -40,14 +40,14 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class JSONHttpSessionServlet extends HttpServlet {
+public class JsonnHttpSessionServlet extends HttpServlet {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 5498874994938492455L;
 	private final Logger logger = LoggerFactory
-			.getLogger(JSONHttpSessionServlet.class);
+			.getLogger(JsonnHttpSessionServlet.class);
 	/**
 	 * 인코딩</br>기본값은 UTF-8을 사용한다.
 	 */
