@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 기본 Dispatcher Action 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class BaseDispatchAction extends DispatchAction {

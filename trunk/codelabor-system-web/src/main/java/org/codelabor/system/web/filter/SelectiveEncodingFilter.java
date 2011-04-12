@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 선택적 인코딩 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public abstract class SelectiveEncodingFilter extends EncodingFilter implements

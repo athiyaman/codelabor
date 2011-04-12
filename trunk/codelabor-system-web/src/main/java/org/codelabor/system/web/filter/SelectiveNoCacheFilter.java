@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 선택적 노 캐쉬 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements

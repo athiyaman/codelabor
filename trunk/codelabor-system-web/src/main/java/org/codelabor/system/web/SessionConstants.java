@@ -20,7 +20,7 @@ package org.codelabor.system.web;
 /**
  * 세션 상수
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class SessionConstants {

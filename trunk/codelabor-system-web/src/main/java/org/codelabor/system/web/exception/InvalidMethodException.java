@@ -19,7 +19,7 @@ package org.codelabor.system.web.exception;
 /**
  * 유효하지 않은 메소드 예외
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class InvalidMethodException extends Exception {

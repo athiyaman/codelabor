@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * Integer 타입 ID 배열 Form 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class IntegerIDArrayForm implements Serializable {

@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 기본 Action 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class BaseAction extends Action {

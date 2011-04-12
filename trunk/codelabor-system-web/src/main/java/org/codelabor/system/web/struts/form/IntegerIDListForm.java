@@ -24,7 +24,7 @@ import org.apache.struts.action.ActionForm;
 /**
  * Inter 타입의 Id List Form 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class IntegerIDListForm extends ActionForm {

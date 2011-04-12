@@ -24,14 +24,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.system.web.servlet.HttpResponseHeader;
+import org.codelabor.system.web.servlet.HttpResponseHeaderConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * 노 캐쉬 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class NoCacheFilter extends BaseFilterImpl {
@@ -55,13 +55,13 @@ public class NoCacheFilter extends BaseFilterImpl {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
 		// Prevents caching at the proxy server.
-		httpServletResponse.setDateHeader(HttpResponseHeader.EXPIRES, 0);
+		httpServletResponse.setDateHeader(HttpResponseHeaderConstants.EXPIRES, 0);
 
 		// Set standard HTTP/1.0 no-cache header.
-		httpServletResponse.setHeader(HttpResponseHeader.PRAGMA, "no-cache");
+		httpServletResponse.setHeader(HttpResponseHeaderConstants.PRAGMA, "no-cache");
 
 		// Set standard HTTP/1.1 no-cache headers.
-		httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
+		httpServletResponse.setHeader(HttpResponseHeaderConstants.CACHE_CONTROL,
 				"no-cache");
 
 		// httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,

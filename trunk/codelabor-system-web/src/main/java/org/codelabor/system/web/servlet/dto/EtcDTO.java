@@ -23,7 +23,7 @@ import java.util.Locale;
 /**
  * 기타 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class EtcDTO implements Serializable {

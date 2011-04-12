@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 인코딩 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class EncodingFilter extends BaseFilterImpl {

@@ -37,7 +37,7 @@ import org.codelabor.system.web.servlet.dto.ServerDTO;
 /**
  * 요청 유틸
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class RequestUtils {

@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 /**
  * javax.servlet.http.HttpSession의 내용을 JSON 형태로 응답하는 서블릿
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class JSONHttpSessionServlet extends HttpServlet {

@@ -22,7 +22,7 @@ import org.codelabor.system.web.util.URIPatternMatcherUtils;
 /**
  * 확장자 인식 노캐쉬 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {

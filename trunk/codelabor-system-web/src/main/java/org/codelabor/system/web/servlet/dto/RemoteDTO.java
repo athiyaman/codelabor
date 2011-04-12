@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * 리포트 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class RemoteDTO implements Serializable {

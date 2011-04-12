@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
 /**
  * java.util.Calendar의 내용을 JSON 형태로 응답하는 서블릿
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class JSONCalendarServlet extends HttpServlet {

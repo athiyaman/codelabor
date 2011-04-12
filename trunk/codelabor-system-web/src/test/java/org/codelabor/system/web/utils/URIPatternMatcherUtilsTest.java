@@ -26,7 +26,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class URIPatternMatcherUtilsTest {

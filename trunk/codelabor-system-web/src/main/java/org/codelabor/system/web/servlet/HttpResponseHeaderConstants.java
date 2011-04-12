@@ -20,10 +20,10 @@ package org.codelabor.system.web.servlet;
 /**
  * Http 응답 헤더 상수
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
-public class HttpResponseHeader {
+public class HttpResponseHeaderConstants {
 	public final static String ACCEPT_RANGES = "Accept-Ranges";
 	public final static String AGE = "Age";
 	public final static String ALLOW = "Allow";

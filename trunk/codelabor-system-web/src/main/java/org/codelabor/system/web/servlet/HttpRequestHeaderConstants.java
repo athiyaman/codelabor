@@ -20,10 +20,10 @@ package org.codelabor.system.web.servlet;
 /**
  * Http 요청 헤더 상수
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
-public class HttpRequestHeader {
+public class HttpRequestHeaderConstants {
 	public final static String ACCEPT = "Accept";
 	public final static String ACCEPT_CHARSET = "Accept-Charset";
 	public final static String ACCEPT_ENCODING = "Accept-Encoding";

@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 /**
  * URI 패턴 매처 유틸
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class URIPatternMatcherUtils {

@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * 로컬 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class LocalDTO implements Serializable {

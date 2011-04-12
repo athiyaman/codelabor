@@ -14,7 +14,7 @@ import javax.servlet.ServletResponse;
 /**
  * 기본 서블릿
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class BaseServlet implements Servlet {
@@ -30,8 +30,6 @@ public class BaseServlet implements Servlet {
 	 * @see javax.servlet.Servlet#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
-
 	}
 
 	/*
@@ -61,8 +59,6 @@ public class BaseServlet implements Servlet {
 	 */
 	public void service(ServletRequest req, ServletResponse res)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
 	}
 
 	/*

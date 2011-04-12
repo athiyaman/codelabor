@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * 서버 DTO
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ServerDTO implements Serializable {

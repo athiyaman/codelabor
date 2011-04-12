@@ -22,7 +22,7 @@ import java.io.Serializable;
 /**
  * String 타입 Id 배열 Form 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class StringIDArrayForm implements Serializable {

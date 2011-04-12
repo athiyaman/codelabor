@@ -22,7 +22,7 @@ import org.codelabor.system.web.util.URIPatternMatcherUtils;
 /**
  * Ant 패스 패턴을 적용한 노 캐쉬 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class AntStylePathPatternNoCacheFilter extends SelectiveNoCacheFilter {

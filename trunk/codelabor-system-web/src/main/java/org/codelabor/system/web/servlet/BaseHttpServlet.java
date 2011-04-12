@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServlet;
 /**
  * 기본 Http Servlet
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class BaseHttpServlet extends HttpServlet {
@@ -66,7 +66,6 @@ public class BaseHttpServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		this.servletConfig = config;
-
 	}
 
 }

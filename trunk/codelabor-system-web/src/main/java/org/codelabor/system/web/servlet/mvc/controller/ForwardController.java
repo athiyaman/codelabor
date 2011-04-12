@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.Controller;
 /**
  * 포워드 컨트롤러 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class ForwardController implements Controller {

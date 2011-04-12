@@ -24,7 +24,7 @@ import javax.servlet.FilterConfig;
 /**
  * 선택적 필터 인터페이스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public interface SelectiveFilter {

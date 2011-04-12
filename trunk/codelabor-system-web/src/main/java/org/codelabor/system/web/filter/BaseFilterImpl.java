@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 기본 필터 구현 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public abstract class BaseFilterImpl implements Filter {

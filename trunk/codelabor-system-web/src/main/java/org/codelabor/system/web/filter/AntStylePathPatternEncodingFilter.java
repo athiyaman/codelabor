@@ -22,7 +22,7 @@ import org.codelabor.system.web.util.URIPatternMatcherUtils;
 /**
  * Ant 패스 패턴을 적용한 인코딩 필터
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class AntStylePathPatternEncodingFilter extends SelectiveEncodingFilter {

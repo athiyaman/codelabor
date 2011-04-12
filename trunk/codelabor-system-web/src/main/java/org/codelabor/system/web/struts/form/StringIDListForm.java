@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * String 타입의 ID List
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class StringIDListForm implements Serializable {
