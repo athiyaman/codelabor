@@ -15,17 +15,18 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.filter;
+package org.codelabor.system.web.filter.selective.antstyle;
 
+import org.codelabor.system.web.filter.selective.SelectiveEncodingFilter;
 import org.codelabor.system.web.util.URIPatternMatcherUtils;
 
 /**
- * 확장자 인식 노캐쉬 필터
+ * Ant 패스 패턴을 적용한 인코딩 필터
  * 
  * @author Shin Sang-jae
  * 
  */
-public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
+public class AntStylePathPatternEncodingFilter extends SelectiveEncodingFilter {
 
 	/*
 	 * (non-Javadoc)
@@ -35,7 +36,7 @@ public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 	 * .String)
 	 */
 	public boolean isFilterRequired(String requestURI) {
-		return URIPatternMatcherUtils.matchByExtension(includePatterns,
-				excludePatterns, requestURI);
+		return URIPatternMatcherUtils.matchByAntStylePathPattern(
+				includePatterns, excludePatterns, requestURI);
 	}
 }

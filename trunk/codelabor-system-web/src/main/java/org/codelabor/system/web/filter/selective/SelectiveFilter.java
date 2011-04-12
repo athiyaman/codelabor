@@ -15,27 +15,41 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.filter;
+package org.codelabor.system.web.filter.selective;
 
-import org.codelabor.system.web.util.URIPatternMatcherUtils;
+import java.util.List;
+
+import javax.servlet.FilterConfig;
 
 /**
- * Ant 패스 패턴을 적용한 인코딩 필터
+ * 선택적 필터 인터페이스
  * 
  * @author Shin Sang-jae
  * 
  */
-public class AntStylePathPatternEncodingFilter extends SelectiveEncodingFilter {
+public interface SelectiveFilter {
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * 필터 적용 포함 리스트를 설정 파라미터에서 가져온다.
 	 * 
-	 * @see
-	 * org.codelabor.system.filters.SelectiveFilter#isFilterRequired(java.lang
-	 * .String)
+	 * @param filterConfig
+	 * @return 포함 항목의 리스트
 	 */
-	public boolean isFilterRequired(String requestURI) {
-		return URIPatternMatcherUtils.matchByAntStylePathPattern(
-				includePatterns, excludePatterns, requestURI);
-	}
+	public List<String> getIncludePatterns(FilterConfig filterConfig);
+
+	/**
+	 * 필터 적용 예외 리스트를 설정 파라미터에서 가져온다.
+	 * 
+	 * @param filterConfig
+	 * @return 예외 항목의 리스트
+	 */
+	public List<String> getExcludePatterns(FilterConfig filterConfig);
+
+	/**
+	 * 최종적으로 필터 로직 수행 여부를 판단한다.
+	 * 
+	 * @param requestURI
+	 * @return 필터 로직 수행 여부
+	 */
+	public boolean isFilterRequired(String requestURI);
 }

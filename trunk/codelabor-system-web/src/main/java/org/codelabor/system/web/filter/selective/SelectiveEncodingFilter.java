@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.filter;
+package org.codelabor.system.web.filter.selective;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -29,22 +29,20 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.codelabor.system.web.filter.EncodingFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 선택적 노 캐쉬 필터
+ * 선택적 인코딩 필터
  * 
  * @author Shin Sang-jae
  * 
  */
-public abstract class SelectiveNoCacheFilter extends NoCacheFilter implements
+public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 		SelectiveFilter {
-	/**
-	 * 로거
-	 */
 	private final Logger logger = LoggerFactory
-			.getLogger(SelectiveNoCacheFilter.class);
+			.getLogger(SelectiveEncodingFilter.class);
 
 	/**
 	 * 예외 패턴의 리스트

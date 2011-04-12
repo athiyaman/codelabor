@@ -15,41 +15,28 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.filter;
+package org.codelabor.system.web.filter.selective.antstyle;
 
-import java.util.List;
-
-import javax.servlet.FilterConfig;
+import org.codelabor.system.web.filter.selective.SelectiveNoCacheFilter;
+import org.codelabor.system.web.util.URIPatternMatcherUtils;
 
 /**
- * 선택적 필터 인터페이스
+ * Ant 패스 패턴을 적용한 노 캐쉬 필터
  * 
  * @author Shin Sang-jae
  * 
  */
-public interface SelectiveFilter {
+public class AntStylePathPatternNoCacheFilter extends SelectiveNoCacheFilter {
 
-	/**
-	 * 필터 적용 포함 리스트를 설정 파라미터에서 가져온다.
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param filterConfig
-	 * @return 포함 항목의 리스트
+	 * @see
+	 * org.codelabor.system.filters.SelectiveFilter#isFilterRequired(java.lang
+	 * .String)
 	 */
-	public List<String> getIncludePatterns(FilterConfig filterConfig);
-
-	/**
-	 * 필터 적용 예외 리스트를 설정 파라미터에서 가져온다.
-	 * 
-	 * @param filterConfig
-	 * @return 예외 항목의 리스트
-	 */
-	public List<String> getExcludePatterns(FilterConfig filterConfig);
-
-	/**
-	 * 최종적으로 필터 로직 수행 여부를 판단한다.
-	 * 
-	 * @param requestURI
-	 * @return 필터 로직 수행 여부
-	 */
-	public boolean isFilterRequired(String requestURI);
+	public boolean isFilterRequired(String requestURI) {
+		return URIPatternMatcherUtils.matchByAntStylePathPattern(
+				includePatterns, excludePatterns, requestURI);
+	}
 }

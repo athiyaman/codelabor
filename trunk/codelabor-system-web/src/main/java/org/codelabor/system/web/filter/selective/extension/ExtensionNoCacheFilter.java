@@ -15,17 +15,18 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.filter;
+package org.codelabor.system.web.filter.selective.extension;
 
+import org.codelabor.system.web.filter.selective.SelectiveNoCacheFilter;
 import org.codelabor.system.web.util.URIPatternMatcherUtils;
 
 /**
- * 확장자인식 인코딩 필터
+ * 확장자 인식 노캐쉬 필터
  * 
  * @author Shin Sang-jae
  * 
  */
-public class ExtensionEncodingFilter extends SelectiveEncodingFilter {
+public class ExtensionNoCacheFilter extends SelectiveNoCacheFilter {
 
 	/*
 	 * (non-Javadoc)
