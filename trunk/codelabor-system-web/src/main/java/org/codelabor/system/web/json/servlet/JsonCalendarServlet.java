@@ -18,15 +18,13 @@ package org.codelabor.system.web.json.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Calendar;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -35,45 +33,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * javax.servlet.http.HttpSession의 내용을 JSON 형태로 응답하는 서블릿
+ * java.util.Calendar의 내용을 JSON 형태로 응답하는 서블릿
  * 
  * @author Shin Sang-jae
  * 
  */
-public class JsonnHttpSessionServlet extends HttpServlet {
+public class JsonCalendarServlet extends HttpServlet {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = 5498874994938492455L;
+	private static final long serialVersionUID = 5860293886282746503L;
 	private final Logger logger = LoggerFactory
-			.getLogger(JsonnHttpSessionServlet.class);
+			.getLogger(JsonCalendarServlet.class);
+
 	/**
 	 * 인코딩</br>기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
-
-	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession httpSession = request.getSession();
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("creationTime", httpSession.getCreationTime());
-		map.put("id", httpSession.getId());
-		map.put("lastAccessedTime", httpSession.getLastAccessedTime());
-		map.put("maxInactiveInterval", httpSession.getMaxInactiveInterval());
-		map.put("hashCode", httpSession.hashCode());
-		map.put("new", httpSession.isNew());
-		logger.debug("map: {}", map);
-
-		JSONObject jsonObject = JSONObject.fromObject(map);
-		logger.debug("jsonObject: {}", jsonObject);
-
-		response.setCharacterEncoding(encoding);
-		PrintWriter printWriter = response.getWriter();
-		printWriter.write(jsonObject.toString());
-	}
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -84,4 +61,18 @@ public class JsonnHttpSessionServlet extends HttpServlet {
 		}
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Calendar calendar = Calendar.getInstance();
+
+		JSONObject jsonObject = JSONObject.fromObject(calendar);
+		logger.debug("calendar: {}", calendar);
+
+		logger.debug("jsonObject: {}", jsonObject);
+
+		response.setCharacterEncoding(encoding);
+		PrintWriter printWriter = response.getWriter();
+		printWriter.write(jsonObject.toString());
+	}
 }
