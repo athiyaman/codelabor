@@ -58,7 +58,7 @@ public class JSONHttpSessionServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession();
 
-		Map map = new HashMap();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("creationTime", httpSession.getCreationTime());
 		map.put("id", httpSession.getId());
 		map.put("lastAccessedTime", httpSession.getLastAccessedTime());
