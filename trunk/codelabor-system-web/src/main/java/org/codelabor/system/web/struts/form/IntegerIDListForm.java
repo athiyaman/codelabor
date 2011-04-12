@@ -15,32 +15,35 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.struts.forms;
+package org.codelabor.system.web.struts.form;
+
+import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
 /**
- * int 타입 ID 배열 Form 클래스
+ * Inter 타입의 Id List Form 클래스
  * 
  * @author Shin Sangjae
  * 
  */
-public class IntIDArrayForm extends ActionForm {
+public class IntegerIDListForm extends ActionForm {
+
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = -438846653616822319L;
+	private static final long serialVersionUID = 113586899206436256L;
 	/**
-	 * Id 배열
+	 * Id List
 	 */
-	private int[] id;
+	private List<Integer> id;
 
 	/**
 	 * Id를 가져온다.
 	 * 
-	 * @return Id
+	 * @return Id Id List
 	 */
-	public int[] getId() {
+	public List<Integer> getId() {
 		return id;
 	}
 
@@ -48,9 +51,9 @@ public class IntIDArrayForm extends ActionForm {
 	 * Id를 설정한다.
 	 * 
 	 * @param id
-	 *            Id
+	 *            Id List
 	 */
-	public void setId(int[] id) {
+	public void setId(List<Integer> id) {
 		this.id = id;
 	}
 
@@ -66,9 +69,11 @@ public class IntIDArrayForm extends ActionForm {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("IntIdArrayForm ( ").append(super.toString()).append(
-				TAB).append("id = ").append(this.id).append(TAB).append(" )");
+		retValue.append("IntegerIDListForm ( ").append(super.toString())
+				.append(TAB).append("id = ").append(this.id).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}
+
 }

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.struts.actions;
+package org.codelabor.system.web.struts.action;
 
 import org.apache.struts.actions.DispatchAction;
 import org.slf4j.Logger;

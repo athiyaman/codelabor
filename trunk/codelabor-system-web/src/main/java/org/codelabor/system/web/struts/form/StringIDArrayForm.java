@@ -15,35 +15,33 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.struts.forms;
+package org.codelabor.system.web.struts.form;
 
-import java.util.List;
-
-import org.apache.struts.action.ActionForm;
+import java.io.Serializable;
 
 /**
- * Inter 타입의 Id List Form 클래스
+ * String 타입 Id 배열 Form 클래스
  * 
  * @author Shin Sangjae
  * 
  */
-public class IntegerIDListForm extends ActionForm {
+public class StringIDArrayForm implements Serializable {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = 113586899206436256L;
+	private static final long serialVersionUID = -2028609881040973550L;
 	/**
-	 * Id List
+	 * Id 배열
 	 */
-	private List<Integer> id;
+	private String[] id;
 
 	/**
 	 * Id를 가져온다.
 	 * 
-	 * @return Id Id List
+	 * @return Id 배열
 	 */
-	public List<Integer> getId() {
+	public String[] getId() {
 		return id;
 	}
 
@@ -51,9 +49,9 @@ public class IntegerIDListForm extends ActionForm {
 	 * Id를 설정한다.
 	 * 
 	 * @param id
-	 *            Id List
+	 *            Id 배열
 	 */
-	public void setId(List<Integer> id) {
+	public void setId(String[] id) {
 		this.id = id;
 	}
 
@@ -69,7 +67,7 @@ public class IntegerIDListForm extends ActionForm {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("IntegerIDListForm ( ").append(super.toString())
+		retValue.append("StringIDArrayForm ( ").append(super.toString())
 				.append(TAB).append("id = ").append(this.id).append(TAB)
 				.append(" )");
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.struts.forms;
+package org.codelabor.system.web.struts.form;
 
 import java.io.Serializable;
 

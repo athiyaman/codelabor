@@ -15,20 +15,24 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.struts.actions;
+package org.codelabor.system.web.struts.form;
 
-import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 기본 Action 클래스
+ * 기본 Form 클래스
  * 
  * @author Shin Sangjae
  * 
  */
-public class BaseAction extends Action {
+public class BaseForm extends ActionForm {
 
+	/**
+	 * 시리얼 버전 UID
+	 */
+	private static final long serialVersionUID = 5090815461009053724L;
 	/**
 	 * 로거
 	 */

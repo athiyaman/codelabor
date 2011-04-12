@@ -15,26 +15,60 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.struts.forms;
+package org.codelabor.system.web.struts.form;
 
 import org.apache.struts.action.ActionForm;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * 기본 Form 클래스
+ * int 타입 ID 배열 Form 클래스
  * 
  * @author Shin Sangjae
  * 
  */
-public class BaseForm extends ActionForm {
-
+public class IntIDArrayForm extends ActionForm {
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = 5090815461009053724L;
+	private static final long serialVersionUID = -438846653616822319L;
 	/**
-	 * 로거
+	 * Id 배열
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	private int[] id;
+
+	/**
+	 * Id를 가져온다.
+	 * 
+	 * @return Id
+	 */
+	public int[] getId() {
+		return id;
+	}
+
+	/**
+	 * Id를 설정한다.
+	 * 
+	 * @param id
+	 *            Id
+	 */
+	public void setId(int[] id) {
+		this.id = id;
+	}
+
+	/**
+	 * Constructs a <code>String</code> with all attributes in name = value
+	 * format.
+	 * 
+	 * @return a <code>String</code> representation of this object.
+	 */
+	@Override
+	public String toString() {
+		final String TAB = "    ";
+
+		StringBuilder retValue = new StringBuilder();
+
+		retValue.append("IntIdArrayForm ( ").append(super.toString()).append(
+				TAB).append("id = ").append(this.id).append(TAB).append(" )");
+
+		return retValue.toString();
+	}
 }
