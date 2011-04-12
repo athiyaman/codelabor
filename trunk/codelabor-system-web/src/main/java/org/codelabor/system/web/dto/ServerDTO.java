@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.servlet.dto;
+package org.codelabor.system.web.dto;
 
 import java.io.Serializable;
 

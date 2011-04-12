@@ -29,10 +29,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.codelabor.system.web.servlet.dto.EtcDTO;
-import org.codelabor.system.web.servlet.dto.LocalDTO;
-import org.codelabor.system.web.servlet.dto.RemoteDTO;
-import org.codelabor.system.web.servlet.dto.ServerDTO;
+import org.codelabor.system.web.dto.EtcDTO;
+import org.codelabor.system.web.dto.LocalDTO;
+import org.codelabor.system.web.dto.RemoteDTO;
+import org.codelabor.system.web.dto.ServerDTO;
 
 /**
  * 요청 유틸

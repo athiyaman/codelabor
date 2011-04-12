@@ -15,89 +15,89 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.web.servlet.dto;
+package org.codelabor.system.web.dto;
 
 import java.io.Serializable;
 
 /**
- * 로컬 DTO
+ * 리포트 DTO
  * 
  * @author Shin Sang-jae
  * 
  */
-public class LocalDTO implements Serializable {
+public class RemoteDTO implements Serializable {
 	/**
 	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 6420788348800357085L;
 	/**
-	 * 로컬명
+	 * 리모트 호스트
 	 */
-	protected String localName;
+	protected String remoteHost;
 	/**
-	 * 로컬 주소
+	 * 리모트 주소
 	 */
-	protected String localAddress;
+	protected String remoteAddress;
 	/**
-	 * 로컬 포트
+	 * 리모트 포트
 	 */
-	protected int localPort;
+	protected int remotePort;
 
 	/**
-	 * 로컬명을 가져온다.
+	 * 리모트 호스트를 가져온다.
 	 * 
-	 * @return 로컬명
+	 * @return 리모트 호스트
 	 */
-	public String getLocalName() {
-		return localName;
+	public String getRemoteHost() {
+		return remoteHost;
 	}
 
 	/**
-	 * 로컬명을 설정한다.
+	 * 리모트 호스트를 설정한다.
 	 * 
-	 * @param localName
-	 *            로컬명
+	 * @param remoteHost
+	 *            리모트 호스트
 	 */
-	public void setLocalName(String localName) {
-		this.localName = localName;
+	public void setRemoteHost(String remoteHost) {
+		this.remoteHost = remoteHost;
 	}
 
 	/**
-	 * 로컬 주소를 가져온다.
+	 * 리모트 주소를 가져온다.
 	 * 
-	 * @return 로컬 주소
+	 * @return 리모트 주소
 	 */
-	public String getLocalAddress() {
-		return localAddress;
+	public String getRemoteAddress() {
+		return remoteAddress;
 	}
 
 	/**
-	 * 로컬 주소를 설정한다.
+	 * 리모트 주소를 설정한다.
 	 * 
-	 * @param localAddress
-	 *            로컬 주소
+	 * @param remoteAddress
+	 *            리모트 주소
 	 */
-	public void setLocalAddress(String localAddress) {
-		this.localAddress = localAddress;
+	public void setRemoteAddress(String remoteAddress) {
+		this.remoteAddress = remoteAddress;
 	}
 
 	/**
-	 * 로컬 포트를 가져온다.
+	 * 리모트 포트를 가져온다.
 	 * 
-	 * @return 로컬 포트
+	 * @return 리모트 포트
 	 */
-	public int getLocalPort() {
-		return localPort;
+	public int getRemotePort() {
+		return remotePort;
 	}
 
 	/**
-	 * 로컬 포트를 설정한다.
+	 * 리모트 포트를 설정한다.
 	 * 
-	 * @param localPort
-	 *            로컬 포트
+	 * @param remotePort
+	 *            리포트 포트
 	 */
-	public void setLocalPort(int localPort) {
-		this.localPort = localPort;
+	public void setRemotePort(int remotePort) {
+		this.remotePort = remotePort;
 	}
 
 	/**
@@ -112,10 +112,10 @@ public class LocalDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("LocalDTO ( ").append(super.toString()).append(TAB)
-				.append("localAddress = ").append(this.localAddress)
-				.append(TAB).append("localName = ").append(this.localName)
-				.append(TAB).append("localPort = ").append(this.localPort)
+		retValue.append("RemoteDTO ( ").append(super.toString()).append(TAB)
+				.append("remoteAddress = ").append(this.remoteAddress).append(
+						TAB).append("remoteHost = ").append(this.remoteHost)
+				.append(TAB).append("remotePort = ").append(this.remotePort)
 				.append(TAB).append(" )");
 
 		return retValue.toString();
