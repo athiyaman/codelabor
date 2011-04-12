@@ -65,12 +65,9 @@ public class JsonCalendarServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Calendar calendar = Calendar.getInstance();
-
 		JSONObject jsonObject = JSONObject.fromObject(calendar);
 		logger.debug("calendar: {}", calendar);
-
 		logger.debug("jsonObject: {}", jsonObject);
-
 		response.setCharacterEncoding(encoding);
 		PrintWriter printWriter = response.getWriter();
 		printWriter.write(jsonObject.toString());

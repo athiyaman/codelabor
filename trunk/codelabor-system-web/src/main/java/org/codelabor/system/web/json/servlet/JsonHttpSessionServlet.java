@@ -18,8 +18,6 @@ package org.codelabor.system.web.json.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -57,19 +55,9 @@ public class JsonHttpSessionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession httpSession = request.getSession();
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("creationTime", httpSession.getCreationTime());
-		map.put("id", httpSession.getId());
-		map.put("lastAccessedTime", httpSession.getLastAccessedTime());
-		map.put("maxInactiveInterval", httpSession.getMaxInactiveInterval());
-		map.put("hashCode", httpSession.hashCode());
-		map.put("new", httpSession.isNew());
-		logger.debug("map: {}", map);
-
-		JSONObject jsonObject = JSONObject.fromObject(map);
+		JSONObject jsonObject = JSONObject.fromObject(httpSession);
+		logger.debug("httpSession: {}", httpSession);
 		logger.debug("jsonObject: {}", jsonObject);
-
 		response.setCharacterEncoding(encoding);
 		PrintWriter printWriter = response.getWriter();
 		printWriter.write(jsonObject.toString());
