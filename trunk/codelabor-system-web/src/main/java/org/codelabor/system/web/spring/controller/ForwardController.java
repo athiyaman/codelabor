@@ -1,7 +1,7 @@
 /**
  *
  */
-package org.codelabor.system.web.servlet.controller;
+package org.codelabor.system.web.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
