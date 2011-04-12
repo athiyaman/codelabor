@@ -66,33 +66,6 @@ public class JSONCalendarServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		Calendar calendar = Calendar.getInstance();
 
-		// Map map = new HashMap();
-		// map.put("time", calendar.getTime());
-		// map.put("timeInMillis", calendar.getTimeInMillis());
-		// map.put("timeZone", calendar.getTimeZone());
-		// map.put("year", calendar.get(Calendar.YEAR));
-		// map.put("month", calendar.get(Calendar.MONTH));
-		// map.put("date", calendar.get(Calendar.DATE));
-		// map.put("hour", calendar.get(Calendar.HOUR));
-		// map.put("hourOfDay", calendar.get(Calendar.HOUR_OF_DAY));
-		// map.put("minute", calendar.get(Calendar.MINUTE));
-		// map.put("millisecond", calendar.get(Calendar.MILLISECOND));
-		// map.put("dayOfMonth", calendar.get(Calendar.DAY_OF_MONTH));
-		// map.put("dayOfWeek", calendar.get(Calendar.DAY_OF_WEEK));
-		// map.put("dayOfWeekInMonth",
-		// calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH));
-		// map.put("dayOfYear", calendar.get(Calendar.DAY_OF_YEAR));
-		// map.put("weekOfMonth", calendar.get(Calendar.WEEK_OF_MONTH));
-		// map.put("weekOfYear", calendar.get(Calendar.WEEK_OF_YEAR));
-		// map.put("amPm", calendar.get(Calendar.AM_PM));
-		// map.put("am", calendar.get(Calendar.AM));
-		// map.put("pm", calendar.get(Calendar.PM));
-		// map.put("dstOffset", calendar.get(Calendar.DST_OFFSET));
-		// map.put("zoneOffset", calendar.get(Calendar.ZONE_OFFSET));
-		// map.put("era", calendar.get(Calendar.ERA));
-		// JSONObject jsonObject = JSONObject.fromObject(map);
-		// logger.debug("map: {}", map);
-
 		JSONObject jsonObject = JSONObject.fromObject(calendar);
 		logger.debug("calendar: {}", calendar);
 
