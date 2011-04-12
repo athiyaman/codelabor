@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.web.utils;
+package org.codelabor.system.web.util;
 
 import static org.junit.Assert.assertEquals;
 
