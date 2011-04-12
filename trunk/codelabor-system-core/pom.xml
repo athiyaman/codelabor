@@ -14,10 +14,10 @@
 	<url>http://codelabor.googlecode.com</url>
 	<licenses>
 		<license>
-				<name>Apache 2</name>
-				<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-				<distribution>repo</distribution>
-				<comments>A business-friendly OSS license</comments>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
 	<scm>
@@ -31,7 +31,12 @@
 	</organization>
 	<build>
 		<plugins>
-		<plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.1.2</version>
@@ -57,7 +62,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		<plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.2</version>
@@ -100,11 +105,6 @@
 				<configuration>
 					<tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
 			</plugin>
 		</plugins>
 	</build>
