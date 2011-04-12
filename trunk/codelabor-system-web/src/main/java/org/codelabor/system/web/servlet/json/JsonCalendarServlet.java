@@ -33,22 +33,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * java.util.Calendar???�용??JSON ?�태�??�답?�는 ?�블�?
- * 
+ * java.util.Calendar의 내용을 JSON 형태로 응답하는 서블릿
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class JsonCalendarServlet extends HttpServlet {
 
 	/**
-	 * ?�리??버전 UID
+	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 5860293886282746503L;
 	private final Logger logger = LoggerFactory
 			.getLogger(JsonCalendarServlet.class);
 
 	/**
-	 * ?�코??/br>기본값�? UTF-8???�용?�다.
+	 * 인코딩</br>기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
 
