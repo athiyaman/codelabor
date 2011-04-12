@@ -10,7 +10,7 @@
 	<artifactId>codelabor-system-web</artifactId>
 	<name>codelabor-system-web</name>
 	<packaging>war</packaging>
-	<version>3.0.0</version>
+	<version>3.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -123,9 +123,9 @@
 	    </license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-web-3.0.0</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-web-3.0.0</developerConnection>
-		<url>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-web-3.0.0</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
+		<url>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
