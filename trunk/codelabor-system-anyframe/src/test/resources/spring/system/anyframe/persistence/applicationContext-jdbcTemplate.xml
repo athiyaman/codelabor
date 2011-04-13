@@ -6,6 +6,7 @@
 	<bean id="pagingJdbcTemplate" class="anyframe.core.query.impl.jdbc.PagingJdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 		<property name="exceptionTranslator" ref="exceptionTranslator" />
+		<property name="maxFetchSize" value="100000" />
 	</bean>
 
 </beans>
