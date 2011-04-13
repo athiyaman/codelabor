@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.anyframe.web.struts.handler;
+package org.codelabor.system.anyframe.web.struts.action;
 
 import org.apache.struts.action.ExceptionHandler;
 import org.slf4j.Logger;

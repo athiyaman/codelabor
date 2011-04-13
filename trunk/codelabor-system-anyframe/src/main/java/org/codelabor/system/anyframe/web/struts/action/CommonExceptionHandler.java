@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.anyframe.web.struts.handler;
+package org.codelabor.system.anyframe.web.struts.action;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
