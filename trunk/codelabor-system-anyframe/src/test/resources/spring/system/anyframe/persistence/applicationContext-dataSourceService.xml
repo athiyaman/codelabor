@@ -4,24 +4,24 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
     <bean id="oracleDataSource" class="net.sf.log4jdbc.AnyframeDataSourceSpy">
-		<property name="dataSource" ref="oracleRealDatasource"/>
+		<property name="dataSource" ref="realDatasource"/>
 	</bean>
 
 	<!-- jdbc -->
-	<bean id="oracleRealDatasource"
+	<bean id="realDatasource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-		<property name="username" value="scott"/>
-		<property name="password" value="tiger"/>
+	    <property name="driverClassName" value="${jdbc.driver.class.name}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.passowrd}"/>
 	</bean>
 
 	<!-- jndi -->
 	<!--
-	<bean id="oracleRealDatasource"
+	<bean id="realDatasource"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
-	    <property name="jndiName" value="oracleXADataSource"/>
-		<property name="jndiTemplate" ref="jndiTemplateJeus"/>
+	    <property name="jndiName" value="${jndi.name}"/>
+		<property name="jndiTemplate" ref="jndiTemplate"/>
 	</bean>
 	-->
 </beans>
