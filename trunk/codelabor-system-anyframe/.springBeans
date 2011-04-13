@@ -8,10 +8,10 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
-		<config>src/test/resources/spring/system/anyframe/applicationContext-cache.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
 		<config>src/test/resources/spring/system/anyframe/persistence/oracle/applicationContext-pagingSQLGenerator.xml</config>
 		<config>src/test/resources/spring/system/anyframe/persistence/applicationContext-pagingJdbcTemplate.xml</config>
+		<config>src/test/resources/spring/system/anyframe/applicationContext-cacheService.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -20,10 +20,10 @@
 			<incomplete>false</incomplete>
 			<configs>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
-				<config>src/test/resources/spring/system/anyframe/applicationContext-cache.xml</config>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
 				<config>src/test/resources/spring/system/anyframe/persistence/oracle/applicationContext-pagingSQLGenerator.xml</config>
 				<config>src/test/resources/spring/system/anyframe/persistence/applicationContext-pagingJdbcTemplate.xml</config>
+				<config>src/test/resources/spring/system/anyframe/applicationContext-cacheService.xml</config>
 			</configs>
 		</configSet>
 	</configSets>
