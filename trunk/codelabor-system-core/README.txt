@@ -16,3 +16,5 @@
 3.0.0
 	Spring 3.x 기반으로 리팩토링
 
+3.0.1
+	DAOConstants.java 위치 리팩토링
