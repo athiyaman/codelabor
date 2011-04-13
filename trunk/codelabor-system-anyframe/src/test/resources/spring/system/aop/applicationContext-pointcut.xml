@@ -6,14 +6,11 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<aop:config>
-		<!-- pointcut -->
-		<aop:pointcut id="controllerMethod"
-			expression="execution(public * org.codelabor..*Controller.*(..))"/>
-		<aop:pointcut id="serviceMethod"
-			expression="execution(public * org.codelabor..*Service.*(..))" />
-		<aop:pointcut id="managerMethod"
-			expression="execution(public * org.codelabor..*Manager.*(..))" />
-		<aop:pointcut id="daoMethod"
-			expression="execution(public * org.codelabor..*DAO.*(..))" />
+		<aop:pointcut id="serviceMethodPointcut"
+			expression="execution(* org.codelabor..service.*Service.*(..))" />
+		<aop:pointcut id="managerMethodPointcut"
+			expression="execution(* org.codelabor..manager.*Manager.*(..))" />
+		<aop:pointcut id="daoMethodPointcut"
+			expression="execution(* org.codelabro..dao.*DAO.*(..))" />
 	</aop:config>
 </beans>
