@@ -10,6 +10,8 @@
 		<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-cache.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
+		<config>src/test/resources/spring/system/anyframe/persistence/oracle/applicationContext-pagingSQLGenerator.xml</config>
+		<config>src/test/resources/spring/system/anyframe/persistence/applicationContext-pagingJdbcTemplate.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -20,6 +22,8 @@
 				<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-cache.xml</config>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
+				<config>src/test/resources/spring/system/anyframe/persistence/oracle/applicationContext-pagingSQLGenerator.xml</config>
+				<config>src/test/resources/spring/system/anyframe/persistence/applicationContext-pagingJdbcTemplate.xml</config>
 			</configs>
 		</configSet>
 	</configSets>

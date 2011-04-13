@@ -3,14 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="defaultLobHanlder" 
-		class="org.springframework.jdbc.support.lob.DefaultLobHandler" 
-		lazy-init="true">
+	<bean id="defaultLobHanlder"
+		class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true">
 	</bean>
-	
-	<bean id="oracleLobHandler" 
-		class="org.springframework.jdbc.support.lob.OracleLobHandler" 
-		lazy-init="true">
+
+	<bean id="oracleLobHandler"
+		class="org.springframework.jdbc.support.lob.OracleLobHandler" lazy-init="true">
 		<property name="nativeJdbcExtractor" ref="commonsDbcpNativeJdbcExtractor"/>
-	</bean>	
+	</bean>
 </beans>

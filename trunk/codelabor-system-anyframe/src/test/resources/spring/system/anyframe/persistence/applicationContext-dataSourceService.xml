@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <bean id="oracleDataSource" class="net.sf.log4jdbc.AnyframeDataSourceSpy">
+    <bean id="dataSource" class="net.sf.log4jdbc.AnyframeDataSourceSpy">
 		<property name="dataSource" ref="realDatasource"/>
 	</bean>
 
