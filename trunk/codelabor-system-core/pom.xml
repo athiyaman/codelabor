@@ -23,7 +23,7 @@
 	<scm>
 		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-core</connection>
 		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core</developerConnection>
-		<url>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core</url>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-core</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
