@@ -261,13 +261,6 @@
 		<scope>compile</scope>
 	</dependency>
 	<dependency>
-		<groupId>org.codelabor</groupId>
-		<artifactId>codelabor-system-core</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
-		<type>jar</type>
-		<scope>compile</scope>
-	</dependency>
-	<dependency>
 		<groupId>ojdbc</groupId>
 		<artifactId>ojdbc</artifactId>
 		<version>14</version>
