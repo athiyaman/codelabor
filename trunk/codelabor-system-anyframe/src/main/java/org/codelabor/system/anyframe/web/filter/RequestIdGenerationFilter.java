@@ -22,8 +22,8 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
+import org.codelabor.system.web.filter.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
@@ -72,6 +72,8 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 	 */
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
+		// TODO: destroy thread local
+
 	}
 
 	/*
@@ -85,9 +87,8 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 			ServletResponse response) throws IOException, ServletException {
 		try {
 			String requestId = idGenerationService.getNextStringId();
-			((HttpServletRequest) request).getSession().setAttribute(
-					SESSION_REQUEST_ID, requestId);
 			logger.debug("requestId: {}", requestId);
+			// TODO: create thread local
 		} catch (BaseException e) {
 			e.printStackTrace();
 		}
