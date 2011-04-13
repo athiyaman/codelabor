@@ -3,13 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!--
-	<bean id="queryService"
-		class="anyframe.core.query.impl.QueryServiceImpl">
+	<bean id="queryService" class="anyframe.core.query.impl.QueryServiceImpl">
 		<property name="jdbcTemplate" ref="pagingJdbcTemplate"/>
-		<property name="sqlRepository"ref="sqlLoader"/>
-		<property name="lobHandler" ref="defaultLobHanlder"/>
-		<property name="pagingSQLGenerator" ref="db2PagingSQLGenerator"/>
+		<property name="sqlRepository" ref="sqlLoader"/>
+		<property name="pagingSQLGenerator" ref="pagingSQLGenerator"/>
+		<property name="lobHandler" ref="lobHandler"/>
 	</bean>
-	-->
+
 </beans>

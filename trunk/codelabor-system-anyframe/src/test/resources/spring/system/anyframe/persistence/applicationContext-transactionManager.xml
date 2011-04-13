@@ -15,9 +15,9 @@
 	<!--
 	<bean id="transactionManager"
 		class="org.springframework.transaction.jta.JtaTransactionManager">
-		<property name="transactionManagerName"
-		value="java:/TransactionManager" /> <property name="jndiTemplate"
-		ref="jndiJeusTemplate"></property> <property
-		name="allowCustomIsolationLevels" value="true"/> </bean>
-	 -->
+		<property name="transactionManagerName" value="java:/TransactionManager" />
+		<property name="jndiTemplate" ref="jndiTemplate"/>
+		<property name="allowCustomIsolationLevels" value="true"/>
+	</bean>
+	-->
 </beans>
