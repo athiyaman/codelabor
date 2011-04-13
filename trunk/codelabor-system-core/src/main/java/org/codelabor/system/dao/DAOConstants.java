@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.dto;
+package org.codelabor.system.dao;
 
 /**
  * DAO 관련 상수
