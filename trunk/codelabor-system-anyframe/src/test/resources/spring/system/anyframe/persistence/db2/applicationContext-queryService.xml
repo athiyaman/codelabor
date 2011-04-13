@@ -6,7 +6,7 @@
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
 	<!--
-	<bean id="db2QueryService"
+	<bean id="queryService"
 		class="anyframe.core.query.impl.QueryServiceImpl">
 		<property name="jdbcTemplate" ref="pagingJdbcTemplate"/>
 		<property name="sqlRepository"ref="sqlLoader"/>

@@ -7,7 +7,7 @@
 		id="baseDAO" abstract="true"
 		class="org.codelabor.system.daos.BaseDAOImpl">
 		<property name="messageSource" ref="messageSource"/>
-		<property name="queryService" ref="oracleQueryService"/>
+		<property name="queryService" ref="queryService"/>
 		<property name="propertiesService" ref="propertiesService"/>
 	</bean>
 </beans>
