@@ -113,7 +113,7 @@
 	<pluginRepositories>
 	</pluginRepositories>
 	<dependencies>
-	<dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
