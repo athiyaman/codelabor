@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.6.0.201103281100-PATCH]]></pluginVersion>
+	<pluginVersion><![CDATA[2.6.0.201104111100-PATCH]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
@@ -9,9 +9,7 @@
 	<configs>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
-		<config>src/test/resources/spring/system/anyframe/persistence/oracle/applicationContext-pagingSQLGenerator.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-cacheService.xml</config>
-		<config>src/test/resources/spring/system/anyframe/persistence/applicationContext-jdbcTemplate.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -21,9 +19,7 @@
 			<configs>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
-				<config>src/test/resources/spring/system/anyframe/persistence/oracle/applicationContext-pagingSQLGenerator.xml</config>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-cacheService.xml</config>
-				<config>src/test/resources/spring/system/anyframe/persistence/applicationContext-jdbcTemplate.xml</config>
 			</configs>
 		</configSet>
 	</configSets>
