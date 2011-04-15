@@ -167,30 +167,4 @@ public class UploadUtils {
 		inputStream.close();
 		outputStream.close();
 	}
-
-	/**
-	 * 파일명을 가져온다.
-	 * 
-	 * @param realFileNameWithPath
-	 *            경로를 포함한 파일명
-	 * @return 경로를 포함하지 않는 파일명
-	 */
-	static public String stripPathInfo(String realFileNameWithPath) {
-		// int lastIndex = realFileNameWithPath.lastIndexOf(System
-		// .getProperty("file.separator"));
-
-		// for unix client
-		int lastIndex = realFileNameWithPath.lastIndexOf("/");
-		// for windows client
-		if (lastIndex < 0) {
-			lastIndex = realFileNameWithPath.lastIndexOf("\\");
-		}
-
-		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
-		String realFileName = realFileNameWithPath.substring(beginIndex);
-
-		logger.debug("realFileNameWithPath: {}", realFileNameWithPath);
-		logger.debug("realFileName: {}", realFileName);
-		return realFileName;
-	}
 }
