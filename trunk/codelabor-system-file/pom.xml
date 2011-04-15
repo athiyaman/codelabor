@@ -127,7 +127,7 @@
 							<fileset>
 								<basedir>${basedir}</basedir>
 								<includes>
-									<include>src/main/sql/oracle/**/*.sql</include>
+									<include>src/main/sql/${jdbc.database.product}/**/*.sql</include>
 								</includes>
 							</fileset>
 						</configuration>
@@ -216,6 +216,7 @@
 		</dependency>
 	</dependencies>
 	<properties>
+		<jdbc.database.product>oracle</jdbc.database.product>
 		<jdbc.dependency.groupId>ojdbc</jdbc.dependency.groupId>
 		<jdbc.dependency.artifactId>ojdbc</jdbc.dependency.artifactId>
 		<jdbc.dependency.version>14</jdbc.dependency.version>
