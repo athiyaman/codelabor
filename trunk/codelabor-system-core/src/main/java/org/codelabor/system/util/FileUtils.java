@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * 파일 유틸리티 클래스
  *
  * @author Shin Sang-jae
- *
+ * @deprecated This class has been replaced by the {@link FilenameUtils}
  */
 public class FileUtils {
 	/**
@@ -16,8 +16,7 @@ public class FileUtils {
 	static Logger logger = LoggerFactory.getLogger(FileUtils.class);
 
 	/**
-	 * 확장자를 가져온다.</br> 파일명에 확장자를 포함하고 있을 경우, 확장자만 가져온다.
-	 *
+	 * 확장자를 가져온다.<br/> 파일명에 확장자를 포함하고 있을 경우, 확장자만 가져온다.<br/>
 	 * @param fileName
 	 *            파일명
 	 * @return 확장자
@@ -32,8 +31,7 @@ public class FileUtils {
 	}
 
 	/**
-	 * 파일명을 가져온다.
-	 *
+	 * 파일명을 가져온다.<br/>
 	 * @param fullyQualifiedFileName
 	 *            경로를 포함한 파일명
 	 * @return 경로를 포함하지 않는 파일명
