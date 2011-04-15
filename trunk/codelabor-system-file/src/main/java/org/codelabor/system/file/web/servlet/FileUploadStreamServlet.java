@@ -27,6 +27,7 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dto.FileDTO;
@@ -105,8 +106,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFileName(UploadUtils
-								.stripPathInfo(fileItemSteam.getName()));
+						fileDTO.setRealFileName(FilenameUtils
+								.getName(fileItemSteam.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
 							fileDTO.setUniqueFileName(getUniqueFileName());
 						}

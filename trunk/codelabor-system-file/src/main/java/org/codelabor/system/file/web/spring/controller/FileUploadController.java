@@ -25,6 +25,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FilenameUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dto.FileDTO;
 import org.codelabor.system.file.util.UploadUtils;
@@ -122,7 +123,7 @@ public class FileUploadController extends BaseFileFormController {
 			// set DTO
 			FileDTO fileDTO = new FileDTO();
 			fileDTO.setMapId(mapId);
-			fileDTO.setRealFileName(UploadUtils.stripPathInfo(originalFilename));
+			fileDTO.setRealFileName(FilenameUtils.getName(originalFilename));
 			if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
 				fileDTO.setUniqueFileName(getUniqueFileName());
 			}

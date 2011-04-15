@@ -54,6 +54,7 @@ import org.codelabor.system.file.exception.InvalidRepositoryTypeException;
 import org.codelabor.system.file.listener.FileUploadProgressListener;
 import org.codelabor.system.file.manager.FileManager;
 import org.codelabor.system.file.util.UploadUtils;
+import org.codelabor.system.util.FileUtils;
 import org.codelabor.system.web.servlet.HttpRequestHeaderConstants;
 import org.codelabor.system.web.servlet.HttpResponseHeaderConstants;
 import org.codelabor.system.web.util.RequestUtils;
@@ -68,9 +69,9 @@ import anyframe.core.properties.IPropertiesService;
 
 /**
  * 파일 업로드 서블릿
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class FileUploadServlet extends HttpServlet {
 	/**
@@ -122,9 +123,9 @@ public class FileUploadServlet extends HttpServlet {
 
 	/**
 	 * 파라미터
-	 *
+	 * 
 	 * @author Shin Sang-jae
-	 *
+	 * 
 	 */
 	public enum Parameter {
 		upload, download, list, read, view, delete
@@ -182,7 +183,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.servlet.GenericServlet#init(javax.servlet.ServletConfig)
 	 */
 	@Override
@@ -246,7 +247,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpServlet#service(javax.servlet.http.HttpServletRequest
 	 * , javax.servlet.http.HttpServletResponse)
@@ -292,7 +293,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/**
 	 * 파라미터를 처리한다.
-	 *
+	 * 
 	 * @param paramMap
 	 *            파라미터 Map
 	 * @throws Exception
@@ -305,7 +306,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/**
 	 * 페이지를 전환한다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -327,7 +328,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * 파일을 업로드 한다.</br> 파일 외의 데이터와 매핑이 필요할 경우, (예: 게시판) 파라미터로 mapId를 입력 받는다. 파일
 	 * 저장 방식은 파라미터 repositoryType으로 지정하며, 그 값은
 	 * org.codelabor.system.file.RepositoryType를 따른다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -380,8 +381,8 @@ public class FileUploadServlet extends HttpServlet {
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFileName(UploadUtils
-								.stripPathInfo(fileItem.getName()));
+						fileDTO.setRealFileName(FileUtils.getFileName(fileItem
+								.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
 							fileDTO.setUniqueFileName(getUniqueFileName());
 						}
@@ -418,7 +419,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/**
 	 * 고유 파일명을 가져온다.
-	 *
+	 * 
 	 * @return 고유 파일명
 	 * @throws Exception
 	 *             예외
@@ -432,7 +433,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * org.codelabor.system.file.FileConstants.FILE_LIST_KEY라는 키로 attribute에
 	 * 등록된다. Map Id도 함께 발급하는데 Map Id는
 	 * org.codelabor.system.file.FileConstants.MAP_ID라는 키로 attribute에 등록된다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -486,7 +487,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/**
 	 * 파일을 렌더링한다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -564,7 +565,7 @@ public class FileUploadServlet extends HttpServlet {
 	/**
 	 * 파일을 삭제한다.</br>삭제할 파일의 파일 Id를 파라미터 fileId로 지정하여 요청한다. 삭제 건수는
 	 * org.codelabor.system.daos.AFFECTED_ROW_COUNT라는 키로 attribute에 등록된다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -610,7 +611,7 @@ public class FileUploadServlet extends HttpServlet {
 	/**
 	 * 파일 정보를 가져온다.</br>읽어올 파일의 파일 Id를 파라미터 fileID로 전달하면 해당 파일의 DTO가
 	 * org.codelabor.system.file.FileConstants.FILE_KEY라는 키로 attribute에 등록된다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -629,7 +630,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.servlet.GenericServlet#getServletConfig()
 	 */
 	@Override
@@ -639,7 +640,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.servlet.Servlet#destroy()
 	 */
 	@Override
@@ -648,7 +649,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.servlet.Servlet#getServletInfo()
 	 */
 	@Override
@@ -658,7 +659,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	/**
 	 * 파일을 다운로드 한다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @param response
@@ -709,7 +710,8 @@ public class FileUploadServlet extends HttpServlet {
 
 		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		sb.setLength(0);
-		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf("MSIE5.5") > -1) {
+		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf(
+				"MSIE5.5") > -1) {
 			sb.append("filename=");
 		} else {
 			sb.append("attachment; filename=");
