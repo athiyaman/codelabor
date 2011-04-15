@@ -5,15 +5,15 @@
 
 	<bean
 		id="fileDAO"
-		class="org.codelabor.system.file.daos.FileDAOImpl"
+		class="org.codelabor.system.file.dao.FileDAOImpl"
 		parent="baseDAO">
-		<property 
-			name="idGenerationService" 
+		<property
+			name="idGenerationService"
 			ref="sequenceFileIdGenerationService"/>
 	</bean>
-	<bean 
-		id="fileManager" 
-		class="org.codelabor.system.file.managers.FileManagerImpl"
+	<bean
+		id="fileManager"
+		class="org.codelabor.system.file.manager.FileManagerImpl"
 		parent="baseManager">
 		<property name="fileDAO" ref="fileDAO"/>
 	</bean>
