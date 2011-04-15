@@ -5,9 +5,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 파일 유틸리티 클래스
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class FileUtils {
 	/**
@@ -17,7 +17,7 @@ public class FileUtils {
 
 	/**
 	 * 확장자를 가져온다.</br> 파일명에 확장자를 포함하고 있을 경우, 확장자만 가져온다.
-	 * 
+	 *
 	 * @param fileName
 	 *            파일명
 	 * @return 확장자
@@ -32,26 +32,28 @@ public class FileUtils {
 	}
 
 	/**
-	 * 파일명을 가져온다.</br> 파일명에 경로명을 포함하고 있을 경우, 경로명을 제외한 파일명만 가져온다.
-	 * 
-	 * @param fileNameWithPath
-	 * @return 파일명
+	 * 파일명을 가져온다.
+	 *
+	 * @param fullyQualifiedFileName
+	 *            경로를 포함한 파일명
+	 * @return 경로를 포함하지 않는 파일명
 	 */
-	static public String getFileName(String fileNameWithPath) {
-		// int lastIndex = realFileNameWithPath.lastIndexOf(System
-		// .getProperty("file.separator"));
-
-		// for unix client
-		int lastIndex = fileNameWithPath.lastIndexOf("/");
-		// for windows client
-		if (lastIndex < 0) {
-			lastIndex = fileNameWithPath.lastIndexOf("\\");
+	static public String getFileName(String fullyQualifiedFileName) {
+		int lastIndex = fullyQualifiedFileName.lastIndexOf("/");
+		if (lastIndex > 0) {
+			logger.debug("UNIX system name-separator character is found.");
+		} else if (lastIndex < 0) {
+			lastIndex = fullyQualifiedFileName.lastIndexOf("\\");
+			logger.debug("Microsoft Windows system name-separator character is found.");
+		} else {
+			logger.debug("System name-separator character is not found.");
 		}
 
 		int beginIndex = (lastIndex > 0) ? lastIndex + 1 : 0;
-		String fileName = fileNameWithPath.substring(beginIndex);
-		logger.debug("fileNameWithPath: {}", fileNameWithPath);
-		logger.debug("realFileName: {}", fileName);
+		String fileName = fullyQualifiedFileName.substring(beginIndex);
+
+		logger.debug("fullyQualifiedFileName: {}", fullyQualifiedFileName);
+		logger.debug("fileName: {}", fileName);
 		return fileName;
 	}
 }
