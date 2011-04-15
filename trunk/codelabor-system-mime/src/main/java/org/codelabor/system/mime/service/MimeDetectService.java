@@ -21,54 +21,54 @@ import java.io.InputStream;
 import java.net.URL;
 
 /**
- * ╦╤юсе╦ют е╫аЖ ╪╜╨Я╫╨ юнемфДюл╫╨
+ * К╖┬Л·└М┐─Л·┘ М┐░Л╖─ Л└°К╧└Л┼╓ Л²╦М└╟М▌≤Л²╢Л┼╓
  * 
  * @author Shin Sangjae
  * 
  */
 public interface MimeDetectService {
 	/**
-	 * ╦╤юсе╦ютю╩ ╟║а╝©б╢ы.
+	 * К╖┬Л·└М┐─Л·┘Л²└ Й╟─Л═╦Л≤╗К▀╓.
 	 * 
 	 * @param inputStream
-	 *            ют╥б ╫╨ф╝╦╡
-	 * @return ╦╤юсе╦ют
+	 *            Л·┘К═╔ Л┼╓М┼╦К╕╪
+	 * @return К╖┬Л·└М┐─Л·┘
 	 */
 	public String getMimeType(InputStream inputStream) throws Exception;
 
 	/**
-	 * ╦╤юсе╦ютю╩ ╟║а╝©б╢ы.
+	 * К╖┬Л·└М┐─Л·┘Л²└ Й╟─Л═╦Л≤╗К▀╓.
 	 * 
 	 * @param file
-	 *            фдюо
-	 * @return ╦╤юсе╦ют
+	 *            М▄▄Л²╪
+	 * @return К╖┬Л·└М┐─Л·┘
 	 */
 	public String getMimeType(File file) throws Exception;
 
 	/**
-	 * ╦╤юсе╦ютю╩ ╟║а╝©б╢ы.
+	 * К╖┬Л·└М┐─Л·┘Л²└ Й╟─Л═╦Л≤╗К▀╓.
 	 * 
 	 * @param url
 	 *            URL
-	 * @return ╦╤юсе╦ют
+	 * @return К╖┬Л·└М┐─Л·┘
 	 */
 	public String getMimeType(URL url) throws Exception;
 
 	/**
-	 * ╦╤юсе╦ютю╩ ╟║а╝©б╢ы.
+	 * К╖┬Л·└М┐─Л·┘Л²└ Й╟─Л═╦Л≤╗К▀╓.
 	 * 
 	 * @param byteArray
-	 *            ╧ыюлф╝ ╧Х©╜
-	 * @return ╦╤юсе╦ют
+	 *            К╟■Л²╢М┼╦ К╟╟Л≈╢
+	 * @return К╖┬Л·└М┐─Л·┘
 	 */
 	public String getMimeType(byte[] byteArray) throws Exception;
 
 	/**
-	 * ╦╤юсе╦ютю╩ ╟║а╝©б╢ы.
+	 * К╖┬Л·└М┐─Л·┘Л²└ Й╟─Л═╦Л≤╗К▀╓.
 	 * 
 	 * @param path
-	 *            фдюо ╟Ф╥н
-	 * @return ╦╤юсе╦ют
+	 *            М▄▄Л²╪ Й╡╫К║°
+	 * @return К╖┬Л·└М┐─Л·┘
 	 */
 	public String getMimeType(String path) throws Exception;
 }

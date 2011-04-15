@@ -25,10 +25,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ¸¶ÀÓÅ¸ÀÔ Å½Áö ¼­ºñ½º ±¸Çö Å¬·¡½º<br/>
- * Apache Tika¸¦ È°¿ëÇÑ ±¸Çö Å¬·¡½º
+ * ë§ˆì„íƒ€ì… íƒì§€ ì„œë¹„ìŠ¤ êµ¬í˜„ í´ë˜ìŠ¤<br/>
+ * Apache Tikaë¥¼ í™œìš©í•œ êµ¬í˜„ í´ë˜ìŠ¤
  * 
- * @author Shin Sang-jae
+ * @author Shin Sangjae
  * 
  */
 public class TikaMimeDetectServiceImpl implements MimeDetectService {

@@ -32,8 +32,8 @@ import org.slf4j.LoggerFactory;
 import org.xml.sax.ContentHandler;
 
 /**
- * ¸¶ÀÓÅ¸ÀÔ Å½Áö À¯Æ¿¸®Æ¼ Å¬·¡½º<br/>
- * Apache Tika¸¦ È°¿ëÇÑ ±¸Çö Å¬·¡½º
+ * ë§ˆì„íƒ€ì… íƒì§€ ìœ í‹¸ë¦¬í‹° í´ë˜ìŠ¤<br/>
+ * Apache Tikaë¥¼ í™œìš©í•œ êµ¬í˜„ í´ë˜ìŠ¤
  * 
  * @author Shin Sangjae
  * 
@@ -41,17 +41,17 @@ import org.xml.sax.ContentHandler;
 public class TikaMimeDetectUtils {
 
 	/**
-	 * ·Î°Å
+	 * ë¡œê±°
 	 */
 	private static final Logger logger = LoggerFactory
 			.getLogger(TikaMimeDetectUtils.class);
 
 	/**
-	 * ¸¶ÀÓÅ¸ÀÔÀ» °¡Á®¿Â´Ù.
+	 * ë§ˆì„íƒ€ì…ì„ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
 	 * @param inputStream
-	 *            ÀÔ·Â ½ºÆ®¸²
-	 * @return ¸¶ÀÓÅ¸ÀÔ
+	 *            ì…ë ¥ ìŠ¤íŠ¸ë¦¼
+	 * @return ë§ˆì„íƒ€ì…
 	 */
 	public static String getMimeType(InputStream inputStream) throws Exception {
 		ContentHandler contentHandler = new BodyContentHandler();
@@ -65,11 +65,11 @@ public class TikaMimeDetectUtils {
 	}
 
 	/**
-	 * ¸¶ÀÓÅ¸ÀÔÀ» °¡Á®¿Â´Ù.
+	 * ë§ˆì„íƒ€ì…ì„ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
 	 * @param file
-	 *            ÆÄÀÏ
-	 * @return ¸¶ÀÓÅ¸ÀÔ
+	 *            íŒŒì¼
+	 * @return ë§ˆì„íƒ€ì…
 	 */
 	public static String getMimeType(File file) throws Exception {
 		InputStream inputStream = new FileInputStream(file);
@@ -77,11 +77,11 @@ public class TikaMimeDetectUtils {
 	}
 
 	/**
-	 * ¸¶ÀÓÅ¸ÀÔÀ» °¡Á®¿Â´Ù.
+	 * ë§ˆì„íƒ€ì…ì„ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
 	 * @param url
 	 *            URL
-	 * @return ¸¶ÀÓÅ¸ÀÔ
+	 * @return ë§ˆì„íƒ€ì…
 	 */
 	public static String getMimeType(URL url) throws Exception {
 		InputStream inputStream = url.openStream();
@@ -89,11 +89,11 @@ public class TikaMimeDetectUtils {
 	}
 
 	/**
-	 * ¸¶ÀÓÅ¸ÀÔÀ» °¡Á®¿Â´Ù.
+	 * ë§ˆì„íƒ€ì…ì„ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
 	 * @param byteArray
-	 *            ¹ÙÀÌÆ® ¹è¿­
-	 * @return ¸¶ÀÓÅ¸ÀÔ
+	 *            ë°”ì´íŠ¸ ë°°ì—´
+	 * @return ë§ˆì„íƒ€ì…
 	 */
 	public static String getMimeType(byte[] byteArray) throws Exception {
 		InputStream inputStream = new ByteArrayInputStream(byteArray);
@@ -101,11 +101,11 @@ public class TikaMimeDetectUtils {
 	}
 
 	/**
-	 * ¸¶ÀÓÅ¸ÀÔÀ» °¡Á®¿Â´Ù.
+	 * ë§ˆì„íƒ€ì…ì„ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
 	 * @param path
-	 *            ÆÄÀÏ °æ·Î
-	 * @return ¸¶ÀÓÅ¸ÀÔ
+	 *            íŒŒì¼ ê²½ë¡œ
+	 * @return ë§ˆì„íƒ€ì…
 	 */
 	public static String getMimeType(String path) throws Exception {
 		InputStream inputStream = new FileInputStream(new File(path));
