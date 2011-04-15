@@ -30,6 +30,8 @@ public class FileUtilsTest {
 
 	// 로거
 	Logger logger = LoggerFactory.getLogger(FileUtilsTest.class);
+	String fullyQualifiedFileNameOnUnix = "/Users/Name/sample/test.txt";
+	String fullyQualifiedFileNameOnWindows = "C:\\Users\\Name\\sample\\test.txt";
 
 	/**
 	 * @throws java.lang.Exception
@@ -45,12 +47,10 @@ public class FileUtilsTest {
 	 */
 	@Test
 	public void testGetExtension() {
-		String fileName = "C:\\Documents and Settings\\All Users.WINDOWS\\Documents\\My Pictures\\그림 샘플\\수련.jpg";
-		String fileExtention = FileUtils.getExtension(fileName);
+		String fileExtention = FileUtils.getExtension(fullyQualifiedFileNameOnUnix);
 		logger.debug("fileExtention: {}", fileExtention);
 
-		fileName = "C:/Documents and Settings/All Users.WINDOWS/Documents/My Pictures/그림 샘플/수련.jpg";
-		fileExtention = FileUtils.getExtension(fileName);
+		fileExtention = FileUtils.getExtension(fullyQualifiedFileNameOnWindows);
 		logger.debug("fileExtention: {}", fileExtention);
 	}
 
@@ -61,12 +61,10 @@ public class FileUtilsTest {
 	 */
 	@Test
 	public void testGetFileName() {
-		String fileNameWithPath = "C:\\Documents and Settings\\All Users.WINDOWS\\Documents\\My Pictures\\그림 샘플\\수련.jpg";
-		String fileName = FileUtils.getFileName(fileNameWithPath);
+		String fileName = FileUtils.getFileName(fullyQualifiedFileNameOnUnix);
 		logger.debug("fileName: {}", fileName);
 
-		fileNameWithPath = "C:/Documents and Settings/All Users.WINDOWS/Documents/My Pictures/그림 샘플/수련.jpg";
-		fileName = FileUtils.getFileName(fileNameWithPath);
+		fileName = FileUtils.getFileName(fullyQualifiedFileNameOnWindows);
 		logger.debug("fileName: {}", fileName);
 	}
 
