@@ -5,12 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
 
-	<bean name="propertiesService"
-		class="anyframe.core.properties.impl.PropertiesServiceImpl">
+	<bean id="sqlLoader"
+		class="anyframe.core.query.impl.config.loader.SQLLoader">
 		<config:configuration>
-			<fileName>classpath:properties/**/*.properties</fileName>
-			<properties>
-			</properties>
+	        <filename>classpath*:queries/oracle/**/mapping-*.xml</filename>
+	   	    <nullcheck type="VARCHAR" default-value=""/>
+	   	    <sqlload dynamic="true" frequency="5" />
+            <skiperror>true</skiperror>
 		</config:configuration>
 	</bean>
+
 </beans>

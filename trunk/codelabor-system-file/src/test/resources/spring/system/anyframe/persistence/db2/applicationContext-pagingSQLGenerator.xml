@@ -3,14 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="nativeJdbcExtractor"
-		class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"
-		lazy-init="true">
-	</bean>
-
 	<!--
-	<bean id="nativeJdbcExtractor"
-		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"
-		lazy-init="default" />
+	<bean id="db2PagingSQLGenerator"
+		class="anyframe.core.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
 	-->
+
 </beans>
