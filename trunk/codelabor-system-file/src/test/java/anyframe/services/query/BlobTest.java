@@ -88,7 +88,7 @@ public class BlobTest {
 	private File targetFile;
 
 	@Before
-	protected void setUp() throws Exception {
+	public void setUp() throws Exception {
 		queryService = context.getBean("oracleQueryService",
 				IQueryService.class);
 		uuidGenerationService = context.getBean(
