@@ -99,6 +99,7 @@ public class FileUploadController extends BaseFileFormController {
 	 * org.springframework.web.servlet.mvc.SimpleFormController#doSubmitAction
 	 * (java.lang.Object)
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void doSubmitAction(Object command) throws Exception {
 		FileList fileList = (FileList) command;
@@ -148,6 +149,7 @@ public class FileUploadController extends BaseFileFormController {
 	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
 	 * org.springframework.validation.BindException)
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	protected ModelAndView showForm(HttpServletRequest request,
 			HttpServletResponse response, BindException errors)

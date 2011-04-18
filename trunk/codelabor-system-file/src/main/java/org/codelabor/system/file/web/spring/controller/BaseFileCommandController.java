@@ -29,6 +29,7 @@ import anyframe.core.properties.IPropertiesService;
  * @author Shin Sang-jae
  * 
  */
+@SuppressWarnings("deprecation")
 public abstract class BaseFileCommandController extends
 		AbstractCommandController {
 

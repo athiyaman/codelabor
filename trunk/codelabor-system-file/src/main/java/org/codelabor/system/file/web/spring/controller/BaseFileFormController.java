@@ -29,6 +29,7 @@ import anyframe.core.properties.IPropertiesService;
  * @author Shin Sang-jae
  * 
  */
+@SuppressWarnings("deprecation")
 public class BaseFileFormController extends SimpleFormController {
 	/**
 	 * 파일 매니저
