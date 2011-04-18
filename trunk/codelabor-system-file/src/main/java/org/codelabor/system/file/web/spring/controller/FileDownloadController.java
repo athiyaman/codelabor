@@ -76,8 +76,8 @@ public class FileDownloadController extends BaseFileController {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFilename = fileDTO.getUniqueFileName();
-		String realFileName = fileDTO.getRealFileName();
+		String uniqueFilename = fileDTO.getUniqueFilename();
+		String realFileName = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM

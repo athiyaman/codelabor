@@ -124,9 +124,9 @@ public class FileUploadController extends BaseFileFormController {
 			// set DTO
 			FileDTO fileDTO = new FileDTO();
 			fileDTO.setMapId(mapId);
-			fileDTO.setRealFileName(FilenameUtils.getName(originalFilename));
+			fileDTO.setRealFilename(FilenameUtils.getName(originalFilename));
 			if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
-				fileDTO.setUniqueFileName(getUniqueFileName());
+				fileDTO.setUniqueFilename(getUniqueFileName());
 			}
 			fileDTO.setContentType(uploadedFile.getContentType());
 			fileDTO.setRepositoryPath(repositoryPath);

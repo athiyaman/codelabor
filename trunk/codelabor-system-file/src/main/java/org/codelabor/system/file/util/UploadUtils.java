@@ -125,7 +125,7 @@ public class UploadUtils {
 			if (!fileDTO.getRepositoryPath().endsWith(File.separator)) {
 				stringBuilder.append(File.separator);
 			}
-			stringBuilder.append(fileDTO.getUniqueFileName());
+			stringBuilder.append(fileDTO.getUniqueFilename());
 			String fileName = stringBuilder.toString();
 			outputStream = new FileOutputStream(fileName);
 			logger.debug("fileName: {}", fileName);

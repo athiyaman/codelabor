@@ -85,8 +85,8 @@ public class FileDownloadAction extends DownloadAction {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFilename = fileDTO.getUniqueFileName();
-		String realFileName = fileDTO.getRealFileName();
+		String uniqueFilename = fileDTO.getUniqueFilename();
+		String realFileName = fileDTO.getRealFilename();
 
 		// FILE_SYSTEM
 		if (StringUtil.isNotEmpty(repositoryPath)) {

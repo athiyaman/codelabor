@@ -47,7 +47,7 @@ public class FileDTO implements Serializable {
 	/**
 	 * 실제 파일명
 	 */
-	protected String realFileName;
+	protected String realFilename;
 
 	/**
 	 * 파일 저장 방식</br> 파일 시스템 저장 방식(FILE_SYSTEM)과 데이터베이스 BLOB 저장 방식(DATABASE)이 있다.
@@ -93,7 +93,7 @@ public class FileDTO implements Serializable {
 		this.fileId = fileDTO.fileId;
 		this.fileSize = fileDTO.fileSize;
 		this.mapId = fileDTO.mapId;
-		this.realFileName = fileDTO.realFileName;
+		this.realFilename = fileDTO.realFilename;
 		this.repositoryPath = fileDTO.repositoryPath;
 		this.uniqueFilename = fileDTO.uniqueFilename;
 	}
@@ -105,7 +105,7 @@ public class FileDTO implements Serializable {
 	 *            파일 ID
 	 * @param mapId
 	 *            매핑 ID
-	 * @param realFileName
+	 * @param realFilename
 	 *            실제 파일명
 	 * @param uniqueFilename
 	 *            고유 파일명
@@ -118,13 +118,13 @@ public class FileDTO implements Serializable {
 	 * @param bytes
 	 *            파일 내용
 	 */
-	public FileDTO(String fileId, String mapId, String realFileName,
+	public FileDTO(String fileId, String mapId, String realFilename,
 			String uniqueFilename, String repositoryPath, String contentType,
 			long fileSize, byte[] bytes) {
 		super();
 		this.fileId = fileId;
 		this.mapId = mapId;
-		this.realFileName = realFileName;
+		this.realFilename = realFilename;
 		this.uniqueFilename = uniqueFilename;
 		this.repositoryPath = repositoryPath;
 		this.contentType = contentType;
@@ -232,18 +232,18 @@ public class FileDTO implements Serializable {
 	 * 
 	 * @return 실제 파일명
 	 */
-	public String getRealFileName() {
-		return realFileName;
+	public String getRealFilename() {
+		return realFilename;
 	}
 
 	/**
 	 * 실제 파일명을 설정한다.
 	 * 
-	 * @param realFileName
+	 * @param realFilename
 	 *            실제 파일명
 	 */
-	public void setRealFileName(String realFileName) {
-		this.realFileName = realFileName;
+	public void setRealFilename(String realFilename) {
+		this.realFilename = realFilename;
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class FileDTO implements Serializable {
 	 * 
 	 * @return 고유 파일명
 	 */
-	public String getUniqueFileName() {
+	public String getUniqueFilename() {
 		return uniqueFilename;
 	}
 
@@ -280,7 +280,7 @@ public class FileDTO implements Serializable {
 	 * @param uniqueFilename
 	 *            고유 파일명
 	 */
-	public void setUniqueFileName(String uniqueFilename) {
+	public void setUniqueFilename(String uniqueFilename) {
 		this.uniqueFilename = uniqueFilename;
 	}
 
@@ -302,7 +302,7 @@ public class FileDTO implements Serializable {
 				.append("fileId = ").append(this.fileId).append(TAB).append(
 						"fileSize = ").append(this.fileSize).append(TAB)
 				.append("mapId = ").append(this.mapId).append(TAB).append(
-						"realFileName = ").append(this.realFileName)
+						"realFileName = ").append(this.realFilename)
 				.append(TAB).append("repositoryPath = ").append(
 						this.repositoryPath).append(TAB).append(
 						"uniqueFilename = ").append(this.uniqueFilename)

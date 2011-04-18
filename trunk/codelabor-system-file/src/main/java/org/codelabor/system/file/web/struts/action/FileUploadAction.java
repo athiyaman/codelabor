@@ -258,8 +258,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		// set dto
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setMapId(mapId);
-		fileDTO.setRealFileName(realFileName);
-		fileDTO.setUniqueFileName(uniqueFilename);
+		fileDTO.setRealFilename(realFileName);
+		fileDTO.setUniqueFilename(uniqueFilename);
 		fileDTO.setFileSize(fileSize);
 		fileDTO.setContentType(contentType);
 		fileDTO.setRepositoryPath(repositoryPath);
@@ -351,8 +351,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFilename = fileDTO.getUniqueFileName();
-		String realFileName = fileDTO.getRealFileName();
+		String uniqueFilename = fileDTO.getUniqueFilename();
+		String realFileName = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM

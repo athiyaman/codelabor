@@ -381,10 +381,10 @@ public class FileUploadServlet extends HttpServlet {
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFileName(FileUtils.getFileName(fileItem
+						fileDTO.setRealFilename(FileUtils.getFileName(fileItem
 								.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
-							fileDTO.setUniqueFileName(getUniqueFileName());
+							fileDTO.setUniqueFilename(getUniqueFileName());
 						}
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
@@ -509,8 +509,8 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFilename = fileDTO.getUniqueFileName();
-		String realFileName = fileDTO.getRealFileName();
+		String uniqueFilename = fileDTO.getUniqueFilename();
+		String realFileName = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
@@ -681,8 +681,8 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFilename = fileDTO.getUniqueFileName();
-		String realFileName = fileDTO.getRealFileName();
+		String uniqueFilename = fileDTO.getUniqueFilename();
+		String realFileName = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
