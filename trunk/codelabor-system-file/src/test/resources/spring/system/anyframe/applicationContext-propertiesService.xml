@@ -8,7 +8,7 @@
 	<bean name="propertiesService"
 		class="anyframe.core.properties.impl.PropertiesServiceImpl">
 		<config:configuration>
-			<fileName>classpath:properties/**/*.properties</fileName>
+			<fileName>classpath:/properties/**/*.properties</fileName>
 			<properties>
 			</properties>
 		</config:configuration>
