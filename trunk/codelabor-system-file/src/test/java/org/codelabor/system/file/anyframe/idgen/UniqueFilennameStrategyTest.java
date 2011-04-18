@@ -6,10 +6,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UniqueFileNameStrategyTest {
+public class UniqueFilennameStrategyTest {
 
 	private final Logger logger = LoggerFactory
-			.getLogger(UniqueFileNameStrategyTest.class);
+			.getLogger(UniqueFilennameStrategyTest.class);
 	private UniqueFileNameStrategy uniqueFilenameStrategy;
 
 	@Before
