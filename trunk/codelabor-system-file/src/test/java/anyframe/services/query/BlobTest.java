@@ -27,6 +27,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
@@ -92,13 +93,14 @@ public class BlobTest {
 		queryService = context.getBean("queryService", IQueryService.class);
 		uniqueFilenameGenerationService = context.getBean(
 				"uniqueFilenameGenerationService", IIdGenerationService.class);
-		fileIdGenerationService = context.getBean(
-				"fileIdGenerationService", IIdGenerationService.class);
+		fileIdGenerationService = context.getBean("fileIdGenerationService",
+				IIdGenerationService.class);
 		mapIdGenerationService = context.getBean("mapIdGenerationService",
 				IIdGenerationService.class);
 
 		// prepare data
-		sourceFile = new File("C:/WINDOWS/Help/Tours/htmlTour/intro_logo.jpg");
+		URL url = this.getClass().getResource("/images/feather-small.gif");
+		sourceFile = new File(url.toURI());
 
 		// clear data
 		// queryService.remove("system.delete.file.list", new Object[] {});
@@ -132,8 +134,8 @@ public class BlobTest {
 			FileDTO fileDTO = new FileDTO();
 			fileDTO.setFileId(fileId);
 			fileDTO.setMapId(mapId);
-			fileDTO.setRealFileName(sourceFile.getName());
-			fileDTO.setUniqueFileName(uniqueFilename);
+			fileDTO.setRealFilename(sourceFile.getName());
+			fileDTO.setUniqueFilename(uniqueFilename);
 			fileDTO.setRepositoryPath(null);
 			fileDTO.setContentType("image/jpeg");
 			fileDTO.setFileSize(sourceFileSize);
@@ -148,7 +150,7 @@ public class BlobTest {
 			FileDTO returnedFileDTO = fileDTOList.get(0);
 			logger.debug("returnedFileDTO: {}", returnedFileDTO);
 
-			targetFile = new File("C:/" + returnedFileDTO.getRealFileName());
+			targetFile = new File("C:/" + returnedFileDTO.getRealFilename());
 			byte[] bytes = returnedFileDTO.getBytes();
 			inputStream = new ByteArrayInputStream(bytes);
 			outputStream = new FileOutputStream(targetFile);
@@ -157,8 +159,8 @@ public class BlobTest {
 			int targetFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			assertEquals(sourceFileSize, targetFileSize);
-			assertEquals(fileDTO.getUniqueFileName(),
-					returnedFileDTO.getUniqueFileName());
+			assertEquals(fileDTO.getUniqueFilename(),
+					returnedFileDTO.getUniqueFilename());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -213,7 +215,7 @@ public class BlobTest {
 			FileDTO returnedFileDTO = fileDTOList.get(0);
 			logger.debug("fileDTO: {}", returnedFileDTO);
 
-			targetFile = new File("C:/" + returnedFileDTO.getRealFileName());
+			targetFile = new File("C:/" + returnedFileDTO.getRealFilename());
 			byte[] bytes = returnedFileDTO.getBytes();
 			inputStream = new ByteArrayInputStream(bytes);
 			outputStream = new FileOutputStream(targetFile);
@@ -222,7 +224,7 @@ public class BlobTest {
 			int targetFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			assertEquals(sourceFileSize, targetFileSize);
-			assertEquals(uniqueFilename, returnedFileDTO.getUniqueFileName());
+			assertEquals(uniqueFilename, returnedFileDTO.getUniqueFilename());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

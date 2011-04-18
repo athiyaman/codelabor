@@ -26,12 +26,13 @@
 	</bean>
 
 	<bean name="uniqueFilenameGenerationService"
-		class="anyframe.core.idgen.impl.TableIdGenerationService"
+		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="uniqueFilenameStrategy" />
-		<config:configuration
-			block-size="1" table="ID" key-table="UNIQUE_FILE_NAME" />
+		<config:configuration big-decimals="true">
+			<query>SELECT FILE_NAME_SEQ.NEXTVAL FROM DUAL</query>
+		</config:configuration>
 	</bean>
 
 </beans>
