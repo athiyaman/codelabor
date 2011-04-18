@@ -151,7 +151,7 @@ public class BlobTest {
 			FileDTO returnedFileDTO = fileDTOList.get(0);
 			logger.debug("returnedFileDTO: {}", returnedFileDTO);
 
-			targetFile = new File("C:/" + returnedFileDTO.getRealFilename());
+			targetFile = new File(returnedFileDTO.getRealFilename());
 			byte[] bytes = returnedFileDTO.getBytes();
 			inputStream = new ByteArrayInputStream(bytes);
 			outputStream = new FileOutputStream(targetFile);
