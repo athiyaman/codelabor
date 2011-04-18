@@ -30,8 +30,8 @@ public class FileUtilsTest {
 
 	// 로거
 	Logger logger = LoggerFactory.getLogger(FileUtilsTest.class);
-	String fullyQualifiedFileNameOnUnix = "/Users/Name/sample/test.txt";
-	String fullyQualifiedFileNameOnWindows = "C:\\Users\\Name\\sample\\test.txt";
+	String fullyQualifiedFilenameOnUnix = "/Users/Name/sample/test.txt";
+	String fullyQualifiedFilenameOnWindows = "C:\\Users\\Name\\sample\\test.txt";
 
 	/**
 	 * @throws java.lang.Exception
@@ -47,25 +47,25 @@ public class FileUtilsTest {
 	 */
 	@Test
 	public void testGetExtension() {
-		String fileExtention = FileUtils.getExtension(fullyQualifiedFileNameOnUnix);
+		String fileExtention = FileUtils.getExtension(fullyQualifiedFilenameOnUnix);
 		logger.debug("fileExtention: {}", fileExtention);
 
-		fileExtention = FileUtils.getExtension(fullyQualifiedFileNameOnWindows);
+		fileExtention = FileUtils.getExtension(fullyQualifiedFilenameOnWindows);
 		logger.debug("fileExtention: {}", fileExtention);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.utils.FileUtils#getFileName(java.lang.String)}
+	 * {@link org.codelabor.system.utils.FileUtils#getFilename(java.lang.String)}
 	 * .
 	 */
 	@Test
-	public void testGetFileName() {
-		String fileName = FileUtils.getFileName(fullyQualifiedFileNameOnUnix);
-		logger.debug("fileName: {}", fileName);
+	public void testGetFilename() {
+		String filename = FileUtils.getFilename(fullyQualifiedFilenameOnUnix);
+		logger.debug("filename: {}", filename);
 
-		fileName = FileUtils.getFileName(fullyQualifiedFileNameOnWindows);
-		logger.debug("fileName: {}", fileName);
+		filename = FileUtils.getFilename(fullyQualifiedFilenameOnWindows);
+		logger.debug("filename: {}", filename);
 	}
 
 }
