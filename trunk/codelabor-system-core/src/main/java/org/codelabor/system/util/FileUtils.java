@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * 파일 유틸리티 클래스
  *
  * @author Shin Sang-jae
- * @deprecated This class has been replaced by the {@link FilenameUtils}
+ * @deprecated This class has been replaced by the {@link org.apache.commons.io.FilenameUtils FilenameUtils}
  */
 public class FileUtils {
 	/**
