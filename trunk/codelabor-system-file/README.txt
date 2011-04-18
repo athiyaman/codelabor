@@ -28,3 +28,5 @@
 
 3.0.0
 	Spring 3 flavor로 구조 개선
+	Spring 2 기반 기능에 대한 @SuppressWarnings("deprecation") 추가
+	fileName > filename 으로 명명법 수정

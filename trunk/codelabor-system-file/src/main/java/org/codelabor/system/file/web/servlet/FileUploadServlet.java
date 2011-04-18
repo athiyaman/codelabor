@@ -146,7 +146,7 @@ public class FileUploadServlet extends HttpServlet {
 	/**
 	 * 고유 파일명 Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService uniqueFileNameGenerationService;
+	protected IIdGenerationService uniqueFilenameGenerationService;
 	/**
 	 * Map Id 제네레이션 서비스
 	 */
@@ -203,8 +203,8 @@ public class FileUploadServlet extends HttpServlet {
 		fileManager = (FileManager) ctx.getBean("fileManager");
 		propertiesService = (IPropertiesService) ctx
 				.getBean("propertiesService");
-		uniqueFileNameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFileNameGenerationService");
+		uniqueFilenameGenerationService = (IIdGenerationService) ctx
+				.getBean("uniqueFilenameGenerationService");
 		mapIdGenerationService = (IIdGenerationService) ctx
 				.getBean("sequenceMapIdGenerationService");
 
@@ -425,7 +425,7 @@ public class FileUploadServlet extends HttpServlet {
 	 *             예외
 	 */
 	protected String getUniqueFileName() throws Exception {
-		return uniqueFileNameGenerationService.getNextStringId();
+		return uniqueFilenameGenerationService.getNextStringId();
 	}
 
 	/**
@@ -509,7 +509,7 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFileName = fileDTO.getUniqueFileName();
+		String uniqueFilename = fileDTO.getUniqueFileName();
 		String realFileName = fileDTO.getRealFileName();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
@@ -519,7 +519,7 @@ public class FileUploadServlet extends HttpServlet {
 			if (!repositoryPath.endsWith(File.separator)) {
 				sb.append(File.separator);
 			}
-			sb.append(uniqueFileName);
+			sb.append(uniqueFilename);
 			File file = new File(sb.toString());
 			inputStream = new FileInputStream(file);
 		} else {
@@ -681,7 +681,7 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFileName = fileDTO.getUniqueFileName();
+		String uniqueFilename = fileDTO.getUniqueFileName();
 		String realFileName = fileDTO.getRealFileName();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
@@ -691,7 +691,7 @@ public class FileUploadServlet extends HttpServlet {
 			if (!repositoryPath.endsWith(File.separator)) {
 				sb.append(File.separator);
 			}
-			sb.append(uniqueFileName);
+			sb.append(uniqueFilename);
 			File file = new File(sb.toString());
 			inputStream = new FileInputStream(file);
 		} else {

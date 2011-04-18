@@ -20,7 +20,7 @@
 			</field-mapping>
 			<field-mapping>
 				<dbms-column>UNIQUE_FILE_NAME</dbms-column>
-				<class-attribute>uniqueFileName</class-attribute>
+				<class-attribute>uniqueFilename</class-attribute>
 			</field-mapping>
 			<field-mapping>
 				<dbms-column>REPOSITORY_PATH</dbms-column>
@@ -152,7 +152,7 @@
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
-				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
 				<result-mapping column="FILE_SIZE" attribute="fileSize"/>
@@ -181,7 +181,7 @@
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
-				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
 				<result-mapping column="FILE_SIZE" attribute="fileSize"/>
@@ -214,7 +214,7 @@
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
-				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
 				<result-mapping column="FILE_SIZE" attribute="fileSize"/>
@@ -244,7 +244,7 @@
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
-				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
 				<result-mapping column="FILE_SIZE" attribute="fileSize"/>
@@ -271,7 +271,7 @@
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
 				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
-				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFileName"/>
+				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
 				<result-mapping column="FILE_SIZE" attribute="fileSize"/>

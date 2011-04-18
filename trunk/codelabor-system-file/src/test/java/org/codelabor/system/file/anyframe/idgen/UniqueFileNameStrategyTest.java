@@ -10,20 +10,20 @@ public class UniqueFileNameStrategyTest {
 
 	private final Logger logger = LoggerFactory
 			.getLogger(UniqueFileNameStrategyTest.class);
-	private UniqueFileNameStrategy uniqueFileNameStrategy;
+	private UniqueFileNameStrategy uniqueFilenameStrategy;
 
 	@Before
 	public void setUp() throws Exception {
-		uniqueFileNameStrategy = new UniqueFileNameStrategy();
-		uniqueFileNameStrategy.setPrefix("FILE");
-		uniqueFileNameStrategy.setDateAndTimePattern("yyyyMMddHHmmssSSS");
-		uniqueFileNameStrategy.setCipers(3);
-		uniqueFileNameStrategy.setFillChar('0');
+		uniqueFilenameStrategy = new UniqueFileNameStrategy();
+		uniqueFilenameStrategy.setPrefix("FILE");
+		uniqueFilenameStrategy.setDateAndTimePattern("yyyyMMddHHmmssSSS");
+		uniqueFilenameStrategy.setCipers(3);
+		uniqueFilenameStrategy.setFillChar('0');
 	}
 
 	@Test
 	public void testMakeId() {
-		String id = uniqueFileNameStrategy.makeId("1");
+		String id = uniqueFilenameStrategy.makeId("1");
 		logger.debug("id: {}", id);
 	}
 

@@ -42,7 +42,7 @@ public class BaseFileFormController extends SimpleFormController {
 	/**
 	 * 고유 파일명 제네레이션 서비스
 	 */
-	protected IIdGenerationService uniqueFileNameGenerationService;
+	protected IIdGenerationService uniqueFilenameGenerationService;
 	/**
 	 * Map Id 제네레이션 서비스
 	 */
@@ -71,12 +71,12 @@ public class BaseFileFormController extends SimpleFormController {
 	/**
 	 * 고유 파일명 제네레이션 서비스를 설정한다.
 	 * 
-	 * @param uniqueFileNameGenerationService
+	 * @param uniqueFilenameGenerationService
 	 *            고유 파일명 제네레이션 서비스
 	 */
 	public void setUniqueFileNameGenerationService(
-			IIdGenerationService uniqueFileNameGenerationService) {
-		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
+			IIdGenerationService uniqueFilenameGenerationService) {
+		this.uniqueFilenameGenerationService = uniqueFilenameGenerationService;
 	}
 
 	/**

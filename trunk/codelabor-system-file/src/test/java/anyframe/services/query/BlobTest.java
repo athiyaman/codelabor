@@ -66,17 +66,17 @@ public class BlobTest {
 	 */
 	protected IQueryService queryService;
 	/**
-	 * UUID 제네레이션 서비스
+	 * Unique Filename 제네레이션 서비스
 	 */
-	protected IIdGenerationService uuidGenerationService;
+	protected IIdGenerationService uniqueFilenameGenerationService;
 	/**
 	 * Map Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService sequenceMapIdGenerationService;
+	protected IIdGenerationService mapIdGenerationService;
 	/**
 	 * File Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService sequenceFileIdGenerationService;
+	protected IIdGenerationService fileIdGenerationService;
 
 	/**
 	 * 원본 파일
@@ -89,14 +89,13 @@ public class BlobTest {
 
 	@Before
 	public void setUp() throws Exception {
-		queryService = context.getBean("oracleQueryService",
-				IQueryService.class);
-		uuidGenerationService = context.getBean(
-				"uniqueFileNameGenerationService", IIdGenerationService.class);
-		sequenceFileIdGenerationService = context.getBean(
-				"sequenceFileIdGenerationService", IIdGenerationService.class);
-		sequenceMapIdGenerationService = context.getBean(
-				"sequenceMapIdGenerationService", IIdGenerationService.class);
+		queryService = context.getBean("queryService", IQueryService.class);
+		uniqueFilenameGenerationService = context.getBean(
+				"uniqueFilenameGenerationService", IIdGenerationService.class);
+		fileIdGenerationService = context.getBean(
+				"fileIdGenerationService", IIdGenerationService.class);
+		mapIdGenerationService = context.getBean("mapIdGenerationService",
+				IIdGenerationService.class);
 
 		// prepare data
 		sourceFile = new File("C:/WINDOWS/Help/Tours/htmlTour/intro_logo.jpg");
@@ -124,16 +123,17 @@ public class BlobTest {
 			outputChannel = Channels.newChannel(outputStream);
 			int sourceFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
-			fileId = sequenceFileIdGenerationService.getNextStringId();
-			mapId = sequenceMapIdGenerationService.getNextStringId();
-			String uniqueFileName = uuidGenerationService.getNextStringId();
+			fileId = fileIdGenerationService.getNextStringId();
+			mapId = mapIdGenerationService.getNextStringId();
+			String uniqueFilename = uniqueFilenameGenerationService
+					.getNextStringId();
 
 			// test
 			FileDTO fileDTO = new FileDTO();
 			fileDTO.setFileId(fileId);
 			fileDTO.setMapId(mapId);
 			fileDTO.setRealFileName(sourceFile.getName());
-			fileDTO.setUniqueFileName(uniqueFileName);
+			fileDTO.setUniqueFileName(uniqueFilename);
 			fileDTO.setRepositoryPath(null);
 			fileDTO.setContentType("image/jpeg");
 			fileDTO.setFileSize(sourceFileSize);
@@ -193,14 +193,15 @@ public class BlobTest {
 			outputChannel = Channels.newChannel(outputStream);
 			int sourceFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
-			fileId = sequenceFileIdGenerationService.getNextStringId();
-			mapId = sequenceMapIdGenerationService.getNextStringId();
-			String uniqueFileName = uuidGenerationService.getNextStringId();
+			fileId = fileIdGenerationService.getNextStringId();
+			mapId = mapIdGenerationService.getNextStringId();
+			String uniqueFilename = uniqueFilenameGenerationService
+					.getNextStringId();
 
 			// test
 			String queryId = "system.insert.file";
 			Object[] params = new Object[] { fileId, mapId,
-					sourceFile.getName(), uniqueFileName, null, "image/jpeg",
+					sourceFile.getName(), uniqueFilename, null, "image/jpeg",
 					sourceFileSize,
 					((ByteArrayOutputStream) outputStream).toByteArray() };
 			queryService.create(queryId, params);
@@ -221,7 +222,7 @@ public class BlobTest {
 			int targetFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
 			assertEquals(sourceFileSize, targetFileSize);
-			assertEquals(uniqueFileName, returnedFileDTO.getUniqueFileName());
+			assertEquals(uniqueFilename, returnedFileDTO.getUniqueFileName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

@@ -9,22 +9,22 @@
 	<bean name="fileIdGenerationService"
 		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="oracleDataSource" />
+		<property name="dataSource" ref="dataSource" />
 		<config:configuration big-decimals="true">
 			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
 		</config:configuration>
 	</bean>
 
-	<bean name="uniqueFileNameGenerationService"
+	<bean name="uniqueFilenameGenerationService"
 		class="anyframe.core.idgen.impl.TableIdGenerationService"
 		destroy-method="destroy">
-		<property name="dataSource" ref="oracleDataSource" />
-		<property name="strategy" ref="fileNameStrategy" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="strategy" ref="uniqueFilenameStrategy" />
 		<config:configuration
 			block-size="1" table="ID" key-table="UNIQUE_FILE_NAME" />
 	</bean>
 
-	<bean name="fileNameStrategy"
+	<bean name="uniqueFilenameStrategy"
 		class="org.codelabor.system.file.anyframe.idgen.UniqueFileNameStrategy">
 		<property name="prefix" value="FILE" />
 		<property name="dateAndTimePattern" value="yyyyMMddHHmmssSSS" />

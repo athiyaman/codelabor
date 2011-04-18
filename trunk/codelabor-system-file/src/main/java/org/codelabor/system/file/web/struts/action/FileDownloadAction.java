@@ -85,7 +85,7 @@ public class FileDownloadAction extends DownloadAction {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFileName = fileDTO.getUniqueFileName();
+		String uniqueFilename = fileDTO.getUniqueFileName();
 		String realFileName = fileDTO.getRealFileName();
 
 		// FILE_SYSTEM
@@ -95,7 +95,7 @@ public class FileDownloadAction extends DownloadAction {
 			if (!repositoryPath.endsWith(File.separator)) {
 				stringBuilder.append(File.separator);
 			}
-			stringBuilder.append(uniqueFileName);
+			stringBuilder.append(uniqueFilename);
 			File file = new File(stringBuilder.toString());
 			streamInfo = new FileStreamInfo(
 					org.codelabor.system.file.FileConstants.CONTENT_TYPE, file);

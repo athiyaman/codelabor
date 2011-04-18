@@ -166,6 +166,6 @@ public class FileUploadController extends BaseFileFormController {
 	 *             예외
 	 */
 	protected String getUniqueFileName() throws Exception {
-		return uniqueFileNameGenerationService.getNextStringId();
+		return uniqueFilenameGenerationService.getNextStringId();
 	}
 }

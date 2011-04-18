@@ -240,14 +240,14 @@ public class FileUploadAction extends BaseDispatchAction {
 						.getServletContext());
 		IPropertiesService propertiesService = (IPropertiesService) ctx
 				.getBean("propertiesService");
-		IIdGenerationService uniqueFileNameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFileNameGenerationService");
+		IIdGenerationService uniqueFilenameGenerationService = (IIdGenerationService) ctx
+				.getBean("uniqueFilenameGenerationService");
 		// set file properties
 		String realFileName = formFile.getFileName();
 		int fileSize = formFile.getFileSize();
 		String contentType = formFile.getContentType();
 		InputStream inputStream = formFile.getInputStream();
-		String uniqueFileName = uniqueFileNameGenerationService
+		String uniqueFilename = uniqueFilenameGenerationService
 				.getNextStringId();
 
 		// set configuration
@@ -259,7 +259,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setMapId(mapId);
 		fileDTO.setRealFileName(realFileName);
-		fileDTO.setUniqueFileName(uniqueFileName);
+		fileDTO.setUniqueFileName(uniqueFilename);
 		fileDTO.setFileSize(fileSize);
 		fileDTO.setContentType(contentType);
 		fileDTO.setRepositoryPath(repositoryPath);
@@ -351,7 +351,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFileName = fileDTO.getUniqueFileName();
+		String uniqueFilename = fileDTO.getUniqueFileName();
 		String realFileName = fileDTO.getRealFileName();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
@@ -361,7 +361,7 @@ public class FileUploadAction extends BaseDispatchAction {
 			if (!repositoryPath.endsWith(File.separator)) {
 				sb.append(File.separator);
 			}
-			sb.append(uniqueFileName);
+			sb.append(uniqueFilename);
 			File file = new File(sb.toString());
 			inputStream = new FileInputStream(file);
 		} else {

@@ -74,7 +74,7 @@ public class FileViewController extends BaseFileController {
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
-		String uniqueFileName = fileDTO.getUniqueFileName();
+		String uniqueFilename = fileDTO.getUniqueFileName();
 		String realFileName = fileDTO.getRealFileName();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
@@ -84,7 +84,7 @@ public class FileViewController extends BaseFileController {
 			if (!repositoryPath.endsWith(File.separator)) {
 				stringBuilder.append(File.separator);
 			}
-			stringBuilder.append(uniqueFileName);
+			stringBuilder.append(uniqueFilename);
 			File file = new File(stringBuilder.toString());
 			inputStream = new FileInputStream(file);
 		} else {

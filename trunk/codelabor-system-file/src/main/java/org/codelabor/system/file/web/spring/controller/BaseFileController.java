@@ -42,7 +42,7 @@ public abstract class BaseFileController extends AbstractController {
 	/**
 	 * 고유 파일명 제네레이션 서비스
 	 */
-	protected IIdGenerationService uniqueFileNameGenerationService;
+	protected IIdGenerationService uniqueFilenameGenerationService;
 	/**
 	 * 성공 뷰
 	 */
@@ -75,12 +75,12 @@ public abstract class BaseFileController extends AbstractController {
 	/**
 	 * 고유 파일명 제네레이션 서비스를 설정한다.
 	 * 
-	 * @param uniqueFileNameGenerationService
+	 * @param uniqueFilenameGenerationService
 	 *            고유 파일명 제네레이션 서비스
 	 */
 	public void setUniqueFileNameGenerationService(
-			IIdGenerationService uniqueFileNameGenerationService) {
-		this.uniqueFileNameGenerationService = uniqueFileNameGenerationService;
+			IIdGenerationService uniqueFilenameGenerationService) {
+		this.uniqueFilenameGenerationService = uniqueFilenameGenerationService;
 	}
 
 	/**

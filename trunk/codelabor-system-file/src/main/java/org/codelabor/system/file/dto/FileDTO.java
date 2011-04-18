@@ -72,7 +72,7 @@ public class FileDTO implements Serializable {
 	/**
 	 * 고유 파일명</br> 파일을 파일 시스템에 저장할 경우, 파일명 중복으로 인한 오동작을 막기 위해 사용하는 유일한 파일명
 	 */
-	protected String uniqueFileName;
+	protected String uniqueFilename;
 
 	/**
 	 * 생성자
@@ -95,7 +95,7 @@ public class FileDTO implements Serializable {
 		this.mapId = fileDTO.mapId;
 		this.realFileName = fileDTO.realFileName;
 		this.repositoryPath = fileDTO.repositoryPath;
-		this.uniqueFileName = fileDTO.uniqueFileName;
+		this.uniqueFilename = fileDTO.uniqueFilename;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class FileDTO implements Serializable {
 	 *            매핑 ID
 	 * @param realFileName
 	 *            실제 파일명
-	 * @param uniqueFileName
+	 * @param uniqueFilename
 	 *            고유 파일명
 	 * @param repositoryPath
 	 *            저장 방식
@@ -119,13 +119,13 @@ public class FileDTO implements Serializable {
 	 *            파일 내용
 	 */
 	public FileDTO(String fileId, String mapId, String realFileName,
-			String uniqueFileName, String repositoryPath, String contentType,
+			String uniqueFilename, String repositoryPath, String contentType,
 			long fileSize, byte[] bytes) {
 		super();
 		this.fileId = fileId;
 		this.mapId = mapId;
 		this.realFileName = realFileName;
-		this.uniqueFileName = uniqueFileName;
+		this.uniqueFilename = uniqueFilename;
 		this.repositoryPath = repositoryPath;
 		this.contentType = contentType;
 		this.fileSize = fileSize;
@@ -271,17 +271,17 @@ public class FileDTO implements Serializable {
 	 * @return 고유 파일명
 	 */
 	public String getUniqueFileName() {
-		return uniqueFileName;
+		return uniqueFilename;
 	}
 
 	/**
 	 * 고유 파일명을 설정한다.
 	 * 
-	 * @param uniqueFileName
+	 * @param uniqueFilename
 	 *            고유 파일명
 	 */
-	public void setUniqueFileName(String uniqueFileName) {
-		this.uniqueFileName = uniqueFileName;
+	public void setUniqueFileName(String uniqueFilename) {
+		this.uniqueFilename = uniqueFilename;
 	}
 
 	/**
@@ -305,7 +305,7 @@ public class FileDTO implements Serializable {
 						"realFileName = ").append(this.realFileName)
 				.append(TAB).append("repositoryPath = ").append(
 						this.repositoryPath).append(TAB).append(
-						"uniqueFileName = ").append(this.uniqueFileName)
+						"uniqueFilename = ").append(this.uniqueFilename)
 				.append(TAB).append(" )");
 
 		return retValue.toString();

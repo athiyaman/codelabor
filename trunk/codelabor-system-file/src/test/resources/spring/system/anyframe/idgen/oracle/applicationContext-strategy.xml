@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean name="mapIdStrategy"
+		class="org.codelabor.system.anyframe.idgen.PrefixStrategy">
+		<property name="prefix" value="MAP" />
+		<property name="delimiter" value="-" />
+	</bean>
+
+	<bean name="fileIdStrategy"
+		class="org.codelabor.system.anyframe.idgen.PrefixStrategy">
+		<property name="prefix" value="FILE" />
+		<property name="delimiter" value="-" />
+	</bean>
+
+	<bean name="uniqueFilenameStrategy"
+		class="org.codelabor.system.file.anyframe.idgen.UniqueFileNameStrategy">
+		<property name="prefix" value="FILE" />
+		<property name="delimiter" value="-" />
+		<property name="dateAndTimePattern" value="yyyyMMddHHmmssSSS" />
+		<property name="cipers" value="3" />
+		<property name="fillChar" value="0" />
+	</bean>
+
+</beans>
