@@ -126,9 +126,9 @@ public class UploadUtils {
 				stringBuilder.append(File.separator);
 			}
 			stringBuilder.append(fileDTO.getUniqueFilename());
-			String fileName = stringBuilder.toString();
-			outputStream = new FileOutputStream(fileName);
-			logger.debug("fileName: {}", fileName);
+			String filename = stringBuilder.toString();
+			outputStream = new FileOutputStream(filename);
+			logger.debug("filename: {}", filename);
 
 			// copy channel
 			inputChannel = Channels.newChannel(inputStream);
@@ -138,7 +138,7 @@ public class UploadUtils {
 			// set vo
 			if (StringUtils.isEmpty(fileDTO.getContentType())) {
 				fileDTO.setContentType(TikaMimeDetectUtils
-						.getMimeType(fileName));
+						.getMimeType(filename));
 			}
 			break;
 		case DATABASE:

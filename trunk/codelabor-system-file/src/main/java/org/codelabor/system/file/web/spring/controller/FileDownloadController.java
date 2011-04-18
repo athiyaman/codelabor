@@ -77,7 +77,7 @@ public class FileDownloadController extends BaseFileController {
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
-		String realFileName = fileDTO.getRealFilename();
+		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
@@ -99,9 +99,9 @@ public class FileDownloadController extends BaseFileController {
 
 		}
 		// set response contenttype, header
-		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
-		logger.debug("realFileName: {}", realFileName);
-		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
+		logger.debug("realFilename: {}", realFilename);
+		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 
 		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		stringBuilder.setLength(0);
@@ -112,7 +112,7 @@ public class FileDownloadController extends BaseFileController {
 			stringBuilder.append("attachment; filename=");
 		}
 		// stringBuilder.append("\"");
-		stringBuilder.append(encodedRealFileName);
+		stringBuilder.append(encodedRealFilename);
 		// stringBuilder.append("\"");
 		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
 				stringBuilder.toString());

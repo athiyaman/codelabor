@@ -97,12 +97,12 @@ public class FileUploadForm extends BaseForm {
 	 *            Form File
 	 */
 	public void setFile(int index, FormFile formFile) {
-		String fileName = null;
+		String filename = null;
 		if (formFile != null) {
-			fileName = formFile.getFileName();
+			filename = formFile.getFilename();
 			this.formFileList.add(formFile);
 		}
-		logger.debug("index: {}, fileName: {}", index, fileName);
+		logger.debug("index: {}, filename: {}", index, filename);
 	}
 
 	/**
@@ -114,11 +114,11 @@ public class FileUploadForm extends BaseForm {
 	 */
 	public FormFile getFile(int index) {
 		FormFile formFile = this.formFileList.get(index);
-		String fileName = null;
+		String filename = null;
 		if (formFile != null) {
-			fileName = formFile.getFileName();
+			filename = formFile.getFilename();
 		}
-		logger.debug("index: {}, fileName: {}", index, fileName);
+		logger.debug("index: {}, filename: {}", index, filename);
 		return formFile;
 	}
 

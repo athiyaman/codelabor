@@ -126,7 +126,7 @@ public class FileUploadController extends BaseFileFormController {
 			fileDTO.setMapId(mapId);
 			fileDTO.setRealFilename(FilenameUtils.getName(originalFilename));
 			if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
-				fileDTO.setUniqueFilename(getUniqueFileName());
+				fileDTO.setUniqueFilename(getUniqueFilename());
 			}
 			fileDTO.setContentType(uploadedFile.getContentType());
 			fileDTO.setRepositoryPath(repositoryPath);
@@ -165,7 +165,7 @@ public class FileUploadController extends BaseFileFormController {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected String getUniqueFileName() throws Exception {
+	protected String getUniqueFilename() throws Exception {
 		return uniqueFilenameGenerationService.getNextStringId();
 	}
 }

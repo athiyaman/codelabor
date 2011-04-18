@@ -86,7 +86,7 @@ public class FileDownloadAction extends DownloadAction {
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
-		String realFileName = fileDTO.getRealFilename();
+		String realFilename = fileDTO.getRealFilename();
 
 		// FILE_SYSTEM
 		if (StringUtil.isNotEmpty(repositoryPath)) {
@@ -106,9 +106,9 @@ public class FileDownloadAction extends DownloadAction {
 					org.codelabor.system.file.FileConstants.CONTENT_TYPE, bytes);
 		}
 		// set response contenttype, header
-		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
-		logger.debug("realFileName: {}", realFileName);
-		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
+		logger.debug("realFilename: {}", realFilename);
+		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 
 		response
 				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
@@ -119,7 +119,7 @@ public class FileDownloadAction extends DownloadAction {
 			stringBuilder.append("attachment; filename=");
 		}
 		// stringBuilder.append("\"");
-		stringBuilder.append(encodedRealFileName);
+		stringBuilder.append(encodedRealFilename);
 		// stringBuilder.append("\"");
 		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
 				stringBuilder.toString());

@@ -302,7 +302,7 @@ public class FileDTO implements Serializable {
 				.append("fileId = ").append(this.fileId).append(TAB).append(
 						"fileSize = ").append(this.fileSize).append(TAB)
 				.append("mapId = ").append(this.mapId).append(TAB).append(
-						"realFileName = ").append(this.realFilename)
+						"realFilename = ").append(this.realFilename)
 				.append(TAB).append("repositoryPath = ").append(
 						this.repositoryPath).append(TAB).append(
 						"uniqueFilename = ").append(this.uniqueFilename)

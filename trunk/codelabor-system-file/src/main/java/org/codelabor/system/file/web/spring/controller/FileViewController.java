@@ -75,7 +75,7 @@ public class FileViewController extends BaseFileController {
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
-		String realFileName = fileDTO.getRealFilename();
+		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
@@ -99,9 +99,9 @@ public class FileViewController extends BaseFileController {
 		response.setContentType(fileDTO.getContentType());
 
 		// set response contenttype, header
-		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
-		logger.debug("realFileName: {}", realFileName);
-		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
+		logger.debug("realFilename: {}", realFilename);
+		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());

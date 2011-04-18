@@ -381,10 +381,10 @@ public class FileUploadServlet extends HttpServlet {
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFilename(FileUtils.getFileName(fileItem
+						fileDTO.setRealFilename(FileUtils.getFilename(fileItem
 								.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
-							fileDTO.setUniqueFilename(getUniqueFileName());
+							fileDTO.setUniqueFilename(getUniqueFilename());
 						}
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
@@ -424,7 +424,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected String getUniqueFileName() throws Exception {
+	protected String getUniqueFilename() throws Exception {
 		return uniqueFilenameGenerationService.getNextStringId();
 	}
 
@@ -510,7 +510,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
-		String realFileName = fileDTO.getRealFilename();
+		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
@@ -534,9 +534,9 @@ public class FileUploadServlet extends HttpServlet {
 		response.setContentType(fileDTO.getContentType());
 
 		// set response contenttype, header
-		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
-		logger.debug("realFileName: {}", realFileName);
-		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
+		logger.debug("realFilename: {}", realFilename);
+		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());
@@ -682,7 +682,7 @@ public class FileUploadServlet extends HttpServlet {
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
-		String realFileName = fileDTO.getRealFilename();
+		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
@@ -704,9 +704,9 @@ public class FileUploadServlet extends HttpServlet {
 		}
 
 		// set response contenttype, header
-		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
-		logger.debug("realFileName: {}", realFileName);
-		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
+		logger.debug("realFilename: {}", realFilename);
+		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 
 		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		sb.setLength(0);
@@ -716,7 +716,7 @@ public class FileUploadServlet extends HttpServlet {
 		} else {
 			sb.append("attachment; filename=");
 		}
-		sb.append(encodedRealFileName);
+		sb.append(encodedRealFilename);
 		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
 				sb.toString());
 

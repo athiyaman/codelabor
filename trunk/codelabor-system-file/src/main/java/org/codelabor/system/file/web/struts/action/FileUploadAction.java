@@ -243,7 +243,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		IIdGenerationService uniqueFilenameGenerationService = (IIdGenerationService) ctx
 				.getBean("uniqueFilenameGenerationService");
 		// set file properties
-		String realFileName = formFile.getFileName();
+		String realFilename = formFile.getFilename();
 		int fileSize = formFile.getFileSize();
 		String contentType = formFile.getContentType();
 		InputStream inputStream = formFile.getInputStream();
@@ -258,7 +258,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		// set dto
 		FileDTO fileDTO = new FileDTO();
 		fileDTO.setMapId(mapId);
-		fileDTO.setRealFilename(realFileName);
+		fileDTO.setRealFilename(realFilename);
 		fileDTO.setUniqueFilename(uniqueFilename);
 		fileDTO.setFileSize(fileSize);
 		fileDTO.setContentType(contentType);
@@ -288,8 +288,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		Iterator<FormFile> iter = formFileList.iterator();
 		while (iter.hasNext()) {
 			FormFile formFile = iter.next();
-			String realFileName = formFile.getFileName();
-			if (realFileName == null || realFileName.length() == 0) {
+			String realFilename = formFile.getFilename();
+			if (realFilename == null || realFilename.length() == 0) {
 				continue;
 			}
 			FileDTO fileDTO = saveFile(repositoryType, mapId, formFile);
@@ -352,7 +352,7 @@ public class FileUploadAction extends BaseDispatchAction {
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
-		String realFileName = fileDTO.getRealFilename();
+		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
@@ -376,9 +376,9 @@ public class FileUploadAction extends BaseDispatchAction {
 		response.setContentType(fileDTO.getContentType());
 
 		// set response contenttype, header
-		String encodedRealFileName = URLEncoder.encode(realFileName, "UTF-8");
-		logger.debug("realFileName: {}", realFileName);
-		logger.debug("encodedRealFileName: {}", encodedRealFileName);
+		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
+		logger.debug("realFilename: {}", realFilename);
+		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());

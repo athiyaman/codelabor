@@ -135,6 +135,7 @@ public class BlobTest {
 			fileDTO.setFileId(fileId);
 			fileDTO.setMapId(mapId);
 			fileDTO.setRealFilename(sourceFile.getName());
+			System.out.println("sourceFile.getName(): " + sourceFile.getName());
 			fileDTO.setUniqueFilename(uniqueFilename);
 			fileDTO.setRepositoryPath(null);
 			fileDTO.setContentType("image/jpeg");

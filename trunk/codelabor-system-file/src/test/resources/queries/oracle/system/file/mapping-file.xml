@@ -16,7 +16,7 @@
 			</field-mapping>
 			<field-mapping>
 				<dbms-column>REAL_FILE_NAME</dbms-column>
-				<class-attribute>realFileName</class-attribute>
+				<class-attribute>realFilename</class-attribute>
 			</field-mapping>
 			<field-mapping>
 				<dbms-column>UNIQUE_FILE_NAME</dbms-column>
@@ -151,7 +151,7 @@
 			<result class="org.codelabor.system.file.dto.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
-				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFilename"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
@@ -180,7 +180,7 @@
 			<result class="org.codelabor.system.file.dto.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
-				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFilename"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
@@ -213,7 +213,7 @@
 			<result class="org.codelabor.system.file.dto.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
-				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFilename"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
@@ -243,7 +243,7 @@
 			<result class="org.codelabor.system.file.dto.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
-				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFilename"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>
@@ -270,7 +270,7 @@
 			<result class="org.codelabor.system.file.dto.FileDTO">
 				<result-mapping column="FILE_ID" attribute="fileId"/>
 				<result-mapping column="MAP_ID" attribute="mapId"/>
-				<result-mapping column="REAL_FILE_NAME" attribute="realFileName"/>
+				<result-mapping column="REAL_FILE_NAME" attribute="realFilename"/>
 				<result-mapping column="UNIQUE_FILE_NAME" attribute="uniqueFilename"/>
 				<result-mapping column="REPOSITORY_PATH" attribute="repositoryPath"/>
 				<result-mapping column="CONTENT_TYPE" attribute="contentType"/>

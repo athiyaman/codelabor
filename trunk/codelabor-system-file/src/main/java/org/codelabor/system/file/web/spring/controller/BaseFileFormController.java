@@ -74,7 +74,7 @@ public class BaseFileFormController extends SimpleFormController {
 	 * @param uniqueFilenameGenerationService
 	 *            고유 파일명 제네레이션 서비스
 	 */
-	public void setUniqueFileNameGenerationService(
+	public void setUniqueFilenameGenerationService(
 			IIdGenerationService uniqueFilenameGenerationService) {
 		this.uniqueFilenameGenerationService = uniqueFilenameGenerationService;
 	}
