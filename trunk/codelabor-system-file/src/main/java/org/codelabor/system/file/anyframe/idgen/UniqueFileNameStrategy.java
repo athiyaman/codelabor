@@ -132,10 +132,6 @@ public class UniqueFileNameStrategy implements IdGenerationStrategy {
 		} else {
 			trimedId = originalId;
 		}
-		// Anyframe StringUtil
-		// sb.append(StringUtil.fillString(trimedId, fillChar, cipers));
-
-		// Apache Commons Lang StringUtils (Java SE 1.4)
 		sb.append(StringUtils.leftPad(trimedId, cipers, fillChar));
 
 		return sb.toString();
