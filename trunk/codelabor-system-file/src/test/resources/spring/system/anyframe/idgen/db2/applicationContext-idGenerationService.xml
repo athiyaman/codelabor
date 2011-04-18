@@ -25,7 +25,7 @@
 	</bean>
 
 	<bean name="uniqueFilenameStrategy"
-		class="org.codelabor.system.file.anyframe.idgen.UniqueFilennameStrategy">
+		class="org.codelabor.system.file.anyframe.idgen.UniqueFilenameStrategy">
 		<property name="prefix" value="FILE" />
 		<property name="dateAndTimePattern" value="yyyyMMddHHmmssSSS" />
 		<property name="cipers" value="3" />
