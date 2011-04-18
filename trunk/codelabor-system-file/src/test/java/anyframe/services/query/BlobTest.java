@@ -135,7 +135,6 @@ public class BlobTest {
 			fileDTO.setFileId(fileId);
 			fileDTO.setMapId(mapId);
 			fileDTO.setRealFilename(sourceFile.getName());
-			System.out.println("sourceFile.getName(): " + sourceFile.getName());
 			fileDTO.setUniqueFilename(uniqueFilename);
 			fileDTO.setRepositoryPath(null);
 			fileDTO.setContentType("image/jpeg");
@@ -151,7 +150,7 @@ public class BlobTest {
 			FileDTO returnedFileDTO = fileDTOList.get(0);
 			logger.debug("returnedFileDTO: {}", returnedFileDTO);
 
-			targetFile = new File(returnedFileDTO.getRealFilename());
+			targetFile = new File("target/" + returnedFileDTO.getRealFilename());
 			byte[] bytes = returnedFileDTO.getBytes();
 			inputStream = new ByteArrayInputStream(bytes);
 			outputStream = new FileOutputStream(targetFile);
