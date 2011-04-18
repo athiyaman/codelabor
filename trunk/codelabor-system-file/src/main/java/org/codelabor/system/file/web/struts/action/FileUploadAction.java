@@ -58,9 +58,9 @@ import anyframe.core.properties.IPropertiesService;
 
 /**
  * 파일 업로드 Action
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class FileUploadAction extends BaseDispatchAction {
 
@@ -77,7 +77,7 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * org.codelabor.system.file.FileConstants.FILE_LIST_KEY라는 키로 attribute에
 	 * 등록된다. Map Id도 함께 발급하는데 Map Id는
 	 * org.codelabor.system.file.FileConstants.MAP_ID라는 키로 attribute에 등록된다.
-	 *
+	 * 
 	 * @param mapping
 	 *            액션 매핑
 	 * @param form
@@ -138,7 +138,7 @@ public class FileUploadAction extends BaseDispatchAction {
 	/**
 	 * 파일 정보를 가져온다.</br>읽어올 파일의 파일 Id를 파라미터 fileID로 전달하면 해당 파일의 DTO가
 	 * org.codelabor.system.file.FileConstants.FILE_KEY라는 키로 attribute에 등록된다.
-	 *
+	 * 
 	 * @param mapping
 	 *            액션 매핑
 	 * @param form
@@ -168,7 +168,7 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * 파일을 업로드 한다.</br> 파일 외의 데이터와 매핑이 필요할 경우, (예: 게시판) 파라미터로 mapId를 입력 받는다. 파일
 	 * 저장 방식은 파라미터 repositoryType으로 지정하며, 그 값은
 	 * org.codelabor.system.file.RepositoryType를 따른다.
-	 *
+	 * 
 	 * @param mapping
 	 *            액션 매핑
 	 * @param form
@@ -222,7 +222,7 @@ public class FileUploadAction extends BaseDispatchAction {
 
 	/**
 	 * 파일을 저장한다.
-	 *
+	 * 
 	 * @param repositoryType
 	 *            파일 저장 방식
 	 * @param mapId
@@ -243,7 +243,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		IIdGenerationService uniqueFilenameGenerationService = (IIdGenerationService) ctx
 				.getBean("uniqueFilenameGenerationService");
 		// set file properties
-		String realFilename = formFile.getFilename();
+		String realFilename = formFile.getFileName();
 		int fileSize = formFile.getFileSize();
 		String contentType = formFile.getContentType();
 		InputStream inputStream = formFile.getInputStream();
@@ -271,7 +271,7 @@ public class FileUploadAction extends BaseDispatchAction {
 
 	/**
 	 * 파일을 저장한다.
-	 *
+	 * 
 	 * @param repositoryType
 	 *            파일 저장 방식
 	 * @param mapId
@@ -288,7 +288,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		Iterator<FormFile> iter = formFileList.iterator();
 		while (iter.hasNext()) {
 			FormFile formFile = iter.next();
-			String realFilename = formFile.getFilename();
+			String realFilename = formFile.getFileName();
 			if (realFilename == null || realFilename.length() == 0) {
 				continue;
 			}
@@ -301,7 +301,7 @@ public class FileUploadAction extends BaseDispatchAction {
 	/**
 	 * 파일을 삭제한다.</br>삭제할 파일의 파일 Id를 파라미터 fileId로 지정하여 요청한다. 삭제 건수는
 	 * org.codelabor.system.daos.AFFECTED_ROW_COUNT라는 키로 attribute에 등록된다.
-	 *
+	 * 
 	 * @param mapping
 	 *            액션 매핑
 	 * @param form

@@ -28,9 +28,9 @@ import org.codelabor.system.web.struts.form.BaseForm;
 
 /**
  * 파일 업로드 Form
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class FileUploadForm extends BaseForm {
 
@@ -59,7 +59,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * 파일 Id를 가져온다.
-	 *
+	 * 
 	 * @return 파일 Id 배열
 	 */
 	public String[] getFileId() {
@@ -68,7 +68,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * 파일 배열을 설정한다.
-	 *
+	 * 
 	 * @param fileId
 	 *            파일 Id 배열
 	 */
@@ -78,7 +78,7 @@ public class FileUploadForm extends BaseForm {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @seeorg.apache.struts.action.ActionForm#reset(org.apache.struts.action.
 	 * ActionMapping, javax.servlet.http.HttpServletRequest)
 	 */
@@ -90,7 +90,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * Form File을 설정한다.
-	 *
+	 * 
 	 * @param index
 	 *            인덱스
 	 * @param formFile
@@ -99,7 +99,7 @@ public class FileUploadForm extends BaseForm {
 	public void setFile(int index, FormFile formFile) {
 		String filename = null;
 		if (formFile != null) {
-			filename = formFile.getFilename();
+			filename = formFile.getFileName();
 			this.formFileList.add(formFile);
 		}
 		logger.debug("index: {}, filename: {}", index, filename);
@@ -107,7 +107,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * Form File을 가져온다.
-	 *
+	 * 
 	 * @param index
 	 *            인덱스
 	 * @return Form File
@@ -116,7 +116,7 @@ public class FileUploadForm extends BaseForm {
 		FormFile formFile = this.formFileList.get(index);
 		String filename = null;
 		if (formFile != null) {
-			filename = formFile.getFilename();
+			filename = formFile.getFileName();
 		}
 		logger.debug("index: {}, filename: {}", index, filename);
 		return formFile;
@@ -124,7 +124,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * Form File List를 가져온다.
-	 *
+	 * 
 	 * @return Form File List
 	 */
 	public List<FormFile> getFormFileList() {
@@ -133,7 +133,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * Map Id를 가져온다.
-	 *
+	 * 
 	 * @return Map Id
 	 */
 	public String getMapId() {
@@ -142,7 +142,7 @@ public class FileUploadForm extends BaseForm {
 
 	/**
 	 * Map Id를 설정한다.
-	 *
+	 * 
 	 * @param mapId
 	 *            Map Id
 	 */
@@ -153,7 +153,7 @@ public class FileUploadForm extends BaseForm {
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
 	 * format.
-	 *
+	 * 
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override
@@ -162,11 +162,11 @@ public class FileUploadForm extends BaseForm {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("FileUploadForm ( ").append(super.toString()).append(
-				TAB).append("fileId = ").append(this.fileId).append(TAB)
-				.append("formFileList = ").append(this.formFileList)
-				.append(TAB).append("mapId = ").append(this.mapId).append(TAB)
-				.append(" )");
+		retValue.append("FileUploadForm ( ").append(super.toString())
+				.append(TAB).append("fileId = ").append(this.fileId)
+				.append(TAB).append("formFileList = ")
+				.append(this.formFileList).append(TAB).append("mapId = ")
+				.append(this.mapId).append(TAB).append(" )");
 
 		return retValue.toString();
 	}
