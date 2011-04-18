@@ -31,7 +31,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
  * @author Shin Sang-jae
  * 
  */
-public class UniqueFileNameStrategy implements IdGenerationStrategy {
+public class UniqueFilennameStrategy implements IdGenerationStrategy {
 
 	/**
 	 * 접두어

@@ -1,6 +1,6 @@
 package org.codelabor.system.file.anyframe.idgen;
 
-import org.codelabor.system.file.anyframe.idgen.UniqueFileNameStrategy;
+import org.codelabor.system.file.anyframe.idgen.UniqueFilennameStrategy;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -10,11 +10,11 @@ public class UniqueFilenameStrategyTest {
 
 	private final Logger logger = LoggerFactory
 			.getLogger(UniqueFilenameStrategyTest.class);
-	private UniqueFileNameStrategy uniqueFilenameStrategy;
+	private UniqueFilennameStrategy uniqueFilenameStrategy;
 
 	@Before
 	public void setUp() throws Exception {
-		uniqueFilenameStrategy = new UniqueFileNameStrategy();
+		uniqueFilenameStrategy = new UniqueFilennameStrategy();
 		uniqueFilenameStrategy.setPrefix("FILE");
 		uniqueFilenameStrategy.setDateAndTimePattern("yyyyMMddHHmmssSSS");
 		uniqueFilenameStrategy.setCipers(3);
