@@ -189,7 +189,7 @@
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-core</artifactId>
-			<version>3.0.1</version>
+			<version>3.0.2</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -218,7 +218,8 @@
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>14</version>
-			<scope>runtime</scope>
+			<scope>system</scope>
+			<systemPath>${user.home}/.m2/repository/ojdbc/ojdbc/14/ojdbc-14.jar</systemPath>
 		</dependency>
 	</dependencies>
 	<properties>
