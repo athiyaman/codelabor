@@ -242,7 +242,7 @@
 	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
-		<version>1.2.15</version>
+		<version>1.2.16</version>
 		<type>jar</type>
 		<scope>compile</scope>
 	</dependency>
@@ -305,7 +305,7 @@
 	<dependency>
 		<groupId>org.codelabor</groupId>
 		<artifactId>codelabor-system-web</artifactId>
-		<version>3.0.1</version>
+		<version>3.0.2</version>
 		<type>jar</type>
 		<scope>compile</scope>
 	</dependency>
