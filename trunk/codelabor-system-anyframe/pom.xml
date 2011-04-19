@@ -259,6 +259,12 @@
 		<version>0.2.4</version>
 		<type>jar</type>
 		<scope>compile</scope>
+		<exclusions>
+			<exclusion>
+				<artifactId>easymock</artifactId>
+				<groupId>org.easymock</groupId>
+			</exclusion>
+		</exclusions>
 	</dependency>
 	<dependency>
 		<groupId>ojdbc</groupId>
