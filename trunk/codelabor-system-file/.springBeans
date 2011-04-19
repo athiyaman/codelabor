@@ -31,6 +31,7 @@
 		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-sqlLoader.xml</config>
 		<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
+		<config>src/test/resources/spring/system/action-servlet.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -62,6 +63,14 @@
 				<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
 				<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
 				<config>src/test/resources/spring/system/file/applicationContext-fileManager.xml</config>
+			</configs>
+		</configSet>
+		<configSet>
+			<name><![CDATA[web-context]]></name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>src/test/resources/spring/system/action-servlet.xml</config>
 			</configs>
 		</configSet>
 	</configSets>
