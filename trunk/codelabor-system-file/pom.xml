@@ -8,13 +8,13 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-file</artifactId>
 	<name>codelabor-system-file</name>
-	<version>3.0.0</version>
+	<version>3.0.1-SNAPSHOT</version>
 	<description>codelabor system file</description>
 	<url>http://codelabor.googlecode.com</url>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-file-3.0.0</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-file-3.0.0</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-file-3.0.0</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
