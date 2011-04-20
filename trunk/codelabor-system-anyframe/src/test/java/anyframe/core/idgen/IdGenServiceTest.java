@@ -1,5 +1,6 @@
 package anyframe.core.idgen;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
@@ -25,18 +26,18 @@ public class IdGenServiceTest {
 
 	@Before
 	public void setUp() {
-		// sequenceIdGenerationService = context.getBean(
-		// "sequenceIdGenerationService", IIdGenerationService.class);
-		// prefixDateNumberSequenceIdGenerationService = context.getBean(
-		// "prefixDateNumberSequenceIdGenerationService",
-		// IIdGenerationService.class);
+		sequenceIdGenerationService = context.getBean(
+				"sequenceIdGenerationService", IIdGenerationService.class);
+		prefixDateNumberSequenceIdGenerationService = context.getBean(
+				"prefixDateNumberSequenceIdGenerationService",
+				IIdGenerationService.class);
 	}
 
 	@Test
 	public void testNotNull() {
 		try {
-			// assertNotNull(sequenceIdGenerationService);
-			// assertNotNull(prefixDateNumberSequenceIdGenerationService);
+			assertNotNull(sequenceIdGenerationService);
+			assertNotNull(prefixDateNumberSequenceIdGenerationService);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -46,15 +47,14 @@ public class IdGenServiceTest {
 	@Test
 	public void testGetNextStringId() {
 		try {
-			// test
-			// String nextId = sequenceIdGenerationService.getNextStringId();
-			// logger.debug("sequenceIdGenerationService nextId: {}", nextId);
-			//
-			// nextId = prefixDateNumberSequenceIdGenerationService
-			// .getNextStringId();
-			// logger.debug(
-			// "prefixDateNumberSequenceIdGenerationService nextId: {}",
-			// nextId);
+			String nextId = sequenceIdGenerationService.getNextStringId();
+			logger.debug("sequenceIdGenerationService nextId: {}", nextId);
+
+			nextId = prefixDateNumberSequenceIdGenerationService
+					.getNextStringId();
+			logger.debug(
+					"prefixDateNumberSequenceIdGenerationService nextId: {}",
+					nextId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
