@@ -138,27 +138,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>3.0.5.RELEASE</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
@@ -168,6 +147,13 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
+			<version>3.0.5.RELEASE</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
 			<version>3.0.5.RELEASE</version>
 			<type>jar</type>
 			<scope>compile</scope>
@@ -187,45 +173,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-asm</artifactId>
-			<version>3.0.5.RELEASE</version>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>3.0.5.RELEASE</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>3.0.5.RELEASE</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>aopalliance</groupId>
-			<artifactId>aopalliance</artifactId>
-			<version>1.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
+			<groupId>aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.10</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<version>1.5.4</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	<properties>

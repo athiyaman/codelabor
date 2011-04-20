@@ -26,3 +26,5 @@
 
 3.0.3
 	javadoc @link 개선
+	@SuppressWarnings("deprecation")
+	dependency 개선
