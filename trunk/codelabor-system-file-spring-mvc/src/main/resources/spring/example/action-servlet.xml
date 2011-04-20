@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="exampleUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/home.do" value-ref="exampleHomeController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="exampleHomeController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.home.definition"/>
+	</bean>
+
+</beans>

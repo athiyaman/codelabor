@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!--
+	[PROPAGATION]
+	REQUIRED: 이미 tx가 존재할 경우, 해당 tx에 참여 / tx가 없을 경우, 새 tx를 생성하고 실행
+	SUPPORTS: 이미 tx가 존재할 경우, 해당 tx에 참여 / tx가 없을 경우, 그냥 실행
+	MANDATORY: 이미 tx가 존재할 경우, 해당 tx에 참여 / tx가 없을 경우, Exception 발생
+	REQUIRES_NEW: 이미 tx가 존재할 경우, 해당 tx suspend 시키고 새 tx를 생성 / tx가 없을 경우, 새  tx를 생성
+	NOT_SUPPORTED: 이미 tx가 존재할 경우, 해당 tx suspend 시키고 tx없이 실행 / tx가  없을 경우, 그냥 실행
+	NEVER: 이미 tx가 존재할 경우, Exception 발생 / tx가 없을 경우, tx없이 실행
+	NESTED: 이미 tx가 존재할 경우, 해당 tx에 nested tx 생성 / tx가 없을 경우, 새 tx 생성 (자신의 rollback이 부모 tx에 영향을 주지 않음
+
+	[ISOLATION]
+	DEFAULT: datastore에 의존
+	READ_UNCOMMITTED: Dirty reads, Non-repeatable reads, Phantom reads 발생
+	READ_COMMITTED: Dirty reads 방지, Non-repeatable reads, Phantom reads 발생
+	REPEATABLE_READ: Non-repeatable Read 방지, Phantom reads 발생
+	SERIALIZABLE: Phantom Read 방지
+	-->
+
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="select*" read-only="true"/>
+			<tx:method name="list*" read-only="true"/>
+			<tx:method name="read*" read-only="true"/>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="retreive*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="search*" read-only="true"/>
+			<tx:method name="*"
+				rollback-for="org.codelabor.system.exception.RollbackCommonException"
+				no-rollback-for="org.codelabor.system.exception.NoRollbackCommonException"
+				propagation="REQUIRED" timeout="600" />
+		</tx:attributes>
+	</tx:advice>
+
+</beans>

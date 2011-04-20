@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="exampleErrorUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/error/error-page/errorPageMisuse.do"
+					value-ref="exampleErrorErrorPageMisuseController"/>
+				<entry key="/example/error/error-page/errorPageUse.do"
+					value-ref="exampleErrorErrorPageUseController"/>
+
+				<entry key="/example/error/custom-message/anyframeBaseException.do"
+					value-ref="exampleErrorAnyframeBaseExceptionController"/>
+				<entry key="/example/error/custom-message/codelaborCommonException.do"
+					value-ref="exampleErrorCodelaborCommonExceptionController"/>
+
+				<entry key="/example/error/jspExceptionBaseException.do"
+					value-ref="exampleErrorJspExceptionBaseExceptionController"/>
+				<entry key="/example/error/jspExceptionCommonException.do"
+					value-ref="exampleErrorJspExceptionCommonExceptionController"/>
+
+				<entry key="/example/error/controllerException.do"
+					value-ref="exampleErrorControllerExceptionController"/>
+				<entry key="/example/error/flowException.do"
+					value-ref="exampleErrorFlowExceptionController"/>
+				<entry key="/example/error/securityException.do"
+					value-ref="exampleErrorSecurityExceptionController"/>
+				<entry key="/example/error/serviceException.do"
+					value-ref="exampleErrorServiceExceptionController"/>
+				<entry key="/example/error/managerException.do"
+					value-ref="exampleErrorManagerExceptionController"/>
+				<entry key="/example/error/daoException.do"
+					value-ref="exampleErrorDaoExceptionController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="exampleErrorErrorPageMisuseController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.error.page.misuse.definition"/>
+	</bean>
+	<bean id="exampleErrorErrorPageUseController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.error.page.use.definition"/>
+	</bean>
+
+	<bean id="exampleErrorAnyframeBaseExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.custom.message.anyframe.base.exception.definition"/>
+	</bean>
+	<bean id="exampleErrorCodelaborCommonExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.custom.message.codelabor.common.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorJspExceptionBaseExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.jsp.exception.base.exception.definition"/>
+	</bean>
+	<bean id="exampleErrorJspExceptionCommonExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.jsp.exception.common.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorControllerExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.controller.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorFlowExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.flow.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorSecurityExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.security.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorServiceExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.service.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorManagerExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.manager.exception.definition"/>
+	</bean>
+
+	<bean id="exampleErrorDaoExceptionController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.error.dao.exception.definition"/>
+	</bean>
+
+</beans>
