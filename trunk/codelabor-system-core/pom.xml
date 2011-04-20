@@ -9,7 +9,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-core</artifactId>
 	<name>codelabor-system-core</name>
-	<version>3.0.4-SNAPSHOT</version>
+	<version>3.0.3-SNAPSHOT</version>
 	<description>codelabor system core</description>
 	<url>http://codelabor.googlecode.com</url>
 	<licenses>
@@ -176,6 +176,20 @@
 			<groupId>aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.5.4</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
