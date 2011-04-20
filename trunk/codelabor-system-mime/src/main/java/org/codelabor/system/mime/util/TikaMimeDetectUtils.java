@@ -35,7 +35,7 @@ import org.xml.sax.ContentHandler;
  * 마임타입 탐지 유틸리티 클래스<br/>
  * Apache Tika를 활용한 구현 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class TikaMimeDetectUtils {

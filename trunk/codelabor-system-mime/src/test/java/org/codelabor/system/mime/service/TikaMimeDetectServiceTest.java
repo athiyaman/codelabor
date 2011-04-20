@@ -16,6 +16,8 @@
  */
 package org.codelabor.system.mime.service;
 
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -50,47 +52,57 @@ public class TikaMimeDetectServiceTest {
 	@Test
 	public void testGetMimeTypeInputStream() {
 		try {
-			File file = new File("C:/WINDOWS/twain.dll");
+			String fullyQualifiedFilename = this.getClass()
+					.getResource("/files/LICENSE.TXT").getFile();
+			logger.debug("fullyQualifiedFilename: {}", fullyQualifiedFilename);
+			File file = new File(fullyQualifiedFilename);
 			InputStream inputStream = new FileInputStream(file);
 			String mimeType = this.mimeDetectService.getMimeType(inputStream);
 			logger.debug("file name: {}", file.getName());
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// fail();
+			fail();
 		}
 	}
 
 	@Test
 	public void testGetMimeTypeFile() {
 		try {
-			File file = new File("C:/WINDOWS/NOTEPAD.EXE");
+			String fullyQualifiedFilename = this.getClass()
+					.getResource("/files/LICENSE.TXT").getFile();
+			logger.debug("fullyQualifiedFilename: {}", fullyQualifiedFilename);
+			File file = new File(fullyQualifiedFilename);
 			String mimeType = this.mimeDetectService.getMimeType(file);
 			logger.debug("file name: {}", file.getName());
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// fail();
+			fail();
 		}
 	}
 
 	@Test
 	public void testGetMimeTypeURL() {
 		try {
-			URL url = new URL("http://www.google.com/images/logos/ps_logo2.png");
+			URL url = this.getClass().getResource("/files/LICENSE.TXT");
+			logger.debug("url: {}", url);
 			String mimeType = this.mimeDetectService.getMimeType(url);
 			logger.debug("url: {}", url.getPath());
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// fail();
+			fail();
 		}
 	}
 
 	@Test
 	public void testGetMimeTypeByteArray() {
 		try {
-			File file = new File("C:/WINDOWS/clock.avi");
+			String fullyQualifiedFilename = this.getClass()
+					.getResource("/files/LICENSE.TXT").getFile();
+			logger.debug("fullyQualifiedFilename: {}", fullyQualifiedFilename);
+			File file = new File(fullyQualifiedFilename);
 			InputStream inputStream = new FileInputStream(file);
 			byte[] bytes = new byte[(int) file.length()];
 			int offset = 0;
@@ -106,20 +118,23 @@ public class TikaMimeDetectServiceTest {
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// fail();
+			fail();
 		}
 	}
 
 	@Test
 	public void testGetMimeTypeString() {
 		try {
-			String path = "C:/WINDOWS/SSDM.chm";
-			String mimeType = this.mimeDetectService.getMimeType(path);
-			logger.debug("file name: {}", path);
+			String fullyQualifiedFilename = this.getClass()
+					.getResource("/files/LICENSE.TXT").getFile();
+			logger.debug("fullyQualifiedFilename: {}", fullyQualifiedFilename);
+			String mimeType = this.mimeDetectService
+					.getMimeType(fullyQualifiedFilename);
+			logger.debug("file name: {}", fullyQualifiedFilename);
 			logger.debug("mime type: {}", mimeType);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// fail();
+			fail();
 		}
 	}
 

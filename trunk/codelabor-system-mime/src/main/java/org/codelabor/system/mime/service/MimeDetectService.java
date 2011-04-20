@@ -23,7 +23,7 @@ import java.net.URL;
 /**
  * 마임타입 탐지 서비스 인터페이스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public interface MimeDetectService {

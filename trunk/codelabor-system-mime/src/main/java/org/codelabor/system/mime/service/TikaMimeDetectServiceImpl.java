@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  * 마임타입 탐지 서비스 구현 클래스<br/>
  * Apache Tika를 활용한 구현 클래스
  * 
- * @author Shin Sangjae
+ * @author Shin Sang-jae
  * 
  */
 public class TikaMimeDetectServiceImpl implements MimeDetectService {
