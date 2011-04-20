@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  *
  */
+@SuppressWarnings("deprecation")
 public class FileUtilsTest {
 
 	// 로거
