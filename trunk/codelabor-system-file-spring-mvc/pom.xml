@@ -142,7 +142,7 @@
 			<artifactId>codelabor-system-file</artifactId>
 			<version>3.0.0</version>
 			<type>jar</type>
-			<scope>compile</scope>
+			<scope>runtime</scope>
 			<exclusions>
 				<exclusion>
 					<artifactId>servlet-api</artifactId>
@@ -316,7 +316,7 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>1.6.1</version>
 			<type>jar</type>
-			<scope>compile</scope>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
