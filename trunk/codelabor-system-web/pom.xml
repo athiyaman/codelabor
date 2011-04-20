@@ -9,7 +9,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-web</artifactId>
 	<name>codelabor-system-web</name>
-	<version>3.0.3</version>
+	<version>3.0.4-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -115,9 +115,9 @@
 	    </license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-web-3.0.3</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-web-3.0.3</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-web-3.0.3</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
