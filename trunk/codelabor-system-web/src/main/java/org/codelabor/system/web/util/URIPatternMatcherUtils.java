@@ -19,8 +19,8 @@ package org.codelabor.system.web.util;
 
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
-import org.codelabor.system.util.FileUtils;
 import org.codelabor.system.util.ListUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -147,7 +147,8 @@ public class URIPatternMatcherUtils {
 			List<String> excludePatterns, String requestURI) {
 		boolean isMatched = false;
 
-		String extension = FileUtils.getExtension(requestURI);
+		String filename = FilenameUtils.getName(requestURI);
+		String extension = FilenameUtils.getExtension(filename);
 		if (!StringUtils.isBlank(extension)) {
 			extension = extension.toLowerCase();
 		}

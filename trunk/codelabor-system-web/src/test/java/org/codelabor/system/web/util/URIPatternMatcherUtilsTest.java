@@ -35,43 +35,99 @@ public class URIPatternMatcherUtilsTest {
 	private Logger logger = LoggerFactory
 			.getLogger(URIPatternMatcherUtilsTest.class);
 
-	private final List<String> includePatterns = new ArrayList<String>();
-	private final List<String> excludePatterns = new ArrayList<String>();
+	private List<String> includePatterns = null;
+	private List<String> excludePatterns = null;
 
 	@Before
 	public void onSetup() throws Exception {
-		excludePatterns.add("/remoteAdapter.do");
-		excludePatterns.add("/images/**");
-		excludePatterns.add("/css/**");
+		includePatterns = new ArrayList<String>();
+		excludePatterns = new ArrayList<String>();
 	}
 
-	/**
-	 * Test method for
-	 * {@link org.codelabor.system.web.util.URIPatternMatcherUtils#matchByAntStylePathPattern(java.util.List, java.util.List, java.lang.String)}
-	 * .
-	 */
 	@Test
 	public void testMatchByAntStylePathPattern() {
+		excludePatterns.add("/**/*.do");
+		excludePatterns.add("/images/**");
+		excludePatterns.add("/css/**");
+
 		logger.debug("includePatterns{}, excludePatterns: {}", includePatterns,
 				excludePatterns);
 
 		boolean isMatched = false;
-		String testPattern = "/remoteAdapter.do";
+		String testPattern = "/test.do";
 		isMatched = URIPatternMatcherUtils.matchByAntStylePathPattern(
 				includePatterns, excludePatterns, testPattern);
 		logger.debug("testPattern: {}", testPattern);
 		assertEquals(false, isMatched);
 
-		testPattern = "/images/button.gif";
+		testPattern = "/images/test.gif";
 		isMatched = URIPatternMatcherUtils.matchByAntStylePathPattern(
 				includePatterns, excludePatterns, testPattern);
 		logger.debug("testPattern: {}", testPattern);
 		assertEquals(false, isMatched);
 
-		testPattern = "/css/style.css";
+		testPattern = "/css/test.css";
 		isMatched = URIPatternMatcherUtils.matchByAntStylePathPattern(
 				includePatterns, excludePatterns, testPattern);
 		logger.debug("testPattern: {}", testPattern);
 		assertEquals(false, isMatched);
+	}
+
+	@Test
+	public void testMatchByURI() {
+		includePatterns.add("/test.do");
+		includePatterns.add("/images/test.gif");
+		includePatterns.add("/css/test.css");
+
+		logger.debug("includePatterns{}, excludePatterns: {}", includePatterns,
+				excludePatterns);
+
+		boolean isMatched = false;
+		String testPattern = "/test.do";
+		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+
+		testPattern = "/images/test.gif";
+		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+
+		testPattern = "/css/test.css";
+		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+	}
+
+	@Test
+	public void testMatchByExtension() {
+		includePatterns.add("asp");
+		includePatterns.add("jsp");
+		includePatterns.add("php");
+
+		logger.debug("includePatterns{}, excludePatterns: {}", includePatterns,
+				excludePatterns);
+
+		boolean isMatched = false;
+		String testPattern = "http://test.test.test:8080/test/test.ASP";
+		isMatched = URIPatternMatcherUtils.matchByExtension(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+
+		testPattern = "/test/test.JSP";
+		isMatched = URIPatternMatcherUtils.matchByExtension(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+
+		testPattern = "/test/test.php";
+		isMatched = URIPatternMatcherUtils.matchByExtension(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
 	}
 }
