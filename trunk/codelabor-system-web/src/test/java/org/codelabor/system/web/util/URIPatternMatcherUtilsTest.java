@@ -21,15 +21,19 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codelabor.system.web.util.URIPatternMatcherUtils;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sang-jae
  * 
  */
 public class URIPatternMatcherUtilsTest {
+
+	private Logger logger = LoggerFactory
+			.getLogger(URIPatternMatcherUtilsTest.class);
 
 	private final List<String> includePatterns = new ArrayList<String>();
 	private final List<String> excludePatterns = new ArrayList<String>();
@@ -48,15 +52,26 @@ public class URIPatternMatcherUtilsTest {
 	 */
 	@Test
 	public void testMatchByAntStylePathPattern() {
+		logger.debug("includePatterns{}, excludePatterns: {}", includePatterns,
+				excludePatterns);
+
 		boolean isMatched = false;
+		String testPattern = "/remoteAdapter.do";
 		isMatched = URIPatternMatcherUtils.matchByAntStylePathPattern(
-				includePatterns, excludePatterns, "/remoteAdapter.do");
+				includePatterns, excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
 		assertEquals(false, isMatched);
+
+		testPattern = "/images/button.gif";
 		isMatched = URIPatternMatcherUtils.matchByAntStylePathPattern(
-				includePatterns, excludePatterns, "/images/button.gif");
+				includePatterns, excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
 		assertEquals(false, isMatched);
+
+		testPattern = "/css/style.css";
 		isMatched = URIPatternMatcherUtils.matchByAntStylePathPattern(
-				includePatterns, excludePatterns, "/css/style.css");
+				includePatterns, excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
 		assertEquals(false, isMatched);
 	}
 }

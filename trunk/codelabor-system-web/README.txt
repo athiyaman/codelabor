@@ -26,3 +26,6 @@
 	json 패키지 리팩토링
 	maven 패키지 타입 수정 (war > jar)
 
+3.0.3
+	dependency 정리
+	resources 정리
