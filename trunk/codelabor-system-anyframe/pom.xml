@@ -237,14 +237,14 @@
 		<artifactId>slf4j-log4j12</artifactId>
 		<version>1.6.1</version>
 		<type>jar</type>
-		<scope>compile</scope>
+		<scope>runtime</scope>
 	</dependency>
 	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
 		<version>1.2.16</version>
 		<type>jar</type>
-		<scope>compile</scope>
+		<scope>runtime</scope>
 	</dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
@@ -287,14 +287,6 @@
 		<scope>compile</scope>
 	</dependency>
 	<dependency>
-		<groupId>org.apache.struts</groupId>
-		<artifactId>struts-core</artifactId>
-		<version>1.3.10</version>
-		<type>jar</type>
-		<scope>compile</scope>
-		<optional>true</optional>
-	</dependency>
-	<dependency>
 		<groupId>org.springframework.webflow</groupId>
 		<artifactId>spring-webflow</artifactId>
 		<version>2.3.0.RELEASE</version>
@@ -307,11 +299,24 @@
 		<version>3.0.5.RELEASE</version>
 		<type>jar</type>
 		<scope>compile</scope>
+		<exclusions>
+			<exclusion>
+				<artifactId>struts</artifactId>
+				<groupId>struts</groupId>
+			</exclusion>
+		</exclusions>
 	</dependency>
 	<dependency>
 		<groupId>org.codelabor</groupId>
 		<artifactId>codelabor-system-web</artifactId>
-		<version>3.0.2</version>
+		<version>3.0.3</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts-extras</artifactId>
+		<version>1.3.10</version>
 		<type>jar</type>
 		<scope>compile</scope>
 	</dependency>

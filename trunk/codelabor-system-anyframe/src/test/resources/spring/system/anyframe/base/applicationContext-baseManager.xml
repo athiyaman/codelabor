@@ -5,7 +5,7 @@
 
 	<bean
 		id="baseManager" abstract="true"
-		class="org.codelabor.system.managers.BaseManagerImpl">
+		class="org.codelabor.system.anyframe.manager.BaseManagerImpl">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="propertiesService" ref="propertiesService"/>
 	</bean>

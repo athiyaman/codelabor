@@ -5,7 +5,7 @@
 
 	<bean
 		id="baseService" abstract="true"
-		class="org.codelabor.system.services.BaseServiceImpl">
+		class="org.codelabor.system.anyframe.service.BaseServiceImpl">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="propertiesService" ref="propertiesService"/>
 		<property name="queryService" ref="queryService"/>

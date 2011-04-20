@@ -5,7 +5,7 @@
 
 	<bean
 		id="baseDAO" abstract="true"
-		class="org.codelabor.system.daos.BaseDAOImpl">
+		class="org.codelabor.system.anyframe.dao.BaseDAOImpl">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="queryService" ref="queryService"/>
 		<property name="propertiesService" ref="propertiesService"/>

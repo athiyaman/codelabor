@@ -5,7 +5,7 @@
 
 	<bean 
 		id="baseAdvice" abstract="true"
-		class="org.codelabor.system.advices.BaseAdvice">
+		class="org.codelabor.system.anyframe.advice.BaseAdvice">
 		<property name="messageSource" ref="messageSource"/>
 		<property name="propertiesService" ref="propertiesService"/>
 	</bean>		

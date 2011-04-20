@@ -31,6 +31,7 @@ import anyframe.core.properties.IPropertiesService;
  * @author Shin Sang-jae
  * 
  */
+@SuppressWarnings("deprecation")
 public class BaseDispatchActionSupport extends DispatchActionSupport {
 
 	/**
