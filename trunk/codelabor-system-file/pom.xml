@@ -206,6 +206,13 @@
 			<version>14</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>net.sf.log4jdbc</groupId>
+			<artifactId>log4jdbc3</artifactId>
+			<version>1.2beta2</version>
+			<classifier>jdk15</classifier>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 	<properties>
 		<jdbc.database.product>oracle</jdbc.database.product>

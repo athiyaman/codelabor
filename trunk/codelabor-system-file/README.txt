@@ -31,3 +31,6 @@
 	Spring 2 기반 기능에 대한 @SuppressWarnings("deprecation") 추가
 	fileName > filename 으로 명명법 수정
 	ojdbc dependency scope을 system으로 수정
+
+3.0.1
+	log4jdbc 추가
