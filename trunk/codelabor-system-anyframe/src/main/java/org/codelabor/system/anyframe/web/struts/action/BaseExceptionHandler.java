@@ -36,7 +36,8 @@ public class BaseExceptionHandler extends ExceptionHandler {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory
+			.getLogger(BaseExceptionHandler.class);
 	/**
 	 * 로거명
 	 */

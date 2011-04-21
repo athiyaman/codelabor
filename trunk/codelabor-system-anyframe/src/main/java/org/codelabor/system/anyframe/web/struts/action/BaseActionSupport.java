@@ -37,7 +37,7 @@ public class BaseActionSupport extends ActionSupport {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(BaseActionSupport.class);
 	/**
 	 * 프로퍼티 서비스
 	 */

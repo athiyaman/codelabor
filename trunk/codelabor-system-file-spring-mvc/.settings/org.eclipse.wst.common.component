@@ -3,7 +3,8 @@
     <wb-module deploy-name="codelabor-system-file-spring-mvc">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <property name="context-root" value="codelabor-system-file-spring-mvc"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="java-output-path" value="/codelabor-system-file-spring-mvc/target/classes"/>
+        <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>

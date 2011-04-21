@@ -35,7 +35,7 @@ public class BaseDAOImpl {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(BaseDAOImpl.class);
 
 	/**
 	 * 로거명

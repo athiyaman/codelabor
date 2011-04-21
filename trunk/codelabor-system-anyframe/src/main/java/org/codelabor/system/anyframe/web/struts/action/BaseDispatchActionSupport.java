@@ -37,7 +37,8 @@ public class BaseDispatchActionSupport extends DispatchActionSupport {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory
+			.getLogger(BaseDispatchActionSupport.class);
 	/**
 	 * 메시지 소스
 	 */

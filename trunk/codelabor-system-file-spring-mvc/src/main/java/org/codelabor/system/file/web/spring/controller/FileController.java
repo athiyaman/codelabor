@@ -19,6 +19,9 @@ package org.codelabor.system.file.web.spring.controller;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.apache.commons.io.FilenameUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dto.FileDTO;
@@ -27,13 +30,13 @@ import org.codelabor.system.file.util.UploadUtils;
 import org.codelabor.system.file.web.spring.command.FileList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import anyframe.common.util.StringUtil;
 import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * @author Shin Sang-jae
@@ -50,26 +53,32 @@ public class FileController {
 	/**
 	 * 파일 매니저
 	 */
+	@Inject
+	@Named("fileManager")
 	protected FileManager fileManager;
 	/**
 	 * Map Id 제네레이션 서비스
 	 */
+	@Inject
+	@Named("mapIdGenerationService")
 	protected IIdGenerationService mapIdGenerationService;
-	/**
-	 * 프러퍼티 서비스
-	 */
-	protected IPropertiesService propertiesService;
 	/**
 	 * 고유 파일명 제네레이션 서비스
 	 */
+	@Inject
+	@Named("uniqueFilenameGenerationService")
 	protected IIdGenerationService uniqueFilenameGenerationService;
+
 	/**
 	 * 파일 저장 경로
 	 */
+	@Value("#{fileProperties.file.default.real.repository.path}")
 	protected String repositoryPath;
+
 	/**
 	 * 파일 저장 방식
 	 */
+	@Value("#{fileProperties.file.default.real.repository.type}")
 	protected RepositoryType repositoryType;
 
 	@RequestMapping("upload")
@@ -99,6 +108,8 @@ public class FileController {
 			fileDTO.setMapId(mapId);
 			fileDTO.setRealFilename(FilenameUtils.getName(originalFilename));
 			if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
+				logger.debug("uniqueFilenameGenerationService: {}",
+						uniqueFilenameGenerationService);
 				fileDTO.setUniqueFilename(uniqueFilenameGenerationService
 						.getNextStringId());
 			}
@@ -116,19 +127,16 @@ public class FileController {
 		return viewName;
 	}
 
-	@RequestMapping("download")
 	public String download() {
 		String viewName = null;
 		return viewName;
 	}
 
-	@RequestMapping("view")
 	public String view() {
 		String viewName = null;
 		return viewName;
 	}
 
-	@RequestMapping("list")
 	public String list() {
 		String viewName = null;
 		return viewName;
@@ -137,68 +145,6 @@ public class FileController {
 	public String delete() {
 		String viewName = null;
 		return viewName;
-	}
-
-	/**
-	 * 파일 매니저를 설정한다.
-	 * 
-	 * @param fileManager
-	 *            파일 매니저
-	 */
-	public void setFileManager(FileManager fileManager) {
-		this.fileManager = fileManager;
-	}
-
-	/**
-	 * Map Id 제네레이션 서비스를 설정한다.
-	 * 
-	 * @param mapIdGenerationService
-	 *            Map Id 제네레이션 서비스
-	 */
-	public void setMapIdGenerationService(
-			IIdGenerationService mapIdGenerationService) {
-		this.mapIdGenerationService = mapIdGenerationService;
-	}
-
-	/**
-	 * 프로퍼티 서비스를 설정한다.
-	 * 
-	 * @param propertiesService
-	 *            프로퍼티 서비스
-	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
-		this.propertiesService = propertiesService;
-	}
-
-	/**
-	 * 고유 파일명 제네레이션 서비스를 설정한다.
-	 * 
-	 * @param uniqueFilenameGenerationService
-	 *            고유 파일명 제네레이션 서비스
-	 */
-	public void setUniqueFilenameGenerationService(
-			IIdGenerationService uniqueFilenameGenerationService) {
-		this.uniqueFilenameGenerationService = uniqueFilenameGenerationService;
-	}
-
-	/**
-	 * 파일 저장 경로를 설정한다.
-	 * 
-	 * @param repositoryPath
-	 *            파일 저장 경로
-	 */
-	public void setRepositoryPath(String repositoryPath) {
-		this.repositoryPath = repositoryPath;
-	}
-
-	/**
-	 * 파일 저장 방식을 설정한다.
-	 * 
-	 * @param repositoryType
-	 *            파일 저장 방식
-	 */
-	public void setRepositoryType(String repositoryType) {
-		this.repositoryType = RepositoryType.valueOf(repositoryType);
 	}
 
 }

@@ -38,7 +38,7 @@ public class BaseManagerImpl {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(BaseManagerImpl.class);
 	/**
 	 * 로거명
 	 */

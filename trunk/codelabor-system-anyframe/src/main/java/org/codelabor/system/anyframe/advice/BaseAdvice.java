@@ -34,7 +34,7 @@ public class BaseAdvice {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(BaseAdvice.class);
 
 	/**
 	 * 로거명

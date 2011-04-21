@@ -35,7 +35,7 @@ public class BaseDispatchAction extends DispatchAction {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(BaseDispatchAction.class);
 
 	/**
 	 * 프로퍼티 서비스

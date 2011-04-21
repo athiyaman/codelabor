@@ -12,8 +12,10 @@
 					value-ref="exampleFileSpringMvcFileListController"/>
 				<entry key="/example/file/spring/mvc/delete.do"
 					value-ref="exampleFileSpringMvcFileDeleteController"/>
+				<!--
 				<entry key="/example/file/spring/mvc/upload.do"
 					value-ref="exampleFileSpringMvcFileUploadController"/>
+				-->
 				<entry key="/example/file/spring/mvc/download.do"
 					value-ref="exampleFileSpringMvcFileDownloadController"/>
                 <entry key="/example/file/spring/mvc/view.do"

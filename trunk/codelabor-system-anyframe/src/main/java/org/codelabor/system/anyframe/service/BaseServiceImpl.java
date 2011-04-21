@@ -35,7 +35,7 @@ public class BaseServiceImpl {
 	/**
 	 * 로거
 	 */
-	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected Logger logger = LoggerFactory.getLogger(BaseServiceImpl.class);
 	/**
 	 * 로거명
 	 */
