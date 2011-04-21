@@ -42,7 +42,7 @@ public abstract class BaseFilterImpl implements Filter {
 	/**
 	 * 로거
 	 */
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(BaseFilterImpl.class);
 	/**
 	 * 서블릿 컨텍스트
 	 */
