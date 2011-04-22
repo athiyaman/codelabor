@@ -8,6 +8,12 @@
         </layout>
     </appender>
 
+    <!-- spring -->
+    <logger name="org.springframework" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+    </logger>
+
     <root>
         <level value="debug"/>
 		<appender-ref ref="console"/>

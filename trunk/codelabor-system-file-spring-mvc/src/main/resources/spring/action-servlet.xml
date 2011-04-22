@@ -9,6 +9,8 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 
+	<context:annotation-config />
+
 	<bean id="defaultUrlMapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
 		abstract="true">
