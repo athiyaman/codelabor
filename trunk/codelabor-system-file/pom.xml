@@ -213,6 +213,13 @@
 			<classifier>jdk15</classifier>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<properties>
 		<jdbc.database.product>oracle</jdbc.database.product>
