@@ -150,24 +150,23 @@ public class FileController {
 	public void download(@RequestHeader("User-Agent") String userAgent,
 			@RequestParam("fileId") String fileId, HttpServletResponse response)
 			throws Exception {
-		StringBuilder stringBuilder = new StringBuilder();
-
-		FileDTO fileDTO;
-		fileDTO = fileManager.selectFileByFileId(fileId);
+		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
 		logger.debug("fileDTO: {}", fileDTO);
 
 		String repositoryPath = fileDTO.getRepositoryPath();
 		String uniqueFilename = fileDTO.getUniqueFilename();
 		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
+
+		StringBuilder sb = new StringBuilder();
 		if (StringUtil.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
-			stringBuilder.append(repositoryPath);
+			sb.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {
-				stringBuilder.append(File.separator);
+				sb.append(File.separator);
 			}
-			stringBuilder.append(uniqueFilename);
-			File file = new File(stringBuilder.toString());
+			sb.append(uniqueFilename);
+			File file = new File(sb.toString());
 			inputStream = new FileInputStream(file);
 		} else {
 			// DATABASE
@@ -184,19 +183,16 @@ public class FileController {
 		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 
 		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
-		stringBuilder.setLength(0);
+		sb.setLength(0);
 		if (userAgent.indexOf("MSIE5.5") > -1) {
-			stringBuilder.append("filename=");
+			sb.append("filename=");
 		} else {
-			stringBuilder.append("attachment; filename=");
+			sb.append("attachment; filename=");
 		}
-		// stringBuilder.append("\"");
-		stringBuilder.append(encodedRealFilename);
-		// stringBuilder.append("\"");
+		sb.append(encodedRealFilename);
 		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
-				stringBuilder.toString());
-
-		logger.debug("header: {}", stringBuilder.toString());
+				sb.toString());
+		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());
@@ -290,6 +286,7 @@ public class FileController {
 			@RequestParam(value = "mapId", required = false) String mapId,
 			@RequestParam(value = "repositoryType", required = false) String repositoryType,
 			Model model) {
+		String viewName = "example.file.spring.mvc.list.definition";
 		List<FileDTO> fileDTOList = null;
 		try {
 			if (StringUtils.isEmpty(repositoryType)) {
@@ -322,15 +319,16 @@ public class FileController {
 			e.printStackTrace();
 			logger.error(e.getMessage());
 		}
-		return "example.file.spring.mvc.list.definition";
+		return viewName;
 	}
 
 	@RequestMapping("/delete")
 	public String delete(StringIdArrayDTO springIDArrayDTO) throws Exception {
+		String viewName = "redirect:/example/file/spring/mvc/list.do";
 		String[] idArray = springIDArrayDTO.getId();
 		logger.debug("file id: {}", Arrays.asList(idArray));
 		fileManager.deleteFileByFileId(idArray);
-		return "redirect:/example/file/spring/mvc/list.do";
+		return viewName;
 	}
 
 }
