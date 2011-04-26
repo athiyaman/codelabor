@@ -45,7 +45,6 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FileCleaningTracker;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
@@ -112,14 +111,6 @@ public class FileUploadServlet extends HttpServlet {
 	 * 파일 삭제 후, 포워드 경로
 	 */
 	protected String forwardPathDelete;
-	/**
-	 * 파일 제거 트래커
-	 */
-	protected FileCleaningTracker fileCleaningTracker;
-	/**
-	 * 파일 업로드 프로그레스 리스너
-	 */
-	protected FileUploadProgressListener fileUploadProgressListener;
 
 	/**
 	 * 파라미터
@@ -130,27 +121,6 @@ public class FileUploadServlet extends HttpServlet {
 	public enum Parameter {
 		upload, download, list, read, view, delete
 	};
-
-	/**
-	 * 웹 어플리케이션 컨텍스트
-	 */
-	protected WebApplicationContext ctx;
-	/**
-	 * 파일 매니저
-	 */
-	protected FileManager fileManager;
-	/**
-	 * 프로퍼티 서비스
-	 */
-	protected IPropertiesService propertiesService;
-	/**
-	 * 고유 파일명 Id 제네레이션 서비스
-	 */
-	protected IIdGenerationService uniqueFilenameGenerationService;
-	/**
-	 * Map Id 제네레이션 서비스
-	 */
-	protected IIdGenerationService mapIdGenerationService;
 
 	/**
 	 * 캐릭터 인코딩</br>기본 값은 UTF-8이다.
@@ -198,15 +168,11 @@ public class FileUploadServlet extends HttpServlet {
 		forwardPathDelete = config.getInitParameter("forwardPathDelete");
 
 		// set service
-		ctx = WebApplicationContextUtils
+		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(config.getServletContext());
-		fileManager = (FileManager) ctx.getBean("fileManager");
-		propertiesService = (IPropertiesService) ctx
+
+		IPropertiesService propertiesService = (IPropertiesService) ctx
 				.getBean("propertiesService");
-		uniqueFilenameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFilenameGenerationService");
-		mapIdGenerationService = (IIdGenerationService) ctx
-				.getBean("sequenceMapIdGenerationService");
 
 		// overwrite configuration
 		characterEncoding = propertiesService.getString(
@@ -239,10 +205,6 @@ public class FileUploadServlet extends HttpServlet {
 					mkdirSuccess);
 		}
 
-		// set file listener / tracker
-		fileCleaningTracker = FileCleanerCleanup.getFileCleaningTracker(config
-				.getServletContext());
-		fileUploadProgressListener = new FileUploadProgressListener();
 	}
 
 	/*
@@ -339,6 +301,10 @@ public class FileUploadServlet extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
@@ -356,13 +322,14 @@ public class FileUploadServlet extends HttpServlet {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			factory.setSizeThreshold(sizeThreshold);
 			factory.setRepository(new File(tempRepositoryPath));
-			factory.setFileCleaningTracker(fileCleaningTracker);
+			factory.setFileCleaningTracker(FileCleanerCleanup
+					.getFileCleaningTracker(this.getServletContext()));
 
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			upload.setFileSizeMax(fileSizeMax);
 			upload.setSizeMax(requestSizeMax);
 			upload.setHeaderEncoding(characterEncoding);
-			upload.setProgressListener(fileUploadProgressListener);
+			upload.setProgressListener(new FileUploadProgressListener());
 			try {
 				List<FileItem> fileItemList = upload.parseRequest(request);
 				Iterator<FileItem> iter = fileItemList.iterator();
@@ -425,6 +392,10 @@ public class FileUploadServlet extends HttpServlet {
 	 *             예외
 	 */
 	protected String getUniqueFilename() throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		IIdGenerationService uniqueFilenameGenerationService = (IIdGenerationService) ctx
+				.getBean("uniqueFilenameGenerationService");
 		return uniqueFilenameGenerationService.getNextStringId();
 	}
 
@@ -443,11 +414,18 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	protected void list(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
 		String mapId = (String) paramMap.get("mapId");
 		String repositoryType = (String) paramMap.get("repositoryType");
+
+		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
+				.getBean("sequenceMapIdGenerationService");
 
 		List<FileDTO> fileDTOList = null;
 		try {
@@ -497,6 +475,10 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	protected void view(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 
@@ -575,6 +557,10 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	protected void delete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+
 		int affectedRowCount = 0;
 
 		// fileId로 삭제
@@ -621,6 +607,9 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	protected void read(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
 		request.setAttribute(org.codelabor.system.file.FileConstants.FILE_KEY,
@@ -669,6 +658,10 @@ public class FileUploadServlet extends HttpServlet {
 	 */
 	protected void download(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
 

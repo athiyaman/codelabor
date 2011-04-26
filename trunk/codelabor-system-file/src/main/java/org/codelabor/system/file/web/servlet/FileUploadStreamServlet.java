@@ -31,10 +31,14 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dto.FileDTO;
+import org.codelabor.system.file.listener.FileUploadProgressListener;
+import org.codelabor.system.file.manager.FileManager;
 import org.codelabor.system.file.util.UploadUtils;
 import org.codelabor.system.web.util.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * 파일 업로드 스트림 서블릿
@@ -64,6 +68,10 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	@Override
 	protected void upload(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(this.getServletContext());
+		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
+
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		if (logger.isDebugEnabled()) {
@@ -84,7 +92,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 			upload.setFileSizeMax(fileSizeMax);
 			upload.setSizeMax(requestSizeMax);
 			upload.setHeaderEncoding(characterEncoding);
-			upload.setProgressListener(fileUploadProgressListener);
+			upload.setProgressListener(new FileUploadProgressListener());
 			try {
 				FileItemIterator iter = upload.getItemIterator(request);
 
