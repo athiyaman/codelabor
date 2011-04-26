@@ -18,12 +18,13 @@
 package org.codelabor.system.dto;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Integer 타입 Id 배열 DTO
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class IntegerIdArrayDTO implements Serializable {
 
@@ -38,7 +39,7 @@ public class IntegerIdArrayDTO implements Serializable {
 
 	/**
 	 * Id를 가져온다.
-	 * 
+	 *
 	 * @return Id 배열
 	 */
 	public Integer[] getId() {
@@ -47,7 +48,7 @@ public class IntegerIdArrayDTO implements Serializable {
 
 	/**
 	 * Id를 설정한다.
-	 * 
+	 *
 	 * @param id
 	 *            Id 배열
 	 */
@@ -58,7 +59,7 @@ public class IntegerIdArrayDTO implements Serializable {
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
 	 * format.
-	 * 
+	 *
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override
@@ -68,7 +69,7 @@ public class IntegerIdArrayDTO implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("IntegerIdArrayDTO ( ").append(super.toString())
-				.append(TAB).append("id = ").append(this.id).append(TAB)
+				.append(TAB).append("id = ").append(Arrays.toString(this.id)).append(TAB)
 				.append(" )");
 
 		return retValue.toString();
