@@ -31,3 +31,4 @@
 
 3.0.4
 	dependency 개선
+	findbug 지적 사항 개선
