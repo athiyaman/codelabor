@@ -92,23 +92,21 @@ public class UploadUtils {
 		WritableByteChannel outputChannel = null;
 
 		int fileSize = 0;
-		StringBuilder stringBuilder = new StringBuilder();
+
 		switch (repositoryType) {
 		case FILE_SYSTEM:
 			// prepare repository
 			File repository = new File(fileDTO.getRepositoryPath());
 			String repositoryPath = fileDTO.getRepositoryPath();
-
 			if (logger.isDebugEnabled()) {
-				stringBuilder = new StringBuilder();
-				stringBuilder.append("repositoryPath: ").append(repositoryPath);
-				stringBuilder.append(", repositoryType: ").append(
-						repositoryType);
-				stringBuilder.append(", repository.exists(): ").append(
-						repository.exists());
-				stringBuilder.append(", repository.isDirectory(): ").append(
+				StringBuilder sb = new StringBuilder();
+				sb.append("repositoryPath: ").append(repositoryPath);
+				sb.append(", repositoryType: ").append(repositoryType);
+				sb.append(", repository.exists(): ")
+						.append(repository.exists());
+				sb.append(", repository.isDirectory(): ").append(
 						repository.isDirectory());
-				logger.debug(stringBuilder.toString());
+				logger.debug(sb.toString());
 			}
 
 			// prepare directory
@@ -120,13 +118,13 @@ public class UploadUtils {
 			}
 
 			// prepare stream
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(fileDTO.getRepositoryPath());
+			StringBuilder sb = new StringBuilder();
+			sb.append(fileDTO.getRepositoryPath());
 			if (!fileDTO.getRepositoryPath().endsWith(File.separator)) {
-				stringBuilder.append(File.separator);
+				sb.append(File.separator);
 			}
-			stringBuilder.append(fileDTO.getUniqueFilename());
-			String filename = stringBuilder.toString();
+			sb.append(fileDTO.getUniqueFilename());
+			String filename = sb.toString();
 			outputStream = new FileOutputStream(filename);
 			logger.debug("filename: {}", filename);
 
