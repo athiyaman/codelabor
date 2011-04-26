@@ -44,9 +44,9 @@ import anyframe.common.util.StringUtil;
 
 /**
  * 파일 다운로드 Action
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class FileDownloadAction extends DownloadAction {
 
@@ -58,7 +58,7 @@ public class FileDownloadAction extends DownloadAction {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.apache.struts.actions.DownloadAction#getStreamInfo(org.apache.struts
 	 * .action.ActionMapping, org.apache.struts.action.ActionForm,
@@ -71,10 +71,7 @@ public class FileDownloadAction extends DownloadAction {
 			throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug(paramMap.toString());
-
 		String fileId = (String) paramMap.get("fileId");
-
-		StringBuilder stringBuilder = null;
 
 		StreamInfo streamInfo = null;
 		WebApplicationContext ctx = WebApplicationContextUtils
@@ -88,15 +85,16 @@ public class FileDownloadAction extends DownloadAction {
 		String uniqueFilename = fileDTO.getUniqueFilename();
 		String realFilename = fileDTO.getRealFilename();
 
+		StringBuilder sb = new StringBuilder();
+
 		// FILE_SYSTEM
 		if (StringUtil.isNotEmpty(repositoryPath)) {
-			stringBuilder = new StringBuilder();
-			stringBuilder.append(repositoryPath);
+			sb.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {
-				stringBuilder.append(File.separator);
+				sb.append(File.separator);
 			}
-			stringBuilder.append(uniqueFilename);
-			File file = new File(stringBuilder.toString());
+			sb.append(uniqueFilename);
+			File file = new File(sb.toString());
 			streamInfo = new FileStreamInfo(
 					org.codelabor.system.file.FileConstants.CONTENT_TYPE, file);
 			// DATABASE
@@ -110,21 +108,21 @@ public class FileDownloadAction extends DownloadAction {
 		logger.debug("realFilename: {}", realFilename);
 		logger.debug("encodedRealFilename: {}", encodedRealFilename);
 
-		response
-				.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
-		stringBuilder.setLength(0);
-		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf("MSIE5.5") > -1) {
-			stringBuilder.append("filename=");
+		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
+		sb.setLength(0);
+		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf(
+				"MSIE5.5") > -1) {
+			sb.append("filename=");
 		} else {
-			stringBuilder.append("attachment; filename=");
+			sb.append("attachment; filename=");
 		}
 		// stringBuilder.append("\"");
-		stringBuilder.append(encodedRealFilename);
+		sb.append(encodedRealFilename);
 		// stringBuilder.append("\"");
 		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
-				stringBuilder.toString());
+				sb.toString());
 
-		logger.debug("header: {}", stringBuilder.toString());
+		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());
@@ -134,11 +132,11 @@ public class FileDownloadAction extends DownloadAction {
 
 	/**
 	 * 바이크 배열 스트림 정보 클래스
-	 *
+	 * 
 	 * @author Shin Sang-jae
-	 *
+	 * 
 	 */
-	public class ByteArrayStreamInfo implements StreamInfo {
+	public static class ByteArrayStreamInfo implements StreamInfo {
 		/**
 		 * 컨텐트 타입
 		 */
@@ -151,7 +149,7 @@ public class FileDownloadAction extends DownloadAction {
 
 		/**
 		 * 생성자
-		 *
+		 * 
 		 * @param contentType
 		 *            컨탠트 타입
 		 * @param bytes
@@ -164,7 +162,7 @@ public class FileDownloadAction extends DownloadAction {
 
 		/*
 		 * (non-Javadoc)
-		 *
+		 * 
 		 * @see
 		 * org.apache.struts.actions.DownloadAction.StreamInfo#getContentType()
 		 */
@@ -174,7 +172,7 @@ public class FileDownloadAction extends DownloadAction {
 
 		/*
 		 * (non-Javadoc)
-		 *
+		 * 
 		 * @see
 		 * org.apache.struts.actions.DownloadAction.StreamInfo#getInputStream()
 		 */

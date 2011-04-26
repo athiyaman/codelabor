@@ -24,7 +24,9 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
@@ -45,8 +47,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import anyframe.common.exception.BaseException;
 import anyframe.core.idgen.IIdGenerationService;
 import anyframe.core.query.IQueryService;
+import anyframe.core.query.QueryServiceException;
 
 /**
  * BLOB 테스트 케이스
@@ -161,8 +165,13 @@ public class BlobTest {
 			assertEquals(sourceFileSize, targetFileSize);
 			assertEquals(fileDTO.getUniqueFilename(),
 					returnedFileDTO.getUniqueFilename());
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
+			fail();
+		} catch (BaseException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
 			fail();
 		} finally {
 			try {
@@ -225,8 +234,21 @@ public class BlobTest {
 
 			assertEquals(sourceFileSize, targetFileSize);
 			assertEquals(uniqueFilename, returnedFileDTO.getUniqueFilename());
-		} catch (Exception e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+			logger.error(e.getMessage());
+			fail();
+		} catch (IOException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+			fail();
+		} catch (QueryServiceException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+			fail();
+		} catch (BaseException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
 			fail();
 		} finally {
 			try {

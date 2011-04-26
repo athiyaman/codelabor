@@ -17,6 +17,7 @@
 
 package org.codelabor.system.file.web.struts.form;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -163,10 +164,11 @@ public class FileUploadForm extends BaseForm {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("FileUploadForm ( ").append(super.toString())
-				.append(TAB).append("fileId = ").append(this.fileId)
-				.append(TAB).append("formFileList = ")
-				.append(this.formFileList).append(TAB).append("mapId = ")
-				.append(this.mapId).append(TAB).append(" )");
+				.append(TAB).append("fileId = ")
+				.append(Arrays.toString(this.fileId)).append(TAB)
+				.append("formFileList = ").append(this.formFileList)
+				.append(TAB).append("mapId = ").append(this.mapId).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}

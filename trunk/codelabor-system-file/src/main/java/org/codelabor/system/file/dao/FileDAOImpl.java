@@ -26,15 +26,15 @@ import org.codelabor.system.file.dto.FileDTO;
 
 /**
  * 파일 DAO 구현 클래스
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.file.daos.FileDAO#insertFile(org.codelabor.system
 	 * .file.dtos.FileDTO)
@@ -50,12 +50,14 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.codelabor.system.file.daos.FileDAO#insertFile(java.util.List)
 	 */
 	public int insertFile(List<FileDTO> insertFileDTOList) throws Exception {
-		int fileDTOCount = insertFileDTOList.size();
 		int affectedRowCount = 0;
+		if (insertFileDTOList == null)
+			return affectedRowCount;
+		int fileDTOCount = insertFileDTOList.size();
 		if (insertFileDTOList != null && insertFileDTOList.size() > 0) {
 			for (int i = 0; i < fileDTOCount; i++) {
 				affectedRowCount += this.insertFile(insertFileDTOList.get(i));
@@ -66,7 +68,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.codelabor.system.file.daos.FileDAO#deleteFile(java.lang.String)
 	 */
 	public int deleteFile(String fileId) throws Exception {
@@ -77,7 +79,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.file.daos.FileDAO#deleteFile(java.lang.String[])
 	 */
@@ -89,8 +91,12 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return affectedRowCount;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByFileId(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.daos.FileDAO#deleteFileByFileId(java.lang.String
+	 * )
 	 */
 	public int deleteFileByFileId(String fileId) throws Exception {
 		String queryId = "system.delete.file.by.file.id";
@@ -98,8 +104,12 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return queryService.remove(queryId, param);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByFileId(java.lang.String[])
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.daos.FileDAO#deleteFileByFileId(java.lang.String
+	 * [])
 	 */
 	public int deleteFileByFileId(String[] fileIdList) throws Exception {
 		int affectedRowCount = 0;
@@ -109,8 +119,12 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return affectedRowCount;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByMapId(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.daos.FileDAO#deleteFileByMapId(java.lang.String
+	 * )
 	 */
 	public int deleteFileByMapId(String mapId) throws Exception {
 		String queryId = "system.delete.file.by.map.id";
@@ -118,8 +132,12 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return queryService.remove(queryId, param);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.system.file.daos.FileDAO#deleteFileByMapId(java.lang.String[])
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.file.daos.FileDAO#deleteFileByMapId(java.lang.String
+	 * [])
 	 */
 	public int deleteFileByMapId(String[] mapIdList) throws Exception {
 		int affectedRowCount = 0;
@@ -129,7 +147,9 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return affectedRowCount;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.system.file.daos.FileDAO#deleteAll()
 	 */
 	public int deleteAll() throws Exception {
@@ -140,7 +160,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.file.daos.FileDAO#selectFileByRepositoryType(org
 	 * .codelabor.system.file.RepositoryType)
@@ -158,7 +178,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.codelabor.system.file.daos.FileDAO#selectFile()
 	 */
 	@SuppressWarnings("unchecked")
@@ -168,7 +188,9 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		return (List<FileDTO>) queryService.find(queryId, param);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.system.file.daos.FileDAO#selectFileAll()
 	 */
 	@SuppressWarnings("unchecked")
@@ -180,7 +202,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.file.daos.FileDAO#selectFileByFileId(java.lang.String
 	 * )
@@ -197,7 +219,7 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.file.daos.FileDAO#selectFileByMapId(java.lang.String
 	 * )
@@ -208,11 +230,5 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		Object[] param = new Object[] { mapId };
 		return (List<FileDTO>) queryService.find(queryId, param);
 	}
-
-
-
-
-
-
 
 }

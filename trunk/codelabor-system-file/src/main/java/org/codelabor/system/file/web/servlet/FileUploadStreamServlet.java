@@ -51,7 +51,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	/**
 	 * 로거
 	 */
-	private final Logger logger = LoggerFactory
+	transient private final Logger logger = LoggerFactory
 			.getLogger(FileUploadStreamServlet.class);
 
 	/*

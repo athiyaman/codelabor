@@ -46,6 +46,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.FileCleanerCleanup;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileCleaningTracker;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.file.RepositoryType;
@@ -54,7 +55,6 @@ import org.codelabor.system.file.exception.InvalidRepositoryTypeException;
 import org.codelabor.system.file.listener.FileUploadProgressListener;
 import org.codelabor.system.file.manager.FileManager;
 import org.codelabor.system.file.util.UploadUtils;
-import org.codelabor.system.util.FileUtils;
 import org.codelabor.system.web.servlet.HttpRequestHeaderConstants;
 import org.codelabor.system.web.servlet.HttpResponseHeaderConstants;
 import org.codelabor.system.web.util.RequestUtils;
@@ -381,7 +381,7 @@ public class FileUploadServlet extends HttpServlet {
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFilename(FileUtils.getFilename(fileItem
+						fileDTO.setRealFilename(FilenameUtils.getName(fileItem
 								.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
 							fileDTO.setUniqueFilename(getUniqueFilename());

@@ -18,6 +18,7 @@
 package org.codelabor.system.file.dto;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * 파일DTO
@@ -297,15 +298,15 @@ public class FileDTO implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("FileDTO ( ").append(super.toString()).append(TAB)
-				.append("bytes = ").append(this.bytes).append(TAB).append(
-						"contentType = ").append(this.contentType).append(TAB)
-				.append("fileId = ").append(this.fileId).append(TAB).append(
-						"fileSize = ").append(this.fileSize).append(TAB)
-				.append("mapId = ").append(this.mapId).append(TAB).append(
-						"realFilename = ").append(this.realFilename)
-				.append(TAB).append("repositoryPath = ").append(
-						this.repositoryPath).append(TAB).append(
-						"uniqueFilename = ").append(this.uniqueFilename)
+				.append("bytes = ").append(Arrays.toString(this.bytes))
+				.append(TAB).append("contentType = ").append(this.contentType)
+				.append(TAB).append("fileId = ").append(this.fileId)
+				.append(TAB).append("fileSize = ").append(this.fileSize)
+				.append(TAB).append("mapId = ").append(this.mapId).append(TAB)
+				.append("realFilename = ").append(this.realFilename)
+				.append(TAB).append("repositoryPath = ")
+				.append(this.repositoryPath).append(TAB)
+				.append("uniqueFilename = ").append(this.uniqueFilename)
 				.append(TAB).append(" )");
 
 		return retValue.toString();
