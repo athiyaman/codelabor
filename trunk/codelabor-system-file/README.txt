@@ -33,4 +33,6 @@
 	ojdbc dependency scope을 system으로 수정
 
 3.0.1
+	Spring 2 기반 Controller 제거
 	log4jdbc 추가
+	findbug 지적 사항 조치
