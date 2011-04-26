@@ -98,8 +98,8 @@ public class UploadUtils {
 			// prepare repository
 			File repository = new File(fileDTO.getRepositoryPath());
 			String repositoryPath = fileDTO.getRepositoryPath();
+			StringBuilder sb = new StringBuilder();
 			if (logger.isDebugEnabled()) {
-				StringBuilder sb = new StringBuilder();
 				sb.append("repositoryPath: ").append(repositoryPath);
 				sb.append(", repositoryType: ").append(repositoryType);
 				sb.append(", repository.exists(): ")
@@ -118,7 +118,7 @@ public class UploadUtils {
 			}
 
 			// prepare stream
-			StringBuilder sb = new StringBuilder();
+			sb.setLength(0);
 			sb.append(fileDTO.getRepositoryPath());
 			if (!fileDTO.getRepositoryPath().endsWith(File.separator)) {
 				sb.append(File.separator);
