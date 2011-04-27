@@ -63,7 +63,7 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 	/**
 	 * 접근 로그 테스트
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes" })
 	public void testAccessLog() {
 		// test
 		AccessLogDTO accessLogDTO1 = new AccessLogDTO();
@@ -108,12 +108,12 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 					.find(accessLogDTO2)).get(0);
 			AccessLogDTO returnedAccessLogDTO3 = (AccessLogDTO) ((List) queryService
 					.find(accessLogDTO3)).get(0);
-			assertEquals(accessLogDTO1.getEvent(), returnedAccessLogDTO1
-					.getEvent());
-			assertEquals(accessLogDTO2.getEvent(), returnedAccessLogDTO2
-					.getEvent());
-			assertEquals(accessLogDTO3.getEvent(), returnedAccessLogDTO3
-					.getEvent());
+			assertEquals(accessLogDTO1.getEvent(),
+					returnedAccessLogDTO1.getEvent());
+			assertEquals(accessLogDTO2.getEvent(),
+					returnedAccessLogDTO2.getEvent());
+			assertEquals(accessLogDTO3.getEvent(),
+					returnedAccessLogDTO3.getEvent());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

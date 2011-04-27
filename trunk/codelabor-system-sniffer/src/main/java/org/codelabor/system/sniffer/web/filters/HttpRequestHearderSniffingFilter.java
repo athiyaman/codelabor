@@ -46,7 +46,7 @@ public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
 	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
@@ -57,8 +57,8 @@ public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
 		while (headerNames.hasMoreElements()) {
 			headerName = headerNames.nextElement();
 			headerValues = httpServletRequest.getHeaders(headerName);
-			logger.debug("{}: {}", headerName, Arrays.toString(Collections
-					.list(headerValues).toArray()));
+			logger.debug("{}: {}", headerName,
+					Arrays.toString(Collections.list(headerValues).toArray()));
 		}
 
 	}
