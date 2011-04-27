@@ -15,7 +15,7 @@ public class SystemPropertiesExample {
 	/**
 	 * @param args
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 		Map propertyMap = System.getProperties();
 		Set keySet = propertyMap.keySet();
