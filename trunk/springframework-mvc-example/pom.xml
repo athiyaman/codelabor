@@ -4,7 +4,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>springframework-example</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <name>springframework-example Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
