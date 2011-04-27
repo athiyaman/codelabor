@@ -10,7 +10,7 @@
 
     <!-- spring -->
     <logger name="org.springframework" additivity="false">
-		<level value="info" />
+		<level value="debug" />
 		<appender-ref ref="console" />
     </logger>
 
