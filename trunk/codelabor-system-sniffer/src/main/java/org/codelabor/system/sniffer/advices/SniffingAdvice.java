@@ -121,13 +121,13 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 
 			if (cause != null) {
 				StackTraceElement stackTraceElement = cause.getStackTrace()[0];
-				logger.error("cause class: {}", stackTraceElement
-						.getClassName());
-				logger.error("cause method: {}", stackTraceElement
-						.getMethodName());
+				logger.error("cause class: {}",
+						stackTraceElement.getClassName());
+				logger.error("cause method: {}",
+						stackTraceElement.getMethodName());
 				logger.error("cause file: {}", stackTraceElement.getFileName());
-				logger.error("cause line: {}", stackTraceElement
-						.getLineNumber());
+				logger.error("cause line: {}",
+						stackTraceElement.getLineNumber());
 			}
 		}
 	}
@@ -144,10 +144,13 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 	public Object dumpElapsedTime(ProceedingJoinPoint joinPoint)
 			throws Throwable {
 		Object retrunValue = null;
+		StopWatch stopWatch = null;
 		if (logger.isDebugEnabled()) {
-			StopWatch stopWatch = new StopWatch(getClass().getName());
+			stopWatch = new StopWatch(getClass().getName());
 			stopWatch.start(joinPoint.toShortString());
-			retrunValue = joinPoint.proceed();
+		}
+		retrunValue = joinPoint.proceed();
+		if (logger.isDebugEnabled()) {
 			stopWatch.stop();
 			long totalTimeMillis = stopWatch.getTotalTimeMillis();
 
