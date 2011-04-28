@@ -19,7 +19,6 @@ package org.codelabor.system.file.manager;
 
 import java.util.List;
 
-import org.codelabor.system.anyframe.manager.BaseManagerImpl;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dao.FileDAO;
 import org.codelabor.system.file.dto.FileDTO;
@@ -32,8 +31,7 @@ import org.springframework.util.Assert;
  * @author Shin Sang-jae
  * 
  */
-public class FileManagerImpl extends BaseManagerImpl implements FileManager,
-		InitializingBean {
+public class FileManagerImpl implements FileManager, InitializingBean {
 
 	FileDAO fileDAO;
 

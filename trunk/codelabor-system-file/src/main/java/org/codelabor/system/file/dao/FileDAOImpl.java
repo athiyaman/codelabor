@@ -20,9 +20,13 @@ package org.codelabor.system.file.dao;
 import java.util.Collection;
 import java.util.List;
 
-import org.codelabor.system.anyframe.dao.BaseDAOImpl;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dto.FileDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import anyframe.core.idgen.IIdGenerationService;
+import anyframe.core.query.IQueryService;
 
 /**
  * 파일 DAO 구현 클래스
@@ -30,7 +34,22 @@ import org.codelabor.system.file.dto.FileDTO;
  * @author Shin Sang-jae
  * 
  */
-public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
+public class FileDAOImpl implements FileDAO {
+	/**
+	 * 로거
+	 */
+	private static final Logger logger = LoggerFactory
+			.getLogger(FileDAOImpl.class);
+
+	/**
+	 * Id 제네레이션 서비스
+	 */
+	protected IIdGenerationService idGenerationService;
+
+	/**
+	 * 쿼리 서비스
+	 */
+	protected IQueryService queryService;
 
 	/*
 	 * (non-Javadoc)
@@ -229,6 +248,26 @@ public class FileDAOImpl extends BaseDAOImpl implements FileDAO {
 		String queryId = "system.select.file.list.by.map.id";
 		Object[] param = new Object[] { mapId };
 		return (List<FileDTO>) queryService.find(queryId, param);
+	}
+
+	/**
+	 * Id 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param idGenerationService
+	 *            Id 제네레이션 서비스
+	 */
+	public void setIdGenerationService(IIdGenerationService idGenerationService) {
+		this.idGenerationService = idGenerationService;
+	}
+
+	/**
+	 * 쿼리 서비스를 설정한다.
+	 * 
+	 * @param queryService
+	 *            쿼리 서비스
+	 */
+	public void setQueryService(IQueryService queryService) {
+		this.queryService = queryService;
 	}
 
 }
