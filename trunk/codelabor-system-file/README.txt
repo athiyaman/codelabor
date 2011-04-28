@@ -36,3 +36,6 @@
 	Spring 2 기반 Controller 제거
 	log4jdbc 추가
 	findbug 지적 사항 조치
+
+3.0.2
+	base class 의존 관계 끊기
