@@ -4,3 +4,6 @@
 
 3.0.2
 	설정 파일 패키지 명명법 수정
+
+3.0.3
+	anyframe datasource spy 제거
