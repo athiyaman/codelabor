@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/test/resources/spring/system/anyframe/idgen/oracle/applicationContext-strategy.xml</config>
 		<config>src/test/resources/spring/system/aop/applicationContext-advisor.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-dataSource.xml</config>
@@ -15,10 +14,8 @@
 		<config>src/test/resources/spring/system/file/applicationContext-fileManager.xml</config>
 		<config>src/test/resources/spring/system/anyframe/idgen/db2/applicationContext-idGenerationService.xml</config>
 		<config>src/test/resources/spring/system/anyframe/idgen/oracle/applicationContext-idGenerationService.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-jdbcTemplate.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jndiTemplate.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-lobHandler.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-lobHandler.xml</config>
 		<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
@@ -32,6 +29,8 @@
 		<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
 		<config>src/test/resources/spring/system/action-servlet.xml</config>
+		<config>src/test/resources/spring/system/anyframe/jdbc/derby/applicationContext-jdbcTemplate.xml</config>
+		<config>src/test/resources/spring/system/anyframe/jdbc/derby/applicationContext-lobHandler.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -43,12 +42,9 @@
 				<config>src/test/resources/spring/system/anyframe/applicationContext-propertiesService.xml</config>
 				<config>src/test/resources/spring/system/anyframe/idgen/db2/applicationContext-idGenerationService.xml</config>
 				<config>src/test/resources/spring/system/anyframe/idgen/oracle/applicationContext-idGenerationService.xml</config>
-				<config>src/test/resources/spring/system/anyframe/idgen/oracle/applicationContext-strategy.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-dataSource.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-exceptionTranslator.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jndiTemplate.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-lobHandler.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-queryService.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
@@ -63,6 +59,8 @@
 				<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
 				<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
 				<config>src/test/resources/spring/system/file/applicationContext-fileManager.xml</config>
+				<config>src/test/resources/spring/system/anyframe/jdbc/derby/applicationContext-jdbcTemplate.xml</config>
+				<config>src/test/resources/spring/system/anyframe/jdbc/derby/applicationContext-lobHandler.xml</config>
 			</configs>
 		</configSet>
 		<configSet>

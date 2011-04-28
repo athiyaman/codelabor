@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!--
-	<bean id="db2PagingSQLGenerator"
+	<bean id="pagingSQLGenerator"
 		class="anyframe.core.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
 	-->
 

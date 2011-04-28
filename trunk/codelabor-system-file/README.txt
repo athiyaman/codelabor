@@ -39,3 +39,4 @@
 
 3.0.2
 	base class 의존 관계 끊기
+	derby 테스트 완료
