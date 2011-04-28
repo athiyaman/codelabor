@@ -111,9 +111,6 @@
 				<configuration>
 					<driver>${jdbc.driverClassName}</driver>
 					<url>${jdbc.url}</url>
-					<!--
-					<settingsKey>database.oracle.codelabor</settingsKey>
-					-->
 					<username>${jdbc.username}</username>
 					<password>${jdbc.password}</password>
 					<skip>${maven.test.skip}</skip>
