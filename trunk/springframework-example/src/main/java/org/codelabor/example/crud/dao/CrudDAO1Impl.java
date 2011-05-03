@@ -46,7 +46,7 @@ public class CrudDAO1Impl implements CrudDAO {
 	 * org.codelabor.example.crud.dao.CrudDAO#create(org.codelabor.example.crud
 	 * .dto.CrudDTO)
 	 */
-	public int create(CrudDTO crudDTO) throws Exception {
+	public int insert(CrudDTO crudDTO) throws Exception {
 		PreparedStatement preparedStatement = null;
 		Connection connection = DataSourceUtils.getConnection(dataSource);
 		try {
@@ -72,7 +72,7 @@ public class CrudDAO1Impl implements CrudDAO {
 	 * 
 	 * @see org.codelabor.example.crud.dao.CrudDAO#read(java.lang.String)
 	 */
-	public CrudDTO read(String id) throws Exception {
+	public CrudDTO select(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

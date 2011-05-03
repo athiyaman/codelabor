@@ -35,7 +35,7 @@ public class CrudDAOTest {
 	public void testInsert() {
 		try {
 			// test
-			int affectedRowCount = crudDAO1.create(crudDTO);
+			int affectedRowCount = crudDAO1.insert(crudDTO);
 			assertEquals(1, affectedRowCount);
 			logger.debug("affectedRowCount: {}", affectedRowCount);
 		} catch (Exception e) {

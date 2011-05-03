@@ -23,9 +23,9 @@ import org.codelabor.example.crud.dto.CrudDTO;
  * 
  */
 public interface CrudDAO {
-	public int create(CrudDTO crudDTO) throws Exception;
+	public int insert(CrudDTO crudDTO) throws Exception;
 
-	public CrudDTO read(String id) throws Exception;
+	public CrudDTO select(String id) throws Exception;
 
 	public int update(CrudDTO crudDTO) throws Exception;
 
