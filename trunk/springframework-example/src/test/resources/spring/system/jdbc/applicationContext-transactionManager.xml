@@ -7,19 +7,44 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<!-- datasource transaction manager -->
+	<!-- datasource -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<!-- jta transaction manager -->
+	<!-- jta -->
+	<!--
+	<bean id="jtaTransactionManager"
+		class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManagerName" value="java:comp/TransactionManager" />
+		<property name="jndiTemplate" ref="jndiTemplate" />
+	</bean>
+	-->
+
+	<!-- jta: jeus -->
 	<!--
 	<bean id="transactionManager"
 		class="org.springframework.transaction.jta.JtaTransactionManager">
 		<property name="transactionManagerName" value="java:/TransactionManager" />
 		<property name="jndiTemplate" ref="jndiTemplate"/>
 		<property name="allowCustomIsolationLevels" value="true"/>
+	</bean>
+	-->
+
+	<!-- jta: weblogic -->
+	<!--
+	<bean id="weblogicJtaTransactionManager"
+		class="org.springframework.transaction.jta.WebLogicJtaTransactionManager">
+		<property name="transactionManagerName" value="javax.transaction.TransactionManager" />
+	</bean>
+	-->
+
+	<!-- hibernate -->
+	<!--
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	-->
 </beans>
