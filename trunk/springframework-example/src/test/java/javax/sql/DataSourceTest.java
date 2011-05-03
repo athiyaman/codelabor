@@ -53,4 +53,17 @@ public class DataSourceTest {
 			DataSourceUtils.releaseConnection(connection, dataSource);
 		}
 	}
+
+	@Test
+	public void testIsConnectionTransactional() {
+		Connection connection = null;
+		try {
+			connection = DataSourceUtils.getConnection(dataSource);
+			logger.debug("connection: {}", connection);
+			boolean isConnectionTransactional = DataSourceUtils.isConnectionTransactional(connection, dataSource);
+			logger.debug("isConnectionTransactional: {}", isConnectionTransactional);
+		} finally {
+			DataSourceUtils.releaseConnection(connection, dataSource);
+		}
+	}
 }
