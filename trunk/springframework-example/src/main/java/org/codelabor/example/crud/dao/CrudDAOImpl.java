@@ -33,9 +33,9 @@ import org.springframework.stereotype.Repository;
  * @author Administrator
  * 
  */
-@Repository("crudDAO1")
-public class CrudDAO1Impl implements CrudDAO {
-	private Logger logger = LoggerFactory.getLogger(CrudDAO1Impl.class);
+@Repository("crudDAO")
+public class CrudDAOImpl implements CrudDAO {
+	private Logger logger = LoggerFactory.getLogger(CrudDAOImpl.class);
 	@Autowired
 	private DataSource dataSource;
 
@@ -50,7 +50,7 @@ public class CrudDAO1Impl implements CrudDAO {
 		PreparedStatement preparedStatement = null;
 		Connection connection = DataSourceUtils.getConnection(dataSource);
 		try {
-			String sql = "INSERT INTO CRUD1 VALUES (?, ?)";
+			String sql = "INSERT INTO CRUD VALUES (?, ?)";
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, crudDTO.getId());
 			preparedStatement.setString(2, crudDTO.getData());
