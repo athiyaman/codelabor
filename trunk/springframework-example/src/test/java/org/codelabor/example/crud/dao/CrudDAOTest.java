@@ -20,12 +20,12 @@ public class CrudDAOTest {
 	private final static Logger logger = LoggerFactory.getLogger(CrudDAOTest.class);
 	@Autowired
 	private ApplicationContext ctx;
-	private CrudDAO crudDAO;
+	private CrudDAO crudDAO1;
 	private CrudDTO crudDTO;
 
 	@Before
 	public void setUp() {
-		crudDAO = ctx.getBean("crudDAO", CrudDAO.class);
+		crudDAO1 = ctx.getBean("crudDAO1", CrudDAO.class);
 		crudDTO = new CrudDTO();
 		crudDTO.setId("1");
 		crudDTO.setData("value1");
@@ -35,7 +35,7 @@ public class CrudDAOTest {
 	public void testInsert() {
 		try {
 			// test
-			int affectedRowCount = crudDAO.create(crudDTO);
+			int affectedRowCount = crudDAO1.create(crudDTO);
 			assertEquals(1, affectedRowCount);
 			logger.debug("affectedRowCount: {}", affectedRowCount);
 		} catch (Exception e) {
