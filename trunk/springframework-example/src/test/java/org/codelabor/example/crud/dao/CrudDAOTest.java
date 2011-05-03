@@ -43,4 +43,47 @@ public class CrudDAOTest {
 			fail();
 		}
 	}
+
+	@Test
+	public void testUpdate() {
+		try {
+			CrudDTO crudDTO = new CrudDTO();
+			crudDTO.setId("1");
+			crudDTO.setData("value1 (modified)");
+
+			// test
+			int affectedRowCount = crudDAO.update(crudDTO);
+			assertEquals(1, affectedRowCount);
+			logger.debug("affectedRowCount: {}", affectedRowCount);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	@Test
+	public void testSelect() {
+		try {
+			// test
+			CrudDTO crudDTO = crudDAO.select("1");
+			logger.debug("crudDTO: {}", crudDTO);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	@Test
+	public void testDelete() {
+		try {
+			// test
+			int affectedRowCount = crudDAO.delete("1");
+			assertEquals(1, affectedRowCount);
+			logger.debug("affectedRowCount: {}", affectedRowCount);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
 }

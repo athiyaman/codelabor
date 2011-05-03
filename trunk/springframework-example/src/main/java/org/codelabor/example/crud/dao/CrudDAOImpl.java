@@ -18,6 +18,7 @@ package org.codelabor.example.crud.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -47,8 +48,8 @@ public class CrudDAOImpl implements CrudDAO {
 	 * .dto.CrudDTO)
 	 */
 	public int insert(CrudDTO crudDTO) throws Exception {
-		PreparedStatement preparedStatement = null;
 		Connection connection = DataSourceUtils.getConnection(dataSource);
+		PreparedStatement preparedStatement = null;
 		try {
 			String sql = "INSERT INTO CRUD VALUES (?, ?)";
 			preparedStatement = connection.prepareStatement(sql);
@@ -73,8 +74,36 @@ public class CrudDAOImpl implements CrudDAO {
 	 * @see org.codelabor.example.crud.dao.CrudDAO#read(java.lang.String)
 	 */
 	public CrudDTO select(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = DataSourceUtils.getConnection(dataSource);
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			String sql = "SELECT ID, DATA FROM CRUD WHERE ID = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			logger.debug("preparedStatement: {}", preparedStatement);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				CrudDTO crudDTO = new CrudDTO();
+				crudDTO.setId(resultSet.getString(1));
+				crudDTO.setData(resultSet.getString(2));
+				return crudDTO;
+			} else {
+				throw new Exception("No such data");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+			DataSourceUtils.releaseConnection(connection, dataSource);
+		}
 	}
 
 	/*
@@ -85,8 +114,24 @@ public class CrudDAOImpl implements CrudDAO {
 	 * .dto.CrudDTO)
 	 */
 	public int update(CrudDTO crudDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection connection = DataSourceUtils.getConnection(dataSource);
+		PreparedStatement preparedStatement = null;
+		try {
+			String sql = "UPDATE CRUD SET DATA = ? WHERE ID = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, crudDTO.getData());
+			preparedStatement.setString(2, crudDTO.getId());
+			logger.debug("preparedStatement: {}", preparedStatement);
+			return preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+			DataSourceUtils.releaseConnection(connection, dataSource);
+		}
 	}
 
 	/*
@@ -95,8 +140,23 @@ public class CrudDAOImpl implements CrudDAO {
 	 * @see org.codelabor.example.crud.dao.CrudDAO#delete(java.lang.String)
 	 */
 	public int delete(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection connection = DataSourceUtils.getConnection(dataSource);
+		PreparedStatement preparedStatement = null;
+		try {
+			String sql = "DELETE CRUD WHERE ID = ?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			logger.debug("preparedStatement: {}", preparedStatement);
+			return preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+			DataSourceUtils.releaseConnection(connection, dataSource);
+		}
 	}
 
 }
