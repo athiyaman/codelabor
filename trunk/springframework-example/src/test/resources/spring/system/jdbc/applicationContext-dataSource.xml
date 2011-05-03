@@ -30,6 +30,7 @@
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 	    <property name="jndiName" value="${jndi.name}"/>
 		<property name="jndiTemplate" ref="jndiTemplate"/>
+		<property name="resourceRef" value="true" />
 	</bean>
 	-->
 </beans>
