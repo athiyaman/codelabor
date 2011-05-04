@@ -9,6 +9,16 @@
 	<configs>
 		<config>src/test/resources/spring/system/jdbc/hibernate/applicationContext-sessionFactory.xml</config>
 		<config>src/test/resources/spring/example/applicationContext.xml</config>
+		<config>src/test/resources/spring/system/aop/applicationContext-advisor.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-dataSource.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-jndiTemplate.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
+		<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
+		<config>src/test/resources/spring/system/aop/applicationContext-pointcut.xml</config>
+		<config>src/test/resources/spring/system/applicationContext-propertyPlaceHolder.xml</config>
+		<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-transactionManager.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

@@ -12,6 +12,7 @@
 		<property name="password" value="${jdbc.passowrd}"/>
 	</bean>
 
+	<!--
 	<bean id="dataSource1"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="${jdbc.driverClassName.1}"/>
@@ -27,8 +28,7 @@
 		<property name="username" value="${jdbc.username.2}"/>
 		<property name="password" value="${jdbc.passowrd.2}"/>
 	</bean>
-
-
+	-->
 
 	<!-- commons dbcp basic datasource -->
 	<!--
@@ -51,4 +51,19 @@
 		<property name="resourceRef" value="true" />
 	</bean>
 	-->
+
+	<bean id="dataSource1"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+	    <property name="jndiName" value="${jndi.name.1}"/>
+		<property name="jndiTemplate" ref="jndiTemplate"/>
+		<property name="resourceRef" value="true" />
+	</bean>
+
+	<bean id="dataSource2"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+	    <property name="jndiName" value="${jndi.name.2}"/>
+		<property name="jndiTemplate" ref="jndiTemplate"/>
+		<property name="resourceRef" value="true" />
+	</bean>
+
 </beans>

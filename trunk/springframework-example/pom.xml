@@ -136,6 +136,44 @@
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>kr.co.tmax</groupId>
+			<artifactId>jclient_jaxb</artifactId>
+			<version>6.0.0.7</version>
+			<type>jar</type>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>kr.co.tmax</groupId>
+			<artifactId>jclient</artifactId>
+			<version>6.0.0.7</version>
+			<type>jar</type>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>kr.co.tmax</groupId>
+			<artifactId>clientcontainer</artifactId>
+			<version>6.0.0.7</version>
+			<type>jar</type>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
