@@ -35,12 +35,12 @@ import org.springframework.stereotype.Repository;
  * @author Administrator
  * 
  */
-@Repository("crudDAO")
-public class CrudDAOImpl implements CrudDAO {
-	private Logger logger = LoggerFactory.getLogger(CrudDAOImpl.class);
+@Repository("crudDAO2")
+public class CrudDAO2Impl implements CrudDAO {
+	private Logger logger = LoggerFactory.getLogger(CrudDAO2Impl.class);
 
 	@Inject
-	@Named("dataSource")
+	@Named("dataSource2")
 	private DataSource dataSource;
 
 	/*
