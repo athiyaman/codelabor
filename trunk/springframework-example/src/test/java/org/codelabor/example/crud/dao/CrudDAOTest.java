@@ -13,9 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/**/applicationContext*.xml")
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
+@Transactional
 public class CrudDAOTest {
 	private final static Logger logger = LoggerFactory.getLogger(CrudDAOTest.class);
 	@Autowired
@@ -34,7 +38,6 @@ public class CrudDAOTest {
 	@Test
 	public void testInsert() {
 		try {
-			// test
 			int affectedRowCount = crudDAO.insert(crudDTO);
 			assertEquals(1, affectedRowCount);
 			logger.debug("affectedRowCount: {}", affectedRowCount);
@@ -47,12 +50,16 @@ public class CrudDAOTest {
 	@Test
 	public void testUpdate() {
 		try {
-			CrudDTO crudDTO = new CrudDTO();
+			// insert
+			int affectedRowCount = crudDAO.insert(crudDTO);
+			assertEquals(1, affectedRowCount);
+			logger.debug("affectedRowCount: {}", affectedRowCount);
+
+			// update
+			crudDTO = new CrudDTO();
 			crudDTO.setId("1");
 			crudDTO.setData("value1 (modified)");
-
-			// test
-			int affectedRowCount = crudDAO.update(crudDTO);
+			affectedRowCount = crudDAO.update(crudDTO);
 			assertEquals(1, affectedRowCount);
 			logger.debug("affectedRowCount: {}", affectedRowCount);
 		} catch (Exception e) {
@@ -64,7 +71,12 @@ public class CrudDAOTest {
 	@Test
 	public void testSelect() {
 		try {
-			// test
+			// insert
+			int affectedRowCount = crudDAO.insert(crudDTO);
+			assertEquals(1, affectedRowCount);
+			logger.debug("affectedRowCount: {}", affectedRowCount);
+
+			// select
 			CrudDTO crudDTO = crudDAO.select("1");
 			logger.debug("crudDTO: {}", crudDTO);
 		} catch (Exception e) {
@@ -76,8 +88,13 @@ public class CrudDAOTest {
 	@Test
 	public void testDelete() {
 		try {
-			// test
-			int affectedRowCount = crudDAO.delete("1");
+			// insert
+			int affectedRowCount = crudDAO.insert(crudDTO);
+			assertEquals(1, affectedRowCount);
+			logger.debug("affectedRowCount: {}", affectedRowCount);
+
+			// delete
+			affectedRowCount = crudDAO.delete("1");
 			assertEquals(1, affectedRowCount);
 			logger.debug("affectedRowCount: {}", affectedRowCount);
 		} catch (Exception e) {
