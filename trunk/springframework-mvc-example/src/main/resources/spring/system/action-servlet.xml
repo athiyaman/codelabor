@@ -11,4 +11,10 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
 
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
+	</bean>
+
 </beans>
