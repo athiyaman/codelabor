@@ -1,4 +1,4 @@
-package org.codelabor.example.helloworld.web.view;
+package org.codelabor.example.helloworld.web.servlet.view;
 
 import java.util.Map;
 
