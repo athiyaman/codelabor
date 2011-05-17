@@ -57,6 +57,7 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 			HttpServletResponse response, Object handler, Exception exception)
 			throws Exception {
 		logger.debug("handler: {}", handler);
+		logger.debug("handler: {}, exception: {}", handler, exception);
 		logger.debug("exception: {}", exception);
 	}
 

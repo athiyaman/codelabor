@@ -19,7 +19,11 @@
 	</bean>
 
 	<!-- exception resolver -->
+	<bean class="org.codelabor.system.sniffer.web.servlet.resolver.SniffingHandlerExceptionResolver">
+		<property name="order" value="1" />
+	</bean>	
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="order" value="2" />
 		<property name="defaultErrorView" value="/system/error/default" />
 	</bean>
 
