@@ -9,21 +9,26 @@
 
 	<context:component-scan base-package="org.codelabor" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
 
 	<!-- handler adapter -->
 
 	<!-- handler mappings -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<bean class="org.codelabor.system.sniffer.web.servlet.interceptor.SniffingHandlerInterceptor" />
+		</property>
+	</bean>
 
 	<!--  interceptors -->
+	<!--  
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="**/*.do"/>
 			<bean class="org.codelabor.example.web.servlet.interceptor.DefaultHandlerInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+	-->
 
 	<!-- exception resolver -->
 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
