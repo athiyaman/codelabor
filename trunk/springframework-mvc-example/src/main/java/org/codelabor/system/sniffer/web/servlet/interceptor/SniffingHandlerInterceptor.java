@@ -14,26 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.example.web.servlet.interceptor;
+package org.codelabor.system.sniffer.web.servlet.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.servlet.HandlerInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
  * @author Administrator
  *
  */
-public class DefaultHandlerInterceptor implements HandlerInterceptor {
+public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
+
+	private Logger logger = LoggerFactory.getLogger(SniffingHandlerInterceptor.class);
 
 	/* (non-Javadoc)
 	 * @see org.springframework.web.servlet.HandlerInterceptor#preHandle(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object)
 	 */
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
-		// TODO Auto-generated method stub
+		logger.debug("handler: {}", handler);
 		return false;
 	}
 
@@ -43,8 +47,7 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
-
+		logger.debug("handler: {}", handler);
 	}
 
 	/* (non-Javadoc)
@@ -53,8 +56,7 @@ public class DefaultHandlerInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// TODO Auto-generated method stub
-
+		logger.debug("handler: {}", handler);
 	}
 
 }
