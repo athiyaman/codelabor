@@ -38,7 +38,7 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		logger.debug("handler: {}", handler);
-		return false;
+		return true;
 	}
 
 	/* (non-Javadoc)
@@ -54,9 +54,10 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 	 * @see org.springframework.web.servlet.HandlerInterceptor#afterCompletion(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object, java.lang.Exception)
 	 */
 	public void afterCompletion(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception ex)
+			HttpServletResponse response, Object handler, Exception exception)
 			throws Exception {
 		logger.debug("handler: {}", handler);
+		logger.debug("exception: {}", exception);
 	}
 
 }
