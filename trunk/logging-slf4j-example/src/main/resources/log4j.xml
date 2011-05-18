@@ -7,13 +7,8 @@
 		</layout>
 	</appender>
 
-	<logger name="org.codelabor" additivity="false">
-		<level value="debug" />
-		<appender-ref ref="console" />
-	</logger>
-
 	<root>
-		<level value="info" />
+		<level value="debug" />
 		<appender-ref ref="console" />
 	</root>
 </log4j:configuration>
