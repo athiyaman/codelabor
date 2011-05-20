@@ -24,20 +24,54 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Regexp 패턴 매처 유틸리티
+ * 
  * @author Shin Sang-jae
  * 
  */
 public class RegexPatternMatcherUtils {
+	/**
+	 * 로거
+	 */
 	static private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherUtils.class);
 
+	/**
+	 * 패턴이 일치하는지 확인한다.
+	 * 
+	 * @param pattern
+	 *            패턴
+	 * @param inputString
+	 *            확인 대상 문자열
+	 * @return 패턴 일치 여부
+	 */
 	static public boolean matches(String pattern, String inputString) {
 		return Pattern.matches(pattern, inputString);
 	}
 
+	/**
+	 * 패턴이 일치하는지 확인한다.
+	 * 
+	 * @param patternList
+	 *            패턴 List
+	 * @param inputString
+	 *            확인 대상 문자열
+	 * @return 패턴 일치 여부
+	 */
 	static public boolean matches(List<String> patternList, String inputString) {
 		return matches(patternList, null, inputString);
 	}
 
+	/**
+	 * 패턴이 일치하는지 확인한다.
+	 * 
+	 * @param includesPatternList
+	 *            포함할 패턴 List
+	 * @param excludesPatternList
+	 *            제외할 패턴 List
+	 * @param inputString
+	 *            확인 대상 문자열
+	 * @return 패턴 일치 여부
+	 */
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 
