@@ -84,8 +84,9 @@ public class ListUtils {
 			}
 		}
 		return isContained;
-	}	
+	}
 	
+
 	/**
 	 * 리스트 안의 내용중 매칭되는 것이 있는지 확인한다.
 	 * @param patternList 패턴 List
