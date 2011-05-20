@@ -17,11 +17,11 @@
 package org.codelabor.system.pattern.util;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.codelabor.system.util.ListUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.AntPathMatcher;
 
 /**
  * @author Shin Sang-jae
@@ -31,7 +31,8 @@ public class AntStylePatternMatcherUtils {
 	static private Logger logger = LoggerFactory.getLogger(AntStylePatternMatcherUtils.class);
 
 	static public boolean matches(String pattern, String inputString) {
-		return Pattern.matches(pattern, inputString);
+		AntPathMatcher antPathMatcher = new AntPathMatcher();
+		return antPathMatcher.match(pattern, inputString);
 	}
 
 	static public boolean matches(List<String> patternList, String inputString) {
