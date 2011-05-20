@@ -16,11 +16,14 @@
  */
 package org.codelabor.system.pattern.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.codelabor.system.pattern.util.AntStylePatternMatcherUtils;
 import org.codelabor.system.pattern.util.SimplePatternMatcherUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 
 /**
  * AntStyle 패턴 매처 구현 클래스<br/>
@@ -29,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class AntStylePatternMatcherImpl implements PatternMatcher {
+public class AntStylePatternMatcherImpl implements PatternMatcher, InitializingBean {
 
 	/**
 	 * 로거
@@ -89,17 +92,7 @@ public class AntStylePatternMatcherImpl implements PatternMatcher {
 	 */
 	public boolean maches(String inputString) {
 		boolean isMatched = false;
-
-		if (includesPatternList.contains(inputString)) {
-			isMatched = true;
-		}
-		logger.debug("includesPatternList: {}, isMatched: {}", includesPatternList, isMatched);
-
-		if (excludesPatternList.contains(inputString)) {
-			isMatched = false;
-		}
-		logger.debug("excludesPatternList: {}, isMatched: {}", excludesPatternList, isMatched);
-
+		isMatched = AntStylePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 		return isMatched;
 	}
@@ -132,6 +125,22 @@ public class AntStylePatternMatcherImpl implements PatternMatcher {
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		return SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
+	public void afterPropertiesSet() throws Exception {
+		if (includesPatternList == null) {
+			includesPatternList = new ArrayList<String>();
+		}
+		if (excludesPatternList == null) {
+			excludesPatternList = new ArrayList<String>();
+		}
+
 	}
 
 }

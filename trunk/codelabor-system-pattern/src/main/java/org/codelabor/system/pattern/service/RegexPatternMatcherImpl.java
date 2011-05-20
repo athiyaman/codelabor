@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 import org.codelabor.system.pattern.util.RegexPatternMatcherUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 
 /**
  * Regex 패턴 매처 구현 클래스<br/>
@@ -31,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class RegexPatternMatcherImpl implements PatternMatcher {
+public class RegexPatternMatcherImpl implements PatternMatcher, InitializingBean {
 
 	/**
 	 * 로거
@@ -149,6 +150,21 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		return RegexPatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
+	public void afterPropertiesSet() throws Exception {
+		if (includesPatternList == null) {
+			includesPatternList = new ArrayList<String>();
+		}
+		if (excludesPatternList == null) {
+			excludesPatternList = new ArrayList<String>();
+		}
 	}
 
 }
