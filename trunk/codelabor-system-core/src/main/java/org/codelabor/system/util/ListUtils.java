@@ -2,6 +2,7 @@ package org.codelabor.system.util;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,7 @@ public class ListUtils {
 		logger.debug("delimeted string: {}", sb.toString());
 		return sb.toString();
 	}
+	
 	/**
 	 * 리스트 안의 내용 중 Ant 스타일 패턴에 매칭되는 것이 있는지 확인한다.
 	 *
@@ -58,6 +60,31 @@ public class ListUtils {
 		}
 		return isContained;
 	}
+	
+	/**
+	 * 리스트 안의 내용 중 Regexp 패턴에 매칭되는 것이 있는지 확인한다.
+	 *
+	 * @param patternList
+	 *            패턴 List
+	 * @param text
+	 *            매칭할 문자열
+	 * @return 매칭 여부
+	 * @since 3.0.5 
+	 */
+	static public boolean containsByRegexpPattern(List<String> patternList,
+			String text) {
+		boolean isContained = false;
+		Iterator<String> iterator = patternList.iterator();
+		while (iterator.hasNext()) {
+			String pattern = iterator.next();
+			if (Pattern.matches(pattern, text)) {
+				isContained = true;
+			} else {
+				// bypass
+			}
+		}
+		return isContained;
+	}	
 	
 	/**
 	 * 리스트 안의 내용중 매칭되는 것이 있는지 확인한다.

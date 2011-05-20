@@ -43,6 +43,16 @@ public class ListUtilsTest {
 	}
 	
 	@Test
+	public void testContainsByRegexpPattern() {
+		List<String> patternList = new ArrayList<String>();
+		patternList.add("http://codelabor.org/[a-z]*/index.html");
+		String text = "http://codelabor.org/example/index.html";
+		boolean isContained = ListUtils.containsByRegexpPattern(patternList, text);
+		logger.debug("isContained: {}", isContained);
+		assertTrue(isContained);
+	}	
+	
+	@Test
 	public void testContains() {
 		List<String> patternList = new ArrayList<String>();
 		patternList.add("http://codelabor.org/**/index.html");
