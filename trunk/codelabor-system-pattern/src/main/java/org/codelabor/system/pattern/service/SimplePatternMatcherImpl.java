@@ -91,17 +91,7 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	 */
 	public boolean maches(String inputString) {
 		boolean isMatched = false;
-
-		if (includesPatternList.contains(inputString)) {
-			isMatched = true;
-		}
-		logger.debug("includesPatternList: {}, isMatched: {}", includesPatternList, isMatched);
-
-		if (excludesPatternList.contains(inputString)) {
-			isMatched = false;
-		}
-		logger.debug("excludesPatternList: {}, isMatched: {}", excludesPatternList, isMatched);
-
+		isMatched = SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 		return isMatched;
 	}
