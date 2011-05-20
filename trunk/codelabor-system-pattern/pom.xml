@@ -9,7 +9,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-pattern</artifactId>
 	<name>codelabor-system-pattern</name>
-	<version>3.0.1-SNAPSHOT</version>
+	<version>3.0.0-SNAPSHOT</version>
 	<description>codelabor system pattern</description>
 	<url>http://codelabor.googlecode.com</url>
 	<licenses>
