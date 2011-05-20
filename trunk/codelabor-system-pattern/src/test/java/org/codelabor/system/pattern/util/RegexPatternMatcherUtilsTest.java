@@ -27,13 +27,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * Regexp 패턴 매처 유틸리티 테스트 클래스
+ * 
  * @author Shin Sang-jae
  * 
  */
 public class RegexPatternMatcherUtilsTest {
 
+	/**
+	 * 로거
+	 */
 	private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherUtilsTest.class);
+	/**
+	 * 포함할 패턴 리스트
+	 */
 	private List<String> includesPatternList = new ArrayList<String>();
+	/**
+	 * 제외할 패턴 리스트
+	 */
 	private List<String> excludesPatternList = new ArrayList<String>();
 
 	/**

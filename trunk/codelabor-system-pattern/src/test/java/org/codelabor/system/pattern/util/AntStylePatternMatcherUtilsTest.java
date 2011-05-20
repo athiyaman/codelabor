@@ -27,17 +27,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple 패턴 매처 유틸리티 테스트 클래스
+ * Ant Style 패턴 매처 유틸리티 테스트 클래스
  * 
  * @author Shin Sang-jae
  * 
  */
-public class SimplePatternMatcherUtilsTest {
+public class AntStylePatternMatcherUtilsTest {
 
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherUtilsTest.class);
+	private Logger logger = LoggerFactory.getLogger(AntStylePatternMatcherUtilsTest.class);
 	/**
 	 * 포함할 패턴 리스트
 	 */
@@ -52,49 +52,52 @@ public class SimplePatternMatcherUtilsTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		includesPatternList.add("1234");
-		includesPatternList.add("abcd");
+		includesPatternList.add("*34");
+		includesPatternList.add("ab*");
 		includesPatternList.add("가나다라");
-		excludesPatternList.add("1234");
+		excludesPatternList.add("?234");
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.lang.String, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatcherUtils#matches(java.lang.String, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesStringString() {
-		String pattern = "abcd";
-		String inputString = "abcd";
-		boolean isMatched = SimplePatternMatcherUtils.matches(pattern, inputString);
+		String pattern = "*asdf";
+		String inputString = "qwerasdf";
+		boolean isMatched = AntStylePatternMatcherUtils.matches(pattern, inputString);
 		logger.debug("isMatched: {}", isMatched);
+
 		assertEquals(true, isMatched);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatcherUtils#matches(java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringString() {
 		String inputString = "abcd";
-		boolean isMatched = SimplePatternMatcherUtils.matches(includesPatternList, inputString);
+		boolean isMatched = AntStylePatternMatcherUtils.matches(includesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
+
 		assertEquals(true, isMatched);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfStringString() {
 		String inputString = "1234";
-		boolean isMatched = SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		boolean isMatched = AntStylePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
+
 		assertEquals(false, isMatched);
 	}
 
