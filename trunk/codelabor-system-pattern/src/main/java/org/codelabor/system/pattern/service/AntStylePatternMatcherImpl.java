@@ -23,18 +23,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple 패턴 매처 구현 클래스<br/>
+ * AntStyle 패턴 매처 구현 클래스<br/>
  * 정규 표현식으로 표현된 패턴에 대해 일치 여부를 확인할 수 있는 패턴 매처
  * 
  * @author Shin Sang-jae
  * 
  */
-public class SimplePatternMatcherImpl implements PatternMatcher {
+public class AntStylePatternMatcherImpl implements PatternMatcher {
 
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherImpl.class);
+	private Logger logger = LoggerFactory.getLogger(AntStylePatternMatcherImpl.class);
 	/**
 	 * 포함할 패턴 List (String 타입)
 	 */
