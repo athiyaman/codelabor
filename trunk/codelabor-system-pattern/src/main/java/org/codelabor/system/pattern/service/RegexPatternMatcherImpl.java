@@ -25,21 +25,50 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Administrator
+ * Regexp 패턴 매처 구현 클래스<br/>
+ * 정규 표현식으로 표현된 패턴에 대해 일치 여부를 확인할 수 있는 패턴 매처
+ * 
+ * @author Shin Sang-jae
  * 
  */
 public class RegexPatternMatcherImpl implements PatternMatcher {
 
+	/**
+	 * 로거
+	 */
 	private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherImpl.class);
+	/**
+	 * 포함할 패턴 List (String 타입)
+	 */
 	private List<String> includesPatternList;
+	/**
+	 * 제외할 패턴 List (String 타입)
+	 */
 	private List<String> excludesPatternList;
+	/**
+	 * 포함할 패턴 List (Pattern 타입)
+	 */
 	private List<Pattern> includesRegexpPatternList = new ArrayList<Pattern>();
+	/**
+	 * 제외할 패턴 List (Pattern 타입)
+	 */
 	private List<Pattern> excludesRegexpPatternList = new ArrayList<Pattern>();
 
+	/**
+	 * 포함할 패턴 List를 가져온다.
+	 * 
+	 * @return 패턴 List
+	 */
 	public List<String> getIncludesPatternList() {
 		return includesPatternList;
 	}
 
+	/**
+	 * 제외할 패턴 List를 설정한다.
+	 * 
+	 * @param includesPatternList
+	 *            패턴 List
+	 */
 	public void setIncludesPatternList(List<String> includesPatternList) {
 		this.includesPatternList = includesPatternList;
 		for (String includesPattern : includesPatternList) {
@@ -47,10 +76,21 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 		}
 	}
 
+	/**
+	 * 제외할 패턴 List를 가져온다.
+	 * 
+	 * @return 패턴 List
+	 */
 	public List<String> getExcludesPatternList() {
 		return excludesPatternList;
 	}
 
+	/**
+	 * 제외할 패턴 List를 설정한다.
+	 * 
+	 * @param excludesPatternList
+	 *            패턴 List
+	 */
 	public void setExcludesPatternList(List<String> excludesPatternList) {
 		this.excludesPatternList = excludesPatternList;
 		for (String excludesPattern : excludesPatternList) {
