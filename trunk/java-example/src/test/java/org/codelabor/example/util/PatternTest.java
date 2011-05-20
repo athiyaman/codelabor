@@ -16,6 +16,8 @@
  */
 package org.codelabor.example.util;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,12 +34,24 @@ public class PatternTest {
 	
 	@Test
 	public void testMatches() {
-		String regex = "[a-z]";
+		String regex = "[a-z]*";
 		String input = "qwerasdf";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(input);
-		boolean matchFlag = matcher.matches();
-		logger.debug("matchFlag: {}", matchFlag);
+		boolean isMatched = matcher.matches();
+		logger.debug("isMatched: {}", isMatched);
+		
+		assertEquals(true, isMatched);
 	}
+	
+	@Test
+	public void testMatches2() {
+		String regex = "[a-z]*";
+		String input = "qwerasdf";
+		boolean isMatched = Pattern.matches(regex, input);
+		logger.debug("isMatched: {}", isMatched);
+		
+		assertEquals(true, isMatched);
+	}	
 
 }
