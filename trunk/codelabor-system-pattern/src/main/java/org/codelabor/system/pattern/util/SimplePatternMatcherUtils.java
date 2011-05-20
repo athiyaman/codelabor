@@ -29,33 +29,15 @@ import org.slf4j.LoggerFactory;
 public class SimplePatternMatcherUtils {
 	static private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherUtils.class);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.lang.String,
-	 * java.lang.String)
-	 */
-	static public boolean maches(String pattern, String inputString) {
+	static public boolean matches(String pattern, String inputString) {
 		return Pattern.matches(pattern, inputString);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.util.List,
-	 * java.lang.String)
-	 */
-	static public boolean maches(List<String> patternList, String inputString) {
-		return maches(patternList, null, inputString);
+	static public boolean matches(List<String> patternList, String inputString) {
+		return matches(patternList, null, inputString);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.util.List,
-	 * java.util.List, java.lang.String)
-	 */
-	static public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
+	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 
 		if (excludesPatternList != null) {

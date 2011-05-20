@@ -88,7 +88,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * java.lang.String)
 	 */
 	public boolean maches(String pattern, String inputString) {
-		return RegexPatternMatcherUtils.maches(pattern, inputString);
+		return RegexPatternMatcherUtils.matches(pattern, inputString);
 	}
 
 	/*
@@ -98,7 +98,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * java.lang.String)
 	 */
 	public boolean maches(List<String> patternList, String inputString) {
-		return RegexPatternMatcherUtils.maches(includesPatternList, inputString);
+		return RegexPatternMatcherUtils.matches(includesPatternList, inputString);
 	}
 
 	/*
@@ -108,7 +108,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * java.util.List, java.lang.String)
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
-		return RegexPatternMatcherUtils.maches(includesPatternList, excludesPatternList, inputString);
+		return RegexPatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 }

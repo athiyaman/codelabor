@@ -54,9 +54,9 @@ public class RegexPatternMatcherUtilsTest {
 	 */
 	@Test
 	public void testMachesStringString() {
-		String regex = "[a-z]*";
+		String pattern = "[a-z]*";
 		String inputString = "qwerasdf";
-		boolean isMatched = RegexPatternMatcherUtils.matches(regex, inputString);
+		boolean isMatched = RegexPatternMatcherUtils.matches(pattern, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
