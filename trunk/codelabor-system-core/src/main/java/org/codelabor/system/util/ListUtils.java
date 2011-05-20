@@ -68,16 +68,6 @@ public class ListUtils {
 	 */
 	static public boolean contains(List<String> patternList,
 			String text) {
-		boolean isContained = false;
-		Iterator<String> iterator = patternList.iterator();
-		while (iterator.hasNext()) {
-			String pattern = iterator.next();
-			if (pattern.equals(text)) {
-				isContained = true;
-			} else {
-				// bypass
-			}
-		}
-		return isContained;
+		return patternList.contains(text);
 	}	
 }

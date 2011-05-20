@@ -47,7 +47,7 @@ public class ListUtilsTest {
 		List<String> patternList = new ArrayList<String>();
 		patternList.add("http://codelabor.org/**/index.html");
 		String text = "http://codelabor.org/**/index.html";
-		boolean isContained = ListUtils.containsByAntStylePattern(patternList, text);
+		boolean isContained = ListUtils.contains(patternList, text);
 		logger.debug("isContained: {}", isContained);
 		assertTrue(isContained);
 	}	
