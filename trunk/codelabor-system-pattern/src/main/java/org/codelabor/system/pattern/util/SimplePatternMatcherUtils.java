@@ -35,7 +35,7 @@ public class SimplePatternMatcherUtils {
 	static private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherUtils.class);
 
 	/**
-	 * 패턴이 일치하는지 확인한다.
+	 * 패턴 일치 여부를 확인한다.
 	 * 
 	 * @param pattern
 	 *            패턴
@@ -48,7 +48,7 @@ public class SimplePatternMatcherUtils {
 	}
 
 	/**
-	 * 패턴이 일치하는지 확인한다.
+	 * 패턴 일치 여부를 확인한다.
 	 * 
 	 * @param patternList
 	 *            패턴 List
@@ -61,7 +61,7 @@ public class SimplePatternMatcherUtils {
 	}
 
 	/**
-	 * 패턴이 일치하는지 확인한다.
+	 * 패턴 일치 여부를 확인한다.
 	 * 
 	 * @param includesPatternList
 	 *            포함할 패턴 List
