@@ -19,7 +19,7 @@ package org.codelabor.system.pattern.service;
 import java.util.List;
 
 /**
- * Regexp 패턴 매처 인터페이스
+ * Regex 패턴 매처 인터페이스
  * 
  * @author Shin Sang-jae
  * 

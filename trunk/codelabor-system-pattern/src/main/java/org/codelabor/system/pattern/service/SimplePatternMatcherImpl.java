@@ -16,27 +16,25 @@
  */
 package org.codelabor.system.pattern.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
-import org.codelabor.system.pattern.util.RegexPatternMatcherUtils;
+import org.codelabor.system.pattern.util.SimplePatternMatcherUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Regex 패턴 매처 구현 클래스<br/>
+ * Simplep 패턴 매처 구현 클래스<br/>
  * 정규 표현식으로 표현된 패턴에 대해 일치 여부를 확인할 수 있는 패턴 매처
  * 
  * @author Shin Sang-jae
  * 
  */
-public class RegexPatternMatcherImpl implements PatternMatcher {
+public class SimplePatternMatcherImpl implements PatternMatcher {
 
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherImpl.class);
+	private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherImpl.class);
 	/**
 	 * 포함할 패턴 List (String 타입)
 	 */
@@ -45,14 +43,6 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * 제외할 패턴 List (String 타입)
 	 */
 	private List<String> excludesPatternList;
-	/**
-	 * 포함할 패턴 List (Pattern 타입)
-	 */
-	private List<Pattern> includesRegexPatternList = new ArrayList<Pattern>();
-	/**
-	 * 제외할 패턴 List (Pattern 타입)
-	 */
-	private List<Pattern> excludesRegexPatternList = new ArrayList<Pattern>();
 
 	/**
 	 * 포함할 패턴 List를 가져온다.
@@ -71,9 +61,6 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 */
 	public void setIncludesPatternList(List<String> includesPatternList) {
 		this.includesPatternList = includesPatternList;
-		for (String includesPattern : includesPatternList) {
-			includesRegexPatternList.add(Pattern.compile(includesPattern));
-		}
 	}
 
 	/**
@@ -93,9 +80,6 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 */
 	public void setExcludesPatternList(List<String> excludesPatternList) {
 		this.excludesPatternList = excludesPatternList;
-		for (String excludesPattern : excludesPatternList) {
-			excludesRegexPatternList.add(Pattern.compile(excludesPattern));
-		}
 	}
 
 	/*
@@ -105,18 +89,17 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 */
 	public boolean maches(String inputString) {
 		boolean isMatched = false;
-		for (Pattern includesPattern : includesRegexPatternList) {
-			if (includesPattern.matcher(inputString).matches()) {
-				isMatched = true;
-			}
-			logger.debug("includesPattern: {}, isMatched: {}", includesPattern, isMatched);
+
+		if (includesPatternList.contains(inputString)) {
+			isMatched = true;
 		}
-		for (Pattern excludesPattern : excludesRegexPatternList) {
-			if (excludesPattern.matcher(inputString).matches()) {
-				isMatched = false;
-			}
-			logger.debug("excludesPattern: {}, isMatched: {}", excludesPattern, isMatched);
+		logger.debug("includesPatternList: {}, isMatched: {}", includesPatternList, isMatched);
+
+		if (excludesPatternList.contains(inputString)) {
+			isMatched = false;
 		}
+		logger.debug("excludesPatternList: {}, isMatched: {}", excludesPatternList, isMatched);
+
 		logger.debug("isMatched: {}", isMatched);
 		return isMatched;
 	}
@@ -128,7 +111,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * java.lang.String)
 	 */
 	public boolean maches(String pattern, String inputString) {
-		return RegexPatternMatcherUtils.matches(pattern, inputString);
+		return SimplePatternMatcherUtils.matches(pattern, inputString);
 	}
 
 	/*
@@ -138,7 +121,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * java.lang.String)
 	 */
 	public boolean maches(List<String> patternList, String inputString) {
-		return RegexPatternMatcherUtils.matches(includesPatternList, inputString);
+		return SimplePatternMatcherUtils.matches(includesPatternList, inputString);
 	}
 
 	/*
@@ -148,7 +131,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher {
 	 * java.util.List, java.lang.String)
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
-		return RegexPatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		return SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 }

@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Regexp 패턴 매처 유틸리티
+ * Regex 패턴 매처 유틸리티
  * 
  * @author Shin Sang-jae
  * 
@@ -76,11 +76,11 @@ public class RegexPatternMatcherUtils {
 		boolean isMatched = false;
 
 		if (excludesPatternList != null) {
-			if (ListUtils.containsByRegexpPattern(excludesPatternList, inputString)) {
+			if (ListUtils.containsByRegexPattern(excludesPatternList, inputString)) {
 				// bypass
 			} else {
 				if (includesPatternList != null) {
-					if (ListUtils.containsByRegexpPattern(includesPatternList, inputString)) {
+					if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
 						isMatched = true;
 					} else {
 						isMatched = false;
@@ -91,7 +91,7 @@ public class RegexPatternMatcherUtils {
 			}
 		} else {
 			if (includesPatternList != null) {
-				if (ListUtils.containsByRegexpPattern(includesPatternList, inputString)) {
+				if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
 					isMatched = true;
 				} else {
 					isMatched = false;

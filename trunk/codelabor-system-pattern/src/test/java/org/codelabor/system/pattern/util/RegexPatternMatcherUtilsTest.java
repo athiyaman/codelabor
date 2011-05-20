@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Regexp 패턴 매처 유틸리티 테스트 클래스
+ * Regex 패턴 매처 유틸리티 테스트 클래스
  * 
  * @author Shin Sang-jae
  * 
