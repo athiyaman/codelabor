@@ -45,17 +45,39 @@ public class ListUtils {
 	 */
 	static public boolean containsByAntStylePattern(List<String> patternList,
 			String text) {
-		boolean isContains = false;
+		boolean isContained = false;
 		AntPathMatcher antPathMatcher = new AntPathMatcher();
 		Iterator<String> iterator = patternList.iterator();
 		while (iterator.hasNext()) {
 			String pattern = iterator.next();
 			if (antPathMatcher.match(pattern, text)) {
-				isContains = true;
+				isContained = true;
 			} else {
 				// bypass
 			}
 		}
-		return isContains;
+		return isContained;
 	}
+	
+	/**
+	 * 리스트 안의 내용중 매칭되는 것이 있는지 확인한다.
+	 * @param patternList 패턴 List
+	 * @param text 매칭할 문자열
+	 * @return 매칭 여부
+	 * @since 3.0.5
+	 */
+	static public boolean contains(List<String> patternList,
+			String text) {
+		boolean isContained = false;
+		Iterator<String> iterator = patternList.iterator();
+		while (iterator.hasNext()) {
+			String pattern = iterator.next();
+			if (pattern.equals(text)) {
+				isContained = true;
+			} else {
+				// bypass
+			}
+		}
+		return isContained;
+	}	
 }
