@@ -75,30 +75,12 @@ public class AntStylePatternMatcherUtils {
 	 */
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
-
-		if (excludesPatternList != null) {
-			if (ListUtils.containsByAntStylePattern(excludesPatternList, inputString)) {
-				// bypass
-			} else {
-				if (includesPatternList != null) {
-					if (ListUtils.containsByAntStylePattern(includesPatternList, inputString)) {
-						isMatched = true;
-					} else {
-						isMatched = false;
-					}
-				} else {
-					isMatched = true;
-				}
-			}
-		} else {
-			if (includesPatternList != null) {
-				if (ListUtils.containsByAntStylePattern(includesPatternList, inputString)) {
-					isMatched = true;
-				} else {
-					isMatched = false;
-				}
-			} else {
+		if (includesPatternList != null) {
+			if (ListUtils.containsByAntStylePattern(includesPatternList, inputString)) {
 				isMatched = true;
+			}
+			if (excludesPatternList != null && ListUtils.containsByAntStylePattern(excludesPatternList, inputString)) {
+				isMatched = false;
 			}
 		}
 		logger.debug("isMatched: {}", isMatched);

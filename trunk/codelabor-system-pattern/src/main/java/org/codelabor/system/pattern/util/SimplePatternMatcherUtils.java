@@ -73,30 +73,12 @@ public class SimplePatternMatcherUtils {
 	 */
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
-
-		if (excludesPatternList != null) {
-			if (excludesPatternList.contains(inputString)) {
-				// bypass
-			} else {
-				if (includesPatternList != null) {
-					if (includesPatternList.contains(inputString)) {
-						isMatched = true;
-					} else {
-						isMatched = false;
-					}
-				} else {
-					isMatched = true;
-				}
-			}
-		} else {
-			if (includesPatternList != null) {
-				if (includesPatternList.contains(inputString)) {
-					isMatched = true;
-				} else {
-					isMatched = false;
-				}
-			} else {
+		if (includesPatternList != null) {
+			if (includesPatternList.contains(inputString)) {
 				isMatched = true;
+			}
+			if (excludesPatternList != null && excludesPatternList.contains(inputString)) {
+				isMatched = false;
 			}
 		}
 		logger.debug("isMatched: {}", isMatched);
