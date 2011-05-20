@@ -62,7 +62,7 @@ public class ListUtils {
 	}
 	
 	/**
-	 * 리스트 안의 내용 중 Regexp 패턴에 매칭되는 것이 있는지 확인한다.
+	 * 리스트 안의 내용 중 Regex 패턴에 매칭되는 것이 있는지 확인한다.
 	 *
 	 * @param patternList
 	 *            패턴 List
@@ -71,7 +71,7 @@ public class ListUtils {
 	 * @return 매칭 여부
 	 * @since 3.0.5 
 	 */
-	static public boolean containsByRegexpPattern(List<String> patternList,
+	static public boolean containsByRegexPattern(List<String> patternList,
 			String text) {
 		boolean isContained = false;
 		Iterator<String> iterator = patternList.iterator();
