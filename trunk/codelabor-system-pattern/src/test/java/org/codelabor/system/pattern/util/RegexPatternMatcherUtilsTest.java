@@ -30,9 +30,9 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class SimplePatternMatcherUtilsTest {
+public class RegexPatternMatcherUtilsTest {
 
-	private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherUtilsTest.class);
+	private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherUtilsTest.class);
 	private List<String> includesPatternList = new ArrayList<String>();
 	private List<String> excludesPatternList = new ArrayList<String>();
 
@@ -41,49 +41,52 @@ public class SimplePatternMatcherUtilsTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		includesPatternList.add("1234");
-		includesPatternList.add("abcd");
+		includesPatternList.add("[0-9]*");
+		includesPatternList.add("[a-z]*");
 		includesPatternList.add("가나다라");
-		excludesPatternList.add("1234");
+		excludesPatternList.add("[1-4]*");
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.lang.String, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatcherUtils#matches(java.lang.String, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesStringString() {
-		String pattern = "abcd";
-		String inputString = "abcd";
-		boolean isMatched = SimplePatternMatcherUtils.matches(pattern, inputString);
+		String regex = "[a-z]*";
+		String inputString = "qwerasdf";
+		boolean isMatched = RegexPatternMatcherUtils.matches(regex, inputString);
 		logger.debug("isMatched: {}", isMatched);
+
 		assertEquals(true, isMatched);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatcherUtils#matches(java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringString() {
 		String inputString = "abcd";
-		boolean isMatched = SimplePatternMatcherUtils.matches(includesPatternList, inputString);
+		boolean isMatched = RegexPatternMatcherUtils.matches(includesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
+
 		assertEquals(true, isMatched);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfStringString() {
 		String inputString = "1234";
-		boolean isMatched = SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		boolean isMatched = RegexPatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
+
 		assertEquals(false, isMatched);
 	}
 
