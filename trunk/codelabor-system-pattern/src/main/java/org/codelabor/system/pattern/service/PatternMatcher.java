@@ -26,7 +26,8 @@ import java.util.List;
  */
 public interface PatternMatcher {
 	/**
-	 * 패턴 일치 여부를 확인한다.
+	 * 패턴 일치 여부를 확인한다.<br/>
+	 * 내장된 규칙에 따라 패턴 일치 여부를 확인한다.
 	 * 
 	 * @param inputString
 	 *            확인 대상 문자열
@@ -35,10 +36,10 @@ public interface PatternMatcher {
 	public boolean maches(String inputString);
 
 	/**
-	 * 패턴 일치 여부를 확인한다.
+	 * 패턴 일치 여부를 확인한다.<br/>
 	 * 
-	 * @param patternList
-	 *            패턴 List
+	 * @param pattern
+	 *            패턴
 	 * @param inputString
 	 *            확인 대상 문자열
 	 * @return 패턴 일치 여부
