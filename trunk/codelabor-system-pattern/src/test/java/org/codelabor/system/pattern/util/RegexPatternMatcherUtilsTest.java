@@ -27,7 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Regex ÆĞÅÏ ¸ÅÃ³ À¯Æ¿¸®Æ¼ Å×½ºÆ® Å¬·¡½º
+ * Regex íŒ¨í„´ ë§¤ì²˜ ìœ í‹¸ë¦¬í‹° í…ŒìŠ¤íŠ¸ í´ë˜ìŠ¤
  * 
  * @author Shin Sang-jae
  * 
@@ -35,15 +35,15 @@ import org.slf4j.LoggerFactory;
 public class RegexPatternMatcherUtilsTest {
 
 	/**
-	 * ·Î°Å
+	 * ë¡œê±°
 	 */
 	private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherUtilsTest.class);
 	/**
-	 * Æ÷ÇÔÇÒ ÆĞÅÏ ¸®½ºÆ®
+	 * í¬í•¨í•  íŒ¨í„´ ë¦¬ìŠ¤íŠ¸
 	 */
 	private List<String> includesPatternList = new ArrayList<String>();
 	/**
-	 * Á¦¿ÜÇÒ ÆĞÅÏ ¸®½ºÆ®
+	 * ì œì™¸í•  íŒ¨í„´ ë¦¬ìŠ¤íŠ¸
 	 */
 	private List<String> excludesPatternList = new ArrayList<String>();
 
@@ -54,7 +54,7 @@ public class RegexPatternMatcherUtilsTest {
 	public void setUp() throws Exception {
 		includesPatternList.add("[0-9]*");
 		includesPatternList.add("[a-z]*");
-		includesPatternList.add("°¡³ª´Ù¶ó");
+		includesPatternList.add("ê°€ë‚˜ë‹¤ë¼");
 		excludesPatternList.add("[1-4]*");
 	}
 

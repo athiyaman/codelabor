@@ -24,53 +24,53 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Regex ÆĞÅÏ ¸ÅÃ³ À¯Æ¿¸®Æ¼
+ * Regex íŒ¨í„´ ë§¤ì²˜ ìœ í‹¸ë¦¬í‹°
  * 
  * @author Shin Sang-jae
  * 
  */
 public class RegexPatternMatcherUtils {
 	/**
-	 * ·Î°Å
+	 * ë¡œê±°
 	 */
 	static private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherUtils.class);
 
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
 	 * 
 	 * @param pattern
-	 *            ÆĞÅÏ
+	 *            íŒ¨í„´
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	static public boolean matches(String pattern, String inputString) {
 		return Pattern.matches(pattern, inputString);
 	}
 
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
 	 * 
 	 * @param patternList
-	 *            ÆĞÅÏ List
+	 *            íŒ¨í„´ List
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	static public boolean matches(List<String> patternList, String inputString) {
 		return matches(patternList, null, inputString);
 	}
 
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
 	 * 
 	 * @param includesPatternList
-	 *            Æ÷ÇÔÇÒ ÆĞÅÏ List
+	 *            í¬í•¨í•  íŒ¨í„´ List
 	 * @param excludesPatternList
-	 *            Á¦¿ÜÇÒ ÆĞÅÏ List
+	 *            ì œì™¸í•  íŒ¨í„´ List
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;

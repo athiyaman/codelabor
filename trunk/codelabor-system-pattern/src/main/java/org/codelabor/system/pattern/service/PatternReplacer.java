@@ -20,61 +20,61 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ÆĞÅÏ ¸®ÇÃ·¹ÀÌ¼­ ÀÎÅÍÆäÀÌ½º<br/>
- * ÆĞÅÏ¿¡ ÀÏÄ¡µÇ´Â ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.
+ * íŒ¨í„´ ë¦¬í”Œë ˆì´ì„œ ì¸í„°í˜ì´ìŠ¤<br/>
+ * íŒ¨í„´ì— ì¼ì¹˜ë˜ëŠ” ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.
  * 
  * @author Shin Sang-jae
  * 
  */
 public interface PatternReplacer {
 	/**
-	 * ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.<br/>
-	 * ³»ÀåµÈ ±ÔÄ¢¿¡ µû¶ó ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.
+	 * ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.<br/>
+	 * ë‚´ì¥ëœ ê·œì¹™ì— ë”°ë¼ ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.
 	 * 
 	 * @param targetString
-	 *            Ä¡È¯ ´ë»ó ¹®ÀÚ¿­
-	 * @return Ä¡È¯µÈ ¹®ÀÚ¿­
+	 *            ì¹˜í™˜ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return ì¹˜í™˜ëœ ë¬¸ìì—´
 	 */
 	public String replace(String targetString);
 
 	/**
-	 * ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.<br/>
-	 * °Ë»ö ÆĞÅÏÀ» Ã£¾Æ Ä¡È¯ ÆĞÅÏ¿¡ ÇØ´çÇÏ´Â ÇüÅÂ·Î ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.
+	 * ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.<br/>
+	 * ê²€ìƒ‰ íŒ¨í„´ì„ ì°¾ì•„ ì¹˜í™˜ íŒ¨í„´ì— í•´ë‹¹í•˜ëŠ” í˜•íƒœë¡œ ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.
 	 * 
 	 * @param searchPattern
-	 *            °Ë»ö ÆĞÅÏ
+	 *            ê²€ìƒ‰ íŒ¨í„´
 	 * @param replacePattern
-	 *            Ä¡È¯ ÆĞÅÏ
+	 *            ì¹˜í™˜ íŒ¨í„´
 	 * @param targetString
-	 *            Ä¡È¯ ´ë»ó ¹®ÀÚ¿­
-	 * @return Ä¡È¯µÈ ¹®ÀÚ¿­
+	 *            ì¹˜í™˜ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return ì¹˜í™˜ëœ ë¬¸ìì—´
 	 */
 	public String replace(String searchPattern, String replacePattern, String targetString);
 
 	/**
-	 * ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.<br/>
-	 * MapÀÇ Key¿¡ ÇØ´çÇÏ´Â ÆĞÅÏÀ» Ã£¾Æ MapÀÇ Value¿¡ ÇØ´çÇÏ´Â ÇüÅÂ·Î ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.
+	 * ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.<br/>
+	 * Mapì˜ Keyì— í•´ë‹¹í•˜ëŠ” íŒ¨í„´ì„ ì°¾ì•„ Mapì˜ Valueì— í•´ë‹¹í•˜ëŠ” í˜•íƒœë¡œ ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.
 	 * 
 	 * @param patternMap
-	 *            ÆĞÅÏ Map
+	 *            íŒ¨í„´ Map
 	 * @param targetString
-	 *            Ä¡È¯ ´ë»ó ¹®ÀÚ¿­
-	 * @return Ä¡È¯µÈ ¹®ÀÚ¿­
+	 *            ì¹˜í™˜ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return ì¹˜í™˜ëœ ë¬¸ìì—´
 	 */
 	public String replace(Map<String, String> patternMap, String targetString);
 
 	/**
-	 * ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.<br/>
-	 * Æ÷ÇÔÇÒ ÆĞÅÏ MapÀÇ Key¿¡ ÇØ´çÇÏ´Â ÆĞÅÏÀ» Ã£¾Æ MapÀÇ Value¿¡ ÇØ´çÇÏ´Â ÇüÅÂ·Î ¹®ÀÚ¿­À» Ä¡È¯ÇÑ´Ù.<br/>
-	 * ´Ü, Á¦¿Ü ÆĞÅÏ List¿¡ ÇØ´çµÈ´Ù¸é Ä¡È¯ÇÏÁö ¾Ê´Â´Ù.
+	 * ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.<br/>
+	 * í¬í•¨í•  íŒ¨í„´ Mapì˜ Keyì— í•´ë‹¹í•˜ëŠ” íŒ¨í„´ì„ ì°¾ì•„ Mapì˜ Valueì— í•´ë‹¹í•˜ëŠ” í˜•íƒœë¡œ ë¬¸ìì—´ì„ ì¹˜í™˜í•œë‹¤.<br/>
+	 * ë‹¨, ì œì™¸ íŒ¨í„´ Listì— í•´ë‹¹ëœë‹¤ë©´ ì¹˜í™˜í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	 * 
 	 * @param includesPatternMap
-	 *            Æ÷ÇÔÇÒ ÆĞÅÏ Map
+	 *            í¬í•¨í•  íŒ¨í„´ Map
 	 * @param excludesPatternMap
-	 *            Á¦¿ÜÇÒ ÆĞÅÏ List *
+	 *            ì œì™¸í•  íŒ¨í„´ List *
 	 * @param targetString
-	 *            Ä¡È¯ ´ë»ó ¹®ÀÚ¿­
-	 * @return Ä¡È¯µÈ ¹®ÀÚ¿­
+	 *            ì¹˜í™˜ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return ì¹˜í™˜ëœ ë¬¸ìì—´
 	 */
 	public String replace(Map<String, String> includesPatternMap, List<String> excludesPatternMap, String targetString);
 }

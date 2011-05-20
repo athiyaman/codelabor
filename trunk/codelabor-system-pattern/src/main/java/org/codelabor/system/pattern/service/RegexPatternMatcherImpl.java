@@ -26,8 +26,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * Regex ÆĞÅÏ ¸ÅÃ³ ±¸Çö Å¬·¡½º<br/>
- * Á¤±Ô Ç¥Çö½ÄÀ¸·Î Ç¥ÇöµÈ ÆĞÅÏ¿¡ ´ëÇØ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Â ÆĞÅÏ ¸ÅÃ³
+ * Regex íŒ¨í„´ ë§¤ì²˜ êµ¬í˜„ í´ë˜ìŠ¤<br/>
+ * ì •ê·œ í‘œí˜„ì‹ìœ¼ë¡œ í‘œí˜„ëœ íŒ¨í„´ì— ëŒ€í•´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•  ìˆ˜ ìˆëŠ” íŒ¨í„´ ë§¤ì²˜
  * 
  * @author Shin Sang-jae
  * 
@@ -35,40 +35,40 @@ import org.springframework.beans.factory.InitializingBean;
 public class RegexPatternMatcherImpl implements PatternMatcher, InitializingBean {
 
 	/**
-	 * ·Î°Å
+	 * ë¡œê±°
 	 */
 	private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherImpl.class);
 	/**
-	 * Æ÷ÇÔÇÒ ÆĞÅÏ List (String Å¸ÀÔ)
+	 * í¬í•¨í•  íŒ¨í„´ List (String íƒ€ì…)
 	 */
 	private List<String> includesPatternList;
 	/**
-	 * Á¦¿ÜÇÒ ÆĞÅÏ List (String Å¸ÀÔ)
+	 * ì œì™¸í•  íŒ¨í„´ List (String íƒ€ì…)
 	 */
 	private List<String> excludesPatternList;
 	/**
-	 * Æ÷ÇÔÇÒ ÆĞÅÏ List (Pattern Å¸ÀÔ)
+	 * í¬í•¨í•  íŒ¨í„´ List (Pattern íƒ€ì…)
 	 */
 	private List<Pattern> includesRegexPatternList = new ArrayList<Pattern>();
 	/**
-	 * Á¦¿ÜÇÒ ÆĞÅÏ List (Pattern Å¸ÀÔ)
+	 * ì œì™¸í•  íŒ¨í„´ List (Pattern íƒ€ì…)
 	 */
 	private List<Pattern> excludesRegexPatternList = new ArrayList<Pattern>();
 
 	/**
-	 * Æ÷ÇÔÇÒ ÆĞÅÏ List¸¦ °¡Á®¿Â´Ù.
+	 * í¬í•¨í•  íŒ¨í„´ Listë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
-	 * @return ÆĞÅÏ List
+	 * @return íŒ¨í„´ List
 	 */
 	public List<String> getIncludesPatternList() {
 		return includesPatternList;
 	}
 
 	/**
-	 * Á¦¿ÜÇÒ ÆĞÅÏ List¸¦ ¼³Á¤ÇÑ´Ù.
+	 * ì œì™¸í•  íŒ¨í„´ Listë¥¼ ì„¤ì •í•œë‹¤.
 	 * 
 	 * @param includesPatternList
-	 *            ÆĞÅÏ List
+	 *            íŒ¨í„´ List
 	 */
 	public void setIncludesPatternList(List<String> includesPatternList) {
 		this.includesPatternList = includesPatternList;
@@ -78,19 +78,19 @@ public class RegexPatternMatcherImpl implements PatternMatcher, InitializingBean
 	}
 
 	/**
-	 * Á¦¿ÜÇÒ ÆĞÅÏ List¸¦ °¡Á®¿Â´Ù.
+	 * ì œì™¸í•  íŒ¨í„´ Listë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 	 * 
-	 * @return ÆĞÅÏ List
+	 * @return íŒ¨í„´ List
 	 */
 	public List<String> getExcludesPatternList() {
 		return excludesPatternList;
 	}
 
 	/**
-	 * Á¦¿ÜÇÒ ÆĞÅÏ List¸¦ ¼³Á¤ÇÑ´Ù.
+	 * ì œì™¸í•  íŒ¨í„´ Listë¥¼ ì„¤ì •í•œë‹¤.
 	 * 
 	 * @param excludesPatternList
-	 *            ÆĞÅÏ List
+	 *            íŒ¨í„´ List
 	 */
 	public void setExcludesPatternList(List<String> excludesPatternList) {
 		this.excludesPatternList = excludesPatternList;

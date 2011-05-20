@@ -19,54 +19,54 @@ package org.codelabor.system.pattern.service;
 import java.util.List;
 
 /**
- * Regex ÆĞÅÏ ¸ÅÃ³ ÀÎÅÍÆäÀÌ½º
+ * Regex íŒ¨í„´ ë§¤ì²˜ ì¸í„°í˜ì´ìŠ¤
  * 
  * @author Shin Sang-jae
  * 
  */
 public interface PatternMatcher {
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.<br/>
-	 * ³»ÀåµÈ ±ÔÄ¢¿¡ µû¶ó ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.<br/>
+	 * ë‚´ì¥ëœ ê·œì¹™ì— ë”°ë¼ íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
 	 * 
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	public boolean maches(String inputString);
 
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.<br/>
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.<br/>
 	 * 
 	 * @param pattern
-	 *            ÆĞÅÏ
+	 *            íŒ¨í„´
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	public boolean maches(String pattern, String inputString);
 
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
 	 * 
 	 * @param patternList
-	 *            ÆĞÅÏ List
+	 *            íŒ¨í„´ List
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	public boolean maches(List<String> patternList, String inputString);
 
 	/**
-	 * ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ¸¦ È®ÀÎÇÑ´Ù.
+	 * íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€ë¥¼ í™•ì¸í•œë‹¤.
 	 * 
 	 * @param includesPatternList
-	 *            Æ÷ÇÔÇÒ ÆĞÅÏ List
+	 *            í¬í•¨í•  íŒ¨í„´ List
 	 * @param excludesPatternList
-	 *            Á¦¿ÜÇÒ ÆĞÅÏ List
+	 *            ì œì™¸í•  íŒ¨í„´ List
 	 * @param inputString
-	 *            È®ÀÎ ´ë»ó ¹®ÀÚ¿­
-	 * @return ÆĞÅÏ ÀÏÄ¡ ¿©ºÎ
+	 *            í™•ì¸ ëŒ€ìƒ ë¬¸ìì—´
+	 * @return íŒ¨í„´ ì¼ì¹˜ ì—¬ë¶€
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString);
 }
