@@ -52,6 +52,17 @@ public class PatternTest {
 		logger.debug("isMatched: {}", isMatched);
 		
 		assertEquals(true, isMatched);
-	}	
+	}
+	
+	@Test
+	public void testReplace() {
+		String regex = "(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?";
+		String target = "OR '1234#qwer'= '1234#qwer'";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(target);
+		String resultingString = matcher.replaceAll("");
+		logger.debug("resultingString: {}", resultingString);
+		
+	}
 
 }
