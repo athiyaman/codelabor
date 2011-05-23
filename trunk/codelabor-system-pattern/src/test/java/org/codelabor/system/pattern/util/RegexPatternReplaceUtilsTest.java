@@ -19,7 +19,9 @@ package org.codelabor.system.pattern.util;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,11 +41,11 @@ public class RegexPatternReplaceUtilsTest {
 	 */
 	private Logger logger = LoggerFactory.getLogger(RegexPatternReplaceUtilsTest.class);
 	/**
-	 * 포함할 패턴 리스트
+	 * 검색 및 치환 패턴 Map
 	 */
-	private List<String> includesPatternList = new ArrayList<String>();
+	private Map<String, String> searchAndReplacePatternMap = new HashMap<String, String>();
 	/**
-	 * 제외할 패턴 리스트
+	 * 제외할 패턴 List
 	 */
 	private List<String> excludesPatternList = new ArrayList<String>();
 
@@ -52,10 +54,12 @@ public class RegexPatternReplaceUtilsTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		includesPatternList.add("[0-9]*");
-		includesPatternList.add("[a-z]*");
-		includesPatternList.add("가나다라");
-		excludesPatternList.add("[1-4]*");
+		// or '1' = '1'
+		// OR '1' = '1'
+		// or 1 = 1
+		// ...
+		searchAndReplacePatternMap.put("(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?", "");
+		excludesPatternList.add("(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?");
 	}
 
 	@Test
@@ -67,6 +71,26 @@ public class RegexPatternReplaceUtilsTest {
 		logger.debug("resultingString: {}", resultingString);
 
 		String expectedString = "";
+		assertEquals(expectedString, resultingString);
+	}
+
+	@Test
+	public void testReplaceMapString() {
+		String targetString = "OR '1'= '1'";
+		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, targetString);
+		logger.debug("resultingString: {}", resultingString);
+
+		String expectedString = "";
+		assertEquals(expectedString, resultingString);
+	}
+
+	@Test
+	public void testReplaceMapListString() {
+		String targetString = "OR '1'= '1'";
+		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+
+		String expectedString = "OR '1'= '1'";
 		assertEquals(expectedString, resultingString);
 	}
 
