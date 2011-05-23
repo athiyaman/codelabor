@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class StringTest extends TestCase {
 
 	private final Logger logger = LoggerFactory.getLogger(StringTest.class);
@@ -15,24 +16,16 @@ public class StringTest extends TestCase {
 		String filePatternString = "jsp/test.jsp images/test.gif; css/test.css, js/test.js";
 		String regexpPattern = "([ ]*[,; ][ ]*)";
 		String[] filePatterns = filePatternString.split(regexpPattern);
-		Assert.assertEquals(3, filePatterns.length);
 		for (String filePattern : filePatterns) {
 			System.out.println("filePattern: " + filePattern);
-		}
+		}		
+		Assert.assertEquals(4, filePatterns.length);
+
 	}
 
 	public void testSubstring() {
 		String fileName = "/qwer/qwer/qwer/test.txt";
 		int index = fileName.lastIndexOf(".");
-		String extension = fileName.substring(index + 1);
-		Assert.assertEquals("txt", extension);
-		System.out.println("extention: " + extension);
-	}
-
-	public void testSubstring2() {
-		String fileName = "/qwer/qwer/qwer/test";
-		int index = fileName.lastIndexOf(".");
-		System.out.println("index: " + index);
 		String extension = fileName.substring(index + 1);
 		Assert.assertEquals("txt", extension);
 		System.out.println("extention: " + extension);
@@ -46,4 +39,5 @@ public class StringTest extends TestCase {
 		formattedString = String.format("%02d", value);
 		logger.debug("formattedString: {}", formattedString);
 	}
+
 }
