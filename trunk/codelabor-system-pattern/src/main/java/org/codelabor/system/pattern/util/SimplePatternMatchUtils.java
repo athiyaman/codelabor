@@ -17,7 +17,6 @@
 package org.codelabor.system.pattern.util;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +43,7 @@ public class SimplePatternMatchUtils {
 	 * @return 패턴 일치 여부
 	 */
 	static public boolean matches(String pattern, String inputString) {
-		return Pattern.matches(pattern, inputString);
+		return pattern.equals(inputString);
 	}
 
 	/**
