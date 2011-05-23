@@ -54,44 +54,102 @@ public class RegexPatternReplaceUtilsTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		// or '1' = '1'
-		// OR '1' = '1'
-		// or 1 = 1
-		// ...
-		searchAndReplacePatternMap.put("(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?", "");
-		excludesPatternList.add("(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?");
+		// ' or 1=1--
+		searchAndReplacePatternMap.put("'?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "'");
+
+		// " or 1=1--
+		searchAndReplacePatternMap.put("\"?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "\"");
+
+		// or 1=1--
+		searchAndReplacePatternMap.put("(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "");
+
+		// ' or 'a'='a
+		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+'(.*)'\\s*=\\s*'\\1", "'");
+
+		// " or "a"="a
+		searchAndReplacePatternMap.put("\"\\s+(?i)or\\s+\"(.*)\"\\s*=\\s*\"\\1", "\"");
+
+		// ') or ('a'='a
+		searchAndReplacePatternMap.put("'\\)\\s+(?i)or\\s+\\('?(.*)'\\s*=\\s*'\\1", "'");
+
+		// ' or password like '%
+		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+(password)\\s+(like)\\s+'%", "'");
+
+		// ' or 1=1--
+		excludesPatternList.add("'?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--");
 	}
 
 	@Test
 	public void testReplaceStringStringString() {
-		String searchPattern = "(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?";
-		String replacePattern = "";
-		String targetString = "OR '1'= '1'";
+		String searchPattern = "'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--";
+		String replacePattern = "'";
+		String targetString = "' or 1=1--";
 		String resultingString = RegexPatternReplaceUtils.replace(searchPattern, replacePattern, targetString);
 		logger.debug("resultingString: {}", resultingString);
+		assertEquals(replacePattern, resultingString);
 
-		String expectedString = "";
-		assertEquals(expectedString, resultingString);
+		searchPattern = "\"?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--";
+		replacePattern = "\"";
+		targetString = "\" or 1=1--";
+		resultingString = RegexPatternReplaceUtils.replace(searchPattern, replacePattern, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		assertEquals(replacePattern, resultingString);
 	}
 
 	@Test
 	public void testReplaceMapString() {
-		String targetString = "OR '1'= '1'";
+		String targetString = "' or 1=1--";
 		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, targetString);
 		logger.debug("resultingString: {}", resultingString);
 
-		String expectedString = "";
+		String expectedString = "'";
 		assertEquals(expectedString, resultingString);
 	}
 
 	@Test
 	public void testReplaceMapListString() {
-		String targetString = "OR '1'= '1'";
+		String targetString = "' or 1=1--";
 		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
 		logger.debug("resultingString: {}", resultingString);
-
-		String expectedString = "OR '1'= '1'";
+		String expectedString = "' or 1=1--";
 		assertEquals(expectedString, resultingString);
+
+		targetString = "\" or 1=1--";
+		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		expectedString = "\"";
+		assertEquals(expectedString, resultingString);
+
+		targetString = "or 1=1--";
+		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		expectedString = "";
+		assertEquals(expectedString, resultingString);
+
+		targetString = "' or 'a'='a";
+		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		expectedString = "'";
+		assertEquals(expectedString, resultingString);
+
+		targetString = "\" or \"a\"=\"a";
+		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		expectedString = "\"";
+		assertEquals(expectedString, resultingString);
+
+		targetString = "') or ('a'='a";
+		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		expectedString = "'";
+		assertEquals(expectedString, resultingString);
+
+		targetString = "' or password like '%";
+		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		logger.debug("resultingString: {}", resultingString);
+		expectedString = "'";
+		assertEquals(expectedString, resultingString);
+
 	}
 
 }

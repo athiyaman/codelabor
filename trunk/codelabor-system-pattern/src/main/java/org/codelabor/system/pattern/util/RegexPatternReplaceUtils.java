@@ -90,11 +90,12 @@ public class RegexPatternReplaceUtils {
 				Iterator<String> iter = keySet.iterator();
 				while (iter.hasNext()) {
 					String searchPattern = iter.next();
-					String replacePattern = searchAndReplacePatternMap.get(searchPattern);
-					resultingString = replace(searchPattern, replacePattern, targetString);
-					logger.debug("searchPattern: {}", searchPattern);
-					logger.debug("replacePattern: {}", replacePattern);
-					logger.debug("resultingString: {}", resultingString);
+					if (RegexPatternMatchUtils.matches(searchPattern, targetString)) {
+						String replacePattern = searchAndReplacePatternMap.get(searchPattern);
+						resultingString = replace(searchPattern, replacePattern, targetString);
+						logger.debug("searchPattern: {}, replacePattern: {}", searchPattern, replacePattern);
+						logger.debug("targetString: {}, resultingString: {}", targetString, resultingString);
+					}
 				}
 			}
 		}
