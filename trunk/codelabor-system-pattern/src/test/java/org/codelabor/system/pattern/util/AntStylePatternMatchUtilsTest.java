@@ -32,12 +32,12 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class AntStylePatternMatcherUtilsTest {
+public class AntStylePatternMatchUtilsTest {
 
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(AntStylePatternMatcherUtilsTest.class);
+	private Logger logger = LoggerFactory.getLogger(AntStylePatternMatchUtilsTest.class);
 	/**
 	 * 포함할 패턴 리스트
 	 */
