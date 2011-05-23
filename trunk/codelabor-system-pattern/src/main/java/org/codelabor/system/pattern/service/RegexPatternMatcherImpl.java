@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.codelabor.system.pattern.util.RegexPatternMatcherUtils;
+import org.codelabor.system.pattern.util.RegexPatternMatchUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -129,7 +129,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher, InitializingBean
 	 * java.lang.String)
 	 */
 	public boolean maches(String pattern, String inputString) {
-		return RegexPatternMatcherUtils.matches(pattern, inputString);
+		return RegexPatternMatchUtils.matches(pattern, inputString);
 	}
 
 	/*
@@ -139,7 +139,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher, InitializingBean
 	 * java.lang.String)
 	 */
 	public boolean maches(List<String> patternList, String inputString) {
-		return RegexPatternMatcherUtils.matches(includesPatternList, inputString);
+		return RegexPatternMatchUtils.matches(includesPatternList, inputString);
 	}
 
 	/*
@@ -149,7 +149,7 @@ public class RegexPatternMatcherImpl implements PatternMatcher, InitializingBean
 	 * java.util.List, java.lang.String)
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
-		return RegexPatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		return RegexPatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 	/*

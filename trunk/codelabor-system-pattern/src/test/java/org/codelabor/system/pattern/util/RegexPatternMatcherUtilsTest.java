@@ -60,14 +60,14 @@ public class RegexPatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.RegexPatternMatcherUtils#matches(java.lang.String, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.lang.String, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesStringString() {
 		String pattern = "[a-z]*";
 		String inputString = "qwerasdf";
-		boolean isMatched = RegexPatternMatcherUtils.matches(pattern, inputString);
+		boolean isMatched = RegexPatternMatchUtils.matches(pattern, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
@@ -75,13 +75,13 @@ public class RegexPatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.RegexPatternMatcherUtils#matches(java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringString() {
 		String inputString = "abcd";
-		boolean isMatched = RegexPatternMatcherUtils.matches(includesPatternList, inputString);
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
@@ -89,13 +89,13 @@ public class RegexPatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.RegexPatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.util.List, java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfStringString() {
 		String inputString = "1234";
-		boolean isMatched = RegexPatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(false, isMatched);

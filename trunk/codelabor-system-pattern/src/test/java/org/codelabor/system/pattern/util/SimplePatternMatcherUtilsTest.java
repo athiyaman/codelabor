@@ -60,40 +60,40 @@ public class SimplePatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.lang.String, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.SimplePatternMatchUtils#matches(java.lang.String, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesStringString() {
 		String pattern = "abcd";
 		String inputString = "abcd";
-		boolean isMatched = SimplePatternMatcherUtils.matches(pattern, inputString);
+		boolean isMatched = SimplePatternMatchUtils.matches(pattern, inputString);
 		logger.debug("isMatched: {}", isMatched);
 		assertEquals(true, isMatched);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.SimplePatternMatchUtils#matches(java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringString() {
 		String inputString = "abcd";
-		boolean isMatched = SimplePatternMatcherUtils.matches(includesPatternList, inputString);
+		boolean isMatched = SimplePatternMatchUtils.matches(includesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 		assertEquals(true, isMatched);
 	}
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.SimplePatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.SimplePatternMatchUtils#matches(java.util.List, java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfStringString() {
 		String inputString = "1234";
-		boolean isMatched = SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		boolean isMatched = SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 		assertEquals(false, isMatched);
 	}

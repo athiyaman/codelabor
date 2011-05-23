@@ -60,14 +60,14 @@ public class AntStylePatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatcherUtils#matches(java.lang.String, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatchUtils#matches(java.lang.String, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesStringString() {
 		String pattern = "*asdf";
 		String inputString = "qwerasdf";
-		boolean isMatched = AntStylePatternMatcherUtils.matches(pattern, inputString);
+		boolean isMatched = AntStylePatternMatchUtils.matches(pattern, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
@@ -75,13 +75,13 @@ public class AntStylePatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatcherUtils#matches(java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatchUtils#matches(java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringString() {
 		String inputString = "abcd";
-		boolean isMatched = AntStylePatternMatcherUtils.matches(includesPatternList, inputString);
+		boolean isMatched = AntStylePatternMatchUtils.matches(includesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
@@ -89,13 +89,13 @@ public class AntStylePatternMatcherUtilsTest {
 
 	/**
 	 * Test method for
-	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatcherUtils#matches(java.util.List, java.util.List, java.lang.String)}
+	 * {@link org.codelabor.system.pattern.util.AntStylePatternMatchUtils#matches(java.util.List, java.util.List, java.lang.String)}
 	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfStringString() {
 		String inputString = "1234";
-		boolean isMatched = AntStylePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		boolean isMatched = AntStylePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(false, isMatched);

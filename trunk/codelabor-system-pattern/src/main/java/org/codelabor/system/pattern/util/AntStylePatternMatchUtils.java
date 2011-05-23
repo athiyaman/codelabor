@@ -17,23 +17,23 @@
 package org.codelabor.system.pattern.util;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import org.codelabor.system.util.ListUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.AntPathMatcher;
 
 /**
- * Regex 패턴 매처 유틸리티
+ * Ant Style 패턴 매처 유틸리티
  * 
  * @author Shin Sang-jae
  * 
  */
-public class RegexPatternMatcherUtils {
+public class AntStylePatternMatchUtils {
 	/**
 	 * 로거
 	 */
-	static private Logger logger = LoggerFactory.getLogger(RegexPatternMatcherUtils.class);
+	static private Logger logger = LoggerFactory.getLogger(AntStylePatternMatchUtils.class);
 
 	/**
 	 * 패턴 일치 여부를 확인한다.
@@ -45,7 +45,8 @@ public class RegexPatternMatcherUtils {
 	 * @return 패턴 일치 여부
 	 */
 	static public boolean matches(String pattern, String inputString) {
-		return Pattern.matches(pattern, inputString);
+		AntPathMatcher antPathMatcher = new AntPathMatcher();
+		return antPathMatcher.match(pattern, inputString);
 	}
 
 	/**
@@ -75,10 +76,10 @@ public class RegexPatternMatcherUtils {
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 		if (includesPatternList != null) {
-			if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
+			if (ListUtils.containsByAntStylePattern(includesPatternList, inputString)) {
 				isMatched = true;
 			}
-			if (excludesPatternList != null && ListUtils.containsByRegexPattern(excludesPatternList, inputString)) {
+			if (excludesPatternList != null && ListUtils.containsByAntStylePattern(excludesPatternList, inputString)) {
 				isMatched = false;
 			}
 		}

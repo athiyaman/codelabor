@@ -28,11 +28,11 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sang-jae
  * 
  */
-public class SimplePatternMatcherUtils {
+public class SimplePatternMatchUtils {
 	/**
 	 * 로거
 	 */
-	static private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherUtils.class);
+	static private Logger logger = LoggerFactory.getLogger(SimplePatternMatchUtils.class);
 
 	/**
 	 * 패턴 일치 여부를 확인한다.

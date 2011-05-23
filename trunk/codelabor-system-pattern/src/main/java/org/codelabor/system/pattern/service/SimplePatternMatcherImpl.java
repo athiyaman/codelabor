@@ -19,7 +19,7 @@ package org.codelabor.system.pattern.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codelabor.system.pattern.util.SimplePatternMatcherUtils;
+import org.codelabor.system.pattern.util.SimplePatternMatchUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -91,7 +91,7 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	 */
 	public boolean maches(String inputString) {
 		boolean isMatched = false;
-		isMatched = SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		isMatched = SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 		logger.debug("isMatched: {}", isMatched);
 		return isMatched;
 	}
@@ -103,7 +103,7 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	 * java.lang.String)
 	 */
 	public boolean maches(String pattern, String inputString) {
-		return SimplePatternMatcherUtils.matches(pattern, inputString);
+		return SimplePatternMatchUtils.matches(pattern, inputString);
 	}
 
 	/*
@@ -113,7 +113,7 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	 * java.lang.String)
 	 */
 	public boolean maches(List<String> patternList, String inputString) {
-		return SimplePatternMatcherUtils.matches(includesPatternList, inputString);
+		return SimplePatternMatchUtils.matches(includesPatternList, inputString);
 	}
 
 	/*
@@ -123,7 +123,7 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	 * java.util.List, java.lang.String)
 	 */
 	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
-		return SimplePatternMatcherUtils.matches(includesPatternList, excludesPatternList, inputString);
+		return SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 	/*
