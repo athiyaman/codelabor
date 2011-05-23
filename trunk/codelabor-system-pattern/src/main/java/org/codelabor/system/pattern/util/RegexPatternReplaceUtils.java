@@ -16,6 +16,10 @@
  */
 package org.codelabor.system.pattern.util;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,11 +39,13 @@ public class RegexPatternReplaceUtils {
 	static private Logger logger = LoggerFactory.getLogger(RegexPatternReplaceUtils.class);
 
 	/**
-	 * 패턴 일치 여부를 확인한다.
+	 * 패턴을 치환한다.<br/>
 	 * 
-	 * @param pattern
-	 *            패턴
-	 * @param inputString
+	 * @param searchPattern
+	 *            검색 패턴
+	 * @param replacePattern
+	 *            치환 패턴
+	 * @param targetString
 	 *            치환 대상 문자열
 	 * @return 치환 결과 문자열
 	 */
@@ -52,43 +58,46 @@ public class RegexPatternReplaceUtils {
 	}
 
 	/**
-	 * 패턴 일치 여부를 확인한다.
+	 * 패턴을 치환한다.<br/>
 	 * 
-	 * @param patternList
-	 *            패턴 List
-	 * @param inputString
+	 * @param searchAndReplacePatternMap
+	 *            검색 및 치환 패턴 Map
+	 * @param targetString
 	 *            치환 대상 문자열
 	 * @return 치환 결과 문자열
 	 */
-	// static public String replace(List<String> patternList, String
-	// inputString) {
-	// return replace(patternList, null, inputString);
-	// }
+	static public String replace(Map<String, String> searchAndReplacePatternMap, String targetString) {
+		return replace(searchAndReplacePatternMap, null, targetString);
+	}
 
 	/**
-	 * 패턴 일치 여부를 확인한다.
+	 * 패턴을 치환한다.<br/>
 	 * 
-	 * @param includesPatternList
-	 *            포함할 패턴 List
-	 * @param excludesPatternList
-	 *            제외할 패턴 List
-	 * @param inputString
+	 * @param searchAndReplacePatternMap
+	 *            검색 및 치환 패턴 Map
+	 * @param targetString
 	 *            치환 대상 문자열
 	 * @return 치환 결과 문자열
 	 */
-	// static public String replace(List<String> includesPatternList,
-	// List<String> excludesPatternList, String inputString) {
-	// boolean isMatched = false;
-	// if (includesPatternList != null) {
-	// if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
-	// isMatched = true;
-	// }
-	// if (excludesPatternList != null &&
-	// ListUtils.containsByRegexPattern(excludesPatternList, inputString)) {
-	// isMatched = false;
-	// }
-	// }
-	// logger.debug("isMatched: {}", isMatched);
-	// return isMatched;
-	// }
+	static public String replace(Map<String, String> searchAndReplacePatternMap, List<String> excludesPatternList, String targetString) {
+		String resultingString = targetString;
+		if (searchAndReplacePatternMap != null) {
+			if (excludesPatternList != null && RegexPatternMatchUtils.matches(excludesPatternList, targetString)) {
+				logger.debug("Pattern excluded.");
+				// bypass
+			} else {
+				Set<String> keySet = searchAndReplacePatternMap.keySet();
+				Iterator<String> iter = keySet.iterator();
+				while (iter.hasNext()) {
+					String searchPattern = iter.next();
+					String replacePattern = searchAndReplacePatternMap.get(searchPattern);
+					resultingString = replace(searchPattern, replacePattern, targetString);
+					logger.debug("searchPattern: {}", searchPattern);
+					logger.debug("replacePattern: {}", replacePattern);
+					logger.debug("resultingString: {}", resultingString);
+				}
+			}
+		}
+		return resultingString;
+	}
 }

@@ -74,11 +74,12 @@ public class SimplePatternMatchUtils {
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 		if (includesPatternList != null) {
-			if (includesPatternList.contains(inputString)) {
-				isMatched = true;
-			}
 			if (excludesPatternList != null && excludesPatternList.contains(inputString)) {
-				isMatched = false;
+				// bypass
+			} else {
+				if (includesPatternList.contains(inputString)) {
+					isMatched = true;
+				}
 			}
 		}
 		logger.debug("isMatched: {}", isMatched);

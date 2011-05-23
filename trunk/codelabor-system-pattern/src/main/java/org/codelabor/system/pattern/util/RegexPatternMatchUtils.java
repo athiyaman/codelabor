@@ -75,12 +75,14 @@ public class RegexPatternMatchUtils {
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 		if (includesPatternList != null) {
-			if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
-				isMatched = true;
-			}
 			if (excludesPatternList != null && ListUtils.containsByRegexPattern(excludesPatternList, inputString)) {
-				isMatched = false;
+				// bypass
+			} else {
+				if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
+					isMatched = true;
+				}
 			}
+
 		}
 		logger.debug("isMatched: {}", isMatched);
 		return isMatched;

@@ -76,12 +76,14 @@ public class AntStylePatternMatchUtils {
 	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 		if (includesPatternList != null) {
-			if (ListUtils.containsByAntStylePattern(includesPatternList, inputString)) {
-				isMatched = true;
-			}
 			if (excludesPatternList != null && ListUtils.containsByAntStylePattern(excludesPatternList, inputString)) {
-				isMatched = false;
+				// bypass
+			} else {
+				if (ListUtils.containsByAntStylePattern(includesPatternList, inputString)) {
+					isMatched = true;
+				}
 			}
+
 		}
 		logger.debug("isMatched: {}", isMatched);
 		return isMatched;
