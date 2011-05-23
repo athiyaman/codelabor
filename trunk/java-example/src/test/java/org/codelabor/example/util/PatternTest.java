@@ -56,13 +56,13 @@ public class PatternTest {
 	
 	@Test
 	public void testReplace() {
+		// sql injection pettern: or 'qwer' = 'qwer'
 		String regex = "(?i)or\\s+'?(.*)'?\\s*=\\s*'?\\1'?";
 		String target = "OR '1234#qwer'= '1234#qwer'";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(target);
 		String resultingString = matcher.replaceAll("");
 		logger.debug("resultingString: {}", resultingString);
-		
 	}
 
 }
