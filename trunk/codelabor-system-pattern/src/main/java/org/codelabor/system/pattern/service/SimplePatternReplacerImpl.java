@@ -24,7 +24,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple 패턴 리플레이서 구현 클래스
+ * Simple 패턴 리플레이서 구현 클래스<br/>
+ * 단순 문자열로 표현된 패턴에 대해 치환을 할 수 있는 패턴 리플레이서
  * 
  * @author Shin Sang-jae
  * 

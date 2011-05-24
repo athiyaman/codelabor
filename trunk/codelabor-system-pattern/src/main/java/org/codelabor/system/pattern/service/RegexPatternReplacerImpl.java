@@ -24,7 +24,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Regex 패턴 리플레이서 구현 클래스
+ * Regex 패턴 리플레이서 구현 클래스<br/>
+ * 정규 표현식으로 표현된 패턴에 대해 치환을 확인할 수 있는 패턴 리플레이서
  * 
  * @author Shin Sang-jae
  * 

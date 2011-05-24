@@ -24,6 +24,9 @@ import java.util.Map;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
+ * 패턴 리플레이서 추상 클래스<br/>
+ * 리플레이서에 공통적으로 필요한 패턴 리스트 처리 방법을 추상화 한다.
+ * 
  * @author Shin Sang-jae
  * 
  */
