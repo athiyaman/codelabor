@@ -119,7 +119,7 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 	}
 
 	/**
-	 * 제외할 패턴 List를 설정한다.
+	 * 포함할 패턴 List를 설정한다.
 	 * 
 	 * @param includesPatternList
 	 *            패턴 List
