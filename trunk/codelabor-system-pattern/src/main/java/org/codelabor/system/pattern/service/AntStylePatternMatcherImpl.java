@@ -24,7 +24,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * AntStyle 패턴 매처 구현 클래스<br/>
- * 정규 표현식으로 표현된 패턴에 대해 일치 여부를 확인할 수 있는 패턴 매처
+ * 정규 표현식으로 표현된 패턴에 대해 일치 여부를 확인할 수 있는 패턴 매처<br/>
+ * Spring의 AntStyleMatcher를 의존하여 한글은 지원되지 않는다.
  * 
  * @author Shin Sang-jae
  * 

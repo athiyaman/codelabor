@@ -49,7 +49,7 @@ public class AntStylePatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		String inputString = "12345";
+		String inputString = "234";
 		boolean isMatched = antStylePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
@@ -63,5 +63,15 @@ public class AntStylePatternMatcherTest {
 		isMatched = antStylePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
+
+		inputString = "가나다라마바사";
+		isMatched = antStylePatternMatcher.maches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(!isMatched);
+
+		inputString = "1234";
+		isMatched = antStylePatternMatcher.maches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(!isMatched);
 	}
 }

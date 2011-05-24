@@ -20,7 +20,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * AntStyle 패턴 치환 유틸리티
+ * AntStyle 패턴 치환 유틸리티<br/>
+ * Spring의 AntStyleMatcher를 의존하여 한글은 지원되지 않는다.
  * 
  * @author Shin Sang-jae
  * 
