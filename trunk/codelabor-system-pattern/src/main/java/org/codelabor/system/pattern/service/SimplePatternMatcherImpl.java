@@ -44,10 +44,10 @@ public class SimplePatternMatcherImpl extends AbstractPatternMatcher {
 	 * .lang.String)
 	 */
 	public boolean maches(String inputString) {
-		boolean isMatched = false;
-		isMatched = SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
-		logger.debug("isMatched: {}", isMatched);
-		return isMatched;
+		logger.debug("includesPatternList: {}", includesPatternList);
+		logger.debug("excludesPatternList: {}", excludesPatternList);
+		logger.debug("inputString: {}", inputString);
+		return SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 	/*

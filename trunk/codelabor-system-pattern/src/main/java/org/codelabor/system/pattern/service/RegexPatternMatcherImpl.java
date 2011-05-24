@@ -54,6 +54,9 @@ public class RegexPatternMatcherImpl extends AbstractPatternMatcher {
 	 * .lang.String)
 	 */
 	public boolean maches(String inputString) {
+		logger.debug("includesPatternList: {}", includesPatternList);
+		logger.debug("excludesPatternList: {}", excludesPatternList);
+		logger.debug("inputString: {}", inputString);
 		boolean isMatched = false;
 		for (Pattern includesPattern : includesRegexPatternList) {
 			if (includesPattern.matcher(inputString).matches()) {

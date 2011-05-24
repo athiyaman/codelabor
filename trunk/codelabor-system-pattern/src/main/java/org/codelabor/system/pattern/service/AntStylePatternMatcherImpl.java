@@ -44,9 +44,10 @@ public class AntStylePatternMatcherImpl extends AbstractPatternMatcher {
 	 * .lang.String)
 	 */
 	public boolean maches(String inputString) {
-		boolean isMatched = AntStylePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
-		logger.debug("isMatched: {}", isMatched);
-		return isMatched;
+		logger.debug("includesPatternList: {}", includesPatternList);
+		logger.debug("excludesPatternList: {}", excludesPatternList);
+		logger.debug("inputString: {}", inputString);
+		return AntStylePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 	/*
