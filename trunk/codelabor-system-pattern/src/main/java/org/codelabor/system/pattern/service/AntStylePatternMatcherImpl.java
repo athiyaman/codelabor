@@ -43,7 +43,7 @@ public class AntStylePatternMatcherImpl extends AbstractPatternMatcher {
 	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
 	 * .lang.String)
 	 */
-	public boolean maches(String inputString) {
+	public boolean matches(String inputString) {
 		logger.debug("includesPatternList: {}", includesPatternList);
 		logger.debug("excludesPatternList: {}", excludesPatternList);
 		logger.debug("inputString: {}", inputString);
@@ -57,7 +57,7 @@ public class AntStylePatternMatcherImpl extends AbstractPatternMatcher {
 	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
 	 * .lang.String, java.lang.String)
 	 */
-	public boolean maches(String pattern, String inputString) {
+	public boolean matches(String pattern, String inputString) {
 		return AntStylePatternMatchUtils.matches(pattern, inputString);
 	}
 
@@ -68,7 +68,7 @@ public class AntStylePatternMatcherImpl extends AbstractPatternMatcher {
 	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
 	 * .util.List, java.lang.String)
 	 */
-	public boolean maches(List<String> patternList, String inputString) {
+	public boolean matches(List<String> patternList, String inputString) {
 		return AntStylePatternMatchUtils.matches(patternList, inputString);
 	}
 
@@ -79,7 +79,7 @@ public class AntStylePatternMatcherImpl extends AbstractPatternMatcher {
 	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
 	 * .util.List, java.util.List, java.lang.String)
 	 */
-	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
+	public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
 		return AntStylePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 

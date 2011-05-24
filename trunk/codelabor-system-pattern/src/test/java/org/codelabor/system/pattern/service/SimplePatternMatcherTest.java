@@ -53,17 +53,17 @@ public class SimplePatternMatcherTest {
 	@Test
 	public void testMatches() {
 		String inputString = "1234";
-		boolean isMatched = simplePatternMatcher.maches(inputString);
+		boolean isMatched = simplePatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 
 		inputString = "abcd";
-		isMatched = simplePatternMatcher.maches(inputString);
+		isMatched = simplePatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
 		inputString = "가나다라";
-		isMatched = simplePatternMatcher.maches(inputString);
+		isMatched = simplePatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 	}

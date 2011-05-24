@@ -33,7 +33,7 @@ public interface PatternMatcher {
 	 *            확인 대상 문자열
 	 * @return 패턴 일치 여부
 	 */
-	public boolean maches(String inputString);
+	public boolean matches(String inputString);
 
 	/**
 	 * 패턴 일치 여부를 확인한다.<br/>
@@ -44,7 +44,7 @@ public interface PatternMatcher {
 	 *            확인 대상 문자열
 	 * @return 패턴 일치 여부
 	 */
-	public boolean maches(String pattern, String inputString);
+	public boolean matches(String pattern, String inputString);
 
 	/**
 	 * 패턴 일치 여부를 확인한다.
@@ -55,7 +55,7 @@ public interface PatternMatcher {
 	 *            확인 대상 문자열
 	 * @return 패턴 일치 여부
 	 */
-	public boolean maches(List<String> patternList, String inputString);
+	public boolean matches(List<String> patternList, String inputString);
 
 	/**
 	 * 패턴 일치 여부를 확인한다.
@@ -68,5 +68,5 @@ public interface PatternMatcher {
 	 *            확인 대상 문자열
 	 * @return 패턴 일치 여부
 	 */
-	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString);
+	public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString);
 }

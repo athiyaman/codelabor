@@ -46,7 +46,7 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 	 * org.codelabor.system.pattern.service.PatternMatcher#maches(java.lang.
 	 * String)
 	 */
-	public abstract boolean maches(String inputString);
+	public abstract boolean matches(String inputString);
 
 	/*
 	 * (non-Javadoc)
@@ -55,7 +55,7 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 	 * org.codelabor.system.pattern.service.PatternMatcher#maches(java.lang.
 	 * String, java.lang.String)
 	 */
-	public abstract boolean maches(String pattern, String inputString);
+	public abstract boolean matches(String pattern, String inputString);
 
 	/*
 	 * (non-Javadoc)
@@ -64,7 +64,7 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 	 * org.codelabor.system.pattern.service.PatternMatcher#maches(java.util.
 	 * List, java.lang.String)
 	 */
-	public abstract boolean maches(List<String> patternList, String inputString);
+	public abstract boolean matches(List<String> patternList, String inputString);
 
 	/*
 	 * (non-Javadoc)
@@ -73,7 +73,7 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 	 * org.codelabor.system.pattern.service.PatternMatcher#maches(java.util.
 	 * List, java.util.List, java.lang.String)
 	 */
-	public abstract boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString);
+	public abstract boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString);
 
 	/*
 	 * (non-Javadoc)

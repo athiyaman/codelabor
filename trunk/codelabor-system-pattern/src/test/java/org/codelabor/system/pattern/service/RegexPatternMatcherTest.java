@@ -50,17 +50,17 @@ public class RegexPatternMatcherTest {
 	@Test
 	public void testMatches() {
 		String inputString = "12345";
-		boolean isMatched = regexPatternMatcher.maches(inputString);
+		boolean isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
 		inputString = "1234";
-		isMatched = regexPatternMatcher.maches(inputString);
+		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 
 		inputString = "abcd";
-		isMatched = regexPatternMatcher.maches(inputString);
+		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 	}
