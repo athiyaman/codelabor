@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean id="regexPatternReplacer" class="org.codelabor.system.pattern.service.RegexPatternReplacerImpl">
+		<property name="searchAndReplacePatternMap">
+			<util:map>
+				<entry key="'?\s+(?i)or\s+(.*)\s*=\s*\1\s*--" value="'" />
+				<entry key="&quot;?\s+(?i)or\s+(.*)\s*=\s*\1\s*--" value="&quot;" />
+				<entry key="(?i)or\s+(.*)\s*=\s*\1\s*--" value="" />
+				<entry key="'\s+(?i)or\s+'(.*)'\s*=\s*'\1" value="'" />
+				<entry key="&quot;\s+(?i)or\s+&quot;(.*)&quot;\s*=\s*&quot;\1" value="&quot;" />
+				<entry key="'\)\s+(?i)or\s+\('?(.*)'\s*=\s*'\1" value="'" />
+				<entry key="'\s+(?i)or\s+(password)\s+(like)\s+'%" value="'" />
+			</util:map>
+		</property>
+		<property name="excludesPatternList">
+			<util:list>
+				<value>'?\s+(?i)or\s+(.*)\s*=\s*\1\s*--</value>
+			</util:list>		
+		</property>
+	</bean>
+</beans>
