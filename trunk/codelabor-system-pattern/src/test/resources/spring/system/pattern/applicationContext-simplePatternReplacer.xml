@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean id="simplePatternReplacer" class="org.codelabor.system.pattern.service.SimplePatternReplacerImpl">
+		<property name="searchAndReplacePatternMap" ref="simplepSearchAndReplacePatternMap" />
+		<property name="excludesPatternList" ref="simplepExcludesPatternList" />
+	</bean>
+	
+	<util:map id="simplepSearchAndReplacePatternMap">
+		<entry key="qwer" value="QWER" />
+		<entry key="asdf" value="ASDF" />
+		<entry key="zxcv" value="ZXCV" />
+	</util:map>
+	
+	<util:list id="simplepExcludesPatternList">
+		<value>zxcv</value>
+	</util:list>
+	
+</beans>
