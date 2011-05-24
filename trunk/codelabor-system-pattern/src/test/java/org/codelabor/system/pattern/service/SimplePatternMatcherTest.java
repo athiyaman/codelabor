@@ -38,6 +38,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = "classpath:spring/**/applicationContext*.xml")
 public class SimplePatternMatcherTest {
 
+	/**
+	 * 로거
+	 */
 	private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherTest.class);
 
 	@Autowired
@@ -49,10 +52,8 @@ public class SimplePatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		boolean isMatched = false;
-
 		String inputString = "12345";
-		isMatched = simplePatternMatcher.maches(inputString);
+		boolean isMatched = simplePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 

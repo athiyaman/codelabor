@@ -49,10 +49,8 @@ public class AntStylePatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		boolean isMatched = false;
-
 		String inputString = "12345";
-		isMatched = antStylePatternMatcher.maches(inputString);
+		boolean isMatched = antStylePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 

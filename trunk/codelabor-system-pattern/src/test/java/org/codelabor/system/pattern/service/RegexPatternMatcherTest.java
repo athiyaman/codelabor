@@ -49,10 +49,8 @@ public class RegexPatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		boolean isMatched = false;
-
 		String inputString = "12345";
-		isMatched = regexPatternMatcher.maches(inputString);
+		boolean isMatched = regexPatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
