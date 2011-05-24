@@ -24,17 +24,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple 패턴 리플레이서 구현 클래스
+ * Regex 패턴 리플레이서 구현 클래스
  * 
  * @author Shin Sang-jae
  * 
  */
-public class SimplePatternReplacerImpl extends AbstractPatternReplacer {
+public class RegexPatternReplacerImpl extends AbstractPatternReplacer {
 
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(SimplePatternReplacerImpl.class);
+	private Logger logger = LoggerFactory.getLogger(RegexPatternReplacerImpl.class);
 
 	/*
 	 * (non-Javadoc)
