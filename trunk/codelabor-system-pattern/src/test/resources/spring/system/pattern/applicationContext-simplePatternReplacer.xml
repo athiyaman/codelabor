@@ -6,18 +6,17 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 	<bean id="simplePatternReplacer" class="org.codelabor.system.pattern.service.SimplePatternReplacerImpl">
-		<property name="searchAndReplacePatternMap" ref="simplepSearchAndReplacePatternMap" />
-		<property name="excludesPatternList" ref="simplepExcludesPatternList" />
+		<property name="searchAndReplacePatternMap">
+			<util:map>
+				<entry key="qwer" value="QWER" />
+				<entry key="asdf" value="ASDF" />
+				<entry key="zxcv" value="ZXCV" />
+			</util:map>
+		</property>
+		<property name="excludesPatternList">
+			<util:list>
+				<value>zxcv</value>
+			</util:list>		
+		</property>
 	</bean>
-	
-	<util:map id="simplepSearchAndReplacePatternMap">
-		<entry key="qwer" value="QWER" />
-		<entry key="asdf" value="ASDF" />
-		<entry key="zxcv" value="ZXCV" />
-	</util:map>
-	
-	<util:list id="simplepExcludesPatternList">
-		<value>zxcv</value>
-	</util:list>
-	
 </beans>

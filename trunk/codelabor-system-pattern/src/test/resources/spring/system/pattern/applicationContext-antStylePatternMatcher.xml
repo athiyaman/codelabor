@@ -6,18 +6,16 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 	<bean id="antStylePatternMatcher" class="org.codelabor.system.pattern.service.AntStylePatternMatcherImpl">
-		<property name="includesPatternList" ref="antStylepIncludesPatternList" />
-		<property name="excludesPatternList" ref="antStylepExcludesPatternList" />
+		<property name="includesPatternList">
+			<util:list>
+				<value>*45</value>
+				<value>ab*</value>
+			</util:list>		
+		</property>
+		<property name="excludesPatternList">
+			<util:list>
+				<value>45</value>
+			</util:list>		
+		</property>
 	</bean>
-	
-	<util:list id="antStylepIncludesPatternList">
-		<value>*45</value>
-		<value>ab*</value>
-	</util:list>
-	
-	<util:list id="antStylepExcludesPatternList">
-		<value>45</value>
-	</util:list>
-	
-	
 </beans>

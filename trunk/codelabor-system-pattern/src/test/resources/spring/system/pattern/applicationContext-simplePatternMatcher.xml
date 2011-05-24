@@ -6,18 +6,17 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 	<bean id="simplePatternMatcher" class="org.codelabor.system.pattern.service.SimplePatternMatcherImpl">
-		<property name="includesPatternList" ref="simplepIncludesPatternList" />
-		<property name="excludesPatternList" ref="simplepExcludesPatternList" />
+		<property name="includesPatternList">
+			<util:list>
+				<value>1234</value>
+				<value>abcd</value>
+				<value>가나다라</value>
+			</util:list>
+		</property>
+		<property name="excludesPatternList">
+			<util:list>
+				<value>1234</value>
+			</util:list>
+		</property>
 	</bean>
-	
-	<util:list id="simplepIncludesPatternList">
-		<value>12345</value>
-		<value>abcd</value>
-	</util:list>
-	
-	<util:list id="simplepExcludesPatternList">
-		<value>12345</value>
-	</util:list>
-	
-	
 </beans>
