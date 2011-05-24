@@ -67,11 +67,21 @@ public class AntStylePatternMatcherTest {
 		inputString = "가나다라마바사";
 		isMatched = antStylePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
-		assertTrue(!isMatched);
+		assertTrue(isMatched);
 
 		inputString = "1234";
 		isMatched = antStylePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
+
+		inputString = "org/codelabor/example/HelloWorldService";
+		isMatched = antStylePatternMatcher.maches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(isMatched);
+
+		inputString = "org/codelabor/example/helloworld/service/HelloWorldServices";
+		isMatched = antStylePatternMatcher.maches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(isMatched);
 	}
 }

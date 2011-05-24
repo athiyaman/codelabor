@@ -24,8 +24,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.AntPathMatcher;
 
 /**
- * Ant Style 패턴 매처 유틸리티<br/>
- * Spring의 AntStyleMatcher를 의존하여 한글은 지원되지 않는다.
+ * Ant Style 패턴 매처 유틸리티
  * 
  * @author Shin Sang-jae
  * 

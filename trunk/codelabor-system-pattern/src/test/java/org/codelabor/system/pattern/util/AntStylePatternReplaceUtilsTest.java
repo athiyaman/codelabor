@@ -39,75 +39,28 @@ public class AntStylePatternReplaceUtilsTest {
 
 	@Test
 	public void testAntStyleToRegexp() {
-		String antStylePattern = "org.codelabor.*.**.*Service?";
+		String antStylePattern = "org/codelabor/*/**/*Service?";
 		String regexpPattern = AntStylePatternReplaceUtils.antStyleToRegexp(antStylePattern);
 		logger.debug("regexpPattern: {}", regexpPattern);
 
-		String inputString = "org.codelabor.example.HelloWorldService";
+		String inputString = "org/codelabor/example/HelloWorldService";
 		boolean isMatched = Pattern.matches(regexpPattern, inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "org.codelabor.example.service.HelloWorldService";
+		inputString = "org/codelabor/example/service/HelloWorldService";
 		isMatched = Pattern.matches(regexpPattern, inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "org.codelabor.example.helloworld.service.HelloWorldService";
+		inputString = "org/codelabor/example/helloworld/service/HelloWorldService";
 		isMatched = Pattern.matches(regexpPattern, inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "org.codelabor.example.helloworld.service.HelloWorldServices";
+		inputString = "org/codelabor/example/helloworld/service/HelloWorldServices";
 		isMatched = Pattern.matches(regexpPattern, inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
-
 	}
-
-	// @Test
-	// public void testReplaceStringStringString() {
-	// String searchPattern = "'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--";
-	// String replacePattern = "'";
-	// String targetString = "' or 1=1--";
-	// String resultingString = RegexPatternReplaceUtils.replace(searchPattern,
-	// replacePattern, targetString);
-	// logger.debug("resultingString: {}", resultingString);
-	// assertEquals(replacePattern, resultingString);
-	//
-	// searchPattern = "\"?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--";
-	// replacePattern = "\"";
-	// targetString = "\" or 1=1--";
-	// resultingString = RegexPatternReplaceUtils.replace(searchPattern,
-	// replacePattern, targetString);
-	// logger.debug("resultingString: {}", resultingString);
-	// assertEquals(replacePattern, resultingString);
-	// }
-
-	// @Test
-	// public void testReplaceMapString() {
-	// String targetString = "' or 1=1--";
-	// String resultingString =
-	// RegexPatternReplaceUtils.replace(searchAndReplacePatternMap,
-	// targetString);
-	// logger.debug("resultingString: {}", resultingString);
-	//
-	// String expectedString = "'";
-	// assertEquals(expectedString, resultingString);
-	// }
-
-	// @Test
-	// public void testReplaceMapListString() {
-	// String targetString = "' or 1=1--";
-	// String resultingString =
-	// RegexPatternReplaceUtils.replace(searchAndReplacePatternMap,
-	// excludesPatternList, targetString);
-	// logger.debug("resultingString: {}", resultingString);
-	// String expectedString = "' or 1=1--";
-	// assertEquals(expectedString, resultingString);
-	//
-	//
-	//
-	// }
-
 }

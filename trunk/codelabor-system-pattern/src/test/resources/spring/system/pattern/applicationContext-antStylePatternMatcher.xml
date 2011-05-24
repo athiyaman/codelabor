@@ -10,7 +10,9 @@
 			<util:list>
 				<value>*34</value>
 				<value>ab*</value>
-				<value>가나다라</value>
+				<value>가나다라*</value>
+				<value>org/codelabor/*/**/*Service</value>
+				<value>org/codelabor/*/**/*Service?</value>
 			</util:list>		
 		</property>
 		<property name="excludesPatternList">
