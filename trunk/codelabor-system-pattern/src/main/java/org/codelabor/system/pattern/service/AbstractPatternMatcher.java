@@ -22,6 +22,9 @@ import java.util.List;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
+ * 패턴 매처 추상 클래스<br/>
+ * 매처에 공통적으로 필요한 패턴 리스트 처리 방법을 추상화 한다.
+ * 
  * @author Shin Sang-jae
  * 
  */
@@ -85,7 +88,6 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 		if (excludesPatternList == null) {
 			excludesPatternList = new ArrayList<String>();
 		}
-
 	}
 
 	/**
@@ -125,5 +127,4 @@ public abstract class AbstractPatternMatcher implements PatternMatcher, Initiali
 	public void setIncludesPatternList(List<String> includesPatternList) {
 		this.includesPatternList = includesPatternList;
 	}
-
 }
