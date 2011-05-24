@@ -8,13 +8,14 @@
 	<bean id="antStylePatternMatcher" class="org.codelabor.system.pattern.service.AntStylePatternMatcherImpl">
 		<property name="includesPatternList">
 			<util:list>
-				<value>*45</value>
+				<value>*34</value>
 				<value>ab*</value>
+				<value>가나다라</value>
 			</util:list>		
 		</property>
 		<property name="excludesPatternList">
 			<util:list>
-				<value>45</value>
+				<value>?234</value>
 			</util:list>		
 		</property>
 	</bean>
