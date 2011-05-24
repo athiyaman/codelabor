@@ -54,7 +54,7 @@ public class AntStylePatternMatchUtilsTest {
 	public void setUp() throws Exception {
 		includesPatternList.add("*34");
 		includesPatternList.add("ab*");
-		includesPatternList.add("가나다라");
+		includesPatternList.add("가나다라*");
 		excludesPatternList.add("?234");
 	}
 
