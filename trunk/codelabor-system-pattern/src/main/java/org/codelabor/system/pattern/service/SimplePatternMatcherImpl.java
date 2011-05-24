@@ -16,13 +16,11 @@
  */
 package org.codelabor.system.pattern.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.codelabor.system.pattern.util.SimplePatternMatchUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
 
 /**
  * Simple 패턴 매처 구현 클래스<br/>
@@ -31,63 +29,19 @@ import org.springframework.beans.factory.InitializingBean;
  * @author Shin Sang-jae
  * 
  */
-public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBean {
+public class SimplePatternMatcherImpl extends AbstractPatternMatcher {
 
 	/**
 	 * 로거
 	 */
 	private Logger logger = LoggerFactory.getLogger(SimplePatternMatcherImpl.class);
-	/**
-	 * 포함할 패턴 List (String 타입)
-	 */
-	private List<String> includesPatternList;
-	/**
-	 * 제외할 패턴 List (String 타입)
-	 */
-	private List<String> excludesPatternList;
-
-	/**
-	 * 포함할 패턴 List를 가져온다.
-	 * 
-	 * @return 패턴 List
-	 */
-	public List<String> getIncludesPatternList() {
-		return includesPatternList;
-	}
-
-	/**
-	 * 제외할 패턴 List를 설정한다.
-	 * 
-	 * @param includesPatternList
-	 *            패턴 List
-	 */
-	public void setIncludesPatternList(List<String> includesPatternList) {
-		this.includesPatternList = includesPatternList;
-	}
-
-	/**
-	 * 제외할 패턴 List를 가져온다.
-	 * 
-	 * @return 패턴 List
-	 */
-	public List<String> getExcludesPatternList() {
-		return excludesPatternList;
-	}
-
-	/**
-	 * 제외할 패턴 List를 설정한다.
-	 * 
-	 * @param excludesPatternList
-	 *            패턴 List
-	 */
-	public void setExcludesPatternList(List<String> excludesPatternList) {
-		this.excludesPatternList = excludesPatternList;
-	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.lang.String)
+	 * @see
+	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
+	 * .lang.String)
 	 */
 	public boolean maches(String inputString) {
 		boolean isMatched = false;
@@ -99,8 +53,9 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.lang.String,
-	 * java.lang.String)
+	 * @see
+	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
+	 * .lang.String, java.lang.String)
 	 */
 	public boolean maches(String pattern, String inputString) {
 		return SimplePatternMatchUtils.matches(pattern, inputString);
@@ -109,36 +64,23 @@ public class SimplePatternMatcherImpl implements PatternMatcher, InitializingBea
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.util.List,
-	 * java.lang.String)
+	 * @see
+	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
+	 * .util.List, java.lang.String)
 	 */
 	public boolean maches(List<String> patternList, String inputString) {
-		return SimplePatternMatchUtils.matches(includesPatternList, inputString);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.codelabor.system.pattern.PatternMatcher#maches(java.util.List,
-	 * java.util.List, java.lang.String)
-	 */
-	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
-		return SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
+		return SimplePatternMatchUtils.matches(patternList, inputString);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 * org.codelabor.system.pattern.service.AbstractPatternMatcher#maches(java
+	 * .util.List, java.util.List, java.lang.String)
 	 */
-	public void afterPropertiesSet() throws Exception {
-		if (includesPatternList == null) {
-			includesPatternList = new ArrayList<String>();
-		}
-		if (excludesPatternList == null) {
-			excludesPatternList = new ArrayList<String>();
-		}
+	public boolean maches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
+		return SimplePatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
 	}
 
 }
