@@ -52,17 +52,17 @@ public class SimplePatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		String inputString = "12345";
+		String inputString = "1234";
 		boolean isMatched = simplePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 
-		inputString = "1234";
+		inputString = "abcd";
 		isMatched = simplePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
-		assertTrue(!isMatched);
+		assertTrue(isMatched);
 
-		inputString = "abcd";
+		inputString = "가나다라";
 		isMatched = simplePatternMatcher.maches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
