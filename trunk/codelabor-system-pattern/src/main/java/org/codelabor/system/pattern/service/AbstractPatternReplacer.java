@@ -17,6 +17,7 @@
 package org.codelabor.system.pattern.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,9 +34,9 @@ public abstract class AbstractPatternReplacer implements PatternReplacer, Initia
 	 */
 	protected List<String> excludesPatternList;
 	/**
-	 * 포함할 패턴 List (String 타입)
+	 * 포함할 검색 및 치환 패턴 Map (String, String 타입)
 	 */
-	protected List<String> includesPatternList;
+	protected Map<String, String> searchAndReplacePatternMap;
 
 	/*
 	 * (non-Javadoc)
@@ -80,8 +81,8 @@ public abstract class AbstractPatternReplacer implements PatternReplacer, Initia
 	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
 	 */
 	public void afterPropertiesSet() throws Exception {
-		if (includesPatternList == null) {
-			includesPatternList = new ArrayList<String>();
+		if (searchAndReplacePatternMap == null) {
+			searchAndReplacePatternMap = new HashMap<String, String>();
 		}
 		if (excludesPatternList == null) {
 			excludesPatternList = new ArrayList<String>();
@@ -98,12 +99,12 @@ public abstract class AbstractPatternReplacer implements PatternReplacer, Initia
 	}
 
 	/**
-	 * 포함할 패턴 List를 가져온다.
+	 * 포함할 검색 및 치환 패턴 Map을 가져온다.
 	 * 
-	 * @return 패턴 List
+	 * @return 검색 및 치환 패턴 Map
 	 */
-	public List<String> getIncludesPatternList() {
-		return includesPatternList;
+	public Map<String, String> getSearchAndReplacePatternMap() {
+		return searchAndReplacePatternMap;
 	}
 
 	/**
@@ -117,13 +118,13 @@ public abstract class AbstractPatternReplacer implements PatternReplacer, Initia
 	}
 
 	/**
-	 * 제외할 패턴 List를 설정한다.
+	 * 포함할 검색 및 치환 패턴 Map을 설정한다.
 	 * 
-	 * @param includesPatternList
-	 *            패턴 List
+	 * @param searchAndReplacePatternMap
+	 *            검색 및 치환 패턴 Map
 	 */
-	public void setIncludesPatternList(List<String> includesPatternList) {
-		this.includesPatternList = includesPatternList;
+	public void setSearchAndReplacePatternMap(Map<String, String> searchAndReplacePatternMap) {
+		this.searchAndReplacePatternMap = searchAndReplacePatternMap;
 	}
 
 }
