@@ -71,8 +71,8 @@ public class SimplePatternReplacerImpl extends AbstractPatternReplacer {
 	 * java.util.Map, java.lang.String)
 	 */
 	@Override
-	public String replace(Map<String, String> patternMap, String targetString) {
-		return SimplePatternReplaceUtils.replace(patternMap, targetString);
+	public String replace(Map<String, String> searchAndReplacePatternMap, String targetString) {
+		return SimplePatternReplaceUtils.replace(searchAndReplacePatternMap, targetString);
 	}
 
 	/*
@@ -83,8 +83,8 @@ public class SimplePatternReplacerImpl extends AbstractPatternReplacer {
 	 * java.util.Map, java.util.List, java.lang.String)
 	 */
 	@Override
-	public String replace(Map<String, String> includesPatternMap, List<String> excludesPatternMap, String targetString) {
-		return SimplePatternReplaceUtils.replace(includesPatternMap, excludesPatternMap, targetString);
+	public String replace(Map<String, String> searchAndReplacePatternMap, List<String> excludesPatternMap, String targetString) {
+		return SimplePatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternMap, targetString);
 	}
 
 }

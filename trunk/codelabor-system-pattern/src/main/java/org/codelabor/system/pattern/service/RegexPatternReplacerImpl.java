@@ -19,7 +19,7 @@ package org.codelabor.system.pattern.service;
 import java.util.List;
 import java.util.Map;
 
-import org.codelabor.system.pattern.util.SimplePatternReplaceUtils;
+import org.codelabor.system.pattern.util.RegexPatternReplaceUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,7 +48,7 @@ public class RegexPatternReplacerImpl extends AbstractPatternReplacer {
 		logger.debug("searchAndReplacePatternMap: {}", searchAndReplacePatternMap);
 		logger.debug("excludesPatternList: {}", excludesPatternList);
 		logger.debug("targetString: {}", targetString);
-		return SimplePatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		return RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
 	}
 
 	/*
@@ -60,7 +60,7 @@ public class RegexPatternReplacerImpl extends AbstractPatternReplacer {
 	 */
 	@Override
 	public String replace(String searchPattern, String replacePattern, String targetString) {
-		return SimplePatternReplaceUtils.replace(searchPattern, replacePattern, targetString);
+		return RegexPatternReplaceUtils.replace(searchPattern, replacePattern, targetString);
 	}
 
 	/*
@@ -71,8 +71,8 @@ public class RegexPatternReplacerImpl extends AbstractPatternReplacer {
 	 * java.util.Map, java.lang.String)
 	 */
 	@Override
-	public String replace(Map<String, String> patternMap, String targetString) {
-		return SimplePatternReplaceUtils.replace(patternMap, targetString);
+	public String replace(Map<String, String> searchAndReplacePatternMap, String targetString) {
+		return RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, targetString);
 	}
 
 	/*
@@ -83,8 +83,8 @@ public class RegexPatternReplacerImpl extends AbstractPatternReplacer {
 	 * java.util.Map, java.util.List, java.lang.String)
 	 */
 	@Override
-	public String replace(Map<String, String> includesPatternMap, List<String> excludesPatternMap, String targetString) {
-		return SimplePatternReplaceUtils.replace(includesPatternMap, excludesPatternMap, targetString);
+	public String replace(Map<String, String> searchAndReplacePatternMap, List<String> excludesPatternMap, String targetString) {
+		return RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternMap, targetString);
 	}
 
 }

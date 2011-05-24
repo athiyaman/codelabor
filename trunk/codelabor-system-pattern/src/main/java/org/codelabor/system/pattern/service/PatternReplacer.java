@@ -55,20 +55,20 @@ public interface PatternReplacer {
 	 * 문자열을 치환한다.<br/>
 	 * Map의 Key에 해당하는 패턴을 찾아 Map의 Value에 해당하는 형태로 문자열을 치환한다.
 	 * 
-	 * @param patternMap
+	 * @param searchAndReplacePatternMap
 	 *            패턴 Map
 	 * @param targetString
 	 *            치환 대상 문자열
 	 * @return 치환된 문자열
 	 */
-	public String replace(Map<String, String> patternMap, String targetString);
+	public String replace(Map<String, String> searchAndReplacePatternMap, String targetString);
 
 	/**
 	 * 문자열을 치환한다.<br/>
 	 * 포함할 패턴 Map의 Key에 해당하는 패턴을 찾아 Map의 Value에 해당하는 형태로 문자열을 치환한다.<br/>
 	 * 단, 제외 패턴 List에 해당된다면 치환하지 않는다.
 	 * 
-	 * @param includesPatternMap
+	 * @param searchAndReplacePatternMap
 	 *            포함할 패턴 Map
 	 * @param excludesPatternMap
 	 *            제외할 패턴 List *
@@ -76,5 +76,5 @@ public interface PatternReplacer {
 	 *            치환 대상 문자열
 	 * @return 치환된 문자열
 	 */
-	public String replace(Map<String, String> includesPatternMap, List<String> excludesPatternMap, String targetString);
+	public String replace(Map<String, String> searchAndReplacePatternMap, List<String> excludesPatternMap, String targetString);
 }

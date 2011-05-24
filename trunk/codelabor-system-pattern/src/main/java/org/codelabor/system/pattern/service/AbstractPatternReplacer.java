@@ -63,7 +63,7 @@ public abstract class AbstractPatternReplacer implements PatternReplacer, Initia
 	 * org.codelabor.system.pattern.service.PatternReplacer#replace(java.util
 	 * .Map, java.lang.String)
 	 */
-	public abstract String replace(Map<String, String> patternMap, String targetString);
+	public abstract String replace(Map<String, String> searchAndReplacePatternMap, String targetString);
 
 	/*
 	 * (non-Javadoc)
@@ -72,7 +72,7 @@ public abstract class AbstractPatternReplacer implements PatternReplacer, Initia
 	 * org.codelabor.system.pattern.service.PatternReplacer#replace(java.util
 	 * .Map, java.util.List, java.lang.String)
 	 */
-	public abstract String replace(Map<String, String> includesPatternMap, List<String> excludesPatternMap, String targetString);
+	public abstract String replace(Map<String, String> searchAndReplacePatternMap, List<String> excludesPatternMap, String targetString);
 
 	/*
 	 * (non-Javadoc)
