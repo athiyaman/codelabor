@@ -54,14 +54,14 @@ public class RegexPatternReplaceUtilsTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		// or 1=1--
+		searchAndReplacePatternMap.put("(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "");
+
 		// ' or 1=1--
 		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "'");
 
 		// " or 1=1--
 		searchAndReplacePatternMap.put("\"\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "\"");
-
-		// or 1=1--
-		searchAndReplacePatternMap.put("(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "");
 
 		// ' or 'a'='a
 		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+'(.*)'\\s*=\\s*'\\1", "'");

@@ -8,18 +8,18 @@
 	<bean id="regexPatternMatcher" class="org.codelabor.system.pattern.service.RegexPatternMatcherImpl">
 		<property name="includesPatternList">
 			<description>
+				or 1=1--			
 				' or 1=1--
 				" or 1=1--
-				or 1=1--
 				' or 'a'='a
 				" or "a"="a
 				') or ('a'='a
 				' or password like '%
 			</description>		
 			<util:list id="regexpIncludesPatternList">
+				<value>.*(?i)or\s+(.*)\s*=\s*\1\s*--.*</value>			
 				<value>.*'\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*</value>
 				<value>.*"\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*</value>
-				<value>.*(?i)or\s+(.*)\s*=\s*\1\s*--.*</value>
 				<value>.*'\s+(?i)or\s+'(.*)'\s*=\s*'\1.*</value>
 				<value>.*"\s+(?i)or\s+"(.*)"\s*=\s*"\1.*</value>
 				<value>.*'\)\s+(?i)or\s+\('(.*)'\s*=\s*'\1.*</value>

@@ -9,21 +9,21 @@
 		<property name="searchAndReplacePatternMap">
 			<util:map>
 				<description>
+					or 1=1--
 					' or 1=1--
 					" or 1=1--
-					or 1=1--
 					' or 'a'='a
 					" or "a"="a
 					') or ('a'='a
 					' or password like '%
 				</description>
-				<entry key="'?\s+(?i)or\s+(.*)\s*=\s*\1\s*--" value="'" />
-				<entry key="&quot;?\s+(?i)or\s+(.*)\s*=\s*\1\s*--" value="&quot;" />
-				<entry key="(?i)or\s+(.*)\s*=\s*\1\s*--" value="" />
-				<entry key="'\s+(?i)or\s+'(.*)'\s*=\s*'\1" value="'" />
-				<entry key="&quot;\s+(?i)or\s+&quot;(.*)&quot;\s*=\s*&quot;\1" value="&quot;" />
-				<entry key="'\)\s+(?i)or\s+\('?(.*)'\s*=\s*'\1" value="'" />
-				<entry key="'\s+(?i)or\s+(password)\s+(like)\s+'%" value="'" />
+				<entry key=".*(?i)or\s+(.*)\s*=\s*\1\s*--.*" value="" />
+				<entry key=".*'\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*" value="'" />
+				<entry key=".*&quot;\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*" value="&quot;" />	
+				<entry key=".*'\s+(?i)or\s+'(.*)'\s*=\s*'\1.*" value="'" />
+				<entry key=".*&quot;\s+(?i)or\s+&quot;(.*)&quot;\s*=\s*&quot;\1.*" value="&quot;" />
+				<entry key=".*'\)\s+(?i)or\s+\('(.*)'\s*=\s*'\1.*" value="'" />
+				<entry key=".*'\s+(?i)or\s+(password)\s+(like)\s+'%.*" value="'" />
 			</util:map>
 		</property>
 		<property name="excludesPatternList">
@@ -31,7 +31,7 @@
 				' or 1=1--
 			</description>
 			<util:list>
-				<value>'?\s+(?i)or\s+(.*)\s*=\s*\1\s*--</value>
+				<value>.*'\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*</value>
 			</util:list>		
 		</property>
 	</bean>
