@@ -54,9 +54,21 @@ public class SimplePatternReplacerTest {
 
 	@Test
 	public void testReplaceString() {
-		String targetString = "qwer";
-		String expectedString = "QWER";
+		String targetString = "1234";
+		String expectedString = "12**";
 		String resultingString = simplePatternReplacer.replace(targetString);
+		logger.debug("resultingString: {}", resultingString);
+		assertEquals(expectedString, resultingString);
+
+		targetString = "qwer";
+		expectedString = "qwer";
+		resultingString = simplePatternReplacer.replace(targetString);
+		logger.debug("resultingString: {}", resultingString);
+		assertEquals(expectedString, resultingString);
+
+		targetString = "가나다라";
+		expectedString = "가나다라마바사";
+		resultingString = simplePatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 	}

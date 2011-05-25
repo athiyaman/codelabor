@@ -9,13 +9,13 @@
 		<property name="includesPatternList">
 			<util:list>
 				<value>1234</value>
-				<value>abcd</value>
+				<value>qwer</value>
 				<value>가나다라</value>
 			</util:list>
 		</property>
 		<property name="excludesPatternList">
 			<util:list>
-				<value>1234</value>
+				<value>qwer</value>
 			</util:list>
 		</property>
 	</bean>

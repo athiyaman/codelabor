@@ -8,14 +8,14 @@
 	<bean id="simplePatternReplacer" class="org.codelabor.system.pattern.service.SimplePatternReplacerImpl">
 		<property name="searchAndReplacePatternMap">
 			<util:map>
+				<entry key="1234" value="12**" />
 				<entry key="qwer" value="QWER" />
-				<entry key="asdf" value="ASDF" />
-				<entry key="zxcv" value="ZXCV" />
+				<entry key="가나다라" value="가나다라마바사" />
 			</util:map>
 		</property>
 		<property name="excludesPatternList">
 			<util:list>
-				<value>zxcv</value>
+				<value>qwer</value>
 			</util:list>		
 		</property>
 	</bean>

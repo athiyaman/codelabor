@@ -55,12 +55,12 @@ public class SimplePatternMatcherTest {
 		String inputString = "1234";
 		boolean isMatched = simplePatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
-		assertTrue(!isMatched);
+		assertTrue(isMatched);
 
-		inputString = "abcd";
+		inputString = "qwer";
 		isMatched = simplePatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
-		assertTrue(isMatched);
+		assertTrue(!isMatched);
 
 		inputString = "가나다라";
 		isMatched = simplePatternMatcher.matches(inputString);
