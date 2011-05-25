@@ -21,78 +21,81 @@ import static org.junit.Assert.assertEquals;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.codelabor.system.pattern.exception.PatternMatchException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * 능동적 패턴 필터 테스트 클래스
+ * 수동적 패턴 필터 테스트 클래스
  * 
  * @author Shin Sang-jae
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/**/applicationContext*.xml")
-public class ActivePatternFilterTest {
+public class PassivePatternFilterTest {
 
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(ActivePatternFilterTest.class);
+	private Logger logger = LoggerFactory.getLogger(PassivePatternFilterTest.class);
 
 	@Autowired
 	ApplicationContext ctx;
 
 	@Inject
-	@Named("activePatternFilter")
-	PatternFilter activePatternFilter;
+	@Named("passivePatternFilter")
+	PatternFilter passivePatternFilter;
 
 	@Test
+	@ExpectedException(PatternMatchException.class)
 	public void testReplaceString() {
 		String targetString = "' or 1=1--";
 		String expectedString = "' or 1=1--";
-		String resultingString = activePatternFilter.filter(targetString);
+		String resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
 		targetString = "\" or 1=1--";
 		expectedString = "\"";
-		resultingString = activePatternFilter.filter(targetString);
+		resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
 		targetString = "or 1=1--";
 		expectedString = "";
-		resultingString = activePatternFilter.filter(targetString);
+		resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
 		targetString = "' or 'a'='a";
 		expectedString = "'";
-		resultingString = activePatternFilter.filter(targetString);
+		resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
 		targetString = "\" or \"a\"=\"a";
 		expectedString = "\"";
-		resultingString = activePatternFilter.filter(targetString);
+		resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
 		targetString = "') or ('a'='a";
 		expectedString = "'";
-		resultingString = activePatternFilter.filter(targetString);
+		resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
 		targetString = "' or password like '%";
 		expectedString = "'";
-		resultingString = activePatternFilter.filter(targetString);
+		resultingString = passivePatternFilter.filter(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 	}
