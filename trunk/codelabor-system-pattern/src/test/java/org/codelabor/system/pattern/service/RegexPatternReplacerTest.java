@@ -54,44 +54,44 @@ public class RegexPatternReplacerTest {
 
 	@Test
 	public void testReplaceString() {
-		String targetString = "' or 1=1--";
-		String expectedString = "' or 1=1--";
+		String targetString = "qwer ' or 1=1-- qwer";
+		String expectedString = "qwer ' or 1=1-- qwer";
 		String resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
-		targetString = "\" or 1=1--";
-		expectedString = "\"";
+		targetString = "qwer \" or 1=1-- qwer";
+		expectedString = "qwer \" qwer";
 		resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
-		targetString = "or 1=1--";
-		expectedString = "";
+		targetString = "qwer or 1=1-- qwer";
+		expectedString = "qwer  qwer";
 		resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
-		targetString = "' or 'a'='a";
-		expectedString = "'";
+		targetString = "qwer ' or 'a'='a qwer";
+		expectedString = "qwer ' qwer";
 		resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
-		targetString = "\" or \"a\"=\"a";
-		expectedString = "\"";
+		targetString = "qwer \" or \"a\"=\"a qwer";
+		expectedString = "qwer \" qwer";
 		resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
-		targetString = "') or ('a'='a";
-		expectedString = "'";
+		targetString = "qwer ') or ('a'='a qwer";
+		expectedString = "qwer ' qwer";
 		resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
-		targetString = "' or password like '%";
-		expectedString = "'";
+		targetString = "qwer ' or password like '% qwer";
+		expectedString = "qwer ' qwer";
 		resultingString = regexPatternReplacer.replace(targetString);
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);

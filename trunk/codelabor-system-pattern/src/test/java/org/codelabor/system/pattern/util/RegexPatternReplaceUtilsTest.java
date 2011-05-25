@@ -55,101 +55,101 @@ public class RegexPatternReplaceUtilsTest {
 	@Before
 	public void setUp() throws Exception {
 		// or 1=1--
-		searchAndReplacePatternMap.put("(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "");
+		searchAndReplacePatternMap.put("(.*)(?i)or\\s+(.*)\\s*=\\s*\\2\\s*--(.*)", "$1$3");
 
 		// ' or 1=1--
-		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "'");
+		searchAndReplacePatternMap.put("(.*)'\\s+(?i)or\\s+(.*)\\s*=\\s*\\2\\s*--(.*)", "$1'$3");
 
 		// " or 1=1--
-		searchAndReplacePatternMap.put("\"\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "\"");
+		searchAndReplacePatternMap.put("(.*)\"\\s+(?i)or\\s+(.*)\\s*=\\s*\\2\\s*--(.*)", "$1\"$3");
 
 		// ' or 'a'='a
-		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+'(.*)'\\s*=\\s*'\\1", "'");
+		searchAndReplacePatternMap.put("(.*)'\\s+(?i)or\\s+'(.*)'\\s*=\\s*'\\2(.*)", "$1'$3");
 
 		// " or "a"="a
-		searchAndReplacePatternMap.put("\"\\s+(?i)or\\s+\"(.*)\"\\s*=\\s*\"\\1", "\"");
+		searchAndReplacePatternMap.put("(.*)\"\\s+(?i)or\\s+\"(.*)\"\\s*=\\s*\"\\2(.*)", "$1\"$3");
 
 		// ') or ('a'='a
-		searchAndReplacePatternMap.put("'\\)\\s+(?i)or\\s+\\('(.*)'\\s*=\\s*'\\1", "'");
+		searchAndReplacePatternMap.put("(.*)'\\)\\s+(?i)or\\s+\\('(.*)'\\s*=\\s*'\\2(.*)", "$1'$3");
 
 		// ' or password like '%
-		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+(password)\\s+(like)\\s+'%", "'");
+		searchAndReplacePatternMap.put("(.*)'\\s+(?i)or\\s+(password)\\s+(like)\\s+'%(.*)", "$1'$4");
 
 		// ' or 1=1--
-		excludesPatternList.add("'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--");
+		excludesPatternList.add("(.*)'\\s+(?i)or\\s+(.*)\\s*=\\s*\\2\\s*--(.*)");
 	}
 
 	@Test
 	public void testReplaceStringStringString() {
-		String searchPattern = "'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--";
-		String replacePattern = "'";
-		String targetString = "' or 1=1--";
+		String searchPattern = "(.*)'\\s+(?i)or\\s+(.*)\\s*=\\s*\\2\\s*--(.*)";
+		String replacePattern = "$1'$3";
+		String targetString = "qwer ' or 1=1-- qwer";
+		String expectedString = "qwer ' qwer";
 		String resultingString = RegexPatternReplaceUtils.replace(searchPattern, replacePattern, targetString);
 		logger.debug("resultingString: {}", resultingString);
-		assertEquals(replacePattern, resultingString);
+		assertEquals(expectedString, resultingString);
 
-		searchPattern = "\"?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--";
-		replacePattern = "\"";
-		targetString = "\" or 1=1--";
+		searchPattern = "(.*)\"\\s+(?i)or\\s+(.*)\\s*=\\s*\\2\\s*--(.*)";
+		replacePattern = "$1\"$3";
+		targetString = "qwer \" or 1=1-- qwer";
+		expectedString = "qwer \" qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchPattern, replacePattern, targetString);
 		logger.debug("resultingString: {}", resultingString);
-		assertEquals(replacePattern, resultingString);
+		assertEquals(expectedString, resultingString);
 	}
 
 	@Test
 	public void testReplaceMapString() {
 		String targetString = "' or 1=1--";
 		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, targetString);
-		logger.debug("resultingString: {}", resultingString);
-
 		String expectedString = "'";
+		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 	}
 
 	@Test
 	public void testReplaceMapListString() {
-		String targetString = "' or 1=1--";
+		String targetString = "qwer ' or 1=1-- qwer";
 		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		String expectedString = "qwer ' or 1=1-- qwer";
 		logger.debug("resultingString: {}", resultingString);
-		String expectedString = "' or 1=1--";
 		assertEquals(expectedString, resultingString);
 
-		targetString = "\" or 1=1--";
+		targetString = "qwer \" or 1=1-- qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		expectedString = "qwer \" qwer";
 		logger.debug("resultingString: {}", resultingString);
-		expectedString = "\"";
 		assertEquals(expectedString, resultingString);
 
-		targetString = "or 1=1--";
+		targetString = "qwer or 1=1-- qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		expectedString = "qwer  qwer";
 		logger.debug("resultingString: {}", resultingString);
-		expectedString = "";
 		assertEquals(expectedString, resultingString);
 
-		targetString = "' or 'a'='a";
+		targetString = "qwer ' or 'a'='a qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		expectedString = "qwer ' qwer";
 		logger.debug("resultingString: {}", resultingString);
-		expectedString = "'";
 		assertEquals(expectedString, resultingString);
 
-		targetString = "\" or \"a\"=\"a";
+		targetString = "qwer \" or \"a\"=\"a qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		expectedString = "qwer \" qwer";
 		logger.debug("resultingString: {}", resultingString);
-		expectedString = "\"";
 		assertEquals(expectedString, resultingString);
 
-		targetString = "') or ('a'='a";
+		targetString = "qwer ') or ('a'='a qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		expectedString = "qwer ' qwer";
 		logger.debug("resultingString: {}", resultingString);
-		expectedString = "'";
 		assertEquals(expectedString, resultingString);
 
-		targetString = "' or password like '%";
+		targetString = "qwer ' or password like '% qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		expectedString = "qwer ' qwer";
 		logger.debug("resultingString: {}", resultingString);
-		expectedString = "'";
 		assertEquals(expectedString, resultingString);
 
 	}
-
 }
