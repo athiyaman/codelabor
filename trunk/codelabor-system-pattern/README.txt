@@ -6,3 +6,6 @@
 
 3.0.2
 	Pattern Filter 개발	
+	
+3.0.3
+	Regex Pattern 개선	
