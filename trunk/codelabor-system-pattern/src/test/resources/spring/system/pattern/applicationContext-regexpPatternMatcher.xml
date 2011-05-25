@@ -7,14 +7,31 @@
 
 	<bean id="regexPatternMatcher" class="org.codelabor.system.pattern.service.RegexPatternMatcherImpl">
 		<property name="includesPatternList">
+			<description>
+				' or 1=1--
+				" or 1=1--
+				or 1=1--
+				' or 'a'='a
+				" or "a"="a
+				') or ('a'='a
+				' or password like '%
+			</description>		
 			<util:list id="regexpIncludesPatternList">
-				<value>[a-z]*</value>
-				<value>[1-9]*</value>
+				<value>'?\s+(?i)or\s+(.*)\s*=\s*\1\s*--</value>
+				<value>"?\s+(?i)or\s+(.*)\s*=\s*\1\s*--</value>
+				<value>(?i)or\s+(.*)\s*=\s*\1\s*--</value>
+				<value>'\s+(?i)or\s+'(.*)'\s*=\s*'\1</value>
+				<value>"\s+(?i)or\s+"(.*)"\s*=\s*"\1</value>
+				<value>'\)\s+(?i)or\s+\('?(.*)'\s*=\s*'\1</value>
+				<value>'\s+(?i)or\s+(password)\s+(like)\s+'%</value>
 			</util:list>		
 		</property>
 		<property name="excludesPatternList">
+			<description>
+				' or 1=1--
+			</description>		
 			<util:list>
-				<value>[1-4]*</value>
+				<value>'?\s+(?i)or\s+(.*)\s*=\s*\1\s*--</value>
 			</util:list>		
 		</property>
 	</bean>

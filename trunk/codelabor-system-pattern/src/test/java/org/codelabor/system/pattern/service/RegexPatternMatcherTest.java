@@ -49,17 +49,32 @@ public class RegexPatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		String inputString = "12345";
+		String inputString = "' or 1=1--";
 		boolean isMatched = regexPatternMatcher.matches(inputString);
-		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
-		assertTrue(isMatched);
-
-		inputString = "1234";
-		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 
-		inputString = "abcd";
+		inputString = "\" or 1=1--";
+		isMatched = regexPatternMatcher.matches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(isMatched);
+
+		inputString = "' or 'a'='a";
+		isMatched = regexPatternMatcher.matches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(isMatched);
+
+		inputString = "\" or \"a\"=\"a";
+		isMatched = regexPatternMatcher.matches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(isMatched);
+
+		inputString = "') or ('a'='a";
+		isMatched = regexPatternMatcher.matches(inputString);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		assertTrue(isMatched);
+
+		inputString = "' or password like '%";
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
