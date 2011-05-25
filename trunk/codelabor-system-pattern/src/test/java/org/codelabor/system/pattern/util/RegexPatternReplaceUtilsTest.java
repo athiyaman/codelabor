@@ -55,10 +55,10 @@ public class RegexPatternReplaceUtilsTest {
 	@Before
 	public void setUp() throws Exception {
 		// ' or 1=1--
-		searchAndReplacePatternMap.put("'?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "'");
+		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "'");
 
 		// " or 1=1--
-		searchAndReplacePatternMap.put("\"?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "\"");
+		searchAndReplacePatternMap.put("\"\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "\"");
 
 		// or 1=1--
 		searchAndReplacePatternMap.put("(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--", "");
@@ -70,13 +70,13 @@ public class RegexPatternReplaceUtilsTest {
 		searchAndReplacePatternMap.put("\"\\s+(?i)or\\s+\"(.*)\"\\s*=\\s*\"\\1", "\"");
 
 		// ') or ('a'='a
-		searchAndReplacePatternMap.put("'\\)\\s+(?i)or\\s+\\('?(.*)'\\s*=\\s*'\\1", "'");
+		searchAndReplacePatternMap.put("'\\)\\s+(?i)or\\s+\\('(.*)'\\s*=\\s*'\\1", "'");
 
 		// ' or password like '%
 		searchAndReplacePatternMap.put("'\\s+(?i)or\\s+(password)\\s+(like)\\s+'%", "'");
 
 		// ' or 1=1--
-		excludesPatternList.add("'?\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--");
+		excludesPatternList.add("'\\s+(?i)or\\s+(.*)\\s*=\\s*\\1\\s*--");
 	}
 
 	@Test
