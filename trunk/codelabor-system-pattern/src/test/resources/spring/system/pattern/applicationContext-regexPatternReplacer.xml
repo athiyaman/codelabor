@@ -17,13 +17,13 @@
 					') or ('a'='a
 					' or password like '%
 				</description>
-				<entry key=".*(?i)or\s+(.*)\s*=\s*\1\s*--.*" value="" />
-				<entry key=".*'\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*" value="'" />
-				<entry key=".*&quot;\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*" value="&quot;" />	
-				<entry key=".*'\s+(?i)or\s+'(.*)'\s*=\s*'\1.*" value="'" />
-				<entry key=".*&quot;\s+(?i)or\s+&quot;(.*)&quot;\s*=\s*&quot;\1.*" value="&quot;" />
-				<entry key=".*'\)\s+(?i)or\s+\('(.*)'\s*=\s*'\1.*" value="'" />
-				<entry key=".*'\s+(?i)or\s+(password)\s+(like)\s+'%.*" value="'" />
+				<entry key="(.*)(?i)or\s+(.*)\s*=\s*\2\s*--(.*)" value="$1$3" />
+				<entry key="(.*)'\s+(?i)or\s+(.*)\s*=\s*\2\s*--(.*)" value="$1'$3" />
+				<entry key="(.*)&quot;\s+(?i)or\s+(.*)\s*=\s*\2\s*--(.*)" value="$1&quot;$3" />	
+				<entry key="(.*)'\s+(?i)or\s+'(.*)'\s*=\s*'\2(.*)" value="$1'$3" />
+				<entry key="(.*)&quot;\s+(?i)or\s+&quot;(.*)&quot;\s*=\s*&quot;\2(.*)" value="$1&quot;$3" />
+				<entry key="(.*)'\)\s+(?i)or\s+\('(.*)'\s*=\s*'\2(.*)" value="$1'$3" />
+				<entry key="(.*)'\s+(?i)or\s+(password)\s+(like)\s+'%(.*)" value="$1'$4" />
 			</util:map>
 		</property>
 		<property name="excludesPatternList">
@@ -31,7 +31,7 @@
 				' or 1=1--
 			</description>
 			<util:list>
-				<value>.*'\s+(?i)or\s+(.*)\s*=\s*\1\s*--.*</value>
+				<value>(.*)'\s+(?i)or\s+(.*)\s*=\s*\2\s*--(.*)</value>
 			</util:list>		
 		</property>
 	</bean>
