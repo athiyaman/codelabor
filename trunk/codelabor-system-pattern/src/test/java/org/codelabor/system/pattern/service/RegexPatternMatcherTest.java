@@ -49,32 +49,32 @@ public class RegexPatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		String inputString = "' or 1=1--";
+		String inputString = "qwer ' or 1=1-- qwer";
 		boolean isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 
-		inputString = "\" or 1=1--";
+		inputString = "qwer \" or 1=1-- qwer";
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "' or 'a'='a";
+		inputString = "qwer ' or 'a'='a qwer";
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "\" or \"a\"=\"a";
+		inputString = "qwer \" or \"a\"=\"a qwer";
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "') or ('a'='a";
+		inputString = "qwer ') or ('a'='a qwer";
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "' or password like '%";
+		inputString = "qwer ' or password like '% qwer";
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
