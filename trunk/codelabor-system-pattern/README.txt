@@ -8,4 +8,5 @@
 	Pattern Filter 개발	
 	
 3.0.3
-	Regex Pattern 개선	
+	Regex Pattern 개선
+	TestCase 보완
