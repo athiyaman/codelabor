@@ -9,7 +9,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-core</artifactId>
 	<name>codelabor-system-core</name>
-	<version>3.0.7-SNAPSHOT</version>
+	<version>3.0.7</version>
 	<description>codelabor system core</description>
 	<url>http://codelabor.googlecode.com</url>
 	<licenses>
@@ -21,9 +21,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-core</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-core</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-core-3.0.7</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-core-3.0.7</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-core-3.0.7</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
