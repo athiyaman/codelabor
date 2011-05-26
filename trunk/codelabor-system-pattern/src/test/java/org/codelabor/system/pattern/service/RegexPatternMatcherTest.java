@@ -49,32 +49,68 @@ public class RegexPatternMatcherTest {
 
 	@Test
 	public void testMatches() {
-		String inputString = "qwer ' or 1=1-- qwer";
+		StringBuilder sb = new StringBuilder();
+		sb.append("qwer");
+		sb.append(System.getProperty("line.separator"));
+		sb.append(" ' or 1=1-- ");
+		sb.append(System.getProperty("line.separator"));
+		sb.append("qwer");
+		String inputString = sb.toString();
 		boolean isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(!isMatched);
 
-		inputString = "qwer \" or 1=1-- qwer";
+		sb.setLength(0);
+		sb.append("qwer");
+		sb.append(System.getProperty("line.separator"));
+		sb.append(" \" or 1=1-- ");
+		sb.append(System.getProperty("line.separator"));
+		sb.append("qwer");
+		inputString = sb.toString();
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "qwer ' or 'a'='a qwer";
+		sb.setLength(0);
+		sb.append("qwer");
+		sb.append(System.getProperty("line.separator"));
+		sb.append(" ' or 'a'='a ");
+		sb.append(System.getProperty("line.separator"));
+		sb.append("qwer");
+		inputString = sb.toString();
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "qwer \" or \"a\"=\"a qwer";
+		sb.setLength(0);
+		sb.append("qwer");
+		sb.append(System.getProperty("line.separator"));
+		sb.append(" \" or \"a\"=\"a ");
+		sb.append(System.getProperty("line.separator"));
+		sb.append("qwer");
+		inputString = sb.toString();
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "qwer ') or ('a'='a qwer";
+		sb.setLength(0);
+		sb.append("qwer");
+		sb.append(System.getProperty("line.separator"));
+		sb.append(" ') or ('a'='a ");
+		sb.append(System.getProperty("line.separator"));
+		sb.append("qwer");
+		inputString = sb.toString();
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
 
-		inputString = "qwer ' or password like '% qwer";
+		sb.setLength(0);
+		sb.append("qwer");
+		sb.append(System.getProperty("line.separator"));
+		sb.append(" ' or password like '% ");
+		sb.append(System.getProperty("line.separator"));
+		sb.append("qwer");
+		inputString = sb.toString();
 		isMatched = regexPatternMatcher.matches(inputString);
 		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
 		assertTrue(isMatched);
