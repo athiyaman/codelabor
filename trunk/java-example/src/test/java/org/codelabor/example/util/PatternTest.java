@@ -63,6 +63,35 @@ public class PatternTest {
 		Matcher matcher = pattern.matcher(target);
 		String resultingString = matcher.replaceAll("$1 $3");
 		logger.debug("resultingString: {}", resultingString);
+		
+		target = "asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf";
+		matcher = pattern.matcher(target);
+		resultingString = matcher.replaceAll("$1 $3");
+		logger.debug("resultingString: {}", resultingString);		
 	}
+	
+	@Test
+	public void testReplace2() {
+		// sql injection pettern: or 'qwer' = 'qwer'
+		String regex = "(.*)(?i)or\\s+'(.*)'\\s*=\\s*'\\2'(.*)";
+		String target = "asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = null;
+		String resultingString = null;
+
+		
+		while(true) {
+			matcher = pattern.matcher(target);
+			if (matcher.matches()) {
+				resultingString = matcher.replaceAll("$1 $3");
+				logger.debug("resultingString: {}", resultingString);
+			} else {
+				break;
+			}
+			target = resultingString;
+		}
+	
+		logger.debug("resultingString: {}", resultingString);		
+	}	
 
 }
