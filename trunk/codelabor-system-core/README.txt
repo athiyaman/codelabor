@@ -37,5 +37,7 @@
 	ListUtils 메소드 추가	
 	
 3.0.6
-	오타 수정	
+	오타 수정
+
+3.0.7	
 	ExceptionUtils 추가
