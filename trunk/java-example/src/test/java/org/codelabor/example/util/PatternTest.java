@@ -17,6 +17,7 @@
 package org.codelabor.example.util;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -61,29 +62,38 @@ public class PatternTest {
 		String target = "asdf OR '1'= '1' asdf";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(target);
-		String resultingString = matcher.replaceAll("$1 $3");
+		String resultingString = matcher.replaceAll("$1$3");
+		String expectedString = "asdf  asdf";
 		logger.debug("resultingString: {}", resultingString);
-		
-		target = "asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf";
-		matcher = pattern.matcher(target);
-		resultingString = matcher.replaceAll("$1 $3");
-		logger.debug("resultingString: {}", resultingString);		
-	}
+		assertEquals(expectedString, resultingString);
+	}	
 	
 	@Test
 	public void testReplace2() {
 		// sql injection pettern: or 'qwer' = 'qwer'
 		String regex = "(.*)(?i)or\\s+'(.*)'\\s*=\\s*'\\2'(.*)";
-		String target = "asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf";
+		String target = "asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(target);
+		String resultingString = matcher.replaceAll("$1$3");
+		String expectedString = "asdf  asdf asdf  asdf";
+		logger.debug("resultingString: {}", resultingString);
+		assertTrue(!expectedString.equals(resultingString));
+	}
+	
+	@Test
+	public void testReplace3() {
+		// sql injection pettern: or 'qwer' = 'qwer'
+		String regex = "(.*)(?i)or\\s+'(.*)'\\s*=\\s*'\\2'(.*)";
+		String target = "asdf OR '1'= '1' asdf asdf OR '1'= '1' asdf";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = null;
 		String resultingString = null;
-
 		
 		while(true) {
 			matcher = pattern.matcher(target);
 			if (matcher.matches()) {
-				resultingString = matcher.replaceAll("$1 $3");
+				resultingString = matcher.replaceAll("$1$3");
 				logger.debug("resultingString: {}", resultingString);
 			} else {
 				break;
@@ -91,7 +101,21 @@ public class PatternTest {
 			target = resultingString;
 		}
 	
-		logger.debug("resultingString: {}", resultingString);		
+		String expectedString = "asdf  asdf asdf  asdf";
+		logger.debug("resultingString: {}", resultingString);
+		assertEquals(expectedString, resultingString);	
+	}
+	
+	@Test
+	public void testReplace4() {
+		String regex = "(.*) \" (.*)";
+		String target = "1234 \" 5678";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(target);
+		String resultingString = matcher.replaceAll("$1$2");
+		String expectedString = "1234  5678";
+		logger.debug("resultingString: {}", resultingString);
+		assertTrue(!expectedString.equals(resultingString));
 	}	
 
 }
