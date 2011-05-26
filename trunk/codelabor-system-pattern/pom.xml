@@ -9,7 +9,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-pattern</artifactId>
 	<name>codelabor-system-pattern</name>
-	<version>3.0.3</version>
+	<version>3.0.4-SNAPSHOT</version>
 	<description>codelabor system pattern</description>
 	<url>http://codelabor.googlecode.com</url>
 	<licenses>
@@ -21,9 +21,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-pattern-3.0.3</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-pattern-3.0.3</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-pattern-3.0.3</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-pattern</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-pattern</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-pattern</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
