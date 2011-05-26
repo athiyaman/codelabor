@@ -117,7 +117,7 @@ public class RegexPatternReplaceUtilsTest {
 
 		targetString = "qwer \" or 1=1-- qwer";
 		resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
-		expectedString = "qwer \" qwer";
+		expectedString = "qwer \"  qwer";
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
@@ -151,5 +151,14 @@ public class RegexPatternReplaceUtilsTest {
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 
+	}
+
+	@Test
+	public void testReplaceMapListString2() {
+		String targetString = "qwer or 1=1-- qwer qwer or 1=1-- qwer";
+		String resultingString = RegexPatternReplaceUtils.replace(searchAndReplacePatternMap, excludesPatternList, targetString);
+		String expectedString = "qwer  qwer qwer  qwer";
+		logger.debug("resultingString: {}", resultingString);
+		assertEquals(expectedString, resultingString);
 	}
 }

@@ -32,6 +32,7 @@ public class AntStylePatternReplaceUtils {
 	static private Logger logger = LoggerFactory.getLogger(AntStylePatternReplaceUtils.class);
 
 	static public String antStyleToRegexp(String antStylePattern) {
+		logger.debug("antStylePattern: {}", antStylePattern);
 		String regexpPattern = antStylePattern.replace(".", "\\.").replace("?", "\\w?").replace("[^*]?*[^*]?", "\\w*").replace("**", "[\\w\\.\\/]*");
 		logger.debug("regexpPattern: {}", regexpPattern);
 		return regexpPattern;

@@ -96,4 +96,13 @@ public class RegexPatternReplacerTest {
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
 	}
+
+	@Test
+	public void testReplaceString2() {
+		String targetString = "qwer or 1=1-- qwer qwer or 1=1-- qwer";
+		String expectedString = "qwer  qwer qwer  qwer";
+		String resultingString = regexPatternReplacer.replace(targetString);
+		logger.debug("resultingString: {}", resultingString);
+		assertEquals(expectedString, resultingString);
+	}
 }

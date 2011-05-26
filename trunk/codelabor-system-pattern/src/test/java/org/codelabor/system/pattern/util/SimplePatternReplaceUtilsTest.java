@@ -88,5 +88,4 @@ public class SimplePatternReplaceUtilsTest {
 		String expectedString = "zxcv";
 		assertEquals(expectedString, resultingString);
 	}
-
 }

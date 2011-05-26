@@ -51,8 +51,18 @@ public class RegexPatternReplaceUtils {
 	 */
 	static public String replace(String searchPattern, String replacePattern, String targetString) {
 		Pattern pattern = Pattern.compile(searchPattern);
-		Matcher matcher = pattern.matcher(targetString);
-		String resultingString = matcher.replaceAll(replacePattern);
+		Matcher matcher = null;
+		String resultingString = null;
+		while (true) {
+			matcher = pattern.matcher(targetString);
+			if (matcher.matches()) {
+				resultingString = matcher.replaceAll(replacePattern);
+				logger.debug("resultingString: {}", resultingString);
+			} else {
+				break;
+			}
+			targetString = resultingString;
+		}
 		logger.debug("resultingString: {}", resultingString);
 		return resultingString;
 	}

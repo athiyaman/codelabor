@@ -10,3 +10,4 @@
 3.0.3
 	Regex Pattern 개선
 	TestCase 보완
+	Regex Replacer 반복 패턴 지원
