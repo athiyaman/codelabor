@@ -38,6 +38,10 @@
 	
 3.0.6
 	오타 수정
+	
+3.0.7
+	ExceptionUtils 제거
+	org.apache.commons.lang.exception.ExceptionUtils 대체
 
 3.0.7	
 	ExceptionUtils 추가
