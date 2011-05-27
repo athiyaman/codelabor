@@ -3,7 +3,7 @@
 "http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
 <queryservice>
 	<table-mapping>
-		<table name="ACCESS_LOG" class="org.codelabor.system.access.dtos.AccessLogDTO">
+		<table name="ACCESS_LOG" class="org.codelabor.system.access.dto.AccessLogDTO">
 			<field-mapping>
 				<dbms-column>SEQ</dbms-column>
 				<class-attribute>seq</class-attribute>
