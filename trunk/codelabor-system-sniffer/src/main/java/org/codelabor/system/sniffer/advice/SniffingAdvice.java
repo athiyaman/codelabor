@@ -21,8 +21,9 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.codelabor.system.advices.BaseAdvice;
 import org.codelabor.system.anyframe.exceptions.CommonException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
 import org.springframework.util.StopWatch;
 
@@ -35,7 +36,8 @@ import anyframe.common.exception.message.Message;
  * @author Shin Sangjae
  * 
  */
-public class SniffingAdvice extends BaseAdvice implements Ordered {
+public class SniffingAdvice implements Ordered {
+	private Logger logger = LoggerFactory.getLogger(SniffingAdvice.class);
 	/**
 	 * 순서
 	 */
@@ -109,8 +111,7 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 			// String fileName = sourceLocation.getFileName();
 			// int line = sourceLocation.getLine();
 
-			logger.debug("class: {}", joinPoint.getTarget().getClass()
-					.getName());
+			logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
 			logger.debug("method: {}", joinPoint.getSignature().getName());
 			logger.error("exception class: {}", exception.getClass());
 			logger.error("message code: {}", messageCode);
@@ -121,13 +122,10 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 
 			if (cause != null) {
 				StackTraceElement stackTraceElement = cause.getStackTrace()[0];
-				logger.error("cause class: {}",
-						stackTraceElement.getClassName());
-				logger.error("cause method: {}",
-						stackTraceElement.getMethodName());
+				logger.error("cause class: {}", stackTraceElement.getClassName());
+				logger.error("cause method: {}", stackTraceElement.getMethodName());
 				logger.error("cause file: {}", stackTraceElement.getFileName());
-				logger.error("cause line: {}",
-						stackTraceElement.getLineNumber());
+				logger.error("cause line: {}", stackTraceElement.getLineNumber());
 			}
 		}
 	}
@@ -141,8 +139,7 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 	 * @throws Throwable
 	 *             예외
 	 */
-	public Object dumpElapsedTime(ProceedingJoinPoint joinPoint)
-			throws Throwable {
+	public Object dumpElapsedTime(ProceedingJoinPoint joinPoint) throws Throwable {
 		Object retrunValue = null;
 		StopWatch stopWatch = null;
 		if (logger.isDebugEnabled()) {
@@ -153,9 +150,7 @@ public class SniffingAdvice extends BaseAdvice implements Ordered {
 		if (logger.isDebugEnabled()) {
 			stopWatch.stop();
 			long totalTimeMillis = stopWatch.getTotalTimeMillis();
-
-			logger.debug("class: {}", joinPoint.getTarget().getClass()
-					.getName());
+			logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
 			logger.debug("method: {}", joinPoint.getSignature().getName());
 			logger.debug("total time (millis): {}", totalTimeMillis);
 		}
