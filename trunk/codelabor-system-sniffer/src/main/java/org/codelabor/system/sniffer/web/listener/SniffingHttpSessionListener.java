@@ -28,7 +28,8 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.codelabor.system.listeners.BaseListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 스니핑 세션 리스너</br> 세션 변화에 대한 정보를 출력한다.
@@ -37,15 +38,17 @@ import org.codelabor.system.listeners.BaseListener;
  * @author Shin Sangjae
  * 
  */
-public class SniffingHttpSessionListener extends BaseListener implements
+public class SniffingHttpSessionListener implements
 		HttpSessionListener, HttpSessionAttributeListener,
 		HttpSessionActivationListener {
+
+	private Logger logger = LoggerFactory.getLogger(SniffingHttpSessionListener.class);
 
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionAttributeListener#attributeAdded(javax.
 	 * servlet.http.HttpSessionBindingEvent)
@@ -69,7 +72,7 @@ public class SniffingHttpSessionListener extends BaseListener implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionAttributeListener#attributeRemoved(javax
 	 * .servlet.http.HttpSessionBindingEvent)
@@ -92,7 +95,7 @@ public class SniffingHttpSessionListener extends BaseListener implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionAttributeListener#attributeReplaced(javax
 	 * .servlet.http.HttpSessionBindingEvent)
@@ -115,7 +118,7 @@ public class SniffingHttpSessionListener extends BaseListener implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionListener#sessionCreated(javax.servlet.http
 	 * .HttpSessionEvent)
@@ -136,7 +139,7 @@ public class SniffingHttpSessionListener extends BaseListener implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionListener#sessionDestroyed(javax.servlet
 	 * .http.HttpSessionEvent)
@@ -157,7 +160,7 @@ public class SniffingHttpSessionListener extends BaseListener implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionActivationListener#sessionDidActivate(javax
 	 * .servlet.http.HttpSessionEvent)
@@ -178,7 +181,7 @@ public class SniffingHttpSessionListener extends BaseListener implements
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * javax.servlet.http.HttpSessionActivationListener#sessionWillPassivate
 	 * (javax.servlet.http.HttpSessionEvent)
