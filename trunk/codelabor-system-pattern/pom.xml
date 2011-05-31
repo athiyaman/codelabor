@@ -166,7 +166,7 @@
 		<repository>
 		</repository>
 		<site>
-			<id>codelabor-system-pattern</id>
+			<id>codelabor-system-pattern-site</id>
 			<name>CODELABOR System Pattern</name>
 			<url>scm:svn:https://codelabor.googlecode.com/svn/site/codelabor-system-pattern</url>
 		</site>
