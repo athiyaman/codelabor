@@ -12,6 +12,10 @@
 	<version>3.0.4-SNAPSHOT</version>
 	<description>codelabor system pattern</description>
 	<url>http://codelabor.googlecode.com</url>
+	<issueManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/codelabor/issues/list</url>
+	</issueManagement>
 	<licenses>
 		<license>
 			<name>Apache 2</name>
@@ -113,7 +117,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
-					<tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
+					<tagBase>https://codelabor.googlecode.com/svn/releases</tagBase>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -158,6 +162,15 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+		<repository>
+		</repository>
+		<site>
+			<id>codelabor-system-pattern</id>
+			<name>CODELABOR System Pattern</name>
+			<url>scm:svn:https://codelabor.googlecode.com/svn/site/codelabor-system-pattern</url>
+		</site>
+	</distributionManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>3.0.5.RELEASE</springframework.version>
