@@ -16,14 +16,16 @@
  */
 package org.codelabor.example.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.codelabor.example.helloworld.service.HelloWorldService;
+import org.codelabor.example.helloworld.service.HelloWorldServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  * @author Administrator
- *
+ * 
  */
 public class HelloWorldServiceTest {
 
@@ -35,11 +37,16 @@ public class HelloWorldServiceTest {
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.helloworld.service.HelloWorldServiceImpl#sayHello()}.
+	 * Test method for
+	 * {@link org.codelabor.example.helloworld.service.HelloWorldServiceImpl#sayHello()}
+	 * .
 	 */
 	@Test
 	public void testSayHello() {
-		fail("Not yet implemented");
+		HelloWorldService helloWorldService = new HelloWorldServiceImpl();
+		String greeting = helloWorldService.sayHello();
+		assertEquals("Hello, World!", greeting);
+
 	}
 
 }
