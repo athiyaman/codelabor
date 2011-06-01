@@ -12,11 +12,38 @@
 	<name>maven-example</name>
 	<description>CODELABOR maven example</description>
 	<url>http://codelabor.googlecode.com</url>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<issueManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/codelabor/issues</url>
+	</issueManagement>
+	<developers>
+		<developer>
+			<id>bomber</id>
+			<name>Shin Sang-jae</name>
+			<email>codelabor@gmail.com</email>
+			<url>http://codelabor.org</url>
+			<organization>CODELABOR</organization>
+			<organizationUrl>http://codelabor.org</organizationUrl>
+			<roles>
+			</roles>
+		</developer>
+	</developers>
 	<scm>
 		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/maven-example</connection>
 		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/maven-example</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/trunk/maven-example</url>
+		<url>http://code.google.com/p/codelabor/source/browse</url>
 	</scm>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
 	<build>
 		<plugins>
 			<plugin>
@@ -29,6 +56,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
