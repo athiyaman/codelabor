@@ -7,11 +7,6 @@
 		</layout>
 	</appender>
 	
-	<logger name="org.codelabor">
-		<level value="debug" />
-		<appender-ref ref="console" />
-	</logger>
-	
 	<root>
 		<level value="debug" />
 		<appender-ref ref="console" />
