@@ -1,59 +1,59 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.codelabor</groupId>
-  <artifactId>maven-example</artifactId>
-  <packaging>jar</packaging>
-  <version>1.2.6-SNAPSHOT</version>
-  <name>maven-example</name>
-  <url>http://maven.apache.org</url>
-  <scm>
-  	<connection>scm:svn:http://griffin.codelabor.org/svn/codelabor/trunk/maven-example</connection>
-  	<developerConnection>scm:svn:http://griffin.codelabor.org/svn/codelabor/trunk/maven-example</developerConnection>
-  	<url>http://griffin.codelabor.org/svn/codelabor/trunk/maven-example</url>
-  </scm>
-  <build>
-  	<plugins>
-  		<plugin>
-  			<groupId>org.apache.maven.plugins</groupId>
-  			<artifactId>maven-release-plugin</artifactId>
-  			<configuration>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codelabor</groupId>
+	<artifactId>maven-example</artifactId>
+	<packaging>jar</packaging>
+	<version>1.2.6-SNAPSHOT</version>
+	<name>maven-example</name>
+	<url>http://maven.apache.org</url>
+	<scm>
+		<connection>scm:svn:http://griffin.codelabor.org/svn/codelabor/trunk/maven-example</connection>
+		<developerConnection>scm:svn:http://griffin.codelabor.org/svn/codelabor/trunk/maven-example</developerConnection>
+		<url>http://griffin.codelabor.org/svn/codelabor/trunk/maven-example</url>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
 				<username>${scm.username}</username>
 				<password>${scm.password}</password>
-  			</configuration>
-  		</plugin>
-  	</plugins>
-  </build>
-  <dependencies>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.8.2</version>
-  		<type>jar</type>
-  		<scope>test</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.slf4j</groupId>
-  		<artifactId>slf4j-api</artifactId>
-  		<version>1.6.1</version>
-  		<type>jar</type>
-  		<scope>compile</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.slf4j</groupId>
-  		<artifactId>slf4j-log4j12</artifactId>
-  		<version>1.6.1</version>
-  		<type>jar</type>
-  		<scope>runtime</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>log4j</groupId>
-  		<artifactId>log4j</artifactId>
-  		<version>1.2.15</version>
-  		<type>jar</type>
-  		<scope>runtime</scope>
-  	</dependency>
-  </dependencies>
-   <distributionManagement>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
 	<repository>
 		<id>codelabor.release</id>
 		<url>http://griffin.codelabor.org:8080/archiva/repository/release</url>
@@ -62,5 +62,5 @@
 		<id>codelabor.snapshots</id>
 		<url>http://griffin.codelabor.org:8080/archiva/repository/snapshots</url>
 	</snapshotRepository>
-   </distributionManagement>
+	</distributionManagement>
 </project>
