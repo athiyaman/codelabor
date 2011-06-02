@@ -134,5 +134,6 @@
 			<name>Google Code</name>
 			<url>scm:svn:https://codelabor.googlecode.com/svn/site/maven-example</url>
 		</site>
+		<downloadUrl>http://code.google.com/p/codelabor/downloads/list</downloadUrl>
 	</distributionManagement>
 </project>
