@@ -39,4 +39,25 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 		return greeting;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.example.helloworld.service.HelloWorldService#sayHello(java
+	 * .lang.String)
+	 */
+	public String sayHello(String name) {
+		String greeting = null;
+		if (name != null) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("Hello, ").append(name).append("!");
+			greeting = sb.toString();
+		} else {
+			greeting = sayHello();
+		}
+
+		logger.debug("greeting: {}", greeting);
+		return greeting;
+	}
+
 }

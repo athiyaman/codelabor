@@ -17,9 +17,25 @@
 package org.codelabor.example.helloworld.service;
 
 /**
+ * HelloWorld 서비스 인터페이스
+ * 
  * @author Shin Sang-jae
  * 
  */
 public interface HelloWorldService {
+	/**
+	 * 인사를 한다.
+	 * 
+	 * @return 인삿말
+	 */
 	public String sayHello();
+
+	/**
+	 * 인사를 한다.
+	 * 
+	 * @param name
+	 *            이름
+	 * @return 인삿말
+	 */
+	public String sayHello(String name);
 }

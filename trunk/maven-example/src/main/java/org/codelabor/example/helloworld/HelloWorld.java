@@ -17,13 +17,18 @@
 package org.codelabor.example.helloworld;
 
 /**
+ * HelloWorld 클래스
+ * 
  * @author Shin Sang-jae
  * 
  */
 public class HelloWorld {
 
 	/**
+	 * 메인 메소드
+	 * 
 	 * @param args
+	 *            입력 아규먼트
 	 */
 	public static void main(String[] args) {
 		System.out.println("Hello, World!");
