@@ -69,23 +69,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-manager-plexus</artifactId>
-				<version>1.4</version>
-			</extension>
-			<extension>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-provider-svnexe</artifactId>
-				<version>1.4</version>
-			</extension>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-scm</artifactId>
-				<version>1.0-beta-6</version>
-			</extension>
-		</extensions>
 	</build>
 	<profiles>
 	</profiles>
@@ -129,11 +112,6 @@
 		</plugins>
 	</reporting>
 	<distributionManagement>
-		<site>
-			<id>googlecode-site</id>
-			<name>Google Code</name>
-			<url>scm:svn:https://codelabor.googlecode.com/svn/site/maven-example</url>
-		</site>
 		<downloadUrl>http://code.google.com/p/codelabor/downloads/list</downloadUrl>
 	</distributionManagement>
 </project>
