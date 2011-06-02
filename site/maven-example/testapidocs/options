@@ -1,0 +1,26 @@
+-classpath
+'C:/Users/Administrator/Documents/workspace-sts-2.6.1.RELEASE/maven-example/target/classes;C:/Users/Administrator/Documents/workspace-sts-2.6.1.RELEASE/maven-example/target/test-classes;C:/Users/Administrator/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar;C:/Users/Administrator/.m2/repository/org/slf4j/slf4j-log4j12/1.6.1/slf4j-log4j12-1.6.1.jar;C:/Users/Administrator/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar;C:/Users/Administrator/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/Users/Administrator/Documents/workspace-sts-2.6.1.RELEASE/maven-example/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2011 <a href="http://codelabor.org">CODELABOR</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Administrator/Documents/workspace-sts-2.6.1.RELEASE/maven-example/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'maven-example 3.0.0-SNAPSHOT Test API'
+-link
+'../apidocs'
+-link
+'http://java.sun.com/javase/6/docs/api'
+-use
+-version
+-windowtitle
+'maven-example 3.0.0-SNAPSHOT Test API'
