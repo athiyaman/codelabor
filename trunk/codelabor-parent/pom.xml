@@ -7,7 +7,7 @@
   </parent>
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-parent</artifactId>
-  <version>1-SNAPSHOT</version>
+  <version>1</version>
   <packaging>pom</packaging>
   <name>CODELABOR parent</name>
   <description>CODELABOR parent</description>
@@ -36,9 +36,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-parent</connection>
-    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-parent</developerConnection>
-    <url>http://code.google.com/p/codelabor/source/browse</url>
+    <connection>scm:svn:http://codelabor.googlecode.com/svn/tags/1</connection>
+    <developerConnection>scm:svn:http://codelabor.googlecode.com/svn/tags/1</developerConnection>
+    <url>scm:svn:http://codelabor.googlecode.com/svn/tags/1</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
