@@ -30,11 +30,24 @@ public class AntPathMatcherTest extends TestCase {
 
 	public void testMatch() {
 		AntPathMatcher antPathMatcher = new AntPathMatcher();
+
 		String pattern = "/**/*.xml*";
 		String path = "/WEB-INF/web.xml";
+		boolean isMatched = antPathMatcher.match(pattern, path);
+		logger.debug("isMatched: {}", isMatched);
+		assertTrue(isMatched);
 
-		logger.debug("match: {}", antPathMatcher.match(pattern, path));
-		assertTrue(antPathMatcher.match(pattern, path));
+		pattern = "org/codelabor/*/**/*Service";
+		path = "org/codelabor/example/HelloWorldService";
+		isMatched = antPathMatcher.match(pattern, path);
+		logger.debug("isMatched: {}", isMatched);
+		assertTrue(isMatched);
+
+		pattern = "org/codelabor/*/**/*Service?";
+		path = "org/codelabor/example/HelloWorldServices";
+		isMatched = antPathMatcher.match(pattern, path);
+		logger.debug("isMatched: {}", isMatched);
+		assertTrue(isMatched);
 	}
 
 }
