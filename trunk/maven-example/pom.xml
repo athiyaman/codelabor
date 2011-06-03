@@ -155,4 +155,8 @@
   <distributionManagement>
     <downloadUrl>http://code.google.com/p/codelabor/downloads/list</downloadUrl>
   </distributionManagement>
+  <properties>
+  	<maven.compiler.source>1.5</maven.compiler.source>
+  	<maven.compiler.target>1.5</maven.compiler.target>
+  </properties>
 </project>
