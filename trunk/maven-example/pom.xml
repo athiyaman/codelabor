@@ -112,7 +112,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.1</version>
         <configuration>
-          <tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
+          <tagBase>http://codelabor.googlecode.com/svn/tags</tagBase>
         </configuration>
       </plugin>
     </plugins>
@@ -159,7 +159,7 @@
     </plugins>
   </reporting>
   <distributionManagement>
-    <downloadUrl>http://code.google.com/p/codelabor/downloads/list/maven-example</downloadUrl>
+    <downloadUrl>http://code.google.com/p/codelabor/downloads/list</downloadUrl>
   </distributionManagement>
   <properties>
     <maven.compiler.source>1.5</maven.compiler.source>
