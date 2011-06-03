@@ -14,28 +14,14 @@
 		</fileSet>
 		<fileSet>
 			<directory>target</directory>
-			<outputDirectory>src</outputDirectory>
+			<outputDirectory>/</outputDirectory>
 			<includes>
-				<include>${project.build.finalName}-sources.jar</include>
+				<include>${project.build.finalName}*.jar</include>
 			</includes>
 		</fileSet>
 		<fileSet>
-			<directory>target</directory>
-			<outputDirectory>docs</outputDirectory>
-			<includes>
-				<include>${project.build.finalName}-javadoc.jar</include>
-			</includes>
-		</fileSet>
-		<fileSet>
-			<directory>target</directory>
-			<outputDirectory>dist</outputDirectory>
-			<includes>
-				<include>${project.build.finalName}.jar</include>
-			</includes>
-		</fileSet>
-		<fileSet>
-			<directory>target/lib</directory>
-			<outputDirectory>lib</outputDirectory>
+			<directory>target/dependency</directory>
+			<outputDirectory>dependency</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 			</includes>

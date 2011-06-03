@@ -52,7 +52,7 @@
         <version>2.7</version>
         <executions>
           <execution>
-            <id>package-javadoc</id>
+            <id>attach-javadocs</id>
             <phase>package</phase>
             <goals>
               <goal>jar</goal>
@@ -66,7 +66,7 @@
         <version>2.1.2</version>
         <executions>
           <execution>
-            <id>package-source</id>
+            <id>attach-source</id>
             <phase>package</phase>
             <goals>
               <goal>jar</goal>
@@ -89,14 +89,23 @@
         </executions>
       </plugin>
       <plugin>
-      	<groupId>org.apache.maven.plugins</groupId>
-      	<artifactId>maven-assembly-plugin</artifactId>
-      	<version>2.2.1</version>
-      	<configuration>
-      		<descriptorRefs>
-      			<descriptor>bin</descriptor>
-      		</descriptorRefs>
-      	</configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2.1</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assemble/bin.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -153,7 +162,7 @@
     <downloadUrl>http://code.google.com/p/codelabor/downloads/list</downloadUrl>
   </distributionManagement>
   <properties>
-  	<maven.compiler.source>1.5</maven.compiler.source>
-  	<maven.compiler.target>1.5</maven.compiler.target>
+    <maven.compiler.source>1.5</maven.compiler.source>
+    <maven.compiler.target>1.5</maven.compiler.target>
   </properties>
 </project>
