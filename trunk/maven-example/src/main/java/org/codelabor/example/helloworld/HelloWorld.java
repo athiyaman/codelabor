@@ -17,7 +17,7 @@
 package org.codelabor.example.helloworld;
 
 /**
- * HelloWorld 클래스
+ * HelloWorld 메인 클래스
  * 
  * @author Shin Sang-jae
  * 
