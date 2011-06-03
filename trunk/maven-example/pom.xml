@@ -186,7 +186,7 @@
     </plugins>
   </reporting>
   <distributionManagement>
-    <downloadUrl>http://code.google.com/p/codelabor/downloads/list</downloadUrl>
+    <downloadUrl>https://code.google.com/p/codelabor/downloads/list</downloadUrl>
   </distributionManagement>
   <properties>
     <maven.compiler.source>1.5</maven.compiler.source>
