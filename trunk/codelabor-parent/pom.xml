@@ -51,7 +51,7 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>2.1</version>
         <configuration>
-          <tagBase>http://codelabor.googlecode.com/svn/tags</tagBase>
+          <tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
         </configuration>
       </plugin>
       <plugin>
