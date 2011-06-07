@@ -24,13 +24,43 @@
   	</dependency>
   	<dependency>
   		<groupId>org.anyframe</groupId>
+  		<artifactId>anyframe-core</artifactId>
+  		<version>1.0.0</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>  	
+  	<dependency>
+  		<groupId>org.anyframe</groupId>
   		<artifactId>anyframe-query</artifactId>
   		<version>1.1.0</version>
   		<type>jar</type>
   		<scope>compile</scope>
   	</dependency>
+  	<dependency>
+  		<groupId>org.anyframe</groupId>
+  		<artifactId>anyframe-idgen</artifactId>
+  		<version>1.0.0</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>  	
   </dependencies>
   <build>
     <finalName>anyframe-example</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
