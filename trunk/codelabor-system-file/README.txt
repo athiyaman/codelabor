@@ -40,3 +40,6 @@
 3.0.2
 	base class 의존 관계 끊기
 	derby 테스트 완료
+	
+3.1.0
+	Anyframe 5.0 지원	
