@@ -30,3 +30,6 @@
 	dependency 정리
 	resources 정리
 	FileUtils > FilenameUtils로 교체
+
+3.0.4
+	codelabor-system-core 업데이트	
