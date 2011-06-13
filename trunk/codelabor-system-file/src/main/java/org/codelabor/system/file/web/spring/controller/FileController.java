@@ -32,6 +32,7 @@ import javax.inject.Named;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.anyframe.idgen.IdGenService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.dto.StringIdArrayDTO;
@@ -52,9 +53,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
-import anyframe.common.util.StringUtil;
-import anyframe.core.idgen.IIdGenerationService;
 
 /**
  * @author Shin Sang-jae
@@ -79,14 +77,14 @@ public class FileController {
 	 * Map Id 제네레이션 서비스
 	 */
 	@Inject
-	@Named("mapIdGenerationService")
-	protected IIdGenerationService mapIdGenerationService;
+	@Named("mapIdGenService")
+	protected IdGenService mapIdGenService;
 	/**
 	 * 고유 파일명 제네레이션 서비스
 	 */
 	@Inject
 	@Named("uniqueFilenameGenerationService")
-	protected IIdGenerationService uniqueFilenameGenerationService;
+	protected IdGenService uniqueFilenameGenerationService;
 
 	/**
 	 * 파일 저장 경로
@@ -110,9 +108,8 @@ public class FileController {
 		String mapId = fileList.getMapId();
 		RepositoryType acceptedRepositoryType = repositoryType;
 		String requestedRepositoryType = fileList.getRepositoryType();
-		if (StringUtil.isNotEmpty(requestedRepositoryType)) {
-			acceptedRepositoryType = RepositoryType
-					.valueOf(requestedRepositoryType);
+		if (StringUtils.isNotEmpty(requestedRepositoryType)) {
+			acceptedRepositoryType = RepositoryType.valueOf(requestedRepositoryType);
 		}
 
 		while (iter.hasNext()) {
@@ -127,17 +124,14 @@ public class FileController {
 			fileDTO.setMapId(mapId);
 			fileDTO.setRealFilename(FilenameUtils.getName(originalFilename));
 			if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
-				logger.debug("uniqueFilenameGenerationService: {}",
-						uniqueFilenameGenerationService);
-				fileDTO.setUniqueFilename(uniqueFilenameGenerationService
-						.getNextStringId());
+				logger.debug("uniqueFilenameGenerationService: {}", uniqueFilenameGenerationService);
+				fileDTO.setUniqueFilename(uniqueFilenameGenerationService.getNextStringId());
 			}
 			fileDTO.setContentType(uploadedFile.getContentType());
 			fileDTO.setRepositoryPath(repositoryPath);
 			logger.debug(fileDTO.toString());
 
-			UploadUtils.processFile(acceptedRepositoryType,
-					uploadedFile.getInputStream(), fileDTO);
+			UploadUtils.processFile(acceptedRepositoryType, uploadedFile.getInputStream(), fileDTO);
 
 			if (fileDTO != null)
 				fileManager.insertFile(fileDTO);
@@ -147,9 +141,7 @@ public class FileController {
 	}
 
 	@RequestMapping("/download")
-	public void download(@RequestHeader("User-Agent") String userAgent,
-			@RequestParam("fileId") String fileId, HttpServletResponse response)
-			throws Exception {
+	public void download(@RequestHeader("User-Agent") String userAgent, @RequestParam("fileId") String fileId, HttpServletResponse response) throws Exception {
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
 		logger.debug("fileDTO: {}", fileDTO);
 
@@ -159,7 +151,7 @@ public class FileController {
 		InputStream inputStream = null;
 
 		StringBuilder sb = new StringBuilder();
-		if (StringUtil.isNotEmpty(repositoryPath)) {
+		if (StringUtils.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
 			sb.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {
@@ -190,19 +182,16 @@ public class FileController {
 			sb.append("attachment; filename=");
 		}
 		sb.append(encodedRealFilename);
-		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
-				sb.toString());
+		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION, sb.toString());
 		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
 		logger.debug("content type: {}", response.getContentType());
 		logger.debug("bufferSize: {}", response.getBufferSize());
 		logger.debug("locale: {}", response.getLocale());
 
-		BufferedInputStream bufferdInputStream = new BufferedInputStream(
-				inputStream);
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(inputStream);
 		ServletOutputStream servletOutputStream = response.getOutputStream();
-		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				servletOutputStream);
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(servletOutputStream);
 		int bytesRead;
 		byte buffer[] = new byte[2048];
 		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {
@@ -219,8 +208,7 @@ public class FileController {
 	}
 
 	@RequestMapping("/view")
-	public void view(@RequestParam("fileId") String fileId,
-			HttpServletResponse response) throws Exception {
+	public void view(@RequestParam("fileId") String fileId, HttpServletResponse response) throws Exception {
 		StringBuilder stringBuilder = null;
 
 		FileDTO fileDTO;
@@ -231,7 +219,7 @@ public class FileController {
 		String uniqueFilename = fileDTO.getUniqueFilename();
 		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
-		if (StringUtil.isNotEmpty(repositoryPath)) {
+		if (StringUtils.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
 			stringBuilder = new StringBuilder();
 			stringBuilder.append(repositoryPath);
@@ -261,11 +249,9 @@ public class FileController {
 		logger.debug("bufferSize: {}", response.getBufferSize());
 		logger.debug("locale: {}", response.getLocale());
 
-		BufferedInputStream bufferdInputStream = new BufferedInputStream(
-				inputStream);
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(inputStream);
 		ServletOutputStream servletOutputStream = response.getOutputStream();
-		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				servletOutputStream);
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(servletOutputStream);
 		int bytesRead;
 		byte buffer[] = new byte[2048];
 		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {
@@ -282,10 +268,7 @@ public class FileController {
 	}
 
 	@RequestMapping("/list")
-	public String list(
-			@RequestParam(value = "mapId", required = false) String mapId,
-			@RequestParam(value = "repositoryType", required = false) String repositoryType,
-			Model model) {
+	public String list(@RequestParam(value = "mapId", required = false) String mapId, @RequestParam(value = "repositoryType", required = false) String repositoryType, Model model) {
 		String viewName = "example.file.spring.mvc.list.definition";
 		List<FileDTO> fileDTOList = null;
 		try {
@@ -298,12 +281,10 @@ public class FileController {
 			} else {
 				switch (RepositoryType.valueOf(repositoryType)) {
 				case DATABASE:
-					fileDTOList = fileManager
-							.selectFileByRepositoryType(RepositoryType.DATABASE);
+					fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.DATABASE);
 					break;
 				case FILE_SYSTEM:
-					fileDTOList = fileManager
-							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
+					fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
 				default:
 					logger.error("Invalid repository type: {}", repositoryType);
@@ -312,8 +293,7 @@ public class FileController {
 
 			}
 			model.addAttribute(FileConstants.FILE_LIST_KEY, fileDTOList);
-			model.addAttribute(FileConstants.MAP_ID,
-					mapIdGenerationService.getNextStringId());
+			model.addAttribute(FileConstants.MAP_ID, mapIdGenService.getNextStringId());
 
 		} catch (Exception e) {
 			e.printStackTrace();

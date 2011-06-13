@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:config="http://www.anyframejava.org/schema/service"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean name="mapIdGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+	<bean name="mapIdGenService"
+		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="mapIdStrategy" />
-		<config:configuration big-decimals="true">
-			<query>VALUES (NEXT VALUE FOR MAP_ID_SEQ)</query>
-		</config:configuration>
+		<property name="query" value="VALUES (NEXT VALUE FOR MAP_ID_SEQ)" />
 	</bean>
 
-	<bean name="fileIdGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+	<bean name="fileIdGenService"
+		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="fileIdStrategy" />
-		<config:configuration big-decimals="true">
-			<query>VALUES (NEXT VALUE FOR FILE_ID_SEQ)</query>
-		</config:configuration>
+		<property name="query" value="VALUES (NEXT VALUE FOR FILE_ID_SEQ)" />
 	</bean>
 
 	<bean name="uniqueFilenameGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="uniqueFilenameStrategy" />
-		<config:configuration big-decimals="true">
-			<query>VALUES (NEXT VALUE FOR FILE_NAME_SEQ)</query>
-		</config:configuration>
+		<property name="query" value="VALUES (NEXT VALUE FOR FILE_NAME_SEQ)" />
 	</bean>
 
 </beans>

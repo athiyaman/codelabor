@@ -12,6 +12,6 @@
 	<bean
 		id="fileDAO"
 		class="org.codelabor.system.file.dao.FileDAOImpl">
-		<property name="idGenerationService" ref="fileIdGenerationService"/>
+		<property name="idGenService" ref="fileIdGenService"/>
 	</bean>
 </beans>

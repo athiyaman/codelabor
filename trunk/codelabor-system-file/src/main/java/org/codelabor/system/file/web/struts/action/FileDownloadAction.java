@@ -27,6 +27,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DownloadAction;
@@ -40,8 +41,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import anyframe.common.util.StringUtil;
-
 /**
  * 파일 다운로드 Action
  * 
@@ -53,8 +52,7 @@ public class FileDownloadAction extends DownloadAction {
 	/**
 	 * 로거
 	 */
-	private final Logger logger = LoggerFactory
-			.getLogger(FileDownloadAction.class);
+	private final Logger logger = LoggerFactory.getLogger(FileDownloadAction.class);
 
 	/*
 	 * (non-Javadoc)
@@ -66,16 +64,13 @@ public class FileDownloadAction extends DownloadAction {
 	 * javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
-	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+	protected StreamInfo getStreamInfo(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug(paramMap.toString());
 		String fileId = (String) paramMap.get("fileId");
 
 		StreamInfo streamInfo = null;
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(servlet.getServletContext());
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(servlet.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
@@ -88,20 +83,18 @@ public class FileDownloadAction extends DownloadAction {
 		StringBuilder sb = new StringBuilder();
 
 		// FILE_SYSTEM
-		if (StringUtil.isNotEmpty(repositoryPath)) {
+		if (StringUtils.isNotEmpty(repositoryPath)) {
 			sb.append(repositoryPath);
 			if (!repositoryPath.endsWith(File.separator)) {
 				sb.append(File.separator);
 			}
 			sb.append(uniqueFilename);
 			File file = new File(sb.toString());
-			streamInfo = new FileStreamInfo(
-					org.codelabor.system.file.FileConstants.CONTENT_TYPE, file);
+			streamInfo = new FileStreamInfo(org.codelabor.system.file.FileConstants.CONTENT_TYPE, file);
 			// DATABASE
 		} else {
 			byte[] bytes = fileDTO.getBytes();
-			streamInfo = new ByteArrayStreamInfo(
-					org.codelabor.system.file.FileConstants.CONTENT_TYPE, bytes);
+			streamInfo = new ByteArrayStreamInfo(org.codelabor.system.file.FileConstants.CONTENT_TYPE, bytes);
 		}
 		// set response contenttype, header
 		String encodedRealFilename = URLEncoder.encode(realFilename, "UTF-8");
@@ -110,8 +103,7 @@ public class FileDownloadAction extends DownloadAction {
 
 		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		sb.setLength(0);
-		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf(
-				"MSIE5.5") > -1) {
+		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			sb.append("filename=");
 		} else {
 			sb.append("attachment; filename=");
@@ -119,8 +111,7 @@ public class FileDownloadAction extends DownloadAction {
 		// stringBuilder.append("\"");
 		sb.append(encodedRealFilename);
 		// stringBuilder.append("\"");
-		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
-				sb.toString());
+		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION, sb.toString());
 
 		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());

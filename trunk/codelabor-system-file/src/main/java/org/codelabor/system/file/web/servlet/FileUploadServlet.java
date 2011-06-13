@@ -40,6 +40,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.anyframe.idgen.IdGenService;
+import org.anyframe.util.properties.PropertiesService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -62,10 +64,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import anyframe.common.util.StringUtil;
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.properties.IPropertiesService;
-
 /**
  * 파일 업로드 서블릿
  * 
@@ -80,8 +78,7 @@ public class FileUploadServlet extends HttpServlet {
 	/**
 	 * 로거
 	 */
-	private final static Logger logger = LoggerFactory
-			.getLogger(FileUploadServlet.class);
+	private final static Logger logger = LoggerFactory.getLogger(FileUploadServlet.class);
 
 	/**
 	 * 서블릿 컨피그
@@ -168,41 +165,28 @@ public class FileUploadServlet extends HttpServlet {
 		forwardPathDelete = config.getInitParameter("forwardPathDelete");
 
 		// set service
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(config.getServletContext());
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
 
-		IPropertiesService propertiesService = (IPropertiesService) ctx
-				.getBean("propertiesService");
+		PropertiesService propertiesService = (PropertiesService) ctx.getBean("propertiesService");
 
 		// overwrite configuration
-		characterEncoding = propertiesService.getString(
-				"file.default.character.encoding", characterEncoding);
-		sizeThreshold = propertiesService.getInt(
-				"file.default.file.size.threshold", sizeThreshold);
-		fileSizeMax = propertiesService.getLong("file.default.file.size.max",
-				fileSizeMax);
-		requestSizeMax = propertiesService.getLong(
-				"file.default.request.size.max", requestSizeMax);
-		realRepositoryPath = propertiesService.getString(
-				"file.default.real.repository.path", realRepositoryPath);
-		tempRepositoryPath = propertiesService.getString(
-				"file.default.temp.repository.path", tempRepositoryPath);
-		repositoryType = RepositoryType
-				.valueOf(propertiesService.getString(
-						"file.default.real.repository.type",
-						repositoryType.toString()));
+		characterEncoding = propertiesService.getString("file.default.character.encoding", characterEncoding);
+		sizeThreshold = propertiesService.getInt("file.default.file.size.threshold", sizeThreshold);
+		fileSizeMax = propertiesService.getLong("file.default.file.size.max", fileSizeMax);
+		requestSizeMax = propertiesService.getLong("file.default.request.size.max", requestSizeMax);
+		realRepositoryPath = propertiesService.getString("file.default.real.repository.path", realRepositoryPath);
+		tempRepositoryPath = propertiesService.getString("file.default.temp.repository.path", tempRepositoryPath);
+		repositoryType = RepositoryType.valueOf(propertiesService.getString("file.default.real.repository.type", repositoryType.toString()));
 		// mkdirs
 		File file = new File(realRepositoryPath);
 		if (!file.exists()) {
 			boolean mkdirSuccess = file.mkdirs();
-			logger.debug("mkdirs: {}, success: {}", realRepositoryPath,
-					mkdirSuccess);
+			logger.debug("mkdirs: {}, success: {}", realRepositoryPath, mkdirSuccess);
 		}
 		file = new File(tempRepositoryPath);
 		if (!file.exists()) {
 			boolean mkdirSuccess = file.mkdirs();
-			logger.debug("mkdirs: {}, success: {}", realRepositoryPath,
-					mkdirSuccess);
+			logger.debug("mkdirs: {}, success: {}", realRepositoryPath, mkdirSuccess);
 		}
 
 	}
@@ -215,8 +199,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * , javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
-	public void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String parameterValue = request.getParameter(parameterName);
 			switch (Parameter.valueOf(parameterValue)) {
@@ -261,8 +244,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void processParameters(Map<String, Object> paramMap)
-			throws Exception {
+	protected void processParameters(Map<String, Object> paramMap) throws Exception {
 		logger.debug("paramMap: {}", paramMap.toString());
 	}
 
@@ -278,11 +260,9 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void dispatch(HttpServletRequest request,
-			HttpServletResponse response, String path) throws Exception {
+	protected void dispatch(HttpServletRequest request, HttpServletResponse response, String path) throws Exception {
 		logger.debug("dispatch path: ", path);
-		RequestDispatcher dispatcher = servletConfig.getServletContext()
-				.getRequestDispatcher(path);
+		RequestDispatcher dispatcher = servletConfig.getServletContext().getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
 
@@ -299,10 +279,8 @@ public class FileUploadServlet extends HttpServlet {
 	 *             예외
 	 */
 	@SuppressWarnings("unchecked")
-	protected void upload(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void upload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
@@ -311,19 +289,16 @@ public class FileUploadServlet extends HttpServlet {
 
 		String mapId = (String) paramMap.get("mapId");
 		RepositoryType acceptedRepositoryType = repositoryType;
-		String requestedRepositoryType = (String) paramMap
-				.get("repositoryType");
-		if (StringUtil.isNotEmpty(requestedRepositoryType)) {
-			acceptedRepositoryType = RepositoryType
-					.valueOf(requestedRepositoryType);
+		String requestedRepositoryType = (String) paramMap.get("repositoryType");
+		if (StringUtils.isNotEmpty(requestedRepositoryType)) {
+			acceptedRepositoryType = RepositoryType.valueOf(requestedRepositoryType);
 		}
 
 		if (isMultipart) {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			factory.setSizeThreshold(sizeThreshold);
 			factory.setRepository(new File(tempRepositoryPath));
-			factory.setFileCleaningTracker(FileCleanerCleanup
-					.getFileCleaningTracker(this.getServletContext()));
+			factory.setFileCleaningTracker(FileCleanerCleanup.getFileCleaningTracker(this.getServletContext()));
 
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			upload.setFileSizeMax(fileSizeMax);
@@ -339,25 +314,21 @@ public class FileUploadServlet extends HttpServlet {
 					logger.debug("fileItem: {}", fileItem.toString());
 					FileDTO fileDTO = null;
 					if (fileItem.isFormField()) {
-						paramMap.put(fileItem.getFieldName(),
-								fileItem.getString(characterEncoding));
+						paramMap.put(fileItem.getFieldName(), fileItem.getString(characterEncoding));
 					} else {
-						if (fileItem.getName() == null
-								|| fileItem.getName().length() == 0)
+						if (fileItem.getName() == null || fileItem.getName().length() == 0)
 							continue;
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFilename(FilenameUtils.getName(fileItem
-								.getName()));
+						fileDTO.setRealFilename(FilenameUtils.getName(fileItem.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
 							fileDTO.setUniqueFilename(getUniqueFilename());
 						}
 						fileDTO.setContentType(fileItem.getContentType());
 						fileDTO.setRepositoryPath(realRepositoryPath);
 						logger.debug("fileDTO: {}", fileDTO.toString());
-						UploadUtils.processFile(acceptedRepositoryType,
-								fileItem.getInputStream(), fileDTO);
+						UploadUtils.processFile(acceptedRepositoryType, fileItem.getInputStream(), fileDTO);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);
@@ -392,10 +363,8 @@ public class FileUploadServlet extends HttpServlet {
 	 *             예외
 	 */
 	protected String getUniqueFilename() throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
-		IIdGenerationService uniqueFilenameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFilenameGenerationService");
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
+		IdGenService uniqueFilenameGenerationService = (IdGenService) ctx.getBean("uniqueFilenameGenerationService");
 		return uniqueFilenameGenerationService.getNextStringId();
 	}
 
@@ -412,10 +381,8 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void list(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void list(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -424,8 +391,7 @@ public class FileUploadServlet extends HttpServlet {
 		String mapId = (String) paramMap.get("mapId");
 		String repositoryType = (String) paramMap.get("repositoryType");
 
-		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
-				.getBean("sequenceMapIdGenerationService");
+		IdGenService mapIdGenService = (IdGenService) ctx.getBean("sequenceMapIdGenService");
 
 		List<FileDTO> fileDTOList = null;
 		try {
@@ -438,24 +404,18 @@ public class FileUploadServlet extends HttpServlet {
 			} else {
 				switch (RepositoryType.valueOf(repositoryType)) {
 				case DATABASE:
-					fileDTOList = fileManager
-							.selectFileByRepositoryType(RepositoryType.DATABASE);
+					fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.DATABASE);
 					break;
 				case FILE_SYSTEM:
-					fileDTOList = fileManager
-							.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
+					fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 					break;
 				default:
 					logger.error("Invalid repository type: {}", repositoryType);
 					throw new InvalidRepositoryTypeException(repositoryType);
 				}
 			}
-			request.setAttribute(
-					org.codelabor.system.file.FileConstants.FILE_LIST_KEY,
-					fileDTOList);
-			request.setAttribute(
-					org.codelabor.system.file.FileConstants.MAP_ID,
-					mapIdGenerationService.getNextStringId());
+			request.setAttribute(org.codelabor.system.file.FileConstants.FILE_LIST_KEY, fileDTOList);
+			request.setAttribute(org.codelabor.system.file.FileConstants.MAP_ID, mapIdGenService.getNextStringId());
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e.getMessage());
@@ -473,10 +433,8 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void view(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void view(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -494,7 +452,7 @@ public class FileUploadServlet extends HttpServlet {
 		String uniqueFilename = fileDTO.getUniqueFilename();
 		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
-		if (StringUtil.isNotEmpty(repositoryPath)) {
+		if (StringUtils.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
 			sb.setLength(0);
 			sb.append(repositoryPath);
@@ -524,11 +482,9 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("bufferSize: {}", response.getBufferSize());
 		logger.debug("locale: {}", response.getLocale());
 
-		BufferedInputStream bufferdInputStream = new BufferedInputStream(
-				inputStream);
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(inputStream);
 		ServletOutputStream servletOutputStream = response.getOutputStream();
-		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				servletOutputStream);
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(servletOutputStream);
 		int bytesRead;
 		byte buffer[] = new byte[2048];
 		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {
@@ -555,10 +511,8 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void delete(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void delete(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		int affectedRowCount = 0;
@@ -605,15 +559,12 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void read(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void read(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
-		request.setAttribute(org.codelabor.system.file.FileConstants.FILE_KEY,
-				fileDTO);
+		request.setAttribute(org.codelabor.system.file.FileConstants.FILE_KEY, fileDTO);
 		dispatch(request, response, forwardPathRead);
 	}
 
@@ -656,10 +607,8 @@ public class FileUploadServlet extends HttpServlet {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected void download(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void download(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -677,7 +626,7 @@ public class FileUploadServlet extends HttpServlet {
 		String uniqueFilename = fileDTO.getUniqueFilename();
 		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
-		if (StringUtil.isNotEmpty(repositoryPath)) {
+		if (StringUtils.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
 			sb.setLength(0);
 			sb.append(repositoryPath);
@@ -703,15 +652,13 @@ public class FileUploadServlet extends HttpServlet {
 
 		response.setContentType(org.codelabor.system.file.FileConstants.CONTENT_TYPE);
 		sb.setLength(0);
-		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf(
-				"MSIE5.5") > -1) {
+		if (request.getHeader(HttpRequestHeaderConstants.USER_AGENT).indexOf("MSIE5.5") > -1) {
 			sb.append("filename=");
 		} else {
 			sb.append("attachment; filename=");
 		}
 		sb.append(encodedRealFilename);
-		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION,
-				sb.toString());
+		response.setHeader(HttpResponseHeaderConstants.CONTENT_DISPOSITION, sb.toString());
 
 		logger.debug("header: {}", sb.toString());
 		logger.debug("character encoding: {}", response.getCharacterEncoding());
@@ -719,11 +666,9 @@ public class FileUploadServlet extends HttpServlet {
 		logger.debug("bufferSize: {}", response.getBufferSize());
 		logger.debug("locale: {}", response.getLocale());
 
-		BufferedInputStream bufferdInputStream = new BufferedInputStream(
-				inputStream);
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(inputStream);
 		ServletOutputStream servletOutputStream = response.getOutputStream();
-		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				servletOutputStream);
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(servletOutputStream);
 		int bytesRead;
 		byte buffer[] = new byte[2048];
 		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {

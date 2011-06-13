@@ -35,6 +35,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.anyframe.idgen.IdGenService;
+import org.anyframe.util.properties.PropertiesService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -51,10 +53,6 @@ import org.codelabor.system.web.struts.action.BaseDispatchAction;
 import org.codelabor.system.web.util.RequestUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import anyframe.common.util.StringUtil;
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 파일 업로드 Action
@@ -90,15 +88,10 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * @throws Exception
 	 *             예외
 	 */
-	public ActionForward list(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(getServlet()
-						.getServletContext());
+	public ActionForward list(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
-		IIdGenerationService mapIdGenerationService = (IIdGenerationService) ctx
-				.getBean("sequenceMapIdGenerationService");
+		IdGenService mapIdGenService = (IdGenService) ctx.getBean("sequenceMapIdGenService");
 
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
 		logger.debug("paramMap: {}", paramMap.toString());
@@ -117,20 +110,17 @@ public class FileUploadAction extends BaseDispatchAction {
 		} else {
 			switch (RepositoryType.valueOf(repositoryType)) {
 			case DATABASE:
-				fileDTOList = fileManager
-						.selectFileByRepositoryType(RepositoryType.DATABASE);
+				fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.DATABASE);
 				break;
 			case FILE_SYSTEM:
-				fileDTOList = fileManager
-						.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
+				fileDTOList = fileManager.selectFileByRepositoryType(RepositoryType.FILE_SYSTEM);
 				break;
 			default:
 				logger.error("Invalid repository type: {}", repositoryType);
 				throw new InvalidRepositoryTypeException(repositoryType);
 			}
 		}
-		request.setAttribute(FileConstants.MAP_ID,
-				mapIdGenerationService.getNextStringId());
+		request.setAttribute(FileConstants.MAP_ID, mapIdGenService.getNextStringId());
 		request.setAttribute(FileConstants.FILE_LIST_KEY, fileDTOList);
 		return mapping.findForward("list");
 	}
@@ -151,12 +141,8 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * @throws Exception
 	 *             예외
 	 */
-	public ActionForward read(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(getServlet()
-						.getServletContext());
+	public ActionForward read(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		String fileId = request.getParameter("fileId");
 		FileDTO fileDTO = fileManager.selectFileByFileId(fileId);
@@ -181,20 +167,14 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * @throws Exception
 	 *             예외
 	 */
-	public ActionForward upload(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(getServlet()
-						.getServletContext());
+	public ActionForward upload(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
-		IPropertiesService propertiesService = (IPropertiesService) ctx
-				.getBean("propertiesService");
+		PropertiesService propertiesService = (PropertiesService) ctx.getBean("propertiesService");
 		// get parameter
 		String repositoryType = request.getParameter("repositoryType");
 		if (repositoryType == null) {
-			repositoryType = propertiesService.getString(
-					"file.default.real.repository.type", "FILE_SYSTEM");
+			repositoryType = propertiesService.getString("file.default.real.repository.type", "FILE_SYSTEM");
 		}
 		RepositoryType.valueOf(repositoryType);
 		logger.debug("repositoryType: {}", repositoryType);
@@ -208,8 +188,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		logger.debug("mapId: {}", mapId);
 
 		// upload
-		List<FileDTO> fileDTOList = this.saveFile(
-				RepositoryType.valueOf(repositoryType), mapId, formFileList);
+		List<FileDTO> fileDTOList = this.saveFile(RepositoryType.valueOf(repositoryType), mapId, formFileList);
 
 		// invoke manager
 
@@ -233,27 +212,19 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected FileDTO saveFile(RepositoryType repositoryType, String mapId,
-			FormFile formFile) throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(getServlet()
-						.getServletContext());
-		IPropertiesService propertiesService = (IPropertiesService) ctx
-				.getBean("propertiesService");
-		IIdGenerationService uniqueFilenameGenerationService = (IIdGenerationService) ctx
-				.getBean("uniqueFilenameGenerationService");
+	protected FileDTO saveFile(RepositoryType repositoryType, String mapId, FormFile formFile) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
+		PropertiesService propertiesService = (PropertiesService) ctx.getBean("propertiesService");
+		IdGenService uniqueFilenameGenerationService = (IdGenService) ctx.getBean("uniqueFilenameGenerationService");
 		// set file properties
 		String realFilename = formFile.getFileName();
 		int fileSize = formFile.getFileSize();
 		String contentType = formFile.getContentType();
 		InputStream inputStream = formFile.getInputStream();
-		String uniqueFilename = uniqueFilenameGenerationService
-				.getNextStringId();
+		String uniqueFilename = uniqueFilenameGenerationService.getNextStringId();
 
 		// set configuration
-		String repositoryPath = propertiesService.getString(
-				"file.default.real.repository.path",
-				System.getProperty("user.dir"));
+		String repositoryPath = propertiesService.getString("file.default.real.repository.path", System.getProperty("user.dir"));
 
 		// set dto
 		FileDTO fileDTO = new FileDTO();
@@ -282,8 +253,7 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * @throws Exception
 	 *             예외
 	 */
-	protected List<FileDTO> saveFile(RepositoryType repositoryType,
-			String mapId, List<FormFile> formFileList) throws Exception {
+	protected List<FileDTO> saveFile(RepositoryType repositoryType, String mapId, List<FormFile> formFileList) throws Exception {
 		List<FileDTO> fileDTOList = new ArrayList<FileDTO>();
 		Iterator<FormFile> iter = formFileList.iterator();
 		while (iter.hasNext()) {
@@ -314,12 +284,8 @@ public class FileUploadAction extends BaseDispatchAction {
 	 * @throws Exception
 	 *             예외
 	 */
-	public ActionForward delete(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse args)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(getServlet()
-						.getServletContext());
+	public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse args) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 		int affectedRowCount = 0;
 		if (form != null) {
@@ -331,12 +297,8 @@ public class FileUploadAction extends BaseDispatchAction {
 		return mapping.findForward("delete");
 	}
 
-	public ActionForward view(ActionMapping mapping, ActionForm form,
-			HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(getServlet()
-						.getServletContext());
+	public ActionForward view(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(getServlet().getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		Map<String, Object> paramMap = RequestUtils.getParameterMap(request);
@@ -354,7 +316,7 @@ public class FileUploadAction extends BaseDispatchAction {
 		String uniqueFilename = fileDTO.getUniqueFilename();
 		String realFilename = fileDTO.getRealFilename();
 		InputStream inputStream = null;
-		if (StringUtil.isNotEmpty(repositoryPath)) {
+		if (StringUtils.isNotEmpty(repositoryPath)) {
 			// FILE_SYSTEM
 			sb.setLength(0);
 			sb.append(repositoryPath);
@@ -384,11 +346,9 @@ public class FileUploadAction extends BaseDispatchAction {
 		logger.debug("bufferSize: {}", response.getBufferSize());
 		logger.debug("locale: {}", response.getLocale());
 
-		BufferedInputStream bufferdInputStream = new BufferedInputStream(
-				inputStream);
+		BufferedInputStream bufferdInputStream = new BufferedInputStream(inputStream);
 		ServletOutputStream servletOutputStream = response.getOutputStream();
-		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(
-				servletOutputStream);
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(servletOutputStream);
 		int bytesRead;
 		byte buffer[] = new byte[2048];
 		while ((bytesRead = bufferdInputStream.read(buffer)) != -1) {

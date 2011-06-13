@@ -20,13 +20,12 @@ package org.codelabor.system.file.dao;
 import java.util.Collection;
 import java.util.List;
 
+import org.anyframe.idgen.IdGenService;
+import org.anyframe.query.QueryService;
 import org.codelabor.system.file.RepositoryType;
 import org.codelabor.system.file.dto.FileDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.query.IQueryService;
 
 /**
  * 파일 DAO 구현 클래스
@@ -44,12 +43,12 @@ public class FileDAOImpl implements FileDAO {
 	/**
 	 * Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService idGenerationService;
+	protected IdGenService idGenerationService;
 
 	/**
 	 * 쿼리 서비스
 	 */
-	protected IQueryService queryService;
+	protected QueryService queryService;
 
 	/*
 	 * (non-Javadoc)
@@ -256,7 +255,7 @@ public class FileDAOImpl implements FileDAO {
 	 * @param idGenerationService
 	 *            Id 제네레이션 서비스
 	 */
-	public void setIdGenerationService(IIdGenerationService idGenerationService) {
+	public void setIdGenService(IdGenService idGenerationService) {
 		this.idGenerationService = idGenerationService;
 	}
 
@@ -266,7 +265,7 @@ public class FileDAOImpl implements FileDAO {
 	 * @param queryService
 	 *            쿼리 서비스
 	 */
-	public void setQueryService(IQueryService queryService) {
+	public void setQueryService(QueryService queryService) {
 		this.queryService = queryService;
 	}
 

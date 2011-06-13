@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:config="http://www.anyframejava.org/schema/service"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!--
-	<bean name="mapIdGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+	<bean name="mapIdGenService"
+		class="anyframe.core.idgen.impl.SequenceIdGenService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="mapIdStrategy" />
-		<config:configuration big-decimals="true">
-			<query>SELECT MAP_ID_SEQ.NEXTVAL FROM DUAL</query>
-		</config:configuration>
+		<property name="query" value="SELECT MAP_ID_SEQ.NEXTVAL FROM DUAL" />
 	</bean>
 
-	<bean name="fileIdGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+	<bean name="fileIdGenService"
+		class="anyframe.core.idgen.impl.SequenceIdGenService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="fileIdStrategy" />
-		<config:configuration big-decimals="true">
-			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL</query>
-		</config:configuration>
+		<property name="query" value="SELECT FILE_ID_SEQ.NEXTVAL FROM DUAL" />
 	</bean>
 
 	<bean name="uniqueFilenameGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+		class="anyframe.core.idgen.impl.SequenceIdGenService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="uniqueFilenameStrategy" />
-		<config:configuration big-decimals="true">
-			<query>SELECT FILE_NAME_SEQ.NEXTVAL FROM DUAL</query>
-		</config:configuration>
+		<property name="query" value="SELECT FILE_NAME_SEQ.NEXTVAL FROM DUAL" />
 	</bean>
 	-->
 

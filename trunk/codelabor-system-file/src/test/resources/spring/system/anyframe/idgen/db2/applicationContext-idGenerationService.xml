@@ -1,35 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:config="http://www.anyframejava.org/schema/service"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!--
-	<bean name="fileIdGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenerationService"
+	<bean name="mapIdGenService"
+		class="anyframe.core.idgen.impl.SequenceIdGenService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
-		<config:configuration big-decimals="true">
-			<query>SELECT FILE_ID_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1</query>
-		</config:configuration>
+		<property name="strategy" ref="mapIdStrategy" />
+		<property name="query" value="SELECT MAP_ID_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1" />
+	</bean>
+		
+	<bean name="fileIdGenService"
+		class="anyframe.core.idgen.impl.SequenceIdGenService"
+		destroy-method="destroy">
+		<property name="dataSource" ref="dataSource" />
+		<property name="query" value="SELECT FILE_ID_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1" />
 	</bean>
 
 	<bean name="uniqueFilenameGenerationService"
-		class="anyframe.core.idgen.impl.TableIdGenerationService"
+		class="anyframe.core.idgen.impl.TableIdGenService"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="uniqueFilenameStrategy" />
-		<config:configuration
-			block-size="1" table="ID" key-table="UNIQUE_FILE_NAME" />
-	</bean>
-
-	<bean name="uniqueFilenameStrategy"
-		class="org.codelabor.system.file.anyframe.idgen.UniqueFilenameStrategy">
-		<property name="prefix" value="FILE" />
-		<property name="dateAndTimePattern" value="yyyyMMddHHmmssSSS" />
-		<property name="cipers" value="3" />
-		<property name="fillChar" value="0" />
+		<property name="query" value="SELECT FILE_NAME_SEQ.NEXTVAL FROM SYSIBM.SYSDUMMY1" />
 	</bean>
  -->
 </beans>

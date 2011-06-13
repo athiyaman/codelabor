@@ -1,6 +1,5 @@
 package org.codelabor.system.file.anyframe.idgen;
 
-import org.codelabor.system.file.anyframe.idgen.UniqueFilenameStrategy;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;

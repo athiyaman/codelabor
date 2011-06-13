@@ -21,9 +21,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import org.anyframe.idgen.IdGenStrategy;
 import org.apache.commons.lang.StringUtils;
-
-import anyframe.core.idgen.IdGenerationStrategy;
 
 /**
  * 고유 파일명 스트레티지
@@ -31,7 +30,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
  * @author Shin Sang-jae
  * 
  */
-public class UniqueFilenameStrategy implements IdGenerationStrategy {
+public class UniqueFilenameStrategy implements IdGenStrategy {
 
 	/**
 	 * 접두어
@@ -111,11 +110,10 @@ public class UniqueFilenameStrategy implements IdGenerationStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see anyframe.core.idgen.IdGenerationStrategy#makeId(java.lang.String)
+	 * @see anyframe.core.idgen.IdGenStrategy#makeId(java.lang.String)
 	 */
 	public String makeId(String originalId) {
-		DateFormat dateFormat = new SimpleDateFormat(dateAndTimePattern,
-				Locale.getDefault());
+		DateFormat dateFormat = new SimpleDateFormat(dateAndTimePattern, Locale.getDefault());
 		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
 		sb.append(prefix);

@@ -55,8 +55,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	/**
 	 * 로거
 	 */
-	transient private final Logger logger = LoggerFactory
-			.getLogger(FileUploadStreamServlet.class);
+	transient private final Logger logger = LoggerFactory.getLogger(FileUploadStreamServlet.class);
 
 	/*
 	 * (non-Javadoc)
@@ -66,10 +65,8 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
-	protected void upload(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		WebApplicationContext ctx = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(this.getServletContext());
+	protected void upload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		WebApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 		FileManager fileManager = (FileManager) ctx.getBean("fileManager");
 
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
@@ -80,11 +77,9 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 
 		String mapId = (String) paramMap.get("mapId");
 		RepositoryType acceptedRepositoryType = repositoryType;
-		String requestedRepositoryType = (String) paramMap
-				.get("repositoryType");
+		String requestedRepositoryType = (String) paramMap.get("repositoryType");
 		if (StringUtils.isNotEmpty(requestedRepositoryType)) {
-			acceptedRepositoryType = RepositoryType
-					.valueOf(requestedRepositoryType);
+			acceptedRepositoryType = RepositoryType.valueOf(requestedRepositoryType);
 		}
 
 		if (isMultipart) {
@@ -103,19 +98,15 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 					}
 					FileDTO fileDTO = null;
 					if (fileItemSteam.isFormField()) {
-						paramMap.put(fileItemSteam.getFieldName(), Streams
-								.asString(fileItemSteam.openStream(),
-										characterEncoding));
+						paramMap.put(fileItemSteam.getFieldName(), Streams.asString(fileItemSteam.openStream(), characterEncoding));
 					} else {
-						if (fileItemSteam.getName() == null
-								|| fileItemSteam.getName().length() == 0)
+						if (fileItemSteam.getName() == null || fileItemSteam.getName().length() == 0)
 							continue;
 
 						// set DTO
 						fileDTO = new FileDTO();
 						fileDTO.setMapId(mapId);
-						fileDTO.setRealFilename(FilenameUtils
-								.getName(fileItemSteam.getName()));
+						fileDTO.setRealFilename(FilenameUtils.getName(fileItemSteam.getName()));
 						if (acceptedRepositoryType == RepositoryType.FILE_SYSTEM) {
 							fileDTO.setUniqueFilename(getUniqueFilename());
 						}
@@ -124,8 +115,7 @@ public class FileUploadStreamServlet extends FileUploadServlet {
 						if (logger.isDebugEnabled()) {
 							logger.debug(fileDTO.toString());
 						}
-						UploadUtils.processFile(acceptedRepositoryType,
-								fileItemSteam.openStream(), fileDTO);
+						UploadUtils.processFile(acceptedRepositoryType, fileItemSteam.openStream(), fileDTO);
 					}
 					if (fileDTO != null)
 						fileManager.insertFile(fileDTO);

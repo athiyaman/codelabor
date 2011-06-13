@@ -35,6 +35,10 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
 
+import org.anyframe.exception.BaseException;
+import org.anyframe.idgen.IdGenService;
+import org.anyframe.query.QueryService;
+import org.anyframe.query.QueryServiceException;
 import org.codelabor.system.file.dto.FileDTO;
 import org.codelabor.system.util.ChannelUtils;
 import org.junit.Before;
@@ -46,11 +50,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import anyframe.common.exception.BaseException;
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.query.IQueryService;
-import anyframe.core.query.QueryServiceException;
 
 /**
  * BLOB 테스트 케이스
@@ -69,19 +68,19 @@ public class BlobTest {
 	/**
 	 * 쿼리 서비스
 	 */
-	protected IQueryService queryService;
+	protected QueryService queryService;
 	/**
 	 * Unique Filename 제네레이션 서비스
 	 */
-	protected IIdGenerationService uniqueFilenameGenerationService;
+	protected IdGenService uniqueFilenameGenerationService;
 	/**
 	 * Map Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService mapIdGenerationService;
+	protected IdGenService mapIdGenService;
 	/**
 	 * File Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService fileIdGenerationService;
+	protected IdGenService fileIdGenService;
 
 	/**
 	 * 원본 파일
@@ -94,13 +93,13 @@ public class BlobTest {
 
 	@Before
 	public void setUp() throws Exception {
-		queryService = context.getBean("queryService", IQueryService.class);
+		queryService = context.getBean("queryService", QueryService.class);
 		uniqueFilenameGenerationService = context.getBean(
-				"uniqueFilenameGenerationService", IIdGenerationService.class);
-		fileIdGenerationService = context.getBean("fileIdGenerationService",
-				IIdGenerationService.class);
-		mapIdGenerationService = context.getBean("mapIdGenerationService",
-				IIdGenerationService.class);
+				"uniqueFilenameGenerationService", IdGenService.class);
+		fileIdGenService = context.getBean("fileIdGenService",
+				IdGenService.class);
+		mapIdGenService = context.getBean("mapIdGenService",
+				IdGenService.class);
 
 		// prepare data
 		URL url = this.getClass().getResource("/images/feather-small.gif");
@@ -129,8 +128,8 @@ public class BlobTest {
 			outputChannel = Channels.newChannel(outputStream);
 			int sourceFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
-			fileId = fileIdGenerationService.getNextStringId();
-			mapId = mapIdGenerationService.getNextStringId();
+			fileId = fileIdGenService.getNextStringId();
+			mapId = mapIdGenService.getNextStringId();
 			String uniqueFilename = uniqueFilenameGenerationService
 					.getNextStringId();
 
@@ -204,8 +203,8 @@ public class BlobTest {
 			outputChannel = Channels.newChannel(outputStream);
 			int sourceFileSize = ChannelUtils.copy(inputChannel, outputChannel);
 
-			fileId = fileIdGenerationService.getNextStringId();
-			mapId = mapIdGenerationService.getNextStringId();
+			fileId = fileIdGenService.getNextStringId();
+			mapId = mapIdGenService.getNextStringId();
 			String uniqueFilename = uniqueFilenameGenerationService
 					.getNextStringId();
 
