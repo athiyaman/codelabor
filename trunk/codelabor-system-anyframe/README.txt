@@ -5,5 +5,7 @@
 3.0.2
 	설정 파일 패키지 명명법 수정
 
-3.0.3
+3.1.0
 	anyframe datasource spy 제거
+	Anyframe 5.x 지원
+

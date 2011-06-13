@@ -17,12 +17,11 @@
 
 package org.codelabor.system.anyframe.web.struts.action;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.apache.struts.action.Action;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 기본 Action 클래스
@@ -40,7 +39,7 @@ public class BaseAction extends Action {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 
 	/**
 	 * 메시지 소스
@@ -57,7 +56,7 @@ public class BaseAction extends Action {
 	 * 
 	 * @return 프로퍼티 서비스
 	 */
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -67,7 +66,7 @@ public class BaseAction extends Action {
 	 * @param propertiesService
 	 *            프로퍼티 서비스
 	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 

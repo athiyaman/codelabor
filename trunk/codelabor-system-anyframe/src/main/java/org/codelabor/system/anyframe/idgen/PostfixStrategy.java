@@ -17,7 +17,7 @@
 
 package org.codelabor.system.anyframe.idgen;
 
-import anyframe.core.idgen.IdGenerationStrategy;
+import org.anyframe.idgen.IdGenStrategy;
 
 /**
  * 접미어 정책 클래스
@@ -25,7 +25,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
  * @author Shin Sang-jae
  * 
  */
-public class PostfixStrategy implements IdGenerationStrategy {
+public class PostfixStrategy implements IdGenStrategy {
 
 	/**
 	 * 접미어

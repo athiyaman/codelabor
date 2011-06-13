@@ -17,13 +17,12 @@
 
 package org.codelabor.system.anyframe.service;
 
+import org.anyframe.idgen.IdGenService;
+import org.anyframe.query.QueryService;
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.properties.IPropertiesService;
-import anyframe.core.query.IQueryService;
 
 /**
  * 기본 서비스 구현 클래스
@@ -48,15 +47,15 @@ public class BaseServiceImpl {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 	/**
 	 * 아이디 제네레이션 서비스
 	 */
-	protected IIdGenerationService idGenerationService;
+	protected IdGenService idGenerationService;
 	/**
 	 * 쿼리 서비스
 	 */
-	protected IQueryService queryService;
+	protected QueryService queryService;
 
 	/**
 	 * 로거명을 설정한다.
@@ -93,7 +92,7 @@ public class BaseServiceImpl {
 	 * 
 	 * @return 프로퍼티 서비스
 	 */
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -103,7 +102,7 @@ public class BaseServiceImpl {
 	 * @param propertiesService
 	 *            프로퍼티 서비스
 	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 
@@ -112,7 +111,7 @@ public class BaseServiceImpl {
 	 * 
 	 * @return Id 제네레이션 서비스
 	 */
-	public IIdGenerationService getIdGenerationService() {
+	public IdGenService getIdGenerationService() {
 		return idGenerationService;
 	}
 
@@ -123,7 +122,7 @@ public class BaseServiceImpl {
 	 *            Id 제네레이션 서비스
 	 */
 	public void setIdGenerationService(
-			IIdGenerationService sequenceIdGenerationService) {
+			IdGenService sequenceIdGenerationService) {
 		this.idGenerationService = sequenceIdGenerationService;
 	}
 
@@ -132,7 +131,7 @@ public class BaseServiceImpl {
 	 * 
 	 * @return 쿼리 서비스
 	 */
-	public IQueryService getQueryService() {
+	public QueryService getQueryService() {
 		return queryService;
 	}
 
@@ -142,7 +141,7 @@ public class BaseServiceImpl {
 	 * @param queryService
 	 *            쿼리 서비스
 	 */
-	public void setQueryService(IQueryService queryService) {
+	public void setQueryService(QueryService queryService) {
 		this.queryService = queryService;
 	}
 }

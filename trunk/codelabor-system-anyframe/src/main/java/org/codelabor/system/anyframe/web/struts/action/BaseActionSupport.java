@@ -17,13 +17,12 @@
 
 package org.codelabor.system.anyframe.web.struts.action;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.struts.ActionSupport;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 기본 Action Support 클래스
@@ -41,7 +40,7 @@ public class BaseActionSupport extends ActionSupport {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 	/**
 	 * 메시지 소스
 	 */
@@ -57,7 +56,7 @@ public class BaseActionSupport extends ActionSupport {
 	public BaseActionSupport() {
 		super();
 		webApplicationContext = getWebApplicationContext();
-		propertiesService = (IPropertiesService) webApplicationContext
+		propertiesService = (PropertiesService) webApplicationContext
 				.getBean("propertiesService");
 		messageSource = (MessageSource) webApplicationContext
 				.getBean("messageSource");

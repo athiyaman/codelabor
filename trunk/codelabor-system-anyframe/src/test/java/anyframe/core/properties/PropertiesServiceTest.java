@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Iterator;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,17 +19,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/spring/**/applicationContext*.xml")
 public class PropertiesServiceTest {
-	private final static Logger logger = LoggerFactory
-			.getLogger(PropertiesServiceTest.class);
+	private final static Logger logger = LoggerFactory.getLogger(PropertiesServiceTest.class);
 
 	@Autowired
 	private ApplicationContext context;
-	private IPropertiesService propertiesService;
+	private PropertiesService propertiesService;
 
 	@Before
 	public void setUp() throws Exception {
-		propertiesService = (IPropertiesService) context.getBean(
-				"propertiesService", IPropertiesService.class);
+		propertiesService = (PropertiesService) context.getBean("propertiesService", PropertiesService.class);
 	}
 
 	@Test

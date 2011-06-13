@@ -23,14 +23,13 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.anyframe.exception.BaseException;
+import org.anyframe.idgen.IdGenService;
 import org.codelabor.system.web.filter.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import anyframe.common.exception.BaseException;
-import anyframe.core.idgen.IIdGenerationService;
 
 /**
  * 요청 ID 생성 필터
@@ -46,7 +45,7 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 	/**
 	 * 아이디 제네레이션 서비스
 	 */
-	protected IIdGenerationService idGenerationService = null;
+	protected IdGenService idGenerationService = null;
 	/**
 	 * 아이디 제네레이션 서비스명 상수
 	 */
@@ -59,7 +58,7 @@ public class RequestIdGenerationFilter extends BaseFilterImpl {
 		super();
 		WebApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(servletContext);
-		idGenerationService = (IIdGenerationService) ctx
+		idGenerationService = (IdGenService) ctx
 				.getBean(REQUEST_ID_GENERATION_SERVICE);
 	}
 

@@ -17,11 +17,10 @@
 
 package org.codelabor.system.anyframe.manager;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 기본 매니저 구현 클래스
@@ -46,7 +45,7 @@ public class BaseManagerImpl {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 
 	/**
 	 * 생성자
@@ -99,7 +98,7 @@ public class BaseManagerImpl {
 	 * 
 	 * @return 프로퍼티 서비스
 	 */
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -109,7 +108,7 @@ public class BaseManagerImpl {
 	 * @param propertiesService
 	 *            프로퍼티 서비스
 	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 }

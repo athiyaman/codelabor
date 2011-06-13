@@ -17,13 +17,12 @@
 
 package org.codelabor.system.anyframe.web.struts.action;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.struts.DispatchActionSupport;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 기본 Dispatch Action Support 클래스
@@ -46,7 +45,7 @@ public class BaseDispatchActionSupport extends DispatchActionSupport {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 	/**
 	 * 웹 어플리케이션 컨텍스트
 	 */
@@ -55,7 +54,7 @@ public class BaseDispatchActionSupport extends DispatchActionSupport {
 	public BaseDispatchActionSupport() {
 		super();
 		webApplicationContext = getWebApplicationContext();
-		propertiesService = (IPropertiesService) webApplicationContext
+		propertiesService = (PropertiesService) webApplicationContext
 				.getBean("propertiesService");
 		messageSource = (MessageSource) webApplicationContext
 				.getBean("messageSource");

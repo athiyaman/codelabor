@@ -5,7 +5,7 @@
 
 	<!--
 	<bean id="db2PagingSQLGenerator"
-		class="anyframe.core.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
+		class="org.anyframe.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
 	-->
 
 </beans>

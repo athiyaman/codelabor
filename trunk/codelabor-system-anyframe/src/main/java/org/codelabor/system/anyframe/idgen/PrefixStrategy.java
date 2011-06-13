@@ -17,7 +17,7 @@
 
 package org.codelabor.system.anyframe.idgen;
 
-import anyframe.core.idgen.IdGenerationStrategy;
+import org.anyframe.idgen.IdGenStrategy;
 
 /**
  * 접두어 정책 클래스
@@ -25,7 +25,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
  * @author Shin Sang-jae
  * 
  */
-public class PrefixStrategy implements IdGenerationStrategy {
+public class PrefixStrategy implements IdGenStrategy {
 
 	/**
 	 * 접두어

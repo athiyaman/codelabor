@@ -17,13 +17,12 @@
 
 package org.codelabor.system.anyframe.dao;
 
+import org.anyframe.idgen.IdGenService;
+import org.anyframe.query.QueryService;
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.idgen.IIdGenerationService;
-import anyframe.core.properties.IPropertiesService;
-import anyframe.core.query.IQueryService;
 
 /**
  * 기본 DAO 구현 클래스
@@ -45,7 +44,7 @@ public class BaseDAOImpl {
 	/**
 	 * 쿼리 서비스
 	 */
-	protected IQueryService queryService;
+	protected QueryService queryService;
 
 	/**
 	 * 메시지 소스
@@ -55,12 +54,12 @@ public class BaseDAOImpl {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 
 	/**
 	 * Id 제네레이션 서비스
 	 */
-	protected IIdGenerationService idGenerationService;
+	protected IdGenService idGenerationService;
 
 	/**
 	 * 생성자
@@ -113,7 +112,7 @@ public class BaseDAOImpl {
 	 * 
 	 * @return 쿼리 서비스
 	 */
-	public IQueryService getQueryService() {
+	public QueryService getQueryService() {
 		return queryService;
 	}
 
@@ -123,7 +122,7 @@ public class BaseDAOImpl {
 	 * @param queryService
 	 *            쿼리 서비스
 	 */
-	public void setQueryService(IQueryService queryService) {
+	public void setQueryService(QueryService queryService) {
 		this.queryService = queryService;
 	}
 
@@ -132,7 +131,7 @@ public class BaseDAOImpl {
 	 * 
 	 * @return 프로퍼티 서비스
 	 */
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -142,7 +141,7 @@ public class BaseDAOImpl {
 	 * @param propertiesService
 	 *            프로퍼티 서비스
 	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 
@@ -151,7 +150,7 @@ public class BaseDAOImpl {
 	 * 
 	 * @return Id 제네레이션 서비스
 	 */
-	public IIdGenerationService getIdGenerationService() {
+	public IdGenService getIdGenerationService() {
 		return idGenerationService;
 	}
 
@@ -161,7 +160,7 @@ public class BaseDAOImpl {
 	 * @param idGenerationService
 	 *            Id 제네레이션 서비스
 	 */
-	public void setIdGenerationService(IIdGenerationService idGenerationService) {
+	public void setIdGenerationService(IdGenService idGenerationService) {
 		this.idGenerationService = idGenerationService;
 	}
 

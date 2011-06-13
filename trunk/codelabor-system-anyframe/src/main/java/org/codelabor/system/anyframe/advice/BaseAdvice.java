@@ -17,11 +17,10 @@
 
 package org.codelabor.system.anyframe.advice;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 기본 어드바이스
@@ -49,7 +48,7 @@ public class BaseAdvice {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 
 	/**
 	 * 생성자
@@ -81,7 +80,7 @@ public class BaseAdvice {
 	 * 
 	 * @return 프로퍼티 서비스
 	 */
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -112,7 +111,7 @@ public class BaseAdvice {
 	 * @param propertiesService
 	 *            프로퍼티 서비스
 	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 

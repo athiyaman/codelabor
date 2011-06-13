@@ -17,10 +17,9 @@
 
 package org.codelabor.system.anyframe.exception;
 
+import org.anyframe.exception.BaseException;
+import org.anyframe.exception.message.Message;
 import org.springframework.context.MessageSource;
-
-import anyframe.common.exception.BaseException;
-import anyframe.common.exception.message.Message;
 
 /**
  * 공통 예외 클래스
@@ -69,11 +68,8 @@ public abstract class CommonException extends BaseException {
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			Object[] messageParameters, String defaultMessage,
-			Throwable wrappedException) {
-		super(messageSource, messageKey, messageParameters, defaultMessage,
-				wrappedException);
+	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters, String defaultMessage, Throwable wrappedException) {
+		super(messageSource, messageKey, messageParameters, defaultMessage, wrappedException);
 	}
 
 	/**
@@ -88,8 +84,7 @@ public abstract class CommonException extends BaseException {
 	 * @param defaultMessage
 	 *            기본 메시지
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			Object[] messageParameters, String defaultMessage) {
+	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters, String defaultMessage) {
 		super(messageSource, messageKey, messageParameters, defaultMessage);
 	}
 
@@ -105,8 +100,7 @@ public abstract class CommonException extends BaseException {
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			Object[] messageParameters, Throwable wrappedException) {
+	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters, Throwable wrappedException) {
 		super(messageSource, messageKey, messageParameters, wrappedException);
 	}
 
@@ -120,8 +114,7 @@ public abstract class CommonException extends BaseException {
 	 * @param messageParameters
 	 *            메시지 파라미터
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			Object[] messageParameters) {
+	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters) {
 		super(messageSource, messageKey, messageParameters);
 	}
 
@@ -137,8 +130,7 @@ public abstract class CommonException extends BaseException {
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			String defaultMessage, Throwable wrappedException) {
+	public CommonException(MessageSource messageSource, String messageKey, String defaultMessage, Throwable wrappedException) {
 		super(messageSource, messageKey, defaultMessage, wrappedException);
 	}
 
@@ -152,8 +144,7 @@ public abstract class CommonException extends BaseException {
 	 * @param defaultMessage
 	 *            기본 메시지
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			String defaultMessage) {
+	public CommonException(MessageSource messageSource, String messageKey, String defaultMessage) {
 		super(messageSource, messageKey, defaultMessage);
 	}
 
@@ -167,8 +158,7 @@ public abstract class CommonException extends BaseException {
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(MessageSource messageSource, String messageKey,
-			Throwable wrappedException) {
+	public CommonException(MessageSource messageSource, String messageKey, Throwable wrappedException) {
 		super(messageSource, messageKey, wrappedException);
 	}
 
@@ -194,8 +184,7 @@ public abstract class CommonException extends BaseException {
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(String messageKey, Object[] messageParameters,
-			Throwable wrappedException) {
+	public CommonException(String messageKey, Object[] messageParameters, Throwable wrappedException) {
 		super(messageKey, messageParameters, wrappedException);
 	}
 

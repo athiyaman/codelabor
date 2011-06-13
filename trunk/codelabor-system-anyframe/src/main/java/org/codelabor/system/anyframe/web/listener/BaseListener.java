@@ -17,11 +17,10 @@
 
 package org.codelabor.system.anyframe.web.listener;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * @author Shin Sang-jae
@@ -32,7 +31,7 @@ public class BaseListener {
 	protected Logger logger = LoggerFactory.getLogger(BaseListener.class);
 	protected String loggerName = this.getClass().getName();
 	protected MessageSource messageSource;
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 
 	public String getLoggerName() {
 		return loggerName;
@@ -47,7 +46,7 @@ public class BaseListener {
 		return messageSource;
 	}
 
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -55,7 +54,7 @@ public class BaseListener {
 		this.messageSource = messageSource;
 	}
 
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 

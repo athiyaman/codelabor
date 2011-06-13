@@ -17,12 +17,11 @@
 
 package org.codelabor.system.anyframe.web.struts.action;
 
+import org.anyframe.util.properties.PropertiesService;
 import org.apache.struts.action.ExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
-
-import anyframe.core.properties.IPropertiesService;
 
 /**
  * 
@@ -49,7 +48,7 @@ public class BaseExceptionHandler extends ExceptionHandler {
 	/**
 	 * 프로퍼티 서비스
 	 */
-	protected IPropertiesService propertiesService;
+	protected PropertiesService propertiesService;
 
 	/**
 	 * 로거명을 가져온다.
@@ -74,7 +73,7 @@ public class BaseExceptionHandler extends ExceptionHandler {
 	 * 
 	 * @return 프로퍼티 서비스
 	 */
-	public IPropertiesService getPropertiesService() {
+	public PropertiesService getPropertiesService() {
 		return propertiesService;
 	}
 
@@ -105,7 +104,7 @@ public class BaseExceptionHandler extends ExceptionHandler {
 	 * @param propertiesService
 	 *            프로퍼티 서비스
 	 */
-	public void setPropertiesService(IPropertiesService propertiesService) {
+	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
 	}
 

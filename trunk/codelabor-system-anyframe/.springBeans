@@ -7,8 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
-		<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
 		<config>src/test/resources/spring/system/anyframe/applicationContext-cacheService.xml</config>
 		<config>src/test/resources/spring/system/aop/applicationContext-advisor.xml</config>
 		<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseAdvice.xml</config>
@@ -35,10 +33,9 @@
 		<config>src/test/resources/spring/system/aop/applicationContext-pointcut.xml</config>
 		<config>src/test/resources/spring/system/applicationContext-propertyPlaceHolder.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-queryService.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/db2/applicationContext-sqlLoader.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-sqlLoader.xml</config>
 		<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
 		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
+		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-sqlLoader.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -46,8 +43,6 @@
 			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
 			<incomplete>false</incomplete>
 			<configs>
-				<config>src/test/resources/spring/system/anyframe/applicationContext-properties.xml</config>
-				<config>src/test/resources/spring/system/anyframe/applicationContext-configurableCallBack.xml</config>
 				<config>src/test/resources/spring/system/anyframe/applicationContext-cacheService.xml</config>
 				<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseAdvice.xml</config>
 				<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseDAO.xml</config>
@@ -65,11 +60,9 @@
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-queryService.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/db2/applicationContext-pagingSQLGenerator.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/db2/applicationContext-sqlLoader.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-jdbcTemplate.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-lobHandler.xml</config>
 				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-pagingSQLGenerator.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-sqlLoader.xml</config>
 				<config>src/test/resources/spring/system/anyframe/monitoring/applicationContext-monitoring.xml</config>
 				<config>src/test/resources/spring/system/anyframe/monitoring/applicationContext-monitoring-jdbc.xml</config>
 				<config>src/test/resources/spring/system/aop/applicationContext-advisor.xml</config>
@@ -78,6 +71,7 @@
 				<config>src/test/resources/spring/system/applicationContext-cache.xml</config>
 				<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
 				<config>src/test/resources/spring/system/applicationContext-propertyPlaceHolder.xml</config>
+				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-sqlLoader.xml</config>
 			</configs>
 		</configSet>
 	</configSets>

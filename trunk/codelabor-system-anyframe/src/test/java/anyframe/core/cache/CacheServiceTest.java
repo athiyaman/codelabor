@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.anyframe.cache.CacheService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,11 +21,11 @@ public class CacheServiceTest {
 
 	@Autowired
 	private ApplicationContext context;
-	private ICacheService cacheService;
+	private CacheService cacheService;
 
 	@Before
 	public void setUp() {
-		cacheService = context.getBean("cacheService", ICacheService.class);
+		cacheService = context.getBean("cacheService", CacheService.class);
 
 		// prepare data
 		Map<String, String> codeMap = new HashMap<String, String>();
@@ -39,8 +40,7 @@ public class CacheServiceTest {
 	public void testGetFromCache() {
 		try {
 			// test
-			Map<String, String> codeMap2 = (Map) cacheService
-					.getFromCache("codeMap");
+			Map<String, String> codeMap2 = (Map) cacheService.getFromCache("codeMap");
 			assertEquals("marketing", codeMap2.get("DEPT1"));
 		} catch (Exception e) {
 			e.printStackTrace();

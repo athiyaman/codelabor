@@ -21,8 +21,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import anyframe.common.util.StringUtil;
-import anyframe.core.idgen.IdGenerationStrategy;
+import org.anyframe.idgen.IdGenStrategy;
+import org.anyframe.util.StringUtil;
 
 /**
  * 날짜, 숫자 조합 접두어 정책
@@ -30,7 +30,7 @@ import anyframe.core.idgen.IdGenerationStrategy;
  * @author Shin Sang-jae
  * 
  */
-public class PrefixDateNumberStrategy implements IdGenerationStrategy {
+public class PrefixDateNumberStrategy implements IdGenStrategy {
 
 	/**
 	 * 접두어
@@ -110,8 +110,7 @@ public class PrefixDateNumberStrategy implements IdGenerationStrategy {
 	 * @see anyframe.core.idgen.IdGenerationStrategy#makeId(java.lang.String)
 	 */
 	public String makeId(String originalId) {
-		DateFormat dateFormat = new SimpleDateFormat(datePattern, Locale
-				.getDefault());
+		DateFormat dateFormat = new SimpleDateFormat(datePattern, Locale.getDefault());
 		String dateFormatString = dateFormat.format(System.currentTimeMillis());
 		StringBuilder sb = new StringBuilder();
 		sb.append(prefix);

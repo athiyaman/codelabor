@@ -3,6 +3,7 @@ package anyframe.core.idgen;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
+import org.anyframe.idgen.IdGenService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,16 +22,16 @@ public class IdGenServiceTest {
 
 	@Autowired
 	private ApplicationContext context;
-	private IIdGenerationService sequenceIdGenerationService;
-	private IIdGenerationService prefixDateNumberSequenceIdGenerationService;
+	private IdGenService sequenceIdGenerationService;
+	private IdGenService prefixDateNumberSequenceIdGenerationService;
 
 	@Before
 	public void setUp() {
 		sequenceIdGenerationService = context.getBean(
-				"sequenceIdGenerationService", IIdGenerationService.class);
+				"sequenceIdGenerationService", IdGenService.class);
 		prefixDateNumberSequenceIdGenerationService = context.getBean(
 				"prefixDateNumberSequenceIdGenerationService",
-				IIdGenerationService.class);
+				IdGenService.class);
 	}
 
 	@Test

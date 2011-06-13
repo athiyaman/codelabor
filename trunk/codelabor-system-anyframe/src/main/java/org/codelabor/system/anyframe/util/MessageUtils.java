@@ -17,12 +17,11 @@
 
 package org.codelabor.system.anyframe.util;
 
+import org.anyframe.exception.BaseException;
+import org.anyframe.exception.message.Message;
 import org.codelabor.system.anyframe.MessageType;
 import org.codelabor.system.anyframe.dto.MessageDTO;
 import org.codelabor.system.anyframe.exception.CommonException;
-
-import anyframe.common.exception.BaseException;
-import anyframe.common.exception.message.Message;
 
 /**
  * 메시지 유틸
