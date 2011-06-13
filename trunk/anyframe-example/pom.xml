@@ -43,13 +43,6 @@
   		<type>jar</type>
   		<scope>compile</scope>
   	</dependency>  	
-  	<dependency>
-  		<groupId>org.anyframe</groupId>
-  		<artifactId>anyframe-idgen</artifactId>
-  		<version>1.0.0</version>
-  		<type>jar</type>
-  		<scope>compile</scope>
-  	</dependency>  	
   </dependencies>
   <build>
     <finalName>anyframe-example</finalName>
