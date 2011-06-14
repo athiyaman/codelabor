@@ -9,6 +9,8 @@
 	<configs>
 		<config>src/main/resources/spring/system/action-servlet.xml</config>
 		<config>src/main/resources/spring/system/applicationContext.xml</config>
+		<config>src/main/resources/spring/action-servlet.xml</config>
+		<config>src/main/resources/spring/views.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -17,6 +19,7 @@
 			<incomplete>false</incomplete>
 			<configs>
 				<config>src/main/resources/spring/system/action-servlet.xml</config>
+				<config>src/main/resources/spring/action-servlet.xml</config>
 			</configs>
 		</configSet>
 		<configSet>

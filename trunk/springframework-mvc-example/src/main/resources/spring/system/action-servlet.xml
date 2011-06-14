@@ -17,6 +17,9 @@
 			<bean class="org.codelabor.system.sniffer.web.servlet.interceptor.SniffingHandlerInterceptor" />
 		</property>
 	</bean>
+	
+	<!-- hanler apapter -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
 	<!-- exception resolver -->
 	<bean class="org.codelabor.system.sniffer.web.servlet.resolver.SniffingHandlerExceptionResolver">
@@ -29,7 +32,7 @@
 
 	<!-- view resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>
