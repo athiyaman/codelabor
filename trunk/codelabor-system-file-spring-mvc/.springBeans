@@ -11,6 +11,7 @@
 		<config>src/main/resources/spring/action-servlet-resolver.xml</config>
 		<config>src/main/resources/spring/action-servlet-theme.xml</config>
 		<config>src/main/resources/spring/example/file/applicationContext-properties.xml</config>
+		<config>src/main/resources/spring/system/anyframe/jdbc/applicationContext-sqlLoader.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

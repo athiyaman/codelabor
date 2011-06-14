@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:config="http://www.anyframejava.org/schema/service"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean name="propertiesService"
-		class="anyframe.core.properties.impl.PropertiesServiceImpl">
-		<config:configuration>
-			<filename>classpath:/properties/**/*.properties</filename>
-			<properties>
-			</properties>
-		</config:configuration>
+		class="org.anyframe.util.properties.impl.PropertiesServiceImpl">
+		<property name="fileNames" value="classpath:/properties/**/*.properties" />
 	</bean>
 </beans>
