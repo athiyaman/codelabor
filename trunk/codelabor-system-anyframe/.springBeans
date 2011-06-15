@@ -16,26 +16,26 @@
 		<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseManager.xml</config>
 		<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseService.xml</config>
 		<config>src/test/resources/spring/system/applicationContext-cache.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-dataSource.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-exceptionTranslator.xml</config>
 		<config>src/test/resources/spring/system/anyframe/idgen/oracle/applicationContext-idgen.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-jdbcTemplate.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jndiTemplate.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-lobHandler.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-lobHandler.xml</config>
 		<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
 		<config>src/test/resources/spring/system/anyframe/monitoring/applicationContext-monitoring-jdbc.xml</config>
 		<config>src/test/resources/spring/system/anyframe/monitoring/applicationContext-monitoring.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/db2/applicationContext-pagingSQLGenerator.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-pagingSQLGenerator.xml</config>
 		<config>src/test/resources/spring/system/aop/applicationContext-pointcut.xml</config>
 		<config>src/test/resources/spring/system/applicationContext-propertyPlaceHolder.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-queryService.xml</config>
 		<config>src/test/resources/spring/system/aop/applicationContext-transactionAdvice.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
-		<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-sqlLoader.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-dataSource.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-jndiTemplate.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
+		<config>src/test/resources/spring/system/jdbc/applicationContext-transactionManager.xml</config>
+		<config>src/test/resources/spring/system/jdbc/oracle/applicationContext-lobHandler.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/applicationContext-sqlLoader.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/applicationContext-queryService.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/applicationContext-jdbcTemplate.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/applicationContext-exceptionTranslator.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/db2/applicationContext-pagingSQLGenerator.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/oracle/applicationContext-jdbcTemplate.xml</config>
+		<config>src/test/resources/spring/system/anyframe/query/oracle/applicationContext-pagingSQLGenerator.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -51,18 +51,6 @@
 				<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseManager.xml</config>
 				<config>src/test/resources/spring/system/anyframe/base/applicationContext-baseService.xml</config>
 				<config>src/test/resources/spring/system/anyframe/idgen/oracle/applicationContext-idgen.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-dataSource.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-exceptionTranslator.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-jndiTemplate.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-lobHandler.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-queryService.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-transactionManager.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/db2/applicationContext-pagingSQLGenerator.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-jdbcTemplate.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-lobHandler.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/oracle/applicationContext-pagingSQLGenerator.xml</config>
 				<config>src/test/resources/spring/system/anyframe/monitoring/applicationContext-monitoring.xml</config>
 				<config>src/test/resources/spring/system/anyframe/monitoring/applicationContext-monitoring-jdbc.xml</config>
 				<config>src/test/resources/spring/system/aop/applicationContext-advisor.xml</config>
@@ -71,7 +59,19 @@
 				<config>src/test/resources/spring/system/applicationContext-cache.xml</config>
 				<config>src/test/resources/spring/system/applicationContext-messageSource.xml</config>
 				<config>src/test/resources/spring/system/applicationContext-propertyPlaceHolder.xml</config>
-				<config>src/test/resources/spring/system/anyframe/jdbc/applicationContext-sqlLoader.xml</config>
+				<config>src/test/resources/spring/system/jdbc/applicationContext-dataSource.xml</config>
+				<config>src/test/resources/spring/system/jdbc/applicationContext-jndiTemplate.xml</config>
+				<config>src/test/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
+				<config>src/test/resources/spring/system/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
+				<config>src/test/resources/spring/system/jdbc/applicationContext-transactionManager.xml</config>
+				<config>src/test/resources/spring/system/jdbc/oracle/applicationContext-lobHandler.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/applicationContext-sqlLoader.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/applicationContext-queryService.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/applicationContext-jdbcTemplate.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/applicationContext-exceptionTranslator.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/db2/applicationContext-pagingSQLGenerator.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/oracle/applicationContext-jdbcTemplate.xml</config>
+				<config>src/test/resources/spring/system/anyframe/query/oracle/applicationContext-pagingSQLGenerator.xml</config>
 			</configs>
 		</configSet>
 	</configSets>
