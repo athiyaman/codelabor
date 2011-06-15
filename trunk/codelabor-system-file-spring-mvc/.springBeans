@@ -19,6 +19,7 @@
 		<config>src/main/resources/spring/system/anyframe/util/applicationContext-propertiesService.xml</config>
 		<config>src/main/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
+		<config>src/main/resources/spring/system/anyframe/jdbc/applicationContext-pagingSQLGenerator.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
