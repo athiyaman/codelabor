@@ -8,7 +8,7 @@
   <groupId>org.codelabor</groupId>
   <artifactId>codelabor-system-file</artifactId>
   <packaging>jar</packaging>
-  <version>3.1.0</version>
+  <version>3.1.1-SNAPSHOT</version>
   <name>codelabor-system-file</name>
   <description>codelabor system file</description>
   <url>http://codelabor.googlecode.com</url>
@@ -36,9 +36,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-file-3.1.0</connection>
-    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-file-3.1.0</developerConnection>
-    <url>http://codelabor.googlecode.com/svn/tags/codelabor-system-file-3.1.0</url>
+    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file</connection>
+    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file</developerConnection>
+    <url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
