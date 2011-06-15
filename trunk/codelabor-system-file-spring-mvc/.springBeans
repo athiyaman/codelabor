@@ -13,13 +13,13 @@
 		<config>src/main/resources/spring/example/file/applicationContext-properties.xml</config>
 		<config>src/main/resources/spring/system/anyframe/jdbc/applicationContext-sqlLoader.xml</config>
 		<config>src/main/resources/spring/system/anyframe/idgen/oracle/applicationContext-idGenerationService.xml</config>
-		<config>src/main/resources/spring/system/jdbc/applicationContext-jdbcTemplate.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-transactionManager.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-nativeJdbcExtractor.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-jndiTemplate.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-dataSource.xml</config>
 		<config>src/main/resources/spring/system/anyframe/util/applicationContext-propertiesService.xml</config>
+		<config>src/main/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
