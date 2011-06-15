@@ -15,12 +15,13 @@
 	</bean>
 	-->
 
-	<!-- jta -->
+	<!-- jta: default -->
 	<!--
 	<bean id="transactionManager"
 		class="org.springframework.transaction.jta.JtaTransactionManager">
 		<property name="transactionManagerName" value="java:comp/TransactionManager" />
 		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="allowCustomIsolationLevels" value="true"/>
 	</bean>
 	-->
 
