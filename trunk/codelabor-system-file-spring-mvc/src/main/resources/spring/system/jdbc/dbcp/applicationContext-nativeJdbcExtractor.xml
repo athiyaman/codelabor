@@ -7,9 +7,4 @@
 		class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"
 		lazy-init="true" />
 
-	<!--
-	<bean id="nativeJdbcExtractor"
-		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"
-		lazy-init="default" />
-	-->
 </beans>
