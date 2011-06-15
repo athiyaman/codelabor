@@ -9,7 +9,7 @@
 		
 	<!-- db2 -->
 	<!--
-	<bean id="db2PagingSQLGenerator"
+	<bean id="pagingSQLGenerator"
 		class="org.anyframe.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
 	-->		
 
