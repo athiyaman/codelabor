@@ -10,7 +10,7 @@
 	<artifactId>codelabor-system-file-spring-mvc</artifactId>
 	<packaging>war</packaging>
 	<name>codelabor-system-file-spring-mvc</name>
-	<version>3.0.0-SNAPSHOT</version>
+	<version>3.1.0-SNAPSHOT</version>
 	<description>codelabor system core</description>
 	<url>http://codelabor.googlecode.com</url>
 	<developers>
