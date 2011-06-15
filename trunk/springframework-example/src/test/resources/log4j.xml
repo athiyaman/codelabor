@@ -8,6 +8,15 @@
         </layout>
     </appender>
 
+    <appender
+		name="codelaborDailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/logs/codelabor.log"/>
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
+		</layout>
+    </appender>
+
 	<logger name="jdbc.sqlonly" additivity="false">
 		<level value="debug" />
 		<appender-ref ref="console" />
