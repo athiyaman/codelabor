@@ -4,19 +4,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 	<!-- default -->
-	<bean id="pagingSQLGenerator"
-		class="org.anyframe.query.impl.jdbc.generator.DefaultPagingSQLGenerator"/>
+	<bean id="pagingSQLGenerator" class="org.anyframe.query.impl.jdbc.generator.DefaultPagingSQLGenerator"/>
 
 	<!-- oracle -->
 	<!--  
-	<bean id="pagingSQLGenerator"
-		class="org.anyframe.query.impl.jdbc.generator.OraclePagingSQLGenerator"/>
+	<bean id="pagingSQLGenerator" class="org.anyframe.query.impl.jdbc.generator.OraclePagingSQLGenerator"/>
 	-->
 		
 	<!-- db2 -->
 	<!--
-	<bean id="pagingSQLGenerator"
-		class="org.anyframe.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
+	<bean id="pagingSQLGenerator" class="org.anyframe.query.impl.jdbc.generator.DB2PagingSQLGenerator"/>
 	-->		
 
 </beans>
