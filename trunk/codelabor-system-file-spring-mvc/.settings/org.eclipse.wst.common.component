@@ -4,9 +4,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/codelabor-system-file/codelabor-system-file">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/codelabor-system-file-spring-mvc/target/classes"/>
         <property name="context-root" value="/"/>
     </wb-module>
