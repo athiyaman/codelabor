@@ -23,6 +23,8 @@ import java.util.Locale;
 
 import org.anyframe.idgen.IdGenStrategy;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 고유 파일명 스트레티지
@@ -31,6 +33,8 @@ import org.apache.commons.lang.StringUtils;
  * 
  */
 public class UniqueFilenameStrategy implements IdGenStrategy {
+
+	private Logger logger = LoggerFactory.getLogger(UniqueFilenameStrategy.class);
 
 	/**
 	 * 접두어
@@ -131,6 +135,7 @@ public class UniqueFilenameStrategy implements IdGenStrategy {
 			trimedId = originalId;
 		}
 		sb.append(StringUtils.leftPad(trimedId, cipers, fillChar));
+		logger.debug("id: {}", sb.toString());
 
 		return sb.toString();
 	}
