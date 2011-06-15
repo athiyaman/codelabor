@@ -4,8 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!--
-	<bean id="nativeJdbcExtractor"
-		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"
-		lazy-init="default" />
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" lazy-init="default" />
 	-->
 </beans>
