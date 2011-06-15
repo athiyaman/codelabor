@@ -3,9 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!--
+	<!-- 
 	<bean name="mapIdGenService"
-		class="anyframe.core.idgen.impl.SequenceIdGenService"
+		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="mapIdStrategy" />
@@ -13,7 +13,7 @@
 	</bean>
 
 	<bean name="fileIdGenService"
-		class="anyframe.core.idgen.impl.SequenceIdGenService"
+		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="fileIdStrategy" />
@@ -21,7 +21,7 @@
 	</bean>
 
 	<bean name="uniqueFilenameGenerationService"
-		class="anyframe.core.idgen.impl.SequenceIdGenService"
+		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="strategy" ref="uniqueFilenameStrategy" />
