@@ -18,8 +18,6 @@
 		<config>src/main/resources/spring/system/jdbc/applicationContext-dataSource.xml</config>
 		<config>src/main/resources/spring/system/anyframe/util/applicationContext-propertiesService.xml</config>
 		<config>src/main/resources/spring/system/anyframe/jdbc/applicationContext-jdbcTemplate.xml</config>
-		<config>src/main/resources/spring/system/jdbc/oracle/applicationContext-lobHandler.xml</config>
-		<config>src/main/resources/spring/system/jdbc/default/applicationContext-nativeJdbcExtractor.xml</config>
 		<config>src/main/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
 	</configs>
 	<configSets>
