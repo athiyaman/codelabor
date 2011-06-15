@@ -44,23 +44,20 @@
 
 	<!-- jndi object factory bean -->
 	<!--
-	<bean id="dataSource"
-		class="org.springframework.jndi.JndiObjectFactoryBean">
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 	    <property name="jndiName" value="${jndi.name}"/>
 		<property name="jndiTemplate" ref="jndiTemplate"/>
 		<property name="resourceRef" value="true" />
 	</bean>
 	-->
 
-	<bean id="dataSource1"
-		class="org.springframework.jndi.JndiObjectFactoryBean">
+	<bean id="dataSource1" class="org.springframework.jndi.JndiObjectFactoryBean">
 	    <property name="jndiName" value="${jndi.name.1}"/>
 		<property name="jndiTemplate" ref="jndiTemplate"/>
 		<property name="resourceRef" value="true" />
 	</bean>
 
-	<bean id="dataSource2"
-		class="org.springframework.jndi.JndiObjectFactoryBean">
+	<bean id="dataSource2" class="org.springframework.jndi.JndiObjectFactoryBean">
 	    <property name="jndiName" value="${jndi.name.2}"/>
 		<property name="jndiTemplate" ref="jndiTemplate"/>
 		<property name="resourceRef" value="true" />
