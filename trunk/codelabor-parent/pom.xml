@@ -9,7 +9,7 @@
   <artifactId>codelabor-parent</artifactId>
   <packaging>pom</packaging>
   <name>CODELABOR parent</name>
-  <version>1</version>
+  <version>2-SNAPSHOT</version>
   <description>CODELABOR parent</description>
   <url>http://codelabor.googlecode.com</url>
   <licenses>
@@ -37,9 +37,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-parent-1</connection>
-    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-parent-1</developerConnection>
-    <url>http://codelabor.googlecode.com/svn/tags/codelabor-parent-1</url>
+    <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-parent</connection>
+    <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-parent</developerConnection>
+    <url>http://codelabor.googlecode.com/svn/trunk/codelabor-parent</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
