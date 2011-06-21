@@ -9,7 +9,7 @@
   <artifactId>codelabor-parent</artifactId>
   <packaging>pom</packaging>
   <name>CODELABOR parent</name>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1-SNAPSHOT</version>
   <description>CODELABOR parent</description>
   <url>http://codelabor.googlecode.com</url>
   <licenses>
