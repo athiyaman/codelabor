@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>oss-parent</artifactId>
     <groupId>org.sonatype.oss</groupId>
@@ -7,8 +7,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.codelabor</groupId>
   <artifactId>maven-example</artifactId>
+  <version>3.0.1-SNAPSHOT</version>  
   <packaging>jar</packaging>
-  <version>3.0.1-SNAPSHOT</version>
   <name>maven-example</name>
   <description>CODELABOR maven example</description>
   <url>http://codelabor.googlecode.com</url>
@@ -23,6 +23,7 @@
     <system>Google Code</system>
     <url>http://code.google.com/p/codelabor/issues</url>
   </issueManagement>
+  <inceptionYear>2011</inceptionYear>
   <developers>
     <developer>
       <id>bomber</id>
@@ -38,7 +39,7 @@
   <scm>
     <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/maven-example</connection>
     <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/maven-example</developerConnection>
-    <url>http://code.google.com/p/codelabor/source/browse</url>
+    <url>http://codelabor.googlecode.com/svn/trunk/maven-example</url>
   </scm>
   <organization>
     <name>CODELABOR</name>
