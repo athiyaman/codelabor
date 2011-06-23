@@ -14,12 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.context;
+package org.springframework.beans.factory.config;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
-import java.util.Locale;
+import java.util.Properties;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,63 +26,33 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/**
+ * @author bomber
+ * 
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring/**/applicationContext-messageSource.xml")
-public class MessageSourceTest {
-	private Logger logger = LoggerFactory.getLogger(MessageSourceTest.class);
+@ContextConfiguration(locations = "classpath:spring/**/applicationContext-properties.xml")
+public class PropertiesFactoryBeanTeset {
+
+	private Logger logger = LoggerFactory.getLogger(PropertiesFactoryBeanTeset.class);
 
 	@Autowired
 	private ApplicationContext ctx;
-	private MessageSource messageSource;
+	private Properties jdbcConfiguration;
 
 	@Before
 	public void setUp() {
-		messageSource = (MessageSource) ctx.getBean("messageSource", MessageSource.class);
+		jdbcConfiguration = (Properties) ctx.getBean("jdbcConfiguration", Properties.class);
 	}
 
 	@Test
-	public void testGetMessage() {
-		try {
-			// test
-			String expectedMessage = "Hello, World!";
-			String message = messageSource.getMessage("greeting", null, Locale.ENGLISH);
-
-			// assert
-			assertEquals(expectedMessage, message);
-			logger.debug(message);
-
-			// test
-			expectedMessage = "안녕, 세상아!";
-			message = messageSource.getMessage("greeting", null, Locale.KOREAN);
-
-			// assert
-			assertEquals(expectedMessage, message);
-			logger.debug(message);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
-	@Test
-	public void testGetMessageReloadable() {
-		try {
-			for (int i = 0; i < 10; i++) {
-				logger.debug("retry count: {}", i);
-
-				// test
-				String message = messageSource.getMessage("greeting", null, null);
-
-				// assert
-				logger.debug(message);
-				Thread.sleep(5000);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
+	public void getPropertyTest() {
+		String databaseProductName = jdbcConfiguration.getProperty("jdbc.database.product");
+		logger.debug("databaseProductName: {}", databaseProductName);
+		assertEquals("oracle", databaseProductName);
 	}
 }
