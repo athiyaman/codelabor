@@ -16,6 +16,7 @@
  */
 package org.codelabor.example.context.expression;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Locale;
 
@@ -47,6 +48,12 @@ public class SomeBean implements InitializingBean {
 	@Value("#{someProperties['class.value']}")
 	private Class classValue;
 
+	@Value("#{someProperties['file.value']}")
+	private File fileValue;
+
+	@Value("#{someProperties['string.array.value']}")
+	private String[] stringArrayValue;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -59,6 +66,8 @@ public class SomeBean implements InitializingBean {
 		logger.debug("urlValue: {}", urlValue);
 		logger.debug("localeValue: {}", localeValue);
 		logger.debug("classValue: {}", classValue);
+		logger.debug("fileValue: {}", fileValue);
+		logger.debug("stringArrayValue: {}", stringArrayValue);
 
 	}
 
@@ -135,6 +144,36 @@ public class SomeBean implements InitializingBean {
 	 */
 	public void setClassValue(Class classValue) {
 		this.classValue = classValue;
+	}
+
+	/**
+	 * @return the fileValue
+	 */
+	public File getFileValue() {
+		return fileValue;
+	}
+
+	/**
+	 * @param fileValue
+	 *            the fileValue to set
+	 */
+	public void setFileValue(File fileValue) {
+		this.fileValue = fileValue;
+	}
+
+	/**
+	 * @return the stringArrayValue
+	 */
+	public String[] getStringArrayValue() {
+		return stringArrayValue;
+	}
+
+	/**
+	 * @param stringArrayValue
+	 *            the stringArrayValue to set
+	 */
+	public void setStringArrayValue(String[] stringArrayValue) {
+		this.stringArrayValue = stringArrayValue;
 	}
 
 }

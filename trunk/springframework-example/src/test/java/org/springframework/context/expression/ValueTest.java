@@ -19,6 +19,7 @@ package org.springframework.context.expression;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Locale;
 
@@ -60,18 +61,24 @@ public class ValueTest {
 			Locale localeValue = someBean.getLocaleValue();
 			@SuppressWarnings("rawtypes")
 			Class classValue = someBean.getClassValue();
+			File fileValue = someBean.getFileValue();
+			String[] stringArrayValue = someBean.getStringArrayValue();
 
 			logger.debug("intValue: {}", intValue);
 			logger.debug("stringValue: {}", stringValue);
 			logger.debug("urlValue: {}", urlValue);
 			logger.debug("localeValue: {}", localeValue);
 			logger.debug("classValue: {}", classValue);
+			logger.debug("fileValue: {}", fileValue);
+			logger.debug("stringArrayValue: {}", stringArrayValue.toString());
 
 			assertEquals(1, intValue);
 			assertEquals("string value.", stringValue);
 			assertEquals(new URL("http://codelabor.org"), urlValue);
 			assertEquals(Locale.KOREA, localeValue);
 			assertEquals(String.class, classValue);
+			assertEquals(new File("/temp"), fileValue);
+			assertEquals("value3", stringArrayValue[2]);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
