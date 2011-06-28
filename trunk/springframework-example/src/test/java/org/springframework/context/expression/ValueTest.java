@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.beans.factory.config;
+package org.springframework.context.expression;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-import java.util.Properties;
-
+import org.codelabor.example.context.expression.SomeBean;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,24 +35,33 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring/**/applicationContext-properties.xml")
-public class PropertiesFactoryBeanTeset {
-
-	private Logger logger = LoggerFactory.getLogger(PropertiesFactoryBeanTeset.class);
+@ContextConfiguration(locations = { "classpath:spring/**/applicationContext-someBean.xml", "classpath:spring/**/applicationContext-properties.xml" })
+public class ValueTest {
+	private Logger logger = LoggerFactory.getLogger(ValueTest.class);
 
 	@Autowired
 	private ApplicationContext ctx;
-	private Properties jdbcProperties;
+	private SomeBean someBean;
 
 	@Before
 	public void setUp() {
-		jdbcProperties = (Properties) ctx.getBean("jdbcProperties", Properties.class);
+		someBean = (SomeBean) ctx.getBean("someBean", SomeBean.class);
 	}
 
 	@Test
-	public void getPropertyTest() {
-		String databaseProductName = jdbcProperties.getProperty("jdbc.database.product");
-		logger.debug("databaseProductName: {}", databaseProductName);
-		assertEquals("oracle", databaseProductName);
+	public void testValue() {
+		try {
+			int intValue = someBean.getIntValue();
+			String stringValue = someBean.getStringValue();
+
+			logger.debug("intValue: {}", intValue);
+			logger.debug("stringValue: {}", stringValue);
+
+			assertEquals(1, intValue);
+			assertEquals("string value.", stringValue);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 }

@@ -9,7 +9,7 @@
 	    <property name="driverClassName" value="${jdbc.driverClassName}"/>
 		<property name="url" value="${jdbc.url}"/>
 		<property name="username" value="${jdbc.username}"/>
-		<property name="password" value="${jdbc.passowrd}"/>
+		<property name="password" value="${jdbc.password}"/>
 	</bean>
 
 	<!--
@@ -18,7 +18,7 @@
 	    <property name="driverClassName" value="${jdbc.driverClassName.1}"/>
 		<property name="url" value="${jdbc.url.1}"/>
 		<property name="username" value="${jdbc.username.1}"/>
-		<property name="password" value="${jdbc.passowrd.1}"/>
+		<property name="password" value="${jdbc.password.1}"/>
 	</bean>
 
 	<bean id="dataSource2"
@@ -26,7 +26,7 @@
 	    <property name="driverClassName" value="${jdbc.driverClassName.2}"/>
 		<property name="url" value="${jdbc.url.2}"/>
 		<property name="username" value="${jdbc.username.2}"/>
-		<property name="password" value="${jdbc.passowrd.2}"/>
+		<property name="password" value="${jdbc.password.2}"/>
 	</bean>
 	-->
 
