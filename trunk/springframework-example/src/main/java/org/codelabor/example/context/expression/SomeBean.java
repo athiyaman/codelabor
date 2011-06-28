@@ -44,6 +44,9 @@ public class SomeBean implements InitializingBean {
 	@Value("#{someProperties['locale.value']}")
 	private Locale localeValue;
 
+	@Value("#{someProperties['class.value']}")
+	private Class classValue;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -55,6 +58,7 @@ public class SomeBean implements InitializingBean {
 		logger.debug("stringValue: {}", stringValue);
 		logger.debug("urlValue: {}", urlValue);
 		logger.debug("localeValue: {}", localeValue);
+		logger.debug("classValue: {}", classValue);
 
 	}
 
@@ -116,6 +120,21 @@ public class SomeBean implements InitializingBean {
 	 */
 	public void setLocaleValue(Locale localeValue) {
 		this.localeValue = localeValue;
+	}
+
+	/**
+	 * @return the classValue
+	 */
+	public Class getClassValue() {
+		return classValue;
+	}
+
+	/**
+	 * @param classValue
+	 *            the classValue to set
+	 */
+	public void setClassValue(Class classValue) {
+		this.classValue = classValue;
 	}
 
 }

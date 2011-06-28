@@ -58,16 +58,20 @@ public class ValueTest {
 			String stringValue = someBean.getStringValue();
 			URL urlValue = someBean.getUrlValue();
 			Locale localeValue = someBean.getLocaleValue();
+			@SuppressWarnings("rawtypes")
+			Class classValue = someBean.getClassValue();
 
 			logger.debug("intValue: {}", intValue);
 			logger.debug("stringValue: {}", stringValue);
 			logger.debug("urlValue: {}", urlValue);
 			logger.debug("localeValue: {}", localeValue);
+			logger.debug("classValue: {}", classValue);
 
 			assertEquals(1, intValue);
 			assertEquals("string value.", stringValue);
 			assertEquals(new URL("http://codelabor.org"), urlValue);
 			assertEquals(Locale.KOREA, localeValue);
+			assertEquals(String.class, classValue);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
