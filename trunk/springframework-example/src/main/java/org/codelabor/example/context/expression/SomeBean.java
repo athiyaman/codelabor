@@ -16,6 +16,9 @@
  */
 package org.codelabor.example.context.expression;
 
+import java.net.URL;
+import java.util.Locale;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -31,8 +34,15 @@ public class SomeBean implements InitializingBean {
 
 	@Value("#{someProperties['int.value']}")
 	private int intValue;
+
 	@Value("#{someProperties['string.value']}")
 	private String stringValue;
+
+	@Value("#{someProperties['url.value']}")
+	private URL urlValue;
+
+	@Value("#{someProperties['locale.value']}")
+	private Locale localeValue;
 
 	/*
 	 * (non-Javadoc)
@@ -43,6 +53,8 @@ public class SomeBean implements InitializingBean {
 	public void afterPropertiesSet() throws Exception {
 		logger.debug("intValue: {}", intValue);
 		logger.debug("stringValue: {}", stringValue);
+		logger.debug("urlValue: {}", urlValue);
+		logger.debug("localeValue: {}", localeValue);
 
 	}
 
@@ -74,6 +86,36 @@ public class SomeBean implements InitializingBean {
 	 */
 	public void setStringValue(String stringValue) {
 		this.stringValue = stringValue;
+	}
+
+	/**
+	 * @return the urlValue
+	 */
+	public URL getUrlValue() {
+		return urlValue;
+	}
+
+	/**
+	 * @param urlValue
+	 *            the urlValue to set
+	 */
+	public void setUrlValue(URL urlValue) {
+		this.urlValue = urlValue;
+	}
+
+	/**
+	 * @return the localeValue
+	 */
+	public Locale getLocaleValue() {
+		return localeValue;
+	}
+
+	/**
+	 * @param localeValue
+	 *            the localeValue to set
+	 */
+	public void setLocaleValue(Locale localeValue) {
+		this.localeValue = localeValue;
 	}
 
 }

@@ -19,6 +19,9 @@ package org.springframework.context.expression;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.net.URL;
+import java.util.Locale;
+
 import org.codelabor.example.context.expression.SomeBean;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,12 +56,18 @@ public class ValueTest {
 		try {
 			int intValue = someBean.getIntValue();
 			String stringValue = someBean.getStringValue();
+			URL urlValue = someBean.getUrlValue();
+			Locale localeValue = someBean.getLocaleValue();
 
 			logger.debug("intValue: {}", intValue);
 			logger.debug("stringValue: {}", stringValue);
+			logger.debug("urlValue: {}", urlValue);
+			logger.debug("localeValue: {}", localeValue);
 
 			assertEquals(1, intValue);
 			assertEquals("string value.", stringValue);
+			assertEquals(new URL("http://codelabor.org"), urlValue);
+			assertEquals(Locale.KOREA, localeValue);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
