@@ -5,7 +5,7 @@
 		org.anyframe.exception.message.Message,
 		org.codelabor.system.anyframe.exception.CommonException"
 	isErrorPage="true"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -98,7 +98,7 @@
 							<tr class="b">
 								<th><spring:message code="label.system.error.exception.class"/></th>
 								<td>
-									${pageContext.exception.class}
+									${pageContext.exception['class']}
 								</td>
 							</tr>
 							<tr class="b">
@@ -133,7 +133,7 @@
 								<tr class="b">
 									<th><spring:message code="label.system.error.exception.class"/></th>
 									<td>
-										${cause.class}
+										${cause['class']}
 									</td>
 								</tr>
 								<tr class="b">
