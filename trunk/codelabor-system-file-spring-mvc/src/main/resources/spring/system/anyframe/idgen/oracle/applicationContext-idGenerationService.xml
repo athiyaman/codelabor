@@ -3,7 +3,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- 
 	<bean name="mapIdGenService"
 		class="org.anyframe.idgen.impl.SequenceIdGenServiceImpl"
 		destroy-method="destroy">
@@ -27,6 +26,5 @@
 		<property name="strategy" ref="uniqueFilenameStrategy" />
 		<property name="query" value="SELECT FILE_NAME_SEQ.NEXTVAL FROM DUAL" />
 	</bean>
-	-->
 
 </beans>
