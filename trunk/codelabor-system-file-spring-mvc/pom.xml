@@ -10,7 +10,7 @@
 	<artifactId>codelabor-system-file-spring-mvc</artifactId>
 	<packaging>war</packaging>
 	<name>codelabor-system-file-spring-mvc</name>
-	<version>3.1.0</version>
+	<version>3.1.1-SNAPSHOT</version>
 	<description>codelabor system core</description>
 	<url>http://codelabor.googlecode.com</url>
 	<developers>
@@ -37,9 +37,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-file-spring-mvc-3.1.0</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-file-spring-mvc-3.1.0</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-file-spring-mvc-3.1.0</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-spring-mvc</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file-spring-mvc</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-spring-mvc</url>
 	</scm>
 	<organization>
 		<name>CODELABOR</name>
