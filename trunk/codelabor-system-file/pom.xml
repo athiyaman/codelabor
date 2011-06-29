@@ -262,6 +262,7 @@
   </dependencies>
   <properties>
     <!-- derby -->
+    <!--  
     <jdbc.database.product>derby</jdbc.database.product>
     <jdbc.dependency.groupId>org.apache.derby</jdbc.dependency.groupId>
     <jdbc.dependency.artifactId>derbyclient</jdbc.dependency.artifactId>
@@ -270,9 +271,9 @@
     <jdbc.driverClassName>org.apache.derby.jdbc.ClientDriver</jdbc.driverClassName>
     <jdbc.username>derbyuser</jdbc.username>
     <jdbc.password>derbyuser</jdbc.password>
+    -->
 
     <!-- oracle -->
-    <!--
     <jdbc.database.product>oracle</jdbc.database.product>
     <jdbc.dependency.groupId>ojdbc</jdbc.dependency.groupId>
     <jdbc.dependency.artifactId>ojdbc</jdbc.dependency.artifactId>
@@ -281,7 +282,6 @@
     <jdbc.driverClassName>oracle.jdbc.driver.OracleDriver</jdbc.driverClassName>
     <jdbc.username>scott</jdbc.username>
     <jdbc.password>tiger</jdbc.password>
-    -->
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
