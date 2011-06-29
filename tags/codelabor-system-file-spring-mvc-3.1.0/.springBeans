@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.6.0.201104111100-PATCH]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/resources/spring/action-servlet-locale.xml</config>
+		<config>src/main/resources/spring/action-servlet-resolver.xml</config>
+		<config>src/main/resources/spring/action-servlet-theme.xml</config>
+		<config>src/main/resources/spring/example/file/applicationContext-properties.xml</config>
+		<config>src/main/resources/spring/system/anyframe/idgen/oracle/applicationContext-idGenerationService.xml</config>
+		<config>src/main/resources/spring/system/jdbc/applicationContext-transactionManager.xml</config>
+		<config>src/main/resources/spring/system/jdbc/applicationContext-jndiTemplate.xml</config>
+		<config>src/main/resources/spring/system/jdbc/applicationContext-dataSource.xml</config>
+		<config>src/main/resources/spring/system/anyframe/util/applicationContext-propertiesService.xml</config>
+		<config>src/main/resources/spring/system/jdbc/applicationContext-lobHandler.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
