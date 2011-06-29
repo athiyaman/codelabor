@@ -47,6 +47,7 @@
 3.1.1
 	JSTL 의존성 보완
 	README.txt 보완
+	기본 db를 derby에서 oracle로 교체
 	
 	
 	
