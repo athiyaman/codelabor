@@ -44,11 +44,16 @@
 3.1.0
 	Anyframe 5.0 지원	
 	
+3.1.1
+	JSTL 의존성 보완
+	README.txt 보완
+	
 	
 	
 [derby 사용 시 준비 사항]
 derby를 별도로 실행하는 방법
 ---------------------------------------------------------------------------
+1. testdb 생성하기
 C:\Users\bomber>java -jar %DERBY_HOME%\lib\derbyrun.jar ij
 Unable to access jarfile C:\Program
 
@@ -61,4 +66,9 @@ C:\Users\bomber>java -jar "%DERBY_HOME%\lib\derbynet.jar" start
 2011-06-29 01:32:07.758 GMT : 기본 서버 보안 정책을 사용하여 보안 관리자가 설치됩니다.
 2011-06-29 01:32:08.027 GMT : Apache Derby 네트워크 서버 - 10.6.2.1 - (999685)이(가) 시작되어 포트 1527에서 연결을 승인
 할 준비가 되었습니다.
+
+2. Maven test 실행해서 sql 실행하기
+C:\Users\bomber>mvn test
+
+
 ---------------------------------------------------------------------------	
