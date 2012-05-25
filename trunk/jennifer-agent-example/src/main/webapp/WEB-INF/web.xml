@@ -1,0 +1,29 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>jenniferFilter</filter-name>
+  	<display-name>jenniferFilter</display-name>
+  	<description></description>
+  	<filter-class>org.codelabor.example.filter.JenniferFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>jenniferFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--
+  <servlet>
+  	<servlet-name>JenniferServlet</servlet-name>
+  	<display-name>JenniferServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.codelabor.example.servlet.JenniferServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>JenniferServlet</servlet-name>
+  	<url-pattern>/jenniferServlet</url-pattern>
+  </servlet-mapping>
+  -->
+</web-app>
