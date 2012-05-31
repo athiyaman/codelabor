@@ -1,8 +1,5 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>Archetype Created Web Application</display-name>
   <filter>
   	<filter-name>jenniferFilter</filter-name>
@@ -14,7 +11,7 @@
   	<filter-name>jenniferFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!--
+
   <servlet>
   	<servlet-name>JenniferServlet</servlet-name>
   	<display-name>JenniferServlet</display-name>
@@ -23,7 +20,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>JenniferServlet</servlet-name>
-  	<url-pattern>/jenniferServlet</url-pattern>
+  	<url-pattern>/example/jenniferServlet</url-pattern>
   </servlet-mapping>
-  -->
+
 </web-app>
