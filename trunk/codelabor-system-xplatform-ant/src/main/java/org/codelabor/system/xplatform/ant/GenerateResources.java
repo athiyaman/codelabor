@@ -8,8 +8,10 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Vector;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.DirectoryScanner;
+import org.apache.tools.ant.Project;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.FileSet;
 
@@ -17,7 +19,21 @@ public class GenerateResources extends Task {
 
 	protected File iniFile;
 	protected File destDir;
-	protected String charSet = "EUC-KR";
+	protected boolean mkDir;
+	protected int verbosity = Project.MSG_VERBOSE;
+
+	@Override
+	public void init() throws BuildException {
+		super.init();
+	}
+
+	protected String encoding = "EUC-KR";
+
+	private final static String FILE_SEPARATOR = System
+			.getProperty("file.separator");
+	private final static String LINE_SEPARATOR = System
+			.getProperty("line.separator");
+	private final static String TAB = "\t";
 
 	protected Vector<FileSet> fileSets = new Vector<FileSet>();
 
@@ -27,7 +43,7 @@ public class GenerateResources extends Task {
 		Writer writer = null;
 		try {
 			writer = new OutputStreamWriter(new FileOutputStream(iniFile),
-					charSet);
+					encoding);
 
 			validateAttributes();
 			DirectoryScanner ds = null;
@@ -36,30 +52,48 @@ public class GenerateResources extends Task {
 			for (FileSet fileSet : fileSets) {
 				ds = fileSet.getDirectoryScanner(getProject());
 				File baseDir = ds.getBasedir();
-				log("base dir: " + baseDir.toString());
+				if (destDir == null)
+					destDir = baseDir;
+				log("baseDir: " + baseDir.toString(), verbosity);
+				log("destDir: " + destDir.toString(), verbosity);
 				String[] includedFileNames = ds.getIncludedFiles();
 
-				log("  file count:" + includedFileNames.length);
+				log(TAB + "file count:" + includedFileNames.length, verbosity);
 				for (String includedFileName : includedFileNames) {
-					log("  included file name: " + includedFileName);
+					log(TAB + "included file name: " + includedFileName,
+							verbosity);
 
 					// first column
 					sb.append("1,");
 
 					// second column
-					sb.append(baseDir).append(
-							System.getProperty("file.separator"));
+					sb.append(baseDir).append(FILE_SEPARATOR);
 					sb.append(includedFileName).append(",");
 
 					// third column
-					if (destDir != null) {
-						sb.append(destDir);
-					} else {
-						sb.append(baseDir);
-					}
-					sb.append(System.getProperty("file.separator"));
+					sb.append(destDir);
+					sb.append(FILE_SEPARATOR);
 					sb.append(includedFileName);
-					sb.append(System.getProperty("line.separator"));
+					sb.append(LINE_SEPARATOR);
+
+					// make destination directory
+					if (mkDir) {
+						StringBuilder destDirFinalStringBuilder = new StringBuilder();
+						destDirFinalStringBuilder.append(destDir);
+						destDirFinalStringBuilder.append(FILE_SEPARATOR);
+						destDirFinalStringBuilder.append(includedFileName);
+						int lastIndex = destDirFinalStringBuilder
+								.lastIndexOf(FILE_SEPARATOR);
+						destDirFinalStringBuilder.delete(lastIndex,
+								destDirFinalStringBuilder.length());
+						File destDirFinal = new File(
+								destDirFinalStringBuilder.toString());
+						FileUtils.forceMkdir(destDirFinal);
+						log(TAB + "make dir: "
+								+ destDirFinalStringBuilder.toString(),
+								verbosity);
+					}
+
 				}
 				writer.write(sb.toString());
 				writer.flush();
@@ -122,28 +156,24 @@ public class GenerateResources extends Task {
 		}
 	}
 
-	public String getCharSet() {
-		return charSet;
-	}
-
-	public void setCharSet(String charSet) {
-		this.charSet = charSet;
-	}
-
-	public File getIniFile() {
-		return iniFile;
+	public void setEncoding(String charSet) {
+		this.encoding = charSet;
 	}
 
 	public void setIniFile(File destFile) {
 		this.iniFile = destFile;
 	}
 
-	public File getDestDir() {
-		return destDir;
-	}
-
 	public void setDestDir(File destDir) {
 		this.destDir = destDir;
+	}
+
+	public void setMkDir(boolean mkDir) {
+		this.mkDir = mkDir;
+	}
+
+	public void setVerbose(boolean verbose) {
+		this.verbosity = verbose ? Project.MSG_INFO : Project.MSG_VERBOSE;
 	}
 
 }

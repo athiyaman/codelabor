@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="xml2bin" default="compile" basedir=".">
+	<echo message="${ant.home}" />
+
 	<taskdef name="generateResources"
 		classname="org.codelabor.system.xplatform.ant.GenerateResources"
 		classpath="target/classes" />
@@ -7,7 +9,8 @@
 	<property file="xml2bin.properties" />
 
 	<target name="generate-resources">
-		<generateResources iniFile="${ini.file}" destDir="${target.dir}">
+		<generateResources iniFile="${ini.file}" destDir="${target.dir}"
+			mkDir="${mk.dir.flag}" verbose="${verbose.flag}">
 			<fileset dir="${source.dir}">
 				<include name="**/*.xfdl" />
 				<include name="**/*.xml" />
