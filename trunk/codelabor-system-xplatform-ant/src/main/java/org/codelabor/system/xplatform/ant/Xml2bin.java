@@ -20,7 +20,6 @@ package org.codelabor.system.xplatform.ant;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -65,12 +64,16 @@ public class Xml2bin extends Task {
 	public void execute() throws BuildException {
 		super.execute();
 
+		generateIni();
+		xml2bin();
+	}
+
+	protected void generateIni() {
 		// prepare ini file
 		Writer writer = null;
 		try {
 			writer = new OutputStreamWriter(new FileOutputStream(iniFile),
 					encoding);
-
 			validateAttributes();
 			DirectoryScanner ds = null;
 
@@ -114,7 +117,9 @@ public class Xml2bin extends Task {
 								destDirFinalStringBuilder.length());
 						File destDirFinal = new File(
 								destDirFinalStringBuilder.toString());
+
 						FileUtils.forceMkdir(destDirFinal);
+
 						log(TAB + "make dir: "
 								+ destDirFinalStringBuilder.toString(),
 								verbosity);
@@ -124,14 +129,36 @@ public class Xml2bin extends Task {
 				writer.write(sb.toString());
 				writer.flush();
 			}
+		} catch (IOException e) {
+			if (failonerror) {
+				throw new BuildException(e);
+			} else {
+				log("Warning: " + getMessage(e), Project.MSG_ERR);
+			}
+		} finally {
+			try {
+				writer.close();
+			} catch (IOException e) {
+				if (failonerror) {
+					throw new BuildException(e);
+				} else {
+					log("Warning: " + getMessage(e), Project.MSG_ERR);
+				}
+			}
+		}
+	}
 
-			String[] commandArray = new String[] { executable,
-					iniFile.getAbsolutePath(), logFile };
-			Process proc = new ProcessBuilder(commandArray).start();
-
-			BufferedReader stdOut = new BufferedReader(new InputStreamReader(
+	protected void xml2bin() {
+		String[] commandArray = new String[] { executable,
+				iniFile.getAbsolutePath(), logFile };
+		Process proc = null;
+		BufferedReader stdOut = null;
+		BufferedReader stdError = null;
+		try {
+			proc = new ProcessBuilder(commandArray).start();
+			stdOut = new BufferedReader(new InputStreamReader(
 					proc.getInputStream()));
-			BufferedReader stdError = new BufferedReader(new InputStreamReader(
+			stdError = new BufferedReader(new InputStreamReader(
 					proc.getErrorStream()));
 
 			String string = null;
@@ -152,13 +179,6 @@ public class Xml2bin extends Task {
 					log("Result: " + exitValue, Project.MSG_ERR);
 				}
 			}
-
-		} catch (FileNotFoundException e) {
-			if (failonerror) {
-				throw new BuildException(e);
-			} else {
-				log("Warning: " + getMessage(e), Project.MSG_ERR);
-			}
 		} catch (IOException e) {
 			if (failonerror) {
 				throw new BuildException(e);
@@ -167,7 +187,8 @@ public class Xml2bin extends Task {
 			}
 		} finally {
 			try {
-				writer.close();
+				stdOut.close();
+				stdError.close();
 			} catch (IOException e) {
 				if (failonerror) {
 					throw new BuildException(e);
@@ -175,8 +196,8 @@ public class Xml2bin extends Task {
 					log("Warning: " + getMessage(e), Project.MSG_ERR);
 				}
 			}
-		}
 
+		}
 	}
 
 	public void addFileSet(FileSet fileSet) {

@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="xml2bin" default="compile" basedir=".">
-
-	<taskdef name="generateResources"
-		classname="org.codelabor.system.xplatform.ant.GenerateResources"
-		classpath="target/classes" />
+<project name="xml2bin" default="xml2bin" basedir=".">
 
 	<taskdef name="xml2bin"
 			classname="org.codelabor.system.xplatform.ant.Xml2bin"
 			classpath="target/classes" />
 
 	<property file="xml2bin.properties" />
-
-	<target name="generate-resources">
-		<generateResources iniFile="${ini.file}" destDir="${target.dir}" verbose="${verbose.flag}">
-			<fileset dir="${source.dir}">
-				<include name="**/*.xfdl" />
-				<include name="**/*.xml" />
-				<exclude name="**/XPLATFORM_Client_License.xml" />
-			</fileset>
-		</generateResources>
-	</target>
-
-	<target name="compile" depends="generate-resources">
-		<exec executable="${xml2bin.execuable}" failonerror="true">
-			<arg value="${ini.file}"/>
-			<arg value="${log.file}"/>
-		</exec>
-	</target>
 
 	<target name="xml2bin">
 		<xml2bin executable="${xml2bin.execuable}"
