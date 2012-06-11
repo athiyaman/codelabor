@@ -5,6 +5,10 @@
 		classname="org.codelabor.system.xplatform.ant.GenerateResources"
 		classpath="target/classes" />
 
+	<taskdef name="xml2bin"
+			classname="org.codelabor.system.xplatform.ant.Xml2bin"
+			classpath="target/classes" />
+
 	<property file="xml2bin.properties" />
 
 	<target name="generate-resources">
@@ -22,6 +26,18 @@
 			<arg value="${ini.file}"/>
 			<arg value="${log.file}"/>
 		</exec>
+	</target>
+
+	<target name="xml2bin">
+		<xml2bin executable="${xml2bin.execuable}"
+			iniFile="${ini.file}" logFile="${log.file}"
+			destDir="${target.dir}" verbose="${verbose.flag}">
+			<fileset dir="${source.dir}">
+				<include name="**/*.xfdl" />
+				<include name="**/*.xml" />
+				<exclude name="**/XPLATFORM_Client_License.xml" />
+			</fileset>
+		</xml2bin>
 	</target>
 
 </project>
