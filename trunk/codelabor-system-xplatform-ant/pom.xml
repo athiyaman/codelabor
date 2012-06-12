@@ -29,8 +29,8 @@
 		<url>http://codelabor.org</url>
 	</organization>
 	<scm>
-		<url>http://codelabor.googlecode.com/svn/trunk/</url>
-		<connection>http://codelabor.googlecode.com/svn/trunk/</connection>
-		<developerConnection>https://codelabor.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-xplatform-ant</url>
+		<connection>http://codelabor.googlecode.com/svn/trunk/codelabor-system-xplatform-ant</connection>
+		<developerConnection>https://codelabor.googlecode.com/svn/trunk/codelabor-system-xplatform-ant</developerConnection>
 	</scm>
 </project>
