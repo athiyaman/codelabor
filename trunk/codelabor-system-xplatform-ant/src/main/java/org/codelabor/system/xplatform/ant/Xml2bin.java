@@ -37,25 +37,61 @@ import org.apache.tools.ant.types.FileSet;
 
 /**
  * Compiles XPLATFORM files.
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class Xml2bin extends Task {
 
+	/**
+	 * xml2bin .ini file.
+	 */
 	protected File iniFile;
+	/**
+	 * Log file fully qualified path.
+	 */
 	protected String logFile;
+	/**
+	 * Destination directory
+	 */
 	protected File destDir;
+	/**
+	 * xml2bin.exe executable file fully qualified path.
+	 */
 	protected String executable;
+	/**
+	 * Fail on error flag.
+	 */
 	protected boolean failonerror = true;
+	/**
+	 * Verbosity
+	 */
 	protected int verbosity = Project.MSG_VERBOSE;
+	/**
+	 * Exit value
+	 */
 	protected int exitValue = -1;
+	/**
+	 * Charater encoding
+	 */
 	protected String encoding = "EUC-KR";
+	/**
+	 * File sets
+	 */
 	protected List<FileSet> fileSets = new ArrayList<FileSet>();
+	/**
+	 * File separator
+	 */
 	private final static String FILE_SEPARATOR = System
 			.getProperty("file.separator");
+	/**
+	 * Line separator
+	 */
 	private final static String LINE_SEPARATOR = System
 			.getProperty("line.separator");
+	/**
+	 * Tab
+	 */
 	private final static String TAB = "\t";
 
 	@Override
@@ -222,6 +258,12 @@ public class Xml2bin extends Task {
 		}
 	}
 
+	/**
+	 * Add file set
+	 * 
+	 * @param fileSet
+	 *            file set for compile
+	 */
 	public void addFileSet(FileSet fileSet) {
 		if (!fileSets.contains(fileSet)) {
 			fileSets.add(fileSet);
@@ -231,7 +273,7 @@ public class Xml2bin extends Task {
 	/**
 	 * Ensure we have a consistent and legal set of attributes, and set any
 	 * internal flags necessary based on different combinations of attributes.
-	 *
+	 * 
 	 * @exception BuildException
 	 *                if an error occurs.
 	 */
@@ -275,7 +317,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Handle getMessage() for exceptions.
-	 *
+	 * 
 	 * @param ex
 	 *            the exception to handle
 	 * @return ex.getMessage() if ex.getMessage() is not null otherwise return
@@ -287,7 +329,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set the character encoding.
-	 *
+	 * 
 	 * @param encoding
 	 *            the character encoding.
 	 */
@@ -297,7 +339,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set .ini file to generate.
-	 *
+	 * 
 	 * @param iniFile
 	 *            fully qualified path
 	 */
@@ -307,7 +349,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set destination directory.
-	 *
+	 * 
 	 * @param destDir
 	 *            destination directory.
 	 */
@@ -317,7 +359,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set verbose mode.
-	 *
+	 * 
 	 * @param verbose
 	 *            where to output log messages. Default is false.
 	 */
@@ -328,7 +370,7 @@ public class Xml2bin extends Task {
 	/**
 	 * Set whether to fail when errors are encountered. If false, note errors to
 	 * the output but keep going. Default is true.
-	 *
+	 * 
 	 * @param failonerror
 	 *            true or false.
 	 */
@@ -338,7 +380,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set XPLATFORM xml2bin.exe.
-	 *
+	 * 
 	 * @param executable
 	 *            fully qualified path.
 	 */
@@ -348,7 +390,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set log file to generate.
-	 *
+	 * 
 	 * @param logFile
 	 *            fully qualified path.
 	 */
