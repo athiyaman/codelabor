@@ -25,7 +25,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.tools.ant.BuildException;
@@ -36,9 +37,9 @@ import org.apache.tools.ant.types.FileSet;
 
 /**
  * Compiles XPLATFORM files.
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class Xml2bin extends Task {
 
@@ -50,7 +51,7 @@ public class Xml2bin extends Task {
 	protected int verbosity = Project.MSG_VERBOSE;
 	protected int exitValue = -1;
 	protected String encoding = "EUC-KR";
-	protected Vector<FileSet> fileSets = new Vector<FileSet>();
+	protected List<FileSet> fileSets = new ArrayList<FileSet>();
 	private final static String FILE_SEPARATOR = System
 			.getProperty("file.separator");
 	private final static String LINE_SEPARATOR = System
@@ -92,6 +93,7 @@ public class Xml2bin extends Task {
 				String[] includedFileNames = ds.getIncludedFiles();
 
 				log(TAB + "file count:" + includedFileNames.length, verbosity);
+
 				for (String includedFileName : includedFileNames) {
 					log(TAB + "included file name: " + includedFileName,
 							verbosity);
@@ -110,21 +112,21 @@ public class Xml2bin extends Task {
 					sb.append(LINE_SEPARATOR);
 
 					// make destination directory
-					StringBuilder destDirFinalStringBuilder = new StringBuilder();
-					destDirFinalStringBuilder.append(destDir);
-					destDirFinalStringBuilder.append(FILE_SEPARATOR);
-					destDirFinalStringBuilder.append(includedFileName);
-					int lastIndex = destDirFinalStringBuilder
+					StringBuilder destDirFullyQualifiedPath = new StringBuilder();
+					destDirFullyQualifiedPath.append(destDir);
+					destDirFullyQualifiedPath.append(FILE_SEPARATOR);
+					destDirFullyQualifiedPath.append(includedFileName);
+					int lastIndex = destDirFullyQualifiedPath
 							.lastIndexOf(FILE_SEPARATOR);
-					destDirFinalStringBuilder.delete(lastIndex,
-							destDirFinalStringBuilder.length());
+					destDirFullyQualifiedPath.delete(lastIndex,
+							destDirFullyQualifiedPath.length());
 					File destDirFinal = new File(
-							destDirFinalStringBuilder.toString());
+							destDirFullyQualifiedPath.toString());
 
 					FileUtils.forceMkdir(destDirFinal);
 
 					log(TAB + "make dir: "
-							+ destDirFinalStringBuilder.toString(), verbosity);
+							+ destDirFullyQualifiedPath.toString(), verbosity);
 
 				}
 				writer.write(sb.toString());
@@ -167,12 +169,22 @@ public class Xml2bin extends Task {
 			stdError = new BufferedReader(new InputStreamReader(
 					proc.getErrorStream()));
 
-			String string = null;
-			while ((string = stdOut.readLine()) != null) {
-				log(string, verbosity);
+			String lineOfText = null;
+			while (true) {
+				lineOfText = stdOut.readLine();
+				if (lineOfText == null) {
+					break;
+				} else {
+					log(lineOfText, verbosity);
+				}
 			}
-			while ((string = stdError.readLine()) != null) {
-				log(string, Project.MSG_ERR);
+			while (true) {
+				lineOfText = stdError.readLine();
+				if (lineOfText == null) {
+					break;
+				} else {
+					log(lineOfText, Project.MSG_ERR);
+				}
 			}
 
 			exitValue = proc.exitValue();
@@ -219,7 +231,7 @@ public class Xml2bin extends Task {
 	/**
 	 * Ensure we have a consistent and legal set of attributes, and set any
 	 * internal flags necessary based on different combinations of attributes.
-	 * 
+	 *
 	 * @exception BuildException
 	 *                if an error occurs.
 	 */
@@ -256,14 +268,14 @@ public class Xml2bin extends Task {
 			}
 		}
 
-		if (fileSets.size() == 0) {
+		if (fileSets.isEmpty()) {
 			throw new BuildException("fileset required!");
 		}
 	}
 
 	/**
 	 * Handle getMessage() for exceptions.
-	 * 
+	 *
 	 * @param ex
 	 *            the exception to handle
 	 * @return ex.getMessage() if ex.getMessage() is not null otherwise return
@@ -275,7 +287,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set the character encoding.
-	 * 
+	 *
 	 * @param encoding
 	 *            the character encoding.
 	 */
@@ -285,7 +297,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set .ini file to generate.
-	 * 
+	 *
 	 * @param iniFile
 	 *            fully qualified path
 	 */
@@ -295,7 +307,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set destination directory.
-	 * 
+	 *
 	 * @param destDir
 	 *            destination directory.
 	 */
@@ -305,7 +317,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set verbose mode.
-	 * 
+	 *
 	 * @param verbose
 	 *            where to output log messages. Default is false.
 	 */
@@ -316,7 +328,7 @@ public class Xml2bin extends Task {
 	/**
 	 * Set whether to fail when errors are encountered. If false, note errors to
 	 * the output but keep going. Default is true.
-	 * 
+	 *
 	 * @param failonerror
 	 *            true or false.
 	 */
@@ -326,7 +338,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set XPLATFORM xml2bin.exe.
-	 * 
+	 *
 	 * @param executable
 	 *            fully qualified path.
 	 */
@@ -336,7 +348,7 @@ public class Xml2bin extends Task {
 
 	/**
 	 * Set log file to generate.
-	 * 
+	 *
 	 * @param logFile
 	 *            fully qualified path.
 	 */

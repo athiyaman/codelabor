@@ -4,8 +4,8 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-xplatform-ant</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ant task for xplatform</name>
-	<description>ant task for xplatform</description>
+	<name>codelabor-system-xplatform-ant</name>
+	<description>codelabor system ant task for xplatform</description>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.ant</groupId>
@@ -18,4 +18,19 @@
 			<version>2.3</version>
 		</dependency>
 	</dependencies>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+	<url>http://codelabor.googlecode.com</url>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
+	<scm>
+		<url>http://codelabor.googlecode.com/svn/trunk/</url>
+		<connection>http://codelabor.googlecode.com/svn/trunk/</connection>
+		<developerConnection>https://codelabor.googlecode.com/svn/trunk/</developerConnection>
+	</scm>
 </project>
