@@ -34,31 +34,33 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.FileSet;
 
+/**
+ * Compiles XPLATFORM files.
+ * 
+ * @author Shin Sang-jae
+ * 
+ */
 public class Xml2bin extends Task {
 
 	protected File iniFile;
 	protected String logFile;
 	protected File destDir;
 	protected String executable;
-	protected boolean mkDir = true;
 	protected boolean failonerror = true;
 	protected int verbosity = Project.MSG_VERBOSE;
 	protected int exitValue = -1;
-
-	@Override
-	public void init() throws BuildException {
-		super.init();
-	}
-
 	protected String encoding = "EUC-KR";
-
+	protected Vector<FileSet> fileSets = new Vector<FileSet>();
 	private final static String FILE_SEPARATOR = System
 			.getProperty("file.separator");
 	private final static String LINE_SEPARATOR = System
 			.getProperty("line.separator");
 	private final static String TAB = "\t";
 
-	protected Vector<FileSet> fileSets = new Vector<FileSet>();
+	@Override
+	public void init() throws BuildException {
+		super.init();
+	}
 
 	@Override
 	public void execute() throws BuildException {
@@ -68,8 +70,10 @@ public class Xml2bin extends Task {
 		xml2bin();
 	}
 
+	/**
+	 * Generates .ini file.
+	 */
 	protected void generateIni() {
-		// prepare ini file
 		Writer writer = null;
 		try {
 			writer = new OutputStreamWriter(new FileOutputStream(iniFile),
@@ -106,24 +110,21 @@ public class Xml2bin extends Task {
 					sb.append(LINE_SEPARATOR);
 
 					// make destination directory
-					if (mkDir) {
-						StringBuilder destDirFinalStringBuilder = new StringBuilder();
-						destDirFinalStringBuilder.append(destDir);
-						destDirFinalStringBuilder.append(FILE_SEPARATOR);
-						destDirFinalStringBuilder.append(includedFileName);
-						int lastIndex = destDirFinalStringBuilder
-								.lastIndexOf(FILE_SEPARATOR);
-						destDirFinalStringBuilder.delete(lastIndex,
-								destDirFinalStringBuilder.length());
-						File destDirFinal = new File(
-								destDirFinalStringBuilder.toString());
+					StringBuilder destDirFinalStringBuilder = new StringBuilder();
+					destDirFinalStringBuilder.append(destDir);
+					destDirFinalStringBuilder.append(FILE_SEPARATOR);
+					destDirFinalStringBuilder.append(includedFileName);
+					int lastIndex = destDirFinalStringBuilder
+							.lastIndexOf(FILE_SEPARATOR);
+					destDirFinalStringBuilder.delete(lastIndex,
+							destDirFinalStringBuilder.length());
+					File destDirFinal = new File(
+							destDirFinalStringBuilder.toString());
 
-						FileUtils.forceMkdir(destDirFinal);
+					FileUtils.forceMkdir(destDirFinal);
 
-						log(TAB + "make dir: "
-								+ destDirFinalStringBuilder.toString(),
-								verbosity);
-					}
+					log(TAB + "make dir: "
+							+ destDirFinalStringBuilder.toString(), verbosity);
 
 				}
 				writer.write(sb.toString());
@@ -137,7 +138,9 @@ public class Xml2bin extends Task {
 			}
 		} finally {
 			try {
-				writer.close();
+				if (writer != null) {
+					writer.close();
+				}
 			} catch (IOException e) {
 				if (failonerror) {
 					throw new BuildException(e);
@@ -148,6 +151,9 @@ public class Xml2bin extends Task {
 		}
 	}
 
+	/**
+	 * Compiles XPLATFORM files.
+	 */
 	protected void xml2bin() {
 		String[] commandArray = new String[] { executable,
 				iniFile.getAbsolutePath(), logFile };
@@ -187,8 +193,12 @@ public class Xml2bin extends Task {
 			}
 		} finally {
 			try {
-				stdOut.close();
-				stdError.close();
+				if (stdOut != null) {
+					stdOut.close();
+				}
+				if (stdError != null) {
+					stdError.close();
+				}
 			} catch (IOException e) {
 				if (failonerror) {
 					throw new BuildException(e);
@@ -206,6 +216,13 @@ public class Xml2bin extends Task {
 		}
 	}
 
+	/**
+	 * Ensure we have a consistent and legal set of attributes, and set any
+	 * internal flags necessary based on different combinations of attributes.
+	 * 
+	 * @exception BuildException
+	 *                if an error occurs.
+	 */
 	protected void validateAttributes() throws BuildException {
 		if (iniFile == null) {
 			throw new BuildException("inifile required!");
@@ -256,34 +273,73 @@ public class Xml2bin extends Task {
 		return ex.getMessage() == null ? ex.toString() : ex.getMessage();
 	}
 
-	public void setEncoding(String charSet) {
-		this.encoding = charSet;
+	/**
+	 * Set the character encoding.
+	 * 
+	 * @param encoding
+	 *            the character encoding.
+	 */
+	public void setEncoding(String encoding) {
+		this.encoding = encoding;
 	}
 
-	public void setIniFile(File destFile) {
-		this.iniFile = destFile;
+	/**
+	 * Set .ini file to generate.
+	 * 
+	 * @param iniFile
+	 *            fully qualified path
+	 */
+	public void setIniFile(File iniFile) {
+		this.iniFile = iniFile;
 	}
 
+	/**
+	 * Set destination directory.
+	 * 
+	 * @param destDir
+	 *            destination directory.
+	 */
 	public void setDestDir(File destDir) {
 		this.destDir = destDir;
 	}
 
-	public void setMkDir(boolean mkDir) {
-		this.mkDir = mkDir;
-	}
-
+	/**
+	 * Set verbose mode.
+	 * 
+	 * @param verbose
+	 *            where to output log messages. Default is false.
+	 */
 	public void setVerbose(boolean verbose) {
 		this.verbosity = verbose ? Project.MSG_INFO : Project.MSG_VERBOSE;
 	}
 
+	/**
+	 * Set whether to fail when errors are encountered. If false, note errors to
+	 * the output but keep going. Default is true.
+	 * 
+	 * @param failonerror
+	 *            true or false.
+	 */
 	public void setFailOnError(boolean failonerror) {
 		this.failonerror = failonerror;
 	}
 
+	/**
+	 * Set XPLATFORM xml2bin.exe.
+	 * 
+	 * @param executable
+	 *            fully qualified path.
+	 */
 	public void setExecutable(String executable) {
 		this.executable = executable;
 	}
 
+	/**
+	 * Set log file to generate.
+	 * 
+	 * @param logFile
+	 *            fully qualified path.
+	 */
 	public void setLogFile(String logFile) {
 		this.logFile = logFile;
 	}
