@@ -11,7 +11,6 @@
 			logFile="${log.file}" destDir="${target.dir}" verbose="${verbose.flag}">
 			<fileset dir="${source.dir}">
 				<include name="**/*.xfdl" />
-				<include name="**/*.xml" />
 				<exclude name="**/XPLATFORM_Client_License.xml" />
 			</fileset>
 		</xml2bin>
