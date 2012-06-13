@@ -1,0 +1,19 @@
+[License]
+The xml2bin task is distributed under the Apache License, version 2.0, but you need to obtain xml2bin executable from TOBESOFT.
+
+
+[System Requirements]
+The xml2bin task is tested on:
+------------------------------------------------------------------------
+	Operating System: Windows 7, 64bit
+	TOBESOFT XPLATFORM: 9.1
+	Oracle JDK: 1.5
+	Apache Ant: 1.8.2
+	Apache Maven: 3.0.4
+	Eclipse: Indigo Service Release 2
+	Eclipse m2e plugin: 1.0.200.20111228-1245
+------------------------------------------------------------------------
+
+[Eclipse m2e plugin]
+Currently, m2e plugin does not support 'maven-dependency-plugin'.
+So, you may see error message in POM editor but in Maven CLI, it works correctly.
