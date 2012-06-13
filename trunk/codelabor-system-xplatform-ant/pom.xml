@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-xplatform-ant</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>codelabor-system-xplatform-ant</name>
 	<description>codelabor system ant task for xplatform</description>
 	<url>http://codelabor.googlecode.com</url>

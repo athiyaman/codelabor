@@ -36,7 +36,8 @@ import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.FileSet;
 
 /**
- * Compiles XPLATFORM files.
+ * The xml2bin task compile XPLATFORM .xfdl files. This task will work on
+ * Windows using the external xml2bin executable (provided by TOBESOFT).
  * 
  * @author Shin Sang-jae
  * 

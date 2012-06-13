@@ -16,4 +16,4 @@ The xml2bin task is tested on:
 
 [Eclipse m2e plugin]
 Currently, m2e plugin does not support 'maven-dependency-plugin'.
-So, you may see error message in POM editor but it works correctly.
+So, you may see error message in POM editor but in Maven CLI, it works correctly.
