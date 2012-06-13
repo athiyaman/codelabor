@@ -13,3 +13,7 @@ The xml2bin task is tested on:
 	Eclipse: Indigo Service Release 2
 	Eclipse m2e plugin: 1.0.200.20111228-1245
 ------------------------------------------------------------------------
+
+[Eclipse m2e plugin]
+Currently, m2e plugin does not support 'maven-dependency-plugin'.
+So, you may see error message in POM editor but it works correctly.
