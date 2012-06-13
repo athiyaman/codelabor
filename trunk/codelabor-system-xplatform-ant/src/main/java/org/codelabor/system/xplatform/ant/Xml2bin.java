@@ -194,8 +194,14 @@ public class Xml2bin extends Task {
 	 * Compiles XPLATFORM files.
 	 */
 	protected void xml2bin() {
-		String[] commandArray = new String[] { executable,
-				iniFile.getAbsolutePath(), logFile };
+		String[] commandArray = null;
+		if (logFile != null) {
+			commandArray = new String[] { executable,
+					iniFile.getAbsolutePath(), logFile };
+		} else {
+			commandArray = new String[] { executable, iniFile.getAbsolutePath() };
+		}
+
 		Process proc = null;
 		BufferedReader stdOut = null;
 		BufferedReader stdError = null;
