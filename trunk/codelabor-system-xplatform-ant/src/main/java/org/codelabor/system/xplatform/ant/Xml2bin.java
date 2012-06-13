@@ -231,13 +231,12 @@ public class Xml2bin extends Task {
 			}
 
 			exitValue = proc.exitValue();
+			log("Result: " + exitValue, verbosity);
 
 			if (exitValue != 0) {
 				if (failonerror) {
 					throw new BuildException("Exec returned: " + exitValue,
 							getLocation());
-				} else {
-					log("Result: " + exitValue, Project.MSG_ERR);
 				}
 			}
 		} catch (IOException e) {
