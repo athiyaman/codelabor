@@ -14,7 +14,7 @@ To get up and running with the xml2bin ant task quickly, follow these steps:
 
 Note: XPLATFORM's xml2bin executable works Windows Platform only.
 
-For detail step, continue reading.
+For detailed information, continue reading.
 
 
 
