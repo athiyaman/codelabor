@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-xplatform-ant</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>codelabor-system-xplatform-ant</name>
 	<description>codelabor system ant task for xplatform</description>
 	<url>http://codelabor.googlecode.com</url>
@@ -29,9 +29,9 @@
 	  </developer>
 	</developers>
 	<scm>
-	  <connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-xplatform-ant-1.0.0</connection>
-	  <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-xplatform-ant-1.0.0</developerConnection>
-	  <url>http://codelabor.googlecode.com/svn/tags/codelabor-system-xplatform-ant-1.0.0</url>
+	  <connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-xplatform-ant</connection>
+	  <developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-xplatform-ant</developerConnection>
+	  <url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-xplatform-ant</url>
 	</scm>
 	<licenses>
 		<license>
