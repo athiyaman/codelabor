@@ -5,6 +5,7 @@ XML2BIN Task Getting started
 The xml2bin task compile XPLATFORM .xfdl files.
 This task will work on Windows using the external xml2bin executable (provided by TOBESOFT).
 
+
 To get up and running with the xml2bin ant task quickly, follow these steps:
 1. Install XPLATFORM xml2bin executable
 2. Install dependency library to ANT_HOME/lib
@@ -31,7 +32,7 @@ xml2bin files:
 	Xml2Bin.exe
 	...
 ------------------------------------------------------------------------
-Two type of xml2bin application available, GUI and CLI version.
+Two type of xml2bin executable available, GUI and CLI version.
 xml2bin task use CLI version only.
 
 
