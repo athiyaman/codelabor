@@ -95,6 +95,12 @@ public class Xml2bin extends Task {
 	 */
 	private final static String TAB = "\t";
 
+	/**
+	 * Maximum length of source, target path. (drive character and file
+	 * extension included)
+	 */
+	private final int MAX_PATH_LENGTH = 192;
+
 	@Override
 	public void init() throws BuildException {
 		super.init();
@@ -119,12 +125,13 @@ public class Xml2bin extends Task {
 			validateAttributes();
 			DirectoryScanner ds = null;
 
-			StringBuilder sb = new StringBuilder();
+			StringBuilder row = new StringBuilder();
 			for (FileSet fileSet : fileSets) {
 				ds = fileSet.getDirectoryScanner(getProject());
 				File baseDir = ds.getBasedir();
-				if (destDir == null)
+				if (destDir == null) {
 					destDir = baseDir;
+				}
 				log("baseDir: " + baseDir.toString(), verbosity);
 				log("destDir: " + destDir.toString(), verbosity);
 				String[] includedFileNames = ds.getIncludedFiles();
@@ -135,38 +142,48 @@ public class Xml2bin extends Task {
 					log(TAB + "included file name: " + includedFileName,
 							verbosity);
 
+					// source path
+					StringBuilder sourcePath = new StringBuilder();
+					sourcePath.append(baseDir);
+					sourcePath.append(FILE_SEPARATOR);
+					sourcePath.append(includedFileName);
+					validatePathLength(sourcePath.toString());
+
+					// target path
+					StringBuilder targetPath = new StringBuilder();
+					targetPath.append(destDir);
+					targetPath.append(FILE_SEPARATOR);
+					targetPath.append(includedFileName);
+					validatePathLength(targetPath.toString());
+
 					// first column
-					sb.append("1,");
+					row.append("1");
+					row.append(",");
 
 					// second column
-					sb.append(baseDir).append(FILE_SEPARATOR);
-					sb.append(includedFileName).append(",");
+					row.append(sourcePath.toString());
+					row.append(",");
 
 					// third column
-					sb.append(destDir);
-					sb.append(FILE_SEPARATOR);
-					sb.append(includedFileName);
-					sb.append(LINE_SEPARATOR);
+					row.append(targetPath.toString());
+					row.append(LINE_SEPARATOR);
 
 					// make destination directory
 					StringBuilder destDirFullyQualifiedPath = new StringBuilder();
-					destDirFullyQualifiedPath.append(destDir);
-					destDirFullyQualifiedPath.append(FILE_SEPARATOR);
-					destDirFullyQualifiedPath.append(includedFileName);
+					destDirFullyQualifiedPath.append(targetPath.toString());
 					int lastIndex = destDirFullyQualifiedPath
 							.lastIndexOf(FILE_SEPARATOR);
 					destDirFullyQualifiedPath.delete(lastIndex,
 							destDirFullyQualifiedPath.length());
 					File destDirFinal = new File(
 							destDirFullyQualifiedPath.toString());
-
 					FileUtils.forceMkdir(destDirFinal);
 
 					log(TAB + "make dir: "
 							+ destDirFullyQualifiedPath.toString(), verbosity);
 
 				}
-				writer.write(sb.toString());
+				writer.write(row.toString());
 				writer.flush();
 			}
 		} catch (IOException e) {
@@ -273,6 +290,31 @@ public class Xml2bin extends Task {
 	public void addFileSet(FileSet fileSet) {
 		if (!fileSets.contains(fileSet)) {
 			fileSets.add(fileSet);
+		}
+	}
+
+	/**
+	 * Ensure source, target path length does not exceed MAX_PATH_LENGTH.
+	 * 
+	 * @param path
+	 *            The file path (drive character and file extension included).
+	 * @throws BuildException
+	 *             if path length exceeded.
+	 */
+	protected void validatePathLength(String path) throws BuildException {
+		if (path.length() > MAX_PATH_LENGTH) {
+			StringBuilder msg = new StringBuilder();
+			msg.append("Path length exceeded: ");
+			msg.append(path.length());
+			msg.append(" > ");
+			msg.append(MAX_PATH_LENGTH);
+			msg.append(": ");
+			msg.append(path);
+			if (failonerror) {
+				throw new BuildException(msg.toString());
+			} else {
+				log("Warning: " + msg.toString(), Project.MSG_ERR);
+			}
 		}
 	}
 
