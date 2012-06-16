@@ -5,9 +5,19 @@
     <servlet-name>helloWorldServlet</servlet-name>
     <servlet-class>org.codelabor.example.web.servlet.HelloWorldServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>sniffing servlet</description>
+    <display-name>SniffingServlet</display-name>
+    <servlet-name>SniffingServlet</servlet-name>
+    <servlet-class>org.codelabor.system.sniffer.web.servlet.SniffingServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-    <servlet-name>helloWorldServlet</servlet-name>
-    <url-pattern>/servlet/helloWorld</url-pattern>
+    <servlet-name>HelloWorldServlet</servlet-name>
+    <url-pattern>/servlet/HelloWorld</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SniffingServlet</servlet-name>
+    <url-pattern>/servlet/SniffingServlet</url-pattern>
   </servlet-mapping>
   <filter>
     <display-name>SniffingFilter</display-name>
@@ -30,4 +40,5 @@
   <listener>
     <listener-class>org.codelabor.system.sniffer.web.listener.SniffingSessionListener</listener-class>
   </listener>
+
 </web-app>
