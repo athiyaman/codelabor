@@ -32,4 +32,6 @@
   <listener>
     <listener-class>org.codelabor.example.lifecycle.web.listener.LifecycleSessionListener</listener-class>
   </listener>
+  <session-config>
+  	<session-timeout>1</session-timeout></session-config>
 </web-app>
