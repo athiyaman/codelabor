@@ -1,4 +1,4 @@
-package org.codelabor.example.web.filter;
+package org.codelabor.system.sniffer.web.filter;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.codelabor.example.web.util.ServletUtils;
+import org.codelabor.system.sniffer.web.util.ServletUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

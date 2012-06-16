@@ -1,9 +1,9 @@
-package org.codelabor.example.web.listener;
+package org.codelabor.system.sniffer.web.listener;
 
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 
-import org.codelabor.example.web.util.ServletUtils;
+import org.codelabor.system.sniffer.web.util.ServletUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

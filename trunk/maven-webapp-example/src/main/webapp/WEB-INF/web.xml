@@ -12,7 +12,7 @@
   <filter>
     <display-name>SniffingFilter</display-name>
     <filter-name>SniffingFilter</filter-name>
-    <filter-class>org.codelabor.example.web.filter.SniffingFilter</filter-class>
+    <filter-class>org.codelabor.system.sniffer.web.filter.SniffingFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>SniffingFilter</filter-name>
@@ -22,9 +22,9 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <listener>
-    <listener-class>org.codelabor.example.web.listener.SniffingServletRequestListener</listener-class>
+    <listener-class>org.codelabor.system.sniffer.web.listener.SniffingServletRequestListener</listener-class>
   </listener>
   <listener>
-    <listener-class>org.codelabor.example.web.listener.SniffingServletContextListener</listener-class>
+    <listener-class>org.codelabor.system.sniffer.web.listener.SniffingServletContextListener</listener-class>
   </listener>
 </web-app>

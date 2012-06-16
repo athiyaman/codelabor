@@ -1,4 +1,4 @@
-package org.codelabor.example.web.util;
+package org.codelabor.system.sniffer.web.util;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletRequest;
