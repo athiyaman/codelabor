@@ -39,6 +39,7 @@ public class FileUtilsTest {
 	public void testForceMkdir() {
 		File directory = new File("c:/temp/sub1/sub2/sub3/sub4");
 		try {
+			logger.debug("directory: {}", directory.getAbsolutePath());
 			FileUtils.forceMkdir(directory);
 		} catch (IOException e) {
 			e.printStackTrace();
