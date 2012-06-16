@@ -8,9 +8,8 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
+import org.codelabor.example.web.util.ServletUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,9 +40,8 @@ public class SniffingFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		HttpSession session = httpServletRequest.getSession();
-		String sessionId = session.getId();
+		logger.debug("doFilter");
+		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
 		chain.doFilter(request, response);
 	}
