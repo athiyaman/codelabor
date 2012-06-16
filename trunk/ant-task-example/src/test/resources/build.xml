@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="xml2bin" default="all" basedir="../../..">
+	<taskdef name="helloworld" classname="org.codelabor.example.ant.HelloWorld" classpath="target/classes"/>
+	<taskdef name="helloworld2" classname="org.codelabor.example.ant.HelloWorld2" classpath="target/classes"/>
+	<taskdef name="helloworld3" classname="org.codelabor.example.ant.HelloWorld3" classpath="target/classes"/>
+
+	<target name="example1">
+		<helloworld />
+	</target>
+
+	<target name="example2">
+		<helloworld2 name="Bomber"/>
+	</target>
+
+	<target name="example3">
+		<helloworld3>
+			<name>Bomber</name>
+		</helloworld3>
+	</target>
+
+	<target name="all" depends="example1, example2, example3"/>
+
+</project>
