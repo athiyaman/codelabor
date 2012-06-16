@@ -27,4 +27,7 @@
   <listener>
     <listener-class>org.codelabor.system.sniffer.web.listener.SniffingServletContextListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>org.codelabor.system.sniffer.web.listener.SniffingSessionListener</listener-class>
+  </listener>
 </web-app>

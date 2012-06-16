@@ -5,6 +5,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,12 @@ public class ServletUtils {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) event
 				.getServletRequest();
 		String sessionId = httpServletRequest.getSession().getId();
+		logger.debug("session id: {}", sessionId);
+		return sessionId;
+	}
+
+	public static String getSessionId(HttpSessionEvent event) {
+		String sessionId = event.getSession().getId();
 		logger.debug("session id: {}", sessionId);
 		return sessionId;
 	}
