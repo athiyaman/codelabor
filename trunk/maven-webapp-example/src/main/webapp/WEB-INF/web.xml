@@ -7,7 +7,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>helloWorldServlet</servlet-name>
-  	<servlet-class>org.codelabor.example.servlet.HelloWorldServlet</servlet-class>
+  	<servlet-class>org.codelabor.example.web.servlet.HelloWorldServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>helloWorldServlet</servlet-name>

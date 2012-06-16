@@ -1,4 +1,4 @@
-package org.codelabor.example.servlet;
+package org.codelabor.example.web.servlet;
 
 import java.io.IOException;
 
