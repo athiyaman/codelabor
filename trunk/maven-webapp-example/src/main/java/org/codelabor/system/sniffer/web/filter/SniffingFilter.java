@@ -31,6 +31,7 @@ public class SniffingFilter implements Filter {
 	/**
 	 * @see Filter#destroy()
 	 */
+	@Override
 	public void destroy() {
 		logger.debug("destroy");
 	}
@@ -38,17 +39,21 @@ public class SniffingFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
+	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		logger.debug("doFilter");
 		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
+		logger.debug("before chain.doFilter()");
 		chain.doFilter(request, response);
+		logger.debug("after chain.doFilter()");
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
+	@Override
 	public void init(FilterConfig fConfig) throws ServletException {
 		logger.debug("init");
 	}
