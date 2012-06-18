@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="helloWorldService" class="org.codelabor.example.service.HelloWorldServiceImpl"/>
+	<bean id="lifecycleService" class="org.codelabor.example.service.LifecycleServiceImpl"/>
 	
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
@@ -11,14 +11,10 @@
 				<ref bean="simpleTrigger"/>
 			</list>
 		</property>
+		<property name="globalTriggerListeners" ref="lifecycleGlobalTriggerListener"/>
+		<property name="globalJobListeners" ref="lifecycleGlobalJobListener"/>
+		<property name="schedulerListeners" ref="lifecycleSchedulerListener"/>
 	</bean>
-
-	<!--  
-	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<property name="jobDetail" ref="exampleJobDetail"/>
-		<property name="cronExpression" value="0 * * * * ?"/>
-	</bean>
-	-->
 	
 	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
 		<property name="jobDetail" ref="exampleJobDetail"/>
@@ -27,9 +23,13 @@
 	</bean>
 	
 	<bean id="exampleJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="helloWorldService"/>
-		<property name="targetMethod" value="sayHello"/>
+		<property name="targetObject" ref="lifecycleService"/>
+		<property name="targetMethod" value="execute"/>
 		<property name="concurrent" value="false"/>
-	</bean>	
+	</bean>
+
+	<bean id="lifecycleGlobalJobListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalJobListener" />
+	<bean id="lifecycleGlobalTriggerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalTriggerListener" />
+	<bean id="lifecycleSchedulerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleSchedulerListener" />
 
 </beans>
