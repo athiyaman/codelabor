@@ -8,18 +8,26 @@
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref bean="simpleTrigger"/>
+				<ref bean="cronTrigger"/>
 			</list>
 		</property>
 		<property name="globalTriggerListeners" ref="lifecycleGlobalTriggerListener"/>
 		<property name="globalJobListeners" ref="lifecycleGlobalJobListener"/>
 		<property name="schedulerListeners" ref="lifecycleSchedulerListener"/>
 	</bean>
-	
+
+	<!--  	
 	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
 		<property name="jobDetail" ref="exampleJobDetail"/>
 		<property name="startDelay" value="5000"/>
 		<property name="repeatInterval" value="1000"/>
+	</bean>	
+	-->	
+
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="exampleJobDetail"/>
+		<property name="startDelay" value="5000"/>
+		<property name="cronExpression" value="*/1 * * * * ?"/>
 	</bean>
 	
 	<bean id="exampleJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">

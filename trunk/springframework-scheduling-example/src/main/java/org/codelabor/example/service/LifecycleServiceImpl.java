@@ -10,7 +10,7 @@ public class LifecycleServiceImpl implements LifecycleService {
 
 	public LifecycleServiceImpl() {
 		super();
-		logger.debug("execute");
+		logger.debug("construct");
 	}
 
 	@Override
