@@ -7,11 +7,6 @@
 		</layout>
 	</appender>
 
-	<logger name="org.codelabor.system.sniffer.web.util.ServletUtils" additive="false">
-		<level value="error" />
-		<appender-ref ref="consoleAppender" />
-	</logger>
-
 	<root>
 		<priority value="debug" />
 		<appender-ref ref="consoleAppender" />

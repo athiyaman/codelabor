@@ -1,4 +1,4 @@
-package org.codelabor.example.service;
+package org.codelabor.example.lifecycle.service;
 
 public interface LifecycleService {
 	public void execute();

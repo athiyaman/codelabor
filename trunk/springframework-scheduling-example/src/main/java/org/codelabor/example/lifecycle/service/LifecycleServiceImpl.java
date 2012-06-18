@@ -1,4 +1,4 @@
-package org.codelabor.example.service;
+package org.codelabor.example.lifecycle.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
