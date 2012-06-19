@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.codelabor.example.lifecycle.context.UserContextHolder;
 import org.codelabor.system.sniffer.web.util.ServletUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,9 +46,11 @@ public class LifecycleFilter implements Filter {
 		logger.debug("doFilter");
 		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		logger.debug("before chain.doFilter()");
 		chain.doFilter(request, response);
 		logger.debug("after chain.doFilter()");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	/**

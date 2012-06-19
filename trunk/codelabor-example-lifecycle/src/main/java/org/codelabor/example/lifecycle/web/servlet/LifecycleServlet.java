@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codelabor.example.lifecycle.context.UserContextHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,7 @@ public class LifecycleServlet extends HttpServlet {
 	public LifecycleServlet() {
 		super();
 		logger.debug("constructor");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	/**
@@ -38,6 +40,7 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		logger.debug("init");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	/**
@@ -46,6 +49,7 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public void destroy() {
 		logger.debug("destroy");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	/**
@@ -54,6 +58,7 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public ServletConfig getServletConfig() {
 		logger.debug("getServletConfig");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		return null;
 	}
 
@@ -63,6 +68,7 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public String getServletInfo() {
 		logger.debug("getServletInfo");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		return null;
 	}
 
@@ -74,6 +80,7 @@ public class LifecycleServlet extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("service");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	/**
@@ -84,6 +91,7 @@ public class LifecycleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("doGet");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	/**
@@ -94,6 +102,7 @@ public class LifecycleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("doPost");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 }
