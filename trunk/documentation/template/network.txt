@@ -1,0 +1,24 @@
+[PC]
+ip: 
+sm: 
+gw: 
+dns1: 
+dns2: 
+
+[Proxy]
+proxy ip: 
+proxy port:
+non-proxy ip: 
+SW: firefox, tortoise, filezilla, ...
+
+[Printer]
+ip: 
+driver: 
+
+[File Server]
+ip: 
+id: 
+password: 
+
+[Help Desk]
+tel: 
