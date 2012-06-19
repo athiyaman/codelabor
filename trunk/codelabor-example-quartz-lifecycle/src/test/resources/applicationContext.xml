@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="lifecycleService" class="org.codelabor.example.lifecycle.service.LifecycleServiceImpl"/>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger"/>
+			</list>
+		</property>
+		<property name="globalTriggerListeners" ref="lifecycleGlobalTriggerListener"/>
+		<property name="globalJobListeners" ref="lifecycleGlobalJobListener"/>
+		<property name="schedulerListeners" ref="lifecycleSchedulerListener"/>
+	</bean>
+
+	<!--  	
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="exampleJobDetail"/>
+		<property name="startDelay" value="5000"/>
+		<property name="repeatInterval" value="1000"/>
+	</bean>	
+	-->	
+
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="exampleJobDetail"/>
+		<property name="startDelay" value="5000"/>
+		<property name="cronExpression" value="*/1 * * * * ?"/>
+	</bean>
+	
+	<bean id="exampleJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="lifecycleService"/>
+		<property name="targetMethod" value="execute"/>
+		<property name="concurrent" value="false"/>
+	</bean>
+
+	<bean id="lifecycleGlobalJobListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalJobListener" />
+	<bean id="lifecycleGlobalTriggerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalTriggerListener" />
+	<bean id="lifecycleSchedulerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleSchedulerListener" />
+
+</beans>
