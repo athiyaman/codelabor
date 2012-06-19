@@ -6,11 +6,13 @@ public class UserContextHolder {
 	private static final ThreadLocal<UserContext> contextHolder = new ThreadLocal<UserContext>();
 
 	public static UserContext getContext() {
-		UserContext temp = contextHolder.get();
-		if (temp == null) {
-			return new UserContextImpl();
+		UserContext context = contextHolder.get();
+		if (context == null) {
+			context = new UserContextImpl();
+			setContext(context);
+			return context;
 		} else {
-			return temp;
+			return context;
 		}
 	}
 
