@@ -1,5 +1,6 @@
 package org.codelabor.example.lifecycle.schedule.quartz.listener;
 
+import org.codelabor.example.lifecycle.context.UserContextHolder;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.JobListener;
@@ -14,6 +15,7 @@ public class LifecycleJobListener implements JobListener {
 	public LifecycleJobListener() {
 		super();
 		logger.debug("constructor");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	@Override
@@ -21,24 +23,28 @@ public class LifecycleJobListener implements JobListener {
 		logger.debug("getName");
 		String name = this.getClass().getName();
 		logger.debug("name: {}", name);
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		return name;
 	}
 
 	@Override
 	public void jobExecutionVetoed(JobExecutionContext context) {
 		logger.debug("jobExecutionVetoed");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 
 	}
 
 	@Override
 	public void jobToBeExecuted(JobExecutionContext context) {
 		logger.debug("jobToBeExecuted");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	@Override
 	public void jobWasExecuted(JobExecutionContext context,
 			JobExecutionException jobException) {
 		logger.debug("jobWasExecuted");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 }
