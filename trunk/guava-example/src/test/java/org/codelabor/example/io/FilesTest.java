@@ -1,5 +1,8 @@
 package org.codelabor.example.io;
 
+import java.io.File;
+import java.io.IOException;
+
 import junit.framework.Assert;
 
 import org.junit.After;
@@ -47,5 +50,18 @@ public class FilesTest {
 		logger.debug("file extension: {}", fileExtension);
 		Assert.assertEquals("xml", fileExtension);
 
+	}
+
+	@Test
+	public void testCreateParentDirs() throws IOException {
+		String directoryPath = "C:/temp/1/2/3/4/5/6/7/8/9/0";
+		File directory = new File(directoryPath);
+		if (directory.exists()) {
+			Assert.assertTrue(directory.delete());
+		}
+		Files.createParentDirs(directory);
+
+		String expectedDirectoryPath = "C:/temp/1/2/3/4/5/6/7/8/9";
+		Assert.assertTrue(new File(expectedDirectoryPath).exists());
 	}
 }
