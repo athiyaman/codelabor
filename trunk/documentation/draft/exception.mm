@@ -1,0 +1,12 @@
+<map version="0.9.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1337045535528" ID="ID_974883390" MODIFIED="1337046362819" TEXT="exception">
+<node CREATED="1337045578616" ID="ID_290101302" MODIFIED="1337045579924" POSITION="right" TEXT="type">
+<node CREATED="1337045552737" ID="ID_1258604222" MODIFIED="1337045598511" TEXT="user"/>
+<node CREATED="1337045570320" ID="ID_309789529" MODIFIED="1337045573430" TEXT="system"/>
+</node>
+<node CREATED="1337046365589" ID="ID_1506440977" MODIFIED="1337046369134" POSITION="left" TEXT="error page">
+<node CREATED="1337046376122" ID="ID_898644649" MODIFIED="1337046379464" TEXT="web.xml"/>
+</node>
+</node>
+</map>
