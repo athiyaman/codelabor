@@ -1,6 +1,8 @@
 package org.codelabor.example.jasypt;
 
 import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import org.jasypt.util.digest.Digester;
 import org.junit.After;
@@ -22,37 +24,36 @@ public class DigesterTest {
 	}
 
 	@Test
-	public void testDigest() {
+	public void testDigest() throws NoSuchAlgorithmException {
 		String before = "1234567890abcdefghijklmnopqrstuvwxyz";
 
 		Digester digester = new Digester();
-		byte[] beforeBytes = before.getBytes();
-		byte[] afterBytes = digester.digest(beforeBytes);
-		BigInteger bigInteger = new BigInteger(beforeBytes);
-		String beforeHexa = bigInteger.toString(16);
-		bigInteger = new BigInteger(afterBytes);
-		String afterHexa = bigInteger.toString(16);
+		byte[] beforeBytes1 = before.getBytes();
+		byte[] afterBytes1 = digester.digest(beforeBytes1);
+		BigInteger bigInteger1 = new BigInteger(beforeBytes1);
+		String beforeHexa1 = bigInteger1.toString(16);
+		bigInteger1 = new BigInteger(afterBytes1);
+		String afterHexa1 = bigInteger1.toString(16);
 
 		logger.debug("algorithm: {}", Digester.DEFAULT_ALGORITHM);
 		logger.debug("before (String): {}", before);
-		logger.debug("after (String): {}", new String(afterBytes));
-		logger.debug("before (Hexa): {}", beforeHexa);
-		logger.debug("after (Hexa): {}", afterHexa);
+		logger.debug("after (String): {}", new String(afterBytes1));
+		logger.debug("before (Hexa): {}", beforeHexa1);
+		logger.debug("after (Hexa): {}", afterHexa1);
 
-		digester = new Digester();
-		digester.setAlgorithm("SHA-1");
-		beforeBytes = before.getBytes();
-		afterBytes = digester.digest(beforeBytes);
-		bigInteger = new BigInteger(beforeBytes);
-		beforeHexa = bigInteger.toString(16);
-		bigInteger = new BigInteger(afterBytes);
-		afterHexa = bigInteger.toString(16);
+		MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+		byte[] beforeBytes2 = before.getBytes();
+		byte[] afterBytes2 = messageDigest.digest(beforeBytes2);
+		BigInteger bigInteger2 = new BigInteger(beforeBytes2);
+		String beforeHexa2 = bigInteger2.toString(16);
+		bigInteger2 = new BigInteger(afterBytes2);
+		String afterHexa2 = bigInteger2.toString(16);
 
-		logger.debug("algorithm: {}", "SHA-1");
+		logger.debug("algorithm: {}", messageDigest.getAlgorithm());
 		logger.debug("before (String): {}", before);
-		logger.debug("after (String): {}", new String(afterBytes));
-		logger.debug("before (Hexa): {}", beforeHexa);
-		logger.debug("after (Hexa): {}", afterHexa);
+		logger.debug("after (String): {}", new String(afterBytes2));
+		logger.debug("before (Hexa): {}", beforeHexa2);
+		logger.debug("after (Hexa): {}", afterHexa2);
 	}
 
 }
