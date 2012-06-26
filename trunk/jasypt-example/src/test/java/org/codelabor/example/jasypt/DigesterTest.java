@@ -23,19 +23,34 @@ public class DigesterTest {
 
 	@Test
 	public void testDigest() {
+		String before = "1234567890abcdefghijklmnopqrstuvwxyz";
+
 		Digester digester = new Digester();
-		String before = "before";
 		byte[] beforeBytes = before.getBytes();
 		byte[] afterBytes = digester.digest(beforeBytes);
-
-		logger.debug("before (String): {}", before);
-		logger.debug("after (String): {}", new String(afterBytes));
-
 		BigInteger bigInteger = new BigInteger(beforeBytes);
 		String beforeHexa = bigInteger.toString(16);
 		bigInteger = new BigInteger(afterBytes);
 		String afterHexa = bigInteger.toString(16);
 
+		logger.debug("algorithm: {}", Digester.DEFAULT_ALGORITHM);
+		logger.debug("before (String): {}", before);
+		logger.debug("after (String): {}", new String(afterBytes));
+		logger.debug("before (Hexa): {}", beforeHexa);
+		logger.debug("after (Hexa): {}", afterHexa);
+
+		digester = new Digester();
+		digester.setAlgorithm("SHA-1");
+		beforeBytes = before.getBytes();
+		afterBytes = digester.digest(beforeBytes);
+		bigInteger = new BigInteger(beforeBytes);
+		beforeHexa = bigInteger.toString(16);
+		bigInteger = new BigInteger(afterBytes);
+		afterHexa = bigInteger.toString(16);
+
+		logger.debug("algorithm: {}", "SHA-1");
+		logger.debug("before (String): {}", before);
+		logger.debug("after (String): {}", new String(afterBytes));
 		logger.debug("before (Hexa): {}", beforeHexa);
 		logger.debug("after (Hexa): {}", afterHexa);
 	}
