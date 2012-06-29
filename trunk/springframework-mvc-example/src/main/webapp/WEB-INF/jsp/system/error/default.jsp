@@ -8,5 +8,6 @@
 </head>
 <body>
 	${exception}
+	<%= 1/0 %>
 </body>
 </html>
