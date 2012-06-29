@@ -10,6 +10,8 @@
 <body>
 	<h1>Session Fixation Example: Session Dump</h1>
 	<hr />
+	pageContext.session.id:	${pageContext.session.id}
+	<br />
 	sessionScope: ${sessionScope}
 </body>
 </html>

@@ -8,9 +8,10 @@
 	<h1>Session Fixation Example: Login Form</h1>
 	<hr />
 	<form action="./process-login.jsp">
-		user id: <input name="userId" type="text" />
+		<input type="hidden" name="JSESSIONID" value="9736423F7D24FE323429196BFEFE83A0">
+		user id: <input type="text" name="userId" />
 		<br />
-		password: <input name="password" type="password" />
+		password: <input type="password" name="password" />
 		<br />
 		<input type="submit" />
 		<input type="reset" />
