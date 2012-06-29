@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	document.cookie="sessionid=1234;Domain=.codelabor.org";
+	var date = new Date();
+	date.setMonth(date.getMonth() + 1);
+	document.cookie="sessionid=1234;expired="+ date +";domain=.codelabor.org;path=/";
 </script>
 </head>
 <body>
