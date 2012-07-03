@@ -16,6 +16,8 @@
  */
 package org.codelabor.example.lang;
 
+import junit.framework.Assert;
+
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -27,7 +29,7 @@ import org.slf4j.LoggerFactory;
  */
 public class StringUtilsTest {
 	/**
-	 * ë¡œê±°
+	 * ·Î°Å
 	 */
 	Logger logger = LoggerFactory.getLogger(StringUtilsTest.class);
 
@@ -46,5 +48,22 @@ public class StringUtilsTest {
 		paddedString = StringUtils.leftPad(originalString, 2, "0");
 		logger.debug("originalString: {}", originalString);
 		logger.debug("paddedString: {}", paddedString);
+	}
+
+	@Test
+	public void testReplace() {
+		String text = "%%!";
+		String searchString = ")";
+		String replacement = "*";
+		String replacedString = StringUtils.replace(text, searchString,
+				replacement);
+		logger.debug("text: {}, replacedString: {}", text, replacedString);
+	}
+
+	@Test
+	public void testContains() {
+		String text = "%%!";
+		String searchString = "%";
+		Assert.assertEquals(true, StringUtils.contains(text, searchString));
 	}
 }
