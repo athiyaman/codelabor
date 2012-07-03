@@ -209,4 +209,56 @@ public class RegexPatternMatchUtilsTest {
 		assertEquals(false, isMatched);
 	}
 
+	/**
+	 * Test method for {@link
+	 * org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.
+	 * lang.String, java.util.List<java.lang.Object[]>)} .
+	 */
+	@Test
+	public void testMachesStringListOfObjectArray() {
+		String pattern = ".*[%'\"].*";
+		List<Object[]> objectArrayList = new ArrayList<Object[]>();
+		objectArrayList.add(new Object[] { "%", "'", "\"" });
+		objectArrayList.add(new Object[] { "!", "@", "#" });
+		boolean isMatched = RegexPatternMatchUtils.matches(pattern,
+				objectArrayList);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(true, isMatched);
+	}
+
+	/**
+	 * Test method for {@link
+	 * org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.
+	 * util.List, java.util.List<java.lang.Object[]>)} .
+	 */
+	@Test
+	public void testMachesListOfStringListOfObjectArray() {
+		List<Object[]> objectArrayList = new ArrayList<Object[]>();
+		objectArrayList.add(new Object[] { "%", "'", "\"" });
+		objectArrayList.add(new Object[] { "!", "@", "#" });
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				objectArrayList);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(false, isMatched);
+	}
+
+	/**
+	 * Test method for {@link
+	 * org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.
+	 * util.List, java.util.List, java.util.List<java.lang.Object[]>)} .
+	 */
+	@Test
+	public void testMachesListOfStringListOfStringListOfObjectArray() {
+		List<Object[]> objectArrayList = new ArrayList<Object[]>();
+		objectArrayList.add(new Object[] { "%", "'", "\"" });
+		objectArrayList.add(new Object[] { "!", "@", "#" });
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				excludesPatternList, objectArrayList);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(false, isMatched);
+	}
+
 }
