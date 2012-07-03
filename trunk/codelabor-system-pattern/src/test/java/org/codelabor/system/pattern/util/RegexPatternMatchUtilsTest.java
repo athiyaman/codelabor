@@ -210,9 +210,9 @@ public class RegexPatternMatchUtilsTest {
 	}
 
 	/**
-	 * Test method for {@link
-	 * org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.
-	 * lang.String, java.util.List<java.lang.Object[]>)} .
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java. lang.String, java.util.List)}
+	 * .
 	 */
 	@Test
 	public void testMachesStringListOfObjectArray() {
@@ -228,9 +228,9 @@ public class RegexPatternMatchUtilsTest {
 	}
 
 	/**
-	 * Test method for {@link
-	 * org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.
-	 * util.List, java.util.List<java.lang.Object[]>)} .
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java. util.List, java.util.List)}
+	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfObjectArray() {
@@ -245,9 +245,9 @@ public class RegexPatternMatchUtilsTest {
 	}
 
 	/**
-	 * Test method for {@link
-	 * org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.
-	 * util.List, java.util.List, java.util.List<java.lang.Object[]>)} .
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java. util.List, java.util.List, java.util.List)}
+	 * .
 	 */
 	@Test
 	public void testMachesListOfStringListOfStringListOfObjectArray() {
