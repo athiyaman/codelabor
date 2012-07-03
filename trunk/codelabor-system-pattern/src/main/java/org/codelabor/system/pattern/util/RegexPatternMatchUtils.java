@@ -248,4 +248,84 @@ public class RegexPatternMatchUtils {
 		}
 		return isMatched;
 	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param includesPatternList
+	 *            포함할 패턴 List
+	 * @param excludesPatternList
+	 *            제외할 패턴 List
+	 * @param objectArrayList
+	 *            확인 대상 문자열 배열 List
+	 * @return 패턴 일치 여부
+	 */
+	@SuppressWarnings("rawtypes")
+	static public boolean matches(List<String> includesPatternList,
+			List<String> excludesPatternList, List<Object[]> objectArrayList) {
+		boolean isMatched = false;
+		Iterator iter = objectArrayList.iterator();
+		while (iter.hasNext()) {
+			Object[] valueArray = (Object[]) iter.next();
+			if (valueArray != null && valueArray.length > 0) {
+				isMatched = matches(includesPatternList, excludesPatternList,
+						valueArray);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param patternList
+	 *            패턴 List
+	 * @param objectArrayList
+	 *            확인 대상 문자열 배열 List
+	 * @return 패턴 일치 여부
+	 */
+	@SuppressWarnings("rawtypes")
+	static public boolean matches(List<String> patternList,
+			List<Object[]> objectArrayList) {
+		boolean isMatched = false;
+		Iterator iter = objectArrayList.iterator();
+		while (iter.hasNext()) {
+			Object[] valueArray = (Object[]) iter.next();
+			if (valueArray != null && valueArray.length > 0) {
+				isMatched = matches(patternList, valueArray);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param pattern
+	 *            패턴
+	 * @param objectArrayList
+	 *            확인 대상 문자열 배열 List
+	 * @return 패턴 일치 여부
+	 */
+	@SuppressWarnings("rawtypes")
+	static public boolean matches(String pattern, List<Object[]> objectArrayList) {
+		boolean isMatched = false;
+		Iterator iter = objectArrayList.iterator();
+		while (iter.hasNext()) {
+			Object[] valueArray = (Object[]) iter.next();
+			if (valueArray != null && valueArray.length > 0) {
+				isMatched = matches(pattern, valueArray);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
 }
