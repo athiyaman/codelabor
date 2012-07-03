@@ -19,7 +19,9 @@ package org.codelabor.system.pattern.util;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +39,8 @@ public class RegexPatternMatchUtilsTest {
 	/**
 	 * 로거
 	 */
-	private Logger logger = LoggerFactory.getLogger(RegexPatternMatchUtilsTest.class);
+	private Logger logger = LoggerFactory
+			.getLogger(RegexPatternMatchUtilsTest.class);
 	/**
 	 * 포함할 패턴 리스트
 	 */
@@ -67,7 +70,8 @@ public class RegexPatternMatchUtilsTest {
 	public void testMachesStringString() {
 		String pattern = "[a-z]*";
 		String inputString = "qwerasdf";
-		boolean isMatched = RegexPatternMatchUtils.matches(pattern, inputString);
+		boolean isMatched = RegexPatternMatchUtils
+				.matches(pattern, inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
@@ -81,7 +85,8 @@ public class RegexPatternMatchUtilsTest {
 	@Test
 	public void testMachesListOfStringString() {
 		String inputString = "abcd";
-		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList, inputString);
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				inputString);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(true, isMatched);
@@ -95,7 +100,110 @@ public class RegexPatternMatchUtilsTest {
 	@Test
 	public void testMachesListOfStringListOfStringString() {
 		String inputString = "1234";
-		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList, excludesPatternList, inputString);
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				excludesPatternList, inputString);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(false, isMatched);
+	}
+
+	/**
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.lang.String, java.util.Map)}
+	 * .
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Test
+	public void testMachesStringMap() {
+		String pattern = ".*[%'\"].*";
+		Map patternMap = new HashMap();
+		patternMap.put("pattern1", "%");
+		patternMap.put("pattern2", "'");
+		patternMap.put("pattern2", "\"");
+		boolean isMatched = RegexPatternMatchUtils.matches(pattern, patternMap);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(true, isMatched);
+	}
+
+	/**
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.util.List, java.util.Map)}
+	 * .
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Test
+	public void testMachesListOfStringMap() {
+		Map patternMap = new HashMap();
+		patternMap.put("pattern1", "%");
+		patternMap.put("pattern2", "'");
+		patternMap.put("pattern2", "\"");
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				patternMap);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(false, isMatched);
+	}
+
+	/**
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.util.List, java.util.List, java.util.Map)}
+	 * .
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Test
+	public void testMachesListOfStringListOfStringMap() {
+		Map patternMap = new HashMap();
+		patternMap.put("pattern1", "%");
+		patternMap.put("pattern2", "'");
+		patternMap.put("pattern2", "\"");
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				excludesPatternList, patternMap);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(false, isMatched);
+	}
+
+	/**
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.lang.String, java.lang.Object[])}
+	 * .
+	 */
+	@Test
+	public void testMachesStringArrayOfObject() {
+		String pattern = ".*[%'\"].*";
+		Object[] params = new Object[] { "%", "'", "\"" };
+		boolean isMatched = RegexPatternMatchUtils.matches(pattern, params);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(true, isMatched);
+	}
+
+	/**
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.util.List, java.lang.Object[])}
+	 * .
+	 */
+	@Test
+	public void testMachesListOfStringArrayOfObject() {
+		Object[] params = new Object[] { "%", "'", "\"" };
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				params);
+		logger.debug("isMatched: {}", isMatched);
+
+		assertEquals(false, isMatched);
+	}
+
+	/**
+	 * Test method for
+	 * {@link org.codelabor.system.pattern.util.RegexPatternMatchUtils#matches(java.util.List, java.util.List, java.lang.Object[])}
+	 * .
+	 */
+	@Test
+	public void testMachesListOfStringListOfStringArrayOfObject() {
+		Object[] params = new Object[] { "%", "'", "\"" };
+		boolean isMatched = RegexPatternMatchUtils.matches(includesPatternList,
+				excludesPatternList, params);
 		logger.debug("isMatched: {}", isMatched);
 
 		assertEquals(false, isMatched);

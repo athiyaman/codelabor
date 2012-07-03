@@ -16,7 +16,10 @@
  */
 package org.codelabor.system.pattern.util;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.codelabor.system.util.ListUtils;
@@ -33,7 +36,8 @@ public class RegexPatternMatchUtils {
 	/**
 	 * 로거
 	 */
-	static private Logger logger = LoggerFactory.getLogger(RegexPatternMatchUtils.class);
+	static private Logger logger = LoggerFactory
+			.getLogger(RegexPatternMatchUtils.class);
 
 	/**
 	 * 패턴 일치 여부를 확인한다.
@@ -72,19 +76,176 @@ public class RegexPatternMatchUtils {
 	 *            확인 대상 문자열
 	 * @return 패턴 일치 여부
 	 */
-	static public boolean matches(List<String> includesPatternList, List<String> excludesPatternList, String inputString) {
+	static public boolean matches(List<String> includesPatternList,
+			List<String> excludesPatternList, String inputString) {
 		boolean isMatched = false;
 		if (includesPatternList != null) {
-			if (excludesPatternList != null && ListUtils.containsByRegexPattern(excludesPatternList, inputString)) {
+			if (excludesPatternList != null
+					&& ListUtils.containsByRegexPattern(excludesPatternList,
+							inputString)) {
 				// bypass
 			} else {
-				if (ListUtils.containsByRegexPattern(includesPatternList, inputString)) {
+				if (ListUtils.containsByRegexPattern(includesPatternList,
+						inputString)) {
 					isMatched = true;
 				}
 			}
 
 		}
-		logger.debug("isMatched: {}", isMatched);
+		logger.debug("inputString: {}, isMatched: {}", inputString, isMatched);
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param includesPatternList
+	 *            포함할 패턴 List
+	 * @param excludesPatternList
+	 *            제외할 패턴 List
+	 * @param inputStringArray
+	 *            확인 대상 문자열 배열
+	 * @return 패턴 일치 여부
+	 */
+	static public boolean matches(List<String> includesPatternList,
+			List<String> excludesPatternList, Object[] inputStringArray) {
+		boolean isMatched = false;
+		for (Object inputString : inputStringArray) {
+			if (inputString != null) {
+				isMatched = matches(includesPatternList, excludesPatternList,
+						(String) inputString);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param patternList
+	 *            패턴 List
+	 * @param inputStringArray
+	 *            확인 대상 문자열 배열
+	 * @return 패턴 일치 여부
+	 */
+	static public boolean matches(List<String> patternList,
+			Object[] inputStringArray) {
+		boolean isMatched = false;
+		for (Object inputString : inputStringArray) {
+			if (inputString != null) {
+				isMatched = matches(patternList, (String) inputString);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param pattern
+	 *            패턴
+	 * @param inputStringArray
+	 *            확인 대상 문자열 배열
+	 * @return 패턴 일치 여부
+	 */
+	static public boolean matches(String pattern, Object[] inputStringArray) {
+		boolean isMatched = false;
+		for (Object inputString : inputStringArray) {
+			if (inputString != null) {
+				isMatched = matches(pattern, (String) inputString);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param includesPatternList
+	 *            포함할 패턴 List
+	 * @param excludesPatternList
+	 *            제외할 패턴 List
+	 * @param inputMap
+	 *            확인 대상 문자열을 값으로 가지는 Map
+	 * @return 패턴 일치 여부
+	 */
+	@SuppressWarnings("rawtypes")
+	static public boolean matches(List<String> includesPatternList,
+			List<String> excludesPatternList, Map inputMap) {
+		boolean isMatched = false;
+		Collection values = inputMap.values();
+		Iterator iter = values.iterator();
+		while (iter.hasNext()) {
+			Object value = iter.next();
+			if (value != null) {
+				isMatched = matches(includesPatternList, excludesPatternList,
+						(String) value);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param patternList
+	 *            패턴 List
+	 * @param inputMap
+	 *            확인 대상 문자열을 값으로 가지는 Map
+	 * @return 패턴 일치 여부
+	 */
+	@SuppressWarnings("rawtypes")
+	static public boolean matches(List<String> patternList, Map inputMap) {
+		boolean isMatched = false;
+		Collection values = inputMap.values();
+		Iterator iter = values.iterator();
+		while (iter.hasNext()) {
+			Object value = iter.next();
+			if (value != null) {
+				isMatched = matches(patternList, (String) value);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
+		return isMatched;
+	}
+
+	/**
+	 * 패턴 일치 여부를 확인한다.
+	 * 
+	 * @param pattern
+	 *            패턴
+	 * @param inputMap
+	 *            확인 대상 문자열을 값으로 가지는 Map
+	 * @return 패턴 일치 여부
+	 */
+	@SuppressWarnings("rawtypes")
+	static public boolean matches(String pattern, Map inputMap) {
+		boolean isMatched = false;
+		Collection values = inputMap.values();
+		Iterator iter = values.iterator();
+		while (iter.hasNext()) {
+			Object value = iter.next();
+			if (value != null) {
+				isMatched = matches(pattern, (String) value);
+				if (isMatched) {
+					return true;
+				}
+			}
+		}
 		return isMatched;
 	}
 }
