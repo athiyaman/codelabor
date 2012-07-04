@@ -198,5 +198,27 @@ public class FileTest {
 			logger.debug("mkdirs success: {}", success);
 		}
 	}
+	
+	@Test
+	public void getTotalSpaceTest() {
+		File file = new File(System.getProperty("java.io.tmpdir"));
+		String path = file.getPath();
+		long totalSpace = file.getTotalSpace();
+		logger.debug("path: {}, total space: {} Byte", path, totalSpace);
+		logger.debug("path: {}, total space: {} KB", path, totalSpace/1024);
+		logger.debug("path: {}, total space: {} MB", path, totalSpace/(1024*1024));
+		logger.debug("path: {}, total space: {} GB", path, totalSpace/(1024*1024*1024));
+	}
+	
+	@Test
+	public void getFreeSpaceTest() {
+		File file = new File(System.getProperty("java.io.tmpdir"));
+		String path = file.getPath();
+		long freeSpace = file.getFreeSpace();
+		logger.debug("path: {}, total space: {} Byte", path, freeSpace);
+		logger.debug("path: {}, total space: {} KB", path, freeSpace/1024);
+		logger.debug("path: {}, total space: {} MB", path, freeSpace/(1024*1024));
+		logger.debug("path: {}, total space: {} GB", path, freeSpace/(1024*1024*1024));
+	}
 
 }
