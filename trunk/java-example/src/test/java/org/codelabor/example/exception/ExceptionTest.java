@@ -58,8 +58,10 @@ public class ExceptionTest {
 		} catch (Exception e) {
 			while (e != null) {
 				Exception cause = (Exception) e.getCause();
-				logger.debug("cause: {}", cause.toString());
-				e = cause;
+				if (cause != null) {
+					logger.debug("cause: {}", cause.toString());
+					e = cause;
+				}
 			}
 		}
 	}
