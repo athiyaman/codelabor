@@ -11,7 +11,6 @@ public class JavaFileFilter implements FileFilter {
 
 	Logger logger = LoggerFactory.getLogger(JavaFileFilter.class);
 
-	@Override
 	public boolean accept(File pathname) {
 		if (pathname != null && !pathname.exists()) {
 			logger.error("{} does not exist.", pathname);
