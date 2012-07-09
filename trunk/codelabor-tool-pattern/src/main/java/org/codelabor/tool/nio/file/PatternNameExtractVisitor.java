@@ -22,12 +22,18 @@ public class PatternNameExtractVisitor<Path> implements FileVisitor<Path> {
 	private static final Logger logger = LoggerFactory
 			.getLogger(PatternNameExtractVisitor.class);
 
+	@SuppressWarnings("unused")
 	private XSSFWorkbook workbook = null;
 	private Sheet sheet = null;
 	private int rowCount = 0;
 
 	public PatternNameExtractVisitor(XSSFWorkbook workbook) {
 		super();
+		this.setHeader(workbook);
+
+	}
+
+	private void setHeader(XSSFWorkbook workbook) {
 		// prepare worksheet
 		this.workbook = workbook;
 		sheet = workbook.createSheet("Pattern Names");
@@ -41,7 +47,6 @@ public class PatternNameExtractVisitor<Path> implements FileVisitor<Path> {
 		cell = row.createCell(2);
 		cell.setCellValue("Path");
 		rowCount++;
-
 	}
 
 	private boolean isJavaSource(String fileName) {
