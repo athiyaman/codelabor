@@ -18,9 +18,14 @@ package org.codelabor.example.lang.exception;
 
 /**
  * @author Administrator
- *
+ * 
  */
 public class Exception1 extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 22454639380025207L;
 
 	/**
 	 * 
