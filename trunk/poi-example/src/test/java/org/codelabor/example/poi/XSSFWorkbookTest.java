@@ -32,13 +32,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Before;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class XSSFWorkbookTest {
-
-	private final Logger logger = LoggerFactory
-			.getLogger(XSSFWorkbookTest.class);
 
 	@Before
 	public void setUp() throws Exception {
@@ -70,8 +65,8 @@ public class XSSFWorkbookTest {
 		OutputStream outputStream = null;
 		try {
 			XSSFWorkbook workbook = new XSSFWorkbook();
-			Sheet sheet1 = workbook.createSheet("Sheet1");
-			Sheet sheet2 = workbook.createSheet("Sheet2");
+			workbook.createSheet("Sheet1");
+			workbook.createSheet("Sheet2");
 
 			outputStream = new FileOutputStream(path);
 			workbook.write(outputStream);
