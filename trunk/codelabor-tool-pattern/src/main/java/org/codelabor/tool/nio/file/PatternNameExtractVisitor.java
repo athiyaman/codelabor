@@ -7,12 +7,9 @@ import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,31 +19,11 @@ public class PatternNameExtractVisitor<Path> implements FileVisitor<Path> {
 	private static final Logger logger = LoggerFactory
 			.getLogger(PatternNameExtractVisitor.class);
 
-	@SuppressWarnings("unused")
-	private XSSFWorkbook workbook = null;
-	private Sheet sheet = null;
-	private int rowCount = 0;
+	private List<PatternInfo> patternInfoList = null;
 
-	public PatternNameExtractVisitor(XSSFWorkbook workbook) {
+	public PatternNameExtractVisitor(List<PatternInfo> patternInfoList) {
 		super();
-		this.setHeader(workbook);
-
-	}
-
-	private void setHeader(XSSFWorkbook workbook) {
-		// prepare worksheet
-		this.workbook = workbook;
-		sheet = workbook.createSheet("Pattern Names");
-
-		// create excel row header
-		Row row = sheet.createRow(rowCount);
-		Cell cell = row.createCell(0);
-		cell.setCellValue("Pattern Name");
-		cell = row.createCell(1);
-		cell.setCellValue("File Name");
-		cell = row.createCell(2);
-		cell.setCellValue("Path");
-		rowCount++;
+		this.patternInfoList = patternInfoList;
 	}
 
 	private boolean isJavaSource(String fileName) {
@@ -87,15 +64,11 @@ public class PatternNameExtractVisitor<Path> implements FileVisitor<Path> {
 			logger.debug("file name: {}", fileName);
 			logger.debug("path: {}", file.toString());
 
-			// create excel row
-			Row row = sheet.createRow(rowCount);
-			Cell cell = row.createCell(0);
-			cell.setCellValue(patternName);
-			cell = row.createCell(1);
-			cell.setCellValue(fileName);
-			cell = row.createCell(2);
-			cell.setCellValue(file.toString());
-			rowCount++;
+			PatternInfo patternInfo = new PatternInfo();
+			patternInfo.setPatternName(patternName);
+			patternInfo.setFileName(fileName);
+			patternInfo.setPath(file.toString());
+			patternInfoList.add(patternInfo);
 		}
 		return CONTINUE;
 	}
