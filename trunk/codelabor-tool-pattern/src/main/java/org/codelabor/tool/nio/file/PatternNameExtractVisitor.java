@@ -64,6 +64,8 @@ public class PatternNameExtractVisitor<Path> implements FileVisitor<Path> {
 			patternName = lowerHypenFileName.substring(lastIndexOfHypen + 1,
 					lastIndexOfDot);
 		}
+		patternName = CaseFormat.LOWER_HYPHEN.to(CaseFormat.UPPER_CAMEL,
+				patternName);
 		logger.debug("pattern name: {}", patternName);
 		return patternName;
 	}
