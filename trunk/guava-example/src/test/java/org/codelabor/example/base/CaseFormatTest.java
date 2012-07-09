@@ -37,7 +37,39 @@ public class CaseFormatTest {
 		logger.debug("after: {}", afterString);
 
 		Assert.assertEquals(beforeString, afterString);
-
 	}
 
+	@Test
+	public void testTo2() {
+		String beforeString = "abcdefghijklmnopqrstuvwxyz";
+		String afterString = null;
+		afterString = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN,
+				beforeString);
+		logger.debug("before: {}", beforeString);
+		logger.debug("after: {}", afterString);
+
+		afterString = CaseFormat.LOWER_HYPHEN.to(CaseFormat.LOWER_CAMEL,
+				afterString);
+		logger.debug("before: {}", beforeString);
+		logger.debug("after: {}", afterString);
+
+		Assert.assertEquals(beforeString, afterString);
+	}
+
+	@Test
+	public void testTo3() {
+		String beforeString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String afterString = null;
+		afterString = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN,
+				beforeString);
+		logger.debug("before: {}", beforeString);
+		logger.debug("after: {}", afterString);
+
+		afterString = CaseFormat.LOWER_HYPHEN.to(CaseFormat.LOWER_CAMEL,
+				afterString);
+		logger.debug("before: {}", beforeString);
+		logger.debug("after: {}", afterString);
+
+		Assert.assertNotSame(beforeString, afterString);
+	}
 }
