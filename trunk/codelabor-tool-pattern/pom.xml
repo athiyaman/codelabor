@@ -49,4 +49,51 @@
   		<version>3.7</version>
   	</dependency>
   </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-jar-plugin</artifactId>
+	        <version>2.3.1</version>
+	        <configuration>
+	        	<archive>
+	        		<manifest>
+	        			<addClasspath>true</addClasspath>
+	        			<mainClass>org.codelabor.tool.nio.file.PatternNameExtractor</mainClass>
+	        			<packageName>org.codelabor.tool.nio.file</packageName>
+	        		</manifest>
+	        	</archive>
+	        </configuration>
+	        <executions>
+	          <execution>
+	            <id>default-jar</id>
+	            <phase>package</phase>
+	            <goals>
+	              <goal>jar</goal>
+	            </goals>
+	          </execution>
+	        </executions>
+  		</plugin>
+  		<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <executions>
+          	<execution>
+          		<id>unpack-dependencies</id>
+          		<phase>package</phase>
+          		<goals>
+          			<goal>unpack-dependencies</goal>
+          		</goals>
+          	</execution>
+          </executions>
+        </plugin>
+  	</plugins>
+  	<resources>
+  	 <resource>
+        <directory>${basedir}/src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>${basedir}/target/dependency</directory>
+      </resource>
+    </resources>
+  </build>
 </project>
