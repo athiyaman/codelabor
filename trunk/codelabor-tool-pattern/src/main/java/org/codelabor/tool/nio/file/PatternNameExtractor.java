@@ -66,7 +66,7 @@ public class PatternNameExtractor {
 
 	private static void usage() {
 		System.err
-				.print("Usage: java org.codelabor.tool.nio.file.PatternNameExtractor startPath excelFileName");
+				.print("Usage: java -jar codelabor-tool-pattern-[version].jar startPath excelFileName");
 		System.exit(-1);
 	}
 
