@@ -10,7 +10,7 @@ public class HelloWorld {
 	public static void main(String[] args) {
 		Logger logger = Logger.getLogger(HelloWorld.class);
 		if (logger.isDebugEnabled()) {
-			for (int i = 0; i < 100000; i++) {
+			for (int i = 0; i < 1000; i++) {
 				logger.debug("Hello, World!");
 			}
 		}
