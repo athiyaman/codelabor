@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>ViewStatusMessagesServlet</servlet-name>
+    <servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewStatusMessagesServlet</servlet-name>
+    <url-pattern>/lbClassicStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>hello world servlet</description>
+    <display-name>HelloWorldServlet</display-name>
+    <servlet-name>HelloWorldServlet</servlet-name>
+    <servlet-class>org.codelabor.example.web.servlet.HelloWorldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorldServlet</servlet-name>
+    <url-pattern>/helloWorldServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
