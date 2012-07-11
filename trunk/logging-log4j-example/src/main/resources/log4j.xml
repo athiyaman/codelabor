@@ -20,6 +20,10 @@
 		<param name="reconnectionDelay" value="60000" />
 		<param name="threshold" value="debug" />
 	</appender>
+	<appender name="socketHub" class="org.apache.log4j.net.SocketHubAppender">
+		<param name="port" value="9100" />
+		<param name="locationInfo" value="true" />
+	</appender>
 	
 	<appender name="asyncConsole" class="org.apache.log4j.AsyncAppender">
 		<param name="locationInfo" value="true" />
@@ -42,6 +46,7 @@
 		<appender-ref ref="asyncConsole" />
 		<appender-ref ref="asyncDefaultDailyRollingFile" />
 		<appender-ref ref="asyncSocket" />
+		<appender-ref ref="socketHub" />
 		<!-- 
 		<appender-ref ref="console" />
 		<appender-ref ref="socket" />
