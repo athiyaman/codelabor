@@ -7,24 +7,43 @@
 		</layout>
 	</appender>
 	<appender
-		name="defaultDailyRollingFile"
-		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="default-dailly-rolling.log"/>
-		<param name="DatePattern" value=".yyyy-MM-dd"/>
+		name="defaultDailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="default-dailly-rolling.log" />
+		<param name="DatePattern" value=".yyyy-MM-dd" />
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
 	    </layout>
+	</appender>
+	<appender name="socket" class="org.apache.log4j.net.SocketAppender">
+		<param name="Port" value="9000" />
+		<param name="RemoteHost" value="localhost" />
+		<param name="ReconnectionDelay" value="60000" />
+		<param name="Threshold" value="debug" />
+	</appender>
+	
+	<appender name="asyncConsole" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="500" />
+		<appender-ref ref="console" />
+	</appender>
+	<appender name="asyncDefaultDailyRollingFile" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="500" />
+		<appender-ref ref="defaultDailyRollingFile" />
 	</appender>
 
 	<logger name="org.codelabor" additivity="false">
 		<level value="debug" />
 		<appender-ref ref="console" />
+		<appender-ref ref="socket" />
 		<appender-ref ref="defaultDailyRollingFile" />
+		<!-- 
+		<appender-ref ref="asyncConsole" />
+		<appender-ref ref="asyncDefaultDailyRollingFile" />
+		-->
 	</logger>
-
+	
 	<root>
 		<level value="info" />
 		<appender-ref ref="console" />
-		<appender-ref ref="defaultDailyRollingFile" />
 	</root>
+	
 </log4j:configuration>

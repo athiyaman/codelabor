@@ -1,0 +1,2 @@
+#java -classpath c:\users\bomber\.m2\repository\log4j\log4j\1.2.14\log4j-1.2.14.jar org.apache.log4j.net.SimpleSocketServer 9000 simple-socket-server.properties
+java -classpath c:\users\bomber\.m2\repository\log4j\log4j\1.2.14\log4j-1.2.14.jar org.apache.log4j.net.SimpleSocketServer 9000 log4j.xml
