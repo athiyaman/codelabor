@@ -22,22 +22,25 @@
 	</appender>
 	
 	<appender name="asyncConsole" class="org.apache.log4j.AsyncAppender">
+		<param name="locationInfo" value="true" />
 		<param name="bufferSize" value="500" />
 		<appender-ref ref="console" />
 	</appender>
 	<appender name="asyncDefaultDailyRollingFile" class="org.apache.log4j.AsyncAppender">
+		<param name="locationInfo" value="true" />
 		<param name="bufferSize" value="500" />
 		<appender-ref ref="defaultDailyRollingFile" />
 	</appender>
 
 	<logger name="org.codelabor" additivity="false">
 		<level value="debug" />
+		<appender-ref ref="asyncConsole" />
+		<appender-ref ref="asyncDefaultDailyRollingFile" />
+		<!-- 
 		<appender-ref ref="console" />
 		<appender-ref ref="socket" />
 		<appender-ref ref="defaultDailyRollingFile" />
-		<!-- 
-		<appender-ref ref="asyncConsole" />
-		<appender-ref ref="asyncDefaultDailyRollingFile" />
+		
 		-->
 	</logger>
 	
