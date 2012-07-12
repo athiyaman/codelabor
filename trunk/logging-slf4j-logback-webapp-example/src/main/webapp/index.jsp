@@ -4,7 +4,7 @@
 <hr/>
 <ul>
 	<li><a href="./helloWorldServlet">Hello World Servlet</a></li>
-	<li><a href="./lbClassicStatus">View Status Message Servlet</a></li>
+	<li><a href="./viewStatusMessagesServlet">View Status Message Servlet</a></li>
 </ul>
 </body>
 </html>

@@ -7,7 +7,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewStatusMessagesServlet</servlet-name>
-    <url-pattern>/lbClassicStatus</url-pattern>
+    <url-pattern>/viewStatusMessagesServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>hello world servlet</description>
