@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 /**
  * Servlet implementation class HelloWorldServlet
@@ -33,6 +34,10 @@ public class HelloWorldServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+
+		MDC.put("username", "bomber");
+		MDC.put("sessionId", request.getSession().getId());
+
 		logger.debug("doGet");
 		PrintWriter writer = response.getWriter();
 		writer.write("doGet");
@@ -47,6 +52,10 @@ public class HelloWorldServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+
+		MDC.put("username", "bomber");
+		MDC.put("sessionId", request.getSession().getId());
+
 		logger.debug("doPost");
 		PrintWriter writer = response.getWriter();
 		writer.write("doPost");
