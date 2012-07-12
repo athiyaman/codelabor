@@ -7,7 +7,7 @@
 		</layout>
 	</appender>
 	<appender
-		name="defaultDailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+		name="dailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="file" value="default-dailly-rolling.log" />
 		<param name="datePattern" value=".yyyy-MM-dd" />
 	    <layout class="org.apache.log4j.PatternLayout">
@@ -30,10 +30,10 @@
 		<param name="bufferSize" value="1024" />
 		<appender-ref ref="console" />
 	</appender>
-	<appender name="asyncDefaultDailyRollingFile" class="org.apache.log4j.AsyncAppender">
+	<appender name="asyncDailyRollingFile" class="org.apache.log4j.AsyncAppender">
 		<param name="locationInfo" value="true" />
 		<param name="bufferSize" value="1024" />
-		<appender-ref ref="defaultDailyRollingFile" />
+		<appender-ref ref="dailyRollingFile" />
 	</appender>
 	<appender name="asyncSocket" class="org.apache.log4j.AsyncAppender">
 		<param name="locationInfo" value="true" />
@@ -44,13 +44,13 @@
 	<logger name="org.codelabor" additivity="false">
 		<level value="debug" />
 		<appender-ref ref="asyncConsole" />
-		<appender-ref ref="asyncDefaultDailyRollingFile" />
+		<appender-ref ref="asyncDailyRollingFile" />
 		<appender-ref ref="asyncSocket" />
 		<appender-ref ref="socketHub" />
 		<!-- 
 		<appender-ref ref="console" />
 		<appender-ref ref="socket" />
-		<appender-ref ref="defaultDailyRollingFile" />
+		<appender-ref ref="dailyRollingFile" />
 		
 		-->
 	</logger>
