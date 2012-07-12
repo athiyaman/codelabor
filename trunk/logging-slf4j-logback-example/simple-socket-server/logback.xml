@@ -13,16 +13,9 @@
   	</encoder>
   	<file>file.log</file>
   </appender>
-  <appender name="socket" class="ch.qos.logback.classic.net.SocketAppender">
-  	<port>9000</port>
-  	<remoteHost>localhost</remoteHost>
-  	<reconnectionDelay>60000</reconnectionDelay>
-  	<includeCallerData>true</includeCallerData>
-  </appender>
 
   <root level="debug">
     <appender-ref ref="console" />
     <appender-ref ref="file" />
-    <appender-ref ref="socket" />
   </root>
 </configuration>
