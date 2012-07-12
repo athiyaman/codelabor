@@ -19,6 +19,12 @@
   	<reconnectionDelay>60000</reconnectionDelay>
   	<includeCallerData>true</includeCallerData>
   </appender>
+  <appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
+  	<compressing>true</compressing>
+  	<reconnectionDelay>10000</reconnectionDelay>
+  	<includeCallerData>true</includeCallerData>
+  	<remoteHosts>localhost</remoteHosts>
+  </appender>
   
   <appender name="asyncConsole" class="ch.qos.logback.classic.AsyncAppender">
   	<appender-ref ref="console" />
@@ -33,6 +39,7 @@
   	<appender-ref ref="asyncConsole" />
     <appender-ref ref="asyncFile" />
     <appender-ref ref="socket" />
+    <appender-ref ref="multiplex" />
     <!--  
     <appender-ref ref="console" />
     <appender-ref ref="file" />
