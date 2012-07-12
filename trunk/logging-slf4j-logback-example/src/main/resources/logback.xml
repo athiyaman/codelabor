@@ -19,10 +19,23 @@
   	<reconnectionDelay>60000</reconnectionDelay>
   	<includeCallerData>true</includeCallerData>
   </appender>
+  
+  <appender name="asyncConsole" class="ch.qos.logback.classic.AsyncAppender">
+  	<appender-ref ref="console" />
+  	<includeCallerData>true</includeCallerData>
+  </appender>
+  <appender name="asyncFile" class="ch.qos.logback.classic.AsyncAppender">
+  	<appender-ref ref="file" />
+  	<includeCallerData>true</includeCallerData>
+  </appender>  
 
   <root level="debug">
+  	<appender-ref ref="asyncConsole" />
+    <appender-ref ref="asyncFile" />
+    <appender-ref ref="socket" />
+    <!--  
     <appender-ref ref="console" />
     <appender-ref ref="file" />
-    <appender-ref ref="socket" />
+    -->
   </root>
 </configuration>
