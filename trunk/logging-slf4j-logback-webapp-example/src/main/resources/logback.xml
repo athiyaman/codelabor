@@ -1,13 +1,20 @@
 <configuration scan="true" scanPeriod="30 seconds">
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
     <!-- encoders are assigned the type
          ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
     <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %X{sessionId},  %X{username} - %msg%n</pattern>
     </encoder>
   </appender>
+  <appender name="multiplex" class="de.huxhorn.lilith.logback.appender.ClassicMultiplexSocketAppender">
+  	<compressing>true</compressing>
+  	<reconnectionDelay>10000</reconnectionDelay>
+  	<includeCallerData>true</includeCallerData>
+  	<remoteHosts>localhost</remoteHosts>
+  </appender>
 
   <root level="debug">
-    <appender-ref ref="STDOUT" />
+    <appender-ref ref="console" />
+     <appender-ref ref="multiplex" />
   </root>
 </configuration>
