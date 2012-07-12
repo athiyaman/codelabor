@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>logging-logback-webapp-example</name>
+	<name>logging-slf4j-logback-webapp-example</name>
 	<comment></comment>
 	<projects>
 	</projects>

@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.codelabor</groupId>
-  <artifactId>logging-logback-webapp-example</artifactId>
+  <artifactId>logging-slf4j-logback-webapp-example</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>logging-logback-webapp-example Maven Webapp</name>
+  <name>logging-slf4j-logback-webapp-example Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <build>
-    <finalName>logging-logback-webapp-example</finalName>
+    <finalName>logging-slf4j-logback-webapp-example</finalName>
   </build>
   <dependencies>
   	<dependency>
