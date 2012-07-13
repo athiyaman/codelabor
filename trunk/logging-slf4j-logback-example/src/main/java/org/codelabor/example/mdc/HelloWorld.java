@@ -23,13 +23,13 @@ public class HelloWorld {
 		MDC.put("username", "bomber");
 
 		while (true) {
-			try {
-				Thread.sleep(1000);
-				logger.debug("Hello, World!");
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-				System.exit(-1);
-			}
+			// try {
+			// Thread.sleep(100);
+			logger.debug("Hello, World!");
+			// } catch (InterruptedException e) {
+			// e.printStackTrace();
+			// System.exit(-1);
+			// }
 
 		}
 
