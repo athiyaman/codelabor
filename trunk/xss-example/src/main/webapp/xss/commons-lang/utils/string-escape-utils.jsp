@@ -10,17 +10,17 @@
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
-<h1>StringEscapeUtils example</h1>
-<hr />
-<%
-	String greeting = "<b>hello, world!</b>";
-	request.setAttribute("greeting", greeting);
-%>
-<h2>escape html</h2>
-<%= StringEscapeUtils.escapeHtml(greeting) %>
-<h2>unescape html</h2>
-<%= StringEscapeUtils.unescapeHtml(greeting) %>
-<h2>default</h2>
-<c:out value="${greeting}" />
+	<h1>StringEscapeUtils example</h1>
+	<hr />
+	<%
+		String greeting = "<b>hello, world!</b>";
+		request.setAttribute("greeting", greeting);
+	%>
+	<h2>escape html</h2>
+	<%= StringEscapeUtils.escapeHtml(greeting) %>
+	<h2>unescape html</h2>
+	<%= StringEscapeUtils.unescapeHtml(greeting) %>
+	<h2>default</h2>
+	<c:out value="${greeting}" />
 </body>
 </html>

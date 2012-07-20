@@ -8,17 +8,17 @@
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
-<h1>c out escapeXml example</h1>
-<hr />
-<%
-	String greeting = "<b>hello, world!</b>";
-	request.setAttribute("greeting", greeting);
-%>
-<h2>default</h2>
-<c:out value="${greeting}" />
-<h2>escapeXml false</h2>
-<c:out escapeXml="false" value="${greeting}" />
-<h2>escapeXml true</h2>
-<c:out escapeXml="true" value="${greeting}" />
+	<h1>c out escapeXml example</h1>
+	<hr />
+	<%
+		String greeting = "<b>hello, world!</b>";
+		request.setAttribute("greeting", greeting);
+	%>
+	<h2>default</h2>
+	<c:out value="${greeting}" />
+	<h2>escapeXml false</h2>
+	<c:out escapeXml="false" value="${greeting}" />
+	<h2>escapeXml true</h2>
+	<c:out escapeXml="true" value="${greeting}" />
 </body>
 </html>

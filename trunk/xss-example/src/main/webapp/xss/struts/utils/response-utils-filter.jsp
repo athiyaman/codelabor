@@ -7,15 +7,15 @@
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
-<h1>ResponseUtils.filter() example</h1>
-<hr />
-<%
-	String greetingBeforeReplace = "<b>hello, world!</b>";
-	String greetingAfterReplace = ResponseUtils.filter(greetingBeforeReplace);
-%>
-<h2>default</h2>
-<%=greetingBeforeReplace%>
-<h2>filter</h2>
-<%=greetingAfterReplace%>
+	<h1>ResponseUtils.filter() example</h1>
+	<hr />
+	<%
+		String greetingBeforeReplace = "<b>hello, world!</b>";
+		String greetingAfterReplace = ResponseUtils.filter(greetingBeforeReplace);
+	%>
+	<h2>default</h2>
+	<%=greetingBeforeReplace%>
+	<h2>filter</h2>
+	<%=greetingAfterReplace%>
 </body>
 </html>

@@ -7,24 +7,24 @@
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
-<h1>HtmlUtils.htmlEscape() example</h1>
-<hr />
-<%
-	String greetingBeforeEscape = "<b>hello, world!</b>";
-	String greetingAfterEscape = HtmlUtils.htmlEscape(greetingBeforeEscape);
-	String greetingAfterEscapeDecimal = HtmlUtils.htmlEscapeDecimal(greetingBeforeEscape);
-	String greetingAfterEscapeHex = HtmlUtils.htmlEscapeHex(greetingBeforeEscape);
-	String greetingAfterUnescape = HtmlUtils.htmlUnescape(greetingBeforeEscape);
-%>
-<h2>default</h2>
-<%=greetingBeforeEscape%>
-<h2>html escape</h2>
-<%=greetingAfterEscape%>
-<h2>html escape decimal</h2>
-<%=greetingAfterEscapeDecimal%>
-<h2>html escape hex</h2>
-<%=greetingAfterEscapeHex%>
-<h2>html unescape</h2>
-<%=greetingAfterUnescape%>
+	<h1>HtmlUtils.htmlEscape() example</h1>
+	<hr />
+	<%
+		String greetingBeforeEscape = "<b>hello, world!</b>";
+		String greetingAfterEscape = HtmlUtils.htmlEscape(greetingBeforeEscape);
+		String greetingAfterEscapeDecimal = HtmlUtils.htmlEscapeDecimal(greetingBeforeEscape);
+		String greetingAfterEscapeHex = HtmlUtils.htmlEscapeHex(greetingBeforeEscape);
+		String greetingAfterUnescape = HtmlUtils.htmlUnescape(greetingBeforeEscape);
+	%>
+	<h2>default</h2>
+	<%=greetingBeforeEscape%>
+	<h2>html escape</h2>
+	<%=greetingAfterEscape%>
+	<h2>html escape decimal</h2>
+	<%=greetingAfterEscapeDecimal%>
+	<h2>html escape hex</h2>
+	<%=greetingAfterEscapeHex%>
+	<h2>html unescape</h2>
+	<%=greetingAfterUnescape%>
 </body>
 </html>

@@ -7,12 +7,12 @@
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
-<h1>WebUtils.isDefaultHtmlEscape() example</h1>
-<hr />
-<%
-	boolean isDefaultHtmlEscape = WebUtils.isDefaultHtmlEscape(application);
-%>
-<h2>isDefaultHtmlEscape</h2>
-<%=isDefaultHtmlEscape%>
+	<h1>WebUtils.isDefaultHtmlEscape() example</h1>
+	<hr />
+	<%
+		boolean isDefaultHtmlEscape = WebUtils.isDefaultHtmlEscape(application);
+	%>
+	<h2>isDefaultHtmlEscape</h2>
+	<%=isDefaultHtmlEscape%>
 </body>
 </html>

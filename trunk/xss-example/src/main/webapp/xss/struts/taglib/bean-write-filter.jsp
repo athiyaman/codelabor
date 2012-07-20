@@ -8,17 +8,17 @@
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
-<h1>Bean write filter example</h1>
-<hr />
-<%
-	String greeting = "<b>hello, world!</b>";
-	request.setAttribute("greeting", greeting);
-%>
-<h2>filter false</h2>
-<bean:write filter="false" name="greeting" />
-<h2>filter true</h2>
-<bean:write filter="true" name="greeting" />
-<h2>default</h2>
-<bean:write name="greeting" />
+	<h1>Bean write filter example</h1>
+	<hr />
+	<%
+		String greeting = "<b>hello, world!</b>";
+		request.setAttribute("greeting", greeting);
+	%>
+	<h2>filter false</h2>
+	<bean:write filter="false" name="greeting" />
+	<h2>filter true</h2>
+	<bean:write filter="true" name="greeting" />
+	<h2>default</h2>
+	<bean:write name="greeting" />
 </body>
 </html>
