@@ -14,9 +14,9 @@
 	String greetingAfterReplace = ResponseUtils
 			.filter(greetingBeforeReplace);
 %>
-<h2>filter</h2>
-<%=greetingAfterReplace%>
 <h2>default</h2>
 <%=greetingBeforeReplace%>
+<h2>filter</h2>
+<%=greetingAfterReplace%>
 </body>
 </html>
