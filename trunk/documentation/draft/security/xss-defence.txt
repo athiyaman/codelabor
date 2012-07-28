@@ -1,0 +1,17 @@
+https://www.owasp.org/index.php/JSP_JSTL#Example:_Using_standard_actions_to_produce_xss.
+
+
+search: 
+
+JavaBean: 		<jsp:getProperty
+Implicit Object: 	out.print(
+Scriptlet: 		<%=
+JSTL:			escapeXML="false"
+EL:			${
+			${param
+LL
+
+Springframework 
+	defaultHtmlEscape
+	web.xml
+	spring message, spring taglib
