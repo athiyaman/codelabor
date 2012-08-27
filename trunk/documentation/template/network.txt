@@ -9,7 +9,7 @@ dns2:
 proxy ip: 
 proxy port:
 non-proxy ip: 
-SW: firefox, tortoise, filezilla, ...
+s/w: firefox, tortoise, filezilla, ...
 
 [Printer]
 ip: 
