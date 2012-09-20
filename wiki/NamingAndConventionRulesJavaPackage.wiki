@@ -13,20 +13,23 @@ org.codelabor 기본 패키지
 = 상위 패키지 = 
 
 == 상위 공통 패키지 ==
-* 기본 패키지에 상위 업무 패키지를 구성한다.
+* 기본 패키지에 이어 상위 공통 패키지를 구성한다.
 * 업무 독립적으로 시스템 공통, 업무 공통, 예제 패키지를 둔다. 
 {{{
 org.codelabor.system 시스템 공통 패키지
 org.codelabor.common 업무 공통 패키지
 org.codelabor.example 예제 패키지
 }}}
+* 예제 패키지는 개발 서버에만 배포하도록 한다.
+* TestCase는 패키지로 구분하지 않고 Source Directory를 분리한다. (예: src/main/java, src/test/java)
 
 == 상위 업무 패키지 ==
+* 기본 패키지에 이어 상위 업무 패키지를 구성한다.
 * 업무 의존적인 패키지를 프로젝트에 맞게 구성한다.
 {{{
-org.codelabor.banking
-org.codelabor.labor
-org.codelabor.estimate
+org.codelabor.banking 뱅킹 업무 패키지
+org.codelabor.labor 노무 업무 패키지
+org.codelabor.estimate 견적 업무 패키지
 }}}
 
 = 하위 패키지 = 
