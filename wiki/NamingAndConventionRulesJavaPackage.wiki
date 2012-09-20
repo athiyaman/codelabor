@@ -50,20 +50,48 @@ org.codelabor.est 견적 업무 패키지
 {{{
 org.codelabor.system.file 파일 관리 관련 패키지
 org.codelabor.system.remoting 원격 호출 관련 패키지
+org.codelabor.system.security 보안 관련 패키지
 org.codelabor.common.calendar 캘린더 관련 패키지
 org.codelabor.common.zip 우편번호 관련 패키지
-org.codelabor.example.file 파일 관리 예제 패키지
-org.codelabor.example.remoting 원격 호출 예제 패키지
-org.codelabor.example.calendar 캘린더 예제 패키지
-org.codelabor.example.zip 우편번호 예제 패키지
+org.codelabor.example.file 파일 관리 관련 예제 패키지
+org.codelabor.example.remoting 원격 호출 관련 예제 패키지
+org.codelabor.example.security 보안 관련 예제 패키지
+org.codelabor.example.calendar 캘린더 관련 예제 패키지
+org.codelabor.example.zip 우편번호 관련 예제 패키지
+org.codelabor.example.helloworld 헬로 월드 예제 패키지
 }}}
 
 == 하위 업무 패키지 ==
 하위 업무가 있을 경우, 패키지를 추가할 수 있다.
 
 == 패턴 패키지 ==
-
+특정 패턴 클래스를 만들 정도로 패키지가 충분히 정의되었다면 탑재될 패턴명으로 패키지를 구성한다.
+{{{
+org.codelabor.system.file.advice 파일 관리 AOP 관련 패키지
+org.codelabor.system.file.dao 파일 관리 DAO 관련 패키지
+org.codelabor.system.file.dto 파일 관리 DTO 관련 패키지
+org.codelabor.system.file.exception 파일 관리 Exception 관련 패키지
+org.codelabor.system.file.listener 파일 관리 Listener 관련 패키지
+org.codelabor.system.file.manager 파일 관리 Manager 관련 패키지
+org.codelabor.system.file.service 파일 관리 Service 관련 패키지
+org.codelabor.system.file.util 파일 관리 Utility 관련 패키지
+org.codelabor.system.file.web 파일 관리 Web 관련 패키지
+}}}
 
 = 3rd Party 패키지 =
+동일 인터페이스를 구현하는 복수 구현체가 존재하되, 특정사 제품에 의존적인 경우, 해당 제품명으로 패키지를 구성한다. (사명이 아닌 제품명을 사용)
+{{{
+org.codelabor.system.util.xplatform
+org.codelabor.system.web.filter.xplatform
+org.codelabor.system.web.controller.xplatform
+}}}
 
-= 패키지의 복수형 표현 =
+= 패키지 복수형 표현을 사용하는 경우 =
+동일 패턴에 해당하는 복수 구현 클래스가 탑재될 경우, 패키지 이름을 복수형으로 사용할 수 있다.
+{{{
+org.codelabor.system.services
+}}}
+
+= 구현 패키지는 사용 금지 =
+인터페이스와 구현 클래스의 구분은 
+org.codelabor.system.file.impl 사용하지 않음
