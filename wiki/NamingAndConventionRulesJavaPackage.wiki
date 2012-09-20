@@ -87,7 +87,7 @@ org.codelabor.system.file.web 파일 관리 Web 관련 패키지
 
 = 상황별 패키지 구조 확장 형태 =
 
-== 3rd Party 패키지 ==
+== 3rd Party 제품을 확장하는 경우 ==
 동일 인터페이스를 구현하는 복수 구현체가 존재하되, 특정사 제품에 의존적인 경우, 해당 제품명으로 패키지를 구성한다. (사명이 아닌 제품명을 사용)
 {{{
 org.codelabor.system.util.xplatform
@@ -102,7 +102,17 @@ org.codelabor.system.services 동일 레벨에 복수 서비스가 탑재되는 
 }}}
 
 == 구현 패키지는 사용 금지 ==
-인터페이스와 구현 클래스의 구분은 클래스명으로 구분하므로 패키지로 구분할 필요는 없다. (예: FileManager, FileManagerImpl)
+인터페이스와 구현 클래스의 구분은 클래스명으로 구분하므로 패키지로 구분할 필요는 없다. (예: FileManager는 인터페이스, FileManagerImpl는 구현 클래스)
 {{{ 
-org.codelabor.system.file.manager.impl 사용하지 않음
+~~org.codelabor.system.file.manager.impl~~ 사용하지 않음
+}}}
+
+같은 이유로 인터페이스를 표현하기 위한 패키지 역시 사용하지 않는다.
+{{{ 
+~~org.codelabor.system.file.manager.inf~~ 사용하지 않음
+}}}
+기능적으로 인터페이스가 필요한 모듈일 경우, interface라는 패키지를 사용하지 않고 remoting.http, remoting.tcp 와 같은 형태로 명명한다.
+{{{
+org.codelabor.system.remoting.http HTTP 프로토콜 관련
+org.codelabor.system.remoting.tcp TCP 프로토콜 관련
 }}}
