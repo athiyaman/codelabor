@@ -1,7 +1,13 @@
 #summary Naming and Convention Rules (Java Package)
 
 = 개요 =
-일반적인 Java Application 개발 시 필요한 패키지 명명법을 정의한다.
+일반적인 Java Application 개발 시 필요한 일반적인 패키지 명명법을 정의한다.
+본 명명법은 보다 구체화된 명명법이 존재할 경우, 해당 내용으로 재정의될 수 있다.
+||우선 순위||명명법||
+||1||PJT 정의 명명법 및 관례||
+||2||3rd Party SW 제품 의존 명명법 및 관례||
+||3||Framework 의존 명명법 및 관례||
+||4||개발 언어 의존 명명법 및 관례||
 
 
 = 기본 패키지 =
