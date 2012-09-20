@@ -93,5 +93,7 @@ org.codelabor.system.services
 }}}
 
 = 구현 패키지는 사용 금지 =
-인터페이스와 구현 클래스의 구분은 
-org.codelabor.system.file.impl 사용하지 않음
+인터페이스와 구현 클래스의 구분은 클래스명으로 구분하므로 패키지로 구분할 필요는 없다. (예: FileManager, FileManagerImpl)
+{{{ 
+org.codelabor.system.file.manager.impl 사용하지 않음
+}}}
