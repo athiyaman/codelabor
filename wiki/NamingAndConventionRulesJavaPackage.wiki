@@ -100,7 +100,7 @@ org.codelabor.system.file.util 파일 관리 Utility 관련 패키지
 org.codelabor.system.file.web 파일 관리 Web 관련 패키지
 }}}
 
-= 상황별 패키지 구조 확장 형태 =
+= 상황별 패키지 구조 정의 =
 
 == 3rd Party 제품을 확장하는 경우 ==
 동일 인터페이스를 구현하는 복수 구현체가 존재하되, 특정사 제품에 의존적인 경우, 해당 제품명으로 패키지를 구성한다. (사명이 아닌 제품명을 사용)
