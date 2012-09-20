@@ -43,7 +43,18 @@ org.codelabor.lbr 노무 업무 패키지
 org.codelabor.est 견적 업무 패키지
 }}}
 
-= 하위 패키지 = 
+= 하위 패키지 =
+상위 패키지 아래에 주제별 패키지를 구성할 수 있다.
+{{{
+org.codelabor.system.file 파일 관리 관련 패키지
+org.codelabor.system.remoting 원격 호출 관련 패키지
+org.codelabor.common.calendar 캘린더 관련 패키지
+org.codelabor.common.zip 우편번호 관련 패키지
+org.codelabor.example.file 파일 관리 예제 패키지
+org.codelabor.example.remoting 원격 호출 예제 패키지
+org.codelabor.example.calendar 캘린더 예제 패키지
+org.codelabor.example.zip 우편번호 예제 패키지
+}}}
 
 == 하위 업무 패키지 ==
 
