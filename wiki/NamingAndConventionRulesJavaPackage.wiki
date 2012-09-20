@@ -1,24 +1,39 @@
 #summary Naming and Convention Rules (Java Package)
 
 = 개요 =
-일반적인 Java Application 개발 시 필요한 패키지 명명법을 정의함
+일반적인 Java Application 개발 시 필요한 패키지 명명법을 정의한다.
 
 
 = 기본 패키지 =
+* 도메인 역순으로 기본 패키지를 구성한다.
 {{{
-org.codelabor
+org.codelabor 기본 패키지
 }}}
 
-= 상위 업무 패키지 =
+= 상위 패키지 = 
+
+== 상위 공통 패키지 ==
+* 기본 패키지에 상위 업무 패키지를 구성한다.
+* 업무 독립적으로 시스템 공통, 업무 공통, 예제 패키지를 둔다. 
 {{{
-org.codelabor.system
-org.codelabor.common
-org.codelabor.example
+org.codelabor.system 시스템 공통 패키지
+org.codelabor.common 업무 공통 패키지
+org.codelabor.example 예제 패키지
 }}}
 
-= 하위 업무 패키지 =
+== 상위 업무 패키지 ==
+* 업무 의존적인 패키지를 프로젝트에 맞게 구성한다.
+{{{
+org.codelabor.banking
+org.codelabor.labor
+org.codelabor.estimate
+}}}
 
-= 패턴 패키지 =
+= 하위 패키지 = 
+
+== 하위 업무 패키지 ==
+
+== 패턴 패키지 ==
 
 = 3rd Party 패키지 =
 
