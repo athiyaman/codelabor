@@ -56,7 +56,7 @@ org.codelabor.banking 뱅킹 업무 패키지
 org.codelabor.labor 노무 업무 패키지
 org.codelabor.estimate 견적 업무 패키지
 }}}
-업무명에 대한 코드가 존재하고 의미 파악이 가능하다는 전제 하에 코드를 패키지로 사용하는 것도 가능하다.
+업무명에 대한 코드가 존재하고 충돌없이 의미 파악이 가능하다는 전제 하에 코드를 패키지로 사용하는 것도 가능하다.
 {{{
 org.codelabor.bnk 뱅킹 업무 패키지
 org.codelabor.lbr 노무 업무 패키지
