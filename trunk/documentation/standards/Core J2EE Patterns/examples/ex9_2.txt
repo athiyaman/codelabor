@@ -1,0 +1,40 @@
+Example 9.2 	HireEmployeAA Code
+package ActionAdapter;
+
+import Core.HireEmployeeConstants;
+
+public class HireEmployeeAA {
+  WorkflowCommandFactory factory;
+
+  public HireEmployeeAA() {
+    factory = WorkflowCommandFactory.getInstance();
+  }
+
+  public void candidateCreated(String userId,
+      String workflowProcessId, String workItemId) {
+    doCommand(userId, workflowProcessId, workItemId,
+        HireEmployeeConstants.CANDIDATE_CREATED);
+  }
+
+  public void candidateInterviewed(String userId,
+      String workflowProcessId, String workItemId) {
+    doCommand(userId, workflowProcessId, workItemId,
+        HireEmployeeConstants.CANDIDATE_INTERVIEWED);
+  }
+
+  public void candidateReviewed(String userId,
+      String workflowProcessId, String workItemId) {
+
+    doCommand(userId, workflowProcessId, workItemId,
+        HireEmployeeConstants.CANDIDATE_REVIEWED);
+  }
+
+  private void doCommand(String userId, 
+      String workflowProcessId, String workItemId,
+      String action) {
+    WorkflowCommand command =
+    factory.createCommand( userId, workflowProcessId,
+        workItemId, action );
+    command.execute();
+  }
+} 

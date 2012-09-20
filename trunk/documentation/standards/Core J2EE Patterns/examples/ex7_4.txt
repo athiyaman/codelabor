@@ -1,0 +1,57 @@
+Example 7.4 		ServiceLocator.java: Implementing EJB Service Locator 
+Strategy
+package com.corej2eepatterns.servicelocator;
+
+// imports
+public class ServiceLocator {
+    . . . 
+    // look up a local home given the JNDI name for the
+    // local home
+    public EJBLocalHome getLocalHome(String jndiHomeName) 
+    throws ServiceLocatorException {
+        EJBLocalHome localHome = null;
+        try {
+            if (cache.containsKey(jndiHomeName)) {
+                localHome = (EJBLocalHome)
+                    cache.get(jndiHomeName);
+            } else {
+                localHome = (EJBLocalHome)
+                    initialContext.lookup(jndiHomeName);
+                cache.put(jndiHomeName, localHome);
+            }
+        } catch (NamingException nex) {
+            throw new ServiceLocatorException(nex);
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+        return localHome;
+    }
+
+    // lookup a remote home given the JNDI name for the
+    // remote home
+    public EJBHome getRemoteHome(
+        String jndiHomeName, Class homeClassName)
+    throws ServiceLocatorException {
+        EJBHome remoteHome = null;
+        try {
+            if (cache.containsKey(jndiHomeName)) {
+                remoteHome =
+                    (EJBHome) cache.get(jndiHomeName);
+            } else {
+                Object objref =
+                    initialContext.lookup(jndiHomeName);
+                Object obj = PortableRemoteObject.
+                    narrow(objref, homeClassName);
+                remoteHome = (EJBHome)obj;
+                cache.put(jndiHomeName, remoteHome);
+            }
+        } catch (NamingException nex) {
+            throw new ServiceLocatorException(nex);
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+        return remoteHome;
+    }
+
+    . . .
+}

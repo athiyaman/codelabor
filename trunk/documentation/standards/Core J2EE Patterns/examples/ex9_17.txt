@@ -1,0 +1,45 @@
+Example 9.17 	WorkDispatcher, EmailDispatcher and WorkListDispatcher Code
+package WorkAdapter;
+
+abstract public class WorkDispatcher {
+  String workflowName;
+  String workPageURL;
+  String email;
+
+
+  public WorkDispatcher(String workflowName,
+      String workPageURL, String email) {
+    this.workflowName = workflowName;
+    this.workPageURL = workPageURL;
+    this.email = email;
+  }
+  public abstract void dispatch();
+}
+
+
+package WorkAdapter;
+
+public class EmailDispatcher extends WorkDispatcher {
+
+  public EmailDispatcher(String workflowName,
+      String workPageURL, String email) {
+    super( workflowName, workPageURL, email );
+  }
+  public void dispatch() {
+    // Notify user via email
+  }
+}
+
+
+package WorkAdapter;
+
+public class WorkListDispatcher extends WorkDispatcher {
+
+  public WorkListDispatcher(String workflowName,
+      String workPageURL, String email) {
+    super(workflowName, workPageURL, email);
+  }
+  public void dispatch() {
+    // Notify Worklist
+  }
+}

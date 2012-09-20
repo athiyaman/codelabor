@@ -1,0 +1,82 @@
+Example 7.42 	Implementing the Transfer Object Assembler 
+
+public class ProjectDetailsAssembler 
+implements javax.ejb.SessionBean {
+
+	...
+
+	public ProjectDetailsData getData(String projectId){ 
+
+		// Construct the composite transfer object
+		ProjectDetailsData pData = new 
+			ProjectDetailsData();
+
+		// get the project details; 
+		ProjectHome projectHome = 
+			ServiceLocator.getInstance().getLocalHome(
+				"Project", ProjectEntityHome.class);
+		ProjectEntity project = 
+			projectHome.findByPrimaryKey(projectId);
+		ProjectTO projTO = project.getData();
+	
+		// Add Project Info to ProjectDetailsData
+		pData.projectData = projTO;
+
+		//get the project manager details;
+		ProjectManagerHome projectManagerHome = 
+			ServiceLocator.getInstance().getLocalHome( 
+				"ProjectManager", ProjectEntityHome.class);
+	
+		ProjectManagerEntity projectManager = 
+			projectManagerHome.findByPrimaryKey(
+				projTO.managerId);
+
+		ProjectManagerTO projMgrTO = projectManager.getData();
+	
+		// Add ProjectManager info to ProjectDetailsData
+		pData.projectManagerData = projMgrTO;
+
+		// Get list of TaskTOs from the Project
+		Collection projTaskList = project.getTasksList();
+
+		// construct a list of TaskResourceTOs
+		ArrayList listOfTasks = new ArrayList();
+	
+		Iterator taskIter = projTaskList.iterator();
+		while (taskIter.hasNext()) {
+			TaskTO task = (TaskTO) taskIter.next();
+
+			//get the Resource details; 
+			ResourceHome resourceHome = 
+					ServiceLocator.getInstance().getLocalHome( 
+					"Resource", ResourceEntityHome.class);
+	
+			ResourceEntity resource =
+					resourceHome.findByPrimaryKey(
+					task.assignedResourceId);
+
+			ResourceTO resTO = resource.getResourceData();
+
+			// construct a new TaskResourceTO using Task
+			// and Resource data
+			TaskResourceTO trTO =
+					new TaskResourceTO( task.projectId, task.taskId,
+					task.name, task.description, task.startDate,
+					task.endDate, resTO);
+
+			// add TaskResourceTO to the list
+			listOfTasks.add(trTO);
+		}
+
+		// add list of tasks to ProjectDetailsData
+		pData.listOfTasks = listOfTasks;
+
+		// add any other data to the transfer object
+		...
+	
+		// return the composite transfer object
+		return pData;
+
+	}
+	...
+}	

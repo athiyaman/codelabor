@@ -1,0 +1,36 @@
+Example 6.59 JavaBean View Management Strategy
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib uri="/web-INF/corej2eetaglibrary.tld" prefix="cjp" %>
+
+<jsp:useBean id="contentFeeder"
+ class="corepatterns.compositeview.javabean.ContentFeeder"
+ scope="request" />
+
+<table valign="top" cellpadding="30%"  width="100%">
+
+    <cjp:personalizer interest='global'>
+        <tr>
+            <td><B><c:out value="${contentFeeder.worldNews}"/></B></td>
+        </tr>
+    </cjp:personalizer>
+
+    <cjp:personalizer interest='technology'>
+        <tr>
+            <td>
+                <U><c:out value="${contentFeeder.technologyNews}"/></U>
+            </td>
+        </tr>
+    </cjp:personalizer>
+
+    <cjp:personalizer interest='weird'>
+        <tr>
+            <td><I><c:out value="${contentFeeder.weirdNews}"/></I></td>
+        </tr>
+    </cjp:personalizer>
+
+    <cjp:personalizer interest='astronomy'>
+        <tr>
+            <td><c:out value="${contentFeeder.astronomyNews}"/></td>
+        </tr>
+    </cjp:personalizer>
+ </table>

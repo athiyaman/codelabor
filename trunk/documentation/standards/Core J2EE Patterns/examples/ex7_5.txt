@@ -1,0 +1,51 @@
+Example 7.5 	ServiceLocator.java: Implementing EJB Service Locator 
+Strategy – Using a Handle
+package com.corej2eepatterns.servicelocator;
+
+// imports
+public class ServiceLocator {
+    . . . 
+
+    public EJBObject getService(String id)
+    throws ServiceLocatorException {
+        if (id == null) {
+            throw new ServiceLocatorException(
+            "Invalid ID: Cannot create Handle");
+        }
+        try {
+            byte[] bytes = new String(id).getBytes();
+            InputStream io = new ByteArrayInputStream(bytes);
+            ObjectInputStream os = new ObjectInputStream(io);
+            javax.ejb.Handle handle =
+               (javax.ejb.Handle) os.readObject();
+            return handle.getEJBObject();
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+    }
+
+    // Returns the String that represents the given
+    // EJBObject's handle in serialized format.
+    public String getId(EJBObject session)
+    throws ServiceLocatorException {
+        String id=null;
+        try {
+            javax.ejb.Handle handle = session.getHandle();
+            ByteArrayOutputStream fo =
+                new ByteArrayOutputStream();
+            ObjectOutputStream so =
+                new ObjectOutputStream(fo);
+            so.writeObject(handle);
+            so.flush();
+            so.close();
+            id = new String(fo.toByteArray());
+        } catch (RemoteException rex) {
+            throw new ServiceLocatorException(rex);
+        } catch (IOException ioex) {
+            throw new ServiceLocatorException(ioex);
+        }
+
+        return id;
+    }
+    . . .
+}

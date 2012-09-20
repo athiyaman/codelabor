@@ -1,0 +1,17 @@
+Example 6.9 FilterManager – Custom Filter Strategy
+public class FilterManager {
+  public void processFilter(Filter target, 
+      javax.servlet.http.HttpServletRequest request, 
+          javax.servlet.http.HttpServletResponse response) 
+              throws javax.servlet.ServletException, 
+                  java.io.IOException {
+
+    FilterChain filterChain = new FilterChain();
+    // The filter manager builds the filter chain here if necessary
+    // Pipe request through Filter Chain
+    filterChain.processFilter(request, response);
+
+    //process target resource
+    target.execute(request, response);
+  }
+}

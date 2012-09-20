@@ -1,0 +1,21 @@
+Example 6.60 Standard Tag View Management Strategy
+<html>
+<body>
+<jsp:include 
+  page="/jsp/CompositeView/javabean/banner.seg" flush="true"/> 
+<table width="100%">
+  <tr align="left" valign="middle">
+    <td width="20%">
+      <jsp:include page="/jsp/CompositeView/javabean/ProfilePane.jsp"
+           flush="true"/> 
+    </td>
+    <td width="70%" align="center">
+      <jsp:include page="/jsp/CompositeView/javabean/mainpanel.jsp" 
+           lush="true"/> 
+    </td>
+  </tr>
+</table>
+<jsp:include page="/jsp/CompositeView/javabean/footer.seg"
+      flush="true"/> 
+</body>
+</html>

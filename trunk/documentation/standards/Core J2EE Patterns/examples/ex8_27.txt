@@ -1,0 +1,61 @@
+Example 8.27 	HRApplicationService Class
+// HRApplicationService.java
+
+package com.corej2eepatterns.service;
+
+import com.corej2eepatterns.business.hr.*;
+import java.math.BigDecimal;
+
+/**
+ * @author  Craig Russell
+ */
+public class HRApplicationService {
+	private Factory factory;
+	private Queries queries;
+
+	/** Creates a new instance of HRApplicationService */
+	public HRApplicationService(Factory factory) {
+		this.factory = factory;
+		this.queries = factory.getQueries();
+	}
+
+	public Employee getEmployee(long id) {
+		return queries.getEmployee(id);
+	}
+
+	public Department getDepartment(String name) {
+		return queries.getDepartment(name);
+	}
+
+	public Project getProject(String name) {
+		return queries.getProject(name);
+	}
+
+	public PartTimeEmployee createPartTimeEmployee(
+			long id, String firstName, String lastName,
+			BigDecimal wage, String departmentName) {
+		PartTimeEmployee employee =
+				factory.createPartTimeEmployee(
+				id, firstName, lastName);
+		employee.setWage(wage);
+		Department department =
+			queries.getDepartment(departmentName);
+		employee.setDepartment(department);
+		factory.persistObject(employee);
+		return employee;
+	}
+
+	public FullTimeEmployee createFullTimeEmployee( 
+			long id, String firstName,String lastName,
+			BigDecimal salary,vString departmentName) {
+		FullTimeEmployee employee =
+				factory.createFullTimeEmployee(
+				id, firstName, lastName);
+		employee.setSalary(salary);
+		Department department =
+				queries.getDepartment(departmentName);
+		employee.setDepartment(department);
+		factory.persistObject(employee);
+		return employee;
+	}
+}

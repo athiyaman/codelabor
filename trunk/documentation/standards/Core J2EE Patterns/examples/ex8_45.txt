@@ -1,0 +1,56 @@
+Example 8.45 		EmployeeFacade, EmployeeFacadeHome, 
+EmployeeFacadeSession code example
+// EmployeeFacade
+import java.rmi.RemoteException;
+
+public interface EmployeeFacade
+		extends javax.ejb.EJBLocalObject {
+	public void assignToDivision(String divisionId);
+	public void giveRaise( float amount );
+}
+
+// EmployeeFacadeHome
+import javax.ejb.CreateException;
+import javax.ejb.FinderException;
+
+public interface EmployeeFacadeHome
+		extends javax.ejb.EJBLocalHome{
+	public EmployeeFacade create( )
+			throws CreateException;
+	public EmployeeFacade create(
+			String companyId, String employeeId )
+			throws CreateException;
+}
+
+// EmployeeFacadeSession
+import javax.ejb.SessionContext;
+import javax.ejb.EJBException;
+import javax.ejb.CreateException;
+import javax.ejb.FinderException;
+
+public class EmployeeFacadeSession
+		implements javax.ejb.SessionBean {
+	String companyId;
+	String employeeId;
+
+	public void assignToDivision(String divisionId) {
+		// Call to business object or DAO to assign
+		// employee to Division
+	}
+	public void giveRaise( float amount ) {
+		// Call to business object or DAO to add
+		// the new employee
+	}
+	public void setSessionContext(SessionContext sessionContext)
+			throws EJBException {    }
+
+	public void ejbRemove() throws EJBException {    }
+	public void ejbActivate() throws EJBException {    }
+	public void ejbPassivate() throws EJBException {    }
+	public void ejbCreate( ) throws CreateException {    }
+	public void ejbCreate( String companyId, String employeeId )
+			throws CreateException {
+		this.companyId = companyId;
+		this.employeeId = employeeId;
+	}
+}

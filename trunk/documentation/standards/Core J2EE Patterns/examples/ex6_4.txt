@@ -1,0 +1,36 @@
+Example 6.4 Deployment Descriptor – Standard Filter Strategy
+.
+.
+.
+<filter>
+  <filter-name>StandardEncodeFilter</filter-name>
+  <display-name>StandardEncodeFilter</display-name>
+  <description></description>
+  <filter-class> corepatterns.filters.encodefilter.
+      StandardEncodeFilter</filter-class>
+</filter>
+<filter>
+  <filter-name>MultipartEncodeFilter</filter-name>
+  <display-name>MultipartEncodeFilter</display-name>
+  <description></description>
+  <filter-class>corepatterns.filters.encodefilter.
+      MultipartEncodeFilter</filter-class>
+  <init-param>
+    <param-name>UploadFolder</param-name>
+    <param-value>/home/files</param-value>
+  </init-param>
+</filter>
+.
+.
+.
+<filter-mapping>
+  <filter-name>StandardEncodeFilter</filter-name>
+  <url-pattern>/EncodeTestServlet</url-pattern>
+</filter-mapping>
+<filter-mapping>
+  <filter-name>MultipartEncodeFilter</filter-name>
+  <url-pattern>/EncodeTestServlet</url-pattern>
+</filter-mapping>
+.
+.
+.

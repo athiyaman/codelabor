@@ -1,0 +1,92 @@
+Example 8.23 	PersistenceManager Class
+import javax.transaction.*;
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class PersistenceManager {
+	HashSet stateManagers = new HashSet();
+	TransactionManager tm;
+	Transaction txn;
+
+	public PersistenceManager() {
+		tm = TransactionManager.getInstance();
+		tm.register(this);
+	}
+
+	public Persistable persistNew(Persistable o) {
+	if (o instanceof Employee) {
+		return setupEmployee(
+				new EmployeeStateDelegate((Employee)o), true);
+		}
+		return o;
+	}
+
+	public Persistable persist(Persistable o) {
+		// Must already be an EmployeeStateDelegate
+		if (o instanceof Employee) {
+			EmployeeStateDelegate esd =
+					(EmployeeStateDelegate) o;
+			return esd;
+		}
+		return o;
+	}
+
+	public void commit()
+			throws SystemException, NotSupportedException,
+			HeuristicRollbackException, RollbackException,
+			HeuristicMixedException {
+		if (txn == null) {
+			throw new SystemException(
+					"Must call Transaction.begin() before" +
+					" Transaction.commit()");
+		}
+		Iterator i = stateManagers.iterator();
+		while (i.hasNext()) {
+			Object o = i.next();
+			StateManager stateManager = (StateManager) o;
+			stateManager.flush();
+		}
+		txn.commit();
+		txn = null;
+	}
+
+	public void begin()
+			throws SystemException, NotSupportedException {
+		txn = tm.getTransaction();
+		txn.begin();
+	}
+
+	public Employee getEmployee(String employeeId) {
+		EmployeeStateDelegate esd =
+				new EmployeeStateDelegate(employeeId);
+		setupEmployee(esd, false);
+		return esd;
+	}
+
+	private EmployeeStateDelegate setupEmployee(
+			EmployeeStateDelegate esd, boolean isNew) {
+		EmployeeStateManager stateManager =
+			new EmployeeStateManager(this, esd, isNew);
+		stateManagers.add(stateManager);
+		esd.setStateManager(stateManager);
+		return esd;
+	}
+
+	public void setDirty(Persistable o) {
+		// set dirty marker to true
+	}
+
+	public void resetDirty(Persistable o) {
+		// reset dirty marker to false
+	}
+
+	public boolean isDirty(Persistable o) {
+		// check if object is dirty
+		return true;
+	}
+
+	public boolean needLoading(Persistable o) {
+		// check if needs to be loaded
+		return true;
+	}
+}

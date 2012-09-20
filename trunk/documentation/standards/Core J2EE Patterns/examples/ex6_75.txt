@@ -1,0 +1,101 @@
+Example 6.75 Dispatcher View Controller Servlet
+public class Controller extends HttpServlet {
+
+	/** Processes requests for both HTTP 
+	 * <code>GET</code> and <code>POST</code> methods.
+	 * @param request servlet request
+	 * @param response servlet response
+	 */
+	protected void processRequest(HttpServletRequest request,
+			HttpServletResponse response)
+			throws ServletException, java.io.IOException {
+		String nextview;
+		try {
+			LogManager.recordStrategy(request, "Dispatcher View",
+				" Servlet Front Strategy;" + 
+				" Template-Based View Strategy;" +
+				" Custom tag helper Strategy");
+			LogManager.logMessage(request, getSignature(), 
+				"Process incoming request. ");
+
+			// Use a helper object to gather parameter 
+			// specific information.
+			RequestHelper helper = new 
+				RequestHelper(request, response);
+			LogManager.logMessage(request, getSignature(),
+				" Authenticate user");
+
+			Authenticator auth = new BasicAuthenticator();
+			auth.authenticate(helper);
+
+			// This is an oversimplification for the sake of 
+			// simplicity. Typically, there will be a 
+			// mapping from logical name to resource name at 
+			// this point
+			LogManager.logMessage(request, getSignature(), 
+				"Getting nextview");
+			nextview = request.getParameter("nextview");
+
+			LogManager.logMessage(request, getSignature(), 
+				"Dispatching to view: " + nextview);
+		}
+		catch (Exception e) {
+			LogManager.logMessage("Handle exception appropriately", 
+				e.getMessage() );
+
+
+			/** ApplicationResources provides a simple API 
+			 * for retrieving constants and other 
+			 * preconfigured values**/
+			nextview = ApplicationResources.getInstance().
+				getErrorPage(e);
+		}
+		dispatch(request, response, nextview);
+	}
+
+	/** Handles the HTTP <code>GET</code> method.
+	 * @param request servlet request
+	 * @param response servlet response
+	 */
+	protected void doGet(HttpServletRequest request, 
+			HttpServletResponse response)
+			throws ServletException, java.io.IOException {
+		processRequest(request, response);
+	}
+
+	/** Handles the HTTP <code>POST</code> method.
+	 * @param request servlet request
+	 * @param response servlet response
+	 */
+	protected void doPost(HttpServletRequest request, 
+			HttpServletResponse response)
+			throws ServletException, java.io.IOException {
+		processRequest(request, response);
+	}
+
+	/** Returns a short description of the servlet. */
+	public String getServletInfo() {
+		return getSignature();
+	}
+
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+	}
+
+	public void destroy() { }
+
+	/**
+	 * dispatcher method
+	 */
+	protected void dispatch(HttpServletRequest request, 
+			HttpServletResponse response, 				String page) 
+			throws javax.servlet.ServletException, java.io.IOException {
+		RequestDispatcher dispatcher = 
+			getServletContext().getRequestDispatcher(page);
+		dispatcher.forward(request, response);
+	}
+
+	private String getSignature() {
+		return "DispatcherView-Controller"; 
+	}
+}

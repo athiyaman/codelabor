@@ -1,0 +1,34 @@
+Example 6.12 Using a Template Filter Strategy
+public abstract class TemplateFilter implements javax.servlet.Filter {
+  private FilterConfig filterConfig;
+  public void init(FilterConfig filterConfig) throws ServletException {
+    this.filterConfig = filterConfig;
+  }
+
+  protected FilterConfig getFilterConfig() 	{ 
+    return filterConfig; 
+  }
+
+  public void doFilter(ServletRequest request, 
+      ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
+
+    // Preprocessing for each filter 
+    doPreProcessing(request, response);
+
+    // Pass control to the next filter in the chain or 
+    // to the target resource. This method invocation is what logically
+    // demarcates preprocessing from postprocessing.
+    chain.doFilter(request, response);
+
+    // Post-processing for each filter
+    doPostProcessing(request, response);
+  }
+  public abstract void doPreProcessing(ServletRequest request, 
+      ServletResponse response) { }
+
+  public abstract void doPostProcessing(ServletRequest request, 
+      ServletResponse response) { }
+
+  public void destroy() { }
+}

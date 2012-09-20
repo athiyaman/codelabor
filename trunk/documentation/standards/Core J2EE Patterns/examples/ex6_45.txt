@@ -1,0 +1,27 @@
+Example 6.45 Transformer Handler Strategy: ApplicationControllerImpl
+// Application Controller implementation to handle Web Application 
+// Requests, using View
+// Transformer Handler Strategy
+public class ApplicationControllerImpl 
+    implements ApplicationController {
+
+  . . .
+
+  public void handleResponse(RequestContext requestContext,
+      ResponseContext responseContext, ServletContext servletContext) {
+
+    ViewMapper viewMapper = ViewMapper.getInstance();
+    String stylesheet = viewMapper.getViewTemplate(requestContext,
+        responseContext.getLogicalViewName());
+
+    TransformHelper helper;
+    helper = new TransformHelper();
+
+    Reader xmlReader  = new StringReader(
+        (String)responseContext.getData());
+    InputStream xslStream =
+        servletContext.getResourceAsStream(stylesheet);
+    helper.transform(requestContext.getRequest(),
+        responseContext.getResponse(), xmlReader, xslStream);
+  }
+}

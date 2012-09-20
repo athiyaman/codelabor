@@ -1,0 +1,10 @@
+Example 8.43 	PurchaseOrderWebBroker Class
+import generated.PurchaseOrder;
+
+public class PurchaseOrderWebBroker {
+	public void placeOrder(PurchaseOrder po) {
+		// Do security checks here, if necessary
+		OrderAppService as = new OrderAppService();
+		as.placeOrder(po);
+	}
+}

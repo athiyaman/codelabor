@@ -1,0 +1,11 @@
+Example 4.7 Tight Coupling Between a Domain Object and HttpServletRequest Object
+
+/** The following excerpt shows a domain object that is too tightly coupled with HttpServletRequest **/
+public class Customer
+{ 
+  public Customer ( HttpServletRequest request )
+  { 
+       firstName = request.getParameter("firstname"); 
+       lastName = request.getParameter("lastname ");
+  }
+}

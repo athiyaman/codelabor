@@ -1,0 +1,35 @@
+Example 6.43 	Implementing View Handler Strategy: WebApplicationController
+// Application Controller Implementation to handle Web 
+// Application Requests
+class WebApplicationController implements ApplicationController {
+
+  . . .
+  // Handle View Navigation and Dispatching to appropriate View
+  public void handleResponse(RequestContext requestContext, 
+      ResponseContext responseContext) {
+    ViewFactory viewFactory = ViewFactory.getInstance();
+
+    // Identify view template based on logical view name, user agent,
+    // locale, etc
+    String viewTemplate = viewFactory.getViewTemplate(
+        requestContext, responseContext.getLogicalViewName());
+
+    // dispatch to view processor
+    dispatch(requestContext.getRequest(), responseContext.getResponse(),
+        viewTemplate);      
+  }
+   
+  public void destroy() { }
+  
+  // dispatcher method  
+  private void dispatch(HttpServletRequest request, 
+      HttpServletResponse response, String page) {
+
+    try {
+      RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+      dispatcher.forward(request, response);
+    } catch(Exception e) {
+      // Handle Exception
+    }
+  }
+}

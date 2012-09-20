@@ -1,0 +1,106 @@
+Example 8.8  ReadOnlyRowSet.java: Populating the RowSet
+package com.corej2eepatterns.dao.rowset;
+
+// imports
+
+public class ReadOnlyRowSet implements RowSet, Serializable {
+
+	. . . 
+
+	private Object[] dataRows;
+
+	. . .  
+
+	/** this is a read only row set */
+	public boolean isReadOnly() {
+		return true;
+	}
+
+	public void setReadOnly(boolean flag) throws SQLException {
+		throw new SQLException(
+				“ReadOnlyRowSet: Method not supported”);
+	}
+
+	// Populates the rowset without the first startRow rows 
+	// of the ResultSet and with a maximum number
+	// of rows specified by howManyRows 
+	public void populate(ResultSet resultSet, 
+			int startRow, int howManyRows)
+			throws SQLException {
+
+		// miscellaneous code not shown for brevity…
+
+		// Create a list to hold the row values
+		List dataRows = . . . ;
+
+		// determine the number of columns from the mete data
+		int numberOfColumns =
+				resultSet.getMetaData().getColumnCount();
+
+		// Discard initial rows if beginAtRow was specified
+		setStartPosition(startAtRow, resultSet);
+
+		// if number of rows is unspecified, 
+		// get all rows from resultset
+		if (howManyRows <= 0) {
+			howManyRows = Integer.MAX_VALUE;
+		}
+		int processedRows = 0;
+		while ((resultSet.next()) &&
+				(processedRows++ < howManyRows)) {
+			Object[] values = new Object[numberOfColumns];
+
+			// Read values for current row and save
+			// them in the values array
+			for (int i=0; i<numberOfColumns; i++) {
+				Object columnValue =
+						this.getColumnValue(resultSet, i);
+				values[i] = columnValue;
+			}
+
+			// Add the array of values to the linked list
+			dataRows.add(values);
+		}
+
+	} // end of row set constructor
+
+	. . .
+
+	// sets the result set to start at the given row number
+	private void setStartPosition(
+			int startAtRow, ResultSet resultSet) 
+			throws SQLException {
+		if (startAtRow > 0) {
+			if (resultSet.getType() !=
+					ResultSet.TYPE_FORWARD_ONLY) {
+				// Move the cursor using JDBC 2.0 API
+				if (!resultSet.absolute(startAtRow)) {
+					resultSet.last();
+				}
+			} else {
+				// If the result set does not support JDBC 2.0
+				// skip the first beginAtRow rows
+				for (int i=0; i< startAtRow; i++) {
+					if (!resultSet.next()) {
+						resultSet.last();
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	// Reads a column value for the current row and
+	// create an appropriate java object to hold it.
+	// Return null if error reading value or for SQL null.
+	private Object getColumnValue(
+			ResultSet resultSet, int columnIndex) {
+
+		. . .
+
+	}
+
+	// implement the RowSet and ResultInterface methods
+	. . .
+
+}

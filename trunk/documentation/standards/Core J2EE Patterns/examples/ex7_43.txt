@@ -1,0 +1,44 @@
+Example 7.43 	Implementing Value List Handler: ProjectListHandler
+
+package com.corej2eepatterns.vlh;
+
+// imports
+
+public class ProjectListHandler 
+extends ValueListHandler {
+
+	private ProjectDAO dao = null;
+   . . .
+
+	// Client creates a ProjectTO instance, sets the 
+	// values to use for search criteria and passes 
+	// the ProjectTO instance as projectCriteria
+	// to the constructor and to setCriteria() method
+	public ProjectListHandler() 
+	throws ProjectException, ListHandlerException {
+		try {
+			this.dao = PSADAOFactory.getProjectDAO();
+		} catch (Exception e) {
+			// Handle exception, throw ListHandlerException
+		}
+	}
+
+	// executes search. Client can invoke this
+	// provided that the search criteria has been
+	// properly set. Used to perform search to refresh
+	// the list with the latest data.
+	public void executeSearch(ProjectTO projectCriteria)
+	throws ListHandlerException {
+		try {
+			if (projectCriteria == null) {
+				throw new ListHandlerException(
+					"Project Criteria required...");
+			}
+			List resultsList =
+				dao.findProjects(projectCriteria);
+			setList(resultsList);
+		} catch (Exception e) {
+			// Handle exception, throw ListHandlerException
+		}
+	}
+}

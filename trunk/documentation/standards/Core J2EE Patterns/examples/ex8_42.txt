@@ -1,0 +1,54 @@
+Example 8.42 	JavaBinder Class
+import generated.Item;
+import generated.PurchaseOrder;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
+import java.io.StringReader;
+import java.util.Iterator;
+import java.util.List;
+
+public class JavaBinder {
+	public JavaBinder() {
+	}
+
+	private Object parse(String xmlDocument) {
+		Object o = null;
+		try {
+			JAXBContext jc =
+					JAXBContext.newInstance("generated");
+			Unmarshaller u = jc.createUnmarshaller();
+			o = u.unmarshal(new StreamSource(
+					new StringReader(xmlDocument)));
+		} catch (JAXBException e) {
+		}
+		return o;
+	}
+
+	public void routeDocument(String xmlDocument) {
+		Object o = parse(xmlDocument);
+		if (o instanceof PurchaseOrder) {
+			PurchaseOrder po = (PurchaseOrder) o;
+			printIt(po);
+			PurchaseOrderWebBroker broker =
+					new PurchaseOrderWebBroker();
+			broker.placeOrder(po);
+		}
+	}
+
+	private void printIt(PurchaseOrder po) {
+		System.out.println(po.getBillTo());
+		System.out.println(po.getShipTo());
+		System.out.println(po.getOrderDate());
+		List items = po.getItems();
+		Iterator i = items.iterator();
+		while (i.hasNext()) {
+			Item item = (Item) i.next();
+			System.out.println("Id : " + item.getId() +
+					" Name : " + item.getName() +
+					" Price : " + item.getPrice());
+		}
+	}
+}

@@ -1,0 +1,74 @@
+Example 8.10  RowSetWrapperList.java
+package com.corej2eepatterns.to.list;
+
+// imports 
+
+// Read only implementation of the List interface. 
+// It supports iterators and absolute positioning.
+
+public class RowSetWrapperList 
+implements List, Serializable {
+
+	// variable to hold a RowSet instance
+	private RowSet rowSet;
+
+
+	public RowSetWrapperList(RowSet rowSet) {
+		this.rowSet = rowSet;
+		. . .
+	}
+ 
+	// return the current row as a transfer object
+	public Object get(int index) {
+		try {
+			rowSet.absolute(index);
+		} catch (SQLException anException) {
+			// handle exception
+		}
+		// create a new transfer object and return
+		return
+				TORowMapper.createCustomerTO(this);
+	}
+	. . .
+
+	// Returns a Sub List of the current list.
+	public List subList(int fromIndex, int toIndex) {
+		// Create a new RowSet with the required rows
+		ReadOnlyRowSet roRowSet = new ReadOnlyRowSet();
+		roRowSet.populate(this.rowSet, fromIndex, toIndex);
+
+		// Create a new RowSetWrapperList instance and
+		// return it
+		return
+				new RowSetWrapperList(roRowSet);
+	}
+
+	// Returns an iterator over the elements in this list in 
+	// proper sequence. It is possible to define multiple 
+	// independent iterators for the same RowSetWrapperList
+	// object.
+
+	public Iterator iterator() {
+		try {
+			rowSet.beforeFirst();
+		} catch (SQLException anException) {
+			System.out.println(
+					"Error moving RowSet before first row." + 
+					anException);
+		}
+
+		return this.listIterator();
+	}
+
+	// Create a List Iterator that can iterate over the
+	// rowset 
+	public ListIterator listIterator() {
+		// ListResultIterator is implemented as an inner class 
+		return new DataRowListIterator();
+	}
+
+	// implement the List interface methods
+
+	. . .
+
+}

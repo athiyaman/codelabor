@@ -1,0 +1,17 @@
+Example 9.5 	HireEmployeeActionMap.xml File
+<ActionMap>
+  <Action Name="CandidateCreated">
+    <WorkerRole>HR Screener</WorkerRole>
+    <WorkflowProcessCommand>StartWorkflow
+    </WorkflowProcessCommand>
+    <WorkflowName>HireEmployee</WorkflowName>
+  </Action>
+  <Action Name="ReviewResume">
+    <WorkerRole>HR Reviewer</WorkerRole>
+    <WorkItemCommand>CommitWorkItem</WorkItemCommand>
+  </Action>
+  <Action Name="CandidateInterviewed">
+    <WorkerRole>HR Reviewer</WorkerRole>
+    <WorkItemCommand>CommitWorkItem</WorkItemCommand>
+  </Action>
+</ActionMap>

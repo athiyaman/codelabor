@@ -1,0 +1,31 @@
+Example 7.45 ValueList implementation: ProjectsValueList
+
+package com.corej2eepatterns.vlh;
+
+// imports
+
+public class ProjectsList extends ArrayList {
+    ...
+
+    // implement iterator() to return your custom iterator,
+    // if any
+    public Iterator iterator() {
+        return new ProjectsListIterator(this);
+    }
+
+    // implement iterator() to return your custom iterator,
+    // if any
+    public ListIterator listIterator() {
+        return new ProjectsListIterator(this);
+    }
+
+    public List subList(int fromIndex, int toIndex) {
+        ProjectsList subList = new ProjectsList();
+        for (int index=fromIndex; index<toIndex; index++) {
+            subList.add(this.get(index));
+        }
+        return subList;
+    }
+
+...
+}

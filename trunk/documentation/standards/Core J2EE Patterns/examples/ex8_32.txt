@@ -1,0 +1,14 @@
+Example 8.32 	Project Class
+// Project.java
+
+package com.corej2eepatterns.business.hr;
+
+import java.util.Set;
+
+/**
+ * @author  Craig Russell
+ */
+public interface Project {
+	String getName();
+	Set getEmployees();
+}

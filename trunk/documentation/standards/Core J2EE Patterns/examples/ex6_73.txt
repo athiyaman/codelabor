@@ -1,0 +1,24 @@
+Example 6.73 AccountDelegate
+public class AccountDelegate {
+    public AccountProfileTO getAccountProfile(String accountId) {
+        AccountProfileTO accountProfile = null;
+        try {
+            AccountSessionHome home =
+                (AccountSessionHome) ServiceLocator.getInstance().
+                 getEJBHome("Account", AccountSessionHome.class);
+            AccountSession session = home.create();
+
+            // Invoke Account Session Façade to get Account Profile
+            accountProfile = session.getAccountDetails(accountId);
+        } 
+        catch(CreateException ex) {
+            // Translate the Session create exception into
+            // application exception
+        }
+        catch(RemoteException ex) {
+            // Translate the Remote exception into
+            // application exception
+        }
+        return accountProfile;
+    }
+}

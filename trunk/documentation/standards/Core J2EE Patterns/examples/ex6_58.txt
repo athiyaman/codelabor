@@ -1,0 +1,12 @@
+Example 6.58 Tag File, buildtable.tag
+ <%-- /web-INF/tags/buildtable.tag --%>
+ <%@ attribute name="products" type="java.util.Collection" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+ <table>
+    <c:forEach var="product" items="${products}" varStatus="status">
+      <tr>
+        <td><c:out value="${status.count}"/></td>
+        <td><c:out value="${product.name}"/></td>
+      </tr>
+    </c:forEach>
+ </table>

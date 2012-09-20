@@ -1,0 +1,54 @@
+Example 7.6 	ServiceLocator.java: Implementing JMS Topic Service Locator
+Strategy
+package com.corej2eepatterns.servicelocator;
+
+// imports
+public class ServiceLocator {
+    . . . 
+
+    // lookup and return a TopicConnectionFactory
+    public TopicConnectionFactory getTopicConnectionFactory(
+        String topicConnectionFactoryName) 
+    throws ServiceLocatorException {
+        TopicConnectionFactory topicFactory = null;
+        try {
+          if (cache.containsKey(topicConnectionFactoryName)) {
+              topicFactory = (TopicConnectionFactory) 
+                  cache.get(topicConnectionFactoryName);
+          } else {
+              topicFactory = (TopicConnectionFactory) 
+                 initialContext.
+                     lookup(topicConnectionFactoryName);
+              cache.put(topicConnectionFactoryName,
+                  topicFactory);
+          }
+        } catch (NamingException nex) {
+            throw new ServiceLocatorException(nex);
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+        return topicFactory;
+    }
+
+    // lookup and return a TopicConnectionFactory
+    public  Topic getTopic(String topicName)
+    throws ServiceLocatorException {
+        Topic topic = null;
+        try {
+            if (cache.containsKey(topicName)) {
+                topic = (Topic) cache.get(topicName);
+            } else {
+                topic =
+                    (Topic)initialContext.lookup(topicName);
+                cache.put(topicName, topic);
+            }
+        } catch (NamingException nex) {
+            throw new ServiceLocatorException(nex);
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+        return topic;
+    }
+
+    . . .
+}

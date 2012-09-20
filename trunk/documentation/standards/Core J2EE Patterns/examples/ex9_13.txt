@@ -1,0 +1,28 @@
+Example 9.13  	WorkPageFactory Code
+package WorkAdapter;
+
+public class WorkPageFactory {
+  final String WORK_MAP = "WorkMapper.xml";
+
+  private static WorkPageFactory me;
+
+  public synchronized static WorkPageFactory getInstance() {
+    if (me == null) {
+      me = new WorkPageFactory();
+    }
+    return me;
+  }
+
+  private WorkPageFactory() { }
+
+  public WorkPageRef createWorkPageRef(String userId,
+      String userRole, String workflowEvent,
+      String workflowName, String workflowProcessId,
+      String workItemName, String workItemId) {
+    WorkMapper map = new WorkMapper(WORK_MAP);
+    String ref = map.getWorkPageRef(WORK_MAP, workflowEvent,
+        workflowName, workItemName, userRole);
+    return new WorkPageRef(ref, userId, workflowProcessId,
+        workItemId);
+  }
+}

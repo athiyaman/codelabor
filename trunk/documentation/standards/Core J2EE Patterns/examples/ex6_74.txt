@@ -1,0 +1,58 @@
+Example 6.74 View – accountdetails.jsp
+<html>
+<head><title>AccountDetails</title></head>
+<body>
+
+<jsp:useBean id="account" scope="request"
+  class="corepatterns.util.AccountTO" /> 
+
+<h2>
+  <center> Account Detail for <c:out value='${account.accountHolder}'/>
+</h2> <br><br>
+<table border=3>
+<tr>
+<td>
+Account Number :
+</td>
+<td>
+<c:out value='${account.number}'/>
+</td>
+</tr>
+
+<tr>
+<td>
+Account Type:
+</td>
+<td>
+<c:out value='${account.type}'/>
+</td>
+</tr>
+
+<tr>
+<td>
+Account Balance:
+</td>
+
+<td>
+<c:out value='${account.balance}'/>
+</td>
+</tr>
+
+<tr>
+<td>
+OverDraft Limit:
+</td>
+<td>
+<c:out value='${account.overdraftLimit}'/>
+</td>
+</tr>
+
+</table>
+
+<br>
+<br>
+
+</center>
+<%@ include file="/jsp/trace.seg" %>
+</body>
+</html>

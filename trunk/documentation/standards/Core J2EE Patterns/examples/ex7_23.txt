@@ -1,0 +1,235 @@
+Example 7.23 ResourceEntityBean.java: Composite Entity 
+
+package corepatterns.apps.psa.ejb;
+
+import corepatterns.apps.psa.core.*;
+import corepatterns.apps.psa.dao.*;
+import java.sql.*;
+
+import javax.sql.*;
+import java.util.*;
+import javax.ejb.*;
+import javax.naming.*;
+
+public class ResourceEntityBean implements EntityBean {
+	public String employeeId;
+	public String lastName;
+	public String firstName;
+	public String departmentId;
+   ...
+	
+	// Collection of BlockOutTime Dependent objects
+	public Collection blockoutTimes;
+
+	// Collection of SkillSet Dependent objects
+	public Collection skillSets;
+
+	...
+
+	private EntityContext context;
+
+	// Entity Bean methods implementation
+	public String ejbCreate(ResourceTO resource) 
+	throws CreateException {
+		try {
+			this.employeeId = resource.employeeId;
+			setResourceData(resource);
+			getResourceDAO().create(resource);
+		} catch (Exception ex) {
+			throw new EJBException("Reason:" + ...);
+		}
+		return this.employeeId;
+	}
+	
+	public String ejbFindByPrimaryKey(String primaryKey) 
+	throws FinderException {
+		boolean result;
+		try {
+			ResourceDAO resourceDAO = getResourceDAO();
+			result =  resourceDAO.findResource(primaryKey);
+		} catch (Exception ex) {
+			throw new EJBException("Reason:" + ...);
+		}
+		if (result) {
+			return primaryKey;
+		}
+		else {
+			throw new ObjectNotFoundException(...);
+		}
+	}
+	
+	public void ejbRemove() {
+		try {
+			// Remove dependent objects
+			if (this.skillSets != null) {
+				SkillSetDAO skillSetDAO = getSkillSetDAO();
+				skillSetDAO.deleteAll(employeeId);
+				skillSets = null;
+			}
+			if (this.blockoutTime != null) {
+				BlockOutTimeDAO blockouttimeDAO =
+					getBlockOutTimeDAO();
+				blockouttimeDAO.deleteAll(employeeId);
+				blockOutTimes = null;
+			}
+
+			// Remove the resource from the persistent store
+			ResourceDAO resourceDAO = new ResourceDAO();
+			resourceDAO.delete(employeeId);
+		} catch (ResourceException ex) {
+			throw new EJBException("Reason:"+...);
+		} catch (BlockOutTimeException ex) {
+			throw new EJBException("Reason:"+...);
+		} catch (Exception exception) {
+			...
+		}
+	}
+	
+
+	public void setEntityContext(EntityContext context) {
+		this.context = context;
+	}
+	
+	public void unsetEntityContext() {
+		context = null;
+	}
+	
+	public void ejbActivate() {
+		employeeId = (String)context.getPrimaryKey();
+	}
+	
+	public void ejbPassivate() {
+		employeeId = null;
+	}
+	
+	public void ejbLoad() {
+		try {
+			// load the resource info from
+			ResourceDAO resourceDAO = getResourceDAO();
+			setResourceData((ResourceTO) 
+				resourceDAO.findResource(employeeId));
+			
+			// Load other dependent objects, if necessary
+			...
+		} catch (Exception ex) {
+			throw new EJBException("Reason:" + ...);
+		}
+	}
+	
+	public void ejbStore() {
+		try {
+			// Store resource information
+			getResourceDAO().update(getResourceData());
+
+			// Store dependent objects as needed
+			...
+		} catch (SkillSetException ex) {
+			throw new EJBException("Reason:" + ...);
+		} catch (BlockOutTimeException ex) {
+			throw new EJBException("Reason:" + ...);
+		}
+		...
+	}
+
+	public void ejbPostCreate(ResourceTO resource) {
+	}
+
+	// Method to Get Resource transfer object
+	public ResourceTO getResourceTO() {
+		// create a new Resource transfer object
+		ResourceTO resourceTO = new ResourceTO(employeeId);
+
+		// copy all values 
+		resourceTO.lastName = lastName;
+		resourceTO.firstName = firstName;
+		resourceTO.departmentId = departmentId;
+		...
+		return resourceTO;
+	}
+
+	public void setResourceData(ResourceTO resourceTO) {
+		// copy values from transfer object into entity bean
+		employeeId = resourceTO.employeeId;
+		lastName = resourceTO.lastName;
+		...
+	}
+
+	// Method to get dependent transfer objects
+	public Collection getSkillSetsData() {
+		// If skillSets is not loaded, load it first.
+		// See Lazy Load strategy implementation.
+		return skillSets;	
+	}
+	...
+
+	// other get and set methods as needed
+	...
+
+	// Entity bean business methods
+	public void addBlockOutTimes(Collection moreBOTs) 
+	throws BlockOutTimeException {
+		// Note: moreBOTs is a collection of BlockOutTimeTO
+		// objects
+		try {
+			Iterator moreIter = moreBOTs.iterator();
+			while (moreIter.hasNext()) {
+				BlockOutTimeTO botTO =
+					(BlockOutTimeTO) moreIter.next();
+				if (! (blockOutTimeExists(botTO))) {
+					// add BlockOutTimeTO to collection
+					botTO.setNew();
+					blockOutTime.add(botTO);
+				} else {
+					// BlockOutTimeTO already exists, cannot add
+					throw new BlockOutTimeException(...);
+				}
+			}
+		} catch (Exception exception) {
+			throw new EJBException(...);
+		}
+	}
+
+	public void addSkillSet(Collection moreSkills) 
+	throws SkillSetException {
+		// similar to addBlockOutTime() implementation
+		...
+	}
+
+	...
+
+	public void updateBlockOutTime(Collection updBOTs) 
+	throws BlockOutTimeException {
+		try {
+			Iterator botIter = blockOutTimes.iterator();
+			Iterator updIter = updBOTs.iterator();
+			while (updIter.hasNext()) {
+				BlockOutTimeTO botTO =
+					(BlockOutTimeTO) updIter.next();
+				while (botIter.hasNext()) {
+					BlockOutTimeTO existingBOT = 
+						(BlockOutTimeTO) botIter.next();
+					// compare key values to locate BlockOutTime
+					if (existingBOT.equals(botTO)) {
+						// Found BlockOutTime in collection
+						// replace old BlockOutTimeTO with new one
+						botTO.setDirty(); //modified old dependent
+						botTO.resetNew(); //not a new dependent
+						existingBOT = botTO;
+					}
+				}
+			}
+
+		} catch (Exception exc) {
+			throw new EJBException(...);
+		}
+	}
+
+	public void updateSkillSet(Collection updSkills) 
+	throws CommitmentException {
+		// similar to updateBlockOutTime...
+		...
+	}
+
+	...
+
+}

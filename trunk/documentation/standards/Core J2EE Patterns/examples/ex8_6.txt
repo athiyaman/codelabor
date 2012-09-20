@@ -1,0 +1,35 @@
+Example 8.6 	CustomerDAO.java: Cached RowSet Strategy
+package com.corej2eepatterns.dao;
+
+// imports
+
+public class CustomerDAO {
+	. . .  
+
+	// Create the CachedRowSet using the 
+	// ResultSet from query execution    
+	public RowSet findCustomersRS(CustomerTO criteria)    
+			throws DAOException {
+
+		Connection con = getConnection();
+		javax.sql.RowSet rowSet = null;
+		String searchSQLString = getSearchSQLString(criteria);
+		try {
+			con = getConnection();
+			java.sql.Statement stmt =
+					con.createStatement(. . . );.
+			java.sql.ResultSet rs =
+					stmt.executeQuery(searchSQLString);
+			rowSet = new CachedRowSet();
+			rowSet.populate(rs); 
+		} catch (SQLException anException) {
+			// handle exception…
+		} finally {
+			con.close();
+		}
+		return rowSet;
+	}
+
+	. . .  
+
+}

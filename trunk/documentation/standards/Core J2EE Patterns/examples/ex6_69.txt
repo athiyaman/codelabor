@@ -1,0 +1,10 @@
+Example 6.69 Extending Regions
+<region:define id='PORTAL' template='portal.jsp'>
+    <region:put section='banner' content='BANNER'/>
+  ...
+    <region:put section='footer' content='footer.jsp'/>
+</region:render>
+
+<region:define id='PORTAL_WITH_SPECIAL_FOOTER' region='PORTAL'>
+    <region:put section='footer' content='specialfooter.jsp'/>
+</region:define>

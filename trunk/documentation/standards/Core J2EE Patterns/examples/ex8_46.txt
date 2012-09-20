@@ -1,0 +1,67 @@
+Example 8.46 						CompanyFacade, CompanyFacadeHome, 
+  CompanyFacadeSession
+//CompanyFacade
+import java.rmi.RemoteException;
+
+public interface CompanyFacade
+		extends javax.ejb.EJBLocalObject {
+	public void createCompany(
+			String companyId, String companyName );
+	public void addDivision(
+		String divisionId, String divisionName );
+	public void addEmployee(String employeeId,
+			String lastName, String firstName );
+}
+
+// CompanyFacadeHome
+import javax.ejb.CreateException;
+
+public interface CompanyFacadeHome
+		extends javax.ejb.EJBLocalHome {
+	public CompanyFacade create( )
+			throws CreateException;
+	public CompanyFacade create( String companyId )
+			throws CreateException;
+}
+
+// CompanyFacadeSession
+import javax.ejb.SessionContext;
+import javax.ejb.EJBException;
+import javax.ejb.CreateException;
+
+public class CompanyFacadeSession
+		implements javax.ejb.SessionBean {
+	String companyId;
+
+	public void createCompany( String id, String name ) {
+		// Create and Persist Company
+		// Keep companyId for stateful conversations
+		this.companyId = id;
+	}
+
+	public void addDivision(
+			String divisionId, String divisionName) {
+		// Call to business object or DAO to add
+		// Division to Company
+	}
+
+	public void addEmployee(String employeeId,
+			String lastName, String firstName) {
+		// Call to business object or DAO to assign
+		// employee to Division
+	}
+
+	public void setSessionContext(SessionContext sessionContext)
+		throws EJBException {
+	}
+
+	public void ejbRemove() throws EJBException {    }
+	public void ejbActivate() throws EJBException {    }
+	public void ejbPassivate() throws EJBException {    }
+	public void ejbCreate() throws CreateException {    }
+	public void ejbCreate( String companyId )
+			throws CreateException {
+		// Lookup Company business object
+		this.companyId = companyId;
+	}
+}

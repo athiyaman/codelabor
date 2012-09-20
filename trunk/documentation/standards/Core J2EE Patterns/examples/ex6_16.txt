@@ -1,0 +1,25 @@
+Example 6.16 Command and Controller Strategy 
+/** This processRequest method is invoked from both 
+* the servlet doGet and doPost methods **/
+protected void processRequest(HttpServletRequest request,
+    HttpServletResponse response) throws ServletException,
+    java.io.IOException {
+
+  String resultPage;
+  try {
+    RequestHelper helper = new RequestHelper(request);
+
+    /** the getCommand() method internally uses a 
+      * factory to retrieve command objects as follows:
+      * Command command = CommandFactory.create(
+      * request.getParameter(op));
+     **/
+    Command command =  helper.getCommand();
+    // delegate request to a command object helper
+    resultPage = command.execute(request, response);
+  } catch (Exception e) {
+    LogManager.logMessage("FrontController", e.getMessage());
+    resultPage = ApplicationResources.getInstance().getErrorPage(e);
+  }
+  dispatch(request, response, resultPage);
+}

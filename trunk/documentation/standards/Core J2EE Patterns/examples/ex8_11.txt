@@ -1,0 +1,62 @@
+Example 8.11  RowSetWrapperList.java: Inner class DataRowListIterator
+package com.corej2eepatterns.to.lists;
+
+// imports 
+
+public class RowSetWrapperList 
+implements List, Serializable {
+
+	. . .
+
+	private class DataRowListIterator implements ListIterator {
+		int currentRow=0;
+		// sets the rowset cursor to next and returns
+		// the Transfer object
+		public Object next() {
+		// get transfer object for next row of RowSetWrapperList
+		currentRow++; 
+		return this.get(currentRow);  
+	}
+
+	public Object previous() {
+		// get transfer object for previous row of
+		// RowSetWrapperList  
+		currentRow--; 
+		return this.get(currentRow);  
+
+	}
+
+	// Implement the List Iterator interface
+	public boolean hasNext() {
+		// Check the cursor position in the rowSet using
+		// isLast, isAfterLast, isEmpty methods and
+		// return true or false accordingly
+	}
+
+	public boolean hasPrevious() {
+		// Check the cursor position in the rowSet using
+		// isFirst, isBeforeFirst, isEmpty methods and
+		// return true or false accordingly
+	}
+
+	// implement other ListIterator methods
+
+	public int nextIndex() {
+		. . .
+	}
+
+	public int previousIndex() {
+		. . .
+	}
+
+	// optional methods not implemented throw
+	// UnsupportedException
+	public void set(Object o) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void add(Object o) {
+		throw new UnsupportedOperationException();
+	}
+	. . .
+}

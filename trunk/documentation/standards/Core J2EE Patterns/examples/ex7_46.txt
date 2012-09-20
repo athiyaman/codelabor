@@ -1,0 +1,10 @@
+Example 7.46 ValueListIterator interface
+
+package com.corej2eepatterns.vlh;
+
+// imports
+
+// sample shows extending ListItertor
+public interface ValueListIterator extends ListIterator {
+   // specify convenience methods here
+}

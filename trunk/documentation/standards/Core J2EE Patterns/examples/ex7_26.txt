@@ -1,0 +1,57 @@
+Example 7.26 	Implementing Store Optimization
+
+	...
+
+	public void ejbStore() {
+		try {
+			// Load the mandatory data
+			getResourceDAO().update(getResourceData());
+
+			// Store optimization for dependent objects
+			// check dirty and store
+			// Check and store commitments
+			if (skillSets != null) {
+				// Get the DAO to use to store
+				SkillSetDAO skillSetDAO = getSkillSetDAO();
+				Iterator skillIter = skillSet.iterator();
+				while (skillIter.hasNext()) {
+					SkillSetTO skill = 
+						(SkillSetTO) skillIter.next();
+					if (skill.isNew()) {
+						// This is a new dependent, insert it
+						skillSetDAO.create(skill);
+						skill.resetNew();
+						skill.resetDirty();
+					}
+					else if (skill.isDeleted()) {
+						// delete Skill
+						skillSetDAO.delete(skill);
+						// Remove from dependents list
+						skillSets.remove(skill);
+					} 
+					else if (skill.isDirty()) {
+						// Store Skill, it has been modified
+						skillSetDAO.update(skill);
+						// Saved, reset dirty.
+						skill.resetDirty();
+						skill.resetNew();
+					}
+				}
+			}
+
+			// Similarly, implement store optimization 
+			// for other dependent objects such as 
+
+			// BlockOutTime, ...
+			...
+		} catch (SkillSetException ex) {
+
+			throw new EJBException("Reason:"+...);
+		} catch (BlockOutTimeException ex) {
+			throw new EJBException("Reason:"+...);
+		} catch (CommitmentException ex) {
+			throw new EJBException("Reason:"+...);
+		}
+	}
+
+	...

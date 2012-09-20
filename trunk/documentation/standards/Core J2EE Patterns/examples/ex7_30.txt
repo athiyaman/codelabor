@@ -1,0 +1,43 @@
+Example 7.30 	Implementing the Transfer Object Pattern – Entity Bean Class
+
+...
+public class ProjectEntity implements EntityBean {
+    private EntityContext context;
+    public String projectId;
+    public String projectName;
+    public String managerId;
+    public String customerId;
+    public Date startDate;
+    public Date endDate;
+    public boolean started;
+    public boolean completed;
+    public boolean accepted;
+    public Date acceptedDate;
+    public String projectDescription;
+    public String projectStatus;
+    private boolean closed;
+
+    // other attributes...
+
+    private ArrayList commitments;
+    ...
+
+    // Method to get transfer object for Project data
+    public ProjectTO getProjectData() {
+        ProjectTO proj = new ProjectTO();
+        proj.projectId = projectId;
+        proj.projectName = projectName;
+        proj.managerId = managerId;
+        proj.startDate = startDate;
+        proj.endDate = endDate;
+        proj.customerId = customerId;
+        proj.projectDescription = projectDescription;
+        proj.projectStatus = projectStatus;
+        proj.started = started;
+        proj.completed = completed;
+        proj.accepted = accepted;
+        proj.closed = closed;
+        return proj;
+    }
+    ...
+}

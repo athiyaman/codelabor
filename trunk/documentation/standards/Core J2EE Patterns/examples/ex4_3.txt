@@ -1,0 +1,17 @@
+Example 4.3 Generate and Store Token
+
+/**
+* Save a new transaction token in the 
+* user's current session, creating
+* a new session if necessary.
+*
+* @param request The servlet request we are processing
+*/
+protected void saveToken(HttpServletRequest request) {
+
+HttpSession session = request.getSession();
+String token = generateToken(request);
+if (token != null)
+  session.setAttribute(TRANSACTION_TOKEN_KEY, token);
+}
+Copyright (c) 1999 The Apache Software Foundation. All rights reserved.

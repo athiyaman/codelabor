@@ -1,0 +1,36 @@
+Example 7.14 	CustomerAppService
+
+public class CompanyAppService {
+
+    public void addCompany(CompanyTO companyTO) {
+        Company customer = new Company(companyTO);
+        // Persist customer
+    }
+
+    public void addAccount(String companyId,
+        AccountTO accountTO) {
+    throws AccountException {
+
+        Company company = null;
+        // Get Company
+        // company = findCompany(companyId);
+
+        if (company == null)
+            throw new AccountException(
+               "Company Id: " + companyId + " doesn't exist");
+
+        Account account = new Account(accountTO);
+        company.addAccount(account);
+
+        AccountManager accountManager = null;
+        accountManager = getAccountManager(company.getZip());
+        account.addAccountManager(accountManager);
+
+        // Send email to Account Manager notifying the
+        // new account
+        EmailAppService emailAppService =
+            new EmailAppService();
+        emailAppService.notifyAccountManager(accountManager,
+            account);
+    }
+}

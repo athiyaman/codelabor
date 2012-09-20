@@ -1,0 +1,16 @@
+Example 6.63 JSP Excerpt Using Third-Party Library
+<region:render template='/jsp/CompositeView/templates/portal.jsp'>
+
+   <region:put section='banner' 
+    content='/jsp/CompositeView/templates/banner.jsp'/>
+
+   <region:put section='controlpanel' 
+    content='/jsp/CompositeView/templates/ProfilePane.jsp' />
+
+   <region:put section='mainpanel'
+    content='/jsp/CompositeView/templates/mainpanel.jsp' />
+
+   <region:put section='footer'
+    content='/jsp/CompositeView/templates/footer.jsp' />
+
+</region:render>

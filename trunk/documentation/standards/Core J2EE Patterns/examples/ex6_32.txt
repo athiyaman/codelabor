@@ -1,0 +1,22 @@
+Example 6.32 			RequestContextFactory
+public class RequestContextFactory {
+  static RequestContextFactory factory = new RequestContextFactory();
+  
+  static public RequestContextFactory getInstance() {
+    return factory;
+  }
+    
+  public RequestContext getRequestContext(String requestType,
+      ServletRequest request) {
+
+    RequestContext requestContext;
+    if (Constants.SOAP_PROTOCOL.equalsIgnoreCase(requestType) == true) {
+      requestContext = new SOAPRequestContextImpl(
+          (HttpServletRequest) request);
+    } else {
+      requestContext = new HttpRequestContext(
+          (HttpServletRequest) request);
+    }
+    return requestContext;
+  }
+}

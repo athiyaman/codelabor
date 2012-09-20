@@ -1,0 +1,45 @@
+Example 6.44 	View Factory
+public class ViewFactory {
+  private static ViewFactory ourInstance;
+
+  public synchronized static ViewFactory getInstance() {
+    if (ourInstance == null) {
+      ourInstance = new ViewFactory();
+    }
+    return ourInstance;
+  }
+
+  public String getViewTemplate(RequestContext requestContext, 
+      String logicalViewName) {
+
+    String viewHandle;
+    Locale locale = requestContext.getUserLocale();
+    String userAgent = requestContext.getUserAgent();
+
+    // Identify ViewHandle from View Map
+    viewHandle = getViewHandle(logicalViewName, userAgent, locale);
+    return viewHandle;
+  }
+
+  private String getViewHandle(String logicalViewName, 
+      String userAgent, Locale locale) {
+
+    // select the View template to be displayed based on
+    // logical view name, user locale, device type
+    ViewMapKey viewKey = new ViewMapKey(
+        logicalViewName, userAgent, locale);
+    return (String) viewMap.get(viewKey);
+  }
+
+  private ViewFactory() {
+    initializeViewMap();
+  }
+
+  private void initializeViewMap() {
+    // initialization stub - This information would typically be
+    // loaded from a ViewRegistry
+    // viewMap.put ( logicalViewName, viewTemplateName);
+  }
+
+  private Map viewMap = new HashMap();
+}

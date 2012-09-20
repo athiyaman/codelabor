@@ -1,0 +1,15 @@
+Example 6.65 Template Definition
+<region:render section='banner'/>
+<table width="100%">
+    <tr align="left" valign="middle">
+        <td width="20%">
+            <!-- menu region -->
+            <region:render section='controlpanel' />
+        </td>
+        <td width="70%" align="center">
+            <!-- contents -->
+            <region:render section='mainpanel' />
+        </td>
+    </tr>
+</table>
+</region:render>

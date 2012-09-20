@@ -1,0 +1,11 @@
+Example 6.42 	Sample Command (Action) Implementation
+public final class EditRegistrationAction extends Action {
+  public ActionForward execute(ActionMapping mapping, ActionForm form,
+      HttpServletRequest request, HttpServletResponse response)
+      throws Exception {              
+    // Execute business logic
+    .  .  .
+    // Use ViewMapper to identify and retreive appropriate ViewHandle
+    return (mapping.findForward("success"));
+  }
+}

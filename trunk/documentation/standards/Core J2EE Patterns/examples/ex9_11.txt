@@ -1,0 +1,32 @@
+Example 9.11 	WorkflowDelegate Code
+public class WorkflowDelegate {
+  private String userId;
+
+  public WorkflowDelegate(String userId) {
+    this.userId = userId;
+  }
+
+  public void start(String workflowName) {
+    // Proprietary call to workflow system
+  }
+
+  public void stop(String workflowProcessId) {
+    // Proprietary call to workflow system
+  }
+
+  public void pause(String workflowProcessId) {
+    // Proprietary call to workflow system
+  }
+
+  public void acquireWorkItem(String workflowProcessId) {
+    // Proprietary call to workflow system
+  }
+
+  public void commitWorkItem(String workflowProcessId) {
+    // Proprietary call to workflow system
+  }
+
+  public void abortWorkItem(String workflowProcessId) {
+    // Proprietary call to workflow system
+  }
+}

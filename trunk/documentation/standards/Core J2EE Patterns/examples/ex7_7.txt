@@ -1,0 +1,52 @@
+Example 7.7 	ServiceLocator.java: Implementing JMS Queue Service Locator Strategy 
+package com.corej2eepatterns.servicelocator;
+
+// imports
+public class ServiceLocator {
+    . . . 
+
+    public QueueConnectionFactory getQueueConnectionFactory(
+        String queueConnectionFactoryName)
+    throws ServiceLocatorException {
+        QueueConnectionFactory queueFactory = null;
+        try {
+          if (cache.containsKey(queueConnectionFactoryName)) {
+              queueFactory = (QueueConnectionFactory) 
+                  cache.get(queueConnectionFactoryName);
+          } else {
+              queueFactory = (QueueConnectionFactory) 
+                  initialContext.lookup(
+                      queueConnectionFactoryName);
+              cache.put(queueConnectionFactoryName,
+                  queueFactory);
+          }
+        } catch (NamingException nex) {
+            throw new ServiceLocatorException(nex);
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+
+        return queueFactory;
+    }
+
+    public Queue getQueue(String queueName)
+    throws ServiceLocatorException {
+        Queue queue = null;
+        try {
+            if (cache.containsKey(queueName)) {
+                queue = (Queue) cache.get(queueName);
+            } else {
+                queue =
+                    (Queue)initialContext.lookup(queueName);
+                cache.put(queueName, queue);
+            }
+        } catch (NamingException nex) {
+            throw new ServiceLocatorException(nex);
+        } catch (Exception ex) {
+            throw new ServiceLocatorException(ex);
+        }
+
+        return queue;
+    }
+    . . .
+}

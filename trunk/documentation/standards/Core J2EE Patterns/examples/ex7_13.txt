@@ -1,0 +1,42 @@
+Example 7.13 	OrderServiceFacadeSession
+
+import javax.ejb.SessionContext;
+import javax.ejb.EJBException;
+import java.rmi.RemoteException;
+import java.util.Date;
+
+public class OrderSystemFacade 
+implements javax.ejb.SessionBean, OrderSystemClient {
+
+    public void setSessionContext(
+        SessionContext sessionContext) 
+    throws EJBException, RemoteException {
+    }
+
+    public void ejbRemove()
+    throws EJBException, RemoteException {
+    }
+
+    public void ejbActivate()
+    throws EJBException, RemoteException {
+    }
+
+    public void ejbPassivate()
+    throws EJBException, RemoteException {
+    }
+
+    public void placeOrder( OrderTO order ) {
+        OrderAppService pas = new OrderAppService();
+        pas.placeOrder( order );
+    }
+
+    public void addAccount(AccountTO account) {
+        CompanyAppService cas = new CompanyAppService();
+        cas.addAccount(account);
+    }
+
+    public void createCompany( CompanyTO company) {
+        CompanyAppService cas = new CompanyAppService();
+        cas.addCompany(company);
+    }
+}

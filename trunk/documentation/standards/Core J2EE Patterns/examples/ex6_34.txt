@@ -1,0 +1,33 @@
+Example 6.34 	Auto-populating ContextObject: AutoPopulateRequestContext
+// Context Object helper
+public class AutoPopulateRequestContext {
+
+  public static void populateBean(Object bean, ServletRequest request) {
+
+    Enumeration enum = request.getParameterNames();
+
+    while ( enum.hasMoreElements()) {
+      String parameterName = (String)enum.nextElement();
+      if ( PropertyUtils.isWriteable(bean, parameterName)) {
+
+        String values[] = request.getParameterValues(parameterName);
+        try {
+          if ( values.length == 1 ) {
+            PropertyUtils.setSimpleProperty(
+            bean, parameterName, values[0]);
+          } else {
+            for ( int iValue=0; iValue < values.length; iValue++)
+              PropertyUtils.setIndexedProperty(
+              bean, parameterName, iValue, values[iValue]);
+          }
+        } catch (IllegalAccessException e) {
+          // handle exception
+        } catch (InvocationTargetException e) {
+          // handle exception
+        } catch (NoSuchMethodException e) {
+          // handle exception
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+Example 7.32 	Multiple Transfer Objects Strategy – ResourceTO
+
+// ResourceTO: This class holds basic information
+// about the resource
+public class ResourceTO implements java.io.Serializable {
+    public String resourceId;
+    public String lastName;
+    public String firstName;
+    public String department;
+    public String grade;
+    ...
+}

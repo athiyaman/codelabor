@@ -1,0 +1,18 @@
+Example 8.44 	OrderAppService Class
+import generated.Address;
+import generated.PurchaseOrder;
+
+import java.util.List;
+
+public class OrderAppService {
+	public OrderAppService() {
+	}
+
+	public void placeOrder(PurchaseOrder purchaseOrder) {
+		Address shipTo = purchaseOrder.getShipTo();
+		Address billTo = purchaseOrder.getBillTo();
+		List items = purchaseOrder.getItems();
+
+		// Update data store
+	}
+}

@@ -1,0 +1,158 @@
+Example 8.2 	CustomerDAO.java: Data Access Object
+package com.corej2eepatterns.dao;
+
+// imports
+
+public class CustomerDAO {
+	protected static final String FIELDS_INSERT = 
+			"customer_name, customer_address, " + 
+			"customer_contact, customer_phone, customer_email";
+
+	protected static final String FIELDS_RETURN = 
+			"customer_id, " + FIELDS_INSERT;
+
+	protected static String INSERT_SQL =
+			"insert into customer ( " + FIELDS_INSERT +
+			" ) " + "values ( ?, ?, ?, ?, ?)";
+
+	protected static String SELECT_SQL = "select " +
+			FIELDS_RETURN +
+			" from customer where customer_id = ? ";
+
+	protected static String UPDATE_SQL =
+			"update customer set customer_name = ?, " +
+			"customer_address = ?, customer_contact = ?, " +
+			"customer_phone = ?, customer_email = ? " +
+			"where customer_id = ? ";
+
+	protected static String DELETE_SQL =
+			"delete from Customer where customer_id = ? ";
+
+	// the data source used to connect to the back-end database
+	private DataSource datasource;
+
+	public CustomerDAO() throws DAOException {
+		try {
+			// Shown here for clarity only. Typically, looking
+			// up a data source is done by a Service Locator
+			// and the DAO just uses the Service Locator to
+			// obtain a data source.
+			InitialContext initialContext =
+					new InitialContext();
+			datasource = (DataSource) initialContext.lookup(
+					OracleDAOFactory.DATASOURCE_DB_NAME);
+		} catch (NamingException e) {
+			throw new DAOException (
+					"Cannot locate data source at " + 
+					DAOFactory.DATASOURCE_DB_NAME, e);
+		}
+	}
+
+	public String create(CustomerTO cust) throws DAOException {
+		// initialize variables
+		Connection con = getConnection();
+		String customerId = null;
+
+		PreparedStatement prepStmt = null;
+		try {
+			// create and setup statement
+			prepStmt = con.prepareStatement(INSERT_SQL);
+			int i = 1;
+			prepStmt.setString(i++, cust.getName());
+			prepStmt.setString(i++, cust.getAddress());
+			. . .
+
+			// execute the statement
+			prepStmt.executeUpdate();
+
+			// obtain the newly created customer id value
+			. . .
+
+		} catch (Exception e) {
+			// handle exception
+		} finally {
+			// close connections
+		}
+
+		// return the newly created customer id value
+		return customerId;
+	}
+
+	public CustomerTO find(String customerId)
+		throws DAOException {
+		// initialize variables
+		CustomerTO cust = null;
+		Connection con = getConnection();
+		PreparedStatement prepStmt = null;
+		ResultSet rs = null;
+
+		try {
+			// setup statement and retrieve results
+			prepStmt = con.prepareStatement(SELECT_SQL);
+			prepStmt.setString(1, customerId);
+			rs = prepStmt.executeQuery();
+			if (rs.next()) {
+				//create the transfer object using data from rs
+				cust = new CustomerTO();
+				cust.setId(rs.getString(1));
+				cust.setName(rs.getString(2));
+				. . . 
+			}
+		} catch (Exception e) {
+			// handle exception
+		} finally {
+			// close connections
+		}
+		return cust;
+	}
+
+	public void update(CustomerTO cust) throws DAOException {
+		Connection con = null;
+		PreparedStatement prepStmt = null;
+		try {
+			// prepare statement
+			con = getConnection();
+
+			prepStmt = con.prepareStatement(UPDATE_SQL);
+			int i = 1;
+
+			// add fields first
+			prepStmt.setString(i++, cust.getName());
+			prepStmt.setString(i++, cust.getAddress());
+			. . .
+
+			// now add where parameters
+			prepStmt.setString(i++, cust.getId());
+			int rowCount = prepStmt.executeUpdate();
+			prepStmt.close();
+			if (rowCount == 0) {
+				throw new DAOException(
+					"Update Error:Customer Id:" + cust.getId());
+			}
+		} catch (Exception e) {
+			// handle exception
+		} finally {
+			// close connections
+		}
+	}
+
+	public void delete(String customerId) throws Exception {
+		// setup variables
+		Connection con = getConnection();
+		PreparedStatement prepStmt = null;
+
+		try {
+			// execute database update
+			prepStmt = con.prepareStatement(DELETE_SQL);
+			prepStmt.setString(1, customerId);
+			prepStmt.executeUpdate();
+		} catch (Exception e) {
+			// handle exception
+		} finally {
+			// close connections
+		}
+	}
+
+	// other methods for finders, etc.
+	. . .
+}

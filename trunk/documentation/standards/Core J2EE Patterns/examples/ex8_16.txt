@@ -1,0 +1,83 @@
+Example 8.16 	Order Sender Application Service: OrderSenderAppService.java
+// imports...
+
+public class OrderSenderAppService {
+	// Queue session and sender: see JMS API for details
+	private QueueSession orderQueueSession;
+	private QueueSender orderQueueSender;
+
+	// These values could come from some property files
+	private String connectionFactoryName =
+			"PendingOrdersQueueFactory";
+	private String queueName = "PendingOrders";
+
+	// use a service locator to locate administered
+	// JMS components such as a Queue or a Queue.
+	// Connection factory
+	private JMSServiceLocator serviceLocator;
+	. . .
+	// method to initialize and create queue sender
+	private void createSender() {
+		try {
+			// using ServiceLocator and getting Queue
+			// Connection Factory is similar to the
+			// Service Activator code.
+			serviceLocator = ServiceLocator.getInstance();
+			queueConnectionFactory =
+					serviceLocator.getQueueConnectionFactory(
+					connectionFactoryName);
+			queueConnection =
+					queueConnectionFactory.createQueueConnection();
+
+			// See JMS API for method usage and arguments
+			orderQueueSession =
+					queueConnection.createQueueSession(. . .);
+			Queue ordersQueue =
+					serviceLocator.getQueue(queueName);
+			orderQueueSender =
+					orderQueueSession.createSender(ordersQueue);
+		}
+		catch(Exception excp) {
+			// Handle exception - Failure to create sender
+		}
+	}
+
+
+	// method to dispatch order to fulfillment service
+    // for asynchronous processing
+	public void sendOrder(Order order) {
+		try {
+			// create a new Message to send Order object
+			ObjectMessage orderObjectMessage =
+					queueSession.createObjectMessage(order);
+
+			// set object message properties and delivery 
+			// mode as required.
+			// See JMS API for ObjectMessage
+
+			// Set the Order into the object message
+			orderObjectMessage.setObject(order);
+
+			// send the message to the Queue
+			orderQueueSender.send(orderObjectMessage);
+    
+			. . .
+		} catch (Exception e) {
+			// Handle exceptions
+		}
+		. . .
+	}
+
+	. . .
+
+	public void close() {
+		try {
+			// cleanup before closing
+			orderQueueReceiver.setMessageListener(null);   
+			orderQueueSession.close();     
+		}
+		catch(Exception excp) {
+			// Handle exception - Failure to close
+		}
+	}
+}

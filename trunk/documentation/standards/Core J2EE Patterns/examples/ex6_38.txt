@@ -1,0 +1,30 @@
+Example 6.38 WebApplicationController Implementation
+// Application Controller implementation responsible for handling 
+// Web application requests
+class WebApplicationController implements ApplicationController {
+
+  public void init() { }
+
+  public ResponseContext handleRequest(RequestContext requestContext) {
+    ResponseContext responseContext = null;
+    try {
+      // Identify command name
+      String commandName = requestContext.getCommandName();
+
+      // resolve command name to Command Object
+      CommandFactory commandFactory = CommandFactory.getInstance();
+      Command command = commandFactory.getCommand(commandName);
+
+      // Execute Command using CommandProcessor
+      CommandProcessor commandProcessor = new CommandProcessor();
+      responseContext = commandProcessor.invoke(command,
+          requestContext);
+    } catch (java.lang.InstantiationException e) {
+      // Handle Exception
+    } catch (java.lang.IllegalAccessException e) {
+      // Handle Exception
+    }
+    return responseContext;
+  }
+  . . .
+}

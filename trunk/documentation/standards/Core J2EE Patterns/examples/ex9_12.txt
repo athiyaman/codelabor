@@ -1,0 +1,38 @@
+Example 9.12 	HireEmployeeWA Code
+package WorkAdapter;
+
+import Core.HireEmployeeConstants;
+import Core.UtilHelper;
+
+public class HireEmployeeWA {
+
+  public void workflowProcessStarted(String workflowName, 
+      String workflowProcessId, String userId) { }
+
+  public void workflowProcessStopped(String workflowName, 
+      String workflowProcessId, String userId) { }
+
+  public void workflowProcessPaused(String workflowName,
+      String workflowProcessId, String userId) { }
+
+  public void workItemAcquired(String userId, String userRole,
+      String workflowName, String workItemName,
+      String workItemId) {
+    WorkPageFactory f = WorkPageFactory.getInstance();
+    WorkPageRef ref = f.createWorkPageRef(userId, userRole,
+        HireEmployeeConstants.ACQUIRE_WORKITEM, workflowName,
+        null, workItemName, workItemId);
+      String email = UtilHelper.userIdToEmail(userId);
+      WorkDispatcher dispatcher =
+          new EmailDispatcher(workflowName, ref.getURL(),
+          email);
+      dispatcher.dispatch();
+  }
+
+  public void workItemAborted(String workflowName,
+      String workItemId, String userId, String userRole) { }
+
+  public void workItemCommitted(String userId,
+      String userRole, String workflowName,
+      String workItemId) { }
+}

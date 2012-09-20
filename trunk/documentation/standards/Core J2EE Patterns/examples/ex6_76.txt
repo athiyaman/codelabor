@@ -1,0 +1,46 @@
+Example 6.76 View – accountdetails.jsp
+<%@ taglib uri="/web-INF/corepatternstaglibrary.tld"
+    prefix="corepatterns" %>
+
+<html>
+<head><title>AccountDetails</title></head>
+<body>
+
+<corepatterns:AccountQuery queryParams="custid,acctkey" scope="request" />
+
+<h2>
+<center> Account Detail for <corepatterns:Account attribute="owner" />
+</h2>
+<br><br>
+
+<tr>
+    <td>Account Number :</td>
+    <td><corepatterns:Account attribute="number" /></td>
+</tr>
+
+
+<tr>
+    <td>Account Type:</td>
+    <td><corepatterns:Account attribute="type" /></td>
+</tr>
+
+<tr>
+    <td>Account Balance:</td>
+    <td><corepatterns:Account attribute="balance" /></td>
+</tr>
+
+<tr>
+    <td>OverDraft Limit:</td>
+    <td><corepatterns:Account attribute="overdraftLimit" /></td>
+</tr>
+<table border=3>
+</table>
+</corepatterns:AccountQuery>
+
+<br>
+<br>
+
+</center>
+<%@ include file="/jsp/trace.seg" %>
+</body>
+</html>

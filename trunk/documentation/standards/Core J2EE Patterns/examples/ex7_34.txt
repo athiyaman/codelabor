@@ -1,0 +1,31 @@
+Example 7.34 	Multiple Transfer Objects Strategy – Resource Entity Bean
+
+// imports
+
+public class ResourceEntity implements EntityBean {
+	// entity bean attributes
+	...
+
+	// entity bean business methods
+	...
+
+	// Multiple Transfer Object method : Get ResourceTO
+	public ResourceTO getResourceData() {
+
+		// create new ResourceTO instance and copy
+		// attribute values from entity bean into TO
+		...
+	}
+
+	// Multiple Transfer Object method : Get 
+	// ResourceDetailsTO
+	public ResourceDetailsTO getResourceDetailsData() {
+
+		// create new ResourceDetailsTO instance and copy
+		// attribute values from entity bean into TO
+		...
+	}
+
+	// other entity bean methods
+	...
+}

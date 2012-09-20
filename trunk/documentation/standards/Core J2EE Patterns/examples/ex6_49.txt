@@ -1,0 +1,34 @@
+Example 6.49 SOAP Message Handling Strategy
+public class FrontController extends HttpServlet {
+  protected void processRequest(
+      HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, java.io.IOException {
+
+    // Create ApplicationController for handling incoming request
+    ApplicationControllerFactory ACFactory =
+        ApplicationControllerFactory.getInstance();
+    ApplicationController applicationController = 
+        ACFactory.getApplicationController(request);
+    applicationController.init();
+
+    // Create ContextObject to encapsulate protocol-specific 
+    //request state
+    RequestContextFactory requestContextFactory =
+        RequestContextFactory.getInstance();
+    RequestContext requestContext =
+        requestContextFactory.getRequestContext(request);
+
+    // Action Management - Locate & Invoke Actions to handle 
+    //specific Requests
+    ResponseContext responseContext;
+    responseContext =
+        applicationController.handleRequest(requestContext);
+    responseContext.setResponse(response);
+
+    // View Management - Navigate and Dispatch to appropriate View
+    applicationController.handleResponse(
+        requestContext, responseContext);
+    applicationController.destroy();
+  }
+  . . .
+}

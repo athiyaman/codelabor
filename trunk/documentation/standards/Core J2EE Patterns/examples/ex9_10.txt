@@ -1,0 +1,72 @@
+Example 9.10 	WorkflowCommand, WorkflowProcessCommand and  WorkItemCommand Code
+
+package ActionAdapter;
+
+public interface WorkflowCommand {
+  public void execute();
+}
+
+
+package ActionAdapter;
+
+import Core.HireEmployeeConstants;
+
+public class WorkflowProcessCommand 
+    implements WorkflowCommand {
+  private String userId;
+  private CommandData commandData;
+
+  public WorkflowProcessCommand(String userId,
+      CommandData commandData) {
+    this.userId = userId;
+    this.commandData = commandData;
+  }
+
+  public void execute() {
+    WorkflowCommandData d = (WorkflowCommandData) commandData;
+    String workflowName = d.getWorkflowName();
+    String workflowProcessId = d.getWorkflowProcessId();
+    WorkflowDelegate delegate = new WorkflowDelegate(userId);
+    if (d.commandType ==
+        HireEmployeeConstants.START_WORKFLOW_TYPE) {
+      delegate.start(workflowName);
+    } else if (d.commandType == 
+        HireEmployeeConstants.STOP_WORKFLOW_TYPE) {
+      delegate.stop(workflowProcessId);
+    } else if (d.commandType == 
+        HireEmployeeConstants.PAUSE_WORKFLOW_TYPE) {
+      delegate.pause(workflowProcessId);
+    }
+  }
+}
+
+package ActionAdapter;
+
+import Core.HireEmployeeConstants;
+
+public class WorkItemCommand implements WorkflowCommand {
+  private String userId;
+  private CommandData commandData;
+
+  public WorkItemCommand(String userId,
+      CommandData commandData) {
+    this.userId = userId;
+    this.commandData = commandData;
+  }
+
+  public void execute() {
+    WorkItemCommandData d = (WorkItemCommandData) commandData;
+    String workItemId = d.getWorkItemId();
+    WorkflowDelegate delegate = new WorkflowDelegate(userId);
+    if (d.commandType == 
+        HireEmployeeConstants.ACQUIRE_WORKITEM_TYPE) {
+      delegate.acquireWorkItem(workItemId);
+    } else if (d.commandType == 
+        HireEmployeeConstants.COMMIT_WORKITEM_TYPE) {
+      delegate.commitWorkItem(workItemId);
+    } else if (d.commandType == 
+        HireEmployeeConstants.ABORT_WORKITEM_TYPE) {
+      delegate.abortWorkItem(workItemId);
+    }
+  }
+}

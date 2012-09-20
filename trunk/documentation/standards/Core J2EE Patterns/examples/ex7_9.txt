@@ -1,0 +1,114 @@
+Example 7.9 	ServiceLocator.java: Implementing Web Service Locator Strategy
+package com.corej2eepatterns.servicelocator;
+// imports
+public class ServiceLocator {
+    . . . 
+
+	// returns a Connection to a UDDI registry
+	public Connection getRegistryConnection(String registryURL)
+	{
+		javax.xml.registry.Connection
+			registryConnection = null;
+		try {
+			if (cache.containsKey(registryURL)) {
+				registryConnection =
+					(Connection) cache.get(registryURL);
+			} else {
+				// Create a Connection to the registry 
+				// after setting standard JAXR properties such as
+				// javax.xml.registry.queryManagerURL
+  
+				javax.xml.registry.ConnectionFactory factory =
+					ConnectionFactory.newInstance();
+
+				// Define connection configuration properties
+				Properties props = new Properties();
+				props.setProperty(
+					"javax.xml.registry.queryManagerURL", 
+					registryURL);
+				props.setProperty(
+					"javax.xml.registry.factoryClass",
+			 "com.sun.xml.registry.uddi.ConnectionFactoryImpl");
+				factory.setProperties(props);
+
+				registryConnection = factory.createConnection();
+				cache.put(registryURL, registryConnection);
+			}
+		} catch (Exception e) {
+			throw new ServiceLocatorException(e);
+		} catch (JAXRException je) {
+			throw new ServiceLocatorException(je);
+		}
+		return registryConnection;
+	}
+
+	// Searches a Registry for a Service URI Endpoint using a
+	// tModelKey of a published Service.
+	// registryURL - is the URL of the UDDI provider
+	// tModelKey   - is the search string specific to
+	//     Published Businesses
+	public String getServiceAccessURI(
+		String registryURL, String tModelKey) {
+
+		javax.xml.registry.Connection regCon = null;
+		javax.xml.registry.RegistryService regSvc = null;
+		javax.xml.registry.BusinessQueryManager
+			queryManager = null;
+		javax.xml.registry.BusinessLifeCycleManager
+			lifeCycleManager = null;
+		String serviceAccessURI = null;
+		try {
+			if (cache.containsKey(tModelKey)) {
+				serviceAccessURI = (String) cache.get(tModelKey);
+			} else {
+				regCon = getRegistryConnection(registryURL);
+				regSvc = regCon.getRegistryService();
+				queryManager = regSvc.getBusinessQueryManager();
+				javax.xml.registry.infomodel.RegistryObject
+					regob = businessQueryManager.
+						getRegistryObject(tModelKey,
+							BusinessLifeCycleManager.CONCEPT);
+				Collection coll = new ArrayList();
+				coll.add(regob);
+
+				//Find organizations 
+				BulkResponse results =
+					businessQueryManager.findOrganizations(
+						null, null, null, coll, null, null);
+
+				Collection co = results.getCollection();
+				Iterator it = co.iterator();
+
+				while (it.hasNext()) {
+					Organization org = (Organization)it.next();
+					String orgName = org.getName().getValue();
+					Collection cc = org.getServices();
+					for (Iterator iterator=cc.iterator(); 
+						iterator.hasNext();) {
+						Service service = (Service) iterator.next();
+						Collection cb = service.getServiceBindings();
+						for (Iterator ito = cb.iterator();
+							ito.hasNext();) {                  
+							ServiceBinding serviceBinding = 
+								(ServiceBinding) ito.next();
+							if (serviceBinding != null ||
+								serviceBinding.getAccessURI() != null) {
+									serviceBinding.getAccessURI());
+									serviceAccessURI =
+										serviceBinding.getAccessURI();
+									cache.put(tModelKey,
+										serviceBinding.getAccessURI());
+							}
+						}
+					}
+				}
+			}
+		} catch (JAXRException e) {
+			throw new ServiceLocatorException(e);
+		}
+
+		return serviceAccessURI;
+	}
+
+	. . .
+}

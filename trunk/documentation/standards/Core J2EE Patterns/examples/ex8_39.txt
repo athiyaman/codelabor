@@ -1,0 +1,64 @@
+Example 8.39 	EmployeeImpl Class
+// EmployeeImpl.java
+
+package com.corej2eepatterns.business.impl;
+
+import com.corej2eepatterns.business.hr.Department;
+import com.corej2eepatterns.business.hr.Project;
+import com.corej2eepatterns.business.hr.Employee;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * @author  Craig Russell
+ */
+public class EmployeeImpl implements Employee {
+	private long id;
+	private String firstName;
+	private String lastName;
+	private DepartmentImpl department;
+	private Set projects = new HashSet();
+
+	/** Creates a new instance of EmployeeImpl */
+	EmployeeImpl(long id, String firstName, String lastName) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public boolean addProject(Project project) {
+		boolean result = projects.add(project);
+		if (result) {
+			((ProjectImpl) project).addEmployee(this);
+		}
+		return result;
+	}
+
+	public boolean removeProject(Project project) {
+		boolean result = projects.remove(project);
+		if (result) {
+			((ProjectImpl) project).removeEmployee(this);
+		}
+		return result;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		if (this.department != null) {
+			this.department.removeEmployee(this);
+		}
+		this.department = (DepartmentImpl) department;
+		this.department.addEmployee(this);
+	}
+
+	. . .
+
+	public Set getProjects() {
+		return Collections.unmodifiableSet(projects);
+	}
+}

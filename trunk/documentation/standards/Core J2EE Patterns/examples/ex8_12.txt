@@ -1,0 +1,57 @@
+Example 8.12 	TORowMapper.java: A Sample Implementation
+package com.corej2eepatterns.util;
+
+// imports
+public class TORowMapper {
+
+	// create Customer TO
+	public CustomerTO createCustomerTO(RowSet rowSet) {
+		CustomerTO to = new CustomerTO();
+		to.setId(getString(rowSet), 0);
+		to.setName(getString(rowSet), 1);
+		. . .
+	}
+
+	// create other TOs
+	. . .
+
+	// implement primitive methods used by create methods
+	protected boolean wasNull(RowSet rowSet) {
+		try {
+			return rowSet.wasNull();
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+	protected String getString(RowSet rowSet, int columnIndex) {
+		try {
+			return rowSet.getString(columnIndex);
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+	protected boolean getBoolean(
+			RowSet rowSet, int columnIndex) {
+		try {
+			return rowSet.getBoolean(columnIndex);
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+	protected java.util.Date getDate(
+			RowSet rowSet, int columnIndex) {
+		try {
+			return rowSet.getDate(columnIndex);
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+	// Other primitive getXXX methods for all required
+	// data types
+	. . . 
+
+}

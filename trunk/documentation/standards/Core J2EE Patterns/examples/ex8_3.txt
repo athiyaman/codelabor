@@ -1,0 +1,32 @@
+Example 8.3 	OracleDAOFactory.java: Data Access Object Strategy Using Factory Method [GoF]
+package com.corej2eepatterns.dao;
+
+// imports
+public class OracleDAOFactory extends DAOFactory {
+
+	// package level constant used look up the 
+	// DataSource name using JNDI
+	static String DATASOURCE_DB_NAME =
+			"java:comp/env/jdbc/CJPOraDB";
+
+	public static CustomerDAO getCustomerDAO() 
+			throws DAOException {
+		return (CustomerDAO) createDAO(CustomerDAO.class);
+	}
+
+	public static EmployeeDAO getEmployeeDAO() 
+			throws DAOException {
+		return (EmployeeDAO) createDAO(EmployeeDAO.class);
+	}
+
+	// create other DAO instances
+	. . .
+
+	// method to create a DAO instance. Can be optimized to 
+	// cache the DAO Class instead of creating it everytime.
+	private Object createDAO(Class classObj) 
+			throws DAOException {
+		// create a new DAO using classObj.newInstance() or 
+		// obtain it from a cache and return the DAO instance
+	}
+}

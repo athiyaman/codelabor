@@ -1,0 +1,36 @@
+Example 6.18 Front Controller
+public class FrontController extends HttpServlet {
+  private ApplicationController applicationController;
+
+  public void init(ServletConfig servletConfig) throws
+      ServletException{
+
+    super.init(servletConfig);
+
+    // Initialize Request Processing(Stateless) Components
+    applicationController = new ApplicationControllerImpl();
+    applicationController.initialize();
+  }
+
+  // called from doGet and doPost
+  protected void process(HttpServletRequest request,
+      HttpServletResponse response) throws java.io.IOException {
+
+    // Create RequestContext based on request type
+    RequestContextFactory requestContextFactory =
+        RequestContextFactory.getInstance();
+    RequestContext requestContext = 
+        requestContextFactory.createRequestContext(request);
+
+    // Request Processing
+    ResponseContext responseContext =
+        applicationController.handleRequest(requestContext);
+
+    // View Management - Navigate and Dispatch to appropriate view
+    Dispatcher dispatcher = new Dispatcher(request, response);
+    responseContext.setDispatcher(dispatcher);
+    applicationController.handleResponse(requestContext,
+        responseContext);
+  }
+  . . .
+}

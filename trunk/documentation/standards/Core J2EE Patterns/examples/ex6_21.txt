@@ -1,0 +1,50 @@
+Example 6.21 		ProjectRegistrationRequestContext 
+// Specialized POJO Request Context – instances of these get created by 
+// the RequestContextFactory class.
+public class ProjectRegistrationRequestContext extends
+    HttpRequestContext {
+
+  public ProjectRegistrationRequestContext(HttpServletRequest request){
+    super(request);
+    initialize(request);
+  }
+
+  public ProjectRegistrationRequestContext() { }
+
+  public void initialize(ServletRequest request) {
+    setRequest(request);
+    setProjectName(request.getParameter("projectName"));
+    setProjectDescription(request.getParameter("projectdescription"));
+    setProjectManager(request.getParameter("projectmanager"));
+  }
+
+  public String getProjectDescription() {
+    return projectDescription;
+  }
+
+  public void setProjectDescription(String projectDescription) {
+    this.projectDescription = projectDescription;
+  }
+
+  public String getProjectManager() {
+    return projectManager;
+  }
+
+  public void setProjectManager(String projectManager) {
+    this.projectManager = projectManager;
+  }
+
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public boolean validate() {
+    // Validation Rules 
+    return true;
+  }
+  . . .
+}

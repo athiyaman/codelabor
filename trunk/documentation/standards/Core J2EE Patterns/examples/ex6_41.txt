@@ -1,0 +1,11 @@
+Example 6.41  	Command and View Map Entry 
+<action-mappings>
+<!-- Edit mail subscription -->
+  <action path="/editSubscription" type=
+      "corepatterns.EditSubscriptionAction" attribute=
+      "subscriptionForm" scope="request" validate="false">
+    <forward name="failure" path="/jsp/mainMenu.jsp"/>
+    <forward name="success" path="/jsp/subscription.jsp"/>
+  </action>
+
+</action-mappings>

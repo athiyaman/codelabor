@@ -1,0 +1,98 @@
+Example 8.21 	public class EmployeeStateManager implements StateManager {
+    boolean isNew = true;
+    private Employee employee;
+    private PersistenceManager pm;
+
+    public EmployeeStateManager(PersistenceManager pm, Employee employee) {
+        this.employee = employee;
+    }
+
+    public void flush() {
+        if ( pm.isDirty( employee) ){
+            EmployeeTO to =
+                    new EmployeeTO(employee.getId(),
+                            employee.getLastName(),
+                            employee.getFirstName(),
+                            employee.getSS(),
+                            employee.getSalary(),
+                            employee.getDivisionId());
+
+            EmployeeStoreManager storeManager = new EmployeeStoreManager();
+            if (isNew) {
+                storeManager.storeNew(to);
+                isNew = false;
+            } else {
+                storeManager.update(to);
+            }
+            pm.resetDirty( employee );
+        }
+    }
+
+    public void load() {
+        EmployeeStoreManager storeManager = new EmployeeStoreManager();
+        EmployeeTO to = storeManager.load(employee.getId());
+        updateEmployee(to);
+    }
+
+    private void updateEmployee(EmployeeTO to) {
+        employee.setId(to.id);
+        employee.setLastName(to.lastName);
+        employee.setFirstName(to.firstName);
+        employee.setSS(to.ss);
+        employee.setSalary(to.salary);
+        employee.setDivisionId(to.divisionId);
+        isNew = false;
+    }
+
+    public boolean needLoading() {
+        if( pm.needLoading(employee) )
+            return true;
+        else
+            return false;
+    }
+} 
+EmployeeTO Class and EmployeeStoreManager Class
+public class EmployeeTO {
+	public String id;
+	public String lastName;
+	public String firstName;
+	public String ss;
+	public float   salary;
+	public String divisionId;
+
+	public EmployeeTO(String id, String lastName,
+			String firstName, String ss, float salary,
+			String divisionId ) {
+		this.id = id;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.ss = ss;
+		this.salary = salary;
+ 		this.divisionId = divisionId;
+	}
+}
+
+public class EmployeeStoreManager {
+	public void storeNew(EmployeeTO to) {
+		String sql = "Insert into Employee( id, last_name," +
+				" first_name, ss, salary, division_id ) " +
+				" values( '?', '?', '?', '?', '?', '?' )";
+		. . .
+	}
+
+	public void update(EmployeeTO to) {
+		String sql = "Update Employee set last_name = '?'," +
+				" first_name = '?', salary = '?'," +
+				" division_id = '?' where id = '?'";
+		. . .
+	}
+
+	public void delete(String empId) {
+		String sql = "Delete from Employee where id = '?'";
+		. . .
+	}
+
+	public EmployeeTO load(String empId) {
+		. . .
+	}
+}

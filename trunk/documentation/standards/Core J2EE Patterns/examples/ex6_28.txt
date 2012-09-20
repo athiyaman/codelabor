@@ -1,0 +1,21 @@
+Example 6.28 			JSTL Configuration Strategy
+<!--
+  The JSTL Config encapsulates data for use across several contexts.
+-->
+<corej2eepatterns:Announcements>
+
+  <b>Announcements:</b><br>
+
+  <!-- Display Request-specific Announcements, if any  -->
+  <c_rt:out value='<%= Config.get(request,
+      Constants.ANNOUNCEMENTS)%>'/> <br>
+
+  <!-- Display User-specific Announements, if any -->
+  <c_rt:out value='<%= Config.get(session,
+      Constants.ANNOUNCEMENTS)%>'/><br>
+
+  <!-- Display Global Announements, if any -->
+  <c_rt:out value='<%=
+      Config.get(application,Constants.ANNOUNCEMENTS)%>'/> <br>
+
+</corej2eepatterns:Announcements>

@@ -1,0 +1,44 @@
+Example 7.15 	OrderAppService
+
+public class OrderAppService {
+
+    public OrderAppService() {
+    }
+
+    public void placeOrder(OrderTO orderTO)
+    throws AccountException {
+        Company company = null;
+        Account account = null;
+
+        String companyId = orderTO.companyId;
+        String accountId = orderTO.accountId;
+
+        // Lookup Company
+        company = getCompany(companyId);
+
+        // Lookup account
+        account = company.getAccount(accountId);
+
+        // add the order to the account
+        Order order = new Order(orderTO);
+
+        // calculate discount
+        calculateDiscount(company, account, order);
+
+        account.addOrder(order);
+        AccountManager accountManager =
+            account.getAccountManager();
+
+        // Send email to Account Manager notifying the 
+        // new order
+        EmailAppService emailAppService =
+            new EmailAppService();
+        emailAppService.notifyAccountManager(accountManager,
+            order);
+    }
+
+    public void calculateDiscount(Company company,
+        Account account, Order order) {
+    }
+
+}

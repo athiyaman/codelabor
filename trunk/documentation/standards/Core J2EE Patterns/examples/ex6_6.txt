@@ -1,0 +1,11 @@
+Example 6.6  Handling Requests
+public void processRequest(ServletRequest req, ServletResponse res) 
+    throws IOException, ServletException {
+  Processor processors = new DebuggingFilter(
+      new AuthenticationFilter(new CoreProcessor()));
+  processors.execute(req, res);
+
+  //Then dispatch to next resource, which is probably 
+  // the View to display
+  dispatcher.dispatch(req, res);
+}

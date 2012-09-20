@@ -1,0 +1,63 @@
+Example 8.31 	QueriesImpl Class
+// QueryImpl.java
+
+package com.corej2eepatterns.business.impl;
+
+import com.corej2eepatterns.business.hr.Department;
+import com.corej2eepatterns.business.hr.Employee;
+import com.corej2eepatterns.business.hr.Project;
+import com.corej2eepatterns.business.hr.Queries;
+
+import javax.jdo.Query;
+import javax.jdo.PersistenceManager;
+import java.util.Collection;
+import java.util.Iterator;
+
+/**
+ * @author  Craig Russell
+ */
+public class QueriesImpl implements Queries {
+	private FactoryImpl factory;
+
+	/** Creates a new instance of QueryImpl */
+	public QueriesImpl(FactoryImpl factory) {
+		this.factory = factory;
+	}
+
+	public Department getDepartment(String name) {
+		PersistenceManager pm =
+				factory.getPersistenceManager();
+		Query q = pm.newQuery(
+				DepartmentImpl.class, "this.name == name");
+		q.declareParameters("String name");
+		Collection departments = (Collection) q.execute(name);
+		Iterator iterator = departments.iterator();
+		return (iterator.hasNext()) ?
+				(Department) iterator.next() : null;
+	}
+
+	public Employee getEmployee(long id) {
+		PersistenceManager pm =
+				factory.getPersistenceManager();
+		Query q = pm.newQuery(
+				EmployeeImpl.class, "this.id == id");
+		q.declareParameters("long id");
+		Collection employees = 
+				(Collection) q.execute(new Long(id));
+		Iterator iterator = employees.iterator();
+		return (iterator.hasNext()) ?
+				(Employee) iterator.next() : null;
+	}
+
+	public Project getProject(String name) {
+		PersistenceManager pm =
+				factory.getPersistenceManager();
+		Query q = pm.newQuery(
+				ProjectImpl.class, "this.name == name");
+		q.declareParameters("String name");
+		Collection projects = (Collection) q.execute(name);
+		Iterator iterator = projects.iterator();
+		return (iterator.hasNext()) ?
+				(Project) iterator.next() : null;
+	}
+} 

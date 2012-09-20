@@ -1,0 +1,49 @@
+Example 8.13 	A Sample DAO Client: Using the RowSetWrapperList
+package com.corej2eepatterns.rowset;
+
+// imports
+
+public class CustomerDAOClient {
+
+	. . . 
+
+	public void search() {
+		try {
+			CustomerDAO dao = new CustomerDAO();
+			CustomerTO criteria = new CustomerTO();
+
+			criteria.setZip("94539");
+
+			// search for all customers with Zip code 94539
+			// results to contain a maximum of 1000 matching rows
+			List searchResults = 
+					dao.findCustomersRL(criteria, 0, 999);
+
+			int resultSize = searchResults.size();
+			for (int rowNum=0; rowNum < resultSize; rowNum++) {
+				CustomerTO customerTO = 
+						(CustomerTO)searchResults.get(rowNum);
+				System.out.println("Customer Row #" +
+						rowNum + " has ");
+				System.out.println("Customer Id = " +
+						customerTO.getId());
+				System.out.println("Name = " +
+						customerTO.getName());
+				. . .
+			}
+
+			. . .
+
+			// get a ListIterator
+			ListIterator iterator = searchResults.listIterator();
+
+			// use the iterator to traverse to next or
+			// previous row
+			. . .
+
+		} catch (Exception e) {
+			// handle exception
+		}
+	}
+	. . .
+}

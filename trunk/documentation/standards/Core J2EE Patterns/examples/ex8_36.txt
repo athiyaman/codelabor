@@ -1,0 +1,10 @@
+Example 8.36 	Department Class
+// Department.java
+package com.corej2eepatterns.business.hr;
+
+import java.util.Set;
+
+public interface Department {
+	String getName();
+	Set getEmployees();
+}

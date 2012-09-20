@@ -1,0 +1,15 @@
+Example 6.61 Composite View with Translation-Time Content inclusion
+<table border=1 valign="top" cellpadding="2%" width="100%">
+    <tr>
+       <td><%@ include file="news/worldnews.html" %> </td>
+    </tr>
+    <tr>
+       <td><%@ include file="news/countrynews.html" %> </td>
+    </tr>
+    <tr>
+       <td><%@ include file="news/customnews.html" %> </td>
+    </tr>
+    <tr>
+       <td><%@ include file="news/astronomy.html" %> </td>
+    </tr>
+</table>

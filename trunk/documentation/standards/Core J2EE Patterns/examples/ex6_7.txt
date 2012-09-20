@@ -1,0 +1,10 @@
+Example 6.7 Implementing a Filter – Core Processor
+public class CoreProcessor implements Processor {
+
+  public CoreProcessor() { }
+
+  public void execute(ServletRequest req, ServletResponse res)
+      throws IOException, ServletException {
+    //Do core processing here
+  }
+}

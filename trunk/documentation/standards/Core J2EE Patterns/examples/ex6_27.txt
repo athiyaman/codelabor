@@ -1,0 +1,31 @@
+Example 6.27 			Form-validators.xml
+Form-validators.xml
+
+<form-validation>
+  <global>
+    <validator name="required" classname=
+        "corepatterns.ContextObject.adapterpojo.RequestValidator"
+         method="validateRequired" methodParams=
+         "java.lang.Object,org.apache.commons.validator.Field"/>
+
+    <validator name="email" classname=
+        "corepatterns.ContextObject.adapterpojo.RequestValidator"
+         method="validateEmail" methodParams=
+         "java.lang.Object,org.apache.commons.validator.Field"/>
+
+  </global>
+  <formset>
+    <form name="ProjectRegistrationForm">
+      <field property="projectName" depends="required">
+        <arg0 key="ProjectRegistrationForm.projectname.displayname"/>
+      </field>
+      <field property="projectDescription" depends="required">
+        <arg0 key=
+            "ProjectRegistrationForm.projectdescription.displayname"/>
+      </field>
+      <field property="emailAlias" depends ="required">
+        <arg0 key="ProjectRegistrationForm.emailalias.displayname"/>
+      </field>
+    </form>
+  </formset>
+</form-validation>

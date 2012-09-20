@@ -1,0 +1,12 @@
+Example 6.56 Using JSTL, example.jsp
+<%-- example.jsp --%>
+<%-- note: this example uses JSTL (URL ref) --%>
+
+<table>
+<c:forEach var="product" items="${products}" varStatus="status">
+<tr>
+ <td><c:out value="${status.count}"/></td>
+ <td><c:out value="${product.name}"/></td>
+</tr>
+</c:forEach>
+</table>

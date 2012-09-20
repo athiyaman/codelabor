@@ -1,0 +1,33 @@
+Example 9.8 	CandidateAppService Code
+package ActionAdapter;
+
+public class CandidateAppService {
+  public void createCandidate(String userId, String lname,
+      String fname, String street, String city, String state,
+      String zip, WorkflowContext context ) {
+    // do logic
+    // store data
+    HireEmployeeAA aa = new HireEmployeeAA();
+    aa.candidateCreated(userId,context.getWorkflowProcessId(),
+        context.getWorkItemId() );
+  }
+  public void submitReview(String userId, ReviewInfoTO to,
+      WorkflowContext context ) {
+    // do logic
+    // store data
+    HireEmployeeAA aa = new HireEmployeeAA();
+    aa.candidateReviewed(userId,
+        context.getWorkflowProcessId(),
+        context.getWorkItemId());
+  }
+  public void submitInterview(String userId, 
+      InterviewInfoTO to, WorkflowContext context)
+      throws CandidateException {
+    // do logic
+    // store data
+    HireEmployeeAA aa = new HireEmployeeAA();
+    aa.candidateInterviewed(userId,
+        context.getWorkflowProcessId(),
+        context.getWorkItemId());
+  }
+}

@@ -1,0 +1,14 @@
+Example 4.11 Controlling Access Using a Control Component
+
+<%@ taglib uri="/WEB-INF/corepatternstaglibrary.tld" prefix="corepatterns" %>
+<corepatterns:guard/>
+<html>
+<head><title>Hide Resource from Client</title></head>
+<body>
+
+<h2>This view is shown to the client only if the 
+control component allows access. The view delegates 
+the control check to the guard tag at the top of the 
+page.</h2>
+</body>
+</html>

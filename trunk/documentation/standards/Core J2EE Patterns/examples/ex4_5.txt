@@ -1,0 +1,112 @@
+Example 4.5 JSP with Scriptlet Code
+
+<html>
+<head><title>Employee List</title></head>
+<body>
+<%-- Display All employees belonging to a department and earning at most the given salary --%>
+
+<%   
+    
+    // Get the department for which the employees are
+    // to be listed
+    String deptidStr = request.getParameter( 
+        Constants.REQ_DEPTID);
+
+    // Get the max salary constraint
+    String salaryStr = request.getParameter( 
+        Constants.REQ_SALARY);
+
+    // validate parameters
+
+    // if salary or department not specified, go to
+    // error page
+    if ( (deptidStr == null) || (salaryStr == null ) )
+    { 
+       request.setAttribute(Constants.ATTR_MESSAGE, 
+        "Insufficient query parameters specified" + 
+        "(Department and Salary)");
+       request.getRequestDispatcher("/error.jsp").
+         forward(request, response);
+    }
+
+    // convert to numerics
+    int deptid = 0;
+    float salary = 0;
+    try
+    {
+        deptid = Integer.parseInt(deptidStr);
+        salary = Float.parseFloat(salaryStr);
+    }
+    catch(NumberFormatException e)
+    {   
+       request.setAttribute(Constants.ATTR_MESSAGE, 
+          "Invalid Search Values" + 
+          "(department id and salary )");
+       request.getRequestDispatcher("/error.jsp").
+          forward(request, response);        
+
+    }
+
+    // check if they within legal limits
+    if ( salary < 0  )
+    {
+      request.setAttribute(Constants.ATTR_MESSAGE, 
+        "Invalid Search Values" + 
+        "(department id and salary )");
+      request.getRequestDispatcher("/error.jsp").
+          forward(request, response);
+    }
+    
+%>
+
+<h3><center> List of employees in department # <%=deptid%>
+    earning at most <%= salary %>. </h3>
+
+<%
+    Iterator employees = new EmployeeDelegate().
+         getEmployees(deptid);
+%>
+
+<table border="1" >
+    <tr>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Designation </th>
+        <th> Employee Id </th>
+        <th> Tax Deductibles </th>
+        <th> Performance Remarks </th>
+        <th> Yearly Salary</th>
+    </tr>
+<%    
+    while ( employees.hasNext() )
+    {
+        EmployeeVO employee = (EmployeeVO) 
+              employees.next();
+
+        // display only if search criteria is met
+        if ( employee.getYearlySalary() <= salary )
+        {
+%>
+        <tr>
+          <td> <%=employee.getFirstName()%></td>
+
+          <td> <%=employee.getLastName()%></td>
+          <td> <%=employee.getDesignation()%></td>
+          <td> <%=employee.getId()%></td>
+          <td> <%=employee.getNoOfDeductibles()%></td>
+          <td> <%=employee.getPerformanceRemarks()%>
+                </td>
+          <td> <%=employee.getYearlySalary()%></td>
+        </tr>
+<%  
+        }
+    }
+%>
+</table>
+
+<%@ include file="/jsp/trace.jsp" %>
+<P> <B>Business logic and presentation formatting are
+           intermingled within this JSP view. </B>
+
+</body>
+</html>

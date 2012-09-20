@@ -1,0 +1,60 @@
+Example 6.40 ApplicationController Implementation
+public class RequestProcessor {
+  public void process(HttpServletRequest request,
+      HttpServletResponse response)
+      throws IOException, ServletException {
+
+    // Identify Command Id (path) from request object
+    String path = processPath(request, response);
+    .  .  .
+    // Identify Command Map based on Command Id
+    ActionMapping mapping = processMapping(request, response, path);
+    if (mapping == null) {
+      return;
+    }
+
+    // Authorize user based on Command-Map security settings
+    if (!processRoles(request, response, mapping)) {
+      return;
+    }
+
+    // Identify Command Context Object from CommandMap
+    ActionForm form = processActionForm(request, response, mapping);
+
+    // Auto-populate Context Object from request 
+    processPopulate(request, response, form, mapping);
+
+    // Validate Context Object request state
+    if (!processValidate(request, response, form, mapping)) {
+      return;
+    }
+    // Create or acquire the Command instance to process this request
+    Action action = processActionCreate(request, response, mapping);
+    if (action == null) {
+      return;
+    }
+    .  .  .
+
+    // Execute Command and get ViewHandle
+    ActionForward forward =  action.execute(mapping, form, request,
+        response);
+
+    // Dispatch to appropriate View using ViewHandle
+    processActionForward(request, response, forward);
+
+  }
+
+
+  // Handle Response
+  protected void processActionForward(HttpServletRequest request,
+      HttpServletResponse response, ActionForward forward)
+      throws IOException, ServletException {
+    .  .  .
+    // Dispatch to View
+    RequestDispatcher rd =
+        getServletContext().getRequestDispatcher(uri);
+    rd.forward(request, response);
+    .  .  .
+
+  }
+}

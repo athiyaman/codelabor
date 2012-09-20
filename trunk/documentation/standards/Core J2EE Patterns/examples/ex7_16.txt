@@ -1,0 +1,17 @@
+Example 7.16 	EmailAppService
+// import
+
+public EmailAppService {
+
+    public void notifyAccountManager(
+        AccountManager accountManager, Order order) {
+        // integrate with the Email API to send an email
+        // notification
+    }
+
+    public void notifyAccountManager(
+        AccountManager accountManager, Account account) {
+        // integrate with the Email API to send an email
+        // notification
+    }
+}

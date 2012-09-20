@@ -1,0 +1,70 @@
+Example 7.25 SkillSet-dependent object implements DirtyMarker interface
+
+public class SkillSetTO
+implements DirtyMarker, java.io.Serializable {
+	private String skillName;
+	private String expertiseLevel;
+	private String info;
+	...
+
+	// dirty flag
+	private boolean dirty = false;
+
+	// new flag
+	private boolean isnew = true;
+
+	// deleted flag
+	private boolean deleted = false;
+
+	public SkillSetTO(...) {
+		// initialization
+		...
+		// is new TO
+		setNew();
+	}
+
+	// get, set and other methods for SkillSet
+	// all set methods and modifier methods
+	// must call setDirty()
+	public setSkillName(String newSkillName) {
+		skillName = newSkillName;
+		setDirty();
+	}
+	...
+
+	// DirtyMarker methods
+	// used for modified transfer objects only
+
+	public void setDirty() {
+		dirty = true;
+	}
+	public void resetDirty() {
+		dirty = false;
+	}
+	public boolean isDirty() {
+		return dirty;
+	}
+
+	// used for new transfer objects only
+	public void setNew() {
+		isnew = true;
+	}
+	public void resetNew() {
+		isnew = false;
+	}
+	public boolean isNew() {
+		return isnew;
+	}
+
+	// used for deleted objects only
+	public void setDeleted() {
+		deleted = true;
+	}
+	public boolean isDeleted() {
+		return deleted;
+	}
+	public void resetDeleted() {
+		deleted = false;
+	}
+
+}

@@ -1,0 +1,54 @@
+Example 4.9 	Conversion Logic Embedded Within View
+
+<html>
+<head><title>Employee List</title></head>
+<body>
+
+<h3><head><center> List of employees</h3>
+
+<%
+    String firstName = 
+      (String)request.getParameter("firstName");
+    String lastName  = 
+      (String)request.getParameter("lastName");
+    if ( firstName == null ) 
+      // if none specific, fetch all
+      firstName = "";
+    if ( lastName == null )
+      lastName = "";
+
+    EmployeeDelegate empDelegate = new 
+            EmployeeDelegate();
+    Iterator employees = 
+        empDelegate.getEmployees( 
+          EmployeeDelegate.ALL_DEPARTMENTS);
+%>
+
+<table border="1" >
+    <tr>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Designation </th>
+    </tr>
+<%    
+    while ( employees.hasNext() )
+    {
+
+        EmployeeVO employee = (EmployeeVO) 
+                              employees.next();
+
+        if ( employee.getFirstName(). 
+              startsWith(firstName) && 
+             employee.getLastName(). 
+              startsWith(lastName) ) {
+%>
+ <tr>
+  <td><%=employee.getFirstName().toUpperCase() %></td>
+  <td> <%=employee.getLastName().toUpperCase() %></td>
+  <td> <%=employee.getDesignation()%></td>
+ </tr>
+<%
+        }
+    }
+%>
+</table>

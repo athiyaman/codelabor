@@ -1,0 +1,7 @@
+Example 6.64 A Region and Sections
+<region:render template='portal.jsp'>
+	  <region:put section='banner'       content='banner.jsp' />
+	  <region:put section='controlpanel' content='ProfilePane.jsp' />
+	  <region:put section='mainpanel'    content='mainpanel.jsp' />
+	  <region:put section='footer'       content='footer.jsp' />
+</region:render>

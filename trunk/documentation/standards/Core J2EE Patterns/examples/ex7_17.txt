@@ -1,0 +1,16 @@
+Example 7.17 	Order 
+
+import java.util.Collection;
+
+public class Order {
+    String orderId;
+    Collection lineItems;
+    
+    . . .
+
+    public void addLineItems( LineItem[] lines ) {
+        for( int i = 0; i < lines.length; i++ ) {
+            lineItems.add( lines[ i ] );
+        }
+    }
+}

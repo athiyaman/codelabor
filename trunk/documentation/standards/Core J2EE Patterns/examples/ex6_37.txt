@@ -1,0 +1,8 @@
+Example 6.37 ApplicationController interface
+interface ApplicationController {
+  void init();
+  ResponseContext handleRequest(RequestContext requestContext);
+  void  handleResponse(RequestContext requestContext, ResponseContext
+      responseContext);
+  void destroy();
+}

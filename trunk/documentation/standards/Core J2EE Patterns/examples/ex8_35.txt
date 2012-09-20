@@ -1,0 +1,30 @@
+Example 8.35	FullTimeEmployeeImpl class
+//FullTimeEmployeeImpl.java
+
+package com.corej2eepatterns.business.impl;
+
+import com.corej2eepatterns.business.hr.FullTimeEmployee;
+
+import java.math.BigDecimal;
+
+/**
+ * @author  Craig Russell
+ */
+public class FullTimeEmployeeImpl
+		extends EmployeeImpl implements FullTimeEmployee {
+	private BigDecimal salary;
+
+	/** Creates a new instance of FullTimeEmployeeImpl */
+	public FullTimeEmployeeImpl(
+			long id, String firstName, String lastName) {
+		super(id, firstName, lastName);
+	}
+
+	public BigDecimal getSalary() {
+		return salary;
+	}
+
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
+	}
+}

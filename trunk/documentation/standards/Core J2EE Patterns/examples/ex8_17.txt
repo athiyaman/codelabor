@@ -1,0 +1,44 @@
+Example 8.17 	MDB Service Activator, OrderServiceActivatorMDB.java
+public class OrderServiceActivator
+		implements javax.ejb.MessageDrivenBean,
+		javax.jms.MessageListener {
+	. . .
+
+	// The EJB container will invoke onMessage when a message 
+	// arrives for this Service Activator
+	public void onMessage(Message message) {
+		try {
+			// parse Message msg. See JMS API for Message.
+			// Get the order object from the message
+			ObjectMessage objectMessage =
+					(javax.jms.ObjectMessage) message;
+			Order order = (Order)objectMessage.getObject();
+
+			// Use the Business Delegate for Order Processor
+			// Session Façade to invoke order processing
+			OrderProcessorDelegate orderProcessorBD =
+					new OrderProcessorDelegate();
+			orderProcessorBD.processOrder(order);
+
+			// send any response here...
+		}
+		catch (JMSException jmsexcp) {
+			// Handle JMSExceptions, if any
+			// Send error response, throw runtime exception
+		} 
+		catch (Exception excp) {
+			// Handle any other exceptions
+			// Send error response, throw runtime exception
+		}
+	}
+
+	// implement other methods required by the
+	// Message Driven Bean
+	public void setMessageDrivenContext(
+			javax.ejb.MessageDrivenContext ctx)
+			throws javax.ejb.EJBException { . . . }
+
+	public void ejbCreate() { . . . }
+
+	public void ejbRemove() { . . . }
+}

@@ -1,0 +1,17 @@
+Example 7.19 	LineItem 
+
+import java.util.Date;
+
+public class LineItem {
+    String  productId;
+    float   price;
+    int     quantity;
+    Date    deliveryDate;
+
+    public LineItem(LineItemTO lineItem) {
+        this.productId = lineItem.getProductId();
+        this.price = lineItem.getPrice();
+        this.quantity = lineItem.getQuantity();
+        this.deliveryDate = lineItem.getDeliveryDate();
+    }
+}

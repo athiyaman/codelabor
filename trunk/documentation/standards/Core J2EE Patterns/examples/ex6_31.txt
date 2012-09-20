@@ -1,0 +1,20 @@
+Example 6.31 		Context Object Factory
+public class FrontController extends HttpServlet {
+
+  protected void processRequest(HttpServletRequest request,
+      HttpServletResponse response)
+      throws ServletException, java.io.IOException {           
+    . . .
+    // Identify incoming Request Type 
+    String requestType = getRequestType(request);
+
+    // Instantialte Specialized RequestContext based on incoming 
+    // request type
+    RequestContextFactory requestContextFactory = 
+        RequestContextFactory.getInstance();
+
+    RequestContext requestContext =
+        requestContextFactory.getRequestContext(requestType,  request);
+    . . . 
+  }
+}
