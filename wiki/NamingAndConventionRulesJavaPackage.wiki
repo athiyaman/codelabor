@@ -5,9 +5,16 @@
 
 
 = 기본 패키지 =
-
+{{{
+org.codelabor
+}}}
 
 = 상위 업무 패키지 =
+{{{
+org.codelabor.system
+org.codelabor.common
+org.codelabor.example
+}}}
 
 = 하위 업무 패키지 =
 
