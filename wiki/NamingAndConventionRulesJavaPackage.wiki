@@ -27,12 +27,17 @@ src/main/java 소스 코드 디렉토리 (배포됨)
 src/test/java 테스트 코드 디렉토리 (배포되지 않음)
 }}}
 
-== 상위 업종 패키지 ==
+== 상위 업종(Industry) 패키지 ==
 업종별 패키지를 구분해서 구성해야하는 경우 상위 패키지에 업무명을 넣기 전에 업종명을 넣는다.
 {{{
-org.codelabor.finance.banking
+org.codelabor.finance 금융업 관련 패키지
+org.codelabor.insurance 보험업 관련 패키지
+org.codelabor.construction 건설업 관련 패키지
+org.codelabor.manufacturing 제조업 관련 패키지
+org.codelabor.education 교육서비스업 관련 패키지
 }}}
-처음부터 업종별 패키지를 만들 필요는 없고, 개발 소스가 여러 업종에 대해 개발되고 성숙도가 높아져 독립시켜야할 필요성이 생겼을 때 refactoring 하는 것을 권장한다.
+처음부터 업종별 패키지를 만들 필요는 없고, 개발 소스가 여러 업종에 대해 개발되고 업종별 자산 성숙도가 높아져 독립시켜야할 필요성이 생겼을 때 refactoring 하는 것을 권장한다.
+업종별 자산 성숙도가 낮거나 굳이 업종을 구분할 필요가 없을 경우, 생략 가능하다. 
 
 == 상위 업무 패키지 ==
 기본 패키지(혹은 상위 업종 패키지)에 이어 상위 업무 패키지를 구성한다.
@@ -98,7 +103,8 @@ org.codelabor.system.web.controller.xplatform
 == 패키지 복수형 표현을 사용하는 경우 ==
 동일 패턴에 해당하는 복수 구현 클래스가 탑재될 경우, 패키지 이름을 복수형으로 사용할 수 있다.
 {{{
-org.codelabor.system.services 동일 레벨에 복수 서비스가 탑재되는 경우
+org.codelabor.system.services 동일 레벨에 여러 개의 서비스들이 탑재되는 경우
+org.codelabor.system.filters 동일 레벨에 여러 개의 필터들이 탑재되는 경우
 }}}
 
 == 구현 패키지는 사용 금지 ==
