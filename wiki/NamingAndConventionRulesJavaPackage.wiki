@@ -80,7 +80,6 @@ org.codelabor.example.remoting 원격 호출 관련 예제 패키지
 org.codelabor.example.security 보안 관련 예제 패키지
 org.codelabor.example.calendar 캘린더 관련 예제 패키지
 org.codelabor.example.zip 우편번호 관련 예제 패키지
-org.codelabor.example.helloworld 헬로 월드 예제 패키지
 }}}
 
 == 하위 업무 패키지 ==
