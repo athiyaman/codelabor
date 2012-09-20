@@ -1,19 +1,18 @@
-#Naming and Convention Rules (Java Package)
+= Naming and Convention Rules (Java Package) = 
 
-= 개요 =
+== 개요 ==
 
 일반적인 Java Application 개발 시 필요한 패키지 명명법을 정의함
 
 
-= 기본 패키지 =
+== 기본 패키지 ==
 
-= 상위 업무 패키지 =
+== 상위 업무 패키지 ==
 
-= 하위 업무 패키지 = 
+== 하위 업무 패키지 ==
 
-= 패턴 패키지 = 
+== 패턴 패키지 == 
 
-= 3rd Party 패키지 =
+== 3rd Party 패키지 ==
 
-= 패키지의 복수형 표현 =
-
+== 패키지의 복수형 표현 ==
