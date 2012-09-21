@@ -100,13 +100,14 @@ org.codelabor.system.file.web 파일 관리 Web 관련 패키지
 }}}
 
 = 상황별 패키지 구조 정의 =
+기 정의된 패키지 구조에서 상황에 따라 아래와 같은 확장, 변형이 가능하다.
 
 == 3rd Party 제품을 확장하는 경우 ==
 동일 인터페이스를 구현하는 복수 구현체가 존재하되, 특정사 제품에 의존적인 경우, 해당 제품명으로 패키지를 구성한다. (사명이 아닌 제품명을 사용)
 {{{
-org.codelabor.system.util.xplatform
-org.codelabor.system.web.filter.xplatform
-org.codelabor.system.web.controller.xplatform
+org.codelabor.system.util.xplatform XPLATFORM 확장 유틸리티
+org.codelabor.system.web.filter.xplatform XPLATFORM 확장 서블릿 필터
+org.codelabor.system.web.controller.xplatform XPLATFORM 확장 컨트롤러
 }}}
 
 == 패키지 복수형 표현을 사용하는 경우 ==
