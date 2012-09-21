@@ -1,5 +1,5 @@
 #summary 개발 표준 작성 지침 - 명명법 및 코딩 표준 (Java Package)
-<wiki:toc max_depth="1" />
+#sidebar <wiki:toc max_depth="1" />
 
 
 = 개요 =
