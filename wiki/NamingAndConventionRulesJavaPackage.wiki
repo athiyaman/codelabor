@@ -1,6 +1,7 @@
 #summary 개발 표준 작성 지침 - 명명법 및 코딩 표준 (Java Package)
 
 <wiki:toc max_depth="1" />
+#sidebar TableOfContents
 
 = 개요 =
 일반적인 Java Application 개발 시 필요한 일반적인 패키지 명명법을 정의한다.
