@@ -5,12 +5,10 @@ public class UserContextImpl implements UserContext {
 	private static final String ANONYMOUS = "Anonymous";
 	private String userId = ANONYMOUS;
 
-	@Override
 	public String getUserId() {
 		return userId;
 	}
 
-	@Override
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
