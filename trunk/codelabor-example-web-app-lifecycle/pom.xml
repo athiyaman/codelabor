@@ -15,44 +15,59 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.10</version>
       <scope>test</scope>
     </dependency>
     <dependency>
     	<groupId>org.slf4j</groupId>
     	<artifactId>slf4j-api</artifactId>
     	<version>1.5.3</version>
-    	<optional>false</optional>
     </dependency>
     <dependency>
     	<groupId>org.slf4j</groupId>
     	<artifactId>slf4j-log4j12</artifactId>
     	<version>1.5.3</version>
-    	<optional>false</optional>
+    	<scope>runtime</scope>
     </dependency>
     <dependency>
     	<groupId>log4j</groupId>
     	<artifactId>log4j</artifactId>
     	<version>1.2.14</version>
-    	<optional>false</optional>
+    	<scope>runtime</scope>
     </dependency>
     <dependency>
     	<groupId>javax.servlet</groupId>
     	<artifactId>jstl</artifactId>
-    	<version>1.2</version>
-    	<type>jar</type>
+    	<scope>provided</scope>
     </dependency>
     <dependency>
     	<groupId>javax.servlet.jsp</groupId>
     	<artifactId>jsp-api</artifactId>
-    	<version>2.1</version>
-    	<type>jar</type>
+    	<scope>provided</scope>
     </dependency>
     <dependency>
     	<groupId>javax.servlet</groupId>
     	<artifactId>servlet-api</artifactId>
-    	<version>2.5</version>
-    	<type>jar</type>
+    	<scope>provided</scope>
     </dependency>
   </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>javax.servlet.jsp</groupId>
+  			<artifactId>jsp-api</artifactId>
+  			<version>2.1</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>javax.servlet</groupId>
+  			<artifactId>jstl</artifactId>
+  			<version>1.2</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>javax.servlet</groupId>
+  			<artifactId>servlet-api</artifactId>
+  			<version>2.5</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>

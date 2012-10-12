@@ -1,6 +1,6 @@
 package org.codelabor.example.lifecycle.context;
 
-import junit.framework.Assert;
+
 
 public class UserContextHolder {
 	private static final ThreadLocal<UserContext> contextHolder = new ThreadLocal<UserContext>();
@@ -17,7 +17,7 @@ public class UserContextHolder {
 	}
 
 	public static void setContext(UserContext userContext) {
-		Assert.assertNotNull(userContext);
+		assert userContext != null;
 		contextHolder.set(userContext);
 	}
 }
