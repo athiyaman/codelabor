@@ -27,6 +27,8 @@ public class LifecycleFilter implements Filter {
 	 */
 	public LifecycleFilter() {
 		logger.debug("constructor");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 	}
 
 	/**
@@ -34,6 +36,8 @@ public class LifecycleFilter implements Filter {
 	 */
 	public void destroy() {
 		logger.debug("destroy");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 	}
 
 	/**
@@ -42,6 +46,8 @@ public class LifecycleFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		logger.debug("doFilter");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
@@ -56,6 +62,8 @@ public class LifecycleFilter implements Filter {
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
 		logger.debug("init");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 	}
 
 }

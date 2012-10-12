@@ -31,6 +31,8 @@ public class LifecycleServlet extends HttpServlet {
 	public LifecycleServlet() {
 		super();
 		logger.debug("constructor");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
@@ -40,6 +42,8 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		logger.debug("init");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
@@ -49,6 +53,8 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public void destroy() {
 		logger.debug("destroy");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
@@ -58,6 +64,8 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public ServletConfig getServletConfig() {
 		logger.debug("getServletConfig");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		return null;
 	}
@@ -68,6 +76,8 @@ public class LifecycleServlet extends HttpServlet {
 	@Override
 	public String getServletInfo() {
 		logger.debug("getServletInfo");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		return null;
 	}
@@ -80,6 +90,8 @@ public class LifecycleServlet extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("service");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
@@ -91,6 +103,8 @@ public class LifecycleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("doGet");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
@@ -102,6 +116,8 @@ public class LifecycleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		logger.debug("doPost");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 

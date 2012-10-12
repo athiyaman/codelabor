@@ -22,6 +22,8 @@ public class LifecycleServletRequestListener implements ServletRequestListener {
 	 */
 	public LifecycleServletRequestListener() {
 		logger.debug("constructor");
+		long threadId = Thread.currentThread().getId();
+		logger.debug("thread id: {}", threadId);
 	}
 
 	/**
@@ -29,7 +31,9 @@ public class LifecycleServletRequestListener implements ServletRequestListener {
 	 */
 	public void requestDestroyed(ServletRequestEvent event) {
 		logger.debug("requestDestroyed");
+		long threadId = Thread.currentThread().getId();
 		String sessionId = ServletUtils.getSessionId(event);
+		logger.debug("thread id: {}", threadId);
 		logger.debug("session id: {}", sessionId);
 	}
 
@@ -38,7 +42,9 @@ public class LifecycleServletRequestListener implements ServletRequestListener {
 	 */
 	public void requestInitialized(ServletRequestEvent event) {
 		logger.debug("requestInitialized");
+		long threadId = Thread.currentThread().getId();
 		String sessionId = ServletUtils.getSessionId(event);
+		logger.debug("thread id: {}", threadId);
 		logger.debug("session id: {}", sessionId);
 	}
 
