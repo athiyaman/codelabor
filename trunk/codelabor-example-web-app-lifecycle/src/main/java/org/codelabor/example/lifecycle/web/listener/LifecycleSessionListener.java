@@ -26,7 +26,6 @@ public class LifecycleSessionListener implements HttpSessionListener {
 	/**
 	 * @see HttpSessionListener#sessionCreated(HttpSessionEvent)
 	 */
-	@Override
 	public void sessionCreated(HttpSessionEvent event) {
 		logger.debug("sessionCreated");
 		String sessionId = ServletUtils.getSessionId(event);
@@ -36,7 +35,6 @@ public class LifecycleSessionListener implements HttpSessionListener {
 	/**
 	 * @see HttpSessionListener#sessionDestroyed(HttpSessionEvent)
 	 */
-	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {
 		logger.debug("sessionDestroyed");
 		String sessionId = ServletUtils.getSessionId(event);
