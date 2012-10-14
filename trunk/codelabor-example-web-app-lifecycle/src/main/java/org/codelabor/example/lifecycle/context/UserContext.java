@@ -2,8 +2,8 @@ package org.codelabor.example.lifecycle.context;
 
 public class UserContext {
 
-	private static final String ANONYMOUS = "Anonymous";
-	private String userId = ANONYMOUS;
+	private static final String DEFAULT_USER_ID = "Anonymous";
+	private String userId = DEFAULT_USER_ID;
 
 	public String getUserId() {
 		return userId;
