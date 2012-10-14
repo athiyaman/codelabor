@@ -10,7 +10,6 @@ public class LifecycleGlobalTriggerListener implements TriggerListener {
 
 	private final static Logger logger = LoggerFactory
 			.getLogger(LifecycleGlobalTriggerListener.class);
-
 	public LifecycleGlobalTriggerListener() {
 		super();
 		logger.debug("constructor");
