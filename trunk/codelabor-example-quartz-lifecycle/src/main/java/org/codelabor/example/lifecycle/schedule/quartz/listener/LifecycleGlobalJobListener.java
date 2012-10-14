@@ -37,6 +37,7 @@ public class LifecycleGlobalJobListener implements JobListener {
 		logger.debug("jobToBeExecuted");
 		
 		// TODO: set user id
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		String userId = DEFAULT_USER_ID;
 		logger.debug("set user id: {}", userId);
 		UserContextHolder.getContext().setUserId(userId);
