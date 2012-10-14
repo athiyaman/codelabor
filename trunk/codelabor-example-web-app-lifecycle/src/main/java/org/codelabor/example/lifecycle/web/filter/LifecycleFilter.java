@@ -55,6 +55,7 @@ public class LifecycleFilter implements Filter {
 		// TODO: get user id from session
 		String userId = "Test User";
 		// TODO: set user id to user context
+		logger.debug("set user id: {}", userId);
 		UserContextHolder.getContext().setUserId(userId);
 		
 		logger.debug("before chain.doFilter()");
@@ -64,6 +65,7 @@ public class LifecycleFilter implements Filter {
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		
 		// TODO: remove user context
+		logger.debug("remove user context");
 		UserContextHolder.removeContext();
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
