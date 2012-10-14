@@ -51,9 +51,20 @@ public class LifecycleFilter implements Filter {
 		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
+		
+		// TODO: get user id from session
+		String userId = "Test User";
+		// TODO: set user id to user context
+		UserContextHolder.getContext().setUserId(userId);
+		
 		logger.debug("before chain.doFilter()");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		chain.doFilter(request, response);
 		logger.debug("after chain.doFilter()");
+		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
+		
+		// TODO: remove user context
+		UserContextHolder.removeContext();
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
