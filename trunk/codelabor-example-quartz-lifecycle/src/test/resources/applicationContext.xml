@@ -14,7 +14,9 @@
 		<property name="schedulerListeners" ref="lifecycleSchedulerListener"/>
 		<property name="globalTriggerListeners" ref="lifecycleGlobalTriggerListener"/>
 		<property name="globalJobListeners" ref="lifecycleGlobalJobListener"/>
+		<!-- does not work
 		<property name="jobListeners" ref="lifecycleJobListener"/>
+		-->
 	</bean>
 
 	<!--  	
@@ -35,6 +37,11 @@
 		<property name="targetObject" ref="lifecycleService"/>
 		<property name="targetMethod" value="execute"/>
 		<property name="concurrent" value="false"/>
+		<!-- does not work
+		<property name="jobListenerNames">
+			<list><value>lifecycleJobListener</value></list>
+		</property>
+		-->
 	</bean>
 
 	<bean id="lifecycleSchedulerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleSchedulerListener" />
