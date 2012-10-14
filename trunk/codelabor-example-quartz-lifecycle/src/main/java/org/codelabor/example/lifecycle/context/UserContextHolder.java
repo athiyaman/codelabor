@@ -20,4 +20,8 @@ public class UserContextHolder {
 		Assert.assertNotNull(userContext);
 		contextHolder.set(userContext);
 	}
+	
+	public static void removeContext() {
+		contextHolder.remove();
+	}
 }
