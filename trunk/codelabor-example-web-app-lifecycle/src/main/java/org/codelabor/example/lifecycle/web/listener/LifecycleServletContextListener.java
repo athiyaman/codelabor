@@ -3,7 +3,6 @@ package org.codelabor.example.lifecycle.web.listener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.codelabor.system.sniffer.web.util.ServletUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
