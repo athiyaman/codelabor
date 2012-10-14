@@ -11,7 +11,7 @@ public class LifecycleGlobalJobListener implements JobListener {
 
 	private final static Logger logger = LoggerFactory
 			.getLogger(LifecycleGlobalJobListener.class);
-	private final String USER_ID = "Job Scheduler";
+	private final String DEFAULT_USER_ID = "Job Scheduler";
 
 	public LifecycleGlobalJobListener() {
 		super();
@@ -37,7 +37,7 @@ public class LifecycleGlobalJobListener implements JobListener {
 		logger.debug("jobToBeExecuted");
 		
 		// TODO: set user id
-		String userId = USER_ID;
+		String userId = DEFAULT_USER_ID;
 		logger.debug("set user id: {}", userId);
 		UserContextHolder.getContext().setUserId(userId);
 	}
