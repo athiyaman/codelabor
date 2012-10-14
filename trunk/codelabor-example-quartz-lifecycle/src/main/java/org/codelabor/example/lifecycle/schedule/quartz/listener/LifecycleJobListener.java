@@ -28,14 +28,11 @@ public class LifecycleJobListener implements JobListener {
 	@Override
 	public void jobExecutionVetoed(JobExecutionContext context) {
 		logger.debug("jobExecutionVetoed");
-		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	@Override
 	public void jobToBeExecuted(JobExecutionContext context) {
 		logger.debug("jobToBeExecuted");
-		
-		
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 

@@ -11,9 +11,10 @@
 				<ref bean="cronTrigger"/>
 			</list>
 		</property>
+		<property name="schedulerListeners" ref="lifecycleSchedulerListener"/>
 		<property name="globalTriggerListeners" ref="lifecycleGlobalTriggerListener"/>
 		<property name="globalJobListeners" ref="lifecycleGlobalJobListener"/>
-		<property name="schedulerListeners" ref="lifecycleSchedulerListener"/>
+		<property name="jobListeners" ref="lifecycleJobListener"/>
 	</bean>
 
 	<!--  	
@@ -36,8 +37,9 @@
 		<property name="concurrent" value="false"/>
 	</bean>
 
-	<bean id="lifecycleGlobalJobListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalJobListener" />
-	<bean id="lifecycleGlobalTriggerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalTriggerListener" />
 	<bean id="lifecycleSchedulerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleSchedulerListener" />
+	<bean id="lifecycleGlobalTriggerListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalTriggerListener" />
+	<bean id="lifecycleGlobalJobListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleGlobalJobListener" />
+	<bean id="lifecycleJobListener" class="org.codelabor.example.lifecycle.schedule.quartz.listener.LifecycleJobListener" />
 
 </beans>
