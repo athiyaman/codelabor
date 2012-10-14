@@ -15,7 +15,6 @@ public class LifecycleJobListener implements JobListener {
 	public LifecycleJobListener() {
 		super();
 		logger.debug("constructor");
-		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
 	@Override
@@ -23,7 +22,6 @@ public class LifecycleJobListener implements JobListener {
 		logger.debug("getName");
 		String name = this.getClass().getName();
 		logger.debug("name: {}", name);
-		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		return name;
 	}
 
