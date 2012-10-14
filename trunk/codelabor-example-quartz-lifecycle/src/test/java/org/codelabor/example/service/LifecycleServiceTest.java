@@ -10,9 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/**/applicationContext*.xml")
-public class HelloWorldServiceTest {
+public class LifecycleServiceTest {
 	private static final Logger logger = LoggerFactory
-			.getLogger(HelloWorldServiceTest.class);
+			.getLogger(LifecycleServiceTest.class);
 
 	@Before
 	public void setup() {

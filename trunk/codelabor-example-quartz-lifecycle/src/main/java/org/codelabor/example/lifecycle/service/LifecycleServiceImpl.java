@@ -12,15 +12,13 @@ public class LifecycleServiceImpl implements LifecycleService {
 	public LifecycleServiceImpl() {
 		super();
 		logger.debug("construct");
-		long threadId = Thread.currentThread().getId();
-		logger.debug("thread id: {}", threadId);
+		logger.debug("thread id: {}", Thread.currentThread().getId());
 	}
 
 	@Override
 	public void execute() {
 		logger.debug("execute");
-		long threadId = Thread.currentThread().getId();
-		logger.debug("thread id: {}", threadId);
+		logger.debug("thread id: {}", Thread.currentThread().getId());
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 	}
 
