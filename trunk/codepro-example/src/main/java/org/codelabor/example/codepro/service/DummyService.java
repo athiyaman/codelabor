@@ -14,4 +14,13 @@ public class DummyService {
 		logger.debug(sb.toString());
 		return sb.toString();
 	}
+
+	public String someMethod2(String data) {
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		sb.append(data);
+		sb.append(']');
+		logger.debug(sb.toString());
+		return sb.toString();
+	}
 }
