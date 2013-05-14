@@ -9,15 +9,20 @@ public class DummyServiceTest {
 	DummyService dummyService = new DummyService();
 
 	@Test
-	public void testSomeMethod1() {
-		String data = dummyService.someMethod1("some data");
+	public void testAppendStringLiteral() {
+		String data = dummyService.appendStringLiteral("some data");
 		assertEquals("[some data]", data);
 	}
 
 	@Test
-	public void testSomeMethod2() {
-		String data = dummyService.someMethod2("some data");
+	public void testAppendCharacterLiteral() {
+		String data = dummyService.appendCharacterLiteral("some data");
 		assertEquals("[some data]", data);
+	}
+
+	@Test
+	public void testExecuteCommand() {
+		dummyService.executeCommand();
 	}
 
 }
