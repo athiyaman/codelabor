@@ -2,11 +2,12 @@ package org.codelabor.example.codepro.service;
 
 import static org.junit.Assert.assertEquals;
 
+import org.codelabor.example.codepro.service.impl.DummyServiceImpl;
 import org.junit.Test;
 
 public class DummyServiceTest {
 
-	DummyService dummyService = new DummyService();
+	DummyService dummyService = new DummyServiceImpl();
 
 	@Test
 	public void testAppendStringLiteral() {
