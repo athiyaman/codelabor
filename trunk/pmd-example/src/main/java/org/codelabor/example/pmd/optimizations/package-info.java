@@ -5,4 +5,4 @@
  * @author bomber
  *
  */
-package org.codelabor.example.pmd.optimization;
+package org.codelabor.example.pmd.optimizations;
