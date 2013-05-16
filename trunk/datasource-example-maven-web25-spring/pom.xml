@@ -63,6 +63,15 @@
 	</dependencies>
 	<build>
 		<finalName>datasource-example-maven-web25-spring</finalName>
+		<filters>
+			<filter>src/main/filters/${environment}/jdbc.properties</filter>
+		</filters>
+		<testResources>
+			<testResource>
+				<filtering>true</filtering>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
 	</build>
 	<repositories>
 		<repository>
@@ -71,4 +80,33 @@
 			<url>http://repo.springsource.org/release</url>
 		</repository>
 	</repositories>
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<environment>local</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>development</id>
+			<properties>
+				<environment>development</environment>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>staging</id>
+			<properties>
+				<environment>staging</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>production</id>
+			<properties>
+				<environment>production</environment>
+			</properties>
+		</profile>
+	</profiles>
 </project>
