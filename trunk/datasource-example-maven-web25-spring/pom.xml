@@ -86,15 +86,15 @@
 			<properties>
 				<environment>local</environment>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 		<profile>
 			<id>development</id>
 			<properties>
 				<environment>development</environment>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<profile>
 			<id>staging</id>
