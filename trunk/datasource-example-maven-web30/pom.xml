@@ -8,7 +8,7 @@
 	<name>datasource-example Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<build>
-		<finalName>datasource-example-dynamic-web-web30</finalName>
+		<finalName>datasource-example-dynamic-web-web25</finalName>
 	</build>
 	<dependencies>
 		<dependency>

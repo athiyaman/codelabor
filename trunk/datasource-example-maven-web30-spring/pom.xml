@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codelabor</groupId>
-	<artifactId>datasource-example-maven-web30-spring</artifactId>
+	<artifactId>datasource-example-maven-web25-spring</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>datasource-example-maven-web30-spring Maven Webapp</name>
+	<name>datasource-example-maven-web25-spring Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -32,6 +32,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>datasource-example-maven-web30-spring</finalName>
+		<finalName>datasource-example-maven-web25-spring</finalName>
 	</build>
 </project>
