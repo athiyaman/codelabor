@@ -51,5 +51,4 @@
 		<context:property-placeholder location="/production/jndi.properties" />
 	</beans>
 
-
 </beans>
