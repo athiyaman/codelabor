@@ -13,11 +13,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/**/applicationContext2.xml")
+@ContextConfiguration("/**/applicationContext-local.xml")
 @ActiveProfiles("local")
-public class DataSourceTest2 {
+public class DataSourceLocalTest {
 
-	Logger logger = LoggerFactory.getLogger(DataSourceTest2.class);
+	Logger logger = LoggerFactory.getLogger(DataSourceLocalTest.class);
 
 	@Autowired
 	ApplicationContext context;
