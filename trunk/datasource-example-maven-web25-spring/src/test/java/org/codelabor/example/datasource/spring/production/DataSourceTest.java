@@ -1,4 +1,4 @@
-package org.codelabor.example.datasource.spring;
+package org.codelabor.example.datasource.spring.production;
 
 import javax.sql.DataSource;
 
@@ -8,11 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/applicationContext.xml")
+@ContextConfiguration("/**/applicationContext.xml")
+@ActiveProfiles("production")
 public class DataSourceTest {
 
 	Logger logger = LoggerFactory.getLogger(DataSourceTest.class);

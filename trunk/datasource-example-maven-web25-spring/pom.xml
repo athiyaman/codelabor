@@ -82,15 +82,6 @@
 	</dependencies>
 	<build>
 		<finalName>datasource-example-maven-web25-spring</finalName>
-		<filters>
-			<filter>src/main/filters/${environment}/jdbc.properties</filter>
-		</filters>
-		<testResources>
-			<testResource>
-				<filtering>true</filtering>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
 	</build>
 	<repositories>
 		<repository>
