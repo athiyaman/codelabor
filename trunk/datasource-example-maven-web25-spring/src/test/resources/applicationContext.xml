@@ -30,7 +30,7 @@
 	</beans>
 
 	<beans profile="staging">
-		<jee:jndi-lookup id="dataSource" jndi-name="jdbc/testDS">
+		<jee:jndi-lookup id="dataSource" jndi-name="${jndi.name}">
 			<jee:environment>
 			 	java.naming.provider.url = ${java.naming.provider.url}
 			 	java.naming.factory.initial = ${java.naming.factory.initial}
@@ -41,7 +41,7 @@
 	</beans>
 
 	<beans profile="production">
-		<jee:jndi-lookup id="dataSource" jndi-name="jdbc/testDS">
+		<jee:jndi-lookup id="dataSource" jndi-name="${jndi.name}">
 			<jee:environment>
 			 	java.naming.provider.url = ${java.naming.provider.url}
 			 	java.naming.factory.initial = ${java.naming.factory.initial}
