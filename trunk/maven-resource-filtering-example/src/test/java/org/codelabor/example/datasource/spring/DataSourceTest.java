@@ -1,5 +1,10 @@
 package org.codelabor.example.datasource.spring;
 
+import static org.junit.Assert.fail;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.junit.Test;
@@ -24,6 +29,13 @@ public class DataSourceTest {
 	public void test() {
 		DataSource ds = (DataSource) context.getBean("dataSource");
 		logger.debug("dataSource: {}", ds);
+
+		try {
+			Connection conn = ds.getConnection();
+			logger.debug("connection: {}", conn);
+		} catch (SQLException e) {
+			fail(e.getMessage());
+		}
 	}
 
 }

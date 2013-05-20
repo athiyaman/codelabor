@@ -64,6 +64,13 @@
 			<version>3.2.2.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>weblogic</artifactId>
+			<version>12.1</version>
+			<scope>system</scope>
+			<systemPath>${weblogicHome}/server/lib/weblogic.jar</systemPath>
+		</dependency>
 	</dependencies>
 	<profiles>
 		<profile>
@@ -92,7 +99,7 @@
 			<properties>
 				<environment>production</environment>
 			</properties>
-		</profile>		
+		</profile>
 	</profiles>
 	<repositories>
 		<repository>
@@ -101,4 +108,7 @@
 			<url>http://repo.springsource.org/release</url>
 		</repository>
 	</repositories>
+	<properties>
+		<weblogicHome>C:/Oracle/Middleware/wlserver_12.1</weblogicHome>
+	</properties>
 </project>
