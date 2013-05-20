@@ -71,7 +71,7 @@
 			<artifactId>weblogic</artifactId>
 			<version>12.1</version>
 			<scope>system</scope>
-			<systemPath>C:/Oracle/Middleware/wlserver_12.1/server/lib/weblogic.jar</systemPath>
+			<systemPath>${weblogicHome}/server/lib/weblogic.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -128,4 +128,7 @@
 			</properties>
 		</profile>
 	</profiles>
+	<properties>
+		<weblogicHome>C:/Oracle/Middleware/wlserver_12.1</weblogicHome>
+	</properties>
 </project>
