@@ -66,6 +66,19 @@
 			<version>1.4</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>weblogic</groupId>
+			<artifactId>weblogic</artifactId>
+			<version>12.1</version>
+			<scope>system</scope>
+			<systemPath>C:/Oracle/Middleware/wlserver_12.1/server/lib/weblogic.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>datasource-example-maven-web25-spring</finalName>
