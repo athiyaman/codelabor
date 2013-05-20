@@ -18,15 +18,6 @@
 				</includes>
 			</resource>
 		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/*.properties</include>
-				</includes>
-			</testResource>
-		</testResources>
 		<filters>
 			<filter>src/main/filters/${environment}/jdbc.properties</filter>
 		</filters>
