@@ -13,7 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/development/applicationContext.xml")
+@ContextConfiguration("/**/applicationContext.xml")
 @ActiveProfiles("development")
 public class DataSourceTest {
 
