@@ -60,6 +60,12 @@
 			<version>3.2.2.RELEASE</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>datasource-example-maven-web25-spring</finalName>

@@ -1,4 +1,4 @@
-package org.codelabor.example.datasource.spring;
+package org.codelabor.example.datasource.spring.development;
 
 import javax.sql.DataSource;
 
@@ -13,11 +13,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/**/applicationContext-local.xml")
-@ActiveProfiles("local")
-public class DataSourceLocalTest {
+@ContextConfiguration("/development/applicationContext.xml")
+@ActiveProfiles("development")
+public class DataSourceTest {
 
-	Logger logger = LoggerFactory.getLogger(DataSourceLocalTest.class);
+	Logger logger = LoggerFactory.getLogger(DataSourceTest.class);
 
 	@Autowired
 	ApplicationContext context;
