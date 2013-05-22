@@ -121,5 +121,7 @@
 	</profiles>
 	<properties>
 		<weblogicHome>C:/Oracle/Middleware/wlserver_12.1</weblogicHome>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 </project>
