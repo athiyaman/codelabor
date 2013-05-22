@@ -20,7 +20,7 @@ public class DummyTest {
 
 	@Test
 	public void test() {
-		logger.debug("test");
+		logger.debug("unit test");
 	}
 
 }
