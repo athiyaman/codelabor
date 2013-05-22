@@ -1,12 +1,14 @@
 package org.codelabor.example.integration.test;
 
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DummyTest {
+
+	Logger logger = LoggerFactory.getLogger(DummyTest.class);
 
 	@Before
 	public void setUp() throws Exception {
@@ -18,6 +20,6 @@ public class DummyTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		logger.debug("test");
 	}
 }
