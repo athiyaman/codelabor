@@ -11,7 +11,7 @@
 	<appender
 		name="defaultDailyRollingFile"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/default-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/default-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -21,7 +21,7 @@
 	<appender
 		name="defaultDailyRollingFileAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/default-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/default-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -32,7 +32,7 @@
 	<appender
 		name="codelaborDailyRollingAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/codelabor-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/codelabor-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -43,7 +43,7 @@
 	<appender
 		name="springDailyRollingAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/spring-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/spring-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -54,7 +54,7 @@
 	<appender
 		name="springJdbcDailyRollingAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/spring-jdbc-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/spring-jdbc-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -65,7 +65,7 @@
 	<appender
 		name="springTransactionDailyRollingAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/spring-transaction-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/spring-transaction-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -76,7 +76,7 @@
 	<appender
 		name="dbcpDailyRollingAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/dbcp-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/dbcp-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
@@ -87,7 +87,7 @@
 	<appender
 		name="jdbcDailyRollingAppender"
 		class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="/logs/jdbc-dailly-rolling.log"/>
+		<param name="File" value="${java.io.tmpdir}/logs/jdbc-dailly-rolling.log"/>
 		<param name="DatePattern" value=".yyyy-MM-dd"/>
 	    <layout class="org.apache.log4j.PatternLayout">
 	        <param name="ConversionPattern" value="[%d] %-5p [%l] - %m%n" />
