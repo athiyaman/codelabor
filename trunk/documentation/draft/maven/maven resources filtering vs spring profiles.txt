@@ -1,0 +1,7 @@
+Spring Profiles:
+배포 시 development, staging, production 별로 설정이 같이 남음
+보안 상 취약할 수 있음
+
+Maven Resource filtering:
+배포 시 development, stating, production 중 한 설정만 남음
+보안 상 안전함
