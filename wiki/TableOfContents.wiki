@@ -1,3 +1,2 @@
-* [CodelaborSystemFile File]
-
-* [codelaborCommonsCalendar Calendar]
+ * [CodelaborSystemFile File Manager]
+ * [codelaborCommonsCalendar Calendar Service]
