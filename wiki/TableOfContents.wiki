@@ -1,4 +1,2 @@
-#sidebar TableOfContents
-
 * [CodelaborSystemFile File]
 * [codelaborCommonsCalendar Calendar]
