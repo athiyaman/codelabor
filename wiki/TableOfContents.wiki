@@ -1,2 +1,2 @@
-Naming and Coding Conventions
-Reusable Component
+[Naming and Coding Conventions]
+[Reusable Component]
