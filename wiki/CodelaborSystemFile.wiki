@@ -1,3 +1,4 @@
+#sidebar TableOfContents
 = codelabor system file =
 
 파일 업로드/다운로드 모듈
