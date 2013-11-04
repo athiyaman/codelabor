@@ -1,3 +1,5 @@
+#sidebar TableOfContents
+
 = Calendar Service =
 휴일, 영업일 관리 서비스
 (http://code.google.com/p/codelabor/source/browse/#svn/tags/codelabor-commons-calendar-1.0.0)
