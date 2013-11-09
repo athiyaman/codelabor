@@ -1,0 +1,14 @@
+exception 전략
+
+공통 exception (error code 방식)
+		
+
+상황별 exception (exception type 방식)
+	
+
+hybrid exception (error code + exception type)
+	공통 exception을 상속 받으면서 
+	특정 exception type을 implementation (marker interface)
+
+
+
