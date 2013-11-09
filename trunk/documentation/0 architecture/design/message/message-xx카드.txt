@@ -1,0 +1,44 @@
+
+[메시지 키 명명법]
+	메시지 유형(1) + 업무 구분(2) + 하위 업무 구분(2) + 일련 번호 (2)
+
+
+[메시지 키 유형]
+	I: Info
+		장애가 아니지만 정보 전달이 필요할 경우 사용
+	W: Warn 
+		디스크 용량 부족 등 앞으로 장애가 예상될 경우 사용
+	E: Error
+		장애 상황에서 사용 
+
+
+[업무 구분]
+	근거: 개발가이드(개발SPM).doc의 "3.1 시스템 구성"의 업무 ID 참고
+	예: BM 영업관리, BP 청구/입금
+	
+[하위 업무 구분]
+	근거: 개발가이드(개발SPM).doc의 "3.1 시스템 구성"의 서브 업무 ID 참고
+	예: DE 실행, PR 선급
+
+
+[일련 번호]
+	00부터 99까지 업무팀에서 정의
+
+
+[Exception 매커니즘에서의 활용]
+	Exception 구조 
+		Exception의 getCode(): 	메시지 키가 리턴
+		Exception의 getMessage(): 메시지 내용이 리턴
+
+	모듈별 작업 내용
+		업무코드: Exception 생성 시, 메시지 키와 메시지 내용을 정의
+			메시지는 Message Service를 사용하여 키를 입력하여 메시지를 받아내야 함
+			throw 하기 전에 logger.error("code: {}, message: {}", e.getCode(), e.getMessage())로 Logging (업무 Logger 사용)
+		Framework: 
+			Exception Handler에서 Logging (Framework Logger 사용)
+			Exception Handler에서 Innoxync로 메시지 전달
+		InnoXync:
+			Framework이 전달해준 메시지 표시 (메시지 키, 메시지 내용)
+	
+
+Cache-control: no-store
