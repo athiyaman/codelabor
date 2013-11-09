@@ -32,4 +32,59 @@ public class Forum {
 	private String ip;
 	private long views;
 	private long replies;
+	
+	public boolean isLock() {
+		return lock;
+	}
+	public void setLock(boolean lock) {
+		this.lock = lock;
+	}
+	public boolean isHide() {
+		return hide;
+	}
+	public void setHide(boolean hide) {
+		this.hide = hide;
+	}
+	public String getModerator() {
+		return moderator;
+	}
+	public void setModerator(String moderator) {
+		this.moderator = moderator;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public Date getPosted() {
+		return posted;
+	}
+	public void setPosted(Date posted) {
+		this.posted = posted;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public long getViews() {
+		return views;
+	}
+	public void setViews(long views) {
+		this.views = views;
+	}
+	public long getReplies() {
+		return replies;
+	}
+	public void setReplies(long replies) {
+		this.replies = replies;
+	}
 }

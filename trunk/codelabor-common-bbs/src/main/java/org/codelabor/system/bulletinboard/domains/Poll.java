@@ -28,4 +28,35 @@ public class Poll {
 	private List<String> choice;
 	private boolean isMultipleVotesAllowed;
 	private boolean isRepliesAllowed;
+	
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getQuestion() {
+		return question;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public List<String> getChoice() {
+		return choice;
+	}
+	public void setChoice(List<String> choice) {
+		this.choice = choice;
+	}
+	public boolean isMultipleVotesAllowed() {
+		return isMultipleVotesAllowed;
+	}
+	public void setMultipleVotesAllowed(boolean isMultipleVotesAllowed) {
+		this.isMultipleVotesAllowed = isMultipleVotesAllowed;
+	}
+	public boolean isRepliesAllowed() {
+		return isRepliesAllowed;
+	}
+	public void setRepliesAllowed(boolean isRepliesAllowed) {
+		this.isRepliesAllowed = isRepliesAllowed;
+	}
 }

@@ -27,4 +27,29 @@ public class Post {
 	private String message;
 	private Date posted;
 	private String ip;
+	
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public Date getPosted() {
+		return posted;
+	}
+	public void setPosted(Date posted) {
+		this.posted = posted;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 }
