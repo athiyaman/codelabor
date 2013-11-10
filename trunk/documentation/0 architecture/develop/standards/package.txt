@@ -1,0 +1,48 @@
+기본 패키지
+	anyframe		framework 기본 패키지 (anyframe official)
+	org.codelabor		framework 확장 패키지 (3rd party)
+	기타 			framework 확장 패키지 (3rd party)
+
+예약 패키지
+	org.codelabor.system	시스템 공통
+	org.codelabor.example	예제
+
+업무 패키지
+	org.codelabor.업무명
+	org.codelabor.업무명.세부업무명.... 
+
+역할 패키지
+	[service / infrastructure / integration layer]
+	org.codelabor.업무명.[세부업무명].services			비즈니스 로직
+	org.codelabor.업무명.[세부업무명].strategies			ID Generation Strategy
+	org.codelabor.업무명.[세부업무명].managers			도메인 로직
+	org.codelabor.업무명.[세부업무명].daos				DB 접근 로직
+	org.codelabor.업무명.[세부업무명].advices			AOP 관련
+	org.codelabor.업무명.[세부업무명].domains			도메인 객체
+	org.codelabor.업무명.[세부업무명].dtos				DTO 객체
+	org.codelabor.업무명.[세부업무명].exceptions			예외
+	org.codelabor.업무명.[세부업무명].utils				Utility
+
+	[presentation layer]
+	org.codelabor.업무명.[세부업무명].filters			Servlet Filter
+	org.codelabor.업무명.[세부업무명].listeners			Servlet Listener
+	org.codelabor.업무명.[세부업무명].servlets			Servlet
+
+	[presentation layer - framework specific]
+	org.codelabor.업무명.[세부업무명].spring.actions	Spring-Struts Integration
+	org.codelabor.업무명.[세부업무명].spring.controllers	Request Handler
+	org.codelabor.업무명.[세부업무명].spring.commands	Spring Command
+	org.codelabor.업무명.[세부업무명].spring.listeners	Spring Listener
+	org.codelabor.업무명.[세부업무명].struts.actions	Struts Action
+	org.codelabor.업무명.[세부업무명].struts.forms		Struts Form
+	org.codelabor.업무명.[세부업무명].struts.handlers	Struts Exception Handler
+	....
+
+참고
+	Struts 관련 패키지는 기존 자산 재사용 시에만 허용
+	기타 Constants 들은 기본적으로 해당 패키지 내에 Enum으로 만드는 것이 원칙이나
+	기존 convention과 호환되도록 업무 패키지 아래에 Constants.class 형태의 사용을 허용함
+
+
+
+
