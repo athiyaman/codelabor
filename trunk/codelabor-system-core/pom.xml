@@ -30,6 +30,36 @@
 		<url>http://codelabor.org</url>
 	</organization>
 	<build>
+		<pluginManagement>
+			<plugins>
+		    <!-- Ignore/Execute plugin execution -->
+		    <plugin>
+		        <groupId>org.eclipse.m2e</groupId>
+		        <artifactId>lifecycle-mapping</artifactId>
+		        <version>1.0.0</version>
+		        <configuration>
+		            <lifecycleMappingMetadata>
+		                <pluginExecutions>
+		                    <!-- copy-dependency plugin -->
+		                    <pluginExecution>
+		                        <pluginExecutionFilter>
+		                            <groupId>org.apache.maven.plugins</groupId>
+		                            <artifactId>maven-dependency-plugin</artifactId>
+		                            <versionRange>[1.0.0,)</versionRange>
+		                            <goals>
+		                                <goal>copy-dependencies</goal>
+		                            </goals>
+		                        </pluginExecutionFilter>
+		                        <action>
+		                            <ignore />
+		                        </action>
+		                    </pluginExecution>
+		                </pluginExecutions>
+		            </lifecycleMappingMetadata>
+		        </configuration>
+		    </plugin>
+		   </plugins>
+		</pluginManagement>	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -111,7 +141,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.1</version>
 				<configuration>
 					<tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
 				</configuration>
