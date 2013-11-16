@@ -44,6 +44,11 @@
     	<version>2.5</version>
     	<optional>false</optional>
     </dependency>
+    <dependency>
+    	<groupId>javax.servlet.jsp</groupId>
+    	<artifactId>jsp-api</artifactId>
+    	<version>2.2</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>webapp-example</finalName>
