@@ -1,4 +1,4 @@
-<%@page import="org.codelabor.system.dtos.SessionObject" %>
+<%@page import="org.codelabor.system.web.SessionObject" %>
 <html>
 <body>
 <h2>Session Bind</h2>

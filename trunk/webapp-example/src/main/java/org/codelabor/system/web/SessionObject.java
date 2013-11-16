@@ -1,9 +1,9 @@
-package org.codelabor.system.dtos;
+package org.codelabor.system.web;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
 
-import org.codelabor.system.listeners.SessionListener;
+import org.codelabor.system.web.listener.SessionListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,4 +1,4 @@
-package org.codelabor.system.filters;
+package org.codelabor.system.web.filter;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.codelabor.system.ThreadLocalObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +42,7 @@ public class RequestIDGenerationFilter implements Filter {
 			logger.debug("after doFilter");
 			logger.debug("request id: {}", ThreadLocalObject.requestID.get());
 		}
+
 		ThreadLocalObject.requestID.remove();
 
 	}

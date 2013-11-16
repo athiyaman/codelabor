@@ -1,4 +1,4 @@
-<%@page import="org.codelabor.system.filters.ThreadLocalObject" %>
+<%@page import="org.codelabor.system.ThreadLocalObject" %>
 <html>
 <body>
 <h2>Request ID</h2>

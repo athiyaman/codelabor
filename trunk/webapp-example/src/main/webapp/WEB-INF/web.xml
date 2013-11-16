@@ -7,7 +7,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <filter>
   	<filter-name>requestIDGenerationFilter</filter-name>
-  	<filter-class>org.codelabor.system.filters.RequestIDGenerationFilter</filter-class>
+  	<filter-class>org.codelabor.system.web.filter.RequestIDGenerationFilter</filter-class>
   </filter>
   <filter-mapping>
   	<filter-name>requestIDGenerationFilter</filter-name>
@@ -15,7 +15,7 @@
   </filter-mapping>
   
   <listener>
-  	<listener-class>org.codelabor.system.listeners.SessionListener</listener-class>
+  	<listener-class>org.codelabor.system.web.listener.SessionListener</listener-class>
   </listener>
   
   <session-config>

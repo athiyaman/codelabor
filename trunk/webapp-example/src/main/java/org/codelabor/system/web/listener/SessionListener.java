@@ -1,4 +1,4 @@
-package org.codelabor.system.listeners;
+package org.codelabor.system.web.listener;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
