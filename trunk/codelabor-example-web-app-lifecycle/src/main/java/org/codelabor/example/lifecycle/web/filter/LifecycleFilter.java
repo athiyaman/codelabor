@@ -52,7 +52,7 @@ public class LifecycleFilter implements Filter {
 		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
 
-		// init user context
+		// set user context
 		UserContext userContext = UserContextHolder.getContext();
 		if (userContext == null) {
 			logger.debug("user context: {}", UserContextHolder.getContext());
@@ -64,20 +64,23 @@ public class LifecycleFilter implements Filter {
 
 		// TODO: get user id from session
 		String userId = "Test User";
-		// TODO: set user id to user context
+
+		// set user id to user context
 		logger.debug("set user id: {}", userId);
 		UserContextHolder.getContext().setUserId(userId);
 
+		// check user id from user context
 		logger.debug("before chain.doFilter()");
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 
 		// do something
 		chain.doFilter(request, response);
 
+		// check user id from user context
 		logger.debug("after chain.doFilter()");
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 
-		// TODO: remove user context
+		// remove user context
 		logger.debug("remove user context");
 		UserContextHolder.removeContext();
 		logger.debug("user context: {}", UserContextHolder.getContext());
