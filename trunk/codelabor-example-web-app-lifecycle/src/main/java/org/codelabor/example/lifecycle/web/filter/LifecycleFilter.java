@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.codelabor.example.lifecycle.context.UserContext;
 import org.codelabor.example.lifecycle.context.UserContextHolder;
 import org.codelabor.system.sniffer.web.util.ServletUtils;
 import org.slf4j.Logger;
@@ -50,24 +51,36 @@ public class LifecycleFilter implements Filter {
 		logger.debug("thread id: {}", threadId);
 		String sessionId = ServletUtils.getSessionId(request);
 		logger.debug("session id: {}", sessionId);
-		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
-		
+
+		// init user context
+		UserContext userContext = UserContextHolder.getContext();
+		if (userContext == null) {
+			logger.debug("user context: {}", UserContextHolder.getContext());
+			userContext = new UserContext();
+			UserContextHolder.setContext(userContext);
+			logger.debug("user id: {}", UserContextHolder.getContext()
+					.getUserId());
+		}
+
 		// TODO: get user id from session
 		String userId = "Test User";
 		// TODO: set user id to user context
 		logger.debug("set user id: {}", userId);
 		UserContextHolder.getContext().setUserId(userId);
-		
+
 		logger.debug("before chain.doFilter()");
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
+
+		// do something
 		chain.doFilter(request, response);
+
 		logger.debug("after chain.doFilter()");
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
-		
+
 		// TODO: remove user context
 		logger.debug("remove user context");
 		UserContextHolder.removeContext();
-		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
+		logger.debug("user context: {}", UserContextHolder.getContext());
 	}
 
 	/**
