@@ -5,8 +5,6 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>CollectionMonitoringServlet</servlet-name>
-  	<display-name>CollectionMonitoringServlet</display-name>
-  	<description></description>
   	<servlet-class>org.codelabor.example.servlet.CollectionMonitoringServlet</servlet-class>
   </servlet>
   <servlet-mapping>
