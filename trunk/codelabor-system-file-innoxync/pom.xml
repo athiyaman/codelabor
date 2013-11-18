@@ -1,55 +1,56 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>oss-parent</artifactId>
 		<groupId>org.sonatype.oss</groupId>
 		<version>2</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-  <groupId>org.codelabor</groupId>
-  <artifactId>codelabor-system-file-innoxync</artifactId>
-  <name>codelabor-system-file-innoxync</name>
-  <version>2.0.0-SNAPSHOT</version>
-  <url>http://codelabor.org</url>
-  <scm>
-  	<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-innoxync/</connection>
-  	<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file-innoxync/</developerConnection>
-  	<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-innoxync/</url>
-  </scm>
-  <organization>
-  	<name>CODELABOR</name>
-  	<url>http://codelabor.org</url>
-  </organization>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.codelabor</groupId>
-  		<artifactId>codelabor-system-core</artifactId>
-  		<version>2.0.1</version>
-  		<type>jar</type>
-  		<scope>compile</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.codelabor</groupId>
-  		<artifactId>codelabor-system-file</artifactId>
-  		<version>2.0.1</version>
-  		<type>jar</type>
-  		<scope>compile</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>servlet-api</artifactId>
-  		<version>2.5</version>
-  		<type>jar</type>
-  		<scope>provided</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.shift</groupId>
-  		<artifactId>innoxync</artifactId>
-  		<version>2.2.10</version>
-  		<scope>system</scope>
-  		<systemPath>C:\InnoXync_HOME\WEB-INF\lib\innoxync2210.jar</systemPath>
-  	</dependency>
-  </dependencies>
-  <developers>
+	<groupId>org.codelabor</groupId>
+	<artifactId>codelabor-system-file-innoxync</artifactId>
+	<name>codelabor-system-file-innoxync</name>
+	<version>2.0.0-SNAPSHOT</version>
+	<url>http://codelabor.org</url>
+	<scm>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-innoxync/</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-file-innoxync/</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-file-innoxync/</url>
+	</scm>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
+	<dependencies>
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-core</artifactId>
+			<version>2.0.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-file</artifactId>
+			<version>2.0.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.shift</groupId>
+			<artifactId>innoxync</artifactId>
+			<version>2.2.10</version>
+			<scope>system</scope>
+			<systemPath>C:\InnoXync_HOME\WEB-INF\lib\innoxync2210.jar</systemPath>
+		</dependency>
+	</dependencies>
+	<developers>
 		<developer>
 			<id>bomber</id>
 			<name>Shin Sangjae</name>
@@ -72,87 +73,96 @@
 		</license>
 	</licenses>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Ignore/Execute plugin execution -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<!-- copy-dependency plugin -->
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-dependency-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<goal>copy-dependencies</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
-        		<artifactId>maven-compiler-plugin</artifactId>
-        		<configuration>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
 					<source>1.5</source>
 					<target>1.5</target>
 					<encoding>UTF-8</encoding>
-        		</configuration>
-      		</plugin>
-			<plugin>
-      			<groupId>org.apache.maven.plugins</groupId>
-      			<artifactId>maven-source-plugin</artifactId>
-      			<executions>
-      				<execution>
-	      				<id>attach-soruces</id>
-	      				<goals>
-	      					<goal>jar</goal>
-	      				</goals>
-      				</execution>
-      			</executions>
-      		</plugin>
-      		<plugin>
-      			<groupId>org.apache.maven.plugins</groupId>
-      			<artifactId>maven-javadoc-plugin</artifactId>
-      			<executions>
-      				<execution>
-      					<id>attach-javadoc</id>
-      					<goals>
-      						<goal>jar</goal>
-      					</goals>
-      				</execution>
-      			</executions>
-      			<configuration>
-      				<encoding>UTF-8</encoding>
-      			</configuration>
-      		</plugin>
-      		<plugin>
-      			<groupId>org.apache.maven.plugins</groupId>
-      			<artifactId>maven-dependency-plugin</artifactId>
-      			<executions>
-      				<execution>
-      					<id>copy-dependencies</id>
-      					<phase>package</phase>
-      					<goals>
-      						<goal>copy-dependencies</goal>
-      					</goals>
-      					<configuration>
-      						<outputDirectory>${project.build.directory}/lib</outputDirectory>
-      					</configuration>
-      				</execution>
-      			</executions>
-      		</plugin>
-      		<!--
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2-beta-5</version>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assemble/bin.xml</descriptor>
-					</descriptors>
-				</configuration>
+				<artifactId>maven-source-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
+						<id>attach-soruces</id>
 						<goals>
-							<goal>single</goal>
+							<goal>jar</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.0-beta-8</version>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadoc</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<tagBase>https://codelabor.googlecode.com/svn</tagBase>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+				<version>2.2-beta-5</version> <configuration> <descriptors> <descriptor>src/assemble/bin.xml</descriptor> 
+				</descriptors> </configuration> <executions> <execution> <id>make-assembly</id> 
+				<phase>package</phase> <goals> <goal>single</goal> </goals> </execution> 
+				</executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-release-plugin</artifactId> <version>2.0-beta-8</version> 
+				<configuration> <tagBase>https://codelabor.googlecode.com/svn</tagBase> </configuration> 
+				</plugin> -->
 		</plugins>
 	</build>
 	<properties>
