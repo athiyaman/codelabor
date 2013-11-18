@@ -11,10 +11,10 @@
     class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
     <property name="authenticationManager" ref="authenticationManager" />
     <property name="accessDecisionManager" ref="accessDecisionManager" />
-    <property name="securityMetadataSource">
-      <security:filter-security-metadata-source>
-        <security:intercept-url pattern="/**" access="ROLE_USER" />
-      </security:filter-security-metadata-source>
-    </property>
+    <property name="securityMetadataSource" ref="filterSecurityMetadataSource" />
   </bean>
+  
+  <security:filter-security-metadata-source id="filterSecurityMetadataSource">
+  <security:intercept-url pattern="/**" access="ROLE_USER" />
+  </security:filter-security-metadata-source>
 </beans>
