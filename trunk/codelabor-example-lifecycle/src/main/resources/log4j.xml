@@ -8,7 +8,7 @@
 		</layout>
 	</appender>
 
-	<logger name="org.codelabor.system.sniffer.web.util.ServletUtils">
+	<logger name="org.codelabor.system.web.util.ServletUtils">
 		<level value="error" />
 		<appender-ref ref="consoleAppender" />
 	</logger>

@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 import org.codelabor.example.lifecycle.context.UserContext;
 import org.codelabor.example.lifecycle.context.UserContextHolder;
 import org.codelabor.example.lifecycle.context.UserContextImpl;
-import org.codelabor.system.sniffer.web.util.ServletUtils;
+import org.codelabor.system.web.util.ServletUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
