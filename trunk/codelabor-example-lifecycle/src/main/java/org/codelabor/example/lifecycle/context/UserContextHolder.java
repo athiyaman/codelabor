@@ -10,4 +10,8 @@ public class UserContextHolder {
 	public static void setContext(UserContext userContext) {
 		contextHolder.set(userContext);
 	}
+
+	public static void removeContext() {
+		contextHolder.remove();
+	}
 }

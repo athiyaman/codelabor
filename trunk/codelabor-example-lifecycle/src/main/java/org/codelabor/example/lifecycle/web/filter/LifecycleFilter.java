@@ -55,9 +55,13 @@ public class LifecycleFilter implements Filter {
 		logger.debug("session id: {}", sessionId);
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
 		logger.debug("before chain.doFilter()");
+
 		chain.doFilter(request, response);
+
 		logger.debug("after chain.doFilter()");
 		logger.debug("user id: {}", UserContextHolder.getContext().getUserId());
+
+		UserContextHolder.removeContext();
 	}
 
 	/**
