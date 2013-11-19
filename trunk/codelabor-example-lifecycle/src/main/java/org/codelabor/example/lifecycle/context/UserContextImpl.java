@@ -48,4 +48,13 @@ public class UserContextImpl implements UserContext {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("UserContextImpl [userId=");
+		builder.append(userId);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }
