@@ -22,10 +22,6 @@ public class SniffingHandlerExceptionResolver implements
 		logger.error("uri: {}", request.getRequestURI());
 		logger.error("hander: {}, exception: {}", handler, exception);
 		logger.error("exception message: {}", exception.getMessage());
-		// ModelAndView mav = new ModelAndView();
-		// mav.addObject("message", exception.getMessage());
-		// mav.setViewName("/system/error/default");
-		// return mav;
 		return null;
 	}
 
