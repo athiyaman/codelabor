@@ -20,7 +20,7 @@
   </listener>
   
   <servlet>
-    <servlet-name>action</servlet-name>
+    <servlet-name>dispatcherServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
@@ -29,7 +29,7 @@
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>action</servlet-name>
+    <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
@@ -37,5 +37,18 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <error-page>
+		<error-code>403</error-code>
+		<location>/example/error/403.html</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/example/error/404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/examle/error/500.jsp</location>
+	</error-page>
   
 </web-app>
