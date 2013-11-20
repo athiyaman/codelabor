@@ -33,13 +33,6 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		<!-- Roo dependencies -->
-		<dependency>
-			<groupId>org.springframework.roo</groupId>
-			<artifactId>org.springframework.roo.annotations</artifactId>
-			<version>${org.springframework.roo-version}</version>
-			<scope>provided</scope>
-		</dependency>
 				
 		<!-- AspectJ -->
 		<dependency>
