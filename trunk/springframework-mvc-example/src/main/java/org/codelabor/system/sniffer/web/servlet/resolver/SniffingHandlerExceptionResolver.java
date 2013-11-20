@@ -11,16 +11,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class SniffingHandlerExceptionResolver implements
 		HandlerExceptionResolver, Ordered {
-	
-	private Logger logger = LoggerFactory.getLogger(SniffingHandlerExceptionResolver.class);
+
+	private Logger logger = LoggerFactory
+			.getLogger(SniffingHandlerExceptionResolver.class);
 	private int order = 0;
 
+	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception exception) {
 		logger.error("uri: {}", request.getRequestURI());
 		logger.error("hander: {}, exception: {}", handler, exception);
-		logger.error("exception: {}", exception);
-		logger.error("exception.toString(): {}", exception.toString());
+		logger.error("exception message: {}", exception.getMessage());
 		return null;
 	}
 
@@ -28,6 +29,7 @@ public class SniffingHandlerExceptionResolver implements
 		this.order = order;
 	}
 
+	@Override
 	public int getOrder() {
 		return order;
 	}

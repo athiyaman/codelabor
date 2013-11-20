@@ -26,39 +26,57 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
  * @author Shin Sang-jae
- *
+ * 
  */
 public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 
-	private Logger logger = LoggerFactory.getLogger(SniffingHandlerInterceptor.class);
+	private Logger logger = LoggerFactory
+			.getLogger(SniffingHandlerInterceptor.class);
 
-	/* (non-Javadoc)
-	 * @see org.springframework.web.servlet.HandlerInterceptor#preHandle(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.HandlerInterceptor#preHandle(javax.servlet
+	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
+	 * java.lang.Object)
 	 */
+	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		logger.debug("handler: {}", handler);
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.springframework.web.servlet.HandlerInterceptor#postHandle(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object, org.springframework.web.servlet.ModelAndView)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.HandlerInterceptor#postHandle(javax.servlet
+	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
+	 * java.lang.Object, org.springframework.web.servlet.ModelAndView)
 	 */
+	@Override
 	public void postHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		logger.debug("handler: {}", handler);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.springframework.web.servlet.HandlerInterceptor#afterCompletion(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object, java.lang.Exception)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.HandlerInterceptor#afterCompletion(javax
+	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
+	 * java.lang.Object, java.lang.Exception)
 	 */
+	@Override
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception exception)
 			throws Exception {
 		logger.debug("handler: {}", handler);
-		logger.debug("handler: {}, exception: {}", handler, exception);
-		logger.debug("exception: {}", exception);
+		logger.debug("exception message: {}", exception.getMessage());
 	}
 
 }
