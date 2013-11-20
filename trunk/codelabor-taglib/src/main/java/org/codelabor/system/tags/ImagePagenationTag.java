@@ -1,12 +1,16 @@
 package org.codelabor.system.tags;
 
-public class ImagePagenationTag extends TextPagenationTag {
-	private String previousUnitPageImage = null;
-	private String previousPageImage = null;
-	private String nextPageImage = null;
-	private String nextUnitPageImage = null;
+import java.io.IOException;
 
-	private String createImageTag(String src) {
+import javax.servlet.jsp.JspException;
+
+public class ImagePagenationTag extends TextPagenationTag {
+	protected String previousUnitPageImage = null;
+	protected String previousPageImage = null;
+	protected String nextPageImage = null;
+	protected String nextUnitPageImage = null;
+
+	protected String createImageTag(String src) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<img src='");
 		sb.append(src);
@@ -14,6 +18,7 @@ public class ImagePagenationTag extends TextPagenationTag {
 		return sb.toString();
 	}
 
+	@Override
 	protected String getPageIndexBody(String body, String styleId,
 			String styleClass) {
 		// TODO Auto-generated method stub
@@ -50,6 +55,12 @@ public class ImagePagenationTag extends TextPagenationTag {
 
 	public void setNextUnitPageImage(String nextUnitPageImage) {
 		this.nextUnitPageImage = nextUnitPageImage;
+	}
+
+	@Override
+	public void doTag() throws JspException, IOException {
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 }

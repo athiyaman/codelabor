@@ -9,45 +9,43 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import org.anyframe.pagination.Page;
 import org.apache.commons.lang.StringUtils;
-
-import anyframe.common.Page;
 
 public class TextPagenationTag extends SimpleTagSupport {
 
-	private Page page;
-	private Map<String, Object> param;
-	private String pageIndexParamName = "pageIndex";
-	private String pageDelimeter = "&nbsp;";
+	protected Page page;
+	protected Map<String, Object> param;
+	protected String pageIndexParamName = "pageIndex";
+	protected String pageDelimeter = "&nbsp;";
 
-	private String previousUnitPageString = "&lt;&lt;";
-	private String previousPageString = "&lt;";
-	private String nextPageString = "&gt;";
-	private String nextUnitPageString = "&gt;&gt;";
+	protected String previousUnitPageString = "&lt;&lt;";
+	protected String previousPageString = "&lt;";
+	protected String nextPageString = "&gt;";
+	protected String nextUnitPageString = "&gt;&gt;";
 
-	private String previousUnitPageStyleId = null;
-	private String previousPageStyleId = null;
-	private String currentPageStyleId = null;
-	private String pageStyleId = null;
-	private String nextPageStyleId = null;
-	private String nextUnitPageStyleId = null;
+	protected String previousUnitPageStyleId = null;
+	protected String previousPageStyleId = null;
+	protected String currentPageStyleId = null;
+	protected String pageStyleId = null;
+	protected String nextPageStyleId = null;
+	protected String nextUnitPageStyleId = null;
 
-	private String previousUnitPageStyleClass = null;
-	private String previousPageStyleClass = null;
-	private String currentPageStyleClass = null;
-	private String pageStyleClass = null;
-	private String nextPageStyleClass = null;
-	private String nextUnitPageStyleClass = null;
+	protected String previousUnitPageStyleClass = null;
+	protected String previousPageStyleClass = null;
+	protected String currentPageStyleClass = null;
+	protected String pageStyleClass = null;
+	protected String nextPageStyleClass = null;
+	protected String nextUnitPageStyleClass = null;
 
-	@SuppressWarnings("unchecked")
-	protected String createQueryStringWithPageIndex(Page page, Map param,
-			int pageIndex) {
-		Set keySet = param.keySet();
-		Iterator iterator = keySet.iterator();
+	protected String createQueryStringWithPageIndex(Page page,
+			Map<String, Object> param, int pageIndex) {
+		Set<String> keySet = param.keySet();
+		Iterator<String> iterator = keySet.iterator();
 		StringBuilder sb = new StringBuilder();
 		sb.append("?").append(pageIndexParamName).append("=").append(pageIndex);
 		while (iterator.hasNext()) {
-			String key = (String) iterator.next();
+			String key = iterator.next();
 			if (!key.equals(pageIndexParamName)) {
 				sb.append("&").append(key).append("=").append(param.get(key));
 			}
@@ -116,16 +114,16 @@ public class TextPagenationTag extends SimpleTagSupport {
 		pageIndexBody = getPageIndexBody(previousUnitPageString,
 				previousUnitPageStyleId, previousUnitPageStyleClass);
 		if (page.hasPreviousPageUnit()) {
-			out.print(createAnchorTag(pageIndexBody, page
-					.getPageOfPreviousPageUnit()));
+			out.print(createAnchorTag(pageIndexBody,
+					page.getPageOfPreviousPageUnit()));
 		} else {
 			out.print(pageIndexBody);
 		}
 		out.print(pageDelimeter);
 
 		// left page link
-		pageIndexBody = getPageIndexBody(previousPageString, previousPageStyleId,
-				previousPageStyleClass);
+		pageIndexBody = getPageIndexBody(previousPageString,
+				previousPageStyleId, previousPageStyleClass);
 		if (page.hasPreviousPage()) {
 			out.print(createAnchorTag(pageIndexBody, page.getPreviousPage()));
 		} else {
@@ -142,8 +140,8 @@ public class TextPagenationTag extends SimpleTagSupport {
 		}
 		for (int i = beginUnitPage; i <= availableEndLinePage; i++) {
 			if (i != currentPage) {
-				pageIndexBody = getPageIndexBody(String.valueOf(i), pageStyleId,
-						pageStyleClass);
+				pageIndexBody = getPageIndexBody(String.valueOf(i),
+						pageStyleId, pageStyleClass);
 				out.print(createAnchorTag(pageIndexBody, i));
 			} else {
 				pageIndexBody = getPageIndexBody(String.valueOf(i),
@@ -164,12 +162,11 @@ public class TextPagenationTag extends SimpleTagSupport {
 		out.print(pageDelimeter);
 
 		// right unit page link
-		pageIndexBody = getPageIndexBody(nextUnitPageString, nextUnitPageStyleId,
-				nextUnitPageStyleClass);
+		pageIndexBody = getPageIndexBody(nextUnitPageString,
+				nextUnitPageStyleId, nextUnitPageStyleClass);
 		if (page.hasNextPageUnit()) {
-			out
-					.print(createAnchorTag(pageIndexBody, page
-							.getPageOfNextPageUnit()));
+			out.print(createAnchorTag(pageIndexBody,
+					page.getPageOfNextPageUnit()));
 		} else {
 			out.print(pageIndexBody);
 		}
