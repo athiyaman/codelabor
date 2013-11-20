@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/example/helloWorld")
+@RequestMapping("/example/helloworld")
 public class HelloWorldController {
 
 	private Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
