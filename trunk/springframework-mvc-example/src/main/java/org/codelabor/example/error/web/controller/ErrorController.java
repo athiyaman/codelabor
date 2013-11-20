@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author Shin Sang-jae
- *
+ * 
  */
 @Controller
 @RequestMapping("/example/error")
@@ -30,7 +30,6 @@ public class ErrorController {
 	@RequestMapping("/doError")
 	public void doError() {
 		throw new RuntimeException("doErrorMessage");
-
 	}
 
 }
