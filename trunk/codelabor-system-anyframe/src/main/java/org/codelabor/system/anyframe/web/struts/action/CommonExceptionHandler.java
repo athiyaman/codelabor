@@ -110,13 +110,14 @@ public class CommonExceptionHandler extends BaseExceptionHandler {
 			logger.debug(stringBuilder.toString());
 
 			Throwable throwable = ex;
-			for (int i = 0; throwable != null; i++) {
+			// for (int i = 0; throwable != null; i++) {
+			while (throwable != null) {
 				StackTraceElement[] stackTraceList = throwable.getStackTrace();
 				int count = stackTraceList.length;
 				stringBuilder = new StringBuilder();
 				stringBuilder.append(System.getProperty("line.separator"));
 				stringBuilder.append(System.getProperty("line.separator"));
-				for (int j = count - 1, k = 0; j >= 0; j--, k++) {
+				for (int j = count - 1; j >= 0; j--) {
 					stringBuilder.append("StackTraceElement[");
 					stringBuilder.append(j).append("]: ");
 					stringBuilder.append(stackTraceList[j].toString());
