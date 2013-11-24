@@ -96,7 +96,8 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	@Override
 	public int insertEmp(EmpDto empDto) {
 		String insertQueryId = "exampleInsertEmp";
-		int affectedRowCount = sqlSession.update(insertQueryId, empDto);
+		logger.debug("empDto: {}", empDto);
+		int affectedRowCount = sqlSession.insert(insertQueryId, empDto);
 		logger.debug("affected row count: {}", affectedRowCount);
 		return affectedRowCount;
 	}
@@ -111,6 +112,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	@Override
 	public int updateEmp(EmpDto empDto) {
 		String updateQueryId = "exampleUpdateEmp";
+		logger.debug("empDto: {}", empDto);
 		int affectedRowCount = sqlSession.update(updateQueryId, empDto);
 		logger.debug("affected row count: {}", affectedRowCount);
 		return affectedRowCount;
@@ -124,6 +126,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	@Override
 	public int deleteEmp(Integer empNo) {
 		String deleteQueryId = "exampleDeleteEmp";
+		logger.debug("empNo: {}", empNo);
 		int affectedRowCount = sqlSession.delete(deleteQueryId, empNo);
 		logger.debug("affected row count: {}", affectedRowCount);
 		return affectedRowCount;
