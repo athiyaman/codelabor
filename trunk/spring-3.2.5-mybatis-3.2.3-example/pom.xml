@@ -20,12 +20,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
 
 		<!-- Logging -->
 		<dependency>
@@ -65,11 +64,6 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -85,15 +79,68 @@
 			<scope>test</scope>
 		</dependency>
 
-
-
+		<!-- data -->
 		<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>6</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.1</version>
+		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+					<version>1.2</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-dbcp</groupId>
+					<artifactId>commons-dbcp</artifactId>
+					<version>1.4</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<filters>
+					<filter>src/main/filters/local.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>development</id>
+			<build>
+				<filters>
+					<filter>src/main/filters/development.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>stage</id>
+			<build>
+				<filters>
+					<filter>src/main/filters/stage.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>production</id>
+			<build>
+				<filters>
+					<filter>src/main/filters/production.properties</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -130,6 +177,16 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 </project>
