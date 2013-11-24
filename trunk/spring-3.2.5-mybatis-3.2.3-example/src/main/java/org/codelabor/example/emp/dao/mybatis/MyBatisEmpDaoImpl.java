@@ -20,11 +20,13 @@ import java.util.List;
 
 import org.codelabor.example.emp.dao.EmpDao;
 import org.codelabor.example.emp.dto.EmpDto;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Sang Jae Shin
- *
+ * 
  */
+@Repository
 public class MyBatisEmpDaoImpl implements EmpDao {
 
 	/**
@@ -34,7 +36,9 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 		// TODO Auto-generated constructor stub
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.example.emp.dao.EmpDao#selectEmpList()
 	 */
 	@Override
@@ -43,8 +47,12 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.example.emp.dao.EmpDao#selectEmpListByDeptNo(java.lang.Integer)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.example.emp.dao.EmpDao#selectEmpListByDeptNo(java.lang.
+	 * Integer)
 	 */
 	@Override
 	public List<EmpDto> selectEmpListByDeptNo(Integer deptNo) {
@@ -52,7 +60,9 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 		return null;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.example.emp.dao.EmpDao#selectEmp(java.lang.String)
 	 */
 	@Override
@@ -61,8 +71,12 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.example.emp.dao.EmpDao#insertEmp(org.codelabor.example.emp.dto.EmpDto)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.example.emp.dao.EmpDao#insertEmp(org.codelabor.example.
+	 * emp.dto.EmpDto)
 	 */
 	@Override
 	public int insertEmp(EmpDto empDto) {
@@ -70,8 +84,12 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 		return 0;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.example.emp.dao.EmpDao#updateEmp(org.codelabor.example.emp.dto.EmpDto)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.example.emp.dao.EmpDao#updateEmp(org.codelabor.example.
+	 * emp.dto.EmpDto)
 	 */
 	@Override
 	public int updateEmp(EmpDto empDto) {
@@ -79,7 +97,9 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 		return 0;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.example.emp.dao.EmpDao#deleteEmp(java.lang.String)
 	 */
 	@Override

@@ -16,25 +16,43 @@
  */
 package org.codelabor.example.emp.dao.mybatis;
 
-import static org.junit.Assert.*;
+import java.util.List;
 
+import org.codelabor.example.emp.dto.EmpDto;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Sang Jae Shin
- *
+ * 
  */
+@ContextConfiguration(locations = {
+		"file:src/main/resources/spring/applicationContext-root.xml",
+		"file:src/main/resources/spring/applicationContext-data.xml" })
+@RunWith(SpringJUnit4ClassRunner.class)
 public class MyBatisEmpDaoImplTest {
+
+	@Autowired
+	private MyBatisEmpDaoImpl dao;
+	private static Logger logger = LoggerFactory
+			.getLogger(MyBatisEmpDaoImplTest.class);
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		logger.debug("setUpBeforeClass");
 	}
 
 	/**
@@ -42,6 +60,7 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		logger.debug("tearDownAfterClass");
 	}
 
 	/**
@@ -49,6 +68,8 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		logger.debug("setUp");
+		Assert.assertNotNull(dao);
 	}
 
 	/**
@@ -56,62 +77,74 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		logger.debug("tearDown");
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#MybatisEmpDaoImpl()}.
-	 */
-	@Test
-	public final void testMybatisEmpDaoImpl() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#selectEmpList()}.
+	 * Test method for
+	 * {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#selectEmpList()}
+	 * .
 	 */
 	@Test
 	public final void testSelectEmpList() {
-		fail("Not yet implemented"); // TODO
+		logger.debug("testSelectEmpList");
+		List<EmpDto> empList = dao.selectEmpList();
+		Assert.assertNotNull(empList);
+		Assert.assertTrue(empList.size() > 0);
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#selectEmpListByDeptNo(java.lang.Integer)}.
+	 * Test method for
+	 * {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#selectEmpListByDeptNo(java.lang.Integer)}
+	 * .
 	 */
 	@Test
 	public final void testSelectEmpListByDeptNo() {
-		fail("Not yet implemented"); // TODO
+		List<EmpDto> empList = dao.selectEmpListByDeptNo(1);
+		Assert.assertNotNull(empList);
+		Assert.assertTrue(empList.size() > 0);
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#selectEmp(java.lang.String)}.
+	 * Test method for
+	 * {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#selectEmp(java.lang.String)}
+	 * .
 	 */
 	@Test
 	public final void testSelectEmp() {
-		fail("Not yet implemented"); // TODO
+		EmpDto emp = dao.selectEmp("7369");
+		Assert.assertNotNull(emp);
+		Assert.assertEquals("SMITH", emp.getEname());
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#insertEmp(org.codelabor.example.emp.dto.EmpDto)}.
+	 * Test method for
+	 * {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#insertEmp(org.codelabor.example.emp.dto.EmpDto)}
+	 * .
 	 */
 	@Test
 	public final void testInsertEmp() {
-		fail("Not yet implemented"); // TODO
+		Assert.fail("Not yet implemented"); // TODO
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#updateEmp(org.codelabor.example.emp.dto.EmpDto)}.
+	 * Test method for
+	 * {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#updateEmp(org.codelabor.example.emp.dto.EmpDto)}
+	 * .
 	 */
 	@Test
 	public final void testUpdateEmp() {
-		fail("Not yet implemented"); // TODO
+		Assert.fail("Not yet implemented"); // TODO
 	}
 
 	/**
-	 * Test method for {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#deleteEmp(java.lang.String)}.
+	 * Test method for
+	 * {@link org.codelabor.example.emp.dao.mybatis.MyBatisEmpDaoImpl#deleteEmp(java.lang.String)}
+	 * .
 	 */
 	@Test
 	public final void testDeleteEmp() {
-		fail("Not yet implemented"); // TODO
+		Assert.fail("Not yet implemented"); // TODO
 	}
 
 }

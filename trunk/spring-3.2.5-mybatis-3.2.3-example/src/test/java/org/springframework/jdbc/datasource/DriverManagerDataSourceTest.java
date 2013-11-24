@@ -40,7 +40,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author Sang Jae Shin
  * 
  */
-@ContextConfiguration(locations = "file:src/test/resources/spring/applicationContext-test.xml")
+@ContextConfiguration(locations = {
+		"file:src/main/resources/spring/applicationContext-root.xml",
+		"file:src/main/resources/spring/applicationContext-data.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DriverManagerDataSourceTest {
 
@@ -72,6 +74,7 @@ public class DriverManagerDataSourceTest {
 	@Before
 	public void setUp() throws Exception {
 		logger.debug("setUp");
+		assertNotNull(dataSource);
 	}
 
 	/**
