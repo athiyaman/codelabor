@@ -98,6 +98,7 @@ public class DriverManagerDataSourceTest {
 		Connection conn = null;
 		try {
 			conn = dataSource.getConnection();
+			logger.debug("conn: {}", conn.toString());
 			assertNotNull(conn);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
