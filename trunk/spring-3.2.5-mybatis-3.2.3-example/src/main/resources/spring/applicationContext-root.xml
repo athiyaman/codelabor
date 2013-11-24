@@ -11,6 +11,21 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan base-package="org.codelabor.example" />
+	
 	<context:property-placeholder location="classpath:**/jdbc.properties"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:messages</value>
+				<!-- example -->
+				<value>classpath:messages/example/emp/errors</value>
+				<value>classpath:messages/example/emp/label</value>
+				<value>classpath:messages/example/emp/menu</value>
+				<value>classpath:messages/example/emp/messages</value>
+			</list>
+		</property>
+		<property name="cacheSeconds" value="1" />
+	</bean>
 		
 </beans>
