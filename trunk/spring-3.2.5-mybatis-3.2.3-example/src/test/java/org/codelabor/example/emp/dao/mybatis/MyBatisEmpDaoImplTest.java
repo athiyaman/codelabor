@@ -16,6 +16,7 @@
  */
 package org.codelabor.example.emp.dao.mybatis;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.codelabor.example.emp.dto.EmpDto;
@@ -127,7 +128,21 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@Test
 	public final void testInsertEmp() {
-		Assert.fail("Not yet implemented"); // TODO
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+
+		EmpDto empDto = new EmpDto();
+		empDto.setEmpNo(8000);
+		empDto.setEname("Bomber");
+		empDto.setJob("SA");
+		empDto.setMgr(7839);
+		calendar.set(2001, 2, 1, 12, 00, 00);
+		empDto.setHireDate(Calendar.getInstance().getTime());
+		empDto.setSal(5000.0f);
+		empDto.setComm(100.0f);
+		empDto.setDeptNo(20);
+		int affectedRowCount = dao.insertEmp(empDto);
+		Assert.assertEquals(1, affectedRowCount);
 	}
 
 	/**
@@ -137,7 +152,21 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@Test
 	public final void testUpdateEmp() {
-		Assert.fail("Not yet implemented"); // TODO
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+
+		EmpDto empDto = new EmpDto();
+		empDto.setEmpNo(8000);
+		empDto.setEname("Bomber");
+		empDto.setJob("SA");
+		empDto.setMgr(7839);
+		calendar.set(2001, 2, 1, 12, 00, 00);
+		empDto.setHireDate(Calendar.getInstance().getTime());
+		empDto.setSal(6000.0f);
+		empDto.setComm(200.0f);
+		empDto.setDeptNo(20);
+		int affectedRowCount = dao.updateEmp(empDto);
+		Assert.assertEquals(1, affectedRowCount);
 	}
 
 	/**
@@ -147,7 +176,9 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@Test
 	public final void testDeleteEmp() {
-		Assert.fail("Not yet implemented"); // TODO
+		Integer empNo = 8000;
+		int affectedRowCount = dao.deleteEmp(empNo);
+		Assert.assertEquals(1, affectedRowCount);
 	}
 
 }
