@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources location="/themes/" mapping="/themes/**"/>
-	<resources location="/images/" mapping="/images/**"/>
-	<resources location="/css/" mapping="/css/**"/>
-	<resources location="/js/" mapping="/js/**"/>
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources location="/themes/" mapping="/themes/**" />
+	<resources location="/images/" mapping="/images/**" />
+	<resources location="/css/" mapping="/css/**" />
+	<resources location="/js/" mapping="/js/**" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<context:component-scan base-package="org.codelabor.example" />
-	
-	<view-controller path="/example" view-name="/example/index"/>
-	
-	<beans:import resource="applicationContext-root.xml"/>
-	<beans:import resource="applicationContext-data.xml"/>
-	<beans:import resource="applicationcontext-myBatis.xml"/>
-	
+
+	<view-controller path="/example" view-name="/example/index" />
+
+	<beans:import resource="applicationContext-root.xml" />
+	<beans:import resource="applicationContext-data.xml" />
+	<beans:import resource="applicationcontext-myBatis.xml" />
+
+
+
 </beans:beans>

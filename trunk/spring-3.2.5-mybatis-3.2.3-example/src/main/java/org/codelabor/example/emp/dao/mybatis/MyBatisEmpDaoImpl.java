@@ -18,14 +18,12 @@ package org.codelabor.example.emp.dao.mybatis;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.apache.ibatis.session.SqlSession;
 import org.codelabor.example.emp.dao.EmpDao;
 import org.codelabor.example.emp.dto.EmpDto;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -38,9 +36,8 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	private static final Logger logger = LoggerFactory
 			.getLogger(MyBatisEmpDaoImpl.class);
 
-	@Inject
-	@Named("sqlSession")
-	private SqlSession sqlSession;
+	@Qualifier("sqlSession")
+	private SqlSessionTemplate sqlSession;
 
 	/**
 	 * 
