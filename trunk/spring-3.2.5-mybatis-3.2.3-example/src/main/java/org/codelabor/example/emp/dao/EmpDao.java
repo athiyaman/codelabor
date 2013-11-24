@@ -29,12 +29,12 @@ public interface EmpDao {
 
 	public List<EmpDto> selectEmpListByDeptNo(Integer deptNo);
 
-	public EmpDto selectEmp(String empNo);
+	public EmpDto selectEmp(Integer empNo);
 
 	public int insertEmp(EmpDto empDto);
 
 	public int updateEmp(EmpDto empDto);
 
-	public int deleteEmp(String empNo);
+	public int deleteEmp(Integer empNo);
 
 }

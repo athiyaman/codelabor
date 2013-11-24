@@ -18,8 +18,12 @@ package org.codelabor.example.emp.dao.mybatis;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.codelabor.example.emp.dao.EmpDao;
 import org.codelabor.example.emp.dto.EmpDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -29,11 +33,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MyBatisEmpDaoImpl implements EmpDao {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(MyBatisEmpDaoImpl.class);
+
+	@Autowired
+	private SqlSession sqlSession;
+
 	/**
 	 * 
 	 */
 	public MyBatisEmpDaoImpl() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/*
@@ -43,8 +52,10 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public List<EmpDto> selectEmpList() {
-		// TODO Auto-generated method stub
-		return null;
+		String selectQueryId = "exampleSelectEmpList";
+		List<EmpDto> empDtoList = sqlSession.selectList(selectQueryId);
+		logger.debug("empDtoList: {}", empDtoList);
+		return empDtoList;
 	}
 
 	/*
@@ -56,8 +67,10 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public List<EmpDto> selectEmpListByDeptNo(Integer deptNo) {
-		// TODO Auto-generated method stub
-		return null;
+		String selectQueryId = "exampleSelectEmpListByDeptNo";
+		List<EmpDto> empDtoList = sqlSession.selectList(selectQueryId);
+		logger.debug("empDtoList: {}", empDtoList);
+		return empDtoList;
 	}
 
 	/*
@@ -66,9 +79,11 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 * @see org.codelabor.example.emp.dao.EmpDao#selectEmp(java.lang.String)
 	 */
 	@Override
-	public EmpDto selectEmp(String empNo) {
-		// TODO Auto-generated method stub
-		return null;
+	public EmpDto selectEmp(Integer empNo) {
+		String selectQueryId = "exampleSelectEmp";
+		EmpDto empDto = sqlSession.selectOne(selectQueryId, empNo);
+		logger.debug("empDto: {}", empDto);
+		return empDto;
 	}
 
 	/*
@@ -80,8 +95,10 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public int insertEmp(EmpDto empDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		String insertQueryId = "exampleInsertEmp";
+		int affectedRowCount = sqlSession.update(insertQueryId, empDto);
+		logger.debug("affected row count: {}", affectedRowCount);
+		return affectedRowCount;
 	}
 
 	/*
@@ -93,8 +110,10 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public int updateEmp(EmpDto empDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		String updateQueryId = "exampleUpdateEmp";
+		int affectedRowCount = sqlSession.update(updateQueryId, empDto);
+		logger.debug("affected row count: {}", affectedRowCount);
+		return affectedRowCount;
 	}
 
 	/*
@@ -103,9 +122,11 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 * @see org.codelabor.example.emp.dao.EmpDao#deleteEmp(java.lang.String)
 	 */
 	@Override
-	public int deleteEmp(String empNo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteEmp(Integer empNo) {
+		String deleteQueryId = "exampleDeleteEmp";
+		int affectedRowCount = sqlSession.delete(deleteQueryId, empNo);
+		logger.debug("affected row count: {}", affectedRowCount);
+		return affectedRowCount;
 	}
 
 }

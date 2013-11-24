@@ -1,0 +1,22 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.codelabor.example.emp.dao.EmpDao">
+	<!--  
+	<resultMap id="empDtoMap" type="empDto">
+		<id column="EMPNO" property="empNo"/>
+		<result column="COMM" property="comm" />
+		<result column="SAL" property="sal" />
+		<result column="MGR" property="mgr" />
+		<result column="JOB" property="job" />
+		<result column="HIREDATE" property="hireDate" />
+		<result column="ENAME" property="ename" />
+		<result column="DEPTNO" property="deptNo" />
+	</resultMap>
+	-->
+	<select id="exampleSelectEmp" resultType="empDto">
+		select * from emp where empNo = #{empNo}
+	</select>
+	<select id="exampleSelectEmpList" resultType="empDto">
+		select * from emp
+	</select>
+</mapper>

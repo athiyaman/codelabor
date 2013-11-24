@@ -38,7 +38,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @ContextConfiguration(locations = {
 		"file:src/main/resources/spring/applicationContext-root.xml",
-		"file:src/main/resources/spring/applicationContext-data.xml" })
+		"file:src/main/resources/spring/applicationContext-data.xml",
+		"file:src/main/resources/spring/mybatis/applicationContext-myBatis.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MyBatisEmpDaoImplTest {
 
@@ -89,6 +90,7 @@ public class MyBatisEmpDaoImplTest {
 	public final void testSelectEmpList() {
 		logger.debug("testSelectEmpList");
 		List<EmpDto> empList = dao.selectEmpList();
+		logger.debug("empList.size(): {}", empList.size());
 		Assert.assertNotNull(empList);
 		Assert.assertTrue(empList.size() > 0);
 	}
@@ -112,7 +114,7 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@Test
 	public final void testSelectEmp() {
-		EmpDto emp = dao.selectEmp("7369");
+		EmpDto emp = dao.selectEmp(7369);
 		Assert.assertNotNull(emp);
 		Assert.assertEquals("SMITH", emp.getEname());
 	}
