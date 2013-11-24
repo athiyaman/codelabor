@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +10,8 @@
 <h1>Example</h1>
 <hr/>
 <ul>
-	<li><a href="${pageContext.servletContext.contextPath}/images/slf4j.jpg">resources example</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/images/slf4j.jpg">resources example (/images)</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/themes/maven/css/screen.css">resources example (/themes)</a></li>
 </ul>
 </body>
 </html>
