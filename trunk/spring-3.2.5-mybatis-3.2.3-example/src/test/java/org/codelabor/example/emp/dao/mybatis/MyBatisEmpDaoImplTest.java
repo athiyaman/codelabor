@@ -102,7 +102,8 @@ public class MyBatisEmpDaoImplTest {
 	 */
 	@Test
 	public final void testSelectEmpListByDeptNo() {
-		List<EmpDto> empList = dao.selectEmpListByDeptNo(1);
+		List<EmpDto> empList = dao.selectEmpListByDeptNo(10);
+		logger.debug("empList.size(): {}", empList.size());
 		Assert.assertNotNull(empList);
 		Assert.assertTrue(empList.size() > 0);
 	}

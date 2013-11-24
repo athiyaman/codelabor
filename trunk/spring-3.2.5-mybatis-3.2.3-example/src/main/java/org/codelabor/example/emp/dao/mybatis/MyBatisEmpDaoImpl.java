@@ -68,7 +68,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	@Override
 	public List<EmpDto> selectEmpListByDeptNo(Integer deptNo) {
 		String selectQueryId = "exampleSelectEmpListByDeptNo";
-		List<EmpDto> empDtoList = sqlSession.selectList(selectQueryId);
+		List<EmpDto> empDtoList = sqlSession.selectList(selectQueryId, deptNo);
 		logger.debug("empDtoList: {}", empDtoList);
 		return empDtoList;
 	}

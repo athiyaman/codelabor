@@ -19,4 +19,7 @@
 	<select id="exampleSelectEmpList" resultType="empDto">
 		select * from emp
 	</select>
+		<select id="exampleSelectEmpListByDeptNo" resultType="empDto">
+		select * from emp where deptno = #{deptNo}
+	</select>
 </mapper>
