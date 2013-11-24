@@ -43,7 +43,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {
 		"file:src/main/resources/spring/applicationContext-root.xml",
 		"file:src/main/resources/spring/applicationContext-data.xml",
-		"file:src/main/resources/spring/mybatis/applicationContext-myBatis.xml" })
+		"file:src/main/resources/spring/applicationContext-myBatis.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DriverManagerDataSourceTest {
 

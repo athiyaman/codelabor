@@ -8,9 +8,9 @@
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/spring/applicationContext-root.xml</config>
-		<config>src/main/resources/spring/applicationContext-mvc.xml</config>
 		<config>src/main/resources/spring/applicationContext-data.xml</config>
 		<config>src/main/resources/spring/applicationContext-myBatis.xml</config>
+		<config>src/main/webapp/WEB-INF/appServlet-servlet.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

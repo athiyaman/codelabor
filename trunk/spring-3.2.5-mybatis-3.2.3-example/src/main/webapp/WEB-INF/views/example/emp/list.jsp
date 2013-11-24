@@ -10,5 +10,6 @@
 <body>
 <h1>Emp List</h1>
 <hr/>
+${empDtoList}
 </body>
 </html>
