@@ -10,21 +10,8 @@
 		<config>src/main/resources/spring/applicationContext-root.xml</config>
 		<config>src/main/resources/spring/applicationContext-mvc.xml</config>
 		<config>src/main/resources/spring/applicationContext-data.xml</config>
-		<config>src/main/resources/spring/mybatis/applicationContext-myBatis.xml</config>
+		<config>src/main/resources/spring/applicationContext-myBatis.xml</config>
 	</configs>
 	<configSets>
-		<configSet>
-			<name><![CDATA[all]]></name>
-			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
-			<incomplete>false</incomplete>
-			<configs>
-				<config>src/main/resources/spring/applicationContext-data.xml</config>
-				<config>src/main/resources/spring/applicationContext-mvc.xml</config>
-				<config>src/main/resources/spring/applicationContext-root.xml</config>
-				<config>src/main/resources/spring/mybatis/applicationContext-myBatis.xml</config>
-			</configs>
-			<profiles>
-			</profiles>
-		</configSet>
 	</configSets>
 </beansProjectDescription>

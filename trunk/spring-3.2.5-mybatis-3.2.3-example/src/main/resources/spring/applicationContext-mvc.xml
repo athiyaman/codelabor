@@ -28,5 +28,8 @@
 	
 	<view-controller path="/example" view-name="/example/index"/>
 	
+	<beans:import resource="applicationContext-root.xml"/>
+	<beans:import resource="applicationContext-data.xml"/>
+	<beans:import resource="applicationcontext-myBatis.xml"/>
 	
 </beans:beans>

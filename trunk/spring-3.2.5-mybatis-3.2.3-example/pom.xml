@@ -97,6 +97,11 @@
 			<version>3.2.3</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
 	</dependencies>
 	<profiles>
 		<profile>
