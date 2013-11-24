@@ -12,7 +12,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan base-package="org.codelabor.example" />
 	
-	<context:property-placeholder location="classpath:**/jdbc.properties" />
+	<context:property-placeholder location="classpath:properties/jdbc.properties" />
 	
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
