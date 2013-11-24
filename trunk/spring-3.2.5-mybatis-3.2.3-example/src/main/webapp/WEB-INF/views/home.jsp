@@ -11,5 +11,9 @@
 <h1>Home</h1>
 <hr/>
 ${serverTime}
+
+<ul>
+	<li><a href="${pageContext.servletContext.contextPath}/example">Example</a></li>
+</ul>
 </body>
 </html>
