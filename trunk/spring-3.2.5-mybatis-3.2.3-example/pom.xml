@@ -103,9 +103,9 @@
 	</dependencies>
 	<profiles>
 		<profile>
-			<id>local</id>
+			<id>local-windows</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<os><family>windows</family></os>
 			</activation>
 			<dependencies>
 				<dependency>
@@ -125,6 +125,29 @@
 				</filters>
 			</build>
 		</profile>
+		<profile>
+			<id>local-mac</id>
+			<activation>
+				<os><family>mac</family></os>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+					<version>1.2</version>
+				</dependency>
+				<dependency>
+					<groupId>commons-dbcp</groupId>
+					<artifactId>commons-dbcp</artifactId>
+					<version>1.4</version>
+				</dependency>
+			</dependencies>
+			<build>
+				<filters>
+					<filter>src/main/filters/local-mac.properties</filter>
+				</filters>
+			</build>
+		</profile>		
 		<profile>
 			<id>development</id>
 			<build>
