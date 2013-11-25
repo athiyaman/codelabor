@@ -61,7 +61,7 @@ public class EmpController {
 		List<EmpDto> empDtoList = empDao.selectEmpList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("empDtoList", empDtoList);
-		mav.setViewName("/example/emp/list");
+		mav.setViewName("example/emp/list");
 		return mav;
 	}
 
