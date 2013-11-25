@@ -29,7 +29,9 @@
 
 	<context:component-scan base-package="org.codelabor.example" />
 
-	<view-controller path="/example" view-name="/example/index" />
+	<view-controller path="/example" view-name="example/index" />
+	
+	<default-servlet-handler/>
 
 
 </beans:beans>
