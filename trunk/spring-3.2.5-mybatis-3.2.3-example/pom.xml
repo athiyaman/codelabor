@@ -121,7 +121,7 @@
 			</dependencies>
 			<build>
 				<filters>
-					<filter>src/main/filters/local.properties</filter>
+					<filter>src/main/filters/local-windows.properties</filter>
 				</filters>
 			</build>
 		</profile>
