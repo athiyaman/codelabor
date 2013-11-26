@@ -22,10 +22,13 @@
 			<list>
 				<value>classpath:messages</value>
 				<!-- example -->
+				<value>classpath:messages/example/messages</value>
 				<value>classpath:messages/example/emp/errors</value>
 				<value>classpath:messages/example/emp/label</value>
 				<value>classpath:messages/example/emp/menu</value>
 				<value>classpath:messages/example/emp/messages</value>
+				<!-- system -->
+				<value>classpath:messages/system/messages</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1" />
