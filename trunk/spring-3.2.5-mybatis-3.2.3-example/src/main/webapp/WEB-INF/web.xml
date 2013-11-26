@@ -46,7 +46,10 @@
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
+		<!--  
 		<location>/system/error/500.html</location>
+		-->
+		<location>/WEB-INF/views/system/error/default-error-page.jsp</location>
 	</error-page>
 
 </web-app>

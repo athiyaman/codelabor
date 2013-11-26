@@ -65,9 +65,10 @@ public class HelloWorldController {
 		logger.debug("message: {}", message);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("message", message);
+		throw new UnsupportedOperationException("Not yet implemeted.");
 		// TODO
-//		mav.setViewName("helloWorldExcelView");
-		return mav;
+		//mav.setViewName("");
+		//return mav;
 	}
 	
 	@RequestMapping("/sayHelloByJson")
@@ -78,9 +79,10 @@ public class HelloWorldController {
 		logger.debug("message: {}", message);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("message", message);
+		throw new UnsupportedOperationException("Not yet implemeted.");
 		// TODO
-//		mav.setViewName("helloWorldExcelView");
-		return mav;
+		//mav.setViewName("");
+		//return mav;
 	}	
 
 }

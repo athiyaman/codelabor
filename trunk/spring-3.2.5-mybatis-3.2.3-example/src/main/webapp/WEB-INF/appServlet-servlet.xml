@@ -20,9 +20,12 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0" />
+	</beans:bean>
 	<beans:bean class="org.springframework.web.servlet.view.XmlViewResolver">
 		<beans:property name="location" value="classpath:spring/views.xml" />
-		<beans:property name="order" value="0" />
+		<beans:property name="order" value="1" />
 	</beans:bean>
 
 	<beans:bean
