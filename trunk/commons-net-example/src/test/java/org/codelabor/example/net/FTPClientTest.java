@@ -27,7 +27,7 @@ public class FTPClientTest extends TestCase {
 	public void testStore() {
 		String hostname = "localhost";
 		String username = "bomber";
-		String password = "wndgus2";
+		String password = "1234qwer";
 		String encoding = "UTF-8";
 		int connectTimeout = 1000;
 		String directory = "";
