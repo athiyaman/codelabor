@@ -10,18 +10,24 @@
 <body>
 <h1>Example</h1>
 <hr/>
+
+<h2>Resources</h2>
 <ul>
 	<li><a href="${pageContext.servletContext.contextPath}/images/slf4j.jpg">resources example (/images)</a></li>
 	<li><a href="${pageContext.servletContext.contextPath}/themes/maven/css/screen.css">resources example (/themes)</a></li>
-	
-	<li><a href="${pageContext.servletContext.contextPath}/example/emp/listEmp">emp example</a></li>
 </ul>
 <h2>Error / Exception</h2>
 <ul>
-	<li><a href="#">403</a></li> <!-- DOTO -->
+	<li><a href="#">403 (Not yet implemented)</a></li> <!-- DOTO -->
 	<li><a href="./noSuchPage">404</a></li>
 	<li><a href="${pageContext.servletContext.contextPath}/example/error/dividedByZero">500</a></li>
 	<li><a href="${pageContext.servletContext.contextPath}/example/error/dividedByZeroErrorPageAttribute">500 (error page attribute)</a></li>
 </ul>
+
+<h2>Emp</h2>
+<ul>
+	<li><a href="${pageContext.servletContext.contextPath}/example/emp/listEmp">emp example</a></li>
+</ul>
+
 </body>
 </html>
