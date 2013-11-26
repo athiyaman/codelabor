@@ -36,6 +36,9 @@
 	</beans:bean>
 
 	<context:component-scan base-package="org.codelabor.example" />
+	<!-- <context:component-scan base-package="org.codelabor" use-default-filters="false"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> 
+		</context:component-scan> -->
 
 	<view-controller path="/example" view-name="example/index" />
 	<view-controller path="/example/error/dividedByZero"
@@ -45,5 +48,20 @@
 
 	<default-servlet-handler />
 
+	<!-- exception resolver -->
+	<beans:bean class="org.codelabor.system.sniffer.web.servlet.resolver.SniffingHandlerExceptionResolver">
+		<beans:property name="order" value="1" />
+	</beans:bean>
+	<beans:bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<beans:property name="order" value="2" />
+		<beans:property name="defaultErrorView" value="/system/error/default-error-page" />
+	</beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<beans:bean class="org.codelabor.system.sniffer.web.servlet.interceptor.SniffingHandlerInterceptor" />
+		</interceptor>
+	</interceptors>
 
 </beans:beans>
