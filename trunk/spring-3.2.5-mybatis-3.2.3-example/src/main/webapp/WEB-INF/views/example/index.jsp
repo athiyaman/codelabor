@@ -24,6 +24,15 @@
 	<li><a href="${pageContext.servletContext.contextPath}/example/error/dividedByZeroErrorPageAttribute">500 (error page attribute)</a></li>
 </ul>
 
+<h2>Hello World</h2>
+<ul>
+	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHello">say hello</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByPdf">say hello (pdf)</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByExcel">say hello (excel)</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByXml">say hello (xml) (Not yet implemented)</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByJson">say hello (json) (Not yet implemented)</a></li>
+</ul>
+
 <h2>Emp</h2>
 <ul>
 	<li><a href="${pageContext.servletContext.contextPath}/example/emp/listEmp">emp example</a></li>
