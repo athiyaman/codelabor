@@ -29,6 +29,8 @@
 	<context:component-scan base-package="org.codelabor.example" />
 
 	<view-controller path="/example" view-name="example/index" />
+	<view-controller path="/example/error/dividedByZero" view-name="example/error/divided-by-zero" />
+	<view-controller path="/example/error/dividedByZeroErrorPageAttribute" view-name="example/error/divided-by-zero-error-page-attribute" />
 
 	<default-servlet-handler />
 

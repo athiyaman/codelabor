@@ -16,5 +16,12 @@
 	
 	<li><a href="${pageContext.servletContext.contextPath}/example/emp/listEmp">emp example</a></li>
 </ul>
+<h2>Error / Exception</h2>
+<ul>
+	<li><a href="#">403</a></li> <!-- DOTO -->
+	<li><a href="./noSuchPage">404</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/error/dividedByZero">500</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/error/dividedByZeroErrorPageAttribute">500 (error page attribute)</a></li>
+</ul>
 </body>
 </html>
