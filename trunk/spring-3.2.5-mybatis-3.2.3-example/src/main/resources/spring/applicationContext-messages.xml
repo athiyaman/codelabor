@@ -8,6 +8,7 @@
 		<property name="basenames">
 			<list>
 				<value>classpath:messages</value>
+				
 				<!-- example -->
 				<value>classpath:messages/example/messages</value>
 				<value>classpath:messages/example/emp/errors</value>
@@ -26,6 +27,15 @@
 				<value>classpath:messages/system/messages</value>
 				<value>classpath:messages/system/title</value>
 				<value>classpath:messages/system/button</value>
+				
+				<!-- common -->
+				<value>classpath:messages/common/caption</value>
+				<value>classpath:messages/common/heading</value>
+				<value>classpath:messages/common/label</value>
+				<value>classpath:messages/common/menu</value>
+				<value>classpath:messages/common/messages</value>
+				<value>classpath:messages/common/title</value>
+				<value>classpath:messages/common/button</value>				
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1" />

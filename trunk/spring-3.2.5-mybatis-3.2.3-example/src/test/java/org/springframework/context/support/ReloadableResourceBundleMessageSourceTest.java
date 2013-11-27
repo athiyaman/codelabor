@@ -54,16 +54,15 @@ public class ReloadableResourceBundleMessageSourceTest {
 	@Test
 	public final void testGetMessageStringObjectArrayStringLocale() {
 		logger.debug("testGetMessageStringObjectArrayStringLocale");
-		String message = messageSource.getMessage(
-				"typeMismatch.empDTO.hireDate", null, Locale.ENGLISH);
+		String message = messageSource.getMessage("button.create", null,
+				Locale.ENGLISH);
 		logger.debug(message);
-		Assert.assertEquals("Hire date type is mismatch (ex: yyyy-MM-dd)",
-				message);
+		Assert.assertEquals("Create", message);
 
-		message = messageSource.getMessage("typeMismatch.empDTO.hireDate",
-				null, Locale.KOREAN);
+		message = messageSource
+				.getMessage("button.create", null, Locale.KOREAN);
 		logger.debug(message);
-		Assert.assertEquals("고용 일자의 입력 형식이 맞지 않습니다 (예: yyyy-MM-dd)", message);
+		Assert.assertEquals("등록", message);
 	}
 
 	/**
@@ -75,14 +74,14 @@ public class ReloadableResourceBundleMessageSourceTest {
 	public final void testGetMessageStringObjectArrayLocale() {
 		logger.debug("testGetMessageStringObjectArrayLocale");
 		String message = messageSource.getMessage("no.such.message", null,
-				"Default Error Message", Locale.ENGLISH);
+				"An unknown error occrred", Locale.ENGLISH);
 		logger.debug(message);
-		Assert.assertEquals("Default Error Message", message);
+		Assert.assertEquals("An unknown error occrred", message);
 
 		message = messageSource.getMessage("no.such.message", null,
-				"기본 에러 메시지", Locale.KOREAN);
+				"알 수 없는 에러가 발생하였습니다.", Locale.KOREAN);
 		logger.debug(message);
-		Assert.assertEquals("기본 에러 메시지", message);
+		Assert.assertEquals("알 수 없는 에러가 발생하였습니다.", message);
 	}
 
 	/**
