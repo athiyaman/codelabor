@@ -11,6 +11,7 @@
 		<config>src/main/resources/spring/applicationContext-data.xml</config>
 		<config>src/main/resources/spring/applicationContext-myBatis.xml</config>
 		<config>src/main/webapp/WEB-INF/dispatcher-servlet.xml</config>
+		<config>src/main/resources/spring/applicationContext-messages.xml</config>
 	</configs>
 	<configSets>
 		<configSet>
@@ -22,6 +23,7 @@
 				<config>src/main/resources/spring/applicationContext-myBatis.xml</config>
 				<config>src/main/resources/spring/applicationContext-root.xml</config>
 				<config>src/main/webapp/WEB-INF/dispatcher-servlet.xml</config>
+				<config>src/main/resources/spring/applicationContext-messages.xml</config>
 			</configs>
 			<profiles>
 			</profiles>

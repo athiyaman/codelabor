@@ -32,7 +32,7 @@ public class PersonDto {
 	@Email
 	private String email;
 
-	// TODO
+	@NotBlank
 	private String zipCode;
 
 	@DateTimeFormat(iso = ISO.DATE)
