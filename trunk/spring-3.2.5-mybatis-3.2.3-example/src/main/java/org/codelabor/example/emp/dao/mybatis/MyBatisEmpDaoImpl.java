@@ -52,7 +52,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public List<EmpDto> selectEmpList() {
-		String selectQueryId = "exampleSelectEmpList";
+		String selectQueryId = "selectEmpList";
 		List<EmpDto> empDtoList = sqlSession.selectList(selectQueryId);
 		logger.debug("empDtoList: {}", empDtoList);
 		return empDtoList;
@@ -67,7 +67,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public List<EmpDto> selectEmpListByDeptNo(Integer deptNo) {
-		String selectQueryId = "exampleSelectEmpListByDeptNo";
+		String selectQueryId = "selectEmpListByDeptNo";
 		List<EmpDto> empDtoList = sqlSession.selectList(selectQueryId, deptNo);
 		logger.debug("empDtoList: {}", empDtoList);
 		return empDtoList;
@@ -80,7 +80,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public EmpDto selectEmp(Integer empNo) {
-		String selectQueryId = "exampleSelectEmp";
+		String selectQueryId = "selectEmp";
 		EmpDto empDto = sqlSession.selectOne(selectQueryId, empNo);
 		logger.debug("empDto: {}", empDto);
 		return empDto;
@@ -95,7 +95,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public int insertEmp(EmpDto empDto) {
-		String insertQueryId = "exampleInsertEmp";
+		String insertQueryId = "insertEmp";
 		logger.debug("empDto: {}", empDto);
 		int affectedRowCount = sqlSession.insert(insertQueryId, empDto);
 		logger.debug("affected row count: {}", affectedRowCount);
@@ -111,7 +111,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public int updateEmp(EmpDto empDto) {
-		String updateQueryId = "exampleUpdateEmp";
+		String updateQueryId = "updateEmp";
 		logger.debug("empDto: {}", empDto);
 		int affectedRowCount = sqlSession.update(updateQueryId, empDto);
 		logger.debug("affected row count: {}", affectedRowCount);
@@ -125,7 +125,7 @@ public class MyBatisEmpDaoImpl implements EmpDao {
 	 */
 	@Override
 	public int deleteEmp(Integer empNo) {
-		String deleteQueryId = "exampleDeleteEmp";
+		String deleteQueryId = "deleteEmp";
 		logger.debug("empNo: {}", empNo);
 		int affectedRowCount = sqlSession.delete(deleteQueryId, empNo);
 		logger.debug("affected row count: {}", affectedRowCount);
