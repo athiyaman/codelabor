@@ -14,7 +14,7 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/> 
 		</context:component-scan> -->
 
-	<context:property-placeholder location="classpath:properties/jdbc.properties" />
+	<context:property-placeholder location="classpath:properties/system/jdbc.properties" />
 
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
