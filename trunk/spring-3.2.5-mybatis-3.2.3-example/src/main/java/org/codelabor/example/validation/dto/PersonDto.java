@@ -16,7 +16,7 @@ public class PersonDto {
 	@Length(min = 3, max = 8)
 	private String username;
 
-	// TODO
+	@NotBlank
 	private String password;
 
 	@NotBlank
@@ -25,7 +25,7 @@ public class PersonDto {
 	@NotBlank
 	private String lastName;
 
-	// TODO
+	@NotBlank
 	private String phone;
 
 	@NotBlank
