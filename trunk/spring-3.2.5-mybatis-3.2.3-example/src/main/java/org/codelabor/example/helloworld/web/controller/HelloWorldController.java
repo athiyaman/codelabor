@@ -29,7 +29,7 @@ public class HelloWorldController {
 		logger.debug("message: {}", message);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("message", message);
-		mav.setViewName("/example/helloworld/hello-world");
+		mav.setViewName("/example/helloworld/helloWorld");
 		return mav;
 	}
 

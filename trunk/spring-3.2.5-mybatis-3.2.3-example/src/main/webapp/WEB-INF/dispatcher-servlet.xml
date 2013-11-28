@@ -42,9 +42,9 @@
 
 	<view-controller path="/example" view-name="example/index" />
 	<view-controller path="/example/error/dividedByZero"
-		view-name="example/error/divided-by-zero" />
+		view-name="example/error/dividedByZero" />
 	<view-controller path="/example/error/dividedByZeroErrorPageAttribute"
-		view-name="example/error/divided-by-zero-error-page-attribute" />
+		view-name="example/error/dividedByZeroErrorPageAttribute" />
 
 	<default-servlet-handler />
 
