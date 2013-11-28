@@ -18,8 +18,8 @@ package org.codelabor.example.emp.web.contoller;
 
 import java.util.List;
 
-import org.codelabor.example.emp.dao.EmpDao;
 import org.codelabor.example.emp.dto.EmpDto;
+import org.codelabor.example.emp.service.EmpService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,27 +38,33 @@ public class EmpController {
 	Logger logger = LoggerFactory.getLogger(EmpController.class);
 
 	@Autowired
-	EmpDao empDao;
+	EmpService empService;
 
 	@RequestMapping(value = "/createEmp", method = RequestMethod.GET)
 	public void prepareCreateEmp() {
 		logger.debug("prepareCreateEmp");
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@RequestMapping(value = "/createEmp", method = RequestMethod.POST)
 	public void createEmp() {
 		logger.debug("createEmp");
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@RequestMapping(value = "/readEmp", method = RequestMethod.GET)
 	public void readEmp() {
 		logger.debug("readEmp");
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@RequestMapping(value = "/listEmp", method = RequestMethod.GET)
 	public ModelAndView listEmp() {
 		logger.debug("listEmp");
-		List<EmpDto> empDtoList = empDao.selectEmpList();
+		List<EmpDto> empDtoList = empService.selectEmpList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("empDtoList", empDtoList);
 		mav.setViewName("example/emp/list");
@@ -68,17 +74,22 @@ public class EmpController {
 	@RequestMapping(value = "/updateEmp", method = RequestMethod.GET)
 	public void prepareUpdateEmp() {
 		logger.debug("prepareUpdateEmp");
-
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@RequestMapping(value = "/updateEmp", method = RequestMethod.POST)
 	public void updateEmp() {
 		logger.debug("updateEmp");
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	@RequestMapping(value = "/deleteEmp", method = RequestMethod.POST)
 	public void deleteEmp() {
 		logger.debug("deleteEmp");
+		// TODO
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 }

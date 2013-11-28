@@ -38,5 +38,10 @@
 	<li><a href="${pageContext.servletContext.contextPath}/example/emp/listEmp">emp example</a></li>
 </ul>
 
+<h2>Validation</h2>
+<ul>
+	<li><a href="${pageContext.servletContext.contextPath}/example/validation/registration/registrationUser">validation example</a></li>
+</ul>
+
 </body>
 </html>
