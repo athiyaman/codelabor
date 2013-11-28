@@ -19,8 +19,8 @@ public class RegistrationController {
 	private static Logger logger = LoggerFactory
 			.getLogger(RegistrationController.class);
 
-	private static final String formViewName = "example/validation/registration-form";
-	private static final String completedViewName = "example/validation/registration-completed";
+	private static final String formViewName = "example/validation/registrationForm";
+	private static final String completedViewName = "example/validation/registrationCompleted";
 
 	@RequestMapping(value = "/registrationUser", method = RequestMethod.GET)
 	public ModelAndView prepareRegistrationUser(ModelAndView mav) {
