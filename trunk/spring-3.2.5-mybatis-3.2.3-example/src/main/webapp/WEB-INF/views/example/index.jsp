@@ -30,7 +30,7 @@
 	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByPdf">say hello (pdf)</a></li>
 	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByExcel">say hello (excel)</a></li>
 	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByXml">say hello (xml) (Not yet implemented)</a></li>
-	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByJson">say hello (json) (Not yet implemented)</a></li>
+	<li><a href="${pageContext.servletContext.contextPath}/example/helloworld/sayHelloByJson">say hello (json)</a></li>
 </ul>
 
 <h2>Emp</h2>
