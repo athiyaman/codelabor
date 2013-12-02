@@ -8,6 +8,8 @@
 		<property name="basenames">
 			<list>
 				<value>classpath:messages</value>
+				<!-- spring security -->
+				<value>classpath:org/springframework/security/messages</value>
 				
 				<!-- example -->
 				<value>classpath:messages/example/messages</value>
