@@ -81,7 +81,7 @@ public class ValidatorTest {
 		String phone = "+82-10-1111-1111";
 		String zipCode = "000000";
 		Date birthDate = (new SimpleDateFormat("yyyy-MM-dd"))
-				.parse("1900-01-01");
+				.parse("2020-01-01");
 
 		personDto = new PersonDto();
 		personDto.setUsername(username);
@@ -102,7 +102,7 @@ public class ValidatorTest {
 			logger.debug("message: {}", violation.getMessage());
 		}
 
-		Assert.assertEquals(1, constraintViolations.size());
+		Assert.assertEquals(2, constraintViolations.size());
 	}
 
 }
