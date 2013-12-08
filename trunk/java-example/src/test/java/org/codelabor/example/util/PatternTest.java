@@ -116,6 +116,29 @@ public class PatternTest {
 		String expectedString = "1234  5678";
 		logger.debug("resultingString: {}", resultingString);
 		assertTrue(!expectedString.equals(resultingString));
-	}	
+	}
+	
+	@Test
+	public void testPasswordValidation() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");	// start of group
+		sb.append("(?=.*[0-9])"); // a digit must occur at least one
+		sb.append("(?=.*[a-z])"); // a lower case letter must occur at least once
+		sb.append("(?=.*[A-Z])"); // a upper case letter must occur at least once
+		sb.append("(?=.*[~`!@#$%^&*()_+-=\\[\\]\\{}|;':\",./<>?])"); // a special character must occur at least once
+		sb.append("(?=\\S+$)"); // no whitespace allowed in the entire string
+		sb.append("."); // match anything with previous condition checking
+		sb.append("{5,10}"); // at least 5 to 10 characters
+		sb.append(")"); // end of group
+		String regex = sb.toString();
+		logger.debug("regex: {}", regex);
+		String input = "!234[\\Qwer";
+		logger.debug("input: {}", input);
+		boolean isMatched = Pattern.matches(regex, input);
+		logger.debug("isMatched: {}", isMatched);
+		
+		assertEquals(true, isMatched);
+		
+	}
 
 }
