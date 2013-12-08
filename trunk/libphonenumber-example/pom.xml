@@ -16,6 +16,11 @@
   		<version>1.7</version>
   	</dependency>
   	<dependency>
+  		<groupId>com.googlecode.libphonenumber</groupId>
+  		<artifactId>carrier</artifactId>
+  		<version>1.0</version>
+  	</dependency>  	
+  	<dependency>
   		<groupId>org.slf4j</groupId>
   		<artifactId>slf4j-api</artifactId>
   		<version>1.7.5</version>

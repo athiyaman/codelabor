@@ -43,8 +43,8 @@ public class PhoneNumberOfflineGeocoderTest {
 	@Test
 	public final void testGetDescriptionForNumber() {
 		try {
-			PhoneNumber phoneNumber = phoneNumberUtil
-					.parse("01012345678", "KR");
+			PhoneNumber phoneNumber = phoneNumberUtil.parse("01012345678",
+					Locale.KOREA.getCountry());
 			logger.debug("phoneNumber: {}", phoneNumber);
 			String englishDescription = geocoder.getDescriptionForNumber(
 					phoneNumber, Locale.ENGLISH);

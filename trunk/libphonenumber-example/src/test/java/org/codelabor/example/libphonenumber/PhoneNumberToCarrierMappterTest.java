@@ -11,14 +11,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberToCarrierMapper;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
-public class PhoneNumberUtilTest {
+public class PhoneNumberToCarrierMappterTest {
 
 	private static PhoneNumberUtil phoneNumberUtil;
-	private Logger logger = LoggerFactory.getLogger(PhoneNumberUtilTest.class);
+	private static PhoneNumberToCarrierMapper phoneNumberToCarrierMapper;
+	private Logger logger = LoggerFactory
+			.getLogger(PhoneNumberToCarrierMappterTest.class);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -31,6 +33,7 @@ public class PhoneNumberUtilTest {
 	@Before
 	public void setUp() throws Exception {
 		phoneNumberUtil = PhoneNumberUtil.getInstance();
+		phoneNumberToCarrierMapper = PhoneNumberToCarrierMapper.getInstance();
 	}
 
 	@After
@@ -38,20 +41,16 @@ public class PhoneNumberUtilTest {
 	}
 
 	@Test
-	public final void testParseStringString() {
+	public final void testGetNameForNumber() {
 		try {
 			PhoneNumber phoneNumber = phoneNumberUtil.parse("01012345678",
 					Locale.KOREA.getCountry());
 			logger.debug("phoneNumber: {}", phoneNumber);
-			String internationalFormat = phoneNumberUtil.format(phoneNumber,
-					PhoneNumberFormat.INTERNATIONAL);
-			logger.debug("internationalFormat: {}", internationalFormat);
-			String nationalFormat = phoneNumberUtil.format(phoneNumber,
-					PhoneNumberFormat.NATIONAL);
-			logger.debug("nationalFormat: {}", nationalFormat);
-			String e164Format = phoneNumberUtil.format(phoneNumber,
-					PhoneNumberFormat.E164);
-			logger.debug("e164Format: {}", e164Format);
+
+			String koreanName = phoneNumberToCarrierMapper.getNameForNumber(
+					phoneNumber, Locale.KOREAN);
+			logger.debug("koreanName: {}", koreanName);
+
 		} catch (NumberParseException e) {
 			e.printStackTrace();
 		}
