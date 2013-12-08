@@ -43,6 +43,10 @@ public class PhoneNumberUtilTest {
 			PhoneNumber phoneNumber = phoneNumberUtil.parse("01012345678",
 					Locale.KOREA.getCountry());
 			logger.debug("phoneNumber: {}", phoneNumber);
+
+			boolean isValid = phoneNumberUtil.isValidNumber(phoneNumber);
+			logger.debug("isValid: {}", isValid);
+
 			String internationalFormat = phoneNumberUtil.format(phoneNumber,
 					PhoneNumberFormat.INTERNATIONAL);
 			logger.debug("internationalFormat: {}", internationalFormat);
