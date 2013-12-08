@@ -118,6 +118,8 @@ public class PatternTest {
 		assertTrue(!expectedString.equals(resultingString));
 	}
 	
+	// http://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
+	// http://www.mkyong.com/regular-expressions/how-to-validate-password-with-regular-expression/
 	@Test
 	public void testPasswordValidation() {
 		StringBuilder sb = new StringBuilder();

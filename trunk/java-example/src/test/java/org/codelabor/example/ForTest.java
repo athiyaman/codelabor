@@ -4,9 +4,8 @@ import junit.framework.TestCase;
 
 public class ForTest extends TestCase {
 
-	@SuppressWarnings("null")
 	public void testFor() {
-		String[] names = null;
+		String[] names = {"Smith", "Allen", "Ward", "Jones", "Martin", "Blake", "Clark", "King", "Turner", "James", "Ford", "Miller"};
 		for (String name : names) {
 			System.out.println("name: " + name);
 		}
