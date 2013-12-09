@@ -135,15 +135,92 @@ public class EmpDTO implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("EmpDTO ( ").append(super.toString()).append(TAB)
-				.append("comm = ").append(this.comm).append(TAB).append(
-						"deptNo = ").append(this.deptNo).append(TAB).append(
-						"empNo = ").append(this.empNo).append(TAB).append(
-						"ename = ").append(this.ename).append(TAB).append(
-						"hireDate = ").append(this.hireDate).append(TAB)
+				.append("comm = ").append(this.comm).append(TAB)
+				.append("deptNo = ").append(this.deptNo).append(TAB)
+				.append("empNo = ").append(this.empNo).append(TAB)
+				.append("ename = ").append(this.ename).append(TAB)
+				.append("hireDate = ").append(this.hireDate).append(TAB)
 				.append("job = ").append(this.job).append(TAB).append("mgr = ")
 				.append(this.mgr).append(TAB).append("sal = ").append(this.sal)
 				.append(TAB).append(" )");
 
 		return retValue.toString();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Float.floatToIntBits(comm);
+		result = prime * result + deptNo;
+		result = prime * result + empNo;
+		result = prime * result + ((ename == null) ? 0 : ename.hashCode());
+		result = prime * result
+				+ ((hireDate == null) ? 0 : hireDate.hashCode());
+		result = prime * result + ((job == null) ? 0 : job.hashCode());
+		result = prime * result + mgr;
+		result = prime * result + Float.floatToIntBits(sal);
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof EmpDTO)) {
+			return false;
+		}
+		EmpDTO other = (EmpDTO) obj;
+		if (Float.floatToIntBits(comm) != Float.floatToIntBits(other.comm)) {
+			return false;
+		}
+		if (deptNo != other.deptNo) {
+			return false;
+		}
+		if (empNo != other.empNo) {
+			return false;
+		}
+		if (ename == null) {
+			if (other.ename != null) {
+				return false;
+			}
+		} else if (!ename.equals(other.ename)) {
+			return false;
+		}
+		if (hireDate == null) {
+			if (other.hireDate != null) {
+				return false;
+			}
+		} else if (!hireDate.equals(other.hireDate)) {
+			return false;
+		}
+		if (job == null) {
+			if (other.job != null) {
+				return false;
+			}
+		} else if (!job.equals(other.job)) {
+			return false;
+		}
+		if (mgr != other.mgr) {
+			return false;
+		}
+		if (Float.floatToIntBits(sal) != Float.floatToIntBits(other.sal)) {
+			return false;
+		}
+		return true;
 	}
 }
