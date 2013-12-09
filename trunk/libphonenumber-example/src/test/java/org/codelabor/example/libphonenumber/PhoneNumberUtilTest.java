@@ -83,7 +83,10 @@ public class PhoneNumberUtilTest {
 		Set<String> regionsSet = phoneNumberUtil.getSupportedRegions();
 		for (String region : regionsSet) {
 			int countryCode = phoneNumberUtil.getCountryCodeForRegion(region);
-			logger.debug("region: {}, countryCode: {}", region, countryCode);
+			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(),
+					region);
+			logger.debug("region: {}, country: {}, countryCode: {}", region,
+					locale.getDisplayCountry(), countryCode);
 		}
 
 		logger.debug("ordered");
@@ -91,7 +94,10 @@ public class PhoneNumberUtilTest {
 		Collections.sort(regionList);
 		for (String region : regionList) {
 			int countryCode = phoneNumberUtil.getCountryCodeForRegion(region);
-			logger.debug("region: {}, countryCode: {}", region, countryCode);
+			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(),
+					region);
+			logger.debug("region: {}, country: {}, countryCode: {}", region,
+					locale.getDisplayCountry(), countryCode);
 		}
 	}
 }
