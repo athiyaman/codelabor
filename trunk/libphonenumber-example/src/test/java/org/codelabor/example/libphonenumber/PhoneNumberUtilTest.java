@@ -93,6 +93,5 @@ public class PhoneNumberUtilTest {
 			int countryCode = phoneNumberUtil.getCountryCodeForRegion(region);
 			logger.debug("region: {}, countryCode: {}", region, countryCode);
 		}
-
 	}
 }
