@@ -34,7 +34,8 @@ public class LocaleTest {
 	@Test
 	public final void testGetAvailableLocales() {
 		for (Locale locale : Locale.getAvailableLocales()) {
-			logger.debug("locale: {}", locale);
+			logger.debug("locale: {}, displayName: {}", locale, locale.getDisplayName());
+			logger.debug("country: {}, displayCountry: {}, displayLanguage: {}", locale.getCountry(), locale.getDisplayCountry(), locale.getDisplayLanguage());
 		}
 			
 	}
@@ -42,14 +43,16 @@ public class LocaleTest {
 	@Test
 	public final void testGetISOCountries() {
 		for (String country : Locale.getISOCountries()) {
-			logger.debug("country: {}", country);
+			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(), country);
+			logger.debug("country: {}, displayCountry: {}", country, locale.getDisplayCountry());
 		}
 	}
 
 	@Test
 	public final void testGetISOLanguages() {
 		for (String language : Locale.getISOLanguages()) {
-			logger.debug("language: {}", language);
+			Locale locale = new Locale(language);
+			logger.debug("language: {}, displayLanguage: {}", language, locale.getDisplayLanguage());
 		}
 	}
 
