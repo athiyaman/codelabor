@@ -13,7 +13,8 @@ import org.slf4j.LoggerFactory;
 
 public class DigesterTest {
 
-	private static final Logger logger = LoggerFactory.getLogger(DigesterTest.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(DigesterTest.class);
 
 	@Before
 	public void setUp() throws Exception {
@@ -41,7 +42,7 @@ public class DigesterTest {
 		logger.debug("before (Hexa): {}", beforeHexa1);
 		logger.debug("after (Hexa): {}", afterHexa1);
 
-		MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+		MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
 		byte[] beforeBytes2 = before.getBytes();
 		byte[] afterBytes2 = messageDigest.digest(beforeBytes2);
 		BigInteger bigInteger2 = new BigInteger(beforeBytes2);
