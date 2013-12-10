@@ -2,9 +2,17 @@ package org.codelabor.example.libphonenumber;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -81,23 +89,82 @@ public class PhoneNumberUtilTest {
 	public final void testGetSupportedRegions() {
 		logger.debug("unordered");
 		Set<String> regionsSet = phoneNumberUtil.getSupportedRegions();
-		for (String region : regionsSet) {
-			int countryCode = phoneNumberUtil.getCountryCodeForRegion(region);
+		for (String regionCode : regionsSet) {
+			int countryCode = phoneNumberUtil
+					.getCountryCodeForRegion(regionCode);
 			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(),
-					region);
-			logger.debug("region: {}, country: {}, countryCode: {}", region,
-					locale.getDisplayCountry(), countryCode);
+					regionCode);
+			logger.debug("region: {}, country: {}, countryCode: {}",
+					regionCode, locale.getDisplayCountry(), countryCode);
 		}
 
 		logger.debug("ordered");
 		List<String> regionList = new ArrayList<String>(regionsSet);
 		Collections.sort(regionList);
-		for (String region : regionList) {
-			int countryCode = phoneNumberUtil.getCountryCodeForRegion(region);
+		for (String regionCode : regionList) {
+			int countryCode = phoneNumberUtil
+					.getCountryCodeForRegion(regionCode);
 			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(),
-					region);
-			logger.debug("region: {}, country: {}, countryCode: {}", region,
-					locale.getDisplayCountry(), countryCode);
+					regionCode);
+			logger.debug("region: {}, country: {}, countryCode: {}",
+					regionCode, locale.getDisplayCountry(), countryCode);
 		}
+	}
+
+	@Test
+	public final void testMakeCountryCodeOrderedMap() {
+		Set<String> regionsSet = phoneNumberUtil.getSupportedRegions();
+		Map map = new TreeMap();
+		for (String regionCode : regionsSet) {
+			int countryCode = phoneNumberUtil
+					.getCountryCodeForRegion(regionCode);
+			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(),
+					regionCode);
+			String displayCountry = locale.getDisplayCountry();
+			logger.debug("region: {}, countryCode: {}, country: {}",
+					regionCode, countryCode, displayCountry);
+			map.put(countryCode, displayCountry);
+		}
+		logger.debug("map: {}", map);
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Test
+	public final void testMakeDisplayCountryOrderedMap() {
+		Set<String> regionsSet = phoneNumberUtil.getSupportedRegions();
+		Map<Integer, String> countryMap = new HashMap<Integer, String>();
+		for (String regionCode : regionsSet) {
+			int countryCode = phoneNumberUtil
+					.getCountryCodeForRegion(regionCode);
+			Locale locale = new Locale(Locale.KOREAN.getDisplayLanguage(),
+					regionCode);
+			String displayCountry = locale.getDisplayCountry();
+			logger.debug("region: {}, countryCode: {}, country: {}",
+					regionCode, countryCode, displayCountry);
+			countryMap.put(countryCode, displayCountry);
+		}
+		logger.debug("countryMap: {}", countryMap);
+
+		List<Map.Entry<Integer, String>> list = new LinkedList<Map.Entry<Integer, String>>(
+				countryMap.entrySet());
+		// sort list based on comparator
+		Collections.sort(list, new Comparator() {
+			public int compare(Object o1, Object o2) {
+				return ((Comparable) ((Map.Entry) (o1)).getValue())
+						.compareTo(((Map.Entry) (o2)).getValue());
+			}
+		});
+
+		// put sorted list into map again
+		// LinkedHashMap make sure order in which keys were inserted
+		Map<Integer, String> sortedCountryMap = new LinkedHashMap<Integer, String>();
+		for (Iterator<Entry<Integer, String>> it = list.iterator(); it
+				.hasNext();) {
+			Entry<Integer, String> entry = it.next();
+			sortedCountryMap.put(entry.getKey(), entry.getValue());
+		}
+
+		logger.debug("sortedCountryMap: {}", sortedCountryMap);
+
 	}
 }
