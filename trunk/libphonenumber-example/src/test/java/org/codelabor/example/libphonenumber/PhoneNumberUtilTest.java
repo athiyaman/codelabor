@@ -38,14 +38,14 @@ public class PhoneNumberUtilTest {
 		// phoneNumber = phoneNumberUtil.parse("01012345678",
 		// Locale.KOREA.getCountry());
 
-		// phoneNumber = phoneNumberUtil.parse("0237067110",
-		// Locale.KOREA.getCountry());
+		phoneNumber = phoneNumberUtil.parse("(02)3706-7110",
+				Locale.KOREA.getCountry());
 
 		// phoneNumber = phoneNumberUtil.parse("07012345678",
 		// Locale.KOREA.getCountry());
 
-		phoneNumber = phoneNumberUtil.parse("05052345678",
-				Locale.KOREA.getCountry());
+		// phoneNumber = phoneNumberUtil.parse("05052345678",
+		// Locale.KOREA.getCountry());
 
 		logger.debug("phoneNumber: {}", phoneNumber);
 	}
