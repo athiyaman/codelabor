@@ -142,5 +142,65 @@ public class PatternTest {
 		assertEquals(true, isMatched);
 		
 	}
+	
+	@Test
+	public void mobilePhoneNumberValidation() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");	// start of group
+		sb.append("01\\d{1}-\\d{3,4}-\\d{4}");
+		sb.append(")"); // end of group
+		String regex = sb.toString();
+		logger.debug("regex: {}", regex);
+		
+		String input = "110-1111-1111";
+		boolean isMatched = Pattern.matches(regex, input);
+		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
+		assertEquals(true, isMatched);
+		
+		input = "010-111-1111";
+		isMatched = Pattern.matches(regex, input);
+		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
+		assertEquals(true, isMatched);
+	}
+	
+	@Test
+	public void homePhoneNumberValidation() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");	// start of group
+		sb.append("\\(0\\d{1,2}\\) \\d{3,4}-\\d{4}");
+		sb.append(")"); // end of group
+		String regex = sb.toString();
+		logger.debug("regex: {}", regex);
+		
+		String input = "(02) 1111-1111";
+		boolean isMatched = Pattern.matches(regex, input);
+		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
+		assertEquals(true, isMatched);
+		
+		input = "(041) 111-1111";
+		isMatched = Pattern.matches(regex, input);
+		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
+		assertEquals(true, isMatched);
+		
+		input = "(241) 111-1111";
+		isMatched = Pattern.matches(regex, input);
+		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
+		assertEquals(false, isMatched);
+	}	
+	
+	@Test
+	public void zipCodeValidation() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(");	// start of group
+		sb.append("\\d{3}-\\d{3}");
+		sb.append(")"); // end of group
+		String regex = sb.toString();
+		logger.debug("regex: {}", regex);
+		
+		String input = "111-111";
+		boolean isMatched = Pattern.matches(regex, input);
+		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
+		assertEquals(true, isMatched);
+	}	
 
 }
