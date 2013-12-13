@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @author Shin Sang-jae
  * 
  */
-public class AffectedRowCountDTO implements Serializable {
+public class AffectedRowCountDto implements Serializable {
 	/**
 	 * 시리얼 버전 UID
 	 */
@@ -112,7 +112,7 @@ public class AffectedRowCountDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("AffectedRowCountDTO ( ").append(super.toString())
+		retValue.append("AffectedRowCountDto ( ").append(super.toString())
 				.append(TAB).append("insertedRowCount = ").append(
 						this.insertedRowCount).append(TAB).append(
 						"updatedRowCount = ").append(this.updatedRowCount)

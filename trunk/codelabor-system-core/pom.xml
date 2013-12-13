@@ -4,12 +4,12 @@
 	<parent>
 		<artifactId>oss-parent</artifactId>
 		<groupId>org.sonatype.oss</groupId>
-		<version>2</version>
+		<version>7</version>
 	</parent>
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-core</artifactId>
 	<name>codelabor-system-core</name>
-	<version>3.0.8-SNAPSHOT</version>
+	<version>4.0.0-SNAPSHOT</version>
 	<description>codelabor system core</description>
 	<url>http://codelabor.googlecode.com</url>
 	<licenses>
@@ -59,7 +59,7 @@
 		        </configuration>
 		    </plugin>
 		   </plugins>
-		</pluginManagement>	
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -162,7 +162,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-asm</artifactId>
-			<version>${springframework.version}</version>
+			<version>3.1.4.RELEASE</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -232,30 +232,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<type>jar</type>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-			<type>jar</type>
-			<scope>runtime</scope>
+			<version>1.7.5</version>
 		</dependency>
 		<dependency>
 			<groupId>aspectj</groupId>
@@ -276,10 +259,15 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.13</version>
+		</dependency>
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework.version>3.0.5.RELEASE</springframework.version>
+		<springframework.version>3.2.5.RELEASE</springframework.version>
 	</properties>
 	<modules>
 	</modules>

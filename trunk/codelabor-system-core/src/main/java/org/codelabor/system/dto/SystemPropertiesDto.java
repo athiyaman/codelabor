@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @author Shin Sang-jae
  * 
  */
-public class SystemPropertiesDTO implements Serializable {
+public class SystemPropertiesDto implements Serializable {
 
 	/**
 	 * 시리얼 버전 UID
@@ -297,7 +297,7 @@ public class SystemPropertiesDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("SystemPropertiesDTO ( ").append(super.toString())
+		retValue.append("SystemPropertiesDto ( ").append(super.toString())
 				.append(TAB).append("fileSeparator = ").append(
 						this.fileSeparator).append(TAB).append(
 						"javaClassPath = ").append(this.javaClassPath).append(

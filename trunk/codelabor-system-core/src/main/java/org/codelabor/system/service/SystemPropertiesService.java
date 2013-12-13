@@ -17,7 +17,7 @@
 
 package org.codelabor.system.service;
 
-import org.codelabor.system.dto.SystemPropertiesDTO;
+import org.codelabor.system.dto.SystemPropertiesDto;
 
 
 
@@ -33,7 +33,7 @@ public interface SystemPropertiesService {
 	 *
 	 * @return 시스템 프로퍼티 DTO
 	 */
-	public SystemPropertiesDTO getSystemPropertiesDTO();
+	public SystemPropertiesDto getSystemPropertiesDTO();
 
 	/**
 	 * 프로퍼티를 가져온다.

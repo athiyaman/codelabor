@@ -26,7 +26,7 @@ import java.util.Arrays;
  * @author Shin Sang-jae
  *
  */
-public class StringIdArrayDTO implements Serializable {
+public class StringIdArrayDto implements Serializable {
 
 	/**
 	 * 시리얼 버전 UID
@@ -35,7 +35,7 @@ public class StringIdArrayDTO implements Serializable {
 	/**
 	 * Id 배열
 	 */
-	private String[] id;
+	protected String[] id;
 
 	/**
 	 * Id를 가져온다.
@@ -68,7 +68,7 @@ public class StringIdArrayDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("StringIdArrayDTO ( ").append(super.toString()).append(
+		retValue.append("StringIdArrayDto ( ").append(super.toString()).append(
 				TAB).append("id = ").append(Arrays.toString(this.id)).append(TAB).append(" )");
 
 		return retValue.toString();

@@ -27,7 +27,7 @@ import java.util.List;
  * @author Shin Sang-jae
  * 
  */
-public class MenuItemDTO implements Serializable {
+public class MenuItemDto implements Serializable {
 	/**
 	 * 시리얼 버전 UID
 	 */
@@ -56,14 +56,14 @@ public class MenuItemDTO implements Serializable {
 	/**
 	 * 하위 메뉴 아이템 DTO List
 	 */
-	protected final List<MenuItemDTO> childMenuItemDTOList = new ArrayList<MenuItemDTO>();
+	protected final List<MenuItemDto> childMenuItemDTOList = new ArrayList<MenuItemDto>();
 
 	/**
 	 * 하위 메뉴 아이템 DTO List 가져오기
 	 * 
 	 * @return 하위 메뉴 아이템 DTO List
 	 */
-	public List<MenuItemDTO> getChildMenuItemDTOList() {
+	public List<MenuItemDto> getChildMenuItemDTOList() {
 		return childMenuItemDTOList;
 	}
 
@@ -168,7 +168,7 @@ public class MenuItemDTO implements Serializable {
 	 * @param menuItemDTO
 	 *            하위 메뉴 아이템 DTO
 	 */
-	public void addChild(MenuItemDTO menuItemDTO) {
+	public void addChild(MenuItemDto menuItemDTO) {
 		childMenuItemDTOList.add(menuItemDTO);
 	}
 
@@ -179,7 +179,7 @@ public class MenuItemDTO implements Serializable {
 	 *            하위 메뉴 아이템의 인덱스
 	 * @return 제거된 하위 메뉴 아이템 DTO
 	 */
-	public MenuItemDTO removeChild(int index) {
+	public MenuItemDto removeChild(int index) {
 		return childMenuItemDTOList.remove(index);
 	}
 
@@ -190,7 +190,7 @@ public class MenuItemDTO implements Serializable {
 	 *            하위 메뉴 아이템의 인덱스
 	 * @return 하위 메뉴 아이템 DTO
 	 */
-	public MenuItemDTO getChild(int index) {
+	public MenuItemDto getChild(int index) {
 		return childMenuItemDTOList.get(index);
 	}
 }

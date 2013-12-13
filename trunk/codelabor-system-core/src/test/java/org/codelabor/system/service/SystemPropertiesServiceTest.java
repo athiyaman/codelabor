@@ -3,7 +3,7 @@ package org.codelabor.system.service;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
-import org.codelabor.system.dto.SystemPropertiesDTO;
+import org.codelabor.system.dto.SystemPropertiesDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,7 +40,7 @@ public class SystemPropertiesServiceTest {
 
 	@Test
 	public void testGetSystemPropertiesDTO() {
-		SystemPropertiesDTO systemPropertiesDTO;
+		SystemPropertiesDto systemPropertiesDTO;
 		try {
 			systemPropertiesDTO = systemPropertiesService
 					.getSystemPropertiesDTO();

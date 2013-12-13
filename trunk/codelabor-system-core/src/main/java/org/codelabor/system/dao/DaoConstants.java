@@ -23,6 +23,6 @@ package org.codelabor.system.dao;
  * @author Shin Sang-jae
  *
  */
-public class DAOConstants {
+public class DaoConstants {
 	public final static String AFFECTED_ROW_COUNT = "org.codelabor.system.dao.AFFECTED_ROW_COUNT";
 }

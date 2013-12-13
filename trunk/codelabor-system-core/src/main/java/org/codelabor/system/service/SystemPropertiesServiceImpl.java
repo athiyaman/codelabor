@@ -17,7 +17,7 @@
 
 package org.codelabor.system.service;
 
-import org.codelabor.system.dto.SystemPropertiesDTO;
+import org.codelabor.system.dto.SystemPropertiesDto;
 
 
 
@@ -47,8 +47,8 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService {
 	 * org.codelabor.system.services.SystemPropertiesService#getSystemPropertiesDTO
 	 * ()
 	 */
-	public SystemPropertiesDTO getSystemPropertiesDTO() {
-		SystemPropertiesDTO systemPropertiesDTO = new SystemPropertiesDTO();
+	public SystemPropertiesDto getSystemPropertiesDTO() {
+		SystemPropertiesDto systemPropertiesDTO = new SystemPropertiesDto();
 		systemPropertiesDTO.setJavaVersion(System.getProperty("java.version"));
 		systemPropertiesDTO.setJavaVendor(System.getProperty("java.vendor"));
 		systemPropertiesDTO.setJavaVendorUrl(System

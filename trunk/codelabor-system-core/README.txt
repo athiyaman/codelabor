@@ -1,3 +1,7 @@
+4.0.0
+	Anyframe 의 존 관계 제거
+	Naming Conventions을 Springframework의 Convention에 맞춤
+
 2.0.0
 	codelabor-system-core에서 web 관련 리소스 분리하여 codelabor-system-web으로 refectoring
 	anyframe 의존 모듈을 org.codelabor.system.anyframe 패키지 아래로 refectoring
@@ -34,14 +38,14 @@
 	findbug 지적 사항 개선
 
 3.0.5
-	ListUtils 메소드 추가	
-	
+	ListUtils 메소드 추가
+
 3.0.6
 	오타 수정
-	
+
 3.0.7
 	ExceptionUtils 제거
 	org.apache.commons.lang.exception.ExceptionUtils 대체
 
-3.0.7	
+3.0.7
 	ExceptionUtils 추가

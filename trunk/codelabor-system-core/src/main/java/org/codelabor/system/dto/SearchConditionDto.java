@@ -22,11 +22,11 @@ import java.util.Date;
 
 /**
  * 검색 조건 DTO
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
-public class SearchConditionDTO implements Serializable {
+public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 시리얼 버전 UID
@@ -35,19 +35,19 @@ public class SearchConditionDTO implements Serializable {
 	/**
 	 * 페이지 인덱스
 	 */
-	private int pageIndex = 1;
+	protected int pageIndex = 1;
 	/**
 	 * 시작 일자
 	 */
-	private Date fromDate;
+	protected Date fromDate;
 	/**
 	 * 종료 일자
 	 */
-	private Date toDate;
+	protected Date toDate;
 
 	/**
 	 * 페이지 인덱스를 가져온다.
-	 * 
+	 *
 	 * @return 페이지 인덱스
 	 */
 	public int getPageIndex() {
@@ -56,7 +56,7 @@ public class SearchConditionDTO implements Serializable {
 
 	/**
 	 * 페이지 인덱스를 설정한다.
-	 * 
+	 *
 	 * @param pageIndex
 	 *            페이지 인덱스
 	 */
@@ -66,7 +66,7 @@ public class SearchConditionDTO implements Serializable {
 
 	/**
 	 * 시작 일자를 가져온다.
-	 * 
+	 *
 	 * @return 시작 일자
 	 */
 	public Date getFromDate() {
@@ -75,7 +75,7 @@ public class SearchConditionDTO implements Serializable {
 
 	/**
 	 * 시작 일자를 설정한다.
-	 * 
+	 *
 	 * @param fromDate
 	 *            시작 일자
 	 */
@@ -85,7 +85,7 @@ public class SearchConditionDTO implements Serializable {
 
 	/**
 	 * 종료 일자를 가져온다.
-	 * 
+	 *
 	 * @return 종료 일자
 	 */
 	public Date getToDate() {
@@ -94,7 +94,7 @@ public class SearchConditionDTO implements Serializable {
 
 	/**
 	 * 종료 일자를 설정한다.
-	 * 
+	 *
 	 * @param toDate
 	 *            종료 일자
 	 */
@@ -105,7 +105,7 @@ public class SearchConditionDTO implements Serializable {
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
 	 * format.
-	 * 
+	 *
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override
@@ -114,7 +114,7 @@ public class SearchConditionDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("SearchConditionDTO ( ").append(super.toString())
+		retValue.append("SearchConditionDto ( ").append(super.toString())
 				.append(TAB).append("fromDate = ").append(this.fromDate)
 				.append(TAB).append("pageIndex = ").append(this.pageIndex)
 				.append(TAB).append("toDate = ").append(this.toDate)
