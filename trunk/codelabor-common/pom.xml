@@ -119,4 +119,5 @@
 			</build>
 		</profile>
 	</profiles>
+	<name>CODELABOR common library</name>
 </project>
