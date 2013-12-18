@@ -21,10 +21,46 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * <p>
+ * This class provides map for HTML &lt;select&gt; form attribute.
+ * </p>
+ * <p>
+ * Map can be used with Spring Framework taglib &lt;form:select /&gt;,
+ * &lt;form:option /&gt; or &lt;form:optinos /&gt;.
+ * </p>
+ * 
+ * <b>Example:</b> <br/>
+ * <p>
+ * Map is added to Map, Model, ModelMap or ModelAndView as follows:
+ * </p>
+ * <code>
+ * new ModelAndView().addObject("hourMap", getHourMap());
+ * </code> <br/>
+ * <p>
+ * &lt;select&gt; form attribute is marked up in a JSP file with Spring
+ * Framework taglib as follows:
+ * </p>
+ * <code>
+ * &lt;form:select path=&quot;hour&quot; items=&quot;${hourMap}&quot;
+ * /&gt;
+ * </code>
+ * 
+ * 
  * @author Shin Sang-Jae
  * 
  */
 public class ReferenceDataUtils {
+
+	/**
+	 * <p>
+	 * Produces a new map containing hours.
+	 * </p>
+	 * <p>
+	 * Key and value is same.
+	 * </p>
+	 * 
+	 * @return a new map containing hours from 00 to 23.
+	 */
 	public static Map<String, String> getHourMap() {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("00", "00");
@@ -54,6 +90,16 @@ public class ReferenceDataUtils {
 		return map;
 	}
 
+	/**
+	 * <p>
+	 * Produces a new map containing minute.
+	 * </p>
+	 * <p>
+	 * Key and value is same.
+	 * </p>
+	 * 
+	 * @return a new map containing minute from 00 to 55 increased by 5.
+	 */
 	public static Map<String, String> getMinuteMap() {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("00", "00");
@@ -71,6 +117,16 @@ public class ReferenceDataUtils {
 		return map;
 	}
 
+	/**
+	 * <p>
+	 * Produces a new map containing second.
+	 * </p>
+	 * <p>
+	 * Key and value is same.
+	 * </p>
+	 * 
+	 * @return a new map containing second from 00 to 55 increased by 5.
+	 */
 	public static Map<String, String> getSecondMap() {
 		Map<String, String> map = new LinkedHashMap<String, String>();
 		map.put("00", "00");
