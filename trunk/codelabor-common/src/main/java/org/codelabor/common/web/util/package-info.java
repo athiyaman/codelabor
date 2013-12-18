@@ -15,6 +15,9 @@
  * limitations under the License.
  */
 /**
+ *
+ * Provides Utils for web application.
+ *
  * @author Shin Sang-Jae
  *
  */
