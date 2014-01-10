@@ -16,15 +16,20 @@
  */
 package org.codelabor.example.helloworld.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * @author Shin Sang-Jae
  * 
  */
+@Service
 public class HelloWorldServiceImpl implements HelloWorldService {
 
 	private String message;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.example.service.HelloWorldService#sayHello()
 	 */
 	@Override
@@ -32,7 +37,9 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 		System.out.println(message);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.codelabor.example.service.HelloWorldService#getMessage()
 	 */
 	@Override
@@ -40,11 +47,28 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 		return message;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.codelabor.example.service.HelloWorldService#setMessage(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.example.service.HelloWorldService#setMessage(java.lang.
+	 * String)
 	 */
 	@Override
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.example.helloworld.service.HelloWorldService#sayHello(java
+	 * .lang.String)
+	 */
+	@Override
+	public void sayHello(String name) {
+		System.out.println("Hello, " + name);
+
 	}
 }
