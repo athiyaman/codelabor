@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/webapp/WEB-INF/dispatcher-servlet.xml</config>
 		<config>src/main/resources/spring/applicationContext-root.xml</config>
+		<config>src/main/resources/spring/applicationContext-aop.xml</config>
 	</configs>
 	<configSets>
 		<configSet>

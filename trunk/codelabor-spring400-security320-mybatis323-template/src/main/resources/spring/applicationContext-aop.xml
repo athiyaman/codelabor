@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!--
+	<aop:aspectj-autoproxy />
+
+	<context:component-scan base-package="org.codelabor" />
+
+	<aop:config>
+		<aop:pointcut id="serviceMethod"
+			expression="execution(public * org.codelabor..*Service.*(..))" />
+		<aop:pointcut expression="execution(* org.codelabor..*.*(..))"
+			id="codelaborMethod" />
+		<aop:pointcut expression="bean(*Service) || bean(*Manager) || bean(*Dao)"
+			id="transactionMethod" />
+
+		<aop:aspect ref="dummyAspect">
+			<aop:before method="dumpArguments" pointcut="serviceMethod" />
+		</aop:aspect>
+	</aop:config>
+	-->
+</beans>
