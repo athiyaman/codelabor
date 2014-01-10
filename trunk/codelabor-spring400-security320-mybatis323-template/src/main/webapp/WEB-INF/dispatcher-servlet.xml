@@ -17,9 +17,7 @@
 
 	<aop:aspectj-autoproxy />
 
-	<context:component-scan base-package="org.codelabor">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
+	<context:component-scan base-package="org.codelabor" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources
 		in the /WEB-INF/views directory -->
