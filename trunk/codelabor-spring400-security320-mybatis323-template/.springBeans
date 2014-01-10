@@ -11,5 +11,15 @@
 		<config>src/main/resources/spring/applicationContext-root.xml</config>
 	</configs>
 	<configSets>
+		<configSet>
+			<name><![CDATA[root]]></name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>src/main/resources/spring/applicationContext-root.xml</config>
+			</configs>
+			<profiles>
+			</profiles>
+		</configSet>
 	</configSets>
 </beansProjectDescription>
