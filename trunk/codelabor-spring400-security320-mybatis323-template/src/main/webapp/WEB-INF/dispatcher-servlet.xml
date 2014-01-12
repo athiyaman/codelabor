@@ -14,9 +14,9 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 
-	<aop:aspectj-autoproxy />
-
 	<context:component-scan base-package="org.codelabor" />
+
+	<mvc:default-servlet-handler />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources
 		in the /WEB-INF/views directory -->
@@ -26,16 +26,18 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<aop:aspectj-autoproxy />
+
 	<aop:config>
-		<aop:pointcut expression="execution(public * org.codelabor..*Controller.*(..))"
-			id="controllerMethod" />
+		<!-- <aop:pointcut expression="execution(public * org.codelabor..*Controller.*(..))"
+			id="controllerMethod" /> <aop:pointcut expression="execution(public * org.codelabor..*Service.*(..))"
+			id="serviceMethod" /> -->
 
-		<aop:pointcut expression="execution(public * org.codelabor..*Service.*(..))"
-			id="serviceMethod" />
-
+		<!-- pointcut for sub system -->
 		<aop:pointcut expression="execution(* org.codelabor..*.*(..))"
 			id="packageMethodCodelabor" />
 
+		<!-- pointcut for transaction management -->
 		<aop:pointcut expression="bean(*Service) || bean(*Manager) || bean(*Dao)"
 			id="transactionMethod" />
 
@@ -43,7 +45,7 @@
 			<aop:before method="dumpArguments" pointcut-ref="packageMethodCodelabor" />
 			<aop:around method="dumpElapsedTime" pointcut-ref="packageMethodCodelabor" />
 			<aop:after-throwing method="dumpException"
-				throwing="exception" pointcut-ref="controllerMethod" />
+				throwing="exception" pointcut-ref="packageMethodCodelabor" />
 			<aop:after-returning method="dumpReturn"
 				returning="returnObject" pointcut-ref="packageMethodCodelabor" />
 		</aop:aspect>

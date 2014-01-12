@@ -27,7 +27,20 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class SystemArchitecture {
-	@Pointcut("within(org.codelabor..*)")
-	public void businessService() {
+	@Pointcut("bean(*Controller)")
+	public void inController() {
 	}
+
+	@Pointcut("bean(*Service)")
+	public void inService() {
+	}
+
+	@Pointcut("bean(*Manager)")
+	public void inManager() {
+	}
+
+	@Pointcut("bean(*Dao)")
+	public void inDao() {
+	}
+
 }

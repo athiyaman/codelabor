@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation) See here for more
+	details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<!-- Layouts: http://logback.qos.ch/manual/layouts.html -->
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
+
+	<!-- To enable JMX Management -->
+	<jmxConfigurator />
+
+	<!-- appender -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{remoteHost} %X{xForwardedFor} %X{username}] %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="sizeAndTimeBasedRollingFile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.dir}/webapp.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.dir}/webapp.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNameAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNameAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{remoteHost} %X{xForwardedFor} %X{username}] %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- application log -->
+	<logger name="jsp" level="${log.level.application} " />
+	<logger name="org.codelabor.example" level="${log.level.application}" />
+	<logger name="org.codelabor.example" level="${log.level.application}" />
+
+	<!-- sql log (myBatis mapper) -->
+	<logger name="common" level="${log.level.sql}" />
+	<logger name="example" level="${log.level.sql}" />
+	<logger name="extracurricular" level="${log.level" />
+	<logger name="system" level="${log.level.sql}" />>
+
+	<!-- framework log -->
+	<logger name="org.springframework" level="${log.level.framework}" />
+	<logger name="org.springframework.security" level="${log.level.framework}" />
+	<logger name="org.mybatis" level="${log.level.framework}" />
+	<logger name="org.apache.ibatis" level="${log.level.framework}" />
+	<logger name="ch.qos.logback" level="${log.level.framework}" />
+	<logger name="org.codelabor" level="${log.level.framework}" />
+
+	<root level="${log.level.root}">
+		<appender-ref ref="console" />
+		<appender-ref ref="sizeAndTimeBasedRollingFile" />
+	</root>
+</configuration>
