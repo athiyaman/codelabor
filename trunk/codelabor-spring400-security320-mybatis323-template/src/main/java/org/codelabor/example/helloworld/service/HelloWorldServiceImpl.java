@@ -69,5 +69,11 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 	@Override
 	public void sayHello(String name) {
 		System.out.println("Hello, " + name);
+		try {
+			int i = 1;
+			int j = i / 0;
+		} catch (Exception e) {
+			throw new RuntimeException("some exception from service layer", e);
+		}
 	}
 }

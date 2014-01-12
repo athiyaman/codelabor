@@ -17,6 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<cxf.version>2.2.3</cxf.version>
 		<aspectj.version>1.7.4</aspectj.version>
+		<springframework.security.version>3.2.0.RELEASE</springframework.security.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -125,6 +126,16 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-taglib</artifactId>
+			<version>0.1RC</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${springframework.security.version}</version>
 		</dependency>
 	</dependencies>
     <build>
