@@ -27,15 +27,25 @@
 	</bean>
 
 	<aop:config>
+		<aop:pointcut expression="execution(public * org.codelabor..*Controller.*(..))"
+			id="controllerMethod" />
+
 		<aop:pointcut expression="execution(public * org.codelabor..*Service.*(..))"
 			id="serviceMethod" />
+
 		<aop:pointcut expression="execution(* org.codelabor..*.*(..))"
-			id="codelaborMethod" />
+			id="packageMethodCodelabor" />
+
 		<aop:pointcut expression="bean(*Service) || bean(*Manager) || bean(*Dao)"
 			id="transactionMethod" />
 
-		<aop:aspect ref="dummyAspect">
-			<aop:before method="dumpArguments" pointcut-ref="serviceMethod" />
+		<aop:aspect ref="sniffingAspect">
+			<aop:before method="dumpArguments" pointcut-ref="packageMethodCodelabor" />
+			<aop:around method="dumpElapsedTime" pointcut-ref="packageMethodCodelabor" />
+			<aop:after-throwing method="dumpException"
+				throwing="exception" pointcut-ref="controllerMethod" />
+			<aop:after-returning method="dumpReturn"
+				returning="returnObject" pointcut-ref="packageMethodCodelabor" />
 		</aop:aspect>
 	</aop:config>
 </beans>
