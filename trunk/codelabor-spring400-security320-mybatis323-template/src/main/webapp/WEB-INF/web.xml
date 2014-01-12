@@ -41,10 +41,11 @@
 		<location>/system/error/404.html</location>
 	</error-page>
 	<error-page>
-		<error-code>500</error-code>
 		<!--
+		<error-code>500</error-code>
 		<location>/system/error/500.html</location>
 		-->
+		<exception-type>java.lang.Throwable</exception-type>
 		<location>/WEB-INF/views/example/error/default-error-page.jsp</location>
 	</error-page>
 </web-app>
