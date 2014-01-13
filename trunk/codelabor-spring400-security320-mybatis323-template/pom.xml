@@ -138,6 +138,7 @@
 			<version>${springframework.security.version}</version>
 		</dependency>
 	</dependencies>
+	<!--
 	<profiles>
 		<profile>
 			<id>local-windows</id>
@@ -207,13 +208,16 @@
 			</build>
 		</profile>
 	</profiles>
+	-->
 	<build>
+		<!--
 		<resources>
 			<resource>
 				<directory>${basedir}/src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		-->
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
