@@ -59,12 +59,6 @@
 						items="${pageContext.exception.stackTrace}">${throwable}<br />
 					</c:forEach></td>
 			</tr>
-			<tr>
-				<td>suppressed</td>
-				<td><c:forEach var="throwable"
-						items="${pageContext.exception.suppressed}">${throwable}<br />
-					</c:forEach></td>
-			</tr>
 		</table>
 	</sec:authorize>
 
