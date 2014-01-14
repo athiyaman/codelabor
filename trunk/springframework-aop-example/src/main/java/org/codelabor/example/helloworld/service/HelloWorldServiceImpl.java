@@ -3,7 +3,7 @@ package org.codelabor.example.helloworld.service;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-@Service("helloWorldService")
+@Service
 public class HelloWorldServiceImpl implements HelloWorldService {
 
 	@Override
