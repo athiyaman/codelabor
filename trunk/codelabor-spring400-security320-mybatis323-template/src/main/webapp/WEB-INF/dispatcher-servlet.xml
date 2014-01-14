@@ -11,8 +11,6 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing
 		infrastructure -->
 
-
-
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 
@@ -31,12 +29,8 @@
 	<aop:aspectj-autoproxy />
 
 	<aop:config>
-		<!-- <aop:pointcut expression="execution(public * org.codelabor..*Controller.*(..))"
-			id="controllerMethod" /> <aop:pointcut expression="execution(public * org.codelabor..*Service.*(..))"
-			id="serviceMethod" /> -->
-
 		<!-- pointcut for sub system -->
-		<aop:pointcut expression="execution(* org.codelabor..*.*(..))"
+		<aop:pointcut expression="execution(* org.codelabor..*Service.*(..))"
 			id="packageMethodCodelabor" />
 
 		<!-- pointcut for transaction management -->
