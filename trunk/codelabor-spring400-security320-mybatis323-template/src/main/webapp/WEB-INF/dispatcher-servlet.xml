@@ -30,12 +30,8 @@
 
 	<aop:config>
 		<!-- pointcut for sub system -->
-		<aop:pointcut expression="execution(* org.codelabor..*Service.*(..))"
+		<aop:pointcut expression="execution(* org.codelabor..*.*(..))"
 			id="packageMethodCodelabor" />
-
-		<!-- pointcut for transaction management -->
-		<aop:pointcut expression="bean(*Service) || bean(*Manager) || bean(*Dao)"
-			id="transactionMethod" />
 
 		<aop:aspect ref="sniffingAspect">
 			<aop:before method="dumpArguments" pointcut-ref="packageMethodCodelabor" />
