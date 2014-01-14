@@ -105,20 +105,20 @@ Author Sang Jae Shin
 
 	<!--  pagination -->
 	<pg:pagination cssClass="pageArea" numberOfRow="${numberOfRow}">
-		<pg:firstIndex cssClass="btn_prev" onclick="alert('firstIndex')">
+		<pg:firstIndex cssClass="btn_prev">
 			<img src="/images/btn/btn_prev.png"
 				alt="<spring:message code="alternate.first" />" />
 		</pg:firstIndex>
-		<pg:previousIndex cssClass="btn_prev" onclick="alert('previousIndex')">
+		<pg:previousIndex cssClass="btn_prev">
 			<img src="/images/btn/btn_prev.png"
 				alt="<spring:message code="alternate.prev" />" />
 		</pg:previousIndex>
-		<pg:currentIndex onclick="alert('currentIndex')" />
-		<pg:nextIndex cssClass="btn_next" onclick="alert('nextIndex')">
+		<pg:currentIndex />
+		<pg:nextIndex cssClass="btn_next">
 			<img src="/images/btn/btn_next.png"
 				alt="<spring:message code="alternate.next" />" />
 		</pg:nextIndex>
-		<pg:lastIndex cssClass="btn_next" onclick="alert('lastIndex')">
+		<pg:lastIndex cssClass="btn_next">
 			<img src="/images/btn/btn_next.png"
 				alt="<spring:message code="alternate.last" />" />
 		</pg:lastIndex>
