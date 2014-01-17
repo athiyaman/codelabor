@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Shin Sang-Jae
- * 
+ *
  */
 @Service
 public class HelloWorldServiceImpl implements HelloWorldService {
@@ -29,7 +29,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.codelabor.example.service.HelloWorldService#sayHello()
 	 */
 	@Override
@@ -39,7 +39,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.codelabor.example.service.HelloWorldService#getMessage()
 	 */
 	@Override
@@ -49,7 +49,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.example.service.HelloWorldService#setMessage(java.lang.
 	 * String)
@@ -61,7 +61,7 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.example.helloworld.service.HelloWorldService#sayHello(java
 	 * .lang.String)
@@ -70,8 +70,8 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 	public void sayHello(String name) {
 		System.out.println("Hello, " + name);
 		try {
-			int i = 1;
-			int j = i / 0;
+//			int i = 1;
+//			int j = i / 0;
 		} catch (Exception e) {
 			throw new RuntimeException("some exception from service layer", e);
 		}
