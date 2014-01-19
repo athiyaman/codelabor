@@ -73,47 +73,57 @@ public class WorkbookFactoryTest {
 					int columnIndex = cell.getColumnIndex();
 					CellReference cellRef = new CellReference(rowIndex,
 							columnIndex);
-					logger.debug("cellRef: {} (rowIndex: {}, columnIndex: {})",
-							cellRef.formatAsString(), rowIndex, columnIndex);
 					switch (cell.getCellType()) {
 					case Cell.CELL_TYPE_BLANK:
-						logger.debug("cellType: blank, value: {}", cell
-								.getRichStringCellValue().toString());
+						logger.debug(
+								"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: blank, value: {}",
+								cellRef.formatAsString(), rowIndex,
+								columnIndex, cell.getRichStringCellValue()
+										.toString());
 						break;
 					case Cell.CELL_TYPE_BOOLEAN:
-						logger.debug("cellType: boolean, value: {}",
-								cell.getBooleanCellValue());
+						logger.debug(
+								"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: boolean, value: {}",
+								cellRef.formatAsString(), rowIndex,
+								columnIndex, cell.getBooleanCellValue());
 						break;
 					case Cell.CELL_TYPE_ERROR:
-						logger.debug("cellType: error, value: {}",
-								cell.getErrorCellValue());
+						logger.debug(
+								"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: error, value: {}",
+								cellRef.formatAsString(), rowIndex,
+								columnIndex, cell.getErrorCellValue());
 						break;
 					case Cell.CELL_TYPE_FORMULA:
-						logger.debug("cellType: formula, value: {}",
-								cell.getCellFormula());
+						logger.debug(
+								"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: formula, value: {}",
+								cellRef.formatAsString(), rowIndex,
+								columnIndex, cell.getCellFormula());
 						break;
 					case Cell.CELL_TYPE_NUMERIC:
 						if (DateUtil.isCellDateFormatted(cell)) {
-							logger.debug("cellType: numeric, value: {}",
-									cell.getDateCellValue());
+							logger.debug(
+									"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: numeric, value: {}",
+									cellRef.formatAsString(), rowIndex,
+									columnIndex, cell.getDateCellValue());
 						} else {
-							logger.debug("cellType: numeric, value: {}",
-									cell.getNumericCellValue());
+							logger.debug(
+									"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: numeric, value: {}",
+									cellRef.formatAsString(), rowIndex,
+									columnIndex, cell.getNumericCellValue());
 						}
 						break;
 					case Cell.CELL_TYPE_STRING:
-						logger.debug("cellType: string, value: {}",
-								cell.getRichStringCellValue());
+						logger.debug(
+								"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: string, value: {}",
+								cellRef.formatAsString(), rowIndex,
+								columnIndex, cell.getRichStringCellValue());
 						break;
 					default:
 						break;
 					}
-
 				}
 			}
-
 		}
-
 	}
 
 	@Test
