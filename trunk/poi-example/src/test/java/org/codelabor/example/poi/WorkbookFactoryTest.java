@@ -12,7 +12,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.ss.util.cellwalk.CellWalk;
+import org.codelabor.example.poi.ss.util.cellwalk.EmpCellHandler;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -108,6 +111,69 @@ public class WorkbookFactoryTest {
 
 				}
 			}
+
+		}
+
+	}
+
+	@Test
+	public void testTraverseWithCellWalk() throws InvalidFormatException,
+			IOException, URISyntaxException {
+
+		URL url = getClass().getResource("/emp-data.xlsx");
+		logger.debug("url: {}", url);
+		File file = new File(url.toURI());
+		logger.debug("file: {}", file);
+
+		Workbook wb = WorkbookFactory.create(file);
+		int numberOfSheets = wb.getNumberOfSheets();
+		logger.debug("numberOfSheets: {}", numberOfSheets);
+
+		int firstRowNum = 0;
+		int lastRowNum = 0;
+		int firstCellNum = 0;
+		int lastCellNum = 0;
+
+		// int effectiveFirstRowNum = 0;
+		// int effectiveLastRowNum = 0;
+		// int effectiveFirstCellNum = 0;
+		// int effectiveLastCellNum = 0;
+
+		for (int i = 0; i < numberOfSheets; i++) {
+			Sheet sheet = wb.getSheetAt(i);
+			String sheetName = sheet.getSheetName();
+			logger.debug("sheetName: {}", sheetName);
+			firstRowNum = sheet.getFirstRowNum();
+			lastRowNum = sheet.getLastRowNum();
+			logger.debug("firstRowNum: {},  lastRowNum: {}", firstRowNum,
+					lastRowNum);
+
+			for (Row row : sheet) {
+				int rowNum = row.getRowNum();
+				firstCellNum = row.getFirstCellNum();
+				lastCellNum = row.getLastCellNum();
+				logger.debug("rowNum: {}, firstCellNum: {},  lastCellNum: {}",
+						rowNum, firstCellNum, lastCellNum);
+
+			}
+
+			logger.debug(
+					"firstRowNum: {}, lastRowNum: {}, firstCellNum: {}, lastCellNum: {}",
+					firstRowNum, lastRowNum, firstCellNum, lastCellNum);
+
+			// effective 값으로 보정하기
+			// logger.debug(
+			// "effectiveFirstRowNum: {}, effectiveLastRowNum: {}, effectiveFirstCellNum: {}, effectiveLastCellNum: {}",
+			// effectiveFirstRowNum, effectiveLastRowNum,
+			// effectiveFirstCellNum, effectiveLastCellNum);
+
+			CellRangeAddress cellRangeAddress = new CellRangeAddress(
+					firstRowNum, lastRowNum, firstCellNum, lastCellNum);
+			logger.debug("cellRangeAddress: {}",
+					cellRangeAddress.formatAsString());
+
+			CellWalk cellWalk = new CellWalk(sheet, cellRangeAddress);
+			cellWalk.traverse(new EmpCellHandler());
 
 		}
 
