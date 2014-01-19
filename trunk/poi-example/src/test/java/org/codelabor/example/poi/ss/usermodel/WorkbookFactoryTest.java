@@ -1,4 +1,4 @@
-package org.codelabor.example.poi;
+package org.codelabor.example.poi.ss.usermodel;
 
 import java.io.File;
 import java.io.IOException;
