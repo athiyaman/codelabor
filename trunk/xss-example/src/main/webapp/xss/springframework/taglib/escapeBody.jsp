@@ -15,7 +15,7 @@
 		request.setAttribute("greeting", greeting);
 	%>
 	<h2>default</h2>
-	${greeting}
+	<spring:escapeBody>${greeting}</spring:escapeBody>
 	<h2>htmlEscape false</h2>
 	<spring:escapeBody htmlEscape="false">${greeting}</spring:escapeBody>
 	<h2>htmlEscape true</h2>
