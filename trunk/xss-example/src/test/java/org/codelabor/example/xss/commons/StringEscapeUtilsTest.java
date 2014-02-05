@@ -18,7 +18,7 @@ package org.codelabor.example.xss.commons;
 
 import junit.framework.TestCase;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +32,9 @@ public class StringEscapeUtilsTest extends TestCase {
 	public void testEscapeHtml() {
 		String beforeReplace = "<b>hello, world!</b>";
 		logger.debug("beforeReplace: {}", beforeReplace);
-		String afterReplace = StringEscapeUtils.escapeHtml(beforeReplace);
-		logger.debug("StringEscapeUtils.escapeHtml: {}", afterReplace);
+		String afterEscape = StringEscapeUtils.escapeHtml4(beforeReplace);
+		logger.debug("StringEscapeUtils.escapeHtml4: {}", afterEscape);
+		String afterUnescape = StringEscapeUtils.unescapeHtml4(afterEscape);
+		logger.debug("StringEscapeUtils.unescapeHtml4: {}", afterUnescape);
 	}
 }
