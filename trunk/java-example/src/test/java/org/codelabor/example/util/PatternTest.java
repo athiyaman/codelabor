@@ -32,7 +32,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PatternTest {
 	private Logger logger = LoggerFactory.getLogger(PatternTest.class);
-	
+
 	@Test
 	public void testMatches() {
 		String regex = "[a-z]*";
@@ -41,20 +41,20 @@ public class PatternTest {
 		Matcher matcher = pattern.matcher(input);
 		boolean isMatched = matcher.matches();
 		logger.debug("isMatched: {}", isMatched);
-		
+
 		assertEquals(true, isMatched);
 	}
-	
+
 	@Test
 	public void testMatches2() {
 		String regex = "[a-z]*";
 		String input = "qwerasdf";
 		boolean isMatched = Pattern.matches(regex, input);
 		logger.debug("isMatched: {}", isMatched);
-		
+
 		assertEquals(true, isMatched);
 	}
-	
+
 	@Test
 	public void testReplace() {
 		// sql injection pettern: or 'qwer' = 'qwer'
@@ -66,8 +66,8 @@ public class PatternTest {
 		String expectedString = "asdf  asdf";
 		logger.debug("resultingString: {}", resultingString);
 		assertEquals(expectedString, resultingString);
-	}	
-	
+	}
+
 	@Test
 	public void testReplace2() {
 		// sql injection pettern: or 'qwer' = 'qwer'
@@ -80,7 +80,7 @@ public class PatternTest {
 		logger.debug("resultingString: {}", resultingString);
 		assertTrue(!expectedString.equals(resultingString));
 	}
-	
+
 	@Test
 	public void testReplace3() {
 		// sql injection pettern: or 'qwer' = 'qwer'
@@ -89,7 +89,7 @@ public class PatternTest {
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = null;
 		String resultingString = null;
-		
+
 		while(true) {
 			matcher = pattern.matcher(target);
 			if (matcher.matches()) {
@@ -100,12 +100,12 @@ public class PatternTest {
 			}
 			target = resultingString;
 		}
-	
+
 		String expectedString = "asdf  asdf asdf  asdf";
 		logger.debug("resultingString: {}", resultingString);
-		assertEquals(expectedString, resultingString);	
+		assertEquals(expectedString, resultingString);
 	}
-	
+
 	@Test
 	public void testReplace4() {
 		String regex = "(.*) \" (.*)";
@@ -117,7 +117,7 @@ public class PatternTest {
 		logger.debug("resultingString: {}", resultingString);
 		assertTrue(!expectedString.equals(resultingString));
 	}
-	
+
 	// http://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
 	// http://www.mkyong.com/regular-expressions/how-to-validate-password-with-regular-expression/
 	@Test
@@ -127,22 +127,34 @@ public class PatternTest {
 		sb.append("(?=.*[0-9])"); // a digit must occur at least one
 		sb.append("(?=.*[a-z])"); // a lower case letter must occur at least once
 		sb.append("(?=.*[A-Z])"); // a upper case letter must occur at least once
-		sb.append("(?=.*[~`!@#$%^&*()_+-=\\[\\]\\{}|;':\",./<>?])"); // a special character must occur at least once
+		sb.append("(?=.*[~`!@#$%^&*()_+\\-=\\[\\]\\{}|;':\",./<>?\\\\])"); // a special character must occur at least once
 		sb.append("(?=\\S+$)"); // no whitespace allowed in the entire string
 		sb.append("."); // match anything with previous condition checking
 		sb.append("{5,10}"); // at least 5 to 10 characters
 		sb.append(")"); // end of group
 		String regex = sb.toString();
 		logger.debug("regex: {}", regex);
-		String input = "!234[\\Qwer";
+
+		String input = "1qaz@WSX";
 		logger.debug("input: {}", input);
 		boolean isMatched = Pattern.matches(regex, input);
 		logger.debug("isMatched: {}", isMatched);
-		
 		assertEquals(true, isMatched);
-		
+
+		input = "1qaz2WSX";
+		logger.debug("input: {}", input);
+		isMatched = Pattern.matches(regex, input);
+		logger.debug("isMatched: {}", isMatched);
+		assertEquals(false, isMatched);
+
+		input = "1qaz2WSX\\";
+		logger.debug("input: {}", input);
+		isMatched = Pattern.matches(regex, input);
+		logger.debug("isMatched: {}", isMatched);
+		assertEquals(true, isMatched);
+
 	}
-	
+
 	@Test
 	public void mobilePhoneNumberValidation() {
 		StringBuilder sb = new StringBuilder();
@@ -151,18 +163,18 @@ public class PatternTest {
 		sb.append(")"); // end of group
 		String regex = sb.toString();
 		logger.debug("regex: {}", regex);
-		
+
 		String input = "110-1111-1111";
 		boolean isMatched = Pattern.matches(regex, input);
 		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
 		assertEquals(true, isMatched);
-		
+
 		input = "010-111-1111";
 		isMatched = Pattern.matches(regex, input);
 		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
 		assertEquals(true, isMatched);
 	}
-	
+
 	@Test
 	public void homePhoneNumberValidation() {
 		StringBuilder sb = new StringBuilder();
@@ -171,23 +183,23 @@ public class PatternTest {
 		sb.append(")"); // end of group
 		String regex = sb.toString();
 		logger.debug("regex: {}", regex);
-		
+
 		String input = "(02) 1111-1111";
 		boolean isMatched = Pattern.matches(regex, input);
 		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
 		assertEquals(true, isMatched);
-		
+
 		input = "(041) 111-1111";
 		isMatched = Pattern.matches(regex, input);
 		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
 		assertEquals(true, isMatched);
-		
+
 		input = "(241) 111-1111";
 		isMatched = Pattern.matches(regex, input);
 		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
 		assertEquals(false, isMatched);
-	}	
-	
+	}
+
 	@Test
 	public void zipCodeValidation() {
 		StringBuilder sb = new StringBuilder();
@@ -196,11 +208,11 @@ public class PatternTest {
 		sb.append(")"); // end of group
 		String regex = sb.toString();
 		logger.debug("regex: {}", regex);
-		
+
 		String input = "111-111";
 		boolean isMatched = Pattern.matches(regex, input);
 		logger.debug("input: {}, regex: {}, isMatched: {}", input, regex, isMatched);
 		assertEquals(true, isMatched);
-	}	
+	}
 
 }
