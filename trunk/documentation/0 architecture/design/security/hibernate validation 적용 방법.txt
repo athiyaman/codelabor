@@ -1,0 +1,1 @@
+@SafeHtml(whitelistType = WhiteListType.NONE)
