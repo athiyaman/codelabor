@@ -1,0 +1,133 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="common.home" >
+
+	<select id="selectGnbList" parameterType="userMenuDto" resultType="userMenuDto">
+		SELECT	/* selectGnbList */
+			DISTINCT A.SCHUL_CD ,
+			A.MENU_ID ,
+			B.MENU_NM ,
+			A.UPPER_MENU_ID ,
+			A.SYS_MENU_YN ,
+			A.STDIL_SEQ ,
+			A.LVL ,
+			A.URL
+		FROM
+			TN_MENU A , TN_MENU_LANG B , TN_AUTH_MENU C
+		WHERE
+			A.SCHUL_CD = #{schulCd}
+			AND A.SYS_SPRTR = #{sysSprtr}
+			<if test="schulIsosScCd == '028001'">
+			AND A.ITS_USE_POSBL_YN = 1	/* in */
+			</if>
+			<if test="schulIsosScCd == '028002'">
+			AND A.OUS_USE_POSBL_YN = 1	/* out */
+			</if>
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.DEL_YN = '0'
+			AND B.DEL_YN = '0'
+			AND A.MENU_ID = B.MENU_ID
+			AND A.LVL = 1
+			AND B.LANG_CD = #{langCd}
+			AND A.SCHUL_CD = C.SCHUL_CD
+			AND A.MENU_ID = C.MENU_ID
+			AND C.AUTH_ID IN <![CDATA[(]]>${authId}<![CDATA[)]]>
+			AND C.DEL_YN = '0'
+		ORDER BY
+			A.STDIL_SEQ
+	</select>
+
+	<select id="selectSnbList" parameterType="userMenuDto" resultType="userMenuDto">
+		SELECT /* selectSnbList */
+			SCHUL_CD ,
+			MENU_ID ,
+			MENU_NM ,
+			UPPER_MENU_ID ,
+			SYS_MENU_YN ,
+			STDIL_SEQ ,
+			LVL ,
+			URL
+		FROM (
+			SELECT
+				A.SCHUL_CD ,
+				A.MENU_ID ,
+				B.MENU_NM ,
+				A.UPPER_MENU_ID ,
+				A.SYS_MENU_YN ,
+				A.LVL ,
+				A.URL ,
+				(SELECT STDIL_SEQ FROM TN_MENU WHERE A.UPPER_MENU_ID = MENU_ID) AS TOP_SORT ,
+				A.STDIL_SEQ AS SEC_SORT ,
+				0 AS STDIL_SEQ
+			FROM
+				TN_MENU A , TN_MENU_LANG B , TN_AUTH_MENU C
+			WHERE
+				A.SCHUL_CD = #{schulCd}
+				AND A.SYS_SPRTR = #{sysSprtr}
+				<if test="schulIsosScCd == '028001'">
+				AND A.ITS_USE_POSBL_YN = 1	/* in */
+				</if>
+				<if test="schulIsosScCd == '028002'">
+				AND A.OUS_USE_POSBL_YN = 1	/* out */
+				</if>
+				AND A.SCHUL_CD = B.SCHUL_CD
+				AND A.DEL_YN = '0'
+				AND B.DEL_YN = '0'
+				AND A.MENU_ID = B.MENU_ID
+				AND A.LVL = 2
+				AND B.LANG_CD = #{langCd}
+				AND A.SCHUL_CD = C.SCHUL_CD
+				AND A.MENU_ID = C.MENU_ID
+				AND C.AUTH_ID IN <![CDATA[(]]>${authId}<![CDATA[)]]>
+				AND C.DEL_YN = '0'
+			UNION
+			SELECT
+				A.SCHUL_CD ,
+				A.MENU_ID ,
+				B.MENU_NM ,
+				A.UPPER_MENU_ID ,
+				A.SYS_MENU_YN ,
+				A.LVL ,
+				A.URL ,
+				(SELECT STDIL_SEQ FROM TN_MENU WHERE (SELECT UPPER_MENU_ID FROM TN_MENU WHERE A.UPPER_MENU_ID = MENU_ID) = MENU_ID) AS TOP_SORT ,
+				(SELECT STDIL_SEQ FROM TN_MENU WHERE A.UPPER_MENU_ID = MENU_ID)  AS SEC_SORT ,
+				A.STDIL_SEQ
+			FROM
+				TN_MENU A , TN_MENU_LANG B , TN_AUTH_MENU C
+			WHERE
+				A.SCHUL_CD = #{schulCd}
+				AND A.SYS_SPRTR = #{sysSprtr}
+				<if test="schulIsosScCd == '028001'">
+				AND A.ITS_USE_POSBL_YN = 1	/* in */
+				</if>
+				<if test="schulIsosScCd == '028002'">
+				AND A.OUS_USE_POSBL_YN = 1	/* out */
+				</if>
+				AND A.SCHUL_CD = B.SCHUL_CD
+				AND A.DEL_YN = '0'
+				AND B.DEL_YN = '0'
+				AND A.MENU_ID = B.MENU_ID
+				AND A.LVL = 3
+				AND B.LANG_CD = #{langCd}
+				AND A.SCHUL_CD = C.SCHUL_CD
+				AND A.MENU_ID = C.MENU_ID
+				AND C.AUTH_ID IN  <![CDATA[(]]>${authId}<![CDATA[)]]>
+				AND C.DEL_YN = '0'
+		)
+		ORDER BY
+			TOP_SORT , SEC_SORT , STDIL_SEQ
+	</select>
+
+
+	<update id="updateMenuUrl" parameterType="userMenuDto">
+		UPDATE /* updateMenuUrl */
+			TN_MENU
+		SET
+			URL = #{url}
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND MENU_ID = #{menuId}
+	</update>
+
+
+</mapper>

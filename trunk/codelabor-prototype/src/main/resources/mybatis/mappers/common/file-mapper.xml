@@ -1,0 +1,176 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="common.file" >
+
+	<select id="selectFileList" parameterType="map" resultType="fileDto">
+		SELECT /* common.file.selectFileList */
+		       SCHUL_CD,
+		       ATCH_FILE_ID,
+		       DIR_NM,
+		       FILE_NM,
+		       ORGCP_FILE_NM,
+		       FILE_EXTSN,
+		       FILE_MG,
+		       DWLD_NTS,
+		       DEL_YN,
+		       REGNT_ID,
+		       REG_DTM,
+		       UPDTR_ID,
+		       UPD_DTM
+		  FROM TN_ATCH_FILE
+		 WHERE SCHUL_CD = #{schulCd}
+		   AND DEL_YN = '0'
+	</select>
+	<select id="selectFile" parameterType="map" resultType="fileDto">
+		SELECT /* common.file.selectFile */
+		       SCHUL_CD,
+		       ATCH_FILE_ID,
+		       DIR_NM,
+		       FILE_NM,
+		       ORGCP_FILE_NM,
+		       FILE_EXTSN,
+		       FILE_MG,
+		       DWLD_NTS,
+		       DEL_YN,
+		       REGNT_ID,
+		       REG_DTM,
+		       UPDTR_ID,
+		       UPD_DTM
+		  FROM TN_ATCH_FILE
+		 WHERE SCHUL_CD = #{schulCd}
+		   AND DEL_YN = '0'
+		<if test="atchFileId != null and atchFileId != ''">
+			AND ATCH_FILE_ID = #{atchFileId}
+		</if>
+	</select>
+	<insert id="insertFile" parameterType="fileDto">
+		INSERT /* common.file.insertFile */
+		INTO TN_ATCH_FILE (
+			SCHUL_CD,
+			ATCH_FILE_ID,
+			DIR_NM,
+			FILE_NM,
+			ORGCP_FILE_NM,
+			FILE_EXTSN,
+			FILE_MG,
+			DWLD_NTS,
+			DEL_YN,
+			REGNT_ID,
+			REG_DTM,
+			UPDTR_ID,
+			UPD_DTM
+		) VALUES (
+			#{schulCd},
+			#{atchFileId},
+			#{dirNm},
+			#{fileNm},
+			#{orgcpFileNm},
+			#{fileExtsn},
+			#{fileMg},
+			'0',
+			'0',
+			#{regntId},
+			SYSDATE,
+			#{regntId},
+			SYSDATE
+		)
+	</insert>
+	
+	<update id="deleteFile" parameterType="fileDto">
+		UPDATE /* common.file.deleteFile */
+		TN_ATCH_FILE
+		SET DEL_YN = '1'
+			,UPDTR_ID = ${updtrId}
+			,UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND ATCH_FILE_ID = #{atchFileId}
+	</update>
+	
+	<select id="selectHpaFileList" parameterType="map" resultType="fileDto">
+		SELECT /* common.file.selectHpaFileList */
+		       SCHUL_CD,
+		       ATCH_FILE_ID,
+		       DIR_NM,
+		       FILE_NM,
+		       ORGCP_FILE_NM,
+		       FILE_EXTSN,
+		       FILE_MG,
+		       DWLD_NTS,
+		       DEL_YN,
+		       REGNT_ID,
+		       REG_DTM,
+		       UPDTR_ID,
+		       UPD_DTM
+		  FROM TN_HP_ATCH_FILE
+		 WHERE SCHUL_CD = #{schulCd}
+		   AND DEL_YN = '0'
+	</select>
+
+	<select id="selectHpaFile" parameterType="map" resultType="fileDto">
+		SELECT /* common.file.selectHpaFile */
+		       SCHUL_CD,
+		       ATCH_FILE_ID,
+		       DIR_NM,
+		       FILE_NM,
+		       ORGCP_FILE_NM,
+		       FILE_EXTSN,
+		       FILE_MG,
+		       DWLD_NTS,
+		       DEL_YN,
+		       REGNT_ID,
+		       REG_DTM,
+		       UPDTR_ID,
+		       UPD_DTM
+		  FROM TN_HP_ATCH_FILE
+		 WHERE SCHUL_CD = #{schulCd}
+		   AND DEL_YN = '0'
+		<if test="atchFileId != null and atchFileId != ''">
+			AND ATCH_FILE_ID = #{atchFileId}
+		</if>
+	</select>
+
+	<insert id="insertHpaFile" parameterType="fileDto">
+		INSERT /* common.file.insertHpaFile */
+		INTO TN_HP_ATCH_FILE (
+			SCHUL_CD,
+			ATCH_FILE_ID,
+			DIR_NM,
+			FILE_NM,
+			ORGCP_FILE_NM,
+			FILE_EXTSN,
+			FILE_MG,
+			DWLD_NTS,
+			DEL_YN,
+			REGNT_ID,
+			REG_DTM,
+			UPDTR_ID,
+			UPD_DTM
+		) VALUES (
+			#{schulCd},
+			#{atchFileId},
+			#{dirNm},
+			#{fileNm},
+			#{orgcpFileNm},
+			#{fileExtsn},
+			#{fileMg},
+			'0',
+			'0',
+			#{regntId},
+			SYSDATE,
+			#{regntId},
+			SYSDATE
+		)
+	</insert>
+	
+	<update id="deleteHpaFile" parameterType="fileDto">
+		UPDATE /* common.file.deleteHpaFile */
+		TN_HP_ATCH_FILE
+		SET DEL_YN = '1'
+			,UPDTR_ID = ${updtrId}
+			,UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND ATCH_FILE_ID = #{atchFileId}
+	</update>
+</mapper>

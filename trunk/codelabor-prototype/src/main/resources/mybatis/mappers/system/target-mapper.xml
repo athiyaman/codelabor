@@ -1,0 +1,119 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system.target" >
+
+	<!-- insert -->
+	<insert id="insertTargetSchool" parameterType="targetSchoolDto">
+		INSERT /* insertTargetSchool */
+		INTO TN_UNIV
+			(SCHUL_CD, UNIV_ID, UNIV_NM, UNIV_IMAGE_FILE_ID, OVSEA_YN, DEL_YN, REGNT_ID, REG_DTM, UPDTR_ID, UPD_DTM)
+		VALUES
+			(#{schulCd}, #{univId}, #{univNm}, #{univImageFileId}, #{ovseaYn}, '0', #{regntId}, SYSDATE, #{updtrId}, SYSDATE)
+	</insert>
+	
+	<select id="selectTargetSchoolList" parameterType="targetSchoolSearchConditionDto" resultType="targetSchoolDto">
+		SELECT
+        	A.UNIV_NM, A.UNIV_IMAGE_FILE_ID, A.UNIV_ID, A.OVSEA_YN, B.ORGCP_FILE_NM
+        FROM TN_UNIV A
+        LEFT JOIN TN_ATCH_FILE B
+        ON A.UNIV_IMAGE_FILE_ID = B.ATCH_FILE_ID 
+        WHERE A.SCHUL_CD = B.SCHUL_CD 
+            AND A.SCHUL_CD = #{searchSchulCd}
+            AND A.DEL_YN = '0'
+            AND B.DEL_YN = '0'
+        <if test="searchUnivNm != null and searchUnivNm != ''">
+            AND A.UNIV_NM LIKE '%' || #{searchUnivNm} || '%'
+        </if>
+        <if test="searchOvseaYn != null and searchOvseaYn != ''">
+            AND A.OVSEA_YN = #{searchOvseaYn}
+        </if>
+        ORDER BY UNIV_NM
+	</select>
+    
+    <select id="selectTargetSchoolListByConditionWithPagination" parameterType="targetSchoolSearchConditionDto" resultType="targetSchoolDto">
+     SELECT <!-- selectTargetSchoolListByConditionWithPagination -->
+        	UNIV_NM, UNIV_IMAGE_FILE_ID, UNIV_ID, OVSEA_YN, ORGCP_FILE_NM
+        FROM
+            (
+            SELECT
+            	UNIV_NM, UNIV_IMAGE_FILE_ID, UNIV_ID, OVSEA_YN, ORGCP_FILE_NM, ROWNUM AS SUB_ROWNUM
+            FROM
+                (
+				SELECT
+			        A.UNIV_NM, A.UNIV_IMAGE_FILE_ID, A.UNIV_ID, A.OVSEA_YN, B.ORGCP_FILE_NM
+			        FROM TN_UNIV A
+			        LEFT JOIN TN_ATCH_FILE B
+			        ON A.UNIV_IMAGE_FILE_ID = B.ATCH_FILE_ID 
+			        WHERE A.SCHUL_CD = B.SCHUL_CD 
+			            AND A.SCHUL_CD = #{searchSchulCd}
+			            AND A.DEL_YN = '0'
+			            AND B.DEL_YN = '0'
+			        <if test="searchUnivNm != null and searchUnivNm != ''">
+			            AND A.UNIV_NM LIKE '%' || #{searchUnivNm} || '%'
+			        </if>
+			        <if test="searchOvseaYn != null and searchOvseaYn != ''">
+			            AND A.OVSEA_YN = #{searchOvseaYn}
+			        </if>
+			        ORDER BY UNIV_NM
+                )
+            WHERE  ROWNUM <![CDATA[<=]]> #{pageNo} * #{maxRowPerPage}
+            )
+        WHERE
+             SUB_ROWNUM <![CDATA[>=]]> #{pageNo} * #{maxRowPerPage} - #{maxRowPerPage} + 1
+	</select>
+    
+    <select id="getTargetNumberOfRow" parameterType="targetSchoolSearchConditionDto" resultType="int">
+		SELECT
+		   COUNT(*)
+		FROM TN_UNIV
+		WHERE SCHUL_CD = #{searchSchulCd}
+		    AND DEL_YN = '0'
+		<if test="searchUnivNm != null and searchUnivNm != ''">
+			AND UNIV_NM LIKE '%' || #{searchUnivNm} || '%'
+		</if>
+		<if test="searchOvseaYn != null and searchOvseaYn != ''">
+			AND OVSEA_YN = #{searchOvseaYn}
+		</if>
+	</select>
+	
+	<update id="updateTargetSchool" parameterType="targetSchoolDto">
+		UPDATE TN_UNIV
+		    SET
+		        UNIV_NM = #{univNm},
+		        UNIV_IMAGE_FILE_ID = #{univImageFileId},
+		        OVSEA_YN = #{ovseaYn},
+		        UPDTR_ID = #{updtrId},
+		        UPD_DTM = SYSDATE
+		    WHERE SCHUL_CD = #{schulCd}
+		     AND   DEL_YN = '0'
+		     AND   UNIV_ID = #{univId}
+	</update>
+	
+	<update id="deleteTargetSchool" parameterType="targetSchoolSearchConditionDto">
+		UPDATE TN_UNIV
+		    SET
+		        DEL_YN = '1',
+		        UPDTR_ID = #{updtrId},
+		        UPD_DTM = SYSDATE
+		    WHERE SCHUL_CD = #{searchSchulCd}
+		     AND   DEL_YN = '0'
+		     AND   UNIV_ID = #{searchUnivId}
+	</update>
+	
+	<select id="selectTargetSchoolInfo" parameterType="targetSchoolDto" resultType="targetSchoolDto">
+		SELECT
+        	A.UNIV_NM, A.UNIV_IMAGE_FILE_ID, A.UNIV_ID, A.OVSEA_YN, B.ORGCP_FILE_NM
+        FROM TN_UNIV A
+        LEFT JOIN TN_ATCH_FILE B
+        ON A.UNIV_IMAGE_FILE_ID = B.ATCH_FILE_ID 
+        WHERE A.SCHUL_CD = B.SCHUL_CD 
+            AND A.SCHUL_CD = #{schulCd}
+            AND A.DEL_YN = '0'
+            AND B.DEL_YN = '0'
+            AND A.UNIV_ID = #{searchUnivId}
+        ORDER BY UNIV_NM
+	</select>
+	
+	
+	
+</mapper>
