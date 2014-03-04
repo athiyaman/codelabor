@@ -1,0 +1,457 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="common.login" >
+
+	<select id="selectSystemInfo" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectSystemInfo */
+			SYS_SPRTR ,
+			SCHUL_ISOS_SC_CD
+		FROM
+			TN_SYSTEM_INFO
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND DOMN = #{domn}
+			AND DEL_YN = '0'
+	</select>
+
+	<select id="selectMemberSchool" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectMemberSchool */
+			DISTINCT A.USER_ID ,
+			A.USER_NM ,
+			A.LOGIN_PW ,
+			A.USER_SC_CD ,
+			A.LAST_LOGIN_DTM ,
+			CASE WHEN TO_CHAR(A.LAST_PW_CHG_DTM , 'YYYYMMDD') > TO_CHAR(SYSDATE - #{passwordChangeTerm} , 'YYYYMMDD') THEN '0' ELSE '1' END LAST_PW_CHG_DTM ,
+			A.PW_MSTK_NTS
+		FROM
+			TN_MBER A , TN_TCR B , TN_MBER_AUTH C
+		WHERE
+		    A.SCHUL_CD = #{schulCd}
+			AND A.LOGIN_ID = #{loginId}
+			AND A.USER_SC_CD = '045001'
+			AND A.DEL_YN = 0
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.USER_ID = B.TCR_ID
+			AND B.DEL_YN = '0'
+			AND A.SCHUL_CD = C.SCHUL_CD
+			AND A.USER_ID = C.USER_ID
+			AND C.DEL_YN = '0'
+		UNION
+		SELECT
+			DISTINCT A.USER_ID ,
+			A.USER_NM ,
+			A.LOGIN_PW ,
+			A.USER_SC_CD ,
+			A.LAST_LOGIN_DTM ,
+			CASE WHEN TO_CHAR(A.LAST_PW_CHG_DTM , 'YYYYMMDD') > TO_CHAR(SYSDATE - #{passwordChangeTerm} , 'YYYYMMDD') THEN '0' ELSE '1' END LAST_PW_CHG_DTM ,
+			A.PW_MSTK_NTS
+		FROM
+			TN_MBER A , TN_THTS B , TN_MBER_AUTH C
+		WHERE
+		    A.SCHUL_CD = #{schulCd}
+			AND A.LOGIN_ID = #{loginId}
+			AND A.USER_SC_CD = '045003'
+			AND A.DEL_YN = '0'
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.USER_ID = B.STAFF_ID
+			AND B.DEL_YN = '0'
+			AND A.SCHUL_CD = C.SCHUL_CD
+			AND A.USER_ID = C.USER_ID
+			AND C.DEL_YN = '0'
+		UNION
+		SELECT
+			DISTINCT A.USER_ID ,
+			A.USER_NM ,
+			A.LOGIN_PW ,
+			A.USER_SC_CD ,
+			A.LAST_LOGIN_DTM ,
+			CASE WHEN TO_CHAR(A.LAST_PW_CHG_DTM , 'YYYYMMDD') > TO_CHAR(SYSDATE - #{passwordChangeTerm} , 'YYYYMMDD') THEN '0' ELSE '1' END LAST_PW_CHG_DTM ,
+			A.PW_MSTK_NTS
+		FROM
+			TN_MBER A , TN_MBER_AUTH B
+		WHERE
+		    A.SCHUL_CD = #{schulCd}
+			AND A.LOGIN_ID = #{loginId}
+			AND A.USER_SC_CD = '045007'
+			AND A.DEL_YN = '0'
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.USER_ID = B.USER_ID
+			AND B.DEL_YN = '0'
+	</select>
+
+	<select id="selectMemberStudent" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectMemberStudent */
+			DISTINCT A.USER_ID ,
+			A.USER_NM ,
+			A.LOGIN_PW ,
+			A.USER_SC_CD ,
+			A.LAST_LOGIN_DTM ,
+			CASE WHEN TO_CHAR(A.LAST_PW_CHG_DTM , 'YYYYMMDD') > TO_CHAR(SYSDATE - #{passwordChangeTerm} , 'YYYYMMDD') THEN '0' ELSE '1' END LAST_PW_CHG_DTM ,
+			A.PW_MSTK_NTS
+		FROM
+			TN_MBER A , TN_STDNT B , TN_MBER_AUTH C
+		WHERE
+		    A.SCHUL_CD = #{schulCd}
+			AND A.LOGIN_ID = #{loginId}
+			AND A.USER_SC_CD = '045002'
+			AND A.DEL_YN = 0
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.USER_ID = B.STDNT_ID
+			AND B.DEL_YN = '0'
+			AND A.SCHUL_CD = C.SCHUL_CD
+			AND A.USER_ID = C.USER_ID
+			AND C.DEL_YN = '0'
+	</select>
+
+
+	<select id="selectHomepageAdmin" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectHomepageAdmin */
+			DISTINCT A.USER_ID ,
+			A.USER_NM ,
+			A.LOGIN_PW ,
+			A.USER_SC_CD ,
+			A.LAST_LOGIN_DTM ,
+			CASE WHEN TO_CHAR(A.LAST_PW_CHG_DTM , 'YYYYMMDD') > TO_CHAR(SYSDATE - #{passwordChangeTerm} , 'YYYYMMDD') THEN '0' ELSE '1' END LAST_PW_CHG_DTM ,
+			A.PW_MSTK_NTS
+		FROM
+			TN_MBER A , TN_MBER_AUTH B
+		WHERE
+		    A.SCHUL_CD = #{schulCd}
+			AND A.LOGIN_ID = #{loginId}
+			AND A.USER_SC_CD = '045006'
+			AND A.DEL_YN = '0'
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.USER_ID = B.USER_ID
+			AND B.DEL_YN = '0'
+	</select>
+
+	<select id="selectMemberAuthList" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT AUTH_ID FROM ( /* common.login.selectMemberAuthList */
+			SELECT
+				DISTINCT AUTH_ID
+			FROM
+				TN_MBER_AUTH
+			WHERE
+			    SCHUL_CD =   #{schulCd}
+				AND USER_ID = #{userId}
+				AND DEL_YN = 0
+			UNION
+			SELECT
+				DECODE(COUNT(A.ESTBL_SUBJ_ID) , 0 , '' , 'AU0000000002016')
+			FROM
+				TN_ESTBL_SUBJ_CLS A ,
+				TN_ESTBL_SUBJ_TCR B
+			WHERE
+				A.SCHUL_CD = #{schulCd}
+				AND A.PRG_STTUS_CD = '006001'
+				AND A.DEL_YN = '0'
+			    AND A.AY = #{ay}
+				AND A.SEM_CD = #{semCd}
+				AND A.SCHUL_CD = B.SCHUL_CD
+				AND A.ESTBL_SUBJ_ID = B.ESTBL_SUBJ_ID
+				AND A.CLS_SRS_NO = B.CLS_SRS_NO
+				AND B.CHRGE_TCR_ID = #{userId}
+				AND B.DEL_YN = '0'
+			UNION
+			SELECT
+			    DECODE(REPR_TCR_ID , NULL , 'AU0000000002015', '' , 'AU0000000002015' , 'AU0000000002014') AS REPR_VREPR
+			FROM
+				TN_HMRM
+			WHERE
+				SCHUL_CD = #{schulCd}
+				AND AY = #{ay}
+				AND (REPR_TCR_ID = #{userId} OR VREPR_TCR_ID = #{userId})
+				AND DEL_YN = '0'
+		) WHERE AUTH_ID IS NOT NULL
+	</select>
+
+
+	<select id="selectMemberAuthAdminList" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectMemberAuthAdminList */
+			AUTH_ID
+		FROM
+			TN_MBER_AUTH
+		WHERE
+		    SCHUL_CD =   #{schulCd}
+			AND USER_ID = #{userId}
+			AND DEL_YN = 0
+	</select>
+
+	<select id="selectBaseAySemInfo" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT  /* common.login.selectBaseAySemInfo */
+			AY ,
+			SEM_CD
+		FROM
+			TN_STDR_INFO
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND DEL_YN = '0'
+			AND PRD_END_YMD =
+			(
+				SELECT
+					CASE
+						WHEN (SELECT MIN(PRD_END_YMD) FROM TN_STDR_INFO WHERE SCHUL_CD = #{schulCd} AND PRD_END_YMD
+						<![CDATA[ >=	]]> TO_CHAR(SYSDATE , 'YYYYMMDD') AND DEL_YN = 0) IS NULL THEN
+							(SELECT MAX(PRD_END_YMD) FROM TN_STDR_INFO WHERE SCHUL_CD = #{schulCd} AND PRD_END_YMD <![CDATA[ <=	]]> TO_CHAR(SYSDATE , 'YYYYMMDD') AND DEL_YN = 0)
+						ELSE
+							(SELECT MIN(PRD_END_YMD) FROM TN_STDR_INFO WHERE SCHUL_CD = #{schulCd} AND PRD_END_YMD <![CDATA[ >= ]]> TO_CHAR(SYSDATE , 'YYYYMMDD') AND DEL_YN = 0 )
+					END AS PRD_END_YMD
+				FROM
+					DUAL
+			)
+	</select>
+
+	<select id="selectStplCheckInfo" parameterType="userLoginDto" resultType="int">
+		SELECT /* common.login.selectStplCheckInfo */
+			COUNT(SCHUL_CD)
+		FROM
+		(
+				SELECT
+					SCHUL_CD,
+					STPL_CD ,
+					MAX(STPL_HSTR_NO) AS STPL_HSTR_NO
+				FROM
+				TN_STPL_MNG
+				WHERE
+					SCHUL_CD = #{schulCd}
+					AND STPL_CD IN (SELECT CMMN_CD FROM TN_CODE_DTL  WHERE SCHUL_CD = #{schulCd} AND  GROUP_CD = '100' AND VAL1 = #{sysSprtr})
+					AND DEL_YN = 0
+					AND TO_DATE(ENFRC_YMD) <![CDATA[ <=	]]> SYSDATE
+				GROUP BY
+					SCHUL_CD , STPL_CD
+				MINUS
+				SELECT
+					SCHUL_CD ,
+					STPL_CD,
+					STPL_HSTR_NO
+				FROM
+					TN_STPL_CNSNT_HSTR
+				WHERE
+					SCHUL_CD = #{schulCd}
+					AND USER_ID = #{userId}
+		)
+	</select>
+
+
+	<select id="selectStudentInfo" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT  /* common.login.selectStudentInfo */
+			A.GRADE_CD ,
+			B.CD_NM AS GRADE_NM ,
+			A.HMRM_ID ,
+			C.HMRM_NM
+		FROM
+			TN_GRADE_INFO A , TN_CODE_LANG B , TN_HMRM C
+		WHERE
+			A.SCHUL_CD = #{schulCd}
+			AND A.STDNT_ID = #{userId}
+			AND A.AY = #{ay}
+			AND A.DEL_YN = '0'
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.GRADE_CD = B.CMMN_CD
+			AND B.LANG_CD = #{lang}
+			AND B.DEL_YN = '0'
+		    AND A.SCHUL_CD = C.SCHUL_CD
+		    AND A.AY = C.AY
+		    AND A.HMRM_ID = C.HMRM_ID
+		    AND C.DEL_YN = '0'
+	</select>
+
+	<select id="selectTeacherInfo" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectTeacherInfo */
+			HMRM_ID ,
+		    HMRM_NM ,
+		    DECODE(REPR_TCR_ID , NULL , '0', '' , '0' , '1') AS REPR_VREPR
+		FROM
+			TN_HMRM
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND AY = #{ay}
+			AND (REPR_TCR_ID = #{userId} OR VREPR_TCR_ID = #{userId})
+			AND DEL_YN = '0'
+			AND ROWNUM = 1
+	</select>
+
+	<update id="updateCleanSessionInfo" parameterType="userLoginDto">
+		UPDATE /* common.login.updateSessionInfo */
+			TN_MBER
+		SET
+			SESN_ID = #{sesnId}
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND USER_ID = #{userId}
+	</update>
+
+	<update id="updateNewSessionInfo" parameterType="userLoginDto">
+		UPDATE /* common.login.updateNewSessionInfo */
+			TN_MBER
+		SET
+			SESN_ID = #{sesnId} ,
+			PW_MSTK_NTS = 0 ,
+			<if test="loginConctIp != null">
+			LOGIN_CONCT_IP = #{loginConctIp} ,
+			</if>
+			LAST_LOGIN_DTM = SYSDATE
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND USER_ID = #{userId}
+	</update>
+
+	<update id="updatePwMstkNts" parameterType="userLoginDto">
+		UPDATE
+			TN_MBER
+		SET
+			PW_MSTK_NTS = PW_MSTK_NTS + 1
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND USER_ID = #{userId}
+	</update>
+
+	<select id="selectSessionInfo" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectSessionInfo */
+			SESN_ID
+		FROM
+			TN_MBER
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND USER_ID = #{userId}
+	</select>
+
+	<select id="selectDupLoginCheck" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectDupLoginCheck */
+			SESN_ID
+		FROM
+			TN_MBER
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND LOGIN_ID = #{loginId}
+	</select>
+
+	<select id="selectStplMng" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectStplMng */
+			A.STPL_CD ,
+			A.STPL_HSTR_NO ,
+			C.CD_NM AS STPL_NM,
+			B.STPL_CNTNT ,
+			TO_CHAR(TO_DATE(MAX(A.ENFRC_YMD) OVER (PARTITION BY A.SCHUL_CD ) , 'YYYYMMDD') , 'YYYY-MM-DD') AS ENFRC_YMD
+		FROM (
+				SELECT
+					A.SCHUL_CD ,
+					A.STPL_CD ,
+					A.STPL_HSTR_NO ,
+					B.USER_ID ,
+					A.ENFRC_YMD
+				FROM
+				(
+					SELECT
+						SCHUL_CD,
+						STPL_CD ,
+						MAX(STPL_HSTR_NO) AS STPL_HSTR_NO  ,
+						MAX(ENFRC_YMD) AS ENFRC_YMD
+					FROM
+					TN_STPL_MNG
+					WHERE
+						SCHUL_CD = #{schulCd}
+						AND STPL_CD IN (SELECT CMMN_CD FROM TN_CODE_DTL  WHERE SCHUL_CD = #{schulCd} AND  GROUP_CD = '100' AND VAL1 = #{sysSprtr})
+						AND DEL_YN = 0
+						AND TO_DATE(ENFRC_YMD) <![CDATA[ <= ]]> SYSDATE
+					GROUP BY
+						SCHUL_CD , STPL_CD
+				) A LEFT OUTER JOIN TN_STPL_CNSNT_HSTR B
+				ON
+					A.SCHUL_CD = B.SCHUL_CD
+					AND A.STPL_CD = B.STPL_CD
+					AND A.STPL_HSTR_NO = B.STPL_HSTR_NO
+					AND B.USER_ID = #{userId}
+					AND B.DEL_YN = '0'
+		) A , TN_STPL_MNG B , TN_CODE_LANG C
+		WHERE
+			A.SCHUL_CD = B.SCHUL_CD
+			AND A.STPL_CD = B.STPL_CD
+			AND A.STPL_HSTR_NO = B.STPL_HSTR_NO
+			AND A.SCHUL_CD = C.SCHUL_CD
+			AND A.STPL_CD = C.CMMN_CD
+			AND C.LANG_CD = #{lang}
+		ORDER BY
+			A.STPL_CD
+	</select>
+
+	<insert id="insertStplMngHstr" parameterType="userLoginDto">
+		MERGE INTO
+			TN_STPL_CNSNT_HSTR A
+		USING
+			DUAL B
+		ON (
+			A.SCHUL_CD = #{schulCd}
+			AND A.STPL_CD =   #{stplCd}
+			AND A.STPL_HSTR_NO =  #{stplHstrNo}
+			AND A.USER_ID =  #{userId}
+			)
+		WHEN MATCHED THEN
+				UPDATE
+			SET
+				DEL_YN = '0' ,
+				UPDTR_ID = #{userId} ,
+				UPD_DTM = SYSDATE
+		WHEN NOT MATCHED THEN
+			INSERT
+				(
+				SCHUL_CD ,
+				STPL_CD  ,
+				STPL_HSTR_NO ,
+				USER_ID ,
+				DEL_YN ,
+				REGNT_ID ,
+				REG_DTM ,
+				UPDTR_ID ,
+				UPD_DTM
+				)
+		    VALUES
+				(
+				#{schulCd} ,
+				#{stplCd} ,
+				#{stplHstrNo} ,
+				#{userId} ,
+				'0' ,
+				#{userId} ,
+				SYSDATE ,
+				#{userId} ,
+				SYSDATE
+				)
+	</insert>
+
+	<select id="selectLastPwChangeCheck" parameterType="userLoginDto" resultType="userLoginDto">
+		SELECT /* common.login.selectLastPwChangeCheck */
+			CASE WHEN TO_CHAR(LAST_PW_CHG_DTM , 'YYYYMMDD') > TO_CHAR(SYSDATE - (SELECT VAL1 FROM TN_CODE_DTL WHERE SCHUL_CD = #{schulCd} AND CMMN_CD = '000002' AND DEL_YN = '0') , 'YYYYMMDD') THEN '0' ELSE '1' END LAST_PW_CHG_DTM
+		FROM
+			TN_MBER
+		WHERE
+		    SCHUL_CD = #{schulCd}
+			AND USER_ID = #{userId}
+			AND DEL_YN = '0'
+	</select>
+
+	<select id="selectSystemValue" parameterType="userLoginDto" resultType="String">
+		SELECT /* common.login.selectSystemValue */
+			VAL1
+		FROM
+			TN_CODE_DTL
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND CMMN_CD = #{cmmnCd}
+			AND DEL_YN = '0'
+	</select>
+
+	<select id="selectDupIdCheck" parameterType="userLoginDto" resultType="String">
+		SELECT  /* common.login.selectDupIdCheck */
+			CASE WHEN LOGIN_ID = (SELECT LOGIN_ID FROM TN_MBER WHERE SCHUL_CD = #{schulCd} AND USER_ID = #{userId} ) THEN ''
+			ELSE LOGIN_ID
+			END AS LOGIN_ID
+		FROM
+			TN_MBER
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND LOGIN_ID = #{loginId}
+	</select>
+
+
+</mapper>

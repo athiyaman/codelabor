@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:messages</value>
+				<!-- spring security -->
+				<value>classpath:org/springframework/security/messages</value>
+
+				<!-- hibernate validator  -->
+				<value>classpath:org/hibernate/validator/ValidMessages</value>
+
+				<!-- example -->
+				<value>classpath:messages/example/messages</value>
+
+				<!-- example emp -->
+				<value>classpath:messages/example/emp/button</value>
+				<value>classpath:messages/example/emp/errors</value>
+				<value>classpath:messages/example/emp/caption</value>
+				<value>classpath:messages/example/emp/heading</value>
+				<value>classpath:messages/example/emp/label</value>
+				<value>classpath:messages/example/emp/menu</value>
+				<value>classpath:messages/example/emp/messages</value>
+				<value>classpath:messages/example/emp/title</value>
+
+				<!-- example validation -->
+				<value>classpath:messages/example/validation/button</value>
+				<value>classpath:messages/example/validation/errors</value>
+				<value>classpath:messages/example/validation/caption</value>
+				<value>classpath:messages/example/validation/heading</value>
+				<value>classpath:messages/example/validation/label</value>
+				<value>classpath:messages/example/validation/menu</value>
+				<value>classpath:messages/example/validation/messages</value>
+				<value>classpath:messages/example/validation/title</value>
+
+				<!-- system -->
+				<value>classpath:messages/system/alternate</value>
+				<value>classpath:messages/system/button</value>
+				<value>classpath:messages/system/errors</value>
+				<value>classpath:messages/system/caption</value>
+				<value>classpath:messages/system/heading</value>
+				<value>classpath:messages/system/label</value>
+				<value>classpath:messages/system/menu</value>
+				<value>classpath:messages/system/messages</value>
+				<value>classpath:messages/system/title</value>
+
+				<!-- common -->
+				<value>classpath:messages/common/alternate</value>
+				<value>classpath:messages/common/button</value>
+				<value>classpath:messages/common/errors</value>
+				<value>classpath:messages/common/caption</value>
+				<value>classpath:messages/common/heading</value>
+				<value>classpath:messages/common/label</value>
+				<value>classpath:messages/common/menu</value>
+				<value>classpath:messages/common/messages</value>
+				<value>classpath:messages/common/title</value>
+			</list>
+		</property>
+		<property name="cacheSeconds" value="1" />
+	</bean>
+
+</beans>
