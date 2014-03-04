@@ -1,0 +1,292 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system.bbs" >
+	<select id="selectBbsListAll" parameterType="map" resultType="bbsDto">
+		SELECT /* admin.bbsMng.selectBbsListAll */
+			A.SCHUL_CD,
+			A.BBS_ID,
+			A.SRS_NO,
+			A.TITL,
+			A.CNTNT,
+			A.RDCNT,
+			A.STEP,
+			A.DEP,
+			A.ANUC_YN,
+			A.DEL_YN,
+			NVL(B.USER_NM,A.REGNT_ID) AS REGNT_ID,
+			A.REG_DTM,
+			A.UPDTR_ID,
+			A.UPD_DTM
+		FROM TN_NTT A LEFT JOIN TN_MBER B
+		ON A.REGNT_ID = B.USER_ID
+		WHERE A.SCHUL_CD = #{schulCd}
+		AND A.DEL_YN = '0'
+		AND A.BBS_ID = #{bbsId}
+		<if test="searchTitl != null and searchTitl != ''">
+			AND TITL LIKE '%' || #{searchTitl} || '%'
+		</if>
+		<if test="searchRegntId != null and searchRegntId != ''">
+			AND B.USER_NM LIKE '%' || #{searchRegntId} || '%'
+		</if>
+	</select>
+	
+	<select id="selectBbsList" parameterType="map" resultType="bbsDto">
+		SELECT
+			SUB_ROWNUM,
+			SCHUL_CD,
+			BBS_ID,
+			SRS_NO,
+			TITL,
+			CNTNT,
+			RDCNT,
+			STEP,
+			DEP,
+			ANUC_YN,
+			DEL_YN,
+			REGNT_ID,
+			REG_DTM,
+			UPDTR_ID,
+			UPD_DTM
+		FROM (
+			SELECT
+				ROWNUM AS SUB_ROWNUM,
+				SCHUL_CD,
+				BBS_ID,
+				SRS_NO,
+				TITL,
+				CNTNT,
+				RDCNT,
+				STEP,
+				DEP,
+				ANUC_YN,
+				DEL_YN,
+				REGNT_ID,
+				REG_DTM,
+				UPDTR_ID,
+				UPD_DTM
+			FROM (
+				SELECT
+					A.SCHUL_CD,
+					A.BBS_ID,
+					A.SRS_NO,
+					A.TITL,
+					A.CNTNT,
+					A.RDCNT,
+					A.STEP,
+					A.DEP,
+					A.ANUC_YN,
+					A.DEL_YN,
+					NVL(B.USER_NM,A.REGNT_ID) AS REGNT_ID,
+					A.REG_DTM,
+					A.UPDTR_ID,
+					A.UPD_DTM
+				FROM TN_NTT A LEFT JOIN TN_MBER B
+				ON A.REGNT_ID = B.USER_ID
+				WHERE A.SCHUL_CD = #{schulCd}
+				AND A.DEL_YN = '0'
+				AND A.BBS_ID = #{bbsId}
+		<if test="searchTitl != null and searchTitl != ''">
+				AND A.TITL LIKE '%' || #{searchTitl} || '%'
+		</if>
+		<if test="searchRegntId != null and searchRegntId != ''">
+				AND B.USER_NM LIKE '%' || #{searchRegntId} || '%'
+		</if>
+				ORDER BY A.ANUC_YN DESC, A.SRS_NO DESC, A.REG_DTM DESC
+				)
+			WHERE <![CDATA[ ROWNUM <= ]]> #{pageNo} * #{maxRowPerPage}
+			)
+		WHERE <![CDATA[ SUB_ROWNUM >= ]]> #{pageNo} * #{maxRowPerPage} - #{maxRowPerPage} + 1
+	</select>
+	
+	<select id="getBbsNumberOfRow" parameterType="bbsDto" resultType="int">
+		SELECT /* admin.bbsMng.getBbsNumberOfRow */
+			COUNT(*)
+		FROM TN_NTT A LEFT JOIN TN_MBER B
+		ON A.REGNT_ID = B.USER_ID
+		WHERE A.SCHUL_CD = #{schulCd}
+		AND A.DEL_YN = '0'
+		AND A.BBS_ID = #{bbsId}
+		<if test="searchTitl != null and searchTitl != ''">
+			AND A.TITL LIKE '%' || #{searchTitl} || '%'
+		</if>
+		<if test="searchRegntId != null and searchRegntId != ''">
+			AND B.USER_NM LIKE '%' || #{searchRegntId} || '%'
+		</if>
+	</select>
+	
+	<select id="selectMaxSrsNo" parameterType="bbsDto" resultType="int">
+		SELECT /* admin.bbsMng.selectMaxSrsNo */
+			NVL(MAX(SRS_NO)+1,'1')
+		FROM TN_NTT
+	</select>
+	
+	<insert id="insertBbs" parameterType="bbsDto">
+		INSERT /* admin.bbsMng.insertBbs */
+		INTO TN_NTT(
+			SCHUL_CD,
+			BBS_ID,
+			SRS_NO,
+			TITL,
+			CNTNT,
+			RDCNT,
+			STEP,
+			DEP,
+			ANUC_YN,
+			DEL_YN,
+			REGNT_ID,
+			REG_DTM,
+			UPDTR_ID,
+			UPD_DTM
+		) VALUES (
+			#{schulCd},
+			#{bbsId},
+			#{srsNo},
+			#{titl},
+			#{cntnt},
+			'0',
+			'0',
+			'0',
+			#{anucYn},
+			'0',
+			#{regntId},
+			SYSDATE,
+			#{regntId},
+			SYSDATE
+		)
+	</insert>
+
+	<insert id="insertBbsFile" parameterType="bbsFileDto">
+		INSERT /* admin.bbsMng.insertBbsFile */
+		INTO TN_NTT_ATCH_FILE(
+			SCHUL_CD,
+			BBS_ID,
+			SRS_NO,
+			ATCH_FILE_ID,
+			DEL_YN,
+			REGNT_ID,
+			REG_DTM,
+			UPDTR_ID,
+			UPD_DTM
+		) VALUES (
+			#{schulCd},
+			#{bbsId},
+			#{srsNo},
+			#{atchFileId},
+			'0',			
+			#{regntId},
+			SYSDATE,
+			#{regntId},
+			SYSDATE
+		)
+	</insert>
+	
+	<select id="selectBbs" parameterType="map" resultType="bbsDto">
+		SELECT /* admin.bbsMng.selectBbs */
+			A.SCHUL_CD,
+			A.BBS_ID,
+			A.SRS_NO,
+			A.TITL,
+			A.CNTNT,
+			A.RDCNT,
+			A.STEP,
+			A.DEP,
+			A.ANUC_YN,
+			A.DEL_YN,
+			NVL(B.USER_NM,A.REGNT_ID) AS REGNT_ID,
+			A.REG_DTM,
+			A.UPDTR_ID,
+			A.UPD_DTM
+		FROM TN_NTT A LEFT JOIN TN_MBER B
+		ON A.REGNT_ID = B.USER_ID
+		WHERE A.SCHUL_CD = #{schulCd}
+		AND A.DEL_YN = '0'
+		AND A.BBS_ID = #{bbsId}
+		AND A.SRS_NO = #{srsNo}
+	</select>
+	
+	<update id="updateCount" parameterType="map">
+		UPDATE /* admin.bbsMng.updateCount */
+		TN_NTT SET RDCNT = RDCNT+1
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND BBS_ID = #{bbsId}
+		AND SRS_NO = #{srsNo}
+	</update>
+	
+	<update id="updateBbs" parameterType="map">
+		UPDATE /* admin.bbsMng.updateBbs */
+		TN_NTT SET TITL = #{titl},
+				CNTNT = #{cntnt},
+				ANUC_YN = #{anucYn},
+				UPDTR_ID = #{updtrId},
+				UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND BBS_ID = #{bbsId}
+		AND SRS_NO = #{srsNo}
+	</update>
+	
+	<update id="deleteBbs" parameterType="map">
+		UPDATE /* admin.bbsMng.deleteBbs */
+		TN_NTT SET DEL_YN = '1',
+				UPDTR_ID = #{updtrId},
+				UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND BBS_ID = #{bbsId}
+		AND SRS_NO = #{srsNo}
+	</update>
+	
+	<select id="selectFileList" parameterType="map" resultType="fileDto">
+		SELECT /* admin.bbsMng.selectFileList */
+			A.ATCH_FILE_ID AS ATCH_FILE_ID,
+			DIR_NM,
+			FILE_NM,
+			ORGCP_FILE_NM,
+			FILE_MG,
+			DWLD_NTS
+		FROM TN_NTT_ATCH_FILE A, TN_ATCH_FILE B
+		WHERE A.ATCH_FILE_ID = B.ATCH_FILE_ID
+		AND A.SCHUL_CD = #{schulCd}
+		AND A.BBS_ID = #{strId}
+		AND A.SRS_NO = #{intNo}
+		AND A.DEL_YN = '0'
+		AND B.DEL_YN = '0'
+	</select>
+	
+	<insert id="insertFileMaping" parameterType="map">
+		UPDATE /* admin.bbsMng.insertFileMaping */
+		TN_NTT SET DEL_YN = '1',
+			UPDTR_ID = #{updtrId},
+			UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND BBS_ID = #{bbsId}
+		AND SRS_NO = #{srsNo}
+	</insert>
+
+	<update id="deleteFileMaping" parameterType="map">
+		UPDATE /* admin.bbsMng.deleteFileMaping */
+		TN_NTT_ATCH_FILE 
+			SET DEL_YN = '1',
+				UPDTR_ID = #{updtrId},
+				UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND BBS_ID = #{bbsId}
+		AND SRS_NO = #{srsNo}
+		AND ATCH_FILE_ID = #{atchFileId}
+	</update>
+	
+	<update id="deleteFile" parameterType="map">
+		UPDATE /* admin.bbsMng.deleteFile */
+		TN_ATCH_FILE 
+			SET DEL_YN = '1',
+				UPDTR_ID = #{updtrId},
+				UPD_DTM = SYSDATE
+		WHERE SCHUL_CD = #{schulCd}
+		AND DEL_YN = '0'
+		AND ATCH_FILE_ID = #{atchFileId}
+	</update>
+	
+</mapper>

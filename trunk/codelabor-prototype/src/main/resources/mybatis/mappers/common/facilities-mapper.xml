@@ -1,0 +1,383 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="common.facilities" >
+
+
+	<select id="selectFaResveSrsNo" parameterType="faResveDto" resultType="int">
+		SELECT NVL(MAX(SRS_NO) , 0 ) + 1 AS SRS_NO FROM TN_FA_RESVE WHERE SCHUL_CD = #{schulCd}  AND FA_ID = #{faId}
+	</select>
+
+	<insert id="insertFaResve" parameterType="faResveDto">
+		INSERT INTO /* common.facilities.insertFaResve */
+		TN_FA_RESVE (
+			SCHUL_CD ,
+			FA_ID ,
+			SRS_NO ,
+			RESVE_YMD ,
+			PRG_STTUS_CD ,
+			PRPOS_SC_CD  ,
+			TM_BLOCK_ID  ,
+			RESVE_CNTNT ,
+			UTILZ_BEGIN_HM ,
+			UTILZ_END_HM ,
+			DEL_YN ,
+			REGNT_ID ,
+			REG_DTM ,
+			UPDTR_ID ,
+			UPD_DTM
+		)
+		VALUES
+		(
+			#{schulCd} ,
+			#{faId} ,
+			#{srsNo} ,
+			#{resveYmd} ,
+			#{prgSttusCd} ,
+			#{prposScCd} ,
+			#{tmBlockId} ,
+			#{resveCntnt} ,
+			#{utilzBeginHm} ,
+			#{utilzEndHm} ,
+			'0' ,
+			#{userId} ,
+			SYSDATE ,
+			#{userId} ,
+			SYSDATE
+		)
+	</insert>
+
+	<select id="selectFaResveCheckCount" parameterType="faResveDto" resultType="int">
+		SELECT /* common.facilities.selectFaResveCheckCount */
+		(
+			SELECT
+				NVL(SUM(CASE WHEN ( #{prposScCd} = '086001' OR #{prposScCd} = '086002' OR #{prposScCd} = '086003' ) AND PRPOS_SC_CD NOT IN('086004','086005') THEN 0
+					ELSE 1
+				END) , 0)
+			FROM
+				TN_FA_RESVE
+			WHERE
+				SCHUL_CD = #{schulCd}
+				AND FA_ID = #{faId}
+				AND RESVE_YMD = #{resveYmd}
+				AND PRG_STTUS_CD IN ('043001','043002')
+				AND TM_BLOCK_ID = #{tmBlockId}
+				AND DEL_YN = '0'
+		) +
+		(
+			SELECT
+				1-NVL(COUNT(SCHUL_CD) , 0)
+			FROM
+				TN_FA
+			WHERE
+				SCHUL_CD = #{schulCd}
+				AND FA_ID = #{faId}
+				AND DEL_YN = '0'
+				AND INSTR(REQST_POSBL_ACT , #{prposScCd}) > -1
+		) +
+		(
+			SELECT
+				NVL(COUNT(SCHUL_CD) , 0)
+			FROM
+				TN_ANUL_AA_FX
+			WHERE
+				SCHUL_CD = #{schulCd}
+				AND YMD = #{resveYmd}
+				AND INSTR(REQST_LMTT , '084002') > -1
+				AND (
+					TMZON_CD = '009004' OR
+					TMZON_CD IN
+					(
+						SELECT
+							TMZON_CD
+						FROM (
+							SELECT
+							TM_BLOCK_ID ,
+								CASE WHEN  ASL_CD = '026002' THEN '009003'
+									WHEN RANK() OVER (PARTITION BY SCHUL_CD , AY , SEM_CD , FRL_ITRT_CD , ASL_CD ORDER BY BEGIN_TOD) > COUNT(ASL_CD) OVER (PARTITION BY SCHUL_CD , AY , SEM_CD , FRL_ITRT_CD , ASL_CD)/2 THEN '009002'
+									ELSE '009001'
+								END AS TMZON_CD
+							FROM
+								TN_TM_BLOCK
+							WHERE
+								SCHUL_CD = #{schulCd}
+								AND DEL_YN = '0'
+							)
+						WHERE
+							TM_BLOCK_ID = #{tmBlockId}
+					)
+				)
+				AND DEL_YN = '0'
+		) AS CNT
+		FROM
+			DUAL
+	</select>
+
+
+	<select id="getFaResveNumberOfRow" parameterType="FaResveDto" resultType="int">
+		SELECT /* common.facilities.getFaResveNumberOfRow */
+			COUNT(A.FA_ID) AS CNT
+		FROM
+			TN_FA_RESVE A
+		WHERE
+			A.SCHUL_CD = #{schulCd}
+			<if test="resveYmd != null and resveYmd != '' ">
+			AND TO_CHAR(TO_DATE(A.RESVE_YMD) , 'YYYY-MM-DD') = #{resveYmd}
+			</if>
+			<if test="faId != null and faId != '' ">
+			AND A.FA_ID = #{faId}
+			</if>
+			<if test="prgSttusCd != null and prgSttusCd != '' ">
+			AND A.PRG_STTUS_CD = #{prgSttusCd}
+			</if>
+			<if test="prposScCd != null and prposScCd != '' ">
+			AND A.PRPOS_SC_CD = #{prposScCd}
+			</if>
+			AND A.DEL_YN = '0'
+	</select>
+
+	<select id="selectFaResveList" parameterType="FaResveDto" resultType="FaResveDto">
+		SELECT /* common.facilities.selectFaResveList */
+			FA_ID ,
+			FA_NM ,
+			SRS_NO ,
+			TO_CHAR(TO_DATE(RESVE_YMD , 'YYYYMMDD') , 'YYYY-MM-DD')||'('||DECODE(TO_CHAR(TO_DATE(RESVE_YMD , 'YYYYMMDD'),'D'),'1','일','2','월','3','화','4','수','5','목','6','금','7','토')||')' AS RESVE_YMD ,
+			PRG_STTUS_CD ,
+			PRG_STTUS_NM ,
+			PRPOS_SC_CD ,
+			PRPOS_SC_NM ,
+			TM_BLOCK_ID ,
+			TM_BLOCK_NM ,
+			RESVE_CNTNT ,
+			UTILZ_BEGIN_HM ,
+			UTILZ_END_HM ,
+			REGNT_ID ,
+			REGNT_NM ,
+			REGNT_SC_CD ,
+			REGNT_SC_NM ,
+			REG_DTM
+		FROM (
+			SELECT
+				ROWNUM AS SUB_ROWNUM ,
+				FA_ID ,
+				FA_NM ,
+				SRS_NO ,
+				RESVE_YMD ,
+				PRG_STTUS_CD ,
+				PRG_STTUS_NM ,
+				PRPOS_SC_CD ,
+				PRPOS_SC_NM ,
+				TM_BLOCK_ID ,
+				TM_BLOCK_NM ,
+				RESVE_CNTNT ,
+				UTILZ_BEGIN_HM ,
+				UTILZ_END_HM ,
+				REGNT_ID ,
+				REGNT_NM ,
+				REGNT_SC_CD ,
+				REGNT_SC_NM ,
+				REG_DTM
+			FROM (
+				SELECT
+					A.FA_ID ,
+					B.FA_NM ,
+					A.SRS_NO ,
+					A.RESVE_YMD ,
+					A.PRG_STTUS_CD ,
+					C.CD_NM AS PRG_STTUS_NM ,
+					A.PRPOS_SC_CD ,
+					D.CD_NM AS PRPOS_SC_NM ,
+					A.TM_BLOCK_ID ,
+					E.TM_BLOCK_NM ,
+					A.RESVE_CNTNT ,
+					A.UTILZ_BEGIN_HM ,
+					A.UTILZ_END_HM ,
+					A.REGNT_ID ,
+					F.USER_NM AS REGNT_NM ,
+					F.USER_SC_CD AS REGNT_SC_CD ,
+					G.CD_NM AS REGNT_SC_NM ,
+					TO_CHAR(A.REG_DTM , 'YYYY-MM-DD') AS REG_DTM
+				FROM
+					TN_FA_RESVE A  ,
+					TN_FA B ,
+					TN_CODE_LANG C ,
+					TN_CODE_LANG D  ,
+					TN_TM_BLOCK E ,
+					TN_MBER F ,
+					TN_CODE_LANG G
+				WHERE
+					A.SCHUL_CD = #{schulCd}
+					<if test="resveYmd != null and resveYmd != '' ">
+					AND TO_CHAR(TO_DATE(A.RESVE_YMD) , 'YYYY-MM-DD') = #{resveYmd}
+					</if>
+					<if test="faId != null and faId != '' ">
+					AND A.FA_ID = #{faId}
+					</if>
+					<if test="prgSttusCd != null and prgSttusCd != '' ">
+					AND A.PRG_STTUS_CD = #{prgSttusCd}
+					</if>
+					<if test="prposScCd != null and prposScCd != '' ">
+					AND A.PRPOS_SC_CD = #{prposScCd}
+					</if>
+					AND A.DEL_YN = '0'
+					AND A.SCHUL_CD = B.SCHUL_CD
+					AND A.FA_ID = B.FA_ID
+					AND A.SCHUL_CD = C.SCHUL_CD
+					AND A.PRG_STTUS_CD = C.CMMN_CD
+					AND C.LANG_CD = #{langCd}
+					AND A.SCHUL_CD = D.SCHUL_CD
+					AND A.PRPOS_SC_CD = D.CMMN_CD
+					AND D.LANG_CD = #{langCd}
+					AND A.SCHUL_CD = E.SCHUL_CD
+					AND A.TM_BLOCK_ID = E.TM_BLOCK_ID
+					AND A.SCHUL_CD = F.SCHUL_CD
+					AND A.REGNT_ID = F.USER_ID
+					AND F.SCHUL_CD = G.SCHUL_CD
+					AND F.USER_SC_CD = G.CMMN_CD
+					AND G.LANG_CD = #{langCd}
+				ORDER BY
+					A.RESVE_YMD DESC , B.FA_NM , E.TM_BLOCK_NM
+			)
+			WHERE  ROWNUM <![CDATA[ <= ]]> #{pageNo} * #{maxRowPerPage}
+		)
+		WHERE  SUB_ROWNUM <![CDATA[ >= ]]> #{pageNo} * #{maxRowPerPage} - #{maxRowPerPage} + 1
+	</select>
+
+
+	<select id="selectFaResveView" parameterType="FaResveDto" resultType="FaResveDto">
+		SELECT /* common.facilities.selectFaResveView */
+			A.FA_ID ,
+			B.FA_NM||'('||J.CD_NM||' '||K.CD_NM||')' AS FA_NM ,
+			A.SRS_NO ,
+			TO_CHAR(TO_DATE(A.RESVE_YMD , 'YYYYMMDD') , 'YYYY-MM-DD')||'('||DECODE(TO_CHAR(TO_DATE(A.RESVE_YMD , 'YYYYMMDD'),'D'),'1','일','2','월','3','화','4','수','5','목','6','금','7','토')||')' AS RESVE_YMD ,
+			A.PRG_STTUS_CD ,
+			C.CD_NM AS PRG_STTUS_NM ,
+			A.PRPOS_SC_CD ,
+			D.CD_NM AS PRPOS_SC_NM ,
+			A.TM_BLOCK_ID ,
+			E.TM_BLOCK_NM ,
+			A.RESVE_CNTNT ,
+			A.UTILZ_BEGIN_HM ,
+			A.UTILZ_END_HM ,
+			A.REGNT_ID ,
+			F.USER_NM AS REGNT_NM ,
+			F.USER_SC_CD AS REGNT_SC_CD ,
+			G.CD_NM AS REGNT_SC_NM ,
+			TO_CHAR(A.REG_DTM , 'YYYY-MM-DD HH24:MI:SS') AS REG_DTM ,
+			A.UPDTR_ID ,
+			H.USER_NM AS UPDTR_NM ,
+			H.USER_SC_CD AS UPDTR_SC_CD ,
+			I.CD_NM AS UPDTR_SC_NM ,
+			TO_CHAR(A.UPD_DTM , 'YYYY-MM-DD HH24:MI:SS') AS UPD_DTM
+		FROM
+			TN_FA_RESVE A  ,
+			TN_FA B ,
+			TN_CODE_LANG C ,
+			TN_CODE_LANG D  ,
+			TN_TM_BLOCK E ,
+			TN_MBER F ,
+			TN_CODE_LANG G ,
+			TN_MBER H ,
+			TN_CODE_LANG I ,
+			TN_CODE_LANG J ,
+			TN_CODE_LANG K
+		WHERE
+			A.SCHUL_CD = #{schulCd}
+			AND A.FA_ID = #{faIdSearch}
+			AND A.SRS_NO = #{srsNo}
+			AND A.DEL_YN = '0'
+			AND A.SCHUL_CD = B.SCHUL_CD
+			AND A.FA_ID = B.FA_ID
+			AND A.SCHUL_CD = C.SCHUL_CD
+			AND A.PRG_STTUS_CD = C.CMMN_CD
+			AND C.LANG_CD = #{langCd}
+			AND A.SCHUL_CD = D.SCHUL_CD
+			AND A.PRPOS_SC_CD = D.CMMN_CD
+			AND D.LANG_CD = #{langCd}
+			AND A.SCHUL_CD = E.SCHUL_CD
+			AND A.TM_BLOCK_ID = E.TM_BLOCK_ID
+			AND A.SCHUL_CD = F.SCHUL_CD
+			AND A.REGNT_ID = F.USER_ID
+			AND F.SCHUL_CD = G.SCHUL_CD
+			AND F.USER_SC_CD = G.CMMN_CD
+			AND G.LANG_CD = #{langCd}
+			AND A.SCHUL_CD = H.SCHUL_CD
+			AND A.UPDTR_ID = H.USER_ID
+			AND H.SCHUL_CD = I.SCHUL_CD
+			AND H.USER_SC_CD = I.CMMN_CD
+			AND I.LANG_CD = #{langCd}
+			AND B.SCHUL_CD = J.SCHUL_CD
+			AND B.PSTN_SC_CD = J.CMMN_CD
+			AND J.LANG_CD = #{langCd}
+			AND B.SCHUL_CD = K.SCHUL_CD
+			AND B.FLOOR_SC_CD = K.CMMN_CD
+			AND K.LANG_CD = #{langCd}
+	</select>
+
+
+	<update id="deleteFaResve" parameterType="FaResveDto">
+		UPDATE /* common.facilities.deleteFaResve */
+			TN_FA_RESVE
+		SET
+			DEL_YN = '1' ,
+			UPDTR_ID = #{updtrId} ,
+			UPD_DTM = SYSDATE
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND FA_ID = #{faIdSearch}
+			AND SRS_NO = #{srsNo}
+	</update>
+
+	<update id="confirmFaResve" parameterType="FaResveDto">
+		UPDATE /* common.facilities.confirmFaResve */
+			TN_FA_RESVE
+		SET
+			PRG_STTUS_CD = '043002' ,
+			UPDTR_ID = #{updtrId} ,
+			UPD_DTM = SYSDATE
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND FA_ID = #{faIdSearch}
+			AND SRS_NO = #{srsNo}
+	</update>
+
+	<update id="rejecFaResve" parameterType="FaResveDto">
+		UPDATE /* common.facilities.rejecFaResve */
+			TN_FA_RESVE
+		SET
+			PRG_STTUS_CD = '043003' ,
+			UPDTR_ID = #{updtrId} ,
+			UPD_DTM = SYSDATE
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND FA_ID = #{faIdSearch}
+			AND SRS_NO = #{srsNo}
+	</update>
+
+	<update id="updateFaResve" parameterType="faResveDto">
+		UPDATE  /* common.facilities.updateFaResve */
+			TN_FA_RESVE
+		SET
+			<if test="resveYmd != null and resveYmd != '' ">
+			RESVE_YMD = #{resveYmd} ,
+			</if>
+			<if test="tmBlockId != null and tmBlockId != '' ">
+			TM_BLOCK_ID = #{tmBlockId} ,
+			</if>
+			<if test="resveCntnt != null and resveCntnt != '' ">
+			RESVE_CNTNT = #{resveCntnt} ,
+			</if>
+			<if test="utilzBeginHm != null and utilzBeginHm != '' ">
+			UTILZ_BEGIN_HM = #{utilzBeginHm} ,
+			</if>
+			<if test="utilzEndHm != null and utilzEndHm != '' ">
+			UTILZ_END_HM = #{utilzEndHm} ,
+			</if>
+			UPDTR_ID = #{updtrId} ,
+			UPD_DTM = SYSDATE
+		WHERE
+			SCHUL_CD = #{schulCd}
+			AND FA_ID = #{faId}
+			AND SRS_NO = #{srsNo}
+	</update>
+
+</mapper>
