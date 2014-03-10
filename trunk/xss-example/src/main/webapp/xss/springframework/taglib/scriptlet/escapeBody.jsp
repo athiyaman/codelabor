@@ -5,20 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cross Site Scripting Example</title>
+<title>Taglig Springframework</title>
 </head>
 <body>
-	<h1>escapeBody example</h1>
+	<h1>Taglig Springframework</h1>
+	<h2>escapeBody example</h2>
 	<hr />
 	<%
 		String greeting = "<b>hello, world!</b>";
 		request.setAttribute("greeting", greeting);
 	%>
-	<h2>default</h2>
+	<h3>default</h3>
 	<spring:escapeBody>${greeting}</spring:escapeBody>
-	<h2>htmlEscape false</h2>
+	<h3>htmlEscape false</h3>
 	<spring:escapeBody htmlEscape="false">${greeting}</spring:escapeBody>
-	<h2>htmlEscape true</h2>
+	<h3>htmlEscape true</h3>
 	<spring:escapeBody htmlEscape="true">${greeting}</spring:escapeBody>
 </body>
 </html>

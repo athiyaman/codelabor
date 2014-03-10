@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Response</title>
+<title>Taglig JSTL</title>
 </head>
 <body>
-	<h1>Response</h1>
+	<h1>Taglig JSTL</h1>
 	<hr/>
 	
 	<h2>Parameter</h2>

@@ -6,13 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cross Site Scripting Example</title>
+<title>Taglig JSTL</title>
 </head>
 <body>
 	<%
 		String greeting = "<b>hello, world!</b>";
 		request.setAttribute("greeting", greeting);
 	%>
+	<h1>Taglig JSTL</h1>
 	
 	<h2>c out escapeXml example</h2>
 	<hr />
