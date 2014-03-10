@@ -12,15 +12,15 @@
 	<h1>Response</h1>
 	<hr/>
 	
-	<h2>Parameter</h2>
+	<h2>Attribute</h2>
 	<h3>EL</h3>
 	<table>
 		<tr>
 			<td>name</td><td>value</td>
 		</tr>
 		<tr>
-			<td>param1</td>
-			<td>${param.param1}</td>
+			<td>attrib1</td>
+			<td>${attrib1}</td>
 		</tr>
 	</table>
 
@@ -31,8 +31,8 @@
 			<td>name</td><td>value</td>
 		</tr>
 		<tr>
-			<td>param1</td>
-			<td><c:out value="${param.param1}" /></td>
+			<td>attrib1</td>
+			<td><c:out value="${attrib1}" /></td>
 		</tr>
 	</table>
 
@@ -42,8 +42,8 @@
 			<td>name</td><td>value</td>
 		</tr>
 		<tr>
-			<td>param1</td>
-			<td><c:out value="${param.param1}" escapeXml="true" /></td>
+			<td>attrib1</td>
+			<td><c:out value="${attrib1}" escapeXml="true" /></td>
 		</tr>
 	</table>
 	
@@ -53,8 +53,8 @@
 			<td>name</td><td>value</td>
 		</tr>
 		<tr>
-			<td>param1</td>
-			<td><c:out value="${param.param1}" escapeXml="false" /></td>
+			<td>attrib1</td>
+			<td><c:out value="${attrib1}" escapeXml="false" /></td>
 		</tr>
 	</table>
 	
@@ -65,8 +65,8 @@
 			<td>name</td><td>value</td>
 		</tr>
 		<tr>
-			<td>param1</td>
-			<td><c:out value="${fn:escapeXml(param.param1)}" /></td>
+			<td>attrib1</td>
+			<td><c:out value="${fn:escapeXml(attrib1)}" /></td>
 		</tr>
 	</table>
 
