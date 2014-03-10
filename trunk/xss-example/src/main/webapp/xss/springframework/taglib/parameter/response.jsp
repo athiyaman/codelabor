@@ -9,24 +9,26 @@
 </head>
 <body>
 	<h1>Taglig Springframework</h1>
-	<h2>EL</h2>
+	<h2>Attribute</h2>
+	
+	<h3>EL</h3>
 	<hr />
 	${param.param1}
 	
-	<h2>escapeBody example</h2>
+	<h3>escapeBody example</h3>
 	<hr />
-	<h3>default</h3>
+	<h4>default</h4>
 	<spring:escapeBody>${param.param1}</spring:escapeBody>
-	<h3>htmlEscape false</h3>
+	<h4>htmlEscape false</h4>
 	<spring:escapeBody htmlEscape="false">${param.param1}</spring:escapeBody>
-	<h3>htmlEscape true</h3>
+	<h4>htmlEscape true</h4>
 	<spring:escapeBody htmlEscape="true">${param.param1}</spring:escapeBody>
 	
-	<h2>htmlEscape example</h2>
+	<h3>htmlEscape example</h3>
 	<hr />
-	<h3>defaultHtmlEscape false</h3>
+	<h4>defaultHtmlEscape false</h4>
 	<spring:htmlEscape defaultHtmlEscape="false">${param.param1}</spring:htmlEscape>
-	<h3>defaultHtmlEscape true</h3>
+	<h4>defaultHtmlEscape true</h4>
 	<spring:htmlEscape defaultHtmlEscape="true">${param.param1}</spring:htmlEscape>	
 </body>
 </html>
