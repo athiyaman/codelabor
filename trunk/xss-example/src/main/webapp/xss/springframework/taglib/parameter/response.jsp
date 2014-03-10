@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>Taglig Springframework</h1>
-	<h2>Attribute</h2>
+	<h2>Parameter</h2>
 	
 	<h3>EL</h3>
 	<hr />
