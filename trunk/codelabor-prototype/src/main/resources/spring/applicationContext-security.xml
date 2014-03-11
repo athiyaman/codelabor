@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<security:http pattern="/css/**" security="none" />
+	<security:http pattern="/font/**" security="none" />
+	<security:http pattern="/images/**" security="none" />
+	<security:http pattern="/js/**" security="none" />
+	<security:http pattern="/themes/**" security="none" />
+
+	<security:http auto-config="true">
+		<!-- do not use default-target-url="/example/authentication/loginSuccess" -->
+		<!-- TODO org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler -->
+		<security:form-login always-use-default-target="false"
+			login-page="/example/authentication/prepareLogin"
+			login-processing-url="/example/authentication/login"
+			authentication-success-handler-ref="domainAwareAuthenticationSuccessHandler"
+			authentication-failure-url="/example/authentication/loginFailure" />
+		<security:logout logout-url="/example/authentication/logout"
+			logout-success-url="/example/authentication/logoutSuccess" />
+		<security:remember-me data-source-ref="dataSource" />
+		<security:session-management>
+			<!-- TODO make error page contains messages like this: This session has
+				been expired (possibly due to multiple concurrent logins being attempted
+				as the same user). -->
+			<security:concurrency-control
+				expired-url="/example/authentication/prepareLogin" />
+		</security:session-management>
+
+		<!-- authorizing web request -->
+		<security:intercept-url pattern="/logbackStatus"
+			access="ROLE_DEVELOPER" />
+		<security:intercept-url pattern="/example/username/**"
+			access="ROLE_DEVELOPER" />
+		<security:intercept-url pattern="/example/authentication/prepareLogin/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/scw/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/stw/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/common/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider
+			user-service-ref="userDetailsService" />
+	</security:authentication-manager>
+
+	<bean id="userDetailsService"
+		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+		<property name="enableGroups" value="true" />
+	</bean>
+
+	<security:user-service id="userDetailsService">
+		<security:user name="bomber.shin" password="1234qwer"
+			authorities="ROLE_DEVELOPER" />
+	</security:user-service>
+
+	<bean
+		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+
+	<!-- authentication success/failuer handler -->
+	<bean id="domainAwareAuthenticationSuccessHandler"
+		class="org.codelabor.system.security.web.authentication.DomainAwareAuthenticationSuccessHandler">
+		<property name="domainNameRedirectUrlMap">
+			<map>
+				<!-- internal -->
+				<entry key="int.codelabor.org" value="/int/home" />
+				<!-- external -->
+				<entry key="ext.codelabor.org" value="/ext/home" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+	<bean id="jasyptTextEncryptor" class="org.jasypt.util.text.BasicTextEncryptor">
+		<property name="password" value="1234qwer" />
+	</bean>
+
+</beans>

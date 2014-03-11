@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation) See here for more
+	details: http://gordondickens/com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<!-- Layouts: http://logback/qos/ch/manual/layouts/html -->
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<if condition='isDefined("con.name")'>
+		<then>
+			<property name="effective.log.dir" value='${log.dir}/${con.name}/${project.name}' />
+		</then>
+		<else>
+			<property name="effective.log.dir" value="${log.dir}/${project.name}" />
+		</else>
+	</if>
+
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+		<resetJUL>true</resetJUL>
+	</contextListener>
+
+	<!-- To enable JMX Management -->
+	<jmxConfigurator />
+
+	<!-- application module appender -->
+	<appender name="FILE-SYSTEM"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/module/system.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/module/system.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-COMMON"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/module/common.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/module/common.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-EXAMPLE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/module/example.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/module/example.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-SUBJECT"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/module/subject.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/module/subject.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- audit (utilization, error) appender -->
+	<appender name="FILE-UTILIZATION-CONTROLLER"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/utilization/controller.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/utilization/controller.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-ERROR-JSP"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/error/jsp.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/error/jsp.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-ERROR-CONTROLLER"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/error/controller.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/error/controller.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- debug -->
+	<appender name="FILE-DEBUG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/debug.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- database -->
+	<appender name="FILE-DATABASE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/database.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/database.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- default appender -->
+	<appender name="STDOUT-DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE-DEFAULT"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/default.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/default.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<!-- application module log -->
+	<logger name="org.codelabor.example" level="${log.level.application}">
+		<appender-ref ref="FILE-EXAMPLE" />
+	</logger>
+
+	<!-- sql log (myBatis mapper) -->
+	<logger name="common" level="${log.level.sql}">
+		<appender-ref ref="FILE-COMMON" />
+	</logger>
+	<logger name="example" level="${log.level.sql}">
+		<appender-ref ref="FILE-EXAMPLE" />
+	</logger>
+	<logger name="system" level="${log.level.sql}">
+		<appender-ref ref="FILE-SYSTEM" />
+	</logger>
+
+	<!-- framework log -->
+	<logger name="java.sql" level="${log.level.framework}" />
+	<logger name="org.springframework" level="${log.level.framework}" />
+	<logger name="org.springframework.security" level="${log.level.framework}" />
+	<logger name="org.mybatis" level="${log.level.framework}" />
+	<logger name="org.apache.ibatis" level="${log.level.framework}" />
+	<logger name="ch.qos.logback" level="${log.level.framework}" />
+	<logger name="org.codelabor.system" level="${log.level.framework}" />
+
+	<!-- database -->
+	<logger name="org.springframework.jdbc.datasource" level="${log.level.application}" additivity="true">
+		<appender-ref ref="FILE-DATABASE" />
+	</logger>
+	<logger name="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator" level="${log.level.application}" additivity="true">
+		<appender-ref ref="FILE-DATABASE" />
+	</logger>
+
+	<!-- audit log -->
+	<logger name="org.codelabor.system.sniffer.web.servlet.interceptor.SniffingHandlerInterceptor" level="${log.level.audit}" additivity="false">
+		<appender-ref ref="FILE-UTILIZATION-CONTROLLER" />
+	</logger>
+	<logger name="org.codelabor.system.sniffer.web.servlet.resolver.SniffingHandlerExceptionResolver" level="${log.level.application}" additivity="false">
+		<appender-ref ref="STDOUT-DEFAULT" />
+		<appender-ref ref="FILE-ERROR-CONTROLLER" />
+	</logger>
+	<logger name="jsp" level="${log.level.application}" additivity="false">
+		<appender-ref ref="FILE-ERROR-JSP" />
+	</logger>
+
+	<!-- degug log -->
+	<logger name="org.codelabor.system.sniffer.aspect.SniffingAspect" level="${log.level.application}" additivity="false">
+		<appender-ref ref="FILE-DEBUG" />
+	</logger>
+
+	<root level="${log.level.root}">
+		<appender-ref ref="STDOUT-DEFAULT" />
+		<appender-ref ref="FILE-DEFAULT" />
+	</root>
+</configuration>
