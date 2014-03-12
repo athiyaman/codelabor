@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
 <%@ page import="gov.mogaha.gpin.sp.proxy.*"%>
-
 <%
 	/**
 	 * 이 서비스는 공공I-PIN인증정보수신 페이지입니다.
@@ -42,13 +40,12 @@
 	}
 %>
 <script language="javascript" type="text/javascript">
-                <%if (result) {%>
-                       //Sample-Request에서 설정한 페이지로 이동함
-            window.opener.location.href = "<%=session.getAttribute("gpinAuthRetPage")%>";
-            window.close();
-                <%} else if (!ipCheck) {%>
-            alert("요청이 금지된 IP입니다.<%=session.getAttribute("gpinUserIP")%>
-	");
+<%if (result) {%>
+	//Sample-Request에서 설정한 페이지로 이동함
+	window.opener.location.href = "<%=session.getAttribute("gpinAuthRetPage")%>";
+    window.close();
+<%} else if (!ipCheck) {%>
+	alert("요청이 금지된 IP입니다.<%=session.getAttribute("gpinUserIP")%>");
 <%} else {%>
 	alert("수신받은 인증값이 없습니다.");
 <%}%>
