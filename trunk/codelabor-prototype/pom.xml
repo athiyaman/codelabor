@@ -16,7 +16,7 @@
 		<jstl.version>1.2</jstl.version>
 
 		<!-- Springframework -->
-		<org.springframework.version>4.0.0.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 		<org.springframework.security.version>3.2.0.RELEASE</org.springframework.security.version>
 
 		<!-- Logging -->
@@ -328,7 +328,7 @@
 		<dependency>
 			<groupId>org.jasypt</groupId>
 			<artifactId>jasypt</artifactId>
-			<version>1.9.1</version>
+			<version>1.9.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jsoup</groupId>
@@ -385,6 +385,12 @@
 			<artifactId>xmlsec</artifactId>
 			<version>1.4.8</version>
 			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- 3rd Party from Nexus -->
