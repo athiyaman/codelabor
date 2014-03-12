@@ -224,8 +224,6 @@
 			<version>1.9.12</version>
 		</dependency>
 
-
-
 		<!-- AOP -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -393,9 +391,6 @@
 		<dependency>
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
-			<!--
-			<version>1.4.01</version>
-			-->
 			<version>1.3.04</version>
 			<scope>runtime</scope>
 		</dependency>
@@ -566,7 +561,6 @@
 		</profile>
 		<profile>
 			<id>development</id>
-			<!-- <properties> <profile>development</profile> </properties> -->
 			<dependencies>
 			</dependencies>
 			<build>
@@ -581,7 +575,6 @@
 		</profile>
 		<profile>
 			<id>stage</id>
-			<!-- <properties> <profile>stage</profile> </properties> -->
 			<dependencies>
 			</dependencies>
 			<build>
@@ -596,7 +589,6 @@
 		</profile>
 		<profile>
 			<id>production</id>
-			<!-- <properties> <profile>production</profile> </properties> -->
 			<dependencies>
 			</dependencies>
 			<build>
