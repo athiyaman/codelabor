@@ -129,6 +129,20 @@
 		</encoder>
 	</appender>
 
+
+	<!-- interface (g-pin) -->
+	<appender name="FILE-INTERFACE-G-PIN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${effective.log.dir}/interface/g-pin.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${effective.log.dir}/utilization/controller.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>186</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
 	<!-- default appender -->
 	<appender name="STDOUT-DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
@@ -146,8 +160,6 @@
 			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
-
-
 
 	<!-- application module log -->
 	<logger name="org.codelabor.example" level="${log.level.application}">
@@ -197,6 +209,15 @@
 	<!-- degug log -->
 	<logger name="org.codelabor.system.sniffer.aspect.SniffingAspect" level="${log.level.application}" additivity="false">
 		<appender-ref ref="FILE-DEBUG" />
+	</logger>
+
+	<!-- interface log -->
+	<!-- g-pin: org.apache.xml, org.jcp.xml  -->
+	<logger name="com.etri.saml2" level="${log.level.interface}" additivity="false">
+		<appender-ref ref="FILE-INTERFACE-G-PIN" />
+	</logger>
+	<logger name="gov.mogaha.gpin" level="${log.level.interface}" additivity="false">
+		<appender-ref ref="FILE-INTERFACE-G-PIN" />
 	</logger>
 
 	<root level="${log.level.root}">
