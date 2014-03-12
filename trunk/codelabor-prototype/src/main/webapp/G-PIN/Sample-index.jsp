@@ -12,22 +12,23 @@
 <body>
 
 	<script type="text/javascript">
+		// --------------------------------
+		// 서비스 함수들
+		// --------------------------------
 
-	// --------------------------------
-  // 서비스 함수들
-	// --------------------------------
+		function testAuth() {
+			wWidth = 360;
+			wHight = 120;
 
-	function testAuth() {
-	    wWidth = 360;
-	    wHight = 120;
+			wX = (window.screen.width - wWidth) / 2;
+			wY = (window.screen.height - wHight) / 2;
 
-	    wX = (window.screen.width - wWidth) / 2;
-	    wY = (window.screen.height - wHight) / 2;
+			var w = window.open("Sample-AuthRequest.jsp", "gPinLoginWin",
+					"directories=no,toolbar=no,left=" + wX + ",top=" + wY
+							+ ",width=" + wWidth + ",height=" + wHight);
+		}
 
-	    var w = window.open("Sample-AuthRequest.jsp", "gPinLoginWin", "directories=no,toolbar=no,left="+wX+",top="+wY+",width="+wWidth+",height="+wHight);
-	}
-
-	function testSiteUserConfirm() {
+		function testSiteUserConfirm() {
 			wWidth = 350;
 			wHight = 120;
 			wX = (window.screen.width - wWidth) / 2;
@@ -36,44 +37,50 @@
 			attr = "GPIN_AQ_SERVICE_SITE_USER_CONFIRM";
 
 			// vidn 값에 vidn + siteuserid 값을 붙여 보낸다.
-			requrl = "Sample-SiteUserConfirmRequest.jsp?Attr="+attr+"&vidn=" + vidn.value + "|" + siteuserid.value;
+			requrl = "Sample-SiteUserConfirmRequest.jsp?Attr=" + attr
+					+ "&vidn=" + vidn.value + "|" + siteuserid.value;
 
-			var w = window.open(requrl, "_blank", "directories=no,toolbar=no,left="+wX+",top="+wY+",width="+wWidth+",height="+wHight);
-	}
+			var w = window.open(requrl, "_blank",
+					"directories=no,toolbar=no,left=" + wX + ",top=" + wY
+							+ ",width=" + wWidth + ",height=" + wHight);
+		}
 
+		function testUserSync() {
+			alert("이 테스트는 공공I-PIN센터에서 시작됩니다.");
+		}
 
-	function testUserSync() {
-	    alert("이 테스트는 공공I-PIN센터에서 시작됩니다.");
-	}
+		function testCI() {
+			wWidth = 350;
+			wHight = 120;
+			wX = (window.screen.width - wWidth) / 2;
+			wY = (window.screen.height - wHight) / 2;
 
-    function testCI() {
-            wWidth = 350;
-            wHight = 120;
-            wX = (window.screen.width - wWidth) / 2;
-            wY = (window.screen.height - wHight) / 2;
+			attr = "coInfo1";
 
-            attr = "coInfo1";
+			// vidn 값에 vidn + siteuserid 값을 붙여 보낸다.
+			requrl = "Sample-CIRequest.jsp?Attr=" + attr + "&vidn="
+					+ vidn1.value + "&regNo=" + regNo1.value;
 
-            // vidn 값에 vidn + siteuserid 값을 붙여 보낸다.
-            requrl = "Sample-CIRequest.jsp?Attr="+attr+"&vidn=" + vidn1.value + "&regNo=" + regNo1.value;
+			var w = window.open(requrl, "_blank",
+					"directories=no,toolbar=no,left=" + wX + ",top=" + wY
+							+ ",width=" + wWidth + ",height=" + wHight);
+		}
 
-            var w = window.open(requrl, "_blank", "directories=no,toolbar=no,left="+wX+",top="+wY+",width="+wWidth+",height="+wHight);
-    }
-
-
-
-    function testUserDupValue() {
+		function testUserDupValue() {
 			wWidth = 850;
 			wHight = 520;
 			wX = (window.screen.width - wWidth) / 2;
 			wY = (window.screen.height - wHight) / 2;
 
-			requrl = "Sample-UserDuplicationValue.jsp?regNo=" + regNo.value + "&siteId=" + siteId.value;
+			requrl = "Sample-UserDuplicationValue.jsp?regNo=" + regNo.value
+					+ "&siteId=" + siteId.value;
 
-			var w = window.open(requrl, "_blank", "directories=no,toolbar=no,left="+wX+",top="+wY+",width="+wWidth+",height="+wHight);
-	}
+			var w = window.open(requrl, "_blank",
+					"directories=no,toolbar=no,left=" + wX + ",top=" + wY
+							+ ",width=" + wWidth + ",height=" + wHight);
+		}
 
-	function testVersion() {
+		function testVersion() {
 			wWidth = 350;
 			wHight = 120;
 			wX = (window.screen.width - wWidth) / 2;
@@ -82,9 +89,11 @@
 			// vidn 값에 vidn + siteuserid 값을 붙여 보낸다.
 			requrl = "ServiceResponse.jsp?versionRequest=versionRequest";
 
-			var w = window.open(requrl, "_blank", "directories=no,toolbar=no,left="+wX+",top="+wY+",width="+wWidth+",height="+wHight);
-	}
-</script>
+			var w = window.open(requrl, "_blank",
+					"directories=no,toolbar=no,left=" + wX + ",top=" + wY
+							+ ",width=" + wWidth + ",height=" + wHight);
+		}
+	</script>
 
 
 	<div id="main">
@@ -185,10 +194,8 @@
 				</p>
 			</div>
 
-			<BR>
-			<BR>
-			<BR> <br /> <br /> <br /> <a name="N1011D"></a><a
-				name="sentence7"></a>
+			<BR> <BR> <BR> <br /> <br /> <br /> <a
+				name="N1011D"></a><a name="sentence7"></a>
 			<h2 class="boxed">사용자 연계정보(CI) 요청</h2>
 			<hr color="#ffa500" />
 			<div class="section">
@@ -209,9 +216,7 @@
 				</p>
 			</div>
 
-			<BR>
-			<BR>
-			<BR>
+			<BR> <BR> <BR>
 
 
 
@@ -252,9 +257,7 @@
 				</p>
 			</div>
 
-			<BR>
-			<BR>
-			<BR>
+			<BR> <BR> <BR>
 
 
 

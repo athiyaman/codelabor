@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
-<%!
-    String getSession(HttpSession session, String attrName)
-    {
-        return session.getAttribute(attrName) != null ? (String)session.getAttribute(attrName) : "";
-    }
-%>
+<%!String getSession(HttpSession session, String attrName) {
+		return session.getAttribute(attrName) != null ? (String) session
+				.getAttribute(attrName) : "";
+	}%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,10 +13,9 @@
 </head>
 <body>
 	<%
-    /**
-     */
-
-    %>
+		/**
+		 */
+	%>
 
 	G-Pin SP
 	<br />
@@ -26,7 +23,7 @@
 	<table>
 		<tr>
 			<td>사용자 등록 확인 결과</td>
-			<td><%= getSession(session, "coInfo1") %></td>
+			<td><%=getSession(session, "coInfo1")%></td>
 		</tr>
 	</table>
 
