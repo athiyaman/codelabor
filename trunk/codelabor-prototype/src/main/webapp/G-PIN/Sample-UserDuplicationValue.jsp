@@ -1,6 +1,6 @@
-<%@ page language = "java" contentType = "text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
-<%@ page import="gov.mogaha.gpin.sp.proxy.*" %>
+<%@ page import="gov.mogaha.gpin.sp.proxy.*"%>
 
 <%
     /**
@@ -21,17 +21,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
-    <title>GPIN SP - SAMPLE - 중복가입확인코드 결과</title>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<title>GPIN SP - SAMPLE - 중복가입확인코드 결과</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>(중복가입확인코드) : </td>
-            <td>
-                <%= rtnDupValue %>
-            </td>
-        </tr>
-    </table>
+	<table>
+		<tr>
+			<td>(중복가입확인코드) :</td>
+			<td><%= rtnDupValue %></td>
+		</tr>
+	</table>
 </body>
 </html>

@@ -1,6 +1,6 @@
-<%@ page language = "java" contentType = "text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
-<%@ page import="gov.mogaha.gpin.sp.proxy.*" %>
+<%@ page import="gov.mogaha.gpin.sp.proxy.*"%>
 
 <%
     /**
@@ -47,7 +47,7 @@
         }
     }
 %>
-			<script language="javascript" type="text/javascript">
+<script language="javascript" type="text/javascript">
                 <%
         if(result)
         {

@@ -1,4 +1,4 @@
-<%@ page language = "java" contentType = "text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <%@ page import="gov.mogaha.gpin.sp.proxy.GPinProxy"%>
 
