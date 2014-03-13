@@ -22,6 +22,14 @@
 			<td>param1</td>
 			<td>${param.param1}</td>
 		</tr>
+		<tr>
+			<td>param1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="${param.param1}" />
+			</form>
+			</td>
+		</tr>
 	</table>
 
 	<h3>c out escape</h3>
@@ -34,6 +42,14 @@
 			<td>param1</td>
 			<td><c:out value="${param.param1}" /></td>
 		</tr>
+		<tr>
+			<td>param1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="<c:out value="${param.param1}" />" />
+			</form>
+			</td>
+		</tr>
 	</table>
 
 	<h4>escapeXml="true"</h4>
@@ -44,6 +60,14 @@
 		<tr>
 			<td>param1</td>
 			<td><c:out value="${param.param1}" escapeXml="true" /></td>
+		</tr>
+		<tr>
+			<td>param1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="<c:out value="${param.param1}" escapeXml="true" />" />
+			</form>
+			</td>
 		</tr>
 	</table>
 	
@@ -56,6 +80,14 @@
 			<td>param1</td>
 			<td><c:out value="${param.param1}" escapeXml="false" /></td>
 		</tr>
+		<tr>
+			<td>param1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="<c:out value="${param.param1}" escapeXml="false" />" />
+			</form>
+			</td>
+		</tr>
 	</table>
 	
 	<h3>fn escapeXml</h3>
@@ -66,7 +98,15 @@
 		</tr>
 		<tr>
 			<td>param1</td>
-			<td><c:out value="${fn:escapeXml(param.param1)}" /></td>
+			<td>${fn:escapeXml(param.param1)}</td>
+		</tr>
+		<tr>
+			<td>param1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="${fn:escapeXml(param.param1)}" />
+			</form>
+			</td>
 		</tr>
 	</table>
 
