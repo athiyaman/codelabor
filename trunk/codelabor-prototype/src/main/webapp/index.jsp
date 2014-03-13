@@ -12,6 +12,9 @@
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/favicon.ico"
 	type="image/x-icon" />
+<link rel="icon"
+	href="${pageContext.request.contextPath}/favicon.ico"
+	type="image/x-icon" />
 <title>Index</title>
 </head>
 <body>
