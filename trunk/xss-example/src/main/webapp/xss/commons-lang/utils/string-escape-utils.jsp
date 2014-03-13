@@ -7,6 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css" media="all">
+      @import url("${pageContext.request.contextPath}/css/maven-base.css");
+      @import url("${pageContext.request.contextPath}/css/maven-theme.css");
+      @import url("${pageContext.request.contextPath}/css/site.css");
+    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/print.css" type="text/css" media="print" />
 <title>Cross Site Scripting Example</title>
 </head>
 <body>
