@@ -22,6 +22,14 @@
 			<td>attrib1</td>
 			<td>${attrib1}</td>
 		</tr>
+		<tr>
+			<td>attrib1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="${attrib1}" />
+			</form>
+			</td>
+		</tr>		
 	</table>
 
 	<h3>c out escape</h3>
@@ -34,6 +42,14 @@
 			<td>attrib1</td>
 			<td><c:out value="${attrib1}" /></td>
 		</tr>
+		<tr>
+			<td>attrib1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="<c:out value="${attrib1}" />" />
+			</form>
+			</td>
+		</tr>		
 	</table>
 
 	<h4>escapeXml="true"</h4>
@@ -45,6 +61,14 @@
 			<td>attrib1</td>
 			<td><c:out value="${attrib1}" escapeXml="true" /></td>
 		</tr>
+		<tr>
+			<td>attrib1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="<c:out value="${attrib1}" escapeXml="true" />" />
+			</form>
+			</td>
+		</tr>		
 	</table>
 	
 	<h4>escapeXml="false"</h4>
@@ -56,6 +80,14 @@
 			<td>attrib1</td>
 			<td><c:out value="${attrib1}" escapeXml="false" /></td>
 		</tr>
+		<tr>
+			<td>attrib1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="<c:out value="${attrib1}" escapeXml="false" />" />
+			</form>
+			</td>
+		</tr>		
 	</table>
 	
 	<h3>fn escapeXml</h3>
@@ -66,8 +98,16 @@
 		</tr>
 		<tr>
 			<td>attrib1</td>
-			<td><c:out value="${fn:escapeXml(attrib1)}" /></td>
+			<td>${fn:escapeXml(attrib1)}</td>
 		</tr>
+		<tr>
+			<td>attrib1 (form input)</td>
+			<td>
+			<form>
+				<input type="text" value="${fn:escapeXml(attrib1)}" />
+			</form>
+			</td>
+		</tr>		
 	</table>
 
 </body>
