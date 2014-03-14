@@ -128,7 +128,7 @@
 	<!-- Logback -->
 	<servlet-mapping>
 		<servlet-name>viewStatusMessages</servlet-name>
-		<url-pattern>/logbackStatus</url-pattern>
+		<url-pattern>/system/logbackStatus</url-pattern>
 	</servlet-mapping>
 
 	<!-- G-PIN -->

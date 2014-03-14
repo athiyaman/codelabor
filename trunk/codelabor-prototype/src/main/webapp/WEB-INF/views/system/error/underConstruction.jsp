@@ -20,6 +20,7 @@
 </head>
 <body>
 	<h1><spring:message code="heading.underConstruction" /></h1>
+	<hr />
 	<p><spring:message code="errors.underConstruction" htmlEscape="false" /></p>
 	<ul>
 		<li><spring:message code="label.webmaster.phoneNumber" />: <spring:eval

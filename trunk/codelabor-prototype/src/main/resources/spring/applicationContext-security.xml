@@ -30,18 +30,14 @@
 		</security:session-management>
 
 		<!-- authorizing web request -->
-		<security:intercept-url pattern="/logbackStatus"
-			access="ROLE_DEVELOPER" />
-		<security:intercept-url pattern="/example/username/**"
-			access="ROLE_DEVELOPER" />
 		<security:intercept-url pattern="/example/authentication/prepareLogin/**"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/scw/**"
-			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/stw/**"
-			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/example/**"
+			access="ROLE_DEVELOPER" />
 		<security:intercept-url pattern="/common/**"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/system/**"
+			access="ROLE_DEVELOPER" />
 		<security:intercept-url pattern="/**"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
 	</security:http>
@@ -58,7 +54,7 @@
 	</bean>
 
 	<security:user-service id="userDetailsService">
-		<security:user name="bomber.shin" password="1234qwer"
+		<security:user name="bomber" password="1234qwer"
 			authorities="ROLE_DEVELOPER" />
 	</security:user-service>
 

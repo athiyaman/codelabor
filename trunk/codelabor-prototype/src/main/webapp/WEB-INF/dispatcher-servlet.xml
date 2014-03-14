@@ -98,7 +98,7 @@
 		</constructor-arg>
 	</bean>
 
-	<mvc:view-controller path="/examcommon" view-name="example/common/index" />
+	<!-- example -->
 	<mvc:view-controller path="/example" view-name="example/index" />
 	<mvc:view-controller path="/example/request"
 		view-name="example/request/requestInfo" />
@@ -119,10 +119,11 @@
 	<mvc:view-controller path="/example/jstl/fn"
 		view-name="example/jstl/fn" />
 
-	<mvc:view-controller path="/subject/regustration/classCreativeInfo"
-		view-name="stw/subject/registration/classCreativeInfo" />
-	<mvc:view-controller path="system/info/buildInfo" view-name="system/info/buildInfo" />
-	<mvc:view-controller path="system/error/underConstruction" view-name="system/error/underConstruction" />
+	<!-- system -->
+	<mvc:view-controller path="/system" view-name="system/index" />
+	<mvc:view-controller path="/system/home" view-name="system/home" />
+	<mvc:view-controller path="/system/info/buildInfo" view-name="system/info/buildInfo" />
+	<mvc:view-controller path="/system/error/underConstruction" view-name="system/error/underConstruction" />
 
 	<!-- exception resolver -->
 	<bean

@@ -24,8 +24,12 @@ author Shin Sang-Jae
 		</tr>
 		<tr>
 			<th>Authenticated Type</th>
-			<td><sec:authorize access="isFullyAuthenticated()">by login-form</sec:authorize>
-			<sec:authorize access="isAuthenticated()">by remember-me</sec:authorize></td>
+			<td>
+			<ul>
+			<sec:authorize access="isFullyAuthenticated()"><li>Fully Authenticated</li></sec:authorize>
+			<sec:authorize access="isAuthenticated()"><li>Authenticated</li></sec:authorize>
+			</ul>
+			</td>
 		</tr>
 	</table>
 </body>

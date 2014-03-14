@@ -20,6 +20,7 @@
 </head>
 <body>
 	<h1><spring:message code="heading.error.http.status.code.503" /></h1>
+	<hr />
 	<p><spring:message code="errors.http.status.code.503" htmlEscape="false" /></p>
 	<ul>
 		<li><spring:message code="label.webmaster.phoneNumber" />: <spring:eval

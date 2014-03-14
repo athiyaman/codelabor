@@ -19,6 +19,7 @@
 </head>
 <body>
 	<h1><spring:message code="heading.buildInfo"/></h1>
+	<hr />
 	<table>
 		<tr>
 			<th>attribute</th>
