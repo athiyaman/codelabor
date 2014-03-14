@@ -187,10 +187,10 @@
 	<logger name="org.codelabor.system" level="${log.level.framework}" />
 
 	<!-- database -->
-	<logger name="org.springframework.jdbc.datasource" level="${log.level.application}" additivity="true">
+	<logger name="org.springframework.jdbc.datasource" level="${log.level.sql}">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
-	<logger name="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator" level="${log.level.application}" additivity="true">
+	<logger name="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator" level="${log.level.sql}">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
 
