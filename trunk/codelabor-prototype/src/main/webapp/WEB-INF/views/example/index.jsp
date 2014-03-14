@@ -20,7 +20,7 @@
 
 <h2>Resources</h2>
 <ul>
-	<li><a href="${contextPath}/images/slf4j.jpg">resources example (/images)</a></li>
+	<li><a href="${contextPath}/images/example/slf4j.jpg">resources example (/images)</a></li>
 	<li><a href="${contextPath}/theme/maven/css/screen.css">resources example (/theme)</a></li>
 </ul>
 
