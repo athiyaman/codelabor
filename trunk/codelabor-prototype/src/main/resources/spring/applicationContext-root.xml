@@ -26,9 +26,4 @@
 
 	<context:property-placeholder location="classpath:properties/**/*.properties" />
 
-	<bean id="validator"
-		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-		<property name="validationMessageSource" ref="messageSource" />
-	</bean>
-
 </beans>

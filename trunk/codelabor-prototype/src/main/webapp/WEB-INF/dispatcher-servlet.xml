@@ -34,6 +34,14 @@
 	<util:properties id="systemProperties" location="classpath:properties/system/system.properties" />
 	<context:property-placeholder location="classpath:properties/**/*.properties" />
 
+	<!-- Theme -->
+	<bean id="themeSource" class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="theme-" />
+	</bean>
+	<bean id="themeResolver" class="org.springframework.web.servlet.theme.FixedThemeResolver">
+		<property name="defaultThemeName" value="${theme}" />
+	</bean>
+
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="contentNegotiationManager" ref="contentNegotiationManager" />
