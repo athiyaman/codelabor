@@ -11,6 +11,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath:spring/applicationContext-root.xml
+			classpath:spring/applicationContext-validator.xml
 			classpath:spring/applicationContext-security.xml
 			classpath:spring/applicationContext-dataSource.xml
 			classpath:spring/applicationContext-myBatis.xml
@@ -136,10 +137,6 @@
 		<url-pattern>/SPStub</url-pattern>
 	</servlet-mapping>
 
-	<session-config>
-		<session-timeout>30</session-timeout>
-	</session-config>
-
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
@@ -187,5 +184,9 @@
 		<res-ref-name>jdbc/prototypeDs</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 	</resource-ref>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
 
 </web-app>

@@ -129,7 +129,6 @@
 		</encoder>
 	</appender>
 
-
 	<!-- interface (g-pin) -->
 	<appender name="FILE-INTERFACE-G-PIN"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -168,13 +167,13 @@
 
 	<!-- sql log (myBatis mapper) -->
 	<logger name="common" level="${log.level.sql}">
-		<appender-ref ref="FILE-COMMON" />
+		<appender-ref ref="FILE-DATABASE" />
 	</logger>
 	<logger name="example" level="${log.level.sql}">
-		<appender-ref ref="FILE-EXAMPLE" />
+		<appender-ref ref="FILE-DATABASE" />
 	</logger>
 	<logger name="system" level="${log.level.sql}">
-		<appender-ref ref="FILE-SYSTEM" />
+		<appender-ref ref="FILE-DATABASE" />
 	</logger>
 
 	<!-- framework log -->
