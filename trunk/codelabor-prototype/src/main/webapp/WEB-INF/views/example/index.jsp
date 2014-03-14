@@ -21,7 +21,7 @@
 <h2>Resources</h2>
 <ul>
 	<li><a href="${contextPath}/images/slf4j.jpg">resources example (/images)</a></li>
-	<li><a href="${contextPath}/themes/maven/css/screen.css">resources example (/themes)</a></li>
+	<li><a href="${contextPath}/theme/maven/css/screen.css">resources example (/theme)</a></li>
 </ul>
 
 <h2>Properties</h2>
