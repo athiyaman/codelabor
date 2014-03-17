@@ -11,7 +11,7 @@
 	<h1>Bean write filter example</h1>
 	<hr />
 	<%
-		String greeting = "<b>hello, world!</b>";
+		String greeting = "<b>hello, world!</b><script type='text/javascript'>alert('hello, world!');</script>";
 		request.setAttribute("greeting", greeting);
 	%>
 	<h2>filter false</h2>

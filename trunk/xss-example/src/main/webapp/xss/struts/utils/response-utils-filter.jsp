@@ -10,7 +10,7 @@
 	<h1>ResponseUtils.filter() example</h1>
 	<hr />
 	<%
-		String greetingBeforeReplace = "<b>hello, world!</b>";
+		String greetingBeforeReplace = "<b>hello, world!</b><script type='text/javascript'>alert('hello, world!');</script>";
 		String greetingAfterReplace = ResponseUtils.filter(greetingBeforeReplace);
 	%>
 	<h2>default</h2>
