@@ -11,9 +11,6 @@
 <body>
 	<h1>Taglig JSTL</h1>
 	<hr/>
-${param.param1}
-<script type='text/javascript'>alert('value2');</script>
-
 	<h2>Parameter</h2>
 	<h3>EL</h3>
 	<table>
