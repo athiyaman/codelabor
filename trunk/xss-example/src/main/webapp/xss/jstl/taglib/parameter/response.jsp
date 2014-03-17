@@ -11,7 +11,9 @@
 <body>
 	<h1>Taglig JSTL</h1>
 	<hr/>
-	
+${param.param1}
+<script type='text/javascript'>alert('value2');</script>
+
 	<h2>Parameter</h2>
 	<h3>EL</h3>
 	<table>
@@ -70,7 +72,6 @@
 			</td>
 		</tr>
 	</table>
-	
 	<h4>escapeXml="false"</h4>
 	<table>
 		<tr>
@@ -89,7 +90,7 @@
 			</td>
 		</tr>
 	</table>
-	
+
 	<h3>fn escapeXml</h3>
 	<h4>default</h4>
 	<table>

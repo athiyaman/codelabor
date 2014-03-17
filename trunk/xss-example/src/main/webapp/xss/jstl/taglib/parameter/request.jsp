@@ -9,7 +9,7 @@
 <body>
 	<h1>Taglig JSTL</h1>
 	<hr/>
-	
+
 	<h2>Parameter</h2>
 	<h3>Post</h3>
 	<form action="response.jsp" method="post">
@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td>param1</td>
-				<td><input type="text" name="param1" id="param1" value="<b>value1</b>"></td>
+				<td><input type="text" name="param1" id="param1" value="<b>value1</b><script type='text/javascript'>alert('value1');</script>"></td>
 			</tr>
 		</table>
 		<input type="submit">
@@ -33,11 +33,11 @@
 			</tr>
 			<tr>
 				<td>param1</td>
-				<td><input type="text" name="param1" id="param1" value="<b>value1</b>"></td>
+				<td><input type="text" name="param1" id="param1" value="<b>value1</b><script type='text/javascript'>alert('value1');</script>"></td>
 			</tr>
 		</table>
 		<input type="submit">
-	</form>	
+	</form>
 
 </body>
 </html>
