@@ -29,7 +29,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n
 			</pattern>
 		</encoder>
 	</appender>
@@ -41,7 +41,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-EXAMPLE"
@@ -52,7 +52,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-SUBJECT"
@@ -63,7 +63,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -76,7 +76,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-ERROR-JSP"
@@ -88,7 +88,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-ERROR-CONTROLLER"
@@ -99,7 +99,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -112,7 +112,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -125,7 +125,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -138,14 +138,14 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<!-- default appender -->
 	<appender name="STDOUT-DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-DEFAULT"
@@ -156,7 +156,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
