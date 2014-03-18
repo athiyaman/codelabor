@@ -41,7 +41,8 @@ import com.google.common.net.HttpHeaders;
  */
 public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLoggingFilter {
 
-	protected static final Logger logger = LoggerFactory.getLogger(LogbackMappedDiagnosticContextFilter.class);
+	private static final Logger logger = LoggerFactory.getLogger(LogbackMappedDiagnosticContextFilter.class);
+	public static final String SERVLET_CONTAINER_ID_KEY = "servlet.container.id";
 
 	/*
 	 * (non-Javadoc)
@@ -56,6 +57,7 @@ public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLogging
 		MDC.remove("username");
 		MDC.remove("sessionId");
 		MDC.remove("requestId");
+		MDC.remove("servletContainerId");
 		MDC.remove(RequestConstants.REMOTE_HOST);
 		MDC.remove(RequestConstants.REQUEST_URI);
 		MDC.remove(RequestConstants.REQUEST_URL);
@@ -108,10 +110,12 @@ public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLogging
 		String queryString = request.getQueryString();
 		String userAgent = request.getHeader(HttpHeaders.USER_AGENT);
 		String xForwardedFor = request.getHeader(HttpHeaders.X_FORWARDED_FOR);
+		String servletContainerId = System.getProperty(SERVLET_CONTAINER_ID_KEY);
 
 		MDC.put("requestId", requestId);
 		MDC.put("username", SecurityContextHolderUtils.getUsername());
 		MDC.put("sessionId", sessionId);
+		MDC.put("servletContainerId", servletContainerId);
 		MDC.put(RequestConstants.REMOTE_HOST, remoteHost);
 		MDC.put(RequestConstants.REQUEST_URI, requestUri);
 		MDC.put(RequestConstants.REQUEST_URL, requestURL);
@@ -120,11 +124,15 @@ public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLogging
 		MDC.put(HeaderConstants.X_FORWARDED_FOR, xForwardedFor);
 
 		logger.debug("requestId: {}", requestId);
-		logger.debug("userAgent: {}", userAgent);
-		logger.debug("username: {}, sessionId: {}", username, sessionId);
+		logger.debug("username: {}, sessionId: {}", username);
+		logger.debug("sessionId: {}", sessionId);
+		logger.debug("servletContainerId: {}", servletContainerId);
 		logger.debug("remoteHost: {}, xForwardedFor: {}", remoteHost, xForwardedFor);
-		logger.debug("requestUri: {}, requestURL: {}", requestUri, requestURL);
+		logger.debug("requestUri: {}", requestUri);
+		logger.debug("requestURL: {}", requestURL);
 		logger.debug("queryString: {}", queryString);
+		logger.debug("userAgent: {}", userAgent);
+		logger.debug("xForwardedFor: {}", xForwardedFor);
 	}
 
 }
