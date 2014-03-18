@@ -394,81 +394,23 @@
 		</dependency>
 
 		<!-- 3rd Party from Nexus -->
-		<!-- CKFinder -->
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinder</artifactId>
-			<version>2.4.1</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-FileEditor</artifactId>
-			<version>2.4.1</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-ImageResize</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-Watermark</artifactId>
-			<version>2.4.1</version>
-			<optional>true</optional>
-		</dependency>
-		<!-- Google GCM -->
-		<dependency>
-			<groupId>com.google.android.gcm</groupId>
-			<artifactId>gcm-server</artifactId>
-			<version>1.0.2</version>
-			<optional>true</optional>
-		</dependency>
-		<!-- G-PIN -->
-		<dependency>
-			<groupId>com.etri</groupId>
-			<artifactId>saml</artifactId>
-			<version>1.4.0.2</version>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>gpin-sp</artifactId>
-			<version>1.4.0.2</version>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>gpin-sp-ext</artifactId>
-			<version>1.4</version>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>sp-proxy</artifactId>
-			<version>1.4.0.2</version>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
 		<!-- JDBC driver -->
 		<dependency>
-			<groupId>ojdbc</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>6</version>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 		<!-- SLF4J -->
+		<!--  
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-taglib</artifactId>
 			<version>0.1RC</version>
 			<optional>true</optional>
 		</dependency>
+		-->
 
 		<!-- Test -->
 		<dependency>
@@ -894,4 +836,10 @@
 			<url>scp://</url>
 		</site>
 	</distributionManagement>
+	<repositories>
+    <repository>
+      <id>codelds</id>
+      <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+    </repository>
+  </repositories>
 </project>
