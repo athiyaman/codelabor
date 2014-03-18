@@ -39,7 +39,7 @@
 			<h3>Springframework Taglib - Spring Form</h3>
 			<ul>
 				<li><a
-					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/spring-form/prepare"
+					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/spring-form"
 					target="_blank">Non-persistent Attack - Parameter Taglib
 						(Springframework htmlEscape)</a></li>
 			</ul>

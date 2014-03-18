@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jspf/taglib.jspf"%>
-<spring:htmlEscape defaultHtmlEscape="true" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,23 +12,20 @@
 	<div id="bodyColumn">
 		<div id="contentBox">
 			<h1>Taglig Springframework</h1>
+			<h2>Attribute</h2>
 
+			<h3>EL</h3>
 
-			<h2>Parameter</h2>
-			<h3>Post - Spring Form</h3>
-			<form:form commandName="parameterDto" method="post">
-				<table class="bodyTable">
-					<tr class="b">
-						<th>name</th>
-						<th>value</th>
-					</tr>
-					<tr class="b">
-						<td>param1</td>
-						<td><form:input path="param1" type="text" /></td>
-					</tr>
-				</table>
-				<input type="submit">
-			</form:form>
+			${attrib1}
+
+			<h3>escapeBody example</h3>
+
+			<h4>default</h4>
+			<spring:escapeBody>${attrib1}</spring:escapeBody>
+			<h4>htmlEscape false</h4>
+			<spring:escapeBody htmlEscape="false">${attrib1}</spring:escapeBody>
+			<h4>htmlEscape true</h4>
+			<spring:escapeBody htmlEscape="true">${attrib1}</spring:escapeBody>
 		</div>
 	</div>
 </body>
