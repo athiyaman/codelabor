@@ -2,7 +2,7 @@ package org.codelabor.example.security.xss.dto;
 
 import java.io.Serializable;
 
-public class ParamDto implements Serializable {
+public class ParameterDto implements Serializable {
 	/**
 	 *
 	 */
@@ -46,10 +46,10 @@ public class ParamDto implements Serializable {
 		if (obj == null) {
 			return false;
 		}
-		if (!(obj instanceof ParamDto)) {
+		if (!(obj instanceof ParameterDto)) {
 			return false;
 		}
-		ParamDto other = (ParamDto) obj;
+		ParameterDto other = (ParameterDto) obj;
 		if (param1 == null) {
 			if (other.param1 != null) {
 				return false;
