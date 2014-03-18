@@ -3,10 +3,12 @@ package org.codelabor.example.security.xss.web.controller;
 import org.codelabor.example.security.xss.dto.ParameterDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+@Controller
 @RequestMapping(value = "/xss/springframework/taglib/parameter/spring-form")
 public class ParameterController {
 
