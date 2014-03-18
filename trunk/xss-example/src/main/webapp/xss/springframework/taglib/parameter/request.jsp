@@ -42,33 +42,5 @@
 		<input type="submit">
 	</form>
 
-	<h3>Post - Spring Form</h3>
-	<form:form action="response.jsp" method="post">
-		<table>
-			<tr>
-				<td>name</td><td>value</td>
-			</tr>
-			<tr>
-				<td>param1</td>
-				<td><form:input type="text" name="param1" id="param1" value="<b>value1</b><script type='text/javascript'>alert('value1');</script>" /></td>
-			</tr>
-		</table>
-		<input type="submit">
-	</form:form>
-
-	<h3>Get - Spring Form</h3>
-	<form:form action="response.jsp" method="get">
-		<table>
-			<tr>
-				<td>name</td><td>value</td>
-			</tr>
-			<tr>
-				<td>param1</td>
-				<td><form:input type="text" name="param1" id="param1" value="<b>value1</b><script type='text/javascript'>alert('value1');</script>" /></td>
-			</tr>
-		</table>
-		<input type="submit">
-	</form:form>
-
 </body>
 </html>
