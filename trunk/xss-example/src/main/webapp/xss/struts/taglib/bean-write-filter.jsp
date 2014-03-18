@@ -6,6 +6,7 @@
 <head>
 <%@ include file="/WEB-INF/jspf/meta.jspf"%>
 <title>Cross Site Scripting Example</title>
+<%@ include file="/WEB-INF/jspf/style.jspf" %>
 </head>
 <body class="composite">
 	<div id="bodyColumn">
