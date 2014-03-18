@@ -22,7 +22,7 @@
 	<ul>
 		<li><a href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/html-form/request.jsp"
 			target="_blank">Non-persistent Attack - Parameter Taglib (Springframework escapeBody)</a></li>
-		<li><a href="${pageContext.request.contextPath}/xss/springframework/taglib/attribute/html-form/request.jsp"
+		<li><a href="${pageContext.request.contextPath}/xss/springframework/taglib/attribute/request.jsp"
 			target="_blank">Persistent Attack - Attribute Taglib (Springframework escapeBody)</a></li>
 	</ul>
 	<h3>Springframework Taglib - Spring Form</h3>
