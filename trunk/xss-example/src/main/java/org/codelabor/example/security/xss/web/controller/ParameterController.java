@@ -13,7 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/xss/springframework/taglib/parameter/spring-form")
 public class ParameterController {
 
-	Logger logger = LoggerFactory.getLogger(ParameterController.class);
+	static final Logger logger = LoggerFactory
+			.getLogger(ParameterController.class);
+	static final String FORM_VIEW = "security/xss/springframework/taglib/parameter/spring-form/form";
+	static final String COMPLETE_VIEW = "security/xss/springframework/taglib/parameter/spring-form/complete";
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView prepareForm() {
@@ -23,7 +26,7 @@ public class ParameterController {
 		String param1 = "<b>value1</b><script type='text/javascript'>alert('value1');</script>";
 		parameterDto.setParam1(param1);
 		mav.addObject("parameterDto", parameterDto);
-		mav.setViewName("security/xss/springframework/taglib/parameter/spring-form/form");
+		mav.setViewName(FORM_VIEW);
 		return mav;
 	}
 
@@ -33,7 +36,7 @@ public class ParameterController {
 		ModelAndView mav = new ModelAndView();
 		String attrib1 = param1;
 		mav.addObject("attrib1", attrib1);
-		mav.setViewName("security/xss/springframework/taglib/parameter/spring-form/complete");
+		mav.setViewName(COMPLETE_VIEW);
 		return mav;
 	}
 }
