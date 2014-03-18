@@ -41,7 +41,10 @@
 				<li><a
 					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/spring-form"
 					target="_blank">Non-persistent Attack - Parameter Taglib
-						(Springframework htmlEscape)</a></li>
+						(Springframework htmlEscape)</a></li>				
+			</ul>
+			<h3>Springframework Taglib - Spring Form + Hibernate Validator</h3>
+			<ul>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/spring-form/hibernate-validator"
 					target="_blank">Non-persistent Attack - Valid Parameter Taglib
