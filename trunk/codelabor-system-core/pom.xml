@@ -177,6 +177,20 @@
 	<pluginRepositories>
 	</pluginRepositories>
 	<dependencies>
+		<!-- Java Spec -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- Springframework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
