@@ -20,6 +20,8 @@ package org.codelabor.system.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * Integer 타입 Id List DTO
  * 
@@ -34,6 +36,7 @@ public class IntegerIdListDto implements Serializable {
 	/**
 	 * Id List
 	 */
+	@NotEmpty(message = "{errors.id.required}")
 	protected List<Integer> id;
 
 	/**

@@ -20,6 +20,9 @@ package org.codelabor.system.dto;
 import java.io.Serializable;
 import java.util.Arrays;
 
+import org.hibernate.validator.constraints.SafeHtml;
+import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
+
 /**
  * String 타입 Id 배열 DTO
  * 
@@ -35,6 +38,7 @@ public class StringIdArrayDto implements Serializable {
 	/**
 	 * Id 배열
 	 */
+	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String[] id;
 
 	/**
