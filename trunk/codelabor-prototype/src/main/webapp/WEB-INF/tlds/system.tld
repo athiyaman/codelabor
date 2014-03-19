@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>CODELABOR System Properties Taglib</description>
+	<display-name>CODELABOR System Properties Taglib</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>system</short-name>
+	<uri>http://codelabor.org/tags/system</uri>
+
+	<tag>
+		<description>Renders System.getProperties()</description>
+		<name>properties</name>
+		<tag-class>org.codelabor.system.web.taglib.SystemPropertiesTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>System Properties Key</description>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[<prop:properties key="java.version"/>]]></code>
+      </usage></example>
+	</tag>
+
+</taglib>
