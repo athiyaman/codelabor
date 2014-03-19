@@ -27,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Shin Sang-Jae
- *
+ * 
  */
 @Controller
 @RequestMapping("/example/authentication")

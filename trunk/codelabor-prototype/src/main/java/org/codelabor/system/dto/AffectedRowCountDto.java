@@ -113,11 +113,11 @@ public class AffectedRowCountDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("AffectedRowCountDto ( ").append(super.toString())
-		.append(TAB).append("insertedRowCount = ").append(
-				this.insertedRowCount).append(TAB).append(
-						"updatedRowCount = ").append(this.updatedRowCount)
-						.append(TAB).append("deletedRowCount = ").append(
-								this.deletedRowCount).append(TAB).append(" )");
+				.append(TAB).append("insertedRowCount = ")
+				.append(this.insertedRowCount).append(TAB)
+				.append("updatedRowCount = ").append(this.updatedRowCount)
+				.append(TAB).append("deletedRowCount = ")
+				.append(this.deletedRowCount).append(TAB).append(" )");
 
 		return retValue.toString();
 	}

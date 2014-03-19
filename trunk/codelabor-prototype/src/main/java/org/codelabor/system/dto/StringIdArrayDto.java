@@ -73,8 +73,8 @@ public class StringIdArrayDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("StringIdArrayDto ( ").append(super.toString())
-		.append(TAB).append("id = ").append(Arrays.toString(this.id))
-		.append(TAB).append(" )");
+				.append(TAB).append("id = ").append(Arrays.toString(this.id))
+				.append(TAB).append(" )");
 
 		return retValue.toString();
 	}

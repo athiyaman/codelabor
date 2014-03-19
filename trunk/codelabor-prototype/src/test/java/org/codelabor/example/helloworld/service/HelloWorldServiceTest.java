@@ -14,6 +14,7 @@ public class HelloWorldServiceTest {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(HelloWorldServiceTest.class);
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}

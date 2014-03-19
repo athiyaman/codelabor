@@ -20,7 +20,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class StringUtils {
-	private static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(StringUtils.class);
 
 	static public String removeNonAlphanumeric(String originalString) {
 		String removedString = originalString.replaceAll("[^a-zA-Z0-9]", "");

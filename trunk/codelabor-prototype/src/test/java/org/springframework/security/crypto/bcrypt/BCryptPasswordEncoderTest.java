@@ -38,7 +38,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"file:src/main/resources/spring/applicationContext-root.xml",
 		"file:src/main/resources/spring/applicationContext-myBatis.xml",
 		"file:src/test/resources/spring/applicationContext-dataSource.xml",
-"file:src/main/resources/spring/applicationContext-security.xml" })
+		"file:src/main/resources/spring/applicationContext-security.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class BCryptPasswordEncoderTest {
 

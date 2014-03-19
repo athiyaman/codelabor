@@ -29,7 +29,7 @@ public class HelloWorldController {
 	@RequestMapping("/sayHello")
 	public ModelAndView sayHello(
 			@RequestParam(value = "name", required = false) String name)
-					throws Exception {
+			throws Exception {
 		logger.debug("sayHello");
 		String message = helloWorldService.sayHello(name);
 		logger.debug("message: {}", message);
@@ -42,7 +42,7 @@ public class HelloWorldController {
 	@RequestMapping("/sayHelloByExcel")
 	public ModelAndView sayHelloByExcel(
 			@RequestParam(value = "name", required = false) String name)
-					throws Exception {
+			throws Exception {
 		logger.debug("sayHelloByExcel");
 		String message = helloWorldService.sayHello(name);
 		logger.debug("message: {}", message);
@@ -64,7 +64,7 @@ public class HelloWorldController {
 	@Deprecated
 	public Object sayHelloByJson(
 			@RequestParam(value = "name", required = false) String name)
-					throws Exception {
+			throws Exception {
 		logger.debug("sayHelloByJson");
 		String message = helloWorldService.sayHello(name);
 		logger.debug("message: {}", message);
@@ -76,7 +76,7 @@ public class HelloWorldController {
 	@RequestMapping("/sayHelloByPdf")
 	public ModelAndView sayHelloByPdf(
 			@RequestParam(value = "name", required = false) String name)
-					throws Exception {
+			throws Exception {
 		logger.debug("sayHelloByPdf");
 		String message = helloWorldService.sayHello(name);
 		logger.debug("message: {}", message);
@@ -97,7 +97,7 @@ public class HelloWorldController {
 	@Deprecated
 	public ModelAndView sayHelloByXml(
 			@RequestParam(value = "name", required = false) String name)
-					throws Exception {
+			throws Exception {
 		logger.debug("sayHelloByXml");
 		String message = helloWorldService.sayHello(name);
 		logger.debug("message: {}", message);

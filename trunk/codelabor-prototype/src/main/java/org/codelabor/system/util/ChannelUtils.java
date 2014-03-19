@@ -24,15 +24,15 @@ import java.nio.channels.WritableByteChannel;
 
 /**
  * 채널 유틸리티 클래스
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class ChannelUtils {
 
 	/**
 	 * 채널을 복사한다.
-	 *
+	 * 
 	 * @param inputChannel
 	 *            입력 채널
 	 * @param outputChannel

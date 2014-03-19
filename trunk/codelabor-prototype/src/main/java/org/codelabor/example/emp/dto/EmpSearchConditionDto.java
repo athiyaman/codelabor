@@ -216,9 +216,9 @@ public class EmpSearchConditionDto implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("EmpSearchConditionDto [salFrom=").append(salFrom)
-		.append(", salTo=").append(salTo).append(", pageNo=")
-		.append(pageNo).append(", maxRowPerPage=")
-		.append(maxRowPerPage).append(", job=").append(job).append(']');
+				.append(", salTo=").append(salTo).append(", pageNo=")
+				.append(pageNo).append(", maxRowPerPage=")
+				.append(maxRowPerPage).append(", job=").append(job).append(']');
 		return builder.toString();
 	}
 

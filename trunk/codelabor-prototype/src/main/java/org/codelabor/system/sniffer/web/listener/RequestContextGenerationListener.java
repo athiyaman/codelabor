@@ -19,7 +19,8 @@ public class RequestContextGenerationListener implements ServletRequestListener 
 	@Override
 	public void requestDestroyed(ServletRequestEvent sre) {
 		logger.debug("requestDestroyed");
-		logger.debug("request id: {}", RequestContextHolder.getContext().getRequestId());
+		logger.debug("request id: {}", RequestContextHolder.getContext()
+				.getRequestId());
 		RequestContextHolder.removeContext();
 	}
 
@@ -36,7 +37,8 @@ public class RequestContextGenerationListener implements ServletRequestListener 
 			RequestContextHolder.setContext(context);
 		}
 		sre.getServletRequest().setAttribute("requestId", requestId.toString());
-		logger.debug("request id: {}", RequestContextHolder.getContext().getRequestId());
+		logger.debug("request id: {}", RequestContextHolder.getContext()
+				.getRequestId());
 	}
 
 }

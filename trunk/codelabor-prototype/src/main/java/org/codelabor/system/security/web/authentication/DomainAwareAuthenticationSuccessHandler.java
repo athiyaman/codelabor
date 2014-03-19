@@ -32,10 +32,10 @@ import org.springframework.util.StringUtils;
 
 /**
  * @author Shin Sang-Jae
- *
+ * 
  */
 public class DomainAwareAuthenticationSuccessHandler extends
-SavedRequestAwareAuthenticationSuccessHandler {
+		SavedRequestAwareAuthenticationSuccessHandler {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(DomainAwareAuthenticationSuccessHandler.class);
@@ -50,7 +50,7 @@ SavedRequestAwareAuthenticationSuccessHandler {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see org.springframework.security.web.authentication.
 	 * AbstractAuthenticationTargetUrlRequestHandler
 	 * #determineTargetUrl(javax.servlet.http.HttpServletRequest,

@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Sang Jae Shin
- *
+ * 
  */
 public class TextPaginationTag extends SimpleTagSupport {
 
@@ -63,7 +63,7 @@ public class TextPaginationTag extends SimpleTagSupport {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
@@ -108,7 +108,7 @@ public class TextPaginationTag extends SimpleTagSupport {
 			sb.append(pageNoParamName).append(" is exeeded.");
 			sb.append(" (");
 			sb.append("requested page number: ").append(currentPageNo)
-			.append(", ");
+					.append(", ");
 			sb.append("last page number: ").append(lastPageNo).append(')');
 			throw new JspException(sb.toString());
 		}
@@ -271,7 +271,7 @@ public class TextPaginationTag extends SimpleTagSupport {
 						maxRowPerPage));
 		if (StringUtils.isNotBlank(firstPageAnchorClassOnFirstIndex)) {
 			sb.append("\" class=\"")
-			.append(firstPageAnchorClassOnPreviousIndex);
+					.append(firstPageAnchorClassOnPreviousIndex);
 		}
 		sb.append("\">").append(firstPageLinkStringOnPreviousIndex);
 		sb.append("</a>");
@@ -387,7 +387,7 @@ public class TextPaginationTag extends SimpleTagSupport {
 				sb.append(pageNoParamName).append('=').append(pageNo);
 				sb.append('&');
 				sb.append(maxRowPerPageParamName).append('=')
-				.append(maxRowPerPage);
+						.append(maxRowPerPage);
 				sb.append('&');
 				sb.append(queryString);
 				replacedQueryString = sb.toString();

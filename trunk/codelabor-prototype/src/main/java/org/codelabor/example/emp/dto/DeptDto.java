@@ -27,7 +27,7 @@ import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 
 /**
  * @author Sang Jae Shin
- *
+ * 
  */
 public class DeptDto implements Serializable {
 
@@ -63,7 +63,9 @@ public class DeptDto implements Serializable {
 		this.deptNo = deptno;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -123,7 +125,9 @@ public class DeptDto implements Serializable {
 		return loc;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -162,14 +166,14 @@ public class DeptDto implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		final StringBuilder builder = new StringBuilder(40);
 		builder.append("DeptDto [loc=").append(loc).append(", dname=")
-		.append(dname).append(", deptNo=").append(deptNo).append(']');
+				.append(dname).append(", deptNo=").append(deptNo).append(']');
 		return builder.toString();
 	}
 

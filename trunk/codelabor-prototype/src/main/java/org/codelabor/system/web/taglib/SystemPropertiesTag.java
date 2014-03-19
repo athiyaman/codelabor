@@ -28,25 +28,26 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sang-Jae
- *
+ * 
  */
 public class SystemPropertiesTag extends SimpleTagSupport {
 
 	private boolean emptyString = true;
 	private boolean escapeHtml = true;
 	private String key;
-	private final Logger logger = LoggerFactory.getLogger(SystemPropertiesTag.class);
+	private final Logger logger = LoggerFactory
+			.getLogger(SystemPropertiesTag.class);
 
 	@Override
 	public void doTag() throws JspException, IOException {
 		logger.debug("doTag");
 		logger.debug("emptyString: {}", emptyString);
 		logger.debug("escapeHtml: {}", escapeHtml);
-		
+
 		JspWriter out = getJspContext().getOut();
 		String value = System.getProperty(key);
 		String effectiveValue = null;
-		
+
 		if (value != null) {
 			if (escapeHtml) {
 				effectiveValue = StringEscapeUtils.escapeHtml4(value);
@@ -58,7 +59,8 @@ public class SystemPropertiesTag extends SimpleTagSupport {
 				effectiveValue = "";
 			}
 		}
-		logger.debug("key: {}, value: {}, effectiveValue: {}", key, value, effectiveValue);
+		logger.debug("key: {}, value: {}, effectiveValue: {}", key, value,
+				effectiveValue);
 		out.print(effectiveValue);
 	}
 
@@ -81,14 +83,16 @@ public class SystemPropertiesTag extends SimpleTagSupport {
 	}
 
 	/**
-	 * @param emptyString the emptyString to set
+	 * @param emptyString
+	 *            the emptyString to set
 	 */
 	public void setEmptyString(boolean emptyString) {
 		this.emptyString = emptyString;
 	}
 
 	/**
-	 * @param escapeHtml the escapeHtml to set
+	 * @param escapeHtml
+	 *            the escapeHtml to set
 	 */
 	public void setEscapeHtml(boolean escapeHtml) {
 		this.escapeHtml = escapeHtml;

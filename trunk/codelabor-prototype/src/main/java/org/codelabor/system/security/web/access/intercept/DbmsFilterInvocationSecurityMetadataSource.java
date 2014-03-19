@@ -31,19 +31,25 @@ import org.springframework.security.web.access.intercept.DefaultFilterInvocation
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 
 /**
- * http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/faq.html#faq-dynamic-url-metadata
- * http://stackoverflow.com/questions/6893061/how-to-dynamically-decide-intercept-url-access-attribute-value-in-spring-secur
- *
+ * http://docs.spring.io/spring-security/site/docs/3.2.x/reference/htmlsingle/
+ * faq.html#faq-dynamic-url-metadata
+ * http://stackoverflow.com/questions/6893061/how
+ * -to-dynamically-decide-intercept-url-access-attribute-value-in-spring-secur
+ * 
  * @author Shin Sang-Jae
- *
+ * 
  */
 public class DbmsFilterInvocationSecurityMetadataSource implements
 		FilterInvocationSecurityMetadataSource {
 
-	Logger logger = LoggerFactory.getLogger(DbmsFilterInvocationSecurityMetadataSource.class);
+	Logger logger = LoggerFactory
+			.getLogger(DbmsFilterInvocationSecurityMetadataSource.class);
 
-	/* (non-Javadoc)
-	 * @see org.springframework.security.access.SecurityMetadataSource#getAllConfigAttributes()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.springframework.security.access.SecurityMetadataSource#
+	 * getAllConfigAttributes()
 	 */
 	@Override
 	public Collection<ConfigAttribute> getAllConfigAttributes() {
@@ -51,8 +57,12 @@ public class DbmsFilterInvocationSecurityMetadataSource implements
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.springframework.security.access.SecurityMetadataSource#getAttributes(java.lang.Object)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.security.access.SecurityMetadataSource#getAttributes
+	 * (java.lang.Object)
 	 */
 	@Override
 	public Collection<ConfigAttribute> getAttributes(Object object)
@@ -61,7 +71,7 @@ public class DbmsFilterInvocationSecurityMetadataSource implements
 		final HttpServletRequest request = filterInvocation.getRequest();
 
 		final String fullRequestUrl = filterInvocation.getFullRequestUrl();
-		final String requestUrl =  filterInvocation.getRequestUrl();
+		final String requestUrl = filterInvocation.getRequestUrl();
 		final String requestUri = request.getRequestURI();
 		final String httpMethod = request.getMethod();
 
@@ -81,8 +91,12 @@ public class DbmsFilterInvocationSecurityMetadataSource implements
 		return configAttributeList;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.springframework.security.access.SecurityMetadataSource#supports(java.lang.Class)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.security.access.SecurityMetadataSource#supports(java
+	 * .lang.Class)
 	 */
 	@Override
 	public boolean supports(Class<?> clazz) {

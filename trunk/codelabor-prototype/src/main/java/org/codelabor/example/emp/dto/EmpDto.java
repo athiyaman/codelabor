@@ -386,12 +386,12 @@ public class EmpDto implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("EmpDto [empNo=").append(empNo).append(", ename=")
-		.append(ename).append(", deptNo=").append(deptNo)
-		.append(", deptName=").append(deptName).append(", job=")
-		.append(job).append(", hireDate=").append(hireDate)
-		.append(", mgr=").append(mgr).append(", mgrName=")
-		.append(mgrName).append(", comm=").append(comm)
-		.append(", sal=").append(sal).append(']');
+				.append(ename).append(", deptNo=").append(deptNo)
+				.append(", deptName=").append(deptName).append(", job=")
+				.append(job).append(", hireDate=").append(hireDate)
+				.append(", mgr=").append(mgr).append(", mgrName=")
+				.append(mgrName).append(", comm=").append(comm)
+				.append(", sal=").append(sal).append(']');
 		return builder.toString();
 	}
 }

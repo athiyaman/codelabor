@@ -19,8 +19,7 @@ public class PropertiesServiceImpl implements PropertiesService {
 
 	@Override
 	public String getFeedbackEmailAddress() {
-		logger.debug("webmaster.email: {}",
-				webSiteFeedBackEmailAddress);
+		logger.debug("webmaster.email: {}", webSiteFeedBackEmailAddress);
 		return webSiteFeedBackEmailAddress;
 	}
 

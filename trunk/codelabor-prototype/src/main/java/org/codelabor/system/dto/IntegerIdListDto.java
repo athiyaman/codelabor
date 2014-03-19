@@ -71,8 +71,8 @@ public class IntegerIdListDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("IntegerIdListDto ( ").append(super.toString())
-		.append(TAB).append("id = ").append(this.id).append(TAB)
-		.append(" )");
+				.append(TAB).append("id = ").append(this.id).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}

@@ -60,8 +60,7 @@ public class PropertiesController {
 		logger.debug("getProperties");
 
 		// from controller
-		logger.debug("webmaster.email: {}",
-				webSiteFeedBackEmailAddress);
+		logger.debug("webmaster.email: {}", webSiteFeedBackEmailAddress);
 		for (String webSiteFeedBackPhoneNumber : webSiteFeedBackPhoneNumbers) {
 			logger.debug("webmaster.phoneNumber: [{}]",
 					webSiteFeedBackPhoneNumber);

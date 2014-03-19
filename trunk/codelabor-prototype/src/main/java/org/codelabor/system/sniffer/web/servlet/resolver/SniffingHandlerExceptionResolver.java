@@ -10,7 +10,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 public class SniffingHandlerExceptionResolver implements
-HandlerExceptionResolver, Ordered {
+		HandlerExceptionResolver, Ordered {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(SniffingHandlerExceptionResolver.class);

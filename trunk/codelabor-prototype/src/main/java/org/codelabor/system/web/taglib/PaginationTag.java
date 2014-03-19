@@ -106,7 +106,7 @@ public class PaginationTag extends SimpleTagSupport {
 			sb.append(pageNoParamName).append(" is exeeded.");
 			sb.append(" (");
 			sb.append("requested page number: ").append(currentPageNo)
-			.append(", ");
+					.append(", ");
 			sb.append("last page number: ").append(lastPageNo).append(')');
 			throw new JspException(sb.toString());
 		}
@@ -286,7 +286,7 @@ public class PaginationTag extends SimpleTagSupport {
 				sb.append(pageNoParamName).append('=').append(pageNo);
 				sb.append('&');
 				sb.append(maxRowPerPageParamName).append('=')
-				.append(maxRowPerPage);
+						.append(maxRowPerPage);
 				sb.append('&');
 				sb.append(queryString);
 				replacedQueryString = sb.toString();

@@ -23,7 +23,7 @@ import org.codelabor.example.emp.dto.EmpSearchConditionDto;
 
 /**
  * @author Sang Jae Shin
- *
+ * 
  */
 public interface EmpDao {
 	int deleteEmp(Integer empNo);

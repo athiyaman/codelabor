@@ -15,8 +15,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @ScriptAssert.List({
-	@ScriptAssert(lang = "javascript", script = "_this.password.equals(_this.passwordConfirm)", message = "{errors.confirm.password.mismatched}"),
-	@ScriptAssert(lang = "javascript", script = "_this.email.equals(_this.emailConfirm)", message = "{errors.confirm.email.mismatched}") })
+		@ScriptAssert(lang = "javascript", script = "_this.password.equals(_this.passwordConfirm)", message = "{errors.confirm.password.mismatched}"),
+		@ScriptAssert(lang = "javascript", script = "_this.email.equals(_this.emailConfirm)", message = "{errors.confirm.email.mismatched}") })
 public class PersonDto {
 
 	@DateTimeFormat(iso = ISO.DATE)
@@ -105,7 +105,7 @@ public class PersonDto {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -279,7 +279,7 @@ public class PersonDto {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -400,7 +400,7 @@ public class PersonDto {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

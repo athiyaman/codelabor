@@ -48,6 +48,7 @@ public class MyBatisEmpDaoImplTest {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(MyBatisEmpDaoImplTest.class);
+
 	/**
 	 * @throws java.lang.Exception
 	 */

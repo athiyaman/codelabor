@@ -24,13 +24,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author Shin Sang-Jae
- *
+ * 
  */
 public class SecurityContextHolderUtils {
 
 	/**
 	 * get username from Principal
-	 *
+	 * 
 	 * @return username
 	 */
 	public static String getUsername() {
@@ -48,8 +48,8 @@ public class SecurityContextHolderUtils {
 					} else if (principal != null) {
 						username = principal.toString();
 					}
-					LoggerFactory.getLogger(SecurityContextHolderUtils.class).debug(
-							"username: {}", username);
+					LoggerFactory.getLogger(SecurityContextHolderUtils.class)
+							.debug("username: {}", username);
 				}
 			}
 		}

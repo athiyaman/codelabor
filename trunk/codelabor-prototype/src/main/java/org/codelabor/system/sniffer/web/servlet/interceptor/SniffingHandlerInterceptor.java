@@ -26,7 +26,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
  * @author Shin Sang-jae
- *
+ * 
  */
 public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 
@@ -35,7 +35,7 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.springframework.web.servlet.HandlerInterceptor#afterCompletion(javax
 	 * .servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
@@ -44,7 +44,7 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception exception)
-					throws Exception {
+			throws Exception {
 		logger.info("uri: {}", request.getRequestURI());
 		logger.info("handler: {}", handler);
 		if (exception != null) {
@@ -54,7 +54,7 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.springframework.web.servlet.HandlerInterceptor#postHandle(javax.servlet
 	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
@@ -70,7 +70,7 @@ public class SniffingHandlerInterceptor extends HandlerInterceptorAdapter {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.springframework.web.servlet.HandlerInterceptor#preHandle(javax.servlet
 	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse,
