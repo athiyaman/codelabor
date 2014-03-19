@@ -20,11 +20,6 @@
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
-		<example><usage>
-          <comment>
-          </comment>
-          <code><![CDATA[<prop:properties key="java.version"/>]]></code>
-      </usage></example>
 	</tag>
 
 </taglib>
