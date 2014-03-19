@@ -49,8 +49,9 @@ public class ChannelUtils {
 
 		while (true) {
 			readSize = inputChannel.read(buffer);
-			if (readSize == -1)
+			if (readSize == -1) {
 				break;
+			}
 			copySize += readSize;
 
 			buffer.flip();

@@ -10,11 +10,13 @@ import org.slf4j.LoggerFactory;
  * @deprecated This class has been replaced by the
  *             {@link org.apache.commons.io.FilenameUtils FilenameUtils}
  */
+@Deprecated
 public class FileUtils {
 	/**
 	 * 로거
 	 */
-	static Logger logger = LoggerFactory.getLogger(FileUtils.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(FileUtils.class);
 
 	/**
 	 * 확장자를 가져온다.<br/>

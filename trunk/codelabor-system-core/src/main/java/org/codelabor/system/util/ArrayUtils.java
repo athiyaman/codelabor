@@ -13,7 +13,8 @@ public class ArrayUtils {
 	/**
 	 * 로거
 	 */
-	private static Logger logger = LoggerFactory.getLogger(ArrayUtils.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(ArrayUtils.class);
 
 	/**
 	 * 배열의 내용을 delimeter로 구분하여 문자열 형태로 만든다.
@@ -25,8 +26,9 @@ public class ArrayUtils {
 	 * @return List의 내용이 delimeter로 구분되어 나열된 문자열
 	 */
 	public static <T> String toDelimetedString(T[] array, String delimeter) {
-		if (array.length == 0)
+		if (array.length == 0) {
 			return "";
+		}
 		StringBuilder sb = new StringBuilder();
 		for (T arrayItem : array) {
 			sb.append(arrayItem);

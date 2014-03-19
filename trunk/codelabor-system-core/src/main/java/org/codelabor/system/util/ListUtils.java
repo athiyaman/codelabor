@@ -18,7 +18,8 @@ public class ListUtils {
 	/**
 	 * 로거
 	 */
-	private static Logger logger = LoggerFactory.getLogger(ListUtils.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(ListUtils.class);
 
 	/**
 	 * 리스트 안의 내용중 매칭되는 것이 있는지 확인한다.
@@ -52,8 +53,6 @@ public class ListUtils {
 			String pattern = iterator.next();
 			if (antPathMatcher.match(pattern, text)) {
 				isContained = true;
-			} else {
-				// bypass
 			}
 		}
 		return isContained;
@@ -77,8 +76,6 @@ public class ListUtils {
 			String pattern = iterator.next();
 			if (Pattern.matches(pattern, text)) {
 				isContained = true;
-			} else {
-				// bypass
 			}
 		}
 		return isContained;
@@ -94,8 +91,9 @@ public class ListUtils {
 	 * @return List의 내용이 delimeter로 구분되어 나열된 문자열
 	 */
 	public static <T> String toDelimetedString(List<T> list, String delimeter) {
-		if (list.isEmpty())
+		if (list.isEmpty()) {
 			return "";
+		}
 		StringBuilder sb = new StringBuilder();
 		for (T listItem : list) {
 			sb.append(listItem);
