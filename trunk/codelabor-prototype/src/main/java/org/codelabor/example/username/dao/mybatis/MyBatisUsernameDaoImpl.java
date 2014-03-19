@@ -14,14 +14,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyBatisUsernameDaoImpl implements UsernameDao {
 
-	@Autowired
-	private SqlSessionTemplate sqlSession;
+	private static final Logger logger = LoggerFactory
+			.getLogger(MyBatisUsernameDaoImpl.class);
 
 	@Autowired
 	private MessageSource messageSource;
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(MyBatisUsernameDaoImpl.class);
+	@Autowired
+	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public int insertRegistrationForm(RegistrationFormDto registrationFormDto) {

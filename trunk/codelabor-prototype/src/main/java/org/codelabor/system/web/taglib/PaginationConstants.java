@@ -21,8 +21,8 @@ package org.codelabor.system.web.taglib;
  * 
  */
 public class PaginationConstants {
-	public static final String PAGE_NO_PARAM_NAME = "pageNo";
-	public static final String MAX_ROW_PER_PAGE_PARAM_NAME = "maxRowPerPage";
-	public static final int MAX_ROW_PER_PAGE = 10;
 	public static final int MAX_INDEX_PER_PAGE = 10;
+	public static final int MAX_ROW_PER_PAGE = 10;
+	public static final String MAX_ROW_PER_PAGE_PARAM_NAME = "maxRowPerPage";
+	public static final String PAGE_NO_PARAM_NAME = "pageNo";
 }

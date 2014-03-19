@@ -24,12 +24,12 @@ public class UsernameController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UsernameController.class);
 
+	private final String completedViewName = "example/username/registrationCompleted";
+
+	private final String failedViewName = "example/username/registrationFailed";
+	private final String formViewName = "example/username/registrationForm";
 	@Autowired
 	private UsernameService usernameService;
-
-	private final String formViewName = "example/username/registrationForm";
-	private final String completedViewName = "example/username/registrationCompleted";
-	private final String failedViewName = "example/username/registrationFailed";
 
 	@RequestMapping(value = "/registrationUser", method = RequestMethod.GET)
 	public ModelAndView prepareRegistration(ModelAndView mav) {

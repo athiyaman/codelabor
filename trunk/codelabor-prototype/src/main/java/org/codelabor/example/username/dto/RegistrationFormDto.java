@@ -22,14 +22,14 @@ public class RegistrationFormDto implements Serializable {
 		return serialVersionUID;
 	}
 
+	@Email
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String email;
+
 	@NotBlank
 	@Length(min = 3, max = 255)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	private String username;
-
-	@Email
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String email;
 
 	/**
 	 *

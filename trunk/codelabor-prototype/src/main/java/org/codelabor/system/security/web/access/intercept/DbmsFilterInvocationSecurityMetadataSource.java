@@ -43,6 +43,15 @@ public class DbmsFilterInvocationSecurityMetadataSource implements
 	Logger logger = LoggerFactory.getLogger(DbmsFilterInvocationSecurityMetadataSource.class);
 
 	/* (non-Javadoc)
+	 * @see org.springframework.security.access.SecurityMetadataSource#getAllConfigAttributes()
+	 */
+	@Override
+	public Collection<ConfigAttribute> getAllConfigAttributes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
 	 * @see org.springframework.security.access.SecurityMetadataSource#getAttributes(java.lang.Object)
 	 */
 	@Override
@@ -70,15 +79,6 @@ public class DbmsFilterInvocationSecurityMetadataSource implements
 		configAttributeList.add(configAttribute);
 
 		return configAttributeList;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.springframework.security.access.SecurityMetadataSource#getAllConfigAttributes()
-	 */
-	@Override
-	public Collection<ConfigAttribute> getAllConfigAttributes() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	/* (non-Javadoc)

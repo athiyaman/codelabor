@@ -23,10 +23,10 @@ import org.springframework.web.servlet.tags.form.TagWriter;
 public class UnorderedListErrorsTag extends
 org.springframework.web.servlet.tags.form.ErrorsTag {
 
-	private static final String LIST_START_TAG = "<ul>";
-	private static final String LIST_ITEM_START_TAG = "<li>";
-	private static final String LIST_ITEM_END_TAG = "</li>";
 	private static final String LIST_END_TAG = "</ul>";
+	private static final String LIST_ITEM_END_TAG = "</li>";
+	private static final String LIST_ITEM_START_TAG = "<li>";
+	private static final String LIST_START_TAG = "<ul>";
 
 	/**
 	 *

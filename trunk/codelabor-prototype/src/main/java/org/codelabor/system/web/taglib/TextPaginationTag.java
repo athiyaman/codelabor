@@ -45,21 +45,21 @@ public class TextPaginationTag extends SimpleTagSupport {
 	private static final Logger logger = LoggerFactory
 			.getLogger(TextPaginationTag.class);
 
-	protected Integer numberOfRow = 0;
-	protected String pageNoParamName = PaginationConstants.PAGE_NO_PARAM_NAME;
-	protected String maxRowPerPageParamName = PaginationConstants.MAX_ROW_PER_PAGE_PARAM_NAME;
-	protected Integer maxRowPerPage = PaginationConstants.MAX_ROW_PER_PAGE;
+	protected String firstPageAnchorClassOnFirstIndex = null;
+	protected String firstPageAnchorClassOnNextIndex = null;
+	protected String firstPageAnchorClassOnPreviousIndex = null;
+	protected String firstPageLinkStringOnFirstIndex = FIRST_PAGE_LINK_STRING_ON_FIRST_INDEX;
+	protected String firstPageLinkStringOnNextIndex = FIRST_PAGE_LINK_STRING_ON_NEXT_INDEX;
+
+	protected String firstPageLinkStringOnPreviousIndex = FIRST_PAGE_LINK_STRING_ON_PREVIOUS_INDEX;
+	protected String lastPageAnchorClassOnLastIndex = null;
+	protected String lastPageLinkStringOnLastIndex = LAST_PAGE_LINK_STRING_ON_LAST_INDEX;
 	protected Integer maxIndexPerPage = PaginationConstants.MAX_INDEX_PER_PAGE;
 
-	protected String firstPageLinkStringOnFirstIndex = FIRST_PAGE_LINK_STRING_ON_FIRST_INDEX;
-	protected String firstPageLinkStringOnPreviousIndex = FIRST_PAGE_LINK_STRING_ON_PREVIOUS_INDEX;
-	protected String firstPageLinkStringOnNextIndex = FIRST_PAGE_LINK_STRING_ON_NEXT_INDEX;
-	protected String lastPageLinkStringOnLastIndex = LAST_PAGE_LINK_STRING_ON_LAST_INDEX;
-
-	protected String firstPageAnchorClassOnFirstIndex = null;
-	protected String firstPageAnchorClassOnPreviousIndex = null;
-	protected String firstPageAnchorClassOnNextIndex = null;
-	protected String lastPageAnchorClassOnLastIndex = null;
+	protected Integer maxRowPerPage = PaginationConstants.MAX_ROW_PER_PAGE;
+	protected String maxRowPerPageParamName = PaginationConstants.MAX_ROW_PER_PAGE_PARAM_NAME;
+	protected Integer numberOfRow = 0;
+	protected String pageNoParamName = PaginationConstants.PAGE_NO_PARAM_NAME;
 
 	/*
 	 * (non-Javadoc)

@@ -38,6 +38,15 @@ public class PropertiesController {
 	private final static Logger logger = LoggerFactory
 			.getLogger(PropertiesController.class);
 
+	@Autowired
+	private Environment env;
+
+	@Value("${jdbc.driverClassName}")
+	private String jdbcDriverClassName;
+
+	@Autowired
+	private PropertiesService propertiesService;
+
 	@Value("${webmaster.email}")
 	private String webSiteFeedBackEmailAddress;
 
@@ -45,15 +54,6 @@ public class PropertiesController {
 	// do not use list type
 	// private List<String> webSiteFeedBackPhoneNumbers;
 	private String[] webSiteFeedBackPhoneNumbers;
-
-	@Value("${jdbc.driverClassName}")
-	private String jdbcDriverClassName;
-
-	@Autowired
-	private Environment env;
-
-	@Autowired
-	private PropertiesService propertiesService;
 
 	@RequestMapping(value = "/listProperties", method = RequestMethod.GET)
 	public ModelAndView listProperties() {

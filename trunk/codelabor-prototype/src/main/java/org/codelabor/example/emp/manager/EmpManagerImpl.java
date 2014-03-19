@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmpManagerImpl implements EmpManager {
 
-	@Autowired
-	private EmpDao empDao;
 	private final static Logger logger = LoggerFactory
 			.getLogger(EmpManagerImpl.class);
+	@Autowired
+	private EmpDao empDao;
 
 	@Override
 	public int deleteEmp(Integer empNo) {

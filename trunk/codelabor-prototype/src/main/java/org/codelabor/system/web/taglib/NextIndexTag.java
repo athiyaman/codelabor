@@ -37,9 +37,9 @@ public class NextIndexTag extends SimpleTagSupport {
 			.getLogger(NextIndexTag.class);
 
 	protected String cssClass;
-	protected PaginationTag parent;
-
 	protected String onclick;
+
+	protected PaginationTag parent;
 
 	/*
 	 * (non-Javadoc)

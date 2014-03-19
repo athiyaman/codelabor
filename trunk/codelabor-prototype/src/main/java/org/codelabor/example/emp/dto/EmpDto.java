@@ -44,6 +44,15 @@ public class EmpDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 271957716684152788L;
 
+	@Digits(integer = 7, fraction = 2)
+	protected BigDecimal comm;
+
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	protected String deptName;
+
+	@Max(99)
+	protected Integer deptNo;
+
 	@NotNull
 	@Max(9999)
 	protected Integer empNo;
@@ -52,27 +61,18 @@ public class EmpDto implements Serializable {
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String ename;
 
-	@Max(99)
-	protected Integer deptNo;
-
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	protected String deptName;
+	@DateTimeFormat(iso = ISO.DATE)
+	protected Date hireDate;
 
 	@Length(max = 9)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String job;
-
-	@DateTimeFormat(iso = ISO.DATE)
-	protected Date hireDate;
 
 	@Max(9999)
 	protected Integer mgr;
 
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String mgrName;
-
-	@Digits(integer = 7, fraction = 2)
-	protected BigDecimal comm;
 
 	@Digits(integer = 7, fraction = 2)
 	protected BigDecimal sal;

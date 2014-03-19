@@ -21,11 +21,11 @@ public class RegistrationController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(RegistrationController.class);
 
-	@Autowired
-	private PersonManager personManager;
+	private final String completedViewName = "example/validation/registrationCompleted";
 
 	private final String formViewName = "example/validation/registrationForm";
-	private final String completedViewName = "example/validation/registrationCompleted";
+	@Autowired
+	private PersonManager personManager;
 
 	@RequestMapping(value = "/registrationUser", method = RequestMethod.GET)
 	public ModelAndView prepareRegistrationUser(ModelAndView mav) {

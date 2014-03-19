@@ -69,22 +69,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/example/emp")
 public class EmpController {
 
+	private static final String CREATE_VIEW_NAME = "example/emp/create";
+
+	private static final String EXPORT_VIEW_NAME = "empListExcelView";
+	private static final String LIST_URL = "/example/emp/listEmp";
+	private static final String LIST_VIEW_NAME = "example/emp/list";
 	private final static Logger logger = LoggerFactory
 			.getLogger(EmpController.class);
-
-	private static final String CREATE_VIEW_NAME = "example/emp/create";
-	private static final String UPDATE_VIEW_NAME = "example/emp/update";
-	private static final String LIST_VIEW_NAME = "example/emp/list";
-	private static final String LIST_URL = "/example/emp/listEmp";
-	private static final String READ_VIEW_NAME = "example/emp/read";
 	private static final String READ_URL = "/example/emp/readEmp";
-	private static final String EXPORT_VIEW_NAME = "empListExcelView";
-
-	@Autowired
-	private EmpService empService;
+	private static final String READ_VIEW_NAME = "example/emp/read";
+	private static final String UPDATE_VIEW_NAME = "example/emp/update";
 
 	@Autowired
 	private DeptService deptService;
+
+	@Autowired
+	private EmpService empService;
 
 	@Autowired
 	private MessageSource messageSource;

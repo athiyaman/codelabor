@@ -31,6 +31,10 @@ public class AffectedRowCountDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -4545109607824121202L;
 	/**
+	 * 삭제 건수
+	 */
+	protected int deletedRowCount;
+	/**
 	 * 입력 건수
 	 */
 	protected int insertedRowCount;
@@ -38,10 +42,6 @@ public class AffectedRowCountDto implements Serializable {
 	 * 수정 건수
 	 */
 	protected int updatedRowCount;
-	/**
-	 * 삭제 건수
-	 */
-	protected int deletedRowCount;
 
 	/**
 	 * 삭제 건수를 가져온다.

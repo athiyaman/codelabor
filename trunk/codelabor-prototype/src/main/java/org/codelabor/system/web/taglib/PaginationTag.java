@@ -41,23 +41,23 @@ public class PaginationTag extends SimpleTagSupport {
 			.getLogger(PaginationTag.class);
 
 	protected String cssClass;
-	private String queryString;
-	protected Integer numberOfRow = 0;
-	protected String pageNoParamName = PaginationConstants.PAGE_NO_PARAM_NAME;
-	protected String maxRowPerPageParamName = PaginationConstants.MAX_ROW_PER_PAGE_PARAM_NAME;
-	protected Integer maxRowPerPage = PaginationConstants.MAX_ROW_PER_PAGE;
-	protected Integer maxIndexPerPage = PaginationConstants.MAX_INDEX_PER_PAGE;
-
-	private int firstPageNoOnFirstIndex;
-	private int firstPageNoOnPreviousIndex;
-	private int firstPageNoOnCurrentIndex;
-	private int lastPageNoOnCurrentIndex;
-	private int firstPageNoOnNextIndex;
-	private int lastPageNoOnLastIndex;
-	private int lastPageNo;
 	private int currentPageNo;
+	private int firstPageNoOnCurrentIndex;
+	private int firstPageNoOnFirstIndex;
+	private int firstPageNoOnNextIndex;
+	private int firstPageNoOnPreviousIndex;
+	private int lastPageNo;
 
+	private int lastPageNoOnCurrentIndex;
+	private int lastPageNoOnLastIndex;
+	protected Integer maxIndexPerPage = PaginationConstants.MAX_INDEX_PER_PAGE;
+	protected Integer maxRowPerPage = PaginationConstants.MAX_ROW_PER_PAGE;
+	protected String maxRowPerPageParamName = PaginationConstants.MAX_ROW_PER_PAGE_PARAM_NAME;
+	protected Integer numberOfRow = 0;
 	protected String onclick;
+	protected String pageNoParamName = PaginationConstants.PAGE_NO_PARAM_NAME;
+
+	private String queryString;
 
 	/*
 	 * (non-Javadoc)

@@ -16,17 +16,17 @@ public class MalformedURLException extends RuntimeException {
 
 	/**
 	 * @param message
-	 * @param cause
 	 */
-	public MalformedURLException(String message, Throwable cause) {
-		super(message, cause);
+	public MalformedURLException(String message) {
+		super(message);
 	}
 
 	/**
 	 * @param message
+	 * @param cause
 	 */
-	public MalformedURLException(String message) {
-		super(message);
+	public MalformedURLException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
 	/**

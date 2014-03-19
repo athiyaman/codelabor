@@ -40,13 +40,13 @@ SavedRequestAwareAuthenticationSuccessHandler {
 	private static final Logger logger = LoggerFactory
 			.getLogger(DomainAwareAuthenticationSuccessHandler.class);
 
-	protected String targetUrlParameter = null;
 	protected String defaultTargetUrl = "/";
-	protected boolean useReferer = false;
-
+	protected Map<String, String> domainNameRedirectUrlMap;
 	protected RequestCache requestCache = new HttpSessionRequestCache();
 
-	protected Map<String, String> domainNameRedirectUrlMap;
+	protected String targetUrlParameter = null;
+
+	protected boolean useReferer = false;
 
 	/*
 	 * (non-Javadoc)

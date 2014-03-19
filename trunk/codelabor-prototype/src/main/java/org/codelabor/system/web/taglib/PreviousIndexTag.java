@@ -37,9 +37,9 @@ public class PreviousIndexTag extends SimpleTagSupport {
 			.getLogger(PreviousIndexTag.class);
 
 	protected String cssClass;
-	PaginationTag parent;
-
 	protected String onclick;
+
+	PaginationTag parent;
 
 	/*
 	 * (non-Javadoc)

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsernameServiceImpl implements UsernameService {
 
-	@Autowired
-	private UsernameManager usernameManager;
 	private static final Logger logger = LoggerFactory
 			.getLogger(UsernameServiceImpl.class);
+	@Autowired
+	private UsernameManager usernameManager;
 
 	@Override
 	public int registration(RegistrationFormDto registrationFormDto) {

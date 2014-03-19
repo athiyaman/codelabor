@@ -32,10 +32,10 @@ import org.slf4j.LoggerFactory;
  */
 public class SystemPropertiesTag extends SimpleTagSupport {
 
-	private final Logger logger = LoggerFactory.getLogger(SystemPropertiesTag.class);
-	private String key;
-	private boolean escapeHtml = true;
 	private boolean emptyString = true;
+	private boolean escapeHtml = true;
+	private String key;
+	private final Logger logger = LoggerFactory.getLogger(SystemPropertiesTag.class);
 
 	@Override
 	public void doTag() throws JspException, IOException {

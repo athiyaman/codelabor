@@ -29,13 +29,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class SecurityContextHolderUtils {
 
 	/**
-	 *
-	 */
-	public SecurityContextHolderUtils() {
-
-	}
-
-	/**
 	 * get username from Principal
 	 *
 	 * @return username
@@ -61,6 +54,13 @@ public class SecurityContextHolderUtils {
 			}
 		}
 		return username;
+	}
+
+	/**
+	 *
+	 */
+	public SecurityContextHolderUtils() {
+
 	}
 
 }
