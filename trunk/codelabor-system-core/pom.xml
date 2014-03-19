@@ -10,6 +10,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-core</artifactId>
 	<name>codelabor-system-core</name>
+	<packaging>jar</packaging>
 	<version>4.0.0-SNAPSHOT</version>
 	<description>codelabor system core</description>
 	<url>http://codelabor.googlecode.com</url>
@@ -49,6 +50,30 @@
 							</configuration>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -242,8 +267,27 @@
 		</dependency>
 	</dependencies>
 	<properties>
+		<!-- Java Spec -->
+		<java.version>1.6</java.version>
+		<servlet.version>2.5</servlet.version>
+		<jsp.version>2.1</jsp.version>
+		<jstl.version>1.2</jstl.version>
+
+		<!-- Springframework -->
+		<springframework.version>4.0.2.RELEASE</springframework.version>
+		<springframework.security.version>3.2.0.RELEASE</springframework.security.version>
+
+		<!-- Logging -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.13</logback.version>
+
+		<!-- Others -->
+		<junit.version>4.7</junit.version>
+		<aspectj.version>1.7.4</aspectj.version>
+
+		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework.version>3.2.5.RELEASE</springframework.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<modules>
 	</modules>
