@@ -24,6 +24,7 @@ import org.codelabor.system.sniffer.context.RequestContext;
 import org.codelabor.system.sniffer.context.RequestContextHolder;
 import org.codelabor.system.web.HeaderConstants;
 import org.codelabor.system.web.RequestConstants;
+import org.codelabor.system.web.WebConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -42,8 +43,6 @@ import com.google.common.net.HttpHeaders;
 public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLoggingFilter {
 
 	private static final Logger logger = LoggerFactory.getLogger(LogbackMappedDiagnosticContextFilter.class);
-	public static final String SERVLET_CONTAINER_ID_KEY = "servlet.container.id";
-
 	/*
 	 * (non-Javadoc)
 	 *
@@ -110,7 +109,7 @@ public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLogging
 		String queryString = request.getQueryString();
 		String userAgent = request.getHeader(HttpHeaders.USER_AGENT);
 		String xForwardedFor = request.getHeader(HttpHeaders.X_FORWARDED_FOR);
-		String servletContainerId = System.getProperty(SERVLET_CONTAINER_ID_KEY);
+		String servletContainerId = System.getProperty(WebConstants.SERVLET_CONTAINER_ID_KEY);
 
 		MDC.put("requestId", requestId);
 		MDC.put("username", SecurityContextHolderUtils.getUsername());

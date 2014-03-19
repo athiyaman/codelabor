@@ -9,7 +9,7 @@ author Shin Sang-Jae
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="title.login" /> <system:properties key="con.name" /></title>
+<title><spring:message code="title.login" /> <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 <h1><spring:message code="heading.access.denied" /></h1>

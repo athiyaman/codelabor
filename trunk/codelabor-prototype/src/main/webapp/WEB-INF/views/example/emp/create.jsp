@@ -9,7 +9,7 @@ Author Sang Jae Shin
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><spring:message code="title.emp.create" /> <system:properties key="con.name" /></title>
+<title><spring:message code="title.emp.create" /> <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 <h1><spring:message code="heading.emp.create" /></h1>

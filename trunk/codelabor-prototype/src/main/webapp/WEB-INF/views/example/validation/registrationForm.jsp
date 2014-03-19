@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- Registration Form -->
-<title><spring:message code="title.example.validation.registration" /> <system:properties key="con.name" /></title>
+<title><spring:message code="title.example.validation.registration" /> <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 	<!-- Registration Form -->

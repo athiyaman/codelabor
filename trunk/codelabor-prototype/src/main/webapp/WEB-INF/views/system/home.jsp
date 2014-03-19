@@ -9,7 +9,7 @@ author Shin Sang-Jae
 <html>
 <head>
 <meta charset="UTF-8">
-<title>System Home <system:properties key="con.name" /></title>
+<title>System Home <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 <h1>System Home</h1>

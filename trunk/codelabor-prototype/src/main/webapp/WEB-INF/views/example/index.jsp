@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Example <system:properties key="con.name" /></title>
+<title>Example <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 	<h1>Example</h1>
