@@ -12,29 +12,29 @@
 <h1>Request Info</h1>
 <hr/>
 <table>
-	<tr><th>pageContext.request</th><td>${pageContext.request}</td></tr>
-	<tr><th>pageContext.request.authType</th><td>${pageContext.request.authType}</td></tr>
-	<tr><th>pageContext.request.characterEncoding</th><td>${pageContext.request.characterEncoding}</td></tr>
-	<tr><th>pageContext.request.contentLength</th><td>${pageContext.request.contentLength}</td></tr>
-	<tr><th>pageContext.request.contentType</th><td>${pageContext.request.contentType}</td></tr>
-	<tr><th>pageContext.request.contextPath</th><td>${pageContext.request.contextPath}</td></tr>
-	<tr><th>pageContext.request.localAddr</th><td>${pageContext.request.localAddr}</td></tr>
-	<tr><th>pageContext.request.localName</th><td>${pageContext.request.localName}</td></tr>
-	<tr><th>pageContext.request.localPort</th><td>${pageContext.request.localPort}</td></tr>
-	<tr><th>pageContext.request.method</th><td>${pageContext.request.method}</td></tr>
-	<tr><th>pageContext.request.pathInfo</th><td>${pageContext.request.pathInfo}</td></tr>
-	<tr><th>pageContext.request.pathTranslated</th><td>${pageContext.request.pathTranslated}</td></tr>
-	<tr><th>pageContext.request.protocol</th><td>${pageContext.request.protocol}</td></tr>
-	<tr><th>pageContext.request.queryString</th><td>${pageContext.request.queryString}</td></tr>
-	<tr><th>pageContext.request.remoteAddr</th><td>${pageContext.request.remoteAddr}</td></tr>
-	<tr><th>pageContext.request.remoteHost</th><td>${pageContext.request.remoteHost}</td></tr>
-	<tr><th>pageContext.request.remotePort</th><td>${pageContext.request.remotePort}</td></tr>
-	<tr><th>pageContext.request.remoteUser</th><td>${pageContext.request.remoteUser}</td></tr>
-	<tr><th>pageContext.request.requestedSessionId</th><td>${pageContext.request.requestedSessionId}</td></tr>
-	<tr><th>pageContext.request.requestURI</th><td>${pageContext.request.requestURI}</td></tr>
-	<tr><th>pageContext.request.remoteAddr</th><td>${pageContext.request.reader}</td></tr>
-	<tr><th>pageContext.request.reader</th><td>${pageContext.request.remoteAddr}</td></tr>
-	<tr><th>pageContext.request.requestURL</th><td>${pageContext.request.requestURL}</td></tr>
+	<tr><th>pageContext.request</th><td><c:out value="${pageContext.request}"/></td></tr>
+	<tr><th>pageContext.request.authType</th><td><c:out value="${pageContext.request.authType}"/></td></tr>
+	<tr><th>pageContext.request.characterEncoding</th><td><c:out value="${pageContext.request.characterEncoding}"/></td></tr>
+	<tr><th>pageContext.request.contentLength</th><td><c:out value="${pageContext.request.contentLength}"/></td></tr>
+	<tr><th>pageContext.request.contentType</th><td><c:out value="${pageContext.request.contentType}"/></td></tr>
+	<tr><th>pageContext.request.contextPath</th><td><c:out value="${pageContext.request.contextPath}"/></td></tr>
+	<tr><th>pageContext.request.localAddr</th><td><c:out value="${pageContext.request.localAddr}"/></td></tr>
+	<tr><th>pageContext.request.localName</th><td><c:out value="${pageContext.request.localName}"/></td></tr>
+	<tr><th>pageContext.request.localPort</th><td><c:out value="${pageContext.request.localPort}"/></td></tr>
+	<tr><th>pageContext.request.method</th><td><c:out value="${pageContext.request.method}"/></td></tr>
+	<tr><th>pageContext.request.pathInfo</th><td><c:out value="${pageContext.request.pathInfo}"/></td></tr>
+	<tr><th>pageContext.request.pathTranslated</th><td><c:out value="${pageContext.request.pathTranslated}"/></td></tr>
+	<tr><th>pageContext.request.protocol</th><td><c:out value="${pageContext.request.protocol}"/></td></tr>
+	<tr><th>pageContext.request.queryString</th><td><c:out value="${pageContext.request.queryString}"/></td></tr>
+	<tr><th>pageContext.request.remoteAddr</th><td><c:out value="${pageContext.request.remoteAddr}"/></td></tr>
+	<tr><th>pageContext.request.remoteHost</th><td><c:out value="${pageContext.request.remoteHost}"/></td></tr>
+	<tr><th>pageContext.request.remotePort</th><td><c:out value="${pageContext.request.remotePort}"/></td></tr>
+	<tr><th>pageContext.request.remoteUser</th><td><c:out value="${pageContext.request.remoteUser}"/></td></tr>
+	<tr><th>pageContext.request.requestedSessionId</th><td><c:out value="${pageContext.request.requestedSessionId}"/></td></tr>
+	<tr><th>pageContext.request.requestURI</th><td><c:out value="${pageContext.request.requestURI}"/></td></tr>
+	<tr><th>pageContext.request.remoteAddr</th><td><c:out value="${pageContext.request.reader}"/></td></tr>
+	<tr><th>pageContext.request.reader</th><td><c:out value="${pageContext.request.remoteAddr}"/></td></tr>
+	<tr><th>pageContext.request.requestURL</th><td><c:out value="${pageContext.request.requestURL}"/></td></tr>
 </table>
 </body>
 </html>
