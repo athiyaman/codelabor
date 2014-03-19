@@ -18,7 +18,11 @@
 package org.codelabor.system.util;
 
 import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.UnknownHostException;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +38,11 @@ public class NetUtils {
 	 * 로거
 	 */
 	static final Logger logger = LoggerFactory.getLogger(NetUtils.class);
+
+	public static String getDomainName(HttpServletRequest request)
+			throws MalformedURLException {
+		return new URL(request.getRequestURL().toString()).getHost();
+	}
 
 	/**
 	 * 로컬 호스트인지 확인한다.

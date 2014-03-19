@@ -14,18 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system;
+package org.codelabor.system.web.taglib;
 
 /**
- * 시스템 관련 상수
- * 
- * @author Shin Sang-jae
+ * @author Sang Jae Shin
  * 
  */
-public class SystemConstants {
-	/**
-	 * 라인 구분자
-	 */
-	public final static String LINE_SEPARATOR = System
-			.getProperty("line.separator");
+public class PaginationConstants {
+	public static final int MAX_INDEX_PER_PAGE = 10;
+	public static final int MAX_ROW_PER_PAGE = 10;
+	public static final String MAX_ROW_PER_PAGE_PARAM_NAME = "maxRowPerPage";
+	public static final String PAGE_NO_PARAM_NAME = "pageNo";
 }

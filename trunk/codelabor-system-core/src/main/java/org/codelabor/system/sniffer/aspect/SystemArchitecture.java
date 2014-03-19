@@ -14,18 +14,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system;
+package org.codelabor.system.sniffer.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 /**
- * 시스템 관련 상수
- * 
- * @author Shin Sang-jae
+ * @author Shin Sang-Jae
  * 
  */
-public class SystemConstants {
-	/**
-	 * 라인 구분자
-	 */
-	public final static String LINE_SEPARATOR = System
-			.getProperty("line.separator");
+@Aspect
+@Component
+public class SystemArchitecture {
+	@Pointcut("bean(*Controller)")
+	public void inController() {
+	}
+
+	@Pointcut("bean(*Dao)")
+	public void inDao() {
+	}
+
+	@Pointcut("bean(*Manager)")
+	public void inManager() {
+	}
+
+	@Pointcut("bean(*Service)")
+	public void inService() {
+	}
+
 }

@@ -14,18 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system;
+package org.codelabor.system.web;
 
 /**
- * 시스템 관련 상수
- * 
- * @author Shin Sang-jae
+ * @author Shin Sang-Jae
  * 
  */
-public class SystemConstants {
-	/**
-	 * 라인 구분자
-	 */
-	public final static String LINE_SEPARATOR = System
-			.getProperty("line.separator");
+public class RequestConstants {
+
+	public static final String PRINCIPAL_NAME = "principalName";
+	public static final String QUERY_STRING = "queryString";
+	public static final String REMOTE_HOST = "remoteHost";
+	public static final String REQUEST_URI = "requestUri";
+	public static final String REQUEST_URL = "requestUrl";
 }
