@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
 
 	<display-name>SLF4J Taglib</display-name>
-	<tlib-version>0.1RC</tlib-version>
+  	<tlib-version>0.1RC</tlib-version>
 	<short-name>log</short-name>
 	<uri>http://www.slf4j.org/taglib/tld</uri>
 	<description>
@@ -25,45 +25,40 @@ For related information see the
 		]]>
 	</description>
 	<tag>
-		<name>debug</name>
-		<tag-class>org.slf4j.taglib.DebugTag</tag-class>
-		<body-content>JSP</body-content>
-		<description>Displays a debug-level message</description>
-		<attribute>
-			<name>category</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The log4j category name used to log this message to. If
-				this is not
-				specified then the default log4j category is used.
-			</description>
-		</attribute>
-		<attribute>
-			<name>message</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The message to log.
-				If this is not specified then the
-				body of the tag is used instead.
-			</description>
-		</attribute>
-		<attribute>
-			<name>exception</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The exception to log.
-				If this is not specified then only
-				the message will be logged.
-			</description>
-		</attribute>
-		<example>
-			<usage>
-				<comment>
-				</comment>
-				<code><![CDATA[
+      <name>debug</name>
+      <tag-class>org.slf4j.taglib.DebugTag</tag-class>
+      <body-content>JSP</body-content>
+      <description>Displays a debug-level message</description>
+      <attribute>
+        <name>category</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The log4j category name used to log this message to. If this is not specified then the default log4j category is used.
+        </description>
+      </attribute>
+      <attribute>
+        <name>message</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The message to log. 
+          If this is not specified then the body of the tag is used instead.
+        </description>
+      </attribute>
+      <attribute>
+        <name>exception</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The exception to log. 
+          If this is not specified then only the message will be logged.
+        </description>
+      </attribute>
+      <example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[
 <log:debug message="this is a message"/>
 
 <log:debug category="foo.bar" message="this is a message"/>
@@ -72,50 +67,44 @@ For related information see the
   this is a message
 </log:debug>
 ]]></code>
-			</usage>
-		</example>
-	</tag>
+      </usage></example>
+    </tag>
 
-	<tag>
-		<name>info</name>
-		<tag-class>org.slf4j.taglib.InfoTag</tag-class>
-		<body-content>JSP</body-content>
-		<description>Displays a info-level message</description>
-		<attribute>
-			<name>category</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The log4j category name used to log this message to. If
-				this is not
-				specified then the default log4j category is used.
-			</description>
-		</attribute>
-		<attribute>
-			<name>message</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The message to log.
-				If this is not specified then the
-				body of the tag is used instead.
-			</description>
-		</attribute>
-		<attribute>
-			<name>exception</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The exception to log.
-				If this is not specified then only
-				the message will be logged.
-			</description>
-		</attribute>
-		<example>
-			<usage>
-				<comment>
-				</comment>
-				<code><![CDATA[
+    <tag>
+      <name>info</name>
+      <tag-class>org.slf4j.taglib.InfoTag</tag-class>
+      <body-content>JSP</body-content>
+      <description>Displays a info-level message</description>
+      <attribute>
+        <name>category</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The log4j category name used to log this message to. If this is not specified then the default log4j category is used.
+        </description>
+      </attribute>
+      <attribute>
+        <name>message</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The message to log. 
+          If this is not specified then the body of the tag is used instead.
+        </description>
+      </attribute>
+      <attribute>
+        <name>exception</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The exception to log. 
+          If this is not specified then only the message will be logged.
+        </description>
+      </attribute>
+      <example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[
 <log:info message="this is a message"/>
 
 <log:info category="foo.bar" message="this is a message"/>
@@ -124,50 +113,44 @@ For related information see the
   this is a message
 </log:description>
 ]]></code>
-			</usage>
-		</example>
-	</tag>
+      </usage></example>
+    </tag>
 
-	<tag>
-		<name>warn</name>
-		<tag-class>org.slf4j.taglib.WarnTag</tag-class>
-		<body-content>JSP</body-content>
-		<description>Displays a warn-level message</description>
-		<attribute>
-			<name>category</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The log4j category name used to log this message to. If
-				this is not
-				specified then the default log4j category is used.
-			</description>
-		</attribute>
-		<attribute>
-			<name>message</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The message to log.
-				If this is not specified then the
-				body of the tag is used instead.
-			</description>
-		</attribute>
-		<attribute>
-			<name>exception</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The exception to log.
-				If this is not specified then only
-				the message will be logged.
-			</description>
-		</attribute>
-		<example>
-			<usage>
-				<comment>
-				</comment>
-				<code><![CDATA[
+    <tag>
+      <name>warn</name>
+      <tag-class>org.slf4j.taglib.WarnTag</tag-class>
+      <body-content>JSP</body-content>
+      <description>Displays a warn-level message</description>
+      <attribute>
+        <name>category</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The log4j category name used to log this message to. If this is not specified then the default log4j category is used.
+        </description>
+      </attribute>
+      <attribute>
+        <name>message</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The message to log. 
+          If this is not specified then the body of the tag is used instead.
+        </description>
+      </attribute>
+      <attribute>
+        <name>exception</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The exception to log. 
+          If this is not specified then only the message will be logged.
+        </description>
+      </attribute>
+      <example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[
 <log:warn message="this is a message"/>
 
 <log:warn category="foo.bar" message="this is a message"/>
@@ -176,50 +159,44 @@ For related information see the
   this is a message
 </log:warn>
 ]]></code>
-			</usage>
-		</example>
-	</tag>
+      </usage></example>
+    </tag>
 
-	<tag>
-		<name>error</name>
-		<tag-class>org.slf4j.taglib.ErrorTag</tag-class>
-		<body-content>JSP</body-content>
-		<description>Displays a error-level message</description>
-		<attribute>
-			<name>category</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The log4j category name used to log this message to. If
-				this is not
-				specified then the default log4j category is used.
-			</description>
-		</attribute>
-		<attribute>
-			<name>message</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The message to log.
-				If this is not specified then the
-				body of the tag is used instead.
-			</description>
-		</attribute>
-		<attribute>
-			<name>exception</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The exception to log.
-				If this is not specified then only
-				the message will be logged.
-			</description>
-		</attribute>
-		<example>
-			<usage>
-				<comment>
-				</comment>
-				<code><![CDATA[
+    <tag>
+      <name>error</name>
+      <tag-class>org.slf4j.taglib.ErrorTag</tag-class>
+      <body-content>JSP</body-content>
+      <description>Displays a error-level message</description>
+      <attribute>
+        <name>category</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The log4j category name used to log this message to. If this is not specified then the default log4j category is used.
+        </description>
+      </attribute>
+      <attribute>
+        <name>message</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The message to log. 
+          If this is not specified then the body of the tag is used instead.
+        </description>
+      </attribute>
+      <attribute>
+        <name>exception</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The exception to log. 
+          If this is not specified then only the message will be logged.
+        </description>
+      </attribute>
+      <example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[
 <log:error message="this is a message"/>
 
 <log:error category="foo.bar" message="this is a message"/>
@@ -228,50 +205,44 @@ For related information see the
   this is a message
 </log:error>
 ]]></code>
-			</usage>
-		</example>
-	</tag>
+      </usage></example>
+    </tag>
 
-	<tag>
-		<name>trace</name>
-		<tag-class>org.slf4j.taglib.TraceTag</tag-class>
-		<body-content>JSP</body-content>
-		<description>Displays a trace message</description>
-		<attribute>
-			<name>category</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The log4j category name used to log this message to. If
-				this is not
-				specified then the default log4j category is used.
-			</description>
-		</attribute>
-		<attribute>
-			<name>message</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The message to log.
-				If this is not specified then the
-				body of the tag is used instead.
-			</description>
-		</attribute>
-		<attribute>
-			<name>exception</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>false</required>
-			<description>
-				The exception to log.
-				If this is not specified then only
-				the message will be logged.
-			</description>
-		</attribute>
-		<example>
-			<usage>
-				<comment>
-				</comment>
-				<code><![CDATA[
+    <tag>
+      <name>trace</name>
+      <tag-class>org.slf4j.taglib.TraceTag</tag-class>
+      <body-content>JSP</body-content>
+      <description>Displays a trace message</description>
+      <attribute>
+        <name>category</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The log4j category name used to log this message to. If this is not specified then the default log4j category is used.
+        </description>
+      </attribute>
+      <attribute>
+        <name>message</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The message to log. 
+          If this is not specified then the body of the tag is used instead.
+        </description>
+      </attribute>
+      <attribute>
+        <name>exception</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>false</required>
+        <description>
+          The exception to log. 
+          If this is not specified then only the message will be logged.
+        </description>
+      </attribute>
+      <example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[
 <log:trace message="this is a message"/>
 
 <log:trace category="foo.bar" message="this is a message"/>
@@ -280,31 +251,28 @@ For related information see the
   this is a message
 </log:trace>
 ]]></code>
-			</usage>
-		</example>
-	</tag>
+      </usage></example>
+    </tag>
 
-	<tag>
-		<name>dump</name>
-		<tag-class>org.slf4j.taglib.DumpTag</tag-class>
-		<body-content>empty</body-content>
-		<description>Displays all vars in the specified scope</description>
-		<attribute>
-			<name>scope</name>
-			<rtexprvalue>true</rtexprvalue>
-			<required>true</required>
-		</attribute>
-		<example>
-			<usage>
-				<comment>
-				</comment>
-				<code><![CDATA[
+    <tag>
+      <name>dump</name>
+      <tag-class>org.slf4j.taglib.DumpTag</tag-class>
+      <body-content>empty</body-content>
+      <description>Displays all vars in the specified scope</description>
+      <attribute>
+        <name>scope</name>
+        <rtexprvalue>true</rtexprvalue>
+        <required>true</required>
+      </attribute>
+      <example><usage>
+          <comment>
+          </comment>
+          <code><![CDATA[
 <log:dump scope="page"/>
 <log:dump scope="request"/>
 <log:dump scope="session"/>
 <log:dump scope="application"/>
 ]]></code>
-			</usage>
-		</example>
-	</tag>
+      </usage></example>
+    </tag>
 </taglib>
