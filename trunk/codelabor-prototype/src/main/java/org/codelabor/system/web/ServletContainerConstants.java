@@ -20,7 +20,7 @@ package org.codelabor.system.web;
  * @author bomber
  *
  */
-public class WebConstants {
+public class ServletContainerConstants {
 
 	public static final String SERVLET_CONTAINER_ID_KEY = "servlet.container.id";
 
