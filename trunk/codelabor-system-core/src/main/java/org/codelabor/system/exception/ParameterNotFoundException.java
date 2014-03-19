@@ -49,16 +49,6 @@ public class ParameterNotFoundException extends Exception {
 	/**
 	 * 생성자
 	 * 
-	 * @param cause
-	 *            원인
-	 */
-	public ParameterNotFoundException(Throwable cause) {
-		super(cause);
-	}
-
-	/**
-	 * 생성자
-	 * 
 	 * @param message
 	 *            메시지
 	 * @param cause
@@ -66,6 +56,16 @@ public class ParameterNotFoundException extends Exception {
 	 */
 	public ParameterNotFoundException(String message, Throwable cause) {
 		super(message, cause);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param cause
+	 *            원인
+	 */
+	public ParameterNotFoundException(Throwable cause) {
+		super(cause);
 	}
 
 }

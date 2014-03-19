@@ -33,17 +33,26 @@ public class SearchConditionDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 5397867402929461708L;
 	/**
-	 * 페이지 인덱스
-	 */
-	protected int pageIndex = 1;
-	/**
 	 * 시작 일자
 	 */
 	protected Date fromDate;
 	/**
+	 * 페이지 인덱스
+	 */
+	protected int pageIndex = 1;
+	/**
 	 * 종료 일자
 	 */
 	protected Date toDate;
+
+	/**
+	 * 시작 일자를 가져온다.
+	 *
+	 * @return 시작 일자
+	 */
+	public Date getFromDate() {
+		return fromDate;
+	}
 
 	/**
 	 * 페이지 인덱스를 가져온다.
@@ -55,22 +64,12 @@ public class SearchConditionDto implements Serializable {
 	}
 
 	/**
-	 * 페이지 인덱스를 설정한다.
+	 * 종료 일자를 가져온다.
 	 *
-	 * @param pageIndex
-	 *            페이지 인덱스
+	 * @return 종료 일자
 	 */
-	public void setPageIndex(int pageIndex) {
-		this.pageIndex = pageIndex;
-	}
-
-	/**
-	 * 시작 일자를 가져온다.
-	 *
-	 * @return 시작 일자
-	 */
-	public Date getFromDate() {
-		return fromDate;
+	public Date getToDate() {
+		return toDate;
 	}
 
 	/**
@@ -84,12 +83,13 @@ public class SearchConditionDto implements Serializable {
 	}
 
 	/**
-	 * 종료 일자를 가져온다.
+	 * 페이지 인덱스를 설정한다.
 	 *
-	 * @return 종료 일자
+	 * @param pageIndex
+	 *            페이지 인덱스
 	 */
-	public Date getToDate() {
-		return toDate;
+	public void setPageIndex(int pageIndex) {
+		this.pageIndex = pageIndex;
 	}
 
 	/**

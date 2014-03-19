@@ -33,14 +33,22 @@ public class MenuItemDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 3253325473887636189L;
 	/**
-	 * id 속성
+	 * 하위 메뉴 아이템 DTO List
 	 */
-	protected String id;
+	protected final List<MenuItemDto> childMenuItemDTOList = new ArrayList<MenuItemDto>();
 	/**
 	 * href 속성
 	 */
 	protected String href;
 
+	/**
+	 * id 속성
+	 */
+	protected String id;
+	/**
+	 * 활성화 여부
+	 */
+	protected boolean isEnable = true;
 	/**
 	 * 레이블 키
 	 */
@@ -49,14 +57,27 @@ public class MenuItemDto implements Serializable {
 	 * target 속성
 	 */
 	protected String target = "_blank";
+
 	/**
-	 * 활성화 여부
+	 * 하위 메뉴 아이템을 추가한다.
+	 * 
+	 * @param menuItemDTO
+	 *            하위 메뉴 아이템 DTO
 	 */
-	protected boolean isEnable = true;
+	public void addChild(MenuItemDto menuItemDTO) {
+		childMenuItemDTOList.add(menuItemDTO);
+	}
+
 	/**
-	 * 하위 메뉴 아이템 DTO List
+	 * 하위 메뉴 아이템을 가져온다.
+	 * 
+	 * @param index
+	 *            하위 메뉴 아이템의 인덱스
+	 * @return 하위 메뉴 아이템 DTO
 	 */
-	protected final List<MenuItemDto> childMenuItemDTOList = new ArrayList<MenuItemDto>();
+	public MenuItemDto getChild(int index) {
+		return childMenuItemDTOList.get(index);
+	}
 
 	/**
 	 * 하위 메뉴 아이템 DTO List 가져오기
@@ -65,25 +86,6 @@ public class MenuItemDto implements Serializable {
 	 */
 	public List<MenuItemDto> getChildMenuItemDTOList() {
 		return childMenuItemDTOList;
-	}
-
-	/**
-	 * 활성화 여부를 가져온다.
-	 * 
-	 * @return 활성화 여부
-	 */
-	public boolean isEnable() {
-		return isEnable;
-	}
-
-	/**
-	 * 활성화 여부를 설정한다.
-	 * 
-	 * @param isEnable
-	 *            활성화 여부
-	 */
-	public void setEnable(boolean isEnable) {
-		this.isEnable = isEnable;
 	}
 
 	/**
@@ -96,13 +98,12 @@ public class MenuItemDto implements Serializable {
 	}
 
 	/**
-	 * href 속성을 설정한다.
+	 * id 속성을 가져온다.
 	 * 
-	 * @param href
-	 *            href 속성
+	 * @return id 속성
 	 */
-	public void setHref(String href) {
-		this.href = href;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -115,16 +116,6 @@ public class MenuItemDto implements Serializable {
 	}
 
 	/**
-	 * 레이블 키를 설정한다.
-	 * 
-	 * @param labelKey
-	 *            레이블 키
-	 */
-	public void setLabelKey(String labelKey) {
-		this.labelKey = labelKey;
-	}
-
-	/**
 	 * terget 속성을 가져온다.
 	 * 
 	 * @return target 속성
@@ -134,42 +125,12 @@ public class MenuItemDto implements Serializable {
 	}
 
 	/**
-	 * target 속성을 지정한다.
+	 * 활성화 여부를 가져온다.
 	 * 
-	 * @param target
-	 *            target 속성
+	 * @return 활성화 여부
 	 */
-	public void setTarget(String target) {
-		this.target = target;
-	}
-
-	/**
-	 * id 속성을 가져온다.
-	 * 
-	 * @return id 속성
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * id 속성을 설정한다.
-	 * 
-	 * @param id
-	 *            id 속성
-	 */
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	/**
-	 * 하위 메뉴 아이템을 추가한다.
-	 * 
-	 * @param menuItemDTO
-	 *            하위 메뉴 아이템 DTO
-	 */
-	public void addChild(MenuItemDto menuItemDTO) {
-		childMenuItemDTOList.add(menuItemDTO);
+	public boolean isEnable() {
+		return isEnable;
 	}
 
 	/**
@@ -184,13 +145,52 @@ public class MenuItemDto implements Serializable {
 	}
 
 	/**
-	 * 하위 메뉴 아이템을 가져온다.
+	 * 활성화 여부를 설정한다.
 	 * 
-	 * @param index
-	 *            하위 메뉴 아이템의 인덱스
-	 * @return 하위 메뉴 아이템 DTO
+	 * @param isEnable
+	 *            활성화 여부
 	 */
-	public MenuItemDto getChild(int index) {
-		return childMenuItemDTOList.get(index);
+	public void setEnable(boolean isEnable) {
+		this.isEnable = isEnable;
+	}
+
+	/**
+	 * href 속성을 설정한다.
+	 * 
+	 * @param href
+	 *            href 속성
+	 */
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	/**
+	 * id 속성을 설정한다.
+	 * 
+	 * @param id
+	 *            id 속성
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * 레이블 키를 설정한다.
+	 * 
+	 * @param labelKey
+	 *            레이블 키
+	 */
+	public void setLabelKey(String labelKey) {
+		this.labelKey = labelKey;
+	}
+
+	/**
+	 * target 속성을 지정한다.
+	 * 
+	 * @param target
+	 *            target 속성
+	 */
+	public void setTarget(String target) {
+		this.target = target;
 	}
 }

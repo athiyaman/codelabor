@@ -35,6 +35,13 @@ public class DataSourceResolverImpl implements DataSourceResolver, InitializingB
 	private Map<Object, DataSource> targetDataSources;
 
 	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
+	public void afterPropertiesSet() throws Exception {
+		logger.debug("targetDataSources: {}", targetDataSources);
+	}
+
+	/* (non-Javadoc)
 	 * @see gscm.system.service.DataSourceResolver#resolveDataSource(java.lang.String)
 	 */
 	public DataSource resolveDataSource(String lookupKey) {
@@ -46,13 +53,6 @@ public class DataSourceResolverImpl implements DataSourceResolver, InitializingB
 	 */
 	public void setTargetDataSources(Map<Object, DataSource> targetDataSources) {
 		this.targetDataSources = targetDataSources;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
-	 */
-	public void afterPropertiesSet() throws Exception {
-		logger.debug("targetDataSources: {}", targetDataSources);
 	}
 
 }

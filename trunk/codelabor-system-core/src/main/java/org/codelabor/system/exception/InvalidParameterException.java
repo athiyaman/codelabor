@@ -41,11 +41,9 @@ public class InvalidParameterException extends Exception {
 	 * 
 	 * @param message
 	 *            메시지
-	 * @param cause
-	 *            원인
 	 */
-	public InvalidParameterException(String message, Throwable cause) {
-		super(message, cause);
+	public InvalidParameterException(String message) {
+		super(message);
 	}
 
 	/**
@@ -53,9 +51,11 @@ public class InvalidParameterException extends Exception {
 	 * 
 	 * @param message
 	 *            메시지
+	 * @param cause
+	 *            원인
 	 */
-	public InvalidParameterException(String message) {
-		super(message);
+	public InvalidParameterException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
 	/**

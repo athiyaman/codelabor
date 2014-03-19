@@ -41,11 +41,9 @@ public class InvalidMethodException extends Exception {
 	 * 
 	 * @param message
 	 *            메시지
-	 * @param cause
-	 *            원인
 	 */
-	public InvalidMethodException(String message, Throwable cause) {
-		super(message, cause);
+	public InvalidMethodException(String message) {
+		super(message);
 	}
 
 	/**
@@ -53,9 +51,11 @@ public class InvalidMethodException extends Exception {
 	 * 
 	 * @param message
 	 *            메시지
+	 * @param cause
+	 *            원인
 	 */
-	public InvalidMethodException(String message) {
-		super(message);
+	public InvalidMethodException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
 	/**

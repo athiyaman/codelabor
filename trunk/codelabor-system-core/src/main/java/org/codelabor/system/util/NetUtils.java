@@ -61,31 +61,6 @@ public class NetUtils {
 	}
 
 	/**
-	 * Raw IP Address로 로컬 호스트인지 확인한다.
-	 * 
-	 * @param rawIpAddress
-	 *            Raw IP Address
-	 * @return 로컬 호스트 여부
-	 * @throws UnknownHostException
-	 *             알수없는 호스트 예외
-	 */
-	static public boolean isLocalhostByRawIpAddress(String rawIpAddress)
-			throws UnknownHostException {
-		boolean isLocalhost = false;
-		String hostName = InetAddress.getLocalHost().getHostName();
-		logger.info("hostName: {}", hostName);
-
-		InetAddress[] inetAddressArray = InetAddress.getAllByName(hostName);
-		for (InetAddress tmpInetAddress : inetAddressArray) {
-			logger.info("hostAddress: {}", tmpInetAddress.getHostAddress());
-			if (rawIpAddress.equals(tmpInetAddress.toString())) {
-				isLocalhost = true;
-			}
-		}
-		return isLocalhost;
-	}
-
-	/**
 	 * 호스트명으로 로컬 호스트인지 확인한다.
 	 * 
 	 * @param hostName
@@ -105,6 +80,31 @@ public class NetUtils {
 		for (InetAddress tmpInetAddress : inetAddressArray) {
 			logger.info("hostAddress: {}", tmpInetAddress.getHostAddress());
 			if (hostName.equals(tmpInetAddress.getHostName())) {
+				isLocalhost = true;
+			}
+		}
+		return isLocalhost;
+	}
+
+	/**
+	 * Raw IP Address로 로컬 호스트인지 확인한다.
+	 * 
+	 * @param rawIpAddress
+	 *            Raw IP Address
+	 * @return 로컬 호스트 여부
+	 * @throws UnknownHostException
+	 *             알수없는 호스트 예외
+	 */
+	static public boolean isLocalhostByRawIpAddress(String rawIpAddress)
+			throws UnknownHostException {
+		boolean isLocalhost = false;
+		String hostName = InetAddress.getLocalHost().getHostName();
+		logger.info("hostName: {}", hostName);
+
+		InetAddress[] inetAddressArray = InetAddress.getAllByName(hostName);
+		for (InetAddress tmpInetAddress : inetAddressArray) {
+			logger.info("hostAddress: {}", tmpInetAddress.getHostAddress());
+			if (rawIpAddress.equals(tmpInetAddress.toString())) {
 				isLocalhost = true;
 			}
 		}

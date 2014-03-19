@@ -31,6 +31,10 @@ public class AffectedRowCountDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -4545109607824121202L;
 	/**
+	 * 삭제 건수
+	 */
+	protected int deletedRowCount;
+	/**
 	 * 입력 건수
 	 */
 	protected int insertedRowCount;
@@ -38,10 +42,6 @@ public class AffectedRowCountDto implements Serializable {
 	 * 수정 건수
 	 */
 	protected int updatedRowCount;
-	/**
-	 * 삭제 건수
-	 */
-	protected int deletedRowCount;
 
 	/**
 	 * 삭제 건수를 가져온다.
@@ -50,6 +50,24 @@ public class AffectedRowCountDto implements Serializable {
 	 */
 	public int getDeletedRowCount() {
 		return deletedRowCount;
+	}
+
+	/**
+	 * 입력 건수를 가져온다.
+	 * 
+	 * @return 입력 건수
+	 */
+	public int getInsertedRowCount() {
+		return insertedRowCount;
+	}
+
+	/**
+	 * 수정 건수를 가져온다.
+	 * 
+	 * @return 수정 건수
+	 */
+	public int getUpdatedRowCount() {
+		return updatedRowCount;
 	}
 
 	/**
@@ -63,15 +81,6 @@ public class AffectedRowCountDto implements Serializable {
 	}
 
 	/**
-	 * 입력 건수를 가져온다.
-	 * 
-	 * @return 입력 건수
-	 */
-	public int getInsertedRowCount() {
-		return insertedRowCount;
-	}
-
-	/**
 	 * 입력 건수를 설정한다.
 	 * 
 	 * @param insertedRowCount
@@ -79,15 +88,6 @@ public class AffectedRowCountDto implements Serializable {
 	 */
 	public void setInsertedRowCount(int insertedRowCount) {
 		this.insertedRowCount = insertedRowCount;
-	}
-
-	/**
-	 * 수정 건수를 가져온다.
-	 * 
-	 * @return 수정 건수
-	 */
-	public int getUpdatedRowCount() {
-		return updatedRowCount;
 	}
 
 	/**

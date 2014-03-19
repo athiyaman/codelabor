@@ -29,10 +29,10 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("deprecation")
 public class FileUtilsTest {
 
-	// 로거
-	Logger logger = LoggerFactory.getLogger(FileUtilsTest.class);
 	String fullyQualifiedFilenameOnUnix = "/Users/Name/sample/test.txt";
 	String fullyQualifiedFilenameOnWindows = "C:\\Users\\Name\\sample\\test.txt";
+	// 로거
+	Logger logger = LoggerFactory.getLogger(FileUtilsTest.class);
 
 	/**
 	 * @throws java.lang.Exception

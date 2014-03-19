@@ -32,257 +32,257 @@ public class SystemPropertiesDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -760395641031548481L;
 
-	protected String javaVersion;
-	protected String javaVendor;
-	protected String javaVendorUrl;
-	protected String javaHome;
-	protected String javaVmSpecificationVersion;
-	protected String javaVmSpecificationVendor;
-	protected String javaVmSpecificationName;
-	protected String javaVmVersion;
-	protected String javaVmVendor;
-	protected String javaVmName;
-	protected String javaSpecificationVersion;
-	protected String javaSpecificationVendor;
-	protected String javaSpecificationName;
-	protected String javaClassVersion;
+	protected String fileSeparator;
 	protected String javaClassPath;
-	protected String javaLibraryPath;
-	protected String javaIoTmpdir;
+	protected String javaClassVersion;
 	protected String javaCompiler;
 	protected String javaExtDirs;
-	protected String osName;
-	protected String osArch;
-	protected String osVersion;
-	protected String fileSeparator;
-	protected String pathSeparator;
+	protected String javaHome;
+	protected String javaIoTmpdir;
+	protected String javaLibraryPath;
+	protected String javaSpecificationName;
+	protected String javaSpecificationVendor;
+	protected String javaSpecificationVersion;
+	protected String javaVendor;
+	protected String javaVendorUrl;
+	protected String javaVersion;
+	protected String javaVmName;
+	protected String javaVmSpecificationName;
+	protected String javaVmSpecificationVendor;
+	protected String javaVmSpecificationVersion;
+	protected String javaVmVendor;
+	protected String javaVmVersion;
 	protected String lineSeparator;
-	protected String userName;
-	protected String userHome;
+	protected String osArch;
+	protected String osName;
+	protected String osVersion;
+	protected String pathSeparator;
 	protected String userDir;
+	protected String userHome;
+	protected String userName;
 
-	public String getJavaVersion() {
-		return javaVersion;
-	}
-
-	public void setJavaVersion(String javaVersion) {
-		this.javaVersion = javaVersion;
-	}
-
-	public String getJavaVendor() {
-		return javaVendor;
-	}
-
-	public void setJavaVendor(String javaVendor) {
-		this.javaVendor = javaVendor;
-	}
-
-	public String getJavaVendorUrl() {
-		return javaVendorUrl;
-	}
-
-	public void setJavaVendorUrl(String javaVendorUrl) {
-		this.javaVendorUrl = javaVendorUrl;
-	}
-
-	public String getJavaHome() {
-		return javaHome;
-	}
-
-	public void setJavaHome(String javaHome) {
-		this.javaHome = javaHome;
-	}
-
-	public String getJavaVmSpecificationVersion() {
-		return javaVmSpecificationVersion;
-	}
-
-	public void setJavaVmSpecificationVersion(String javaVmSpecificationVersion) {
-		this.javaVmSpecificationVersion = javaVmSpecificationVersion;
-	}
-
-	public String getJavaVmSpecificationVendor() {
-		return javaVmSpecificationVendor;
-	}
-
-	public void setJavaVmSpecificationVendor(String javaVmSpecificationVendor) {
-		this.javaVmSpecificationVendor = javaVmSpecificationVendor;
-	}
-
-	public String getJavaVmSpecificationName() {
-		return javaVmSpecificationName;
-	}
-
-	public void setJavaVmSpecificationName(String javaVmSpecificationName) {
-		this.javaVmSpecificationName = javaVmSpecificationName;
-	}
-
-	public String getJavaVmVersion() {
-		return javaVmVersion;
-	}
-
-	public void setJavaVmVersion(String javaVmVersion) {
-		this.javaVmVersion = javaVmVersion;
-	}
-
-	public String getJavaVmVendor() {
-		return javaVmVendor;
-	}
-
-	public void setJavaVmVendor(String javaVmVendor) {
-		this.javaVmVendor = javaVmVendor;
-	}
-
-	public String getJavaVmName() {
-		return javaVmName;
-	}
-
-	public void setJavaVmName(String javaVmName) {
-		this.javaVmName = javaVmName;
-	}
-
-	public String getJavaSpecificationVersion() {
-		return javaSpecificationVersion;
-	}
-
-	public void setJavaSpecificationVersion(String javaSpecificationVersion) {
-		this.javaSpecificationVersion = javaSpecificationVersion;
-	}
-
-	public String getJavaSpecificationVendor() {
-		return javaSpecificationVendor;
-	}
-
-	public void setJavaSpecificationVendor(String javaSpecificationVendor) {
-		this.javaSpecificationVendor = javaSpecificationVendor;
-	}
-
-	public String getJavaSpecificationName() {
-		return javaSpecificationName;
-	}
-
-	public void setJavaSpecificationName(String javaSpecificationName) {
-		this.javaSpecificationName = javaSpecificationName;
-	}
-
-	public String getJavaClassVersion() {
-		return javaClassVersion;
-	}
-
-	public void setJavaClassVersion(String javaClassVersion) {
-		this.javaClassVersion = javaClassVersion;
+	public String getFileSeparator() {
+		return fileSeparator;
 	}
 
 	public String getJavaClassPath() {
 		return javaClassPath;
 	}
 
-	public void setJavaClassPath(String javaClassPath) {
-		this.javaClassPath = javaClassPath;
-	}
-
-	public String getJavaLibraryPath() {
-		return javaLibraryPath;
-	}
-
-	public void setJavaLibraryPath(String javaLibraryPath) {
-		this.javaLibraryPath = javaLibraryPath;
-	}
-
-	public String getJavaIoTmpdir() {
-		return javaIoTmpdir;
-	}
-
-	public void setJavaIoTmpdir(String javaIoTmpdir) {
-		this.javaIoTmpdir = javaIoTmpdir;
+	public String getJavaClassVersion() {
+		return javaClassVersion;
 	}
 
 	public String getJavaCompiler() {
 		return javaCompiler;
 	}
 
-	public void setJavaCompiler(String javaCompiler) {
-		this.javaCompiler = javaCompiler;
-	}
-
 	public String getJavaExtDirs() {
 		return javaExtDirs;
 	}
 
-	public void setJavaExtDirs(String javaExtDirs) {
-		this.javaExtDirs = javaExtDirs;
+	public String getJavaHome() {
+		return javaHome;
 	}
 
-	public String getOsName() {
-		return osName;
+	public String getJavaIoTmpdir() {
+		return javaIoTmpdir;
 	}
 
-	public void setOsName(String osName) {
-		this.osName = osName;
+	public String getJavaLibraryPath() {
+		return javaLibraryPath;
 	}
 
-	public String getOsArch() {
-		return osArch;
+	public String getJavaSpecificationName() {
+		return javaSpecificationName;
 	}
 
-	public void setOsArch(String osArch) {
-		this.osArch = osArch;
+	public String getJavaSpecificationVendor() {
+		return javaSpecificationVendor;
 	}
 
-	public String getOsVersion() {
-		return osVersion;
+	public String getJavaSpecificationVersion() {
+		return javaSpecificationVersion;
 	}
 
-	public void setOsVersion(String osVersion) {
-		this.osVersion = osVersion;
+	public String getJavaVendor() {
+		return javaVendor;
 	}
 
-	public String getFileSeparator() {
-		return fileSeparator;
+	public String getJavaVendorUrl() {
+		return javaVendorUrl;
 	}
 
-	public void setFileSeparator(String fileSeparator) {
-		this.fileSeparator = fileSeparator;
+	public String getJavaVersion() {
+		return javaVersion;
 	}
 
-	public String getPathSeparator() {
-		return pathSeparator;
+	public String getJavaVmName() {
+		return javaVmName;
 	}
 
-	public void setPathSeparator(String pathSeparator) {
-		this.pathSeparator = pathSeparator;
+	public String getJavaVmSpecificationName() {
+		return javaVmSpecificationName;
+	}
+
+	public String getJavaVmSpecificationVendor() {
+		return javaVmSpecificationVendor;
+	}
+
+	public String getJavaVmSpecificationVersion() {
+		return javaVmSpecificationVersion;
+	}
+
+	public String getJavaVmVendor() {
+		return javaVmVendor;
+	}
+
+	public String getJavaVmVersion() {
+		return javaVmVersion;
 	}
 
 	public String getLineSeparator() {
 		return lineSeparator;
 	}
 
-	public void setLineSeparator(String lineSeparator) {
-		this.lineSeparator = lineSeparator;
+	public String getOsArch() {
+		return osArch;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getOsName() {
+		return osName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public String getOsVersion() {
+		return osVersion;
 	}
 
-	public String getUserHome() {
-		return userHome;
-	}
-
-	public void setUserHome(String userHome) {
-		this.userHome = userHome;
+	public String getPathSeparator() {
+		return pathSeparator;
 	}
 
 	public String getUserDir() {
 		return userDir;
 	}
 
+	public String getUserHome() {
+		return userHome;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setFileSeparator(String fileSeparator) {
+		this.fileSeparator = fileSeparator;
+	}
+
+	public void setJavaClassPath(String javaClassPath) {
+		this.javaClassPath = javaClassPath;
+	}
+
+	public void setJavaClassVersion(String javaClassVersion) {
+		this.javaClassVersion = javaClassVersion;
+	}
+
+	public void setJavaCompiler(String javaCompiler) {
+		this.javaCompiler = javaCompiler;
+	}
+
+	public void setJavaExtDirs(String javaExtDirs) {
+		this.javaExtDirs = javaExtDirs;
+	}
+
+	public void setJavaHome(String javaHome) {
+		this.javaHome = javaHome;
+	}
+
+	public void setJavaIoTmpdir(String javaIoTmpdir) {
+		this.javaIoTmpdir = javaIoTmpdir;
+	}
+
+	public void setJavaLibraryPath(String javaLibraryPath) {
+		this.javaLibraryPath = javaLibraryPath;
+	}
+
+	public void setJavaSpecificationName(String javaSpecificationName) {
+		this.javaSpecificationName = javaSpecificationName;
+	}
+
+	public void setJavaSpecificationVendor(String javaSpecificationVendor) {
+		this.javaSpecificationVendor = javaSpecificationVendor;
+	}
+
+	public void setJavaSpecificationVersion(String javaSpecificationVersion) {
+		this.javaSpecificationVersion = javaSpecificationVersion;
+	}
+
+	public void setJavaVendor(String javaVendor) {
+		this.javaVendor = javaVendor;
+	}
+
+	public void setJavaVendorUrl(String javaVendorUrl) {
+		this.javaVendorUrl = javaVendorUrl;
+	}
+
+	public void setJavaVersion(String javaVersion) {
+		this.javaVersion = javaVersion;
+	}
+
+	public void setJavaVmName(String javaVmName) {
+		this.javaVmName = javaVmName;
+	}
+
+	public void setJavaVmSpecificationName(String javaVmSpecificationName) {
+		this.javaVmSpecificationName = javaVmSpecificationName;
+	}
+
+	public void setJavaVmSpecificationVendor(String javaVmSpecificationVendor) {
+		this.javaVmSpecificationVendor = javaVmSpecificationVendor;
+	}
+
+	public void setJavaVmSpecificationVersion(String javaVmSpecificationVersion) {
+		this.javaVmSpecificationVersion = javaVmSpecificationVersion;
+	}
+
+	public void setJavaVmVendor(String javaVmVendor) {
+		this.javaVmVendor = javaVmVendor;
+	}
+
+	public void setJavaVmVersion(String javaVmVersion) {
+		this.javaVmVersion = javaVmVersion;
+	}
+
+	public void setLineSeparator(String lineSeparator) {
+		this.lineSeparator = lineSeparator;
+	}
+
+	public void setOsArch(String osArch) {
+		this.osArch = osArch;
+	}
+
+	public void setOsName(String osName) {
+		this.osName = osName;
+	}
+
+	public void setOsVersion(String osVersion) {
+		this.osVersion = osVersion;
+	}
+
+	public void setPathSeparator(String pathSeparator) {
+		this.pathSeparator = pathSeparator;
+	}
+
 	public void setUserDir(String userDir) {
 		this.userDir = userDir;
+	}
+
+	public void setUserHome(String userHome) {
+		this.userHome = userHome;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**

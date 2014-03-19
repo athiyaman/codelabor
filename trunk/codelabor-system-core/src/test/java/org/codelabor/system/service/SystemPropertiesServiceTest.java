@@ -17,25 +17,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/spring/**/applicationContext*.xml")
 public class SystemPropertiesServiceTest {
-	private final Logger logger = LoggerFactory
-			.getLogger(SystemPropertiesServiceTest.class);
 	@Autowired
 	private ApplicationContext context;
+	private final Logger logger = LoggerFactory
+			.getLogger(SystemPropertiesServiceTest.class);
 	private SystemPropertiesService systemPropertiesService;
 
 	@Before
 	public void setUp() {
 		systemPropertiesService = context.getBean("systemPropertiesService", SystemPropertiesService.class);
-	}
-
-	@Test
-	public void testNotNull() {
-		try {
-			assertNotNull(systemPropertiesService);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 
 	@Test
@@ -50,5 +40,15 @@ public class SystemPropertiesServiceTest {
 			fail();
 		}
 
+	}
+
+	@Test
+	public void testNotNull() {
+		try {
+			assertNotNull(systemPropertiesService);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 }
