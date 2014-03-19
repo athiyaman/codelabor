@@ -2,6 +2,7 @@
 	Anyframe 의 존 관계 제거
 	Naming Conventions을 Springframework의 Convention에 맞춤
 	library version 업그레이드
+	java 1.5 -> java 1.6 업그레이드
 
 2.0.0
 	codelabor-system-core에서 web 관련 리소스 분리하여 codelabor-system-web으로 refectoring
