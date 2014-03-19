@@ -41,7 +41,7 @@ public class StringUtilsTest {
 		String originalString = "!@#$1234QWERASDFqwerasdf가나다라 \t\n\r";
 		String removedString = StringUtils
 				.removeNonAlphanumeric(originalString);
-		assertTrue(org.apache.commons.lang.StringUtils
+		assertTrue(org.apache.commons.lang3.StringUtils
 				.isAlphanumeric(removedString));
 	}
 }
