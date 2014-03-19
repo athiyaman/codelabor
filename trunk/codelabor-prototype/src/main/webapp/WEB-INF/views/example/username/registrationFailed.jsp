@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Registration Failed</title>
+<title>Registration Failed <system:properties key="con.name" /></title>
 </head>
 <body>
 <h1>Registration Failed</h1>

@@ -18,7 +18,16 @@
 			<description>System Properties Key</description>
 			<name>key</name>
 			<required>true</required>
-			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Escape html flag</description>
+			<name>escapeHtml</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>Return empty string ("") instead of "null"</description>
+			<name>emptyString</name>
+			<required>false</required>
 		</attribute>
 	</tag>
 

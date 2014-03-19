@@ -4,12 +4,7 @@
 	errorPage="/WEB-INF/views/example/error/defaultErrorPage.jsp"%>
 <%@ page
 	import="org.codelabor.system.web.taglib.PaginationConstants, java.util.regex.Pattern, java.util.regex.Matcher"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="pg" uri="/WEB-INF/tlds/pagination.tld"%>
-<%@ taglib prefix="codelaborForm" uri="http://codelabor.org/tags/form"%>
+<%@ include file="/WEB-INF/jspf/taglib.jspf" %>
 <!DOCTYPE html>
 <%--
 Author Sang Jae Shin
@@ -17,7 +12,7 @@ Author Sang Jae Shin
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><spring:message code="title.emp.list" /></title>
+<title><spring:message code="title.emp.list" /> <system:properties key="con.name" /></title>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/common/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript"

@@ -7,7 +7,7 @@
 <head>
 <%@ include file="/WEB-INF/jspf/meta.jspf" %>
 <%@ include file="/WEB-INF/jspf/favicon.jspf" %>
-<title>Index</title>
+<title>Index <system:properties key="con.name" /></title>
 </head>
 <body>
 	<h1>Index</h1>

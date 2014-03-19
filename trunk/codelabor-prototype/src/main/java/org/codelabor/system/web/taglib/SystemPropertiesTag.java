@@ -22,6 +22,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,18 +34,64 @@ public class SystemPropertiesTag extends SimpleTagSupport {
 
 	private final Logger logger = LoggerFactory.getLogger(SystemPropertiesTag.class);
 	private String key;
+	private boolean escapeHtml = true;
+	private boolean emptyString = true;
 
 	@Override
 	public void doTag() throws JspException, IOException {
 		logger.debug("doTag");
+		logger.debug("emptyString: {}", emptyString);
+		logger.debug("escapeHtml: {}", escapeHtml);
+		
 		JspWriter out = getJspContext().getOut();
 		String value = System.getProperty(key);
-		logger.debug("key: {}, value: {}", key, value);
-		out.print(value);
+		String effectiveValue = null;
+		
+		if (value != null) {
+			if (escapeHtml) {
+				effectiveValue = StringEscapeUtils.escapeHtml4(value);
+			} else {
+				effectiveValue = value;
+			}
+		} else {
+			if (emptyString) {
+				effectiveValue = "";
+			}
+		}
+		logger.debug("key: {}, value: {}, effectiveValue: {}", key, value, effectiveValue);
+		out.print(effectiveValue);
 	}
 
 	public String getKey() {
 		return key;
+	}
+
+	/**
+	 * @return the emptyString
+	 */
+	public boolean isEmptyString() {
+		return emptyString;
+	}
+
+	/**
+	 * @return the escapeHtml
+	 */
+	public boolean isEscapeHtml() {
+		return escapeHtml;
+	}
+
+	/**
+	 * @param emptyString the emptyString to set
+	 */
+	public void setEmptyString(boolean emptyString) {
+		this.emptyString = emptyString;
+	}
+
+	/**
+	 * @param escapeHtml the escapeHtml to set
+	 */
+	public void setEscapeHtml(boolean escapeHtml) {
+		this.escapeHtml = escapeHtml;
 	}
 
 	public void setKey(String key) {

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ include file="/WEB-INF/jspf/taglib.jspf" %>
 <!DOCTYPE html>
 <%--
 Author Sang Jae Shin
@@ -11,7 +9,7 @@ Author Sang Jae Shin
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><spring:message code="title.emp.read" /></title>
+<title><spring:message code="title.emp.read" /> <system:properties key="con.name" /></title>
 </head>
 <body>
 	<h1>
