@@ -24,6 +24,11 @@
 		<li><a href="${pageContext.request.contextPath}/theme/maven/css/screen.css">resources
 				example (/theme)</a></li>
 	</ul>
+	
+		<h2>Log</h2>
+	<ul>
+		<li><a href="${pageContext.request.contextPath}/example/log/jsp">SLF4J Log Taglib</a></li>
+	</ul>
 
 	<h2>Properties</h2>
 	<ul>
