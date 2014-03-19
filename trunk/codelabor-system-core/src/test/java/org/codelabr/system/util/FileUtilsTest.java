@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sang-jae
- *
+ * 
  */
 @SuppressWarnings("deprecation")
 public class FileUtilsTest {
@@ -48,7 +48,8 @@ public class FileUtilsTest {
 	 */
 	@Test
 	public void testGetExtension() {
-		String fileExtention = FileUtils.getExtension(fullyQualifiedFilenameOnUnix);
+		String fileExtention = FileUtils
+				.getExtension(fullyQualifiedFilenameOnUnix);
 		logger.debug("fileExtention: {}", fileExtention);
 
 		fileExtention = FileUtils.getExtension(fullyQualifiedFilenameOnWindows);

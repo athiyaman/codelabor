@@ -22,9 +22,9 @@ import java.util.Date;
 
 /**
  * 검색 조건 DTO
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class SearchConditionDto implements Serializable {
 
@@ -47,7 +47,7 @@ public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 시작 일자를 가져온다.
-	 *
+	 * 
 	 * @return 시작 일자
 	 */
 	public Date getFromDate() {
@@ -56,7 +56,7 @@ public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 페이지 인덱스를 가져온다.
-	 *
+	 * 
 	 * @return 페이지 인덱스
 	 */
 	public int getPageIndex() {
@@ -65,7 +65,7 @@ public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 종료 일자를 가져온다.
-	 *
+	 * 
 	 * @return 종료 일자
 	 */
 	public Date getToDate() {
@@ -74,7 +74,7 @@ public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 시작 일자를 설정한다.
-	 *
+	 * 
 	 * @param fromDate
 	 *            시작 일자
 	 */
@@ -84,7 +84,7 @@ public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 페이지 인덱스를 설정한다.
-	 *
+	 * 
 	 * @param pageIndex
 	 *            페이지 인덱스
 	 */
@@ -94,7 +94,7 @@ public class SearchConditionDto implements Serializable {
 
 	/**
 	 * 종료 일자를 설정한다.
-	 *
+	 * 
 	 * @param toDate
 	 *            종료 일자
 	 */
@@ -105,7 +105,7 @@ public class SearchConditionDto implements Serializable {
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
 	 * format.
-	 *
+	 * 
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override

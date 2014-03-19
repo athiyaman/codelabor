@@ -22,9 +22,9 @@ import java.util.Arrays;
 
 /**
  * String 타입 Id 배열 DTO
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class StringIdArrayDto implements Serializable {
 
@@ -39,7 +39,7 @@ public class StringIdArrayDto implements Serializable {
 
 	/**
 	 * Id를 가져온다.
-	 *
+	 * 
 	 * @return Id 배열
 	 */
 	public String[] getId() {
@@ -48,7 +48,7 @@ public class StringIdArrayDto implements Serializable {
 
 	/**
 	 * Id를 설정한다.
-	 *
+	 * 
 	 * @param id
 	 *            Id 배열
 	 */
@@ -59,7 +59,7 @@ public class StringIdArrayDto implements Serializable {
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
 	 * format.
-	 *
+	 * 
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override
@@ -68,8 +68,9 @@ public class StringIdArrayDto implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("StringIdArrayDto ( ").append(super.toString()).append(
-				TAB).append("id = ").append(Arrays.toString(this.id)).append(TAB).append(" )");
+		retValue.append("StringIdArrayDto ( ").append(super.toString())
+				.append(TAB).append("id = ").append(Arrays.toString(this.id))
+				.append(TAB).append(" )");
 
 		return retValue.toString();
 	}

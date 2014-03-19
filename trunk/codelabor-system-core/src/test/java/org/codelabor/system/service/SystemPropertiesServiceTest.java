@@ -25,7 +25,8 @@ public class SystemPropertiesServiceTest {
 
 	@Before
 	public void setUp() {
-		systemPropertiesService = context.getBean("systemPropertiesService", SystemPropertiesService.class);
+		systemPropertiesService = context.getBean("systemPropertiesService",
+				SystemPropertiesService.class);
 	}
 
 	@Test

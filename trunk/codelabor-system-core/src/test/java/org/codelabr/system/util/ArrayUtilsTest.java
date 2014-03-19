@@ -12,7 +12,7 @@ public class ArrayUtilsTest {
 
 	@Test
 	public void testToDelimetedString() {
-		String[] array = new String[] {"value1", "value2", "value3", "value4"};
+		String[] array = new String[] { "value1", "value2", "value3", "value4" };
 		String delimetedString = ArrayUtils.toDelimetedString(array, ", ");
 		logger.debug("delimeted string: {}", delimetedString);
 		assertEquals("value1, value2, value3, value4", delimetedString);

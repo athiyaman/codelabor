@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 
 /**
  * @author bomber.shin
- *
+ * 
  */
 
 public interface DataSourceResolver {

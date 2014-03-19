@@ -298,44 +298,44 @@ public class SystemPropertiesDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("SystemPropertiesDto ( ").append(super.toString())
-				.append(TAB).append("fileSeparator = ").append(
-						this.fileSeparator).append(TAB).append(
-						"javaClassPath = ").append(this.javaClassPath).append(
-						TAB).append("javaClassVersion = ").append(
-						this.javaClassVersion).append(TAB).append(
-						"javaCompiler = ").append(this.javaCompiler)
+				.append(TAB).append("fileSeparator = ")
+				.append(this.fileSeparator).append(TAB)
+				.append("javaClassPath = ").append(this.javaClassPath)
+				.append(TAB).append("javaClassVersion = ")
+				.append(this.javaClassVersion).append(TAB)
+				.append("javaCompiler = ").append(this.javaCompiler)
 				.append(TAB).append("javaExtDirs = ").append(this.javaExtDirs)
 				.append(TAB).append("javaHome = ").append(this.javaHome)
 				.append(TAB).append("javaIoTmpdir = ")
-				.append(this.javaIoTmpdir).append(TAB).append(
-						"javaLibraryPath = ").append(this.javaLibraryPath)
-				.append(TAB).append("javaSpecificationName = ").append(
-						this.javaSpecificationName).append(TAB).append(
-						"javaSpecificationVendor = ").append(
-						this.javaSpecificationVendor).append(TAB).append(
-						"javaSpecificationVersion = ").append(
-						this.javaSpecificationVersion).append(TAB).append(
-						"javaVendor = ").append(this.javaVendor).append(TAB)
-				.append("javaVendorUrl = ").append(this.javaVendorUrl).append(
-						TAB).append("javaVersion = ").append(this.javaVersion)
+				.append(this.javaIoTmpdir).append(TAB)
+				.append("javaLibraryPath = ").append(this.javaLibraryPath)
+				.append(TAB).append("javaSpecificationName = ")
+				.append(this.javaSpecificationName).append(TAB)
+				.append("javaSpecificationVendor = ")
+				.append(this.javaSpecificationVendor).append(TAB)
+				.append("javaSpecificationVersion = ")
+				.append(this.javaSpecificationVersion).append(TAB)
+				.append("javaVendor = ").append(this.javaVendor).append(TAB)
+				.append("javaVendorUrl = ").append(this.javaVendorUrl)
+				.append(TAB).append("javaVersion = ").append(this.javaVersion)
 				.append(TAB).append("javaVmName = ").append(this.javaVmName)
-				.append(TAB).append("javaVmSpecificationName = ").append(
-						this.javaVmSpecificationName).append(TAB).append(
-						"javaVmSpecificationVendor = ").append(
-						this.javaVmSpecificationVendor).append(TAB).append(
-						"javaVmSpecificationVersion = ").append(
-						this.javaVmSpecificationVersion).append(TAB).append(
-						"javaVmVendor = ").append(this.javaVmVendor)
-				.append(TAB).append("javaVmVersion = ").append(
-						this.javaVmVersion).append(TAB).append(
-						"lineSeparator = ").append(this.lineSeparator).append(
-						TAB).append("osArch = ").append(this.osArch)
+				.append(TAB).append("javaVmSpecificationName = ")
+				.append(this.javaVmSpecificationName).append(TAB)
+				.append("javaVmSpecificationVendor = ")
+				.append(this.javaVmSpecificationVendor).append(TAB)
+				.append("javaVmSpecificationVersion = ")
+				.append(this.javaVmSpecificationVersion).append(TAB)
+				.append("javaVmVendor = ").append(this.javaVmVendor)
+				.append(TAB).append("javaVmVersion = ")
+				.append(this.javaVmVersion).append(TAB)
+				.append("lineSeparator = ").append(this.lineSeparator)
+				.append(TAB).append("osArch = ").append(this.osArch)
 				.append(TAB).append("osName = ").append(this.osName)
 				.append(TAB).append("osVersion = ").append(this.osVersion)
-				.append(TAB).append("pathSeparator = ").append(
-						this.pathSeparator).append(TAB).append("userDir = ")
-				.append(this.userDir).append(TAB).append("userHome = ").append(
-						this.userHome).append(TAB).append("userName = ")
+				.append(TAB).append("pathSeparator = ")
+				.append(this.pathSeparator).append(TAB).append("userDir = ")
+				.append(this.userDir).append(TAB).append("userHome = ")
+				.append(this.userHome).append(TAB).append("userName = ")
 				.append(this.userName).append(TAB).append(" )");
 
 		return retValue.toString();

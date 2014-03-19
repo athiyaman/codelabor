@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 public class ListUtilsTest {
 	private Logger logger = LoggerFactory.getLogger(ListUtilsTest.class);
 
-
 	@Before
 	public void setUp() {
 	}
@@ -35,21 +34,23 @@ public class ListUtilsTest {
 		List<String> patternList = new ArrayList<String>();
 		patternList.add("http://codelabor.org/**/index.html");
 		String text = "http://codelabor.org/example/index.html";
-		boolean isContained = ListUtils.containsByAntStylePattern(patternList, text);
+		boolean isContained = ListUtils.containsByAntStylePattern(patternList,
+				text);
 		logger.debug("isContained: {}", isContained);
 		assertTrue(isContained);
 	}
-	
+
 	@Test
 	public void testContainsByRegexPattern() {
 		List<String> patternList = new ArrayList<String>();
 		patternList.add("http://codelabor.org/[a-z]*/index.html");
 		String text = "http://codelabor.org/example/index.html";
-		boolean isContained = ListUtils.containsByRegexPattern(patternList, text);
+		boolean isContained = ListUtils.containsByRegexPattern(patternList,
+				text);
 		logger.debug("isContained: {}", isContained);
 		assertTrue(isContained);
-	}	
-	
+	}
+
 	@Test
 	public void testToDelimetedString() {
 		List<String> list = new ArrayList<String>();
@@ -60,6 +61,6 @@ public class ListUtilsTest {
 		String delimetedString = ListUtils.toDelimetedString(list, ", ");
 		logger.debug("delimeted string: {}", delimetedString);
 		assertEquals("value1, value2, value3, value4", delimetedString);
-	}	
+	}
 
 }

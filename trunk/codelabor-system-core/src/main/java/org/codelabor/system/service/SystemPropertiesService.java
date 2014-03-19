@@ -19,18 +19,16 @@ package org.codelabor.system.service;
 
 import org.codelabor.system.dto.SystemPropertiesDto;
 
-
-
 /**
  * 시스템 프로퍼티 서비스 인터페이스
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public interface SystemPropertiesService {
 	/**
 	 * 프로퍼티를 가져온다.
-	 *
+	 * 
 	 * @param key
 	 *            프로퍼티 키
 	 * @return 프로퍼티 값
@@ -39,7 +37,7 @@ public interface SystemPropertiesService {
 
 	/**
 	 * 시스템 프로퍼티 DTO를 가져온다.
-	 *
+	 * 
 	 * @return 시스템 프로퍼티 DTO
 	 */
 	public SystemPropertiesDto getSystemPropertiesDTO();

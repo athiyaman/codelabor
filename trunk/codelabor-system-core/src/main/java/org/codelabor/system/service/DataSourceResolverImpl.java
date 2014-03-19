@@ -24,32 +24,41 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-
 /**
  * @author bomber.shin
- *
+ * 
  */
-public class DataSourceResolverImpl implements DataSourceResolver, InitializingBean {
+public class DataSourceResolverImpl implements DataSourceResolver,
+		InitializingBean {
 
-	private Logger logger = LoggerFactory.getLogger(DataSourceResolverImpl.class);
+	private Logger logger = LoggerFactory
+			.getLogger(DataSourceResolverImpl.class);
 	private Map<Object, DataSource> targetDataSources;
 
-	/* (non-Javadoc)
-	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
 	 */
 	public void afterPropertiesSet() throws Exception {
 		logger.debug("targetDataSources: {}", targetDataSources);
 	}
 
-	/* (non-Javadoc)
-	 * @see gscm.system.service.DataSourceResolver#resolveDataSource(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * gscm.system.service.DataSourceResolver#resolveDataSource(java.lang.String
+	 * )
 	 */
 	public DataSource resolveDataSource(String lookupKey) {
 		return targetDataSources.get(lookupKey);
 	}
 
 	/**
-	 * @param targetDataSources the targetDataSources to set
+	 * @param targetDataSources
+	 *            the targetDataSources to set
 	 */
 	public void setTargetDataSources(Map<Object, DataSource> targetDataSources) {
 		this.targetDataSources = targetDataSources;

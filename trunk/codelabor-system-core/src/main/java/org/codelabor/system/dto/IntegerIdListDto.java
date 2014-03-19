@@ -22,9 +22,9 @@ import java.util.List;
 
 /**
  * Integer 타입 Id List DTO
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class IntegerIdListDto implements Serializable {
 	/**
@@ -38,7 +38,7 @@ public class IntegerIdListDto implements Serializable {
 
 	/**
 	 * Id를 가져온다.
-	 *
+	 * 
 	 * @return Id List
 	 */
 	public List<Integer> getId() {
@@ -47,7 +47,7 @@ public class IntegerIdListDto implements Serializable {
 
 	/**
 	 * Id를 설정한다.
-	 *
+	 * 
 	 * @param id
 	 *            Id List
 	 */
@@ -58,7 +58,7 @@ public class IntegerIdListDto implements Serializable {
 	/**
 	 * Constructs a <code>String</code> with all attributes in name = value
 	 * format.
-	 *
+	 * 
 	 * @return a <code>String</code> representation of this object.
 	 */
 	@Override
@@ -67,8 +67,9 @@ public class IntegerIdListDto implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("IntegerIdListDto ( ").append(super.toString()).append(
-				TAB).append("id = ").append(this.id).append(TAB).append(" )");
+		retValue.append("IntegerIdListDto ( ").append(super.toString())
+				.append(TAB).append("id = ").append(this.id).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}

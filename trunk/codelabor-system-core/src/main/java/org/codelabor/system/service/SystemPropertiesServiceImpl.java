@@ -19,19 +19,17 @@ package org.codelabor.system.service;
 
 import org.codelabor.system.dto.SystemPropertiesDto;
 
-
-
 /**
  * 시스템 프로퍼티 서비스 구현 클래스
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class SystemPropertiesServiceImpl implements SystemPropertiesService {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.services.SystemPropertiesService#getProperty(java
 	 * .lang.String)
@@ -42,7 +40,7 @@ public class SystemPropertiesServiceImpl implements SystemPropertiesService {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.services.SystemPropertiesService#getSystemPropertiesDTO
 	 * ()
