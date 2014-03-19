@@ -13,9 +13,9 @@ Author Shin Sang-Jae
 <title>Properties Example</title>
 </head>
 <body>
-<h1>Properties Example</h1>
-<hr />
-<ul>
+	<h1>Properties Example</h1>
+	<hr />
+	<ul>
 	<li>webmaster.email: ${websiteFeedbackEmailAddress}</li>
 	<c:forEach var="websiteFeedbackPhoneNumber" items="${websiteFeedbackPhoneNumbers}">
 	<li>webmaster.phoneNumber: ${websiteFeedbackPhoneNumber}</li>
