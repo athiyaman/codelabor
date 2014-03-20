@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sangjae
- * 
+ *
  */
 public class URLEncoderTest extends TestCase {
 	Logger logger = LoggerFactory.getLogger(URLEncoderTest.class);
@@ -42,6 +42,10 @@ public class URLEncoderTest extends TestCase {
 			String afterReplace = URLEncoder.encode(beforeReplace, "UTF-8");
 			logger.debug("beforeReplace: {}", beforeReplace);
 			logger.debug("afterReplace: {}", afterReplace);
+
+			String afterReplace2 = URLEncoder.encode(afterReplace, "UTF-8");
+			logger.debug("beforeReplace: {}", afterReplace);
+			logger.debug("afterReplace: {}", afterReplace2);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 			fail();
