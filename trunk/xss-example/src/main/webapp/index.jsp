@@ -18,36 +18,36 @@
 			<ul>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/jstl/taglib/parameter/request.jsp"
-					target="_blank">Non-persistent Attack - Parameter Taglib (JSTL
+					target="_blank">Reflected XSS Attack - Parameter Taglib (JSTL
 						c, fn)</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/jstl/taglib/attribute/request.jsp"
-					target="_blank">Persistent Attack - Attribute Taglib (JSTL c,
+					target="_blank">Persistent XSS Attack - Attribute Taglib (JSTL c,
 						fn)</a></li>
 			</ul>
 			<h3>Springframework Taglib - HTML Form</h3>
 			<ul>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/html-form/request.jsp"
-					target="_blank">Non-persistent Attack - Parameter Taglib
+					target="_blank">Reflected XSS Attack - Parameter Taglib
 						(Springframework escapeBody)</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/springframework/taglib/attribute/request.jsp"
-					target="_blank">Persistent Attack - Attribute Taglib
+					target="_blank">Persistent XSS Attack - Attribute Taglib
 						(Springframework escapeBody)</a></li>
 			</ul>
 			<h3>Springframework Taglib - Spring Form</h3>
 			<ul>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/spring-form"
-					target="_blank">Non-persistent Attack - Parameter Taglib
+					target="_blank">Reflected XSS Attack - Parameter Taglib
 						(Springframework htmlEscape)</a></li>				
 			</ul>
 			<h3>Springframework Taglib - Spring Form + Hibernate Validator</h3>
 			<ul>
 				<li><a
 					href="${pageContext.request.contextPath}/xss/springframework/taglib/parameter/spring-form/hibernate-validator"
-					target="_blank">Non-persistent Attack - Valid Parameter Taglib
+					target="_blank">Reflected XSS Attack - Valid Parameter Taglib
 						(Springframework htmlEscape)</a></li>						
 			</ul>
 			<h3>Apache Struts</h3>
