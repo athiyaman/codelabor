@@ -4,7 +4,7 @@
 	errorPage="/WEB-INF/views/example/error/defaultErrorPage.jsp"%>
 <%@ page
 	import="org.codelabor.system.web.taglib.PaginationConstants, java.util.regex.Pattern, java.util.regex.Matcher"%>
-<%@ include file="/WEB-INF/jspf/taglib.jspf" %>
+<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
 <!DOCTYPE html>
 <%--
 Author Sang Jae Shin
@@ -12,7 +12,8 @@ Author Sang Jae Shin
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><spring:message code="title.emp.list" /> <system:properties key="servlet.container.id" /></title>
+<title><spring:message code="title.emp.list" /> <system:properties
+		key="servlet.container.id" /></title>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/common/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript"
@@ -57,8 +58,7 @@ Author Sang Jae Shin
 			<table>
 				<tr>
 					<th><spring:message code="label.emp.job" /></th>
-					<td><form:input path="job" />
-						<form:errors path="job" /></td>
+					<td><form:input path="job" /> <form:errors path="job" /></td>
 					<th><spring:message code="label.emp.sal" /></th>
 					<td><form:input path="salFrom" /> <spring:message
 							code="label.from" /> ~ <form:input path="salTo" /> <spring:message
@@ -88,7 +88,7 @@ Author Sang Jae Shin
 					<td><c:choose>
 							<c:when test="${not empty pageContext.request.queryString}">
 								<a
-									href="${pageContext.request.contextPath}/example/emp/exportEmpListOnCurrentPage?${pageContext.request.queryString}">
+									href="${pageContext.request.contextPath}/example/emp/exportEmpListOnCurrentPage?<c:out value="${pageContext.request.queryString}" />">
 									<spring:message code="button.export.current.page" />
 								</a>
 							</c:when>
@@ -116,7 +116,7 @@ Author Sang Jae Shin
  %> <c:choose>
 							<c:when test="${not empty replacedQueryString}">
 								<a
-									href="${pageContext.request.contextPath}/example/emp/exportEmpList?${replacedQueryString}">
+									href="${pageContext.request.contextPath}/example/emp/exportEmpList?<c:out value="${replacedQueryString}" />">
 									<spring:message code="button.export.all.page" />
 								</a>
 							</c:when>
