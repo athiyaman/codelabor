@@ -13,24 +13,27 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet.version}</version>
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
+
+		<!-- Springframework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>2.5.6.SEC02</version>
-			<type>jar</type>
+			<version>${springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 	<parent>
 		<artifactId>oss-parent</artifactId>
@@ -41,6 +44,10 @@
 		<!-- Java Spec -->
 		<java.version>1.6</java.version>
 		<servlet.version>2.5</servlet.version>
+		<!-- Springframework -->
+		<springframework.version>4.0.2.RELEASE</springframework.version>
+		<!-- Others -->
+		<junit.version>4.7</junit.version>
 
 		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
