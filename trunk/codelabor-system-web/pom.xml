@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<artifactId>oss-parent</artifactId>
-		<groupId>org.sonatype.oss</groupId>
-		<version>2</version>
-	</parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- The Basics -->
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-web</artifactId>
-	<name>codelabor-system-web</name>
 	<version>4.0.0-SNAPSHOT</version>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+
 	<dependencies>
+		<!-- Java Spec -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet.version}</version>
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
+			<version>${jsp.version}</version>
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
@@ -35,6 +31,24 @@
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Springframework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-struts</artifactId>
+			<version>3.0.5.RELEASE</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -52,35 +66,8 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-struts</artifactId>
-			<version>3.0.5.RELEASE</version>
-			<type>jar</type>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>3.0.5.RELEASE</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-core</artifactId>
-			<version>3.0.7</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
+
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -95,6 +82,25 @@
 			<type>jar</type>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- codelabor -->
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-core</artifactId>
+			<version>3.0.7</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -102,27 +108,29 @@
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
-	<repositories>
-	</repositories>
-	<description>codelabor system web</description>
-	<url>http://codelabor.googlecode.com</url>
-	<licenses>
-	    <license>
-	        <name>Apache 2</name>
-	        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-	        <distribution>repo</distribution>
-	        <comments>A business-friendly OSS license</comments>
-	    </license>
-	</licenses>
-	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
-	</scm>
-	<organization>
-		<name>CODELABOR</name>
-		<url>http://codelabor.org</url>
-	</organization>
+	<parent>
+		<artifactId>oss-parent</artifactId>
+		<groupId>org.sonatype.oss</groupId>
+		<version>7</version>
+	</parent>
+	<properties>
+		<!-- Java Spec -->
+		<java.version>1.6</java.version>
+		<servlet.version>2.5</servlet.version>
+		<jsp.version>2.1</jsp.version>
+		<jstl.version>1.2</jstl.version>
+
+		<!-- Springframework -->
+		<springframework.version>4.0.2.RELEASE</springframework.version>
+		<!-- Others -->
+		<junit.version>4.7</junit.version>
+
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -153,12 +161,16 @@
 					</configuration>
 				</plugin>
 			</plugins>
-		</pluginManagement>	
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -177,6 +189,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.7</version>
+				<configuration>
+					<detectLinks>true</detectLinks>
+					<links>
+						<link>http://commons.apache.org/io/apidocs/</link>
+					</links>
+				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -198,7 +216,7 @@
 							<goal>copy-dependencies</goal>
 						</goals>
 						<configuration>
-						<outputDirectory>${project.build.directory}/lib</outputDirectory>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
@@ -232,4 +250,43 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- More Project Information -->
+	<name>codelabor-system-web</name>
+	<description>codelabor system web</description>
+	<url>http://codelabor.googlecode.com</url>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>bomber</id>
+			<name>Shin Sangjae</name>
+			<email>codelabor@gmail.com</email>
+			<url>http://codelabor.org</url>
+			<organization>CODELABOR</organization>
+			<organizationUrl>http://codelabor.org</organizationUrl>
+			<timezone>+9</timezone>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<!-- Environment Settings -->
+	<scm>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
+	</scm>
 </project>
