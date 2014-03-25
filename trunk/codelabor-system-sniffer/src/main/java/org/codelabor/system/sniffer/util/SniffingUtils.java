@@ -22,15 +22,15 @@ import org.codelabor.system.web.util.RequestUtils;
 
 /**
  * 스티핑 유틸리티
- *
+ * 
  * @author Shin Sangjae
- *
+ * 
  */
 public class SniffingUtils {
 
 	/**
 	 * 요청 관련 정보를 HTML 형태로 가져온다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @return 요청 관련 정보
@@ -73,7 +73,7 @@ public class SniffingUtils {
 
 	/**
 	 * 요청 관련 정보를 String 형태로 가져온다.
-	 *
+	 * 
 	 * @param request
 	 *            요청
 	 * @return 요청 관련 정보

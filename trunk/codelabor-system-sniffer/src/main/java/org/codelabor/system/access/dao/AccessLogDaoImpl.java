@@ -18,19 +18,18 @@
 package org.codelabor.system.access.dao;
 
 import org.codelabor.system.access.dto.AccessLogDto;
-import org.codelabor.system.dao.BaseDaoImpl;
 
 /**
  * 접속 로그 DAO 구현 클래스
- *
+ * 
  * @author Shin Sangjae
- *
+ * 
  */
 public class AccessLogDaoImpl extends BaseDaoImpl implements AccessLogDao {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.access.dao.AccessLogDao#insert(org.codelabor.system
 	 * .access.dtos.AccessLogDTO)

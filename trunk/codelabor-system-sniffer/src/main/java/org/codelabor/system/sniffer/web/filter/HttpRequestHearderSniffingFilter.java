@@ -32,9 +32,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 요청 헤더 스니핑 필터
- *
+ * 
  * @author Shin Sangjae
- *
+ * 
  */
 public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
 	/**
@@ -45,7 +45,7 @@ public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.web.filters.BaseFilterImpl#postprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
@@ -57,7 +57,7 @@ public class HttpRequestHearderSniffingFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)

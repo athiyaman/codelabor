@@ -33,23 +33,32 @@ public class AccessLogDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -8079212665085519859L;
 
-	// 일련번호
-	private int seq;
-
-	// 사용자
-	private String username;
-
-	// 대상
-	private String target;
-
 	// 이벤트
 	private String event;
 
 	// 접속 주소
 	private String ipAddress;
 
+	// 일련번호
+	private int seq;
+
+	// 대상
+	private String target;
+
 	// 시간
 	private Timestamp timestamp;
+
+	// 사용자
+	private String username;
+
+	/**
+	 * 이벤트 정보를 가져온다.
+	 * 
+	 * @return 이벤트 정보
+	 */
+	public String getEvent() {
+		return event;
+	}
 
 	/**
 	 * 접속 주소를 가져온다.
@@ -61,22 +70,39 @@ public class AccessLogDto implements Serializable {
 	}
 
 	/**
-	 * 접속 주소를 설정한다.
+	 * 일련번호를 가져온다.
 	 * 
-	 * @param ipAddress
-	 *            접속 주소
+	 * @return 일련번호
 	 */
-	public void setIpAddress(String ipAddress) {
-		this.ipAddress = ipAddress;
+	public int getSeq() {
+		return seq;
 	}
 
 	/**
-	 * 이벤트 정보를 가져온다.
+	 * 대상을 가져온다.
 	 * 
-	 * @return 이벤트 정보
+	 * @return 리소스 Id
 	 */
-	public String getEvent() {
-		return event;
+	public String getTarget() {
+		return target;
+	}
+
+	/**
+	 * 시간을 가져온다.
+	 * 
+	 * @return 시간
+	 */
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	/**
+	 * 사용자명을 가져온다.
+	 * 
+	 * @return 사용자명
+	 */
+	public String getUsername() {
+		return username;
 	}
 
 	/**
@@ -90,12 +116,23 @@ public class AccessLogDto implements Serializable {
 	}
 
 	/**
-	 * 대상을 가져온다.
+	 * 접속 주소를 설정한다.
 	 * 
-	 * @return 리소스 Id
+	 * @param ipAddress
+	 *            접속 주소
 	 */
-	public String getTarget() {
-		return target;
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
+	/**
+	 * 일련번호를 설정한다.
+	 * 
+	 * @param seq
+	 *            일련번호
+	 */
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 
 	/**
@@ -109,15 +146,6 @@ public class AccessLogDto implements Serializable {
 	}
 
 	/**
-	 * 시간을 가져온다.
-	 * 
-	 * @return 시간
-	 */
-	public Timestamp getTimestamp() {
-		return timestamp;
-	}
-
-	/**
 	 * 시간을 설정한다.
 	 * 
 	 * @param timestamp
@@ -128,15 +156,6 @@ public class AccessLogDto implements Serializable {
 	}
 
 	/**
-	 * 사용자명을 가져온다.
-	 * 
-	 * @return 사용자명
-	 */
-	public String getUsername() {
-		return username;
-	}
-
-	/**
 	 * 사용자명을 설정한다.
 	 * 
 	 * @param username
@@ -144,25 +163,6 @@ public class AccessLogDto implements Serializable {
 	 */
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	/**
-	 * 일련번호를 가져온다.
-	 * 
-	 * @return 일련번호
-	 */
-	public int getSeq() {
-		return seq;
-	}
-
-	/**
-	 * 일련번호를 설정한다.
-	 * 
-	 * @param seq
-	 *            일련번호
-	 */
-	public void setSeq(int seq) {
-		this.seq = seq;
 	}
 
 	/**
@@ -178,11 +178,11 @@ public class AccessLogDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("AccessLogDto ( ").append(super.toString()).append(TAB)
-				.append("seq = ").append(this.seq).append(TAB).append(
-						"userId = ").append(this.username).append(TAB).append(
-						"resource = ").append(this.target).append(TAB).append(
-						"message = ").append(this.event).append(TAB).append(
-						"ipAddress = ").append(this.ipAddress).append(TAB)
+				.append("seq = ").append(this.seq).append(TAB)
+				.append("userId = ").append(this.username).append(TAB)
+				.append("resource = ").append(this.target).append(TAB)
+				.append("message = ").append(this.event).append(TAB)
+				.append("ipAddress = ").append(this.ipAddress).append(TAB)
 				.append("timestamp = ").append(this.timestamp).append(TAB)
 				.append(" )");
 

@@ -21,14 +21,10 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
 import org.springframework.util.StopWatch;
-
-import anyframe.common.exception.BaseException;
-import anyframe.common.exception.message.Message;
 
 /**
  * 스니핑 어드바이스 구현 클래스ㅣ
@@ -62,17 +58,32 @@ public class SniffingAdvice implements Ordered {
 	}
 
 	/**
-	 * 리턴 값을 출력한다.
+	 * 경과 시간을 가져온다.
 	 * 
 	 * @param joinPoint
 	 *            조인 포인트
-	 * @param returnObject
-	 *            리턴 값
+	 * @return 경고 시간
+	 * @throws Throwable
+	 *             예외
 	 */
-	public void dumpReturn(JoinPoint joinPoint, Object returnObject) {
-		logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
-		logger.debug("method: {}", joinPoint.getSignature().getName());
-		logger.debug("return: {}", returnObject);
+	public Object dumpElapsedTime(ProceedingJoinPoint joinPoint)
+			throws Throwable {
+		Object retrunValue = null;
+		StopWatch stopWatch = null;
+		if (logger.isDebugEnabled()) {
+			stopWatch = new StopWatch(getClass().getName());
+			stopWatch.start(joinPoint.toShortString());
+		}
+		retrunValue = joinPoint.proceed();
+		if (logger.isDebugEnabled()) {
+			stopWatch.stop();
+			long totalTimeMillis = stopWatch.getTotalTimeMillis();
+			logger.debug("class: {}", joinPoint.getTarget().getClass()
+					.getName());
+			logger.debug("method: {}", joinPoint.getSignature().getName());
+			logger.debug("total time (millis): {}", totalTimeMillis);
+		}
+		return retrunValue;
 	}
 
 	/**
@@ -111,7 +122,8 @@ public class SniffingAdvice implements Ordered {
 			// String fileName = sourceLocation.getFileName();
 			// int line = sourceLocation.getLine();
 
-			logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
+			logger.debug("class: {}", joinPoint.getTarget().getClass()
+					.getName());
 			logger.debug("method: {}", joinPoint.getSignature().getName());
 			logger.error("exception class: {}", exception.getClass());
 			logger.error("message code: {}", messageCode);
@@ -122,39 +134,29 @@ public class SniffingAdvice implements Ordered {
 
 			if (cause != null) {
 				StackTraceElement stackTraceElement = cause.getStackTrace()[0];
-				logger.error("cause class: {}", stackTraceElement.getClassName());
-				logger.error("cause method: {}", stackTraceElement.getMethodName());
+				logger.error("cause class: {}",
+						stackTraceElement.getClassName());
+				logger.error("cause method: {}",
+						stackTraceElement.getMethodName());
 				logger.error("cause file: {}", stackTraceElement.getFileName());
-				logger.error("cause line: {}", stackTraceElement.getLineNumber());
+				logger.error("cause line: {}",
+						stackTraceElement.getLineNumber());
 			}
 		}
 	}
 
 	/**
-	 * 경과 시간을 가져온다.
+	 * 리턴 값을 출력한다.
 	 * 
 	 * @param joinPoint
 	 *            조인 포인트
-	 * @return 경고 시간
-	 * @throws Throwable
-	 *             예외
+	 * @param returnObject
+	 *            리턴 값
 	 */
-	public Object dumpElapsedTime(ProceedingJoinPoint joinPoint) throws Throwable {
-		Object retrunValue = null;
-		StopWatch stopWatch = null;
-		if (logger.isDebugEnabled()) {
-			stopWatch = new StopWatch(getClass().getName());
-			stopWatch.start(joinPoint.toShortString());
-		}
-		retrunValue = joinPoint.proceed();
-		if (logger.isDebugEnabled()) {
-			stopWatch.stop();
-			long totalTimeMillis = stopWatch.getTotalTimeMillis();
-			logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
-			logger.debug("method: {}", joinPoint.getSignature().getName());
-			logger.debug("total time (millis): {}", totalTimeMillis);
-		}
-		return retrunValue;
+	public void dumpReturn(JoinPoint joinPoint, Object returnObject) {
+		logger.debug("class: {}", joinPoint.getTarget().getClass().getName());
+		logger.debug("method: {}", joinPoint.getSignature().getName());
+		logger.debug("return: {}", returnObject);
 	}
 
 	/*

@@ -30,9 +30,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 스니핑 필터
- *
+ * 
  * @author Shin Sangjae
- *
+ * 
  */
 public class SniffingFilter extends BaseFilterImpl {
 	/**
@@ -42,7 +42,7 @@ public class SniffingFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.web.filters.BaseFilterImpl#postprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
@@ -54,7 +54,7 @@ public class SniffingFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)

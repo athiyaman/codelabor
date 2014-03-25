@@ -4,12 +4,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.codelabor.system.access.dto.AccessLogDto;
-import org.codelabor.system.access.service.AccessLogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.test.AbstractSingleSpringContextTests;
-
-import anyframe.core.query.IQueryService;
 
 /**
  * 접근 로그 서비스 테스트 케이스
@@ -24,14 +20,14 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 	 */
 	private AccessLogService accessLogService;
 	/**
-	 * 쿼리 서비스
-	 */
-	protected IQueryService queryService;
-	/**
 	 * 로거
 	 */
 	protected Logger logger = LoggerFactory
 			.getLogger(AccessLogServiceTest.class);
+	/**
+	 * 쿼리 서비스
+	 */
+	protected IQueryService queryService;
 
 	/*
 	 * (non-Javadoc)

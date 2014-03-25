@@ -19,7 +19,6 @@ package org.codelabor.system.access.manager;
 
 import org.codelabor.system.access.dao.AccessLogDao;
 import org.codelabor.system.access.dto.AccessLogDto;
-import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
  * 접근 로그 매니저 구현 클래스
@@ -34,6 +33,17 @@ public class AccessLogManagerImpl extends BaseManagerImpl implements
 	 * 접근 로그 DAO
 	 */
 	private AccessLogDao accessLogDao;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.codelabor.system.access.manager.AccessLogManager#accessLog(org.codelabor
+	 * .system.access.dtos.AccessLogDTO)
+	 */
+	public void accessLog(AccessLogDto accessLogDto) throws Exception {
+		this.accessLogDao.insert(accessLogDto);
+	}
 
 	/**
 	 * 접근 로그 DAO를 설정한다.
@@ -53,16 +63,5 @@ public class AccessLogManagerImpl extends BaseManagerImpl implements
 	 */
 	public void setAccessLogDAO(AccessLogDao accessLogDao) {
 		this.accessLogDao = accessLogDao;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.access.manager.AccessLogManager#accessLog(org.codelabor
-	 * .system.access.dtos.AccessLogDTO)
-	 */
-	public void accessLog(AccessLogDto accessLogDto) throws Exception {
-		this.accessLogDao.insert(accessLogDto);
 	}
 }

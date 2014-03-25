@@ -38,17 +38,17 @@ import org.slf4j.LoggerFactory;
  * @author Shin Sangjae
  * 
  */
-public class SniffingHttpSessionListener implements
-		HttpSessionListener, HttpSessionAttributeListener,
-		HttpSessionActivationListener {
-
-	private Logger logger = LoggerFactory.getLogger(SniffingHttpSessionListener.class);
+public class SniffingHttpSessionListener implements HttpSessionListener,
+		HttpSessionAttributeListener, HttpSessionActivationListener {
 
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
+	private Logger logger = LoggerFactory
+			.getLogger(SniffingHttpSessionListener.class);
+
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionAttributeListener#attributeAdded(javax.
 	 * servlet.http.HttpSessionBindingEvent)
@@ -61,10 +61,10 @@ public class SniffingHttpSessionListener implements
 		logger.debug("  isNew: {}", httpSession.isNew());
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 		logger.debug("  event name: {}", event.getName());
 		logger.debug("  event value: {}", event.getValue());
@@ -72,7 +72,7 @@ public class SniffingHttpSessionListener implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionAttributeListener#attributeRemoved(javax
 	 * .servlet.http.HttpSessionBindingEvent)
@@ -84,10 +84,10 @@ public class SniffingHttpSessionListener implements
 		logger.debug("Session attribute removed");
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 		logger.debug("  event name: {}", event.getName());
 		logger.debug("  event value: {}", event.getValue());
@@ -95,7 +95,7 @@ public class SniffingHttpSessionListener implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionAttributeListener#attributeReplaced(javax
 	 * .servlet.http.HttpSessionBindingEvent)
@@ -107,10 +107,10 @@ public class SniffingHttpSessionListener implements
 		logger.debug("Session attribute replaced");
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 		logger.debug("  event name: {}", event.getName());
 		logger.debug("  event value: {}", event.getValue());
@@ -118,7 +118,7 @@ public class SniffingHttpSessionListener implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionListener#sessionCreated(javax.servlet.http
 	 * .HttpSessionEvent)
@@ -130,16 +130,16 @@ public class SniffingHttpSessionListener implements
 		logger.debug("Session created");
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionListener#sessionDestroyed(javax.servlet
 	 * .http.HttpSessionEvent)
@@ -151,16 +151,16 @@ public class SniffingHttpSessionListener implements
 		logger.debug("Session destroyed");
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionActivationListener#sessionDidActivate(javax
 	 * .servlet.http.HttpSessionEvent)
@@ -172,16 +172,16 @@ public class SniffingHttpSessionListener implements
 		logger.debug("Session did activate");
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * javax.servlet.http.HttpSessionActivationListener#sessionWillPassivate
 	 * (javax.servlet.http.HttpSessionEvent)
@@ -193,10 +193,10 @@ public class SniffingHttpSessionListener implements
 		logger.debug("Session will passivate");
 		logger.debug("  id: {}", httpSession.getId());
 		logger.debug("  creation time: {}", dateFormat.format(creationTime));
-		logger.debug("  last access time: {}", dateFormat
-				.format(lastAccessedTime));
-		logger.debug("  max inactive interval: {} seconds", httpSession
-				.getMaxInactiveInterval());
+		logger.debug("  last access time: {}",
+				dateFormat.format(lastAccessedTime));
+		logger.debug("  max inactive interval: {} seconds",
+				httpSession.getMaxInactiveInterval());
 		logger.debug("  event soruce: {}", event.getSource());
 	}
 }
