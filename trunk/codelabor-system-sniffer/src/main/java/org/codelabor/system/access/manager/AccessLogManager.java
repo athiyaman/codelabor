@@ -17,7 +17,7 @@
 
 package org.codelabor.system.access.manager;
 
-import org.codelabor.system.access.dto.AccessLogDTO;
+import org.codelabor.system.access.dto.AccessLogDto;
 
 /**
  * 접근 로그 매니저 인터페이스
@@ -29,10 +29,10 @@ public interface AccessLogManager {
 	/**
 	 * 접근 로그를 남긴다.
 	 * 
-	 * @param accessLogDTO
+	 * @param accessLogDto
 	 *            접근 로그 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	void accessLog(AccessLogDTO accessLogDTO) throws Exception;
+	void accessLog(AccessLogDto accessLogDto) throws Exception;
 }

@@ -3,7 +3,7 @@ package org.codelabor.system.access.service;
 import java.sql.Timestamp;
 import java.util.List;
 
-import org.codelabor.system.access.dto.AccessLogDTO;
+import org.codelabor.system.access.dto.AccessLogDto;
 import org.codelabor.system.access.service.AccessLogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,28 +67,28 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 	@SuppressWarnings({ "rawtypes" })
 	public void testAccessLog() {
 		// test
-		AccessLogDTO accessLogDTO1 = new AccessLogDTO();
+		AccessLogDto accessLogDTO1 = new AccessLogDto();
 		accessLogDTO1.setUsername("bomber");
 		accessLogDTO1.setIpAddress("127.0.0.1");
 		accessLogDTO1.setTarget("menu:mypage");
 		accessLogDTO1.setEvent("select");
 		accessLogDTO1.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
-		AccessLogDTO accessLogDTO2 = new AccessLogDTO();
+		AccessLogDto accessLogDTO2 = new AccessLogDto();
 		accessLogDTO2.setUsername("bomber");
 		accessLogDTO2.setIpAddress("127.0.0.1");
 		accessLogDTO2.setTarget("button:submit");
 		accessLogDTO2.setEvent("click");
 		accessLogDTO2.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
-		AccessLogDTO accessLogDTO3 = new AccessLogDTO();
+		AccessLogDto accessLogDTO3 = new AccessLogDto();
 		accessLogDTO3.setUsername("bomber");
 		accessLogDTO3.setIpAddress("127.0.0.1");
 		accessLogDTO3.setTarget("page:index.html");
 		accessLogDTO3.setEvent("view");
 		accessLogDTO3.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
-		AccessLogDTO accessLogDTO4 = new AccessLogDTO();
+		AccessLogDto accessLogDTO4 = new AccessLogDto();
 		accessLogDTO4.setUsername("bomber");
 		accessLogDTO4.setIpAddress("127.0.0.1");
 		accessLogDTO4.setTarget("url:http://codelabor.org");
@@ -103,11 +103,11 @@ public class AccessLogServiceTest extends AbstractSingleSpringContextTests {
 			accessLogService.accessLog(accessLogDTO3);
 
 			// assert
-			AccessLogDTO returnedAccessLogDTO1 = (AccessLogDTO) ((List) queryService
+			AccessLogDto returnedAccessLogDTO1 = (AccessLogDto) ((List) queryService
 					.find(accessLogDTO1)).get(0);
-			AccessLogDTO returnedAccessLogDTO2 = (AccessLogDTO) ((List) queryService
+			AccessLogDto returnedAccessLogDTO2 = (AccessLogDto) ((List) queryService
 					.find(accessLogDTO2)).get(0);
-			AccessLogDTO returnedAccessLogDTO3 = (AccessLogDTO) ((List) queryService
+			AccessLogDto returnedAccessLogDTO3 = (AccessLogDto) ((List) queryService
 					.find(accessLogDTO3)).get(0);
 			assertEquals(accessLogDTO1.getEvent(),
 					returnedAccessLogDTO1.getEvent());

@@ -17,7 +17,7 @@
 
 package org.codelabor.system.access.service;
 
-import org.codelabor.system.access.dto.AccessLogDTO;
+import org.codelabor.system.access.dto.AccessLogDto;
 import org.codelabor.system.access.manager.AccessLogManager;
 import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
@@ -44,9 +44,9 @@ public class AccessLogServiceImpl extends BaseServiceImpl implements
 	 * org.codelabor.system.access.service.AccessLogService#accessLog(org.codelabor
 	 * .system.access.dtos.AccessLogDTO)
 	 */
-	public void accessLog(AccessLogDTO accessLogDTO) throws Exception {
+	public void accessLog(AccessLogDto accessLogDto) throws Exception {
 		try {
-			accessLogManager.accessLog(accessLogDTO);
+			accessLogManager.accessLog(accessLogDto);
 		} catch (Exception e) {
 			String messageCode = "ERROR-ACCESS-LOG-0000";
 			String messageKey = "error.access.log";

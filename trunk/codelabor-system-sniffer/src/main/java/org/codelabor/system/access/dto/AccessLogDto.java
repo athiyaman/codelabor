@@ -26,7 +26,7 @@ import java.sql.Timestamp;
  * @author Shin Sangjae
  * 
  */
-public class AccessLogDTO implements Serializable {
+public class AccessLogDto implements Serializable {
 
 	/**
 	 * 시리얼 버전 UID
@@ -177,7 +177,7 @@ public class AccessLogDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("AccessLogDTO ( ").append(super.toString()).append(TAB)
+		retValue.append("AccessLogDto ( ").append(super.toString()).append(TAB)
 				.append("seq = ").append(this.seq).append(TAB).append(
 						"userId = ").append(this.username).append(TAB).append(
 						"resource = ").append(this.target).append(TAB).append(

@@ -1,46 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>oss-parent</artifactId>
-		<groupId>org.sonatype.oss</groupId>
-		<version>2</version>
-	</parent>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- The Basics -->
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-sniffer</artifactId>
+	<version>4.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<version>3.0.0-SNAPSHOT</version>
-	<name>codelabor-system-sniffer</name>
-	<url>http://codelabor.org</url>
 	<dependencies>
-		<dependency>
-			<groupId>org.codelabor</groupId>
-			<artifactId>codelabor-system-web</artifactId>
-			<version>2.0.0</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
+		<!-- Java Spec -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet.version}</version>
 			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Spring Framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>2.5.6.SEC02</version>
+			<version>${springframework.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- codelabor -->
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-web</artifactId>
+			<version>4.0.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!--
 		<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>14</version>
 			<scope>test</scope>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>quartz</artifactId>
@@ -48,28 +57,179 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>2.5.6.SEC02</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>anyframe-repository</id>
-			<name>repository for Anyframe</name>
-			<url>http://dev.anyframejava.org/artifactory/anyframe-repository</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+	<parent>
+		<artifactId>oss-parent</artifactId>
+		<groupId>org.sonatype.oss</groupId>
+		<version>7</version>
+	</parent>
+	<properties>
+		<!-- Java Spec -->
+		<java.version>1.5</java.version>
+		<servlet.version>2.5</servlet.version>
+
+		<!-- Springframework -->
+		<springframework.version>4.0.2.RELEASE</springframework.version>
+		<!-- JDBC -->
+		<jdbc.database.product>oracle</jdbc.database.product>
+		<jdbc.dependency.groupId>ojdbc</jdbc.dependency.groupId>
+		<jdbc.dependency.artifactId>ojdbc</jdbc.dependency.artifactId>
+		<jdbc.dependency.version>14</jdbc.dependency.version>
+		<jdbc.driverClassName>oracle.jdbc.driver.OracleDriver</jdbc.driverClassName>
+		<jdbc.url>jdbc:oracle:thin:@localhost:1521:xe</jdbc.url>
+
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<!-- Build Settings -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>copy-dependencies</id>
+							<phase>package</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.build.directory}/lib</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sql-maven-plugin</artifactId>
+					<version>1.4</version>
+					<dependencies>
+						<dependency>
+							<groupId>${jdbc.dependency.groupId}</groupId>
+							<artifactId>${jdbc.dependency.artifactId}</artifactId>
+							<version>${jdbc.dependency.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<driver>${jdbc.driverClassName}</driver>
+						<url>${jdbc.url}</url>
+						<settingsKey>database.oracle.codelabor</settingsKey>
+						<skip>${maven.test.skip}</skip>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>process-test-resources</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<orderFile>ascending</orderFile>
+								<autocommit>true</autocommit>
+								<onError>continue</onError>
+								<fileset>
+									<basedir>${basedir}</basedir>
+									<includes>
+										<include>src/main/sql/${jdbc.database.product}/**/*.sql</include>
+									</includes>
+								</fileset>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<detectLinks>true</detectLinks>
+					<links>
+						<link>http://commons.apache.org/io/apidocs/</link>
+					</links>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- More Project Information -->
+	<name>codelabor-system-sniffer</name>
+	<url>http://codelabor.org</url>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
 	<developers>
 		<developer>
 			<id>bomber</id>
-			<name>Sang Jae Shin</name>
+			<name>Shin Sang-Jae</name>
 			<email>codelabor@gmail.com</email>
 			<url>http://codelabor.org</url>
 			<organization>CODELABOR</organization>
@@ -81,151 +241,11 @@
 			</roles>
 		</developer>
 	</developers>
-	<licenses>
-		<license>
-			<name>Apache 2</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+
+	<!-- Environment Settings -->
 	<scm>
 		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-sniffer/</connection>
 		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-sniffer/</developerConnection>
 		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-sniffer/</url>
 	</scm>
-	<organization>
-		<name>CODELABOR</name>
-		<url>http://codelabor.org</url>
-	</organization>
-	<build>
-		<pluginManagement>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-soruces</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-javadoc</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2-beta-4</version>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assemble/bin.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>sql-maven-plugin</artifactId>
-				<version>1.4</version>
-				<dependencies>
-					<dependency>
-						<groupId>${jdbc.dependency.groupId}</groupId>
-						<artifactId>${jdbc.dependency.artifactId}</artifactId>
-						<version>${jdbc.dependency.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<driver>${jdbc.driverClassName}</driver>
-					<url>${jdbc.url}</url>
-					<settingsKey>database.oracle.codelabor</settingsKey>
-					<skip>${maven.test.skip}</skip>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>process-test-resources</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-						<configuration>
-							<orderFile>ascending</orderFile>
-							<autocommit>true</autocommit>
-							<onError>continue</onError>
-							<fileset>
-								<basedir>${basedir}</basedir>
-								<includes>
-									<include>src/main/sql/${jdbc.database.product}/**/*.sql</include>
-								</includes>
-							</fileset>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-	<properties>
-		<jdbc.database.product>oracle</jdbc.database.product>
-		<jdbc.dependency.groupId>ojdbc</jdbc.dependency.groupId>
-		<jdbc.dependency.artifactId>ojdbc</jdbc.dependency.artifactId>
-		<jdbc.dependency.version>14</jdbc.dependency.version>
-		<jdbc.driverClassName>oracle.jdbc.driver.OracleDriver</jdbc.driverClassName>
-		<jdbc.url>jdbc:oracle:thin:@10.41.128.133:1521:gscmrac1</jdbc.url>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 </project>

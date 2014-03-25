@@ -5,7 +5,7 @@
 
 	<bean
 		id="accessLogDAO"
-		class="org.codelabor.system.access.dao.AccessLogDAOImpl"
+		class="org.codelabor.system.access.dao.AccessLogDaoImpl"
 		parent="baseDAO">
 		<property name="idGenerationService" ref="accessLogSeqGenerationService"/>
 	</bean>

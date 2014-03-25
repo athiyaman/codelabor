@@ -17,23 +17,26 @@
 
 package org.codelabor.system.access.dao;
 
-import org.codelabor.system.access.dto.AccessLogDTO;
+import org.codelabor.system.access.dto.AccessLogDto;
+import org.codelabor.system.dao.BaseDaoImpl;
 
 /**
- * 접근 로그 DAO 인터페이스
- * 
+ * 접속 로그 DAO 구현 클래스
+ *
  * @author Shin Sangjae
- * 
+ *
  */
-public interface AccessLogDAO {
-	/**
-	 * 접속 로그 정보를 입력한다.
-	 * 
-	 * @param accessLogDTO
-	 *            접속 로그 DTO
-	 * @return 입력 건수
-	 * @throws Exception
-	 *             예외
+public class AccessLogDaoImpl extends BaseDaoImpl implements AccessLogDao {
+
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.codelabor.system.access.dao.AccessLogDao#insert(org.codelabor.system
+	 * .access.dtos.AccessLogDTO)
 	 */
-	public int insert(AccessLogDTO accessLogDTO) throws Exception;
+	public int insert(AccessLogDto accessLogDto) throws Exception {
+		accessLogDto.setSeq(idGenerationService.getNextIntegerId());
+		return this.queryService.create(accessLogDto);
+	}
 }
