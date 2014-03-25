@@ -2,7 +2,7 @@
 	Anyframe 의 존 관계 제거
 	Naming Conventions을 Springframework의 Convention에 맞춤
 	library version 업그레이드
-	java 1.5 -> java 1.6 업그레이드
+	messages 정리
 	pmd 위반 시정 조치
 
 2.0.0
