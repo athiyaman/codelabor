@@ -36,7 +36,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-struts</artifactId>
-			<version>3.0.5.RELEASE</version>
+			<version>3.2.8.RELEASE</version>
 			<type>jar</type>
 			<scope>compile</scope>
 			<optional>true</optional>
@@ -49,16 +49,8 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- JSON -->
-		<dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<version>2.4</version>
-			<type>jar</type>
-			<classifier>jdk15</classifier>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
+
+		
 		<!-- Struts 1 -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -70,13 +62,11 @@
 		</dependency>
 
 		<!-- Logging -->
-		<!--
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
@@ -95,7 +85,6 @@
 			<version>${logback.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		-->
 
 		<!-- codelabor -->
 		<dependency>
@@ -107,6 +96,15 @@
 		</dependency>
 
 		<!-- Utility -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<type>jar</type>
+			<classifier>jdk15</classifier>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>		
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -146,33 +144,14 @@
 		<junit.version>4.7</junit.version>
 		<aspectj.version>1.7.4</aspectj.version>
 
-
 		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.2</version>
-					<executions>
-						<execution>
-							<id>copy-dependencies</id>
-							<phase>package</phase>
-							<goals>
-								<goal>copy-dependencies</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.build.directory}/lib</outputDirectory>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -237,25 +216,6 @@
 						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2.1</version>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assemble/bin.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
 						</goals>
 					</execution>
 				</executions>
