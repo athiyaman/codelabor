@@ -346,11 +346,21 @@
 			</roles>
 		</developer>
 	</developers>
-	
+
 	<!-- Environment Settings -->
 	<scm>
 		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-core</connection>
 		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-core</developerConnection>
 		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-core</url>
 	</scm>
+	<repositories>
+		<repository>
+			<id>sonatype-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>
