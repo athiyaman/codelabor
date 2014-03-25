@@ -46,6 +46,18 @@ public class NoCacheFilter extends BaseFilterImpl {
 	 * (non-Javadoc)
 	 * 
 	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
+	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 */
+	@Override
+	public void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
 	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
 	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
@@ -55,14 +67,16 @@ public class NoCacheFilter extends BaseFilterImpl {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
 		// Prevents caching at the proxy server.
-		httpServletResponse.setDateHeader(HttpResponseHeaderConstants.EXPIRES, 0);
+		httpServletResponse.setDateHeader(HttpResponseHeaderConstants.EXPIRES,
+				0);
 
 		// Set standard HTTP/1.0 no-cache header.
-		httpServletResponse.setHeader(HttpResponseHeaderConstants.PRAGMA, "no-cache");
+		httpServletResponse.setHeader(HttpResponseHeaderConstants.PRAGMA,
+				"no-cache");
 
 		// Set standard HTTP/1.1 no-cache headers.
-		httpServletResponse.setHeader(HttpResponseHeaderConstants.CACHE_CONTROL,
-				"no-cache");
+		httpServletResponse.setHeader(
+				HttpResponseHeaderConstants.CACHE_CONTROL, "no-cache");
 
 		// httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
 		// "no-store, no-cache, must-revalidate");
@@ -70,17 +84,5 @@ public class NoCacheFilter extends BaseFilterImpl {
 		// Set IE extended HTTP/1.1 no-cache headers (use addHeader).
 		// httpServletResponse.setHeader(HttpResponseHeader.CACHE_CONTROL,
 		// "post-check=0, pre-check=0");
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
-	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
-	 */
-	@Override
-	public void postprocessFilterChain(ServletRequest request,
-			ServletResponse response) throws IOException, ServletException {
 	}
 }

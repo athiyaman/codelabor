@@ -42,35 +42,66 @@ import org.codelabor.system.web.dto.ServerDto;
  */
 public class RequestUtils {
 	/**
-	 * 서버 정보 DTO를 가져온다.
+	 * 요청 속성 Map을 가져온다.
 	 * 
 	 * @param request
 	 *            요청
-	 * @return 서버 정보 DTO
-	 * @throws Exception
-	 *             예외
+	 * @return 요청 속성 Map
 	 */
-	public static ServerDto getServerDTO(ServletRequest request)
-			throws Exception {
-		ServerDto serverDto = new ServerDto();
-		serverDto.setName(request.getServerName());
-		serverDto.setPort(request.getServerPort());
-		return serverDto;
+	public static Map<String, Object> getAttributeMap(ServletRequest request) {
+		Map<String, Object> attribMap = new HashMap<String, Object>();
+		@SuppressWarnings("unchecked")
+		Enumeration<String> attribEnum = request.getAttributeNames();
+		while (attribEnum.hasMoreElements()) {
+			String attribName = (String) attribEnum.nextElement();
+			Object attribValue = request.getAttribute(attribName);
+			attribMap.put(attribName, attribValue);
+		}
+		return attribMap;
 	}
 
 	/**
-	 * 리모트 정보 DTO를 가져온다.
+	 * 기타 정보 DTO를 가져온다.
 	 * 
 	 * @param request
 	 *            요청
-	 * @return 리모트 정보 DTO
+	 * @return 기타 정보 DTO
 	 */
-	public static RemoteDto getRemoteDTO(ServletRequest request) {
-		RemoteDto remoteDto = new RemoteDto();
-		remoteDto.setRemoteHost(request.getRemoteHost());
-		remoteDto.setRemoteAddress(request.getRemoteAddr());
-		remoteDto.setRemotePort(request.getRemotePort());
-		return remoteDto;
+	public static EtcDto getEtcDTO(ServletRequest request) {
+		EtcDto etcDto = new EtcDto();
+		etcDto.setCharacterEncoding(request.getCharacterEncoding());
+		etcDto.setContentLength(request.getContentLength());
+		etcDto.setContentType(request.getContentType());
+		etcDto.setLocale(request.getLocale());
+		etcDto.setProtocol(request.getProtocol());
+		etcDto.setScheme(request.getScheme());
+		return etcDto;
+	}
+
+	/**
+	 * HttpServletRequest 정보 Map을 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return HttpServletRequest 정보 Map
+	 */
+	public static Map<String, Object> getHttpServletRequestMap(
+			ServletRequest request) {
+		Map<String, Object> attribMap = new HashMap<String, Object>();
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		attribMap.put("authType", httpServletRequest.getAuthType());
+		attribMap.put("contextPath", httpServletRequest.getContextPath());
+		attribMap.put("method", httpServletRequest.getMethod());
+		attribMap.put("pathInfo", httpServletRequest.getPathInfo());
+		attribMap.put("queryString", httpServletRequest.getQueryString());
+		attribMap.put("remoteUser", httpServletRequest.getRemoteUser());
+		attribMap.put("requestURI", httpServletRequest.getRequestURI());
+		attribMap.put("servletPath", httpServletRequest.getServletPath());
+		attribMap.put("isRequestedSessionIdFromCookie",
+				httpServletRequest.isRequestedSessionIdFromCookie());
+		attribMap.put("isRequestedSessionIdFromURL",
+				httpServletRequest.isRequestedSessionIdFromURL());
+		return attribMap;
 	}
 
 	/**
@@ -89,22 +120,21 @@ public class RequestUtils {
 	}
 
 	/**
-	 * 요청 속성 Map을 가져온다.
+	 * 로케일 정보 List를 가져온다.
 	 * 
 	 * @param request
 	 *            요청
-	 * @return 요청 속성 Map
+	 * @return 로케일 정보 List
 	 */
-	public static Map<String, Object> getAttributeMap(ServletRequest request) {
-		Map<String, Object> attribMap = new HashMap<String, Object>();
-		@SuppressWarnings("unchecked")
-		Enumeration<String> attribEnum = request.getAttributeNames();
-		while (attribEnum.hasMoreElements()) {
-			String attribName = (String) attribEnum.nextElement();
-			Object attribValue = request.getAttribute(attribName);
-			attribMap.put(attribName, attribValue);
+	public static List<Locale> getLocaleList(ServletRequest request) {
+		List<Locale> localeList = new ArrayList<Locale>();
+		@SuppressWarnings("rawtypes")
+		Enumeration localeEnum = request.getLocales();
+		while (localeEnum.hasMoreElements()) {
+			Locale localeItem = (Locale) localeEnum.nextElement();
+			localeList.add(localeItem);
 		}
-		return attribMap;
+		return localeList;
 	}
 
 	/**
@@ -135,6 +165,38 @@ public class RequestUtils {
 	}
 
 	/**
+	 * 리모트 정보 DTO를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 리모트 정보 DTO
+	 */
+	public static RemoteDto getRemoteDTO(ServletRequest request) {
+		RemoteDto remoteDto = new RemoteDto();
+		remoteDto.setRemoteHost(request.getRemoteHost());
+		remoteDto.setRemoteAddress(request.getRemoteAddr());
+		remoteDto.setRemotePort(request.getRemotePort());
+		return remoteDto;
+	}
+
+	/**
+	 * 서버 정보 DTO를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 서버 정보 DTO
+	 * @throws Exception
+	 *             예외
+	 */
+	public static ServerDto getServerDTO(ServletRequest request)
+			throws Exception {
+		ServerDto serverDto = new ServerDto();
+		serverDto.setName(request.getServerName());
+		serverDto.setPort(request.getServerPort());
+		return serverDto;
+	}
+
+	/**
 	 * 세션 정보 Map을 가져온다.
 	 * 
 	 * @param request
@@ -152,67 +214,5 @@ public class RequestUtils {
 			attribMap.put(attribName, attribObject);
 		}
 		return attribMap;
-	}
-
-	/**
-	 * HttpServletRequest 정보 Map을 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return HttpServletRequest 정보 Map
-	 */
-	public static Map<String, Object> getHttpServletRequestMap(
-			ServletRequest request) {
-		Map<String, Object> attribMap = new HashMap<String, Object>();
-		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		attribMap.put("authType", httpServletRequest.getAuthType());
-		attribMap.put("contextPath", httpServletRequest.getContextPath());
-		attribMap.put("method", httpServletRequest.getMethod());
-		attribMap.put("pathInfo", httpServletRequest.getPathInfo());
-		attribMap.put("queryString", httpServletRequest.getQueryString());
-		attribMap.put("remoteUser", httpServletRequest.getRemoteUser());
-		attribMap.put("requestURI", httpServletRequest.getRequestURI());
-		attribMap.put("servletPath", httpServletRequest.getServletPath());
-		attribMap.put("isRequestedSessionIdFromCookie",
-				httpServletRequest.isRequestedSessionIdFromCookie());
-		attribMap.put("isRequestedSessionIdFromURL",
-				httpServletRequest.isRequestedSessionIdFromURL());
-		return attribMap;
-	}
-
-	/**
-	 * 로케일 정보 List를 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return 로케일 정보 List
-	 */
-	public static List<Locale> getLocaleList(ServletRequest request) {
-		List<Locale> localeList = new ArrayList<Locale>();
-		@SuppressWarnings("rawtypes")
-		Enumeration localeEnum = request.getLocales();
-		while (localeEnum.hasMoreElements()) {
-			Locale localeItem = (Locale) localeEnum.nextElement();
-			localeList.add(localeItem);
-		}
-		return localeList;
-	}
-
-	/**
-	 * 기타 정보 DTO를 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return 기타 정보 DTO
-	 */
-	public static EtcDto getEtcDTO(ServletRequest request) {
-		EtcDto etcDto = new EtcDto();
-		etcDto.setCharacterEncoding(request.getCharacterEncoding());
-		etcDto.setContentLength(request.getContentLength());
-		etcDto.setContentType(request.getContentType());
-		etcDto.setLocale(request.getLocale());
-		etcDto.setProtocol(request.getProtocol());
-		etcDto.setScheme(request.getScheme());
-		return etcDto;
 	}
 }

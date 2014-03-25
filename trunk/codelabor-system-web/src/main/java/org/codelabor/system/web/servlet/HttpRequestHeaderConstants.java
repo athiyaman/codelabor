@@ -32,9 +32,9 @@ public class HttpRequestHeaderConstants {
 	public final static String AUTHORIZATION = "Authorization";
 	public final static String CACHE_CONTROL = "Cache-Control";
 	public final static String CONNECTION = "Connection";
-	public final static String COOKIE = "Cookie";
 	public final static String CONTENT_LENGTH = "Content-Length";
 	public final static String CONTENT_TYPE = "Content-Type";
+	public final static String COOKIE = "Cookie";
 	public final static String DATE = "Date";
 	public final static String EXPECT = "Expect";
 	public final static String FROM = "From";

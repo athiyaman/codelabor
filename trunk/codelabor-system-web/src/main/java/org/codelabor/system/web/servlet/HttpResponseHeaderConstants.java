@@ -28,11 +28,11 @@ public class HttpResponseHeaderConstants {
 	public final static String AGE = "Age";
 	public final static String ALLOW = "Allow";
 	public final static String CACHE_CONTROL = "Cache-Control";
+	public final static String CONTENT_DISPOSITION = "Content-Disposition";
 	public final static String CONTENT_ENCODING = "Content-Encoding";
 	public final static String CONTENT_LANGUAGE = "Content-Language";
 	public final static String CONTENT_LENGTH = "Content-Length";
 	public final static String CONTENT_LOCATION = "Content-Location";
-	public final static String CONTENT_DISPOSITION = "Content-Disposition";
 	public final static String CONTENT_MD5 = "Content-MD5";
 	public final static String CONTENT_RANGE = "Content-Range";
 	public final static String CONTENT_TYPE = "Content-Type";

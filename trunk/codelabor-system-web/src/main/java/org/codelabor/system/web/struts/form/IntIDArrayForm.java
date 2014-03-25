@@ -66,8 +66,9 @@ public class IntIDArrayForm extends ActionForm {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("IntIdArrayForm ( ").append(super.toString()).append(
-				TAB).append("id = ").append(this.id).append(TAB).append(" )");
+		retValue.append("IntIdArrayForm ( ").append(super.toString())
+				.append(TAB).append("id = ").append(this.id).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}

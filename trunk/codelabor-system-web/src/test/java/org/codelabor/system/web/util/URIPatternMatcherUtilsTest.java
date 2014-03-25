@@ -32,11 +32,11 @@ import org.slf4j.LoggerFactory;
  */
 public class URIPatternMatcherUtilsTest {
 
-	private Logger logger = LoggerFactory
-			.getLogger(URIPatternMatcherUtilsTest.class);
+	private List<String> excludePatterns = null;
 
 	private List<String> includePatterns = null;
-	private List<String> excludePatterns = null;
+	private Logger logger = LoggerFactory
+			.getLogger(URIPatternMatcherUtilsTest.class);
 
 	@Before
 	public void onSetup() throws Exception {
@@ -74,35 +74,6 @@ public class URIPatternMatcherUtilsTest {
 	}
 
 	@Test
-	public void testMatchByURI() {
-		includePatterns.add("/test.do");
-		includePatterns.add("/images/test.gif");
-		includePatterns.add("/css/test.css");
-
-		logger.debug("includePatterns{}, excludePatterns: {}", includePatterns,
-				excludePatterns);
-
-		boolean isMatched = false;
-		String testPattern = "/test.do";
-		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
-				excludePatterns, testPattern);
-		logger.debug("testPattern: {}", testPattern);
-		assertEquals(true, isMatched);
-
-		testPattern = "/images/test.gif";
-		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
-				excludePatterns, testPattern);
-		logger.debug("testPattern: {}", testPattern);
-		assertEquals(true, isMatched);
-
-		testPattern = "/css/test.css";
-		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
-				excludePatterns, testPattern);
-		logger.debug("testPattern: {}", testPattern);
-		assertEquals(true, isMatched);
-	}
-
-	@Test
 	public void testMatchByExtension() {
 		includePatterns.add("asp");
 		includePatterns.add("jsp");
@@ -126,6 +97,35 @@ public class URIPatternMatcherUtilsTest {
 
 		testPattern = "/test/test.php";
 		isMatched = URIPatternMatcherUtils.matchByExtension(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+	}
+
+	@Test
+	public void testMatchByURI() {
+		includePatterns.add("/test.do");
+		includePatterns.add("/images/test.gif");
+		includePatterns.add("/css/test.css");
+
+		logger.debug("includePatterns{}, excludePatterns: {}", includePatterns,
+				excludePatterns);
+
+		boolean isMatched = false;
+		String testPattern = "/test.do";
+		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+
+		testPattern = "/images/test.gif";
+		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
+				excludePatterns, testPattern);
+		logger.debug("testPattern: {}", testPattern);
+		assertEquals(true, isMatched);
+
+		testPattern = "/css/test.css";
+		isMatched = URIPatternMatcherUtils.matchByURI(includePatterns,
 				excludePatterns, testPattern);
 		logger.debug("testPattern: {}", testPattern);
 		assertEquals(true, isMatched);

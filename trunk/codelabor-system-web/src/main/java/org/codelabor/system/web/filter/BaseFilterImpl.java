@@ -60,16 +60,6 @@ public abstract class BaseFilterImpl implements Filter {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
-	 */
-	public void init(FilterConfig filterConfig) throws ServletException {
-		logger.debug("init()");
-		this.servletContext = filterConfig.getServletContext();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
 	 * javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
@@ -84,20 +74,15 @@ public abstract class BaseFilterImpl implements Filter {
 		this.postprocessFilterChain(request, response);
 	}
 
-	/**
-	 * 필터 체인 전처리 메소드
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @param request
-	 *            요청
-	 * @param response
-	 *            응답
-	 * @throws IOException
-	 *             IO 예외
-	 * @throws ServletException
-	 *             Servlet 예외
+	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
-	public abstract void preprocessFilterChain(ServletRequest request,
-			ServletResponse response) throws IOException, ServletException;
+	public void init(FilterConfig filterConfig) throws ServletException {
+		logger.debug("init()");
+		this.servletContext = filterConfig.getServletContext();
+	}
 
 	/**
 	 * 필터 체인 후처리 메소드
@@ -112,5 +97,20 @@ public abstract class BaseFilterImpl implements Filter {
 	 *             Servlet 예외
 	 */
 	public abstract void postprocessFilterChain(ServletRequest request,
+			ServletResponse response) throws IOException, ServletException;
+
+	/**
+	 * 필터 체인 전처리 메소드
+	 * 
+	 * @param request
+	 *            요청
+	 * @param response
+	 *            응답
+	 * @throws IOException
+	 *             IO 예외
+	 * @throws ServletException
+	 *             Servlet 예외
+	 */
+	public abstract void preprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException;
 }

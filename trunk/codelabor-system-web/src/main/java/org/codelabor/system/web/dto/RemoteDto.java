@@ -31,17 +31,26 @@ public class RemoteDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 6420788348800357085L;
 	/**
-	 * 리모트 호스트
-	 */
-	protected String remoteHost;
-	/**
 	 * 리모트 주소
 	 */
 	protected String remoteAddress;
 	/**
+	 * 리모트 호스트
+	 */
+	protected String remoteHost;
+	/**
 	 * 리모트 포트
 	 */
 	protected int remotePort;
+
+	/**
+	 * 리모트 주소를 가져온다.
+	 * 
+	 * @return 리모트 주소
+	 */
+	public String getRemoteAddress() {
+		return remoteAddress;
+	}
 
 	/**
 	 * 리모트 호스트를 가져온다.
@@ -53,22 +62,12 @@ public class RemoteDto implements Serializable {
 	}
 
 	/**
-	 * 리모트 호스트를 설정한다.
+	 * 리모트 포트를 가져온다.
 	 * 
-	 * @param remoteHost
-	 *            리모트 호스트
+	 * @return 리모트 포트
 	 */
-	public void setRemoteHost(String remoteHost) {
-		this.remoteHost = remoteHost;
-	}
-
-	/**
-	 * 리모트 주소를 가져온다.
-	 * 
-	 * @return 리모트 주소
-	 */
-	public String getRemoteAddress() {
-		return remoteAddress;
+	public int getRemotePort() {
+		return remotePort;
 	}
 
 	/**
@@ -82,12 +81,13 @@ public class RemoteDto implements Serializable {
 	}
 
 	/**
-	 * 리모트 포트를 가져온다.
+	 * 리모트 호스트를 설정한다.
 	 * 
-	 * @return 리모트 포트
+	 * @param remoteHost
+	 *            리모트 호스트
 	 */
-	public int getRemotePort() {
-		return remotePort;
+	public void setRemoteHost(String remoteHost) {
+		this.remoteHost = remoteHost;
 	}
 
 	/**
@@ -113,8 +113,8 @@ public class RemoteDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("RemoteDto ( ").append(super.toString()).append(TAB)
-				.append("remoteAddress = ").append(this.remoteAddress).append(
-						TAB).append("remoteHost = ").append(this.remoteHost)
+				.append("remoteAddress = ").append(this.remoteAddress)
+				.append(TAB).append("remoteHost = ").append(this.remoteHost)
 				.append(TAB).append("remotePort = ").append(this.remotePort)
 				.append(TAB).append(" )");
 

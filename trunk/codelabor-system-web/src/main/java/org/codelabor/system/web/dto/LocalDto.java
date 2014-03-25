@@ -31,17 +31,26 @@ public class LocalDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 6420788348800357085L;
 	/**
-	 * 로컬명
-	 */
-	protected String localName;
-	/**
 	 * 로컬 주소
 	 */
 	protected String localAddress;
 	/**
+	 * 로컬명
+	 */
+	protected String localName;
+	/**
 	 * 로컬 포트
 	 */
 	protected int localPort;
+
+	/**
+	 * 로컬 주소를 가져온다.
+	 * 
+	 * @return 로컬 주소
+	 */
+	public String getLocalAddress() {
+		return localAddress;
+	}
 
 	/**
 	 * 로컬명을 가져온다.
@@ -53,22 +62,12 @@ public class LocalDto implements Serializable {
 	}
 
 	/**
-	 * 로컬명을 설정한다.
+	 * 로컬 포트를 가져온다.
 	 * 
-	 * @param localName
-	 *            로컬명
+	 * @return 로컬 포트
 	 */
-	public void setLocalName(String localName) {
-		this.localName = localName;
-	}
-
-	/**
-	 * 로컬 주소를 가져온다.
-	 * 
-	 * @return 로컬 주소
-	 */
-	public String getLocalAddress() {
-		return localAddress;
+	public int getLocalPort() {
+		return localPort;
 	}
 
 	/**
@@ -82,12 +81,13 @@ public class LocalDto implements Serializable {
 	}
 
 	/**
-	 * 로컬 포트를 가져온다.
+	 * 로컬명을 설정한다.
 	 * 
-	 * @return 로컬 포트
+	 * @param localName
+	 *            로컬명
 	 */
-	public int getLocalPort() {
-		return localPort;
+	public void setLocalName(String localName) {
+		this.localName = localName;
 	}
 
 	/**

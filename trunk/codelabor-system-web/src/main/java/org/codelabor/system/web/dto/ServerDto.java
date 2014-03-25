@@ -49,6 +49,15 @@ public class ServerDto implements Serializable {
 	}
 
 	/**
+	 * 포트를 가져온다.
+	 * 
+	 * @return 포트
+	 */
+	public int getPort() {
+		return port;
+	}
+
+	/**
 	 * 서버명을 설정한다.
 	 * 
 	 * @param name
@@ -56,15 +65,6 @@ public class ServerDto implements Serializable {
 	 */
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	/**
-	 * 포트를 가져온다.
-	 * 
-	 * @return 포트
-	 */
-	public int getPort() {
-		return port;
 	}
 
 	/**
@@ -90,8 +90,8 @@ public class ServerDto implements Serializable {
 		StringBuilder retValue = new StringBuilder();
 
 		retValue.append("ServerDto ( ").append(super.toString()).append(TAB)
-				.append("name = ").append(this.name).append(TAB).append(
-						"port = ").append(this.port).append(TAB).append(" )");
+				.append("name = ").append(this.name).append(TAB)
+				.append("port = ").append(this.port).append(TAB).append(" )");
 
 		return retValue.toString();
 	}

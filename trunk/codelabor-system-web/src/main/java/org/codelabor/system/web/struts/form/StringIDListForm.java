@@ -50,8 +50,9 @@ public class StringIDListForm implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("StringIDListForm ( ").append(super.toString()).append(
-				TAB).append("id = ").append(this.id).append(TAB).append(" )");
+		retValue.append("StringIDListForm ( ").append(super.toString())
+				.append(TAB).append("id = ").append(this.id).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}

@@ -32,6 +32,10 @@ public class EtcDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -1907156113016222526L;
 	/**
+	 * 캐릭터 인코딩
+	 */
+	protected String characterEncoding;
+	/**
 	 * 컨텐트 길이
 	 */
 	protected int contentLength;
@@ -40,6 +44,10 @@ public class EtcDto implements Serializable {
 	 */
 	protected String contentType;
 	/**
+	 * 로케일
+	 */
+	protected Locale locale;
+	/**
 	 * 프로토콜
 	 */
 	protected String protocol;
@@ -47,14 +55,15 @@ public class EtcDto implements Serializable {
 	 * 스키마
 	 */
 	protected String scheme;
+
 	/**
-	 * 캐릭터 인코딩
+	 * 캐릭터 인코딩을 가져온다.
+	 * 
+	 * @return 캐릭터 인코딩
 	 */
-	protected String characterEncoding;
-	/**
-	 * 로케일
-	 */
-	protected Locale locale;
+	public String getCharacterEncoding() {
+		return characterEncoding;
+	}
 
 	/**
 	 * 컨텐트 길이를 가져온다.
@@ -63,16 +72,6 @@ public class EtcDto implements Serializable {
 	 */
 	public int getContentLength() {
 		return contentLength;
-	}
-
-	/**
-	 * 컨텐트 길이를 설정한다.
-	 * 
-	 * @param contentLength
-	 *            컨텐트 길이
-	 */
-	public void setContentLength(int contentLength) {
-		this.contentLength = contentLength;
 	}
 
 	/**
@@ -85,13 +84,12 @@ public class EtcDto implements Serializable {
 	}
 
 	/**
-	 * 컨텐트 타입을 설정한다.
+	 * 로케일을 가져온다.
 	 * 
-	 * @param contentType
-	 *            컨텐트 타입
+	 * @return 로케일
 	 */
-	public void setContentType(String contentType) {
-		this.contentType = contentType;
+	public Locale getLocale() {
+		return locale;
 	}
 
 	/**
@@ -104,41 +102,12 @@ public class EtcDto implements Serializable {
 	}
 
 	/**
-	 * 프로토콜을 설정한다.
-	 * 
-	 * @param protocol
-	 *            프로토콜
-	 */
-	public void setProtocol(String protocol) {
-		this.protocol = protocol;
-	}
-
-	/**
 	 * 스키마를 가져온다.
 	 * 
 	 * @return 스키마
 	 */
 	public String getScheme() {
 		return scheme;
-	}
-
-	/**
-	 * 스키마를 설정한다.
-	 * 
-	 * @param scheme
-	 *            스키마
-	 */
-	public void setScheme(String scheme) {
-		this.scheme = scheme;
-	}
-
-	/**
-	 * 캐릭터 인코딩을 가져온다.
-	 * 
-	 * @return 캐릭터 인코딩
-	 */
-	public String getCharacterEncoding() {
-		return characterEncoding;
 	}
 
 	/**
@@ -152,12 +121,23 @@ public class EtcDto implements Serializable {
 	}
 
 	/**
-	 * 로케일을 가져온다.
+	 * 컨텐트 길이를 설정한다.
 	 * 
-	 * @return 로케일
+	 * @param contentLength
+	 *            컨텐트 길이
 	 */
-	public Locale getLocale() {
-		return locale;
+	public void setContentLength(int contentLength) {
+		this.contentLength = contentLength;
+	}
+
+	/**
+	 * 컨텐트 타입을 설정한다.
+	 * 
+	 * @param contentType
+	 *            컨텐트 타입
+	 */
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
 	}
 
 	/**
@@ -168,6 +148,26 @@ public class EtcDto implements Serializable {
 	 */
 	public void setLocale(Locale locale) {
 		this.locale = locale;
+	}
+
+	/**
+	 * 프로토콜을 설정한다.
+	 * 
+	 * @param protocol
+	 *            프로토콜
+	 */
+	public void setProtocol(String protocol) {
+		this.protocol = protocol;
+	}
+
+	/**
+	 * 스키마를 설정한다.
+	 * 
+	 * @param scheme
+	 *            스키마
+	 */
+	public void setScheme(String scheme) {
+		this.scheme = scheme;
 	}
 
 	/**
@@ -184,13 +184,13 @@ public class EtcDto implements Serializable {
 
 		retValue.append("EtcDto ( ").append(super.toString()).append(TAB)
 				.append("characterEncoding = ").append(this.characterEncoding)
-				.append(TAB).append("contentLength = ").append(
-						this.contentLength).append(TAB)
+				.append(TAB).append("contentLength = ")
+				.append(this.contentLength).append(TAB)
 				.append("contentType = ").append(this.contentType).append(TAB)
-				.append("locale = ").append(this.locale).append(TAB).append(
-						"protocol = ").append(this.protocol).append(TAB)
-				.append("scheme = ").append(this.scheme).append(TAB).append(
-						" )");
+				.append("locale = ").append(this.locale).append(TAB)
+				.append("protocol = ").append(this.protocol).append(TAB)
+				.append("scheme = ").append(this.scheme).append(TAB)
+				.append(" )");
 
 		return retValue.toString();
 	}

@@ -41,8 +41,10 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 		SelectiveFilter {
-	private final Logger logger = LoggerFactory
-			.getLogger(SelectiveEncodingFilter.class);
+	/**
+	 * 리스트 항목의 구분자
+	 */
+	protected String delimeterPattern = "([ ]*[,; ][ ]*)";
 
 	/**
 	 * 예외 패턴의 리스트
@@ -53,23 +55,29 @@ public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 	 */
 	protected List<String> includePatterns = null;
 
-	/**
-	 * 리스트 항목의 구분자
-	 */
-	protected String delimeterPattern = "([ ]*[,; ][ ]*)";
+	private final Logger logger = LoggerFactory
+			.getLogger(SelectiveEncodingFilter.class);
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.codelabor.system.filters.BaseFilterImpl#init(javax.servlet.FilterConfig
-	 * )
+	 * @seeorg.codelabor.system.filters.BaseFilterImpl#doFilter(javax.servlet.
+	 * ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		super.init(filterConfig);
-		includePatterns = this.getIncludePatterns(filterConfig);
-		excludePatterns = this.getExcludePatterns(filterConfig);
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain filterChain) throws IOException, ServletException {
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		String requestURI = httpServletRequest.getRequestURI();
+		logger.debug("requestURI: {}", requestURI);
+
+		if (this.isFilterRequired(requestURI)) {
+			this.preprocessFilterChain(request, response);
+		}
+		filterChain.doFilter(request, response);
+		if (this.isFilterRequired(requestURI)) {
+			this.postprocessFilterChain(request, response);
+		}
 	}
 
 	/*
@@ -119,23 +127,15 @@ public abstract class SelectiveEncodingFilter extends EncodingFilter implements
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @seeorg.codelabor.system.filters.BaseFilterImpl#doFilter(javax.servlet.
-	 * ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 * @see
+	 * org.codelabor.system.filters.BaseFilterImpl#init(javax.servlet.FilterConfig
+	 * )
 	 */
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain filterChain) throws IOException, ServletException {
-		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		String requestURI = httpServletRequest.getRequestURI();
-		logger.debug("requestURI: {}", requestURI);
-
-		if (this.isFilterRequired(requestURI)) {
-			this.preprocessFilterChain(request, response);
-		}
-		filterChain.doFilter(request, response);
-		if (this.isFilterRequired(requestURI)) {
-			this.postprocessFilterChain(request, response);
-		}
+	public void init(FilterConfig filterConfig) throws ServletException {
+		super.init(filterConfig);
+		includePatterns = this.getIncludePatterns(filterConfig);
+		excludePatterns = this.getExcludePatterns(filterConfig);
 	}
 
 }

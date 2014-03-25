@@ -17,18 +17,6 @@ import org.springframework.web.servlet.mvc.Controller;
  */
 public class ForwardController implements Controller {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.springframework.web.servlet.mvc.Controller#handleRequest(javax.servlet
-	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	public ModelAndView handleRequest(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		return new ModelAndView(getSuccessView());
-	}
-
 	/**
 	 * Success 뷰
 	 */
@@ -41,6 +29,18 @@ public class ForwardController implements Controller {
 	 */
 	public String getSuccessView() {
 		return successView;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.springframework.web.servlet.mvc.Controller#handleRequest(javax.servlet
+	 * .http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	public ModelAndView handleRequest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		return new ModelAndView(getSuccessView());
 	}
 
 	/**

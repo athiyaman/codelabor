@@ -35,13 +35,13 @@ import org.slf4j.LoggerFactory;
  */
 public class EncodingFilter extends BaseFilterImpl {
 	/**
-	 * 로거
-	 */
-	private final Logger logger = LoggerFactory.getLogger(EncodingFilter.class);
-	/**
 	 * 인코딩</br>기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
+	/**
+	 * 로거
+	 */
+	private final Logger logger = LoggerFactory.getLogger(EncodingFilter.class);
 
 	/*
 	 * (non-Javadoc)

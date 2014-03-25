@@ -34,9 +34,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * javax.servlet.http.HttpSession의 내용을 JSON 형태로 응답하는 서블릿
- *
+ * 
  * @author Shin Sang-jae
- *
+ * 
  */
 public class JsonHttpSessionServlet extends HttpServlet {
 
@@ -44,12 +44,12 @@ public class JsonHttpSessionServlet extends HttpServlet {
 	 * 시리얼 버전 UID
 	 */
 	private static final long serialVersionUID = 5498874994938492455L;
-	private final Logger logger = LoggerFactory
-			.getLogger(JsonHttpSessionServlet.class);
 	/**
 	 * 인코딩</br>기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
+	private final Logger logger = LoggerFactory
+			.getLogger(JsonHttpSessionServlet.class);
 
 	@Override
 	protected void doGet(HttpServletRequest request,

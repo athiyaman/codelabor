@@ -35,6 +35,15 @@ public class BaseServlet implements Servlet {
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see javax.servlet.Servlet#getServletConfig()
+	 */
+	public ServletConfig getServletConfig() {
+		return this.servletConfig;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see javax.servlet.Servlet#getServletInfo()
 	 */
 	public String getServletInfo() {
@@ -59,15 +68,6 @@ public class BaseServlet implements Servlet {
 	 */
 	public void service(ServletRequest req, ServletResponse res)
 			throws ServletException, IOException {
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see javax.servlet.Servlet#getServletConfig()
-	 */
-	public ServletConfig getServletConfig() {
-		return this.servletConfig;
 	}
 
 }

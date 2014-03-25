@@ -89,50 +89,6 @@ public class URIPatternMatcherUtils {
 	}
 
 	/**
-	 * URI가 패턴에 매칭되는지 확인한다.
-	 * 
-	 * @param includePatterns
-	 *            포함할 패턴
-	 * @param excludePatterns
-	 *            제외할 패턴
-	 * @param requestURI
-	 *            요청받은 URI
-	 * @return 매칭 여부
-	 */
-	static public boolean matchByURI(List<String> includePatterns,
-			List<String> excludePatterns, String requestURI) {
-		boolean isMatched = false;
-
-		if (excludePatterns != null) {
-			if (excludePatterns.contains(requestURI)) {
-				// bypass
-			} else {
-				if (includePatterns != null) {
-					if (includePatterns.contains(requestURI)) {
-						isMatched = true;
-					} else {
-						isMatched = false;
-					}
-				} else {
-					isMatched = true;
-				}
-			}
-		} else {
-			if (includePatterns != null) {
-				if (includePatterns.contains(requestURI)) {
-					isMatched = true;
-				} else {
-					isMatched = false;
-				}
-			} else {
-				isMatched = true;
-			}
-		}
-		logger.debug("isMatched: {}", isMatched);
-		return isMatched;
-	}
-
-	/**
 	 * 확장자 패턴에 매칭되는지 확인한다.
 	 * 
 	 * @param includePatterns
@@ -171,6 +127,50 @@ public class URIPatternMatcherUtils {
 		} else {
 			if (includePatterns != null) {
 				if (includePatterns.contains(extension)) {
+					isMatched = true;
+				} else {
+					isMatched = false;
+				}
+			} else {
+				isMatched = true;
+			}
+		}
+		logger.debug("isMatched: {}", isMatched);
+		return isMatched;
+	}
+
+	/**
+	 * URI가 패턴에 매칭되는지 확인한다.
+	 * 
+	 * @param includePatterns
+	 *            포함할 패턴
+	 * @param excludePatterns
+	 *            제외할 패턴
+	 * @param requestURI
+	 *            요청받은 URI
+	 * @return 매칭 여부
+	 */
+	static public boolean matchByURI(List<String> includePatterns,
+			List<String> excludePatterns, String requestURI) {
+		boolean isMatched = false;
+
+		if (excludePatterns != null) {
+			if (excludePatterns.contains(requestURI)) {
+				// bypass
+			} else {
+				if (includePatterns != null) {
+					if (includePatterns.contains(requestURI)) {
+						isMatched = true;
+					} else {
+						isMatched = false;
+					}
+				} else {
+					isMatched = true;
+				}
+			}
+		} else {
+			if (includePatterns != null) {
+				if (includePatterns.contains(requestURI)) {
 					isMatched = true;
 				} else {
 					isMatched = false;
