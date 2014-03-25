@@ -29,10 +29,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.codelabor.system.web.dto.EtcDTO;
-import org.codelabor.system.web.dto.LocalDTO;
-import org.codelabor.system.web.dto.RemoteDTO;
-import org.codelabor.system.web.dto.ServerDTO;
+import org.codelabor.system.web.dto.EtcDto;
+import org.codelabor.system.web.dto.LocalDto;
+import org.codelabor.system.web.dto.RemoteDto;
+import org.codelabor.system.web.dto.ServerDto;
 
 /**
  * 요청 유틸
@@ -50,12 +50,12 @@ public class RequestUtils {
 	 * @throws Exception
 	 *             예외
 	 */
-	public static ServerDTO getServerDTO(ServletRequest request)
+	public static ServerDto getServerDTO(ServletRequest request)
 			throws Exception {
-		ServerDTO serverDTO = new ServerDTO();
-		serverDTO.setName(request.getServerName());
-		serverDTO.setPort(request.getServerPort());
-		return serverDTO;
+		ServerDto serverDto = new ServerDto();
+		serverDto.setName(request.getServerName());
+		serverDto.setPort(request.getServerPort());
+		return serverDto;
 	}
 
 	/**
@@ -65,12 +65,12 @@ public class RequestUtils {
 	 *            요청
 	 * @return 리모트 정보 DTO
 	 */
-	public static RemoteDTO getRemoteDTO(ServletRequest request) {
-		RemoteDTO remoteDTO = new RemoteDTO();
-		remoteDTO.setRemoteHost(request.getRemoteHost());
-		remoteDTO.setRemoteAddress(request.getRemoteAddr());
-		remoteDTO.setRemotePort(request.getRemotePort());
-		return remoteDTO;
+	public static RemoteDto getRemoteDTO(ServletRequest request) {
+		RemoteDto remoteDto = new RemoteDto();
+		remoteDto.setRemoteHost(request.getRemoteHost());
+		remoteDto.setRemoteAddress(request.getRemoteAddr());
+		remoteDto.setRemotePort(request.getRemotePort());
+		return remoteDto;
 	}
 
 	/**
@@ -80,12 +80,12 @@ public class RequestUtils {
 	 *            요청
 	 * @return 로컬 정보 DTO
 	 */
-	public static LocalDTO getLocalDTO(ServletRequest request) {
-		LocalDTO localDTO = new LocalDTO();
-		localDTO.setLocalName(request.getLocalName());
-		localDTO.setLocalAddress(request.getLocalAddr());
-		localDTO.setLocalPort(request.getLocalPort());
-		return localDTO;
+	public static LocalDto getLocalDTO(ServletRequest request) {
+		LocalDto localDto = new LocalDto();
+		localDto.setLocalName(request.getLocalName());
+		localDto.setLocalAddress(request.getLocalAddr());
+		localDto.setLocalPort(request.getLocalPort());
+		return localDto;
 	}
 
 	/**
@@ -205,14 +205,14 @@ public class RequestUtils {
 	 *            요청
 	 * @return 기타 정보 DTO
 	 */
-	public static EtcDTO getEtcDTO(ServletRequest request) {
-		EtcDTO etcDTO = new EtcDTO();
-		etcDTO.setCharacterEncoding(request.getCharacterEncoding());
-		etcDTO.setContentLength(request.getContentLength());
-		etcDTO.setContentType(request.getContentType());
-		etcDTO.setLocale(request.getLocale());
-		etcDTO.setProtocol(request.getProtocol());
-		etcDTO.setScheme(request.getScheme());
-		return etcDTO;
+	public static EtcDto getEtcDTO(ServletRequest request) {
+		EtcDto etcDto = new EtcDto();
+		etcDto.setCharacterEncoding(request.getCharacterEncoding());
+		etcDto.setContentLength(request.getContentLength());
+		etcDto.setContentType(request.getContentType());
+		etcDto.setLocale(request.getLocale());
+		etcDto.setProtocol(request.getProtocol());
+		etcDto.setScheme(request.getScheme());
+		return etcDto;
 	}
 }

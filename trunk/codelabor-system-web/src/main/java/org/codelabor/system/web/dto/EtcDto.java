@@ -26,7 +26,7 @@ import java.util.Locale;
  * @author Shin Sang-jae
  * 
  */
-public class EtcDTO implements Serializable {
+public class EtcDto implements Serializable {
 	/**
 	 * 시리얼 버전 UID
 	 */
@@ -182,7 +182,7 @@ public class EtcDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("EtcDTO ( ").append(super.toString()).append(TAB)
+		retValue.append("EtcDto ( ").append(super.toString()).append(TAB)
 				.append("characterEncoding = ").append(this.characterEncoding)
 				.append(TAB).append("contentLength = ").append(
 						this.contentLength).append(TAB)

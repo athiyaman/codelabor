@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @author Shin Sang-jae
  * 
  */
-public class ServerDTO implements Serializable {
+public class ServerDto implements Serializable {
 	/**
 	 * 시리얼 버전 UID
 	 */
@@ -89,7 +89,7 @@ public class ServerDTO implements Serializable {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("ServerDTO ( ").append(super.toString()).append(TAB)
+		retValue.append("ServerDto ( ").append(super.toString()).append(TAB)
 				.append("name = ").append(this.name).append(TAB).append(
 						"port = ").append(this.port).append(TAB).append(" )");
 
