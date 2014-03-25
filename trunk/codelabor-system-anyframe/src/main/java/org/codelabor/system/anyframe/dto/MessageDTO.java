@@ -34,9 +34,9 @@ public class MessageDTO implements Serializable {
 	private static final long serialVersionUID = -7653402956922788460L;
 
 	/**
-	 * 메시지 유형
+	 * 메시지 코드
 	 */
-	private MessageType messageType;
+	private String messageCode;
 
 	/**
 	 * 메시지 키
@@ -44,14 +44,14 @@ public class MessageDTO implements Serializable {
 	private String messageKey;
 
 	/**
-	 * 메시지 코드
+	 * 메시지 유형
 	 */
-	private String messageCode;
+	private MessageType messageType;
 
 	/**
-	 * 사용자 메시지
+	 * 발생 원인
 	 */
-	private String userMessage;
+	private String reason;
 
 	/**
 	 * 조치 방법
@@ -59,9 +59,9 @@ public class MessageDTO implements Serializable {
 	private String solution;
 
 	/**
-	 * 발생 원인
+	 * 사용자 메시지
 	 */
-	private String reason;
+	private String userMessage;
 
 	/**
 	 * 생성자
@@ -71,31 +71,57 @@ public class MessageDTO implements Serializable {
 	}
 
 	/**
-	 * 사용자 메시지를 가져온다.
-	 * 
-	 * @return 사용자 메시지
-	 */
-	public String getUserMessage() {
-		return userMessage;
-	}
-
-	/**
-	 * 사용자 메시지를 설정한다.
-	 * 
-	 * @param userMessage
-	 *            사용자 메시지
-	 */
-	public void setUserMessage(String userMessage) {
-		this.userMessage = userMessage;
-	}
-
-	/**
 	 * 메시지 코드를 가져온다.
 	 * 
 	 * @return 메시지 코드
 	 */
 	public String getMessageCode() {
 		return messageCode;
+	}
+
+	/**
+	 * 메시지 키를 가져온다.
+	 * 
+	 * @return 메시지 키
+	 */
+	public String getMessageKey() {
+		return messageKey;
+	}
+
+	/**
+	 * 메시지 유형을 가져온다.
+	 * 
+	 * @return 메시지 유형
+	 */
+	public MessageType getMessageType() {
+		return messageType;
+	}
+
+	/**
+	 * 발생 원인을 가져온다.
+	 * 
+	 * @return 발생 원인
+	 */
+	public String getReason() {
+		return reason;
+	}
+
+	/**
+	 * 해결 방법을 가져온다.
+	 * 
+	 * @return 해결 방법
+	 */
+	public String getSolution() {
+		return solution;
+	}
+
+	/**
+	 * 사용자 메시지를 가져온다.
+	 * 
+	 * @return 사용자 메시지
+	 */
+	public String getUserMessage() {
+		return userMessage;
 	}
 
 	/**
@@ -109,12 +135,13 @@ public class MessageDTO implements Serializable {
 	}
 
 	/**
-	 * 메시지 유형을 가져온다.
+	 * 메시지 키를 설정한다.
 	 * 
-	 * @return 메시지 유형
+	 * @param messageKey
+	 *            메시지 키
 	 */
-	public MessageType getMessageType() {
-		return messageType;
+	public void setMessageKey(String messageKey) {
+		this.messageKey = messageKey;
 	}
 
 	/**
@@ -128,15 +155,6 @@ public class MessageDTO implements Serializable {
 	}
 
 	/**
-	 * 발생 원인을 가져온다.
-	 * 
-	 * @return 발생 원인
-	 */
-	public String getReason() {
-		return reason;
-	}
-
-	/**
 	 * 발생 원인을 설정한다.
 	 * 
 	 * @param reason
@@ -144,15 +162,6 @@ public class MessageDTO implements Serializable {
 	 */
 	public void setReason(String reason) {
 		this.reason = reason;
-	}
-
-	/**
-	 * 해결 방법을 가져온다.
-	 * 
-	 * @return 해결 방법
-	 */
-	public String getSolution() {
-		return solution;
 	}
 
 	/**
@@ -166,22 +175,13 @@ public class MessageDTO implements Serializable {
 	}
 
 	/**
-	 * 메시지 키를 가져온다.
+	 * 사용자 메시지를 설정한다.
 	 * 
-	 * @return 메시지 키
+	 * @param userMessage
+	 *            사용자 메시지
 	 */
-	public String getMessageKey() {
-		return messageKey;
-	}
-
-	/**
-	 * 메시지 키를 설정한다.
-	 * 
-	 * @param messageKey
-	 *            메시지 키
-	 */
-	public void setMessageKey(String messageKey) {
-		this.messageKey = messageKey;
+	public void setUserMessage(String userMessage) {
+		this.userMessage = userMessage;
 	}
 
 	/**

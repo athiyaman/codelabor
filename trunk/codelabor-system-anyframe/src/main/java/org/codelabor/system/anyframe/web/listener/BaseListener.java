@@ -37,17 +37,17 @@ public class BaseListener {
 		return loggerName;
 	}
 
-	public void setLoggerName(String loggerName) {
-		this.loggerName = loggerName;
-		this.logger = LoggerFactory.getLogger(loggerName);
-	}
-
 	public MessageSource getMessageSource() {
 		return messageSource;
 	}
 
 	public PropertiesService getPropertiesService() {
 		return propertiesService;
+	}
+
+	public void setLoggerName(String loggerName) {
+		this.loggerName = loggerName;
+		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
 	public void setMessageSource(MessageSource messageSource) {

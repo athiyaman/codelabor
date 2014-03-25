@@ -17,7 +17,6 @@
 
 package org.codelabor.system.anyframe.exception;
 
-import org.codelabor.system.exception.Rollbackable;
 import org.springframework.context.MessageSource;
 
 /**
@@ -39,6 +38,54 @@ public class RollbackCommonException extends CommonException implements
 	 */
 	public RollbackCommonException() {
 		super();
+
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 */
+	public RollbackCommonException(MessageSource messageSource,
+			String messageKey) {
+		super(messageSource, messageKey);
+
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 */
+	public RollbackCommonException(MessageSource messageSource,
+			String messageKey, Object[] messageParameters) {
+		super(messageSource, messageKey, messageParameters);
+
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 * @param defaultMessage
+	 *            기본 메시지
+	 */
+	public RollbackCommonException(MessageSource messageSource,
+			String messageKey, Object[] messageParameters, String defaultMessage) {
+		super(messageSource, messageKey, messageParameters, defaultMessage);
 
 	}
 
@@ -73,24 +120,6 @@ public class RollbackCommonException extends CommonException implements
 	 *            메시지 키
 	 * @param messageParameters
 	 *            메시지 파라미터
-	 * @param defaultMessage
-	 *            기본 메시지
-	 */
-	public RollbackCommonException(MessageSource messageSource,
-			String messageKey, Object[] messageParameters, String defaultMessage) {
-		super(messageSource, messageKey, messageParameters, defaultMessage);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
 	 * @param wrappedException
 	 *            예외
 	 */
@@ -108,12 +137,12 @@ public class RollbackCommonException extends CommonException implements
 	 *            메시지 소스
 	 * @param messageKey
 	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
+	 * @param defaultMessage
+	 *            기본 메시지
 	 */
 	public RollbackCommonException(MessageSource messageSource,
-			String messageKey, Object[] messageParameters) {
-		super(messageSource, messageKey, messageParameters);
+			String messageKey, String defaultMessage) {
+		super(messageSource, messageKey, defaultMessage);
 
 	}
 
@@ -142,22 +171,6 @@ public class RollbackCommonException extends CommonException implements
 	 *            메시지 소스
 	 * @param messageKey
 	 *            메시지 키
-	 * @param defaultMessage
-	 *            기본 메시지
-	 */
-	public RollbackCommonException(MessageSource messageSource,
-			String messageKey, String defaultMessage) {
-		super(messageSource, messageKey, defaultMessage);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
 	 * @param wrappedException
 	 *            예외
 	 */
@@ -170,14 +183,24 @@ public class RollbackCommonException extends CommonException implements
 	/**
 	 * 생성자
 	 * 
-	 * @param messageSource
-	 *            메시지 소스
 	 * @param messageKey
 	 *            메시지 키
 	 */
-	public RollbackCommonException(MessageSource messageSource,
-			String messageKey) {
-		super(messageSource, messageKey);
+	public RollbackCommonException(String messageKey) {
+		super(messageKey);
+
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 */
+	public RollbackCommonException(String messageKey, Object[] messageParameters) {
+		super(messageKey, messageParameters);
 
 	}
 
@@ -202,35 +225,11 @@ public class RollbackCommonException extends CommonException implements
 	 * 
 	 * @param messageKey
 	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 */
-	public RollbackCommonException(String messageKey, Object[] messageParameters) {
-		super(messageKey, messageParameters);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageKey
-	 *            메시지 키
 	 * @param wrappedException
 	 *            예외
 	 */
 	public RollbackCommonException(String messageKey, Throwable wrappedException) {
 		super(messageKey, wrappedException);
-
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageKey
-	 *            메시지 키
-	 */
-	public RollbackCommonException(String messageKey) {
-		super(messageKey);
 
 	}
 

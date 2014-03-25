@@ -21,7 +21,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import org.anyframe.idgen.IdGenStrategy;
 import org.anyframe.util.StringUtil;
 
 /**
@@ -33,16 +32,16 @@ import org.anyframe.util.StringUtil;
 public class PrefixDateNumberStrategy implements IdGenStrategy {
 
 	/**
-	 * 접두어
+	 * 자리 수
 	 */
-	protected String prefix;
+	protected int cipers;
+
+	protected String datePattern;
 
 	/**
 	 * 구분자
 	 */
 	protected String delimiter;
-
-	protected String datePattern;
 
 	/**
 	 * 채우기 문자
@@ -50,9 +49,31 @@ public class PrefixDateNumberStrategy implements IdGenStrategy {
 	protected char fillChar;
 
 	/**
-	 * 자리 수
+	 * 접두어
 	 */
-	protected int cipers;
+	protected String prefix;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see anyframe.core.idgen.IdGenerationStrategy#makeId(java.lang.String)
+	 */
+	public String makeId(String originalId) {
+		DateFormat dateFormat = new SimpleDateFormat(datePattern,
+				Locale.getDefault());
+		String dateFormatString = dateFormat.format(System.currentTimeMillis());
+		StringBuilder sb = new StringBuilder();
+		sb.append(prefix);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
+		sb.append(dateFormatString);
+		if (delimiter != null) {
+			sb.append(delimiter);
+		}
+		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
+		return sb.toString();
+	}
 
 	/**
 	 * 자리 수를 설정한다.
@@ -75,6 +96,16 @@ public class PrefixDateNumberStrategy implements IdGenStrategy {
 	}
 
 	/**
+	 * 구분자를 설정한다.
+	 * 
+	 * @param delimiter
+	 *            구분자
+	 */
+	public void setDelimiter(String delimiter) {
+		this.delimiter = delimiter;
+	}
+
+	/**
 	 * 채우기 글자를 설정한다.
 	 * 
 	 * @param fillChar
@@ -92,37 +123,6 @@ public class PrefixDateNumberStrategy implements IdGenStrategy {
 	 */
 	public void setPrefix(String prefix) {
 		this.prefix = prefix;
-	}
-
-	/**
-	 * 구분자를 설정한다.
-	 * 
-	 * @param delimiter
-	 *            구분자
-	 */
-	public void setDelimiter(String delimiter) {
-		this.delimiter = delimiter;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see anyframe.core.idgen.IdGenerationStrategy#makeId(java.lang.String)
-	 */
-	public String makeId(String originalId) {
-		DateFormat dateFormat = new SimpleDateFormat(datePattern, Locale.getDefault());
-		String dateFormatString = dateFormat.format(System.currentTimeMillis());
-		StringBuilder sb = new StringBuilder();
-		sb.append(prefix);
-		if (delimiter != null) {
-			sb.append(delimiter);
-		}
-		sb.append(dateFormatString);
-		if (delimiter != null) {
-			sb.append(delimiter);
-		}
-		sb.append(StringUtil.fillString(originalId, fillChar, cipers));
-		return sb.toString();
 	}
 
 }

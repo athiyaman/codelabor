@@ -38,13 +38,13 @@ public class BaseActionSupport extends ActionSupport {
 	 */
 	protected Logger logger = LoggerFactory.getLogger(BaseActionSupport.class);
 	/**
-	 * 프로퍼티 서비스
-	 */
-	protected PropertiesService propertiesService;
-	/**
 	 * 메시지 소스
 	 */
 	protected MessageSource messageSource;
+	/**
+	 * 프로퍼티 서비스
+	 */
+	protected PropertiesService propertiesService;
 	/**
 	 * 웹 어플리케이션 컨텍스트
 	 */

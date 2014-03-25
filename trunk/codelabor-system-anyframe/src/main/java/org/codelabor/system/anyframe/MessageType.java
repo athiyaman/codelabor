@@ -24,5 +24,5 @@ package org.codelabor.system.anyframe;
  * 
  */
 public enum MessageType {
-	DEBUG, INFO, WARN, ERROR, FATAL
+	DEBUG, ERROR, FATAL, INFO, WARN
 }

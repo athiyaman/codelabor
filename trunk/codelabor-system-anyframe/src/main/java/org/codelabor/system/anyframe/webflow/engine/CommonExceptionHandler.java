@@ -3,11 +3,6 @@ package org.codelabor.system.anyframe.webflow.engine;
 import java.io.IOException;
 
 import org.codelabor.system.anyframe.exception.CommonException;
-import org.springframework.binding.message.MessageBuilder;
-import org.springframework.webflow.engine.FlowExecutionExceptionHandler;
-import org.springframework.webflow.engine.RequestControlContext;
-import org.springframework.webflow.engine.ViewState;
-import org.springframework.webflow.execution.FlowExecutionException;
 
 public class CommonExceptionHandler implements FlowExecutionExceptionHandler {
 
@@ -17,6 +12,17 @@ public class CommonExceptionHandler implements FlowExecutionExceptionHandler {
 		} else {
 			return false;
 		}
+	}
+
+	private CommonException findBusinessException(FlowExecutionException ex) {
+		Throwable cause = ex.getCause();
+		while (cause != null) {
+			if (cause instanceof CommonException) {
+				return (CommonException) cause;
+			}
+			cause = cause.getCause();
+		}
+		return null;
 	}
 
 	public void handle(FlowExecutionException exception,
@@ -41,17 +47,6 @@ public class CommonExceptionHandler implements FlowExecutionExceptionHandler {
 				// Properly handle rendering errors here
 			}
 		}
-	}
-
-	private CommonException findBusinessException(FlowExecutionException ex) {
-		Throwable cause = ex.getCause();
-		while (cause != null) {
-			if (cause instanceof CommonException) {
-				return (CommonException) cause;
-			}
-			cause = cause.getCause();
-		}
-		return null;
 	}
 
 }

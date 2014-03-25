@@ -37,9 +37,9 @@ public class BaseAction extends Action {
 	protected Logger logger = LoggerFactory.getLogger(BaseAction.class);
 
 	/**
-	 * 프로퍼티 서비스
+	 * 로거명
 	 */
-	protected PropertiesService propertiesService;
+	protected String loggerName = this.getClass().getName();
 
 	/**
 	 * 메시지 소스
@@ -47,9 +47,27 @@ public class BaseAction extends Action {
 	protected MessageSource messageSource;
 
 	/**
-	 * 로거명
+	 * 프로퍼티 서비스
 	 */
-	protected String loggerName = this.getClass().getName();
+	protected PropertiesService propertiesService;
+
+	/**
+	 * 로거명을 가져온다.
+	 * 
+	 * @return 로거명
+	 */
+	public String getLoggerName() {
+		return loggerName;
+	}
+
+	/**
+	 * 메시지 소스를 가져온다.
+	 * 
+	 * @return 메시지 소스
+	 */
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
 
 	/**
 	 * 프로퍼티 서비스를 가져온다.
@@ -61,22 +79,14 @@ public class BaseAction extends Action {
 	}
 
 	/**
-	 * 프로퍼티 서비스를 설정한다.
+	 * 로거명을 설정한다.
 	 * 
-	 * @param propertiesService
-	 *            프로퍼티 서비스
+	 * @param loggerName
+	 *            로거명
 	 */
-	public void setPropertiesService(PropertiesService propertiesService) {
-		this.propertiesService = propertiesService;
-	}
-
-	/**
-	 * 메시지 소스를 가져온다.
-	 * 
-	 * @return 메시지 소스
-	 */
-	public MessageSource getMessageSource() {
-		return messageSource;
+	public void setLoggerName(String loggerName) {
+		this.loggerName = loggerName;
+		this.logger = LoggerFactory.getLogger(loggerName);
 	}
 
 	/**
@@ -90,22 +100,12 @@ public class BaseAction extends Action {
 	}
 
 	/**
-	 * 로거명을 가져온다.
+	 * 프로퍼티 서비스를 설정한다.
 	 * 
-	 * @return 로거명
+	 * @param propertiesService
+	 *            프로퍼티 서비스
 	 */
-	public String getLoggerName() {
-		return loggerName;
-	}
-
-	/**
-	 * 로거명을 설정한다.
-	 * 
-	 * @param loggerName
-	 *            로거명
-	 */
-	public void setLoggerName(String loggerName) {
-		this.loggerName = loggerName;
-		this.logger = LoggerFactory.getLogger(loggerName);
+	public void setPropertiesService(PropertiesService propertiesService) {
+		this.propertiesService = propertiesService;
 	}
 }

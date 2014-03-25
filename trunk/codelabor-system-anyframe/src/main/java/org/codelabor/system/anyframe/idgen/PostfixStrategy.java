@@ -17,7 +17,6 @@
 
 package org.codelabor.system.anyframe.idgen;
 
-import org.anyframe.idgen.IdGenStrategy;
 
 /**
  * 접미어 정책 클래스
@@ -28,13 +27,13 @@ import org.anyframe.idgen.IdGenStrategy;
 public class PostfixStrategy implements IdGenStrategy {
 
 	/**
-	 * 접미어
-	 */
-	protected String postfix;
-	/**
 	 * 구분자
 	 */
 	protected String delimiter;
+	/**
+	 * 접미어
+	 */
+	protected String postfix;
 
 	/**
 	 * 접미어를 가져온다.
@@ -43,26 +42,6 @@ public class PostfixStrategy implements IdGenStrategy {
 	 */
 	public String getPostfix() {
 		return postfix;
-	}
-
-	/**
-	 * 접미어를 설정한다.
-	 * 
-	 * @param prefix
-	 *            접미어
-	 */
-	public void setPostfix(String prefix) {
-		this.postfix = prefix;
-	}
-
-	/**
-	 * 구분자를 설정한다.
-	 * 
-	 * @param delimiter
-	 *            구분자
-	 */
-	public void setDelimiter(String delimiter) {
-		this.delimiter = delimiter;
 	}
 
 	/*
@@ -78,5 +57,25 @@ public class PostfixStrategy implements IdGenStrategy {
 		}
 		sb.append(postfix);
 		return sb.toString();
+	}
+
+	/**
+	 * 구분자를 설정한다.
+	 * 
+	 * @param delimiter
+	 *            구분자
+	 */
+	public void setDelimiter(String delimiter) {
+		this.delimiter = delimiter;
+	}
+
+	/**
+	 * 접미어를 설정한다.
+	 * 
+	 * @param prefix
+	 *            접미어
+	 */
+	public void setPostfix(String prefix) {
+		this.postfix = prefix;
 	}
 }

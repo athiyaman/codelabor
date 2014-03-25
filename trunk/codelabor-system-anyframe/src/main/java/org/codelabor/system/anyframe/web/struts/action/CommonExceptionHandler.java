@@ -29,7 +29,6 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.config.ExceptionConfig;
 import org.apache.struts.util.ModuleException;
 import org.codelabor.system.anyframe.exception.CommonException;
-import org.codelabor.system.exception.ExceptionConstants;
 
 /**
  * 공통 에외 핸들러 클래스

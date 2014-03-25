@@ -17,7 +17,6 @@
 
 package org.codelabor.system.anyframe.idgen;
 
-import org.anyframe.idgen.IdGenStrategy;
 
 /**
  * 접두어 정책 클래스
@@ -28,13 +27,22 @@ import org.anyframe.idgen.IdGenStrategy;
 public class PrefixStrategy implements IdGenStrategy {
 
 	/**
-	 * 접두어
-	 */
-	protected String prefix;
-	/**
 	 * 구분자
 	 */
 	protected String delimiter;
+	/**
+	 * 접두어
+	 */
+	protected String prefix;
+
+	/**
+	 * 접두어를 가져온다.
+	 * 
+	 * @return 접두어
+	 */
+	public String getPrefix() {
+		return prefix;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -52,12 +60,13 @@ public class PrefixStrategy implements IdGenStrategy {
 	}
 
 	/**
-	 * 접두어를 가져온다.
+	 * 구분자를 설정한다.
 	 * 
-	 * @return 접두어
+	 * @param delimiter
+	 *            구분자
 	 */
-	public String getPrefix() {
-		return prefix;
+	public void setDelimiter(String delimiter) {
+		this.delimiter = delimiter;
 	}
 
 	/**
@@ -68,16 +77,6 @@ public class PrefixStrategy implements IdGenStrategy {
 	 */
 	public void setPrefix(String prefix) {
 		this.prefix = prefix;
-	}
-
-	/**
-	 * 구분자를 설정한다.
-	 * 
-	 * @param delimiter
-	 *            구분자
-	 */
-	public void setDelimiter(String delimiter) {
-		this.delimiter = delimiter;
 	}
 
 }

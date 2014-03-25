@@ -31,10 +31,6 @@ import org.springframework.context.MessageSource;
 public class BaseManagerImpl {
 
 	/**
-	 * 메시지 소스
-	 */
-	protected MessageSource messageSource;
-	/**
 	 * 로거
 	 */
 	protected Logger logger = LoggerFactory.getLogger(BaseManagerImpl.class);
@@ -42,6 +38,10 @@ public class BaseManagerImpl {
 	 * 로거명
 	 */
 	protected String loggerName = this.getClass().getName();
+	/**
+	 * 메시지 소스
+	 */
+	protected MessageSource messageSource;
 	/**
 	 * 프로퍼티 서비스
 	 */
@@ -64,6 +64,24 @@ public class BaseManagerImpl {
 	}
 
 	/**
+	 * 메시지 소스를 가져온다.
+	 * 
+	 * @return 메시지 소스
+	 */
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
+
+	/**
+	 * 프로퍼티 서비스를 가져온다.
+	 * 
+	 * @return 프로퍼티 서비스
+	 */
+	public PropertiesService getPropertiesService() {
+		return propertiesService;
+	}
+
+	/**
 	 * 로거명을 설정한다.
 	 * 
 	 * @param loggerName
@@ -75,15 +93,6 @@ public class BaseManagerImpl {
 	}
 
 	/**
-	 * 메시지 소스를 가져온다.
-	 * 
-	 * @return 메시지 소스
-	 */
-	public MessageSource getMessageSource() {
-		return messageSource;
-	}
-
-	/**
 	 * 메시지 소스를 설정한다.
 	 * 
 	 * @param messageSource
@@ -91,15 +100,6 @@ public class BaseManagerImpl {
 	 */
 	public void setMessageSource(MessageSource messageSource) {
 		this.messageSource = messageSource;
-	}
-
-	/**
-	 * 프로퍼티 서비스를 가져온다.
-	 * 
-	 * @return 프로퍼티 서비스
-	 */
-	public PropertiesService getPropertiesService() {
-		return propertiesService;
 	}
 
 	/**

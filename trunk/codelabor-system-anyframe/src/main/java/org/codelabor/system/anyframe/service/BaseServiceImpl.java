@@ -17,8 +17,6 @@
 
 package org.codelabor.system.anyframe.service;
 
-import org.anyframe.idgen.IdGenService;
-import org.anyframe.query.QueryService;
 import org.anyframe.util.properties.PropertiesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,14 +30,18 @@ import org.springframework.context.MessageSource;
  */
 public class BaseServiceImpl {
 	/**
+	 * 아이디 제네레이션 서비스
+	 */
+	protected IdGenService idGenerationService;
+	/**
 	 * 로거
 	 */
 	protected Logger logger = LoggerFactory.getLogger(BaseServiceImpl.class);
+
 	/**
 	 * 로거명
 	 */
 	protected String loggerName = this.getClass().getName();
-
 	/**
 	 * 메시지 소스
 	 */
@@ -49,13 +51,55 @@ public class BaseServiceImpl {
 	 */
 	protected PropertiesService propertiesService;
 	/**
-	 * 아이디 제네레이션 서비스
-	 */
-	protected IdGenService idGenerationService;
-	/**
 	 * 쿼리 서비스
 	 */
 	protected QueryService queryService;
+
+	/**
+	 * 아이디 제네레이션 서비스를 가져온다.
+	 * 
+	 * @return Id 제네레이션 서비스
+	 */
+	public IdGenService getIdGenerationService() {
+		return idGenerationService;
+	}
+
+	/**
+	 * 메시지 소스를 가져온다.
+	 * 
+	 * @return 메시지 소스
+	 */
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
+
+	/**
+	 * 프로퍼티 서비스를 가져온다.
+	 * 
+	 * @return 프로퍼티 서비스
+	 */
+	public PropertiesService getPropertiesService() {
+		return propertiesService;
+	}
+
+	/**
+	 * 쿼리 서비스를 가져온다.
+	 * 
+	 * @return 쿼리 서비스
+	 */
+	public QueryService getQueryService() {
+		return queryService;
+	}
+
+	/**
+	 * Id 제네레이션 서비스를 설정한다.
+	 * 
+	 * @param sequenceIdGenerationService
+	 *            Id 제네레이션 서비스
+	 */
+	public void setIdGenerationService(IdGenService sequenceIdGenerationService) {
+		this.idGenerationService = sequenceIdGenerationService;
+	}
 
 	/**
 	 * 로거명을 설정한다.
@@ -69,15 +113,6 @@ public class BaseServiceImpl {
 	}
 
 	/**
-	 * 메시지 소스를 가져온다.
-	 * 
-	 * @return 메시지 소스
-	 */
-	public MessageSource getMessageSource() {
-		return messageSource;
-	}
-
-	/**
 	 * 메시지 소스를 설정한다.
 	 * 
 	 * @param messageSource
@@ -88,15 +123,6 @@ public class BaseServiceImpl {
 	}
 
 	/**
-	 * 프로퍼티 서비스를 가져온다.
-	 * 
-	 * @return 프로퍼티 서비스
-	 */
-	public PropertiesService getPropertiesService() {
-		return propertiesService;
-	}
-
-	/**
 	 * 프로퍼티 서비스를 설정한다.
 	 * 
 	 * @param propertiesService
@@ -104,35 +130,6 @@ public class BaseServiceImpl {
 	 */
 	public void setPropertiesService(PropertiesService propertiesService) {
 		this.propertiesService = propertiesService;
-	}
-
-	/**
-	 * 아이디 제네레이션 서비스를 가져온다.
-	 * 
-	 * @return Id 제네레이션 서비스
-	 */
-	public IdGenService getIdGenerationService() {
-		return idGenerationService;
-	}
-
-	/**
-	 * Id 제네레이션 서비스를 설정한다.
-	 * 
-	 * @param sequenceIdGenerationService
-	 *            Id 제네레이션 서비스
-	 */
-	public void setIdGenerationService(
-			IdGenService sequenceIdGenerationService) {
-		this.idGenerationService = sequenceIdGenerationService;
-	}
-
-	/**
-	 * 쿼리 서비스를 가져온다.
-	 * 
-	 * @return 쿼리 서비스
-	 */
-	public QueryService getQueryService() {
-		return queryService;
 	}
 
 	/**

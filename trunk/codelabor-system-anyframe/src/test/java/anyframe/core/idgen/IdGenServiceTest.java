@@ -1,29 +1,20 @@
 package anyframe.core.idgen;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import org.anyframe.idgen.IdGenService;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/spring/**/applicationContext*.xml")
 public class IdGenServiceTest {
 
-	private Logger logger = LoggerFactory.getLogger(IdGenServiceTest.class);
-
 	@Autowired
 	private ApplicationContext context;
-	private IdGenService sequenceIdGenerationService;
+
+	private Logger logger = LoggerFactory.getLogger(IdGenServiceTest.class);
 	private IdGenService prefixDateNumberSequenceIdGenerationService;
+	private IdGenService sequenceIdGenerationService;
 
 	@Before
 	public void setUp() {
@@ -32,17 +23,6 @@ public class IdGenServiceTest {
 		prefixDateNumberSequenceIdGenerationService = context.getBean(
 				"prefixDateNumberSequenceIdGenerationService",
 				IdGenService.class);
-	}
-
-	@Test
-	public void testNotNull() {
-		try {
-			assertNotNull(sequenceIdGenerationService);
-			assertNotNull(prefixDateNumberSequenceIdGenerationService);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 
 	@Test
@@ -56,6 +36,17 @@ public class IdGenServiceTest {
 			logger.debug(
 					"prefixDateNumberSequenceIdGenerationService nextId: {}",
 					nextId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+
+	@Test
+	public void testNotNull() {
+		try {
+			assertNotNull(sequenceIdGenerationService);
+			assertNotNull(prefixDateNumberSequenceIdGenerationService);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

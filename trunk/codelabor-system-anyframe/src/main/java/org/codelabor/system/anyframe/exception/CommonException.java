@@ -46,123 +46,6 @@ public abstract class CommonException extends BaseException {
 	}
 
 	/**
-	 * 메시지 코드
-	 * 
-	 * @param messageCode
-	 */
-	public void setMessageCode(String messageCode) {
-		this.messageCode = messageCode;
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 * @param defaultMessage
-	 *            기본 메시지
-	 * @param wrappedException
-	 *            예외
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters, String defaultMessage, Throwable wrappedException) {
-		super(messageSource, messageKey, messageParameters, defaultMessage, wrappedException);
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 * @param defaultMessage
-	 *            기본 메시지
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters, String defaultMessage) {
-		super(messageSource, messageKey, messageParameters, defaultMessage);
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 * @param wrappedException
-	 *            예외
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters, Throwable wrappedException) {
-		super(messageSource, messageKey, messageParameters, wrappedException);
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param messageParameters
-	 *            메시지 파라미터
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, Object[] messageParameters) {
-		super(messageSource, messageKey, messageParameters);
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param defaultMessage
-	 *            기본 메시지
-	 * @param wrappedException
-	 *            예외
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, String defaultMessage, Throwable wrappedException) {
-		super(messageSource, messageKey, defaultMessage, wrappedException);
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param defaultMessage
-	 *            기본 메시지
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, String defaultMessage) {
-		super(messageSource, messageKey, defaultMessage);
-	}
-
-	/**
-	 * 생성자
-	 * 
-	 * @param messageSource
-	 *            메시지 소스
-	 * @param messageKey
-	 *            메시지 키
-	 * @param wrappedException
-	 *            예외
-	 */
-	public CommonException(MessageSource messageSource, String messageKey, Throwable wrappedException) {
-		super(messageSource, messageKey, wrappedException);
-	}
-
-	/**
 	 * 생성자
 	 * 
 	 * @param messageSource
@@ -177,6 +60,61 @@ public abstract class CommonException extends BaseException {
 	/**
 	 * 생성자
 	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters) {
+		super(messageSource, messageKey, messageParameters);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 * @param defaultMessage
+	 *            기본 메시지
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters, String defaultMessage) {
+		super(messageSource, messageKey, messageParameters, defaultMessage);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
+	 * @param defaultMessage
+	 *            기본 메시지
+	 * @param wrappedException
+	 *            예외
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters, String defaultMessage,
+			Throwable wrappedException) {
+		super(messageSource, messageKey, messageParameters, defaultMessage,
+				wrappedException);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
 	 * @param messageKey
 	 *            메시지 키
 	 * @param messageParameters
@@ -184,8 +122,66 @@ public abstract class CommonException extends BaseException {
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(String messageKey, Object[] messageParameters, Throwable wrappedException) {
-		super(messageKey, messageParameters, wrappedException);
+	public CommonException(MessageSource messageSource, String messageKey,
+			Object[] messageParameters, Throwable wrappedException) {
+		super(messageSource, messageKey, messageParameters, wrappedException);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param defaultMessage
+	 *            기본 메시지
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			String defaultMessage) {
+		super(messageSource, messageKey, defaultMessage);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param defaultMessage
+	 *            기본 메시지
+	 * @param wrappedException
+	 *            예외
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			String defaultMessage, Throwable wrappedException) {
+		super(messageSource, messageKey, defaultMessage, wrappedException);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageSource
+	 *            메시지 소스
+	 * @param messageKey
+	 *            메시지 키
+	 * @param wrappedException
+	 *            예외
+	 */
+	public CommonException(MessageSource messageSource, String messageKey,
+			Throwable wrappedException) {
+		super(messageSource, messageKey, wrappedException);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param messageKey
+	 *            메시지 키
+	 */
+	public CommonException(String messageKey) {
+		super(messageKey);
 	}
 
 	/**
@@ -205,11 +201,14 @@ public abstract class CommonException extends BaseException {
 	 * 
 	 * @param messageKey
 	 *            메시지 키
+	 * @param messageParameters
+	 *            메시지 파라미터
 	 * @param wrappedException
 	 *            예외
 	 */
-	public CommonException(String messageKey, Throwable wrappedException) {
-		super(messageKey, wrappedException);
+	public CommonException(String messageKey, Object[] messageParameters,
+			Throwable wrappedException) {
+		super(messageKey, messageParameters, wrappedException);
 	}
 
 	/**
@@ -217,9 +216,11 @@ public abstract class CommonException extends BaseException {
 	 * 
 	 * @param messageKey
 	 *            메시지 키
+	 * @param wrappedException
+	 *            예외
 	 */
-	public CommonException(String messageKey) {
-		super(messageKey);
+	public CommonException(String messageKey, Throwable wrappedException) {
+		super(messageKey, wrappedException);
 	}
 
 	/*
@@ -230,6 +231,15 @@ public abstract class CommonException extends BaseException {
 	@Override
 	public String getMessage() {
 		return super.getMessage();
+	}
+
+	/**
+	 * 메시지 코드를 가져온다.
+	 * 
+	 * @return 메시지 코드
+	 */
+	public String getMessageCode() {
+		return this.messageCode;
 	}
 
 	/**
@@ -264,6 +274,15 @@ public abstract class CommonException extends BaseException {
 	}
 
 	/**
+	 * 메시지 코드
+	 * 
+	 * @param messageCode
+	 */
+	public void setMessageCode(String messageCode) {
+		this.messageCode = messageCode;
+	}
+
+	/**
 	 * 메시지 키를 설정한다.
 	 * 
 	 * @param messageKey
@@ -283,15 +302,6 @@ public abstract class CommonException extends BaseException {
 	@Override
 	public void setMessageParameters(Object[] param) {
 		super.setMessageParameters(param);
-	}
-
-	/**
-	 * 메시지 코드를 가져온다.
-	 * 
-	 * @return 메시지 코드
-	 */
-	public String getMessageCode() {
-		return this.messageCode;
 	}
 
 }
