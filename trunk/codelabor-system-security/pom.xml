@@ -44,6 +44,7 @@
 		<!-- Java Spec -->
 		<java.version>1.6</java.version>
 		<servlet.version>2.5</servlet.version>
+		
 		<!-- Springframework -->
 		<springframework.version>4.0.2.RELEASE</springframework.version>
 		<!-- Others -->
