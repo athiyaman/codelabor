@@ -18,12 +18,13 @@ package org.codelabor.system.web;
 
 /**
  * @author Shin Sang-Jae
- * 
+ *
  */
 public class RequestConstants {
 
 	public static final String PRINCIPAL_NAME = "principalName";
 	public static final String QUERY_STRING = "queryString";
+	public static final String REMOTE_ADDR = "remoteAddr";
 	public static final String REMOTE_HOST = "remoteHost";
 	public static final String REQUEST_URI = "requestUri";
 	public static final String REQUEST_URL = "requestUrl";
