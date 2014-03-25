@@ -52,11 +52,10 @@ public class SniffingAspect implements Ordered {
 	}
 
 	/**
-	 * 경과 시간을 가져온다.
+	 * 소요 시간을 info 레벨의 로그로 기록한다.
 	 *
 	 * @param joinPoint
 	 *            조인 포인트
-	 * @return 경고 시간
 	 * @throws Throwable
 	 *             예외
 	 */
