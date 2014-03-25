@@ -35,21 +35,19 @@
 		<!-- Springframework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-struts</artifactId>
 			<version>3.2.8.RELEASE</version>
 			<type>jar</type>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${springframework.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-
 		
 		<!-- Struts 1 -->
 		<dependency>
@@ -90,7 +88,7 @@
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-core</artifactId>
-			<version>3.0.7</version>
+			<version>4.0.0-SNAPSHOT</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
