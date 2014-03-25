@@ -1,10 +1,3 @@
-4.0.0
-	Anyframe 의 존 관계 제거
-	Naming Conventions을 Springframework의 Convention에 맞춤
-	library version 업그레이드
-	messages 정리
-	pmd 위반 시정 조치
-
 2.0.0
 	codelabor-system-core에서 web 관련 리소스 분리하여 codelabor-system-web으로 refectoring
 	anyframe 의존 모듈을 org.codelabor.system.anyframe 패키지 아래로 refectoring
@@ -52,3 +45,12 @@
 
 3.0.7
 	ExceptionUtils 추가
+	
+4.0.0
+	Anyframe 의존 관계 제거
+	Naming Conventions 수정 (CODELABOR 4.0)
+	Spring Framework version 업그레이드 (4.x)
+	pom.xml 정리 (미사용 plugin 제거)
+	Eclipse Source > format, sort members 실행
+	Messages 정리
+	PMD 위반 시정 조치	
