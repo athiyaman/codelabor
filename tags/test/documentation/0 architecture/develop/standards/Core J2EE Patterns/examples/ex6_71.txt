@@ -1,4 +1,0 @@
-Example 6.71 Command Interface
-public interface Command {
-   ResponseContext execute(RequestContext requestContext);
-}

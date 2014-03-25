@@ -1,1 +1,0 @@
-insert into users values ('bomber', '1234qwer', true);
