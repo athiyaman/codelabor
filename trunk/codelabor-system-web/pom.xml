@@ -9,7 +9,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-web</artifactId>
 	<name>codelabor-system-web</name>
-	<version>3.0.4-SNAPSHOT</version>
+	<version>4.0.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
