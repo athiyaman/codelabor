@@ -41,9 +41,12 @@ import com.google.common.net.HttpHeaders;
  * @author Shin Sang-Jae
  *
  */
-public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLoggingFilter {
+public class LogbackMappedDiagnosticContextFilter extends
+		AbstractRequestLoggingFilter {
 
-	private static final Logger logger = LoggerFactory.getLogger(LogbackMappedDiagnosticContextFilter.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(LogbackMappedDiagnosticContextFilter.class);
+
 	/*
 	 * (non-Javadoc)
 	 *
@@ -112,7 +115,8 @@ public class LogbackMappedDiagnosticContextFilter extends AbstractRequestLogging
 		String queryString = request.getQueryString();
 		String userAgent = request.getHeader(HttpHeaders.USER_AGENT);
 		String xForwardedFor = request.getHeader(HttpHeaders.X_FORWARDED_FOR);
-		String servletContainerId = System.getProperty(ServletContainerConstants.SERVLET_CONTAINER_ID_KEY);
+		String servletContainerId = System
+				.getProperty(ServletContainerConstants.SERVLET_CONTAINER_ID_KEY);
 
 		MDC.put("requestId", requestId);
 		MDC.put("username", SecurityContextHolderUtils.getUsername());
