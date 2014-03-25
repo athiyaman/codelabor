@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- The Basics -->
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-web</artifactId>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>4.0.0</version>
 	<packaging>jar</packaging>
 	<dependencies>
 		<!-- Java Spec -->
@@ -261,9 +260,9 @@
 
 	<!-- Environment Settings -->
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-web-4.0.0</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-web-4.0.0</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-web-4.0.0</url>
 	</scm>
 	<repositories>
 		<repository>
