@@ -338,7 +338,21 @@
 		<name>CODELABOR</name>
 		<url>http://codelabor.org</url>
 	</organization>
-
+	<developers>
+		<developer>
+			<id>bomber</id>
+			<name>Shin Sangjae</name>
+			<email>codelabor@gmail.com</email>
+			<url>http://codelabor.org</url>
+			<organization>CODELABOR</organization>
+			<organizationUrl>http://codelabor.org</organizationUrl>
+			<timezone>+9</timezone>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
 	
 	<!-- Environment Settings -->
 	<scm>
