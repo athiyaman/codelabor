@@ -49,6 +49,7 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- JSON -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -58,6 +59,7 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
+		<!-- Struts 1 -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts-core</artifactId>
@@ -67,21 +69,33 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Logging -->
+		<!--
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
-			<type>jar</type>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-			<type>jar</type>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		-->
 
 		<!-- codelabor -->
 		<dependency>
@@ -92,6 +106,13 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- Utility -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0.1</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -101,12 +122,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.0.1</version>
-			<scope>compile</scope>
-		</dependency>
 	</dependencies>
 	<parent>
 		<artifactId>oss-parent</artifactId>
@@ -122,8 +137,15 @@
 
 		<!-- Springframework -->
 		<springframework.version>4.0.2.RELEASE</springframework.version>
+
+		<!-- Logging -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.13</logback.version>
+
 		<!-- Others -->
 		<junit.version>4.7</junit.version>
+		<aspectj.version>1.7.4</aspectj.version>
+
 
 		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -134,7 +156,23 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- Ignore/Execute plugin execution -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.2</version>
+					<executions>
+						<execution>
+							<id>copy-dependencies</id>
+							<phase>package</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.build.directory}/lib</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -142,14 +180,13 @@
 					<configuration>
 						<lifecycleMappingMetadata>
 							<pluginExecutions>
-								<!-- copy-dependency plugin -->
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-dependency-plugin</artifactId>
+										<artifactId>maven-enforcer-plugin</artifactId>
 										<versionRange>[1.0.0,)</versionRange>
 										<goals>
-											<goal>copy-dependencies</goal>
+											<goal>enforce</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
@@ -206,23 +243,6 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2.1</version>
 				<configuration>
@@ -239,14 +259,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<tagBase>https://codelabor.googlecode.com/svn/tags</tagBase>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

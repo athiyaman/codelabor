@@ -1,6 +1,7 @@
 4.0.0
 	Naming Rule 수정
 	pom.xml 업데이트
+	log4j -> logback 전환
 
 2.0.1
 	web 리소스 refectoring
