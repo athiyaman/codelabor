@@ -41,7 +41,7 @@ public class SniffingAspect implements Ordered {
 
 	/**
 	 * 아규먼트를 출력한다.
-	 * 
+	 *
 	 * @param joinPoint
 	 *            조인 포인트
 	 */
@@ -53,7 +53,7 @@ public class SniffingAspect implements Ordered {
 
 	/**
 	 * 경과 시간을 가져온다.
-	 * 
+	 *
 	 * @param joinPoint
 	 *            조인 포인트
 	 * @return 경고 시간
@@ -77,7 +77,7 @@ public class SniffingAspect implements Ordered {
 
 	/**
 	 * 예외를 출력한다.
-	 * 
+	 *
 	 * @param joinPoint
 	 *            조인 포인트
 	 * @param exception
@@ -121,7 +121,7 @@ public class SniffingAspect implements Ordered {
 
 	/**
 	 * 리턴 값을 출력한다.
-	 * 
+	 *
 	 * @param joinPoint
 	 *            조인 포인트
 	 * @param returnObject
@@ -135,17 +135,16 @@ public class SniffingAspect implements Ordered {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.springframework.core.Ordered#getOrder()
 	 */
-	@Override
 	public int getOrder() {
 		return this.order;
 	}
 
 	/**
 	 * 순서를 설정한다.
-	 * 
+	 *
 	 * @param order
 	 *            순서
 	 */

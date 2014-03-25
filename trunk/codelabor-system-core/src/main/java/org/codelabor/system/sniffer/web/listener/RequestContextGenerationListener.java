@@ -16,7 +16,6 @@ public class RequestContextGenerationListener implements ServletRequestListener 
 	private static final Logger logger = LoggerFactory
 			.getLogger(RequestContextGenerationListener.class);
 
-	@Override
 	public void requestDestroyed(ServletRequestEvent sre) {
 		logger.debug("requestDestroyed");
 		logger.debug("request id: {}", RequestContextHolder.getContext()
@@ -24,7 +23,6 @@ public class RequestContextGenerationListener implements ServletRequestListener 
 		RequestContextHolder.removeContext();
 	}
 
-	@Override
 	public void requestInitialized(ServletRequestEvent sre) {
 		logger.debug("requestInitialized");
 		UUID requestId = UUID.randomUUID();

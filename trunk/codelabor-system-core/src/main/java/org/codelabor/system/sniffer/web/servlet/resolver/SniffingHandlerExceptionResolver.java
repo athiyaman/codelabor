@@ -16,12 +16,10 @@ public class SniffingHandlerExceptionResolver implements
 			.getLogger(SniffingHandlerExceptionResolver.class);
 	private int order = 0;
 
-	@Override
 	public int getOrder() {
 		return order;
 	}
 
-	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception exception) {
 		logger.error("uri: {}", request.getRequestURI());
