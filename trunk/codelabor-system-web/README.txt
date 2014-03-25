@@ -1,9 +1,3 @@
-4.0.0
-	Naming Rule 수정
-	pom.xml 업데이트
-	log4j -> logback 전환
-	assemble 제거
-
 2.0.1
 	web 리소스 refectoring
 	pom.xml 정제
@@ -39,3 +33,12 @@
 
 3.0.4
 	codelabor-system-core 업데이트	
+
+4.0.0
+	Anyframe 의존 관계 제거
+	Naming Conventions 수정 (CODELABOR 4.0)
+	Spring Framework version 업그레이드 (4.x)
+	pom.xml 정리 (미사용 plugin 제거)
+	Eclipse Source > format, sort members 실행
+	Logger 교체 (log4j -> logback)
+	

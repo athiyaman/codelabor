@@ -7,7 +7,7 @@
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-web</artifactId>
 	<version>4.0.0-SNAPSHOT</version>
-
+	<packaging>jar</packaging>
 	<dependencies>
 		<!-- Java Spec -->
 		<dependency>
@@ -32,7 +32,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Springframework -->
+		<!-- Spring Framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -126,7 +126,7 @@
 	</parent>
 	<properties>
 		<!-- Java Spec -->
-		<java.version>1.6</java.version>
+		<java.version>1.5</java.version>
 		<servlet.version>2.5</servlet.version>
 		<jsp.version>2.1</jsp.version>
 		<jstl.version>1.2</jstl.version>
@@ -147,6 +147,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
+	<!-- Build Settings -->
 	<build>
 		<pluginManagement>
 			<plugins>
