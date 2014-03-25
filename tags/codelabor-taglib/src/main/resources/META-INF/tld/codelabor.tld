@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+
+  <description>CODELABOR taglib</description>
+  <display-name>CODELABOR taglib</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>codelabor</short-name>
+  <uri>http://codelabor.org/tags/codelabor</uri>
+
+<tag>
+    <description>Text Pagenation</description>
+    <name>textPagenation</name>
+    <tag-class>org.codelabor.system.tags.TextPagenationTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+    	<name>page</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>param</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>pageIndexParamName</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+    <!-- string type -->
+	<attribute>
+    	<name>previousPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+    <!-- image type -->
+	<attribute>
+    	<name>previousPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+	<!-- style id type -->
+	<attribute>
+    	<name>previousPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>currentPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>pageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+	<!-- style class type -->
+	<attribute>
+    	<name>previousPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>currentPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>pageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <description>Pagenation</description>
+    <name>pagenation</name>
+    <tag-class>org.codelabor.system.tags.PagenationTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+    	<name>page</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>param</name>
+    	<required>true</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>pageIndexParamName</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+    <!-- string type -->
+	<attribute>
+    	<name>previousPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageString</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+    <!-- image type -->
+	<attribute>
+    	<name>previousPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageImage</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+	<!-- style id type -->
+	<attribute>
+    	<name>previousPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>currentPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>pageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageStyleId</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+	<!-- style class type -->
+	<attribute>
+    	<name>previousPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>previousUnitPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>currentPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>pageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+	<attribute>
+    	<name>nextUnitPageStyleClass</name>
+    	<required>false</required>
+    	<rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+</taglib>
