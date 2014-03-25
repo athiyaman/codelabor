@@ -39,7 +39,7 @@
 			<version>${springframework.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-struts</artifactId>
@@ -48,7 +48,7 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
-		
+
 		<!-- Struts 1 -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -102,7 +102,7 @@
 			<classifier>jdk15</classifier>
 			<scope>compile</scope>
 			<optional>true</optional>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -259,4 +259,14 @@
 		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-web</developerConnection>
 		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-web</url>
 	</scm>
+	<repositories>
+		<repository>
+			<id>sonatype-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>
