@@ -1,0 +1,34 @@
+Example 6.72 ViewAccountDetailsCommand
+public class AccountCommand implements Command {
+	public AccountCommand() { }
+
+	// view account details operation
+	public ResponseContext execute(RequestContext requestContext) {
+
+		String accountId = 
+			requestContext.getStringParameter("AccountId");
+
+		/** Use an business delegate to retrieve data 
+		 * from application service, and store result 
+		 * in a response object.
+		 * Note: Object creation could be avoided via 
+		 * factory, but for example purposes object 
+		 * instantiation is shown **/ 
+
+		AccountDelegate delegate = new AccountDelegate();
+		AccountTO accountTO;
+		accountTO= delegate.getAccountProfile(accountId);
+
+		// This info could come from biz-tier components
+		String logicalViewName = "AccountProfile"; 
+
+		ResponseContextFactory factory =
+			ResponseContextFactory.getInstance();
+
+		ResponseContext responseContext = 
+			factory.createResponseContext(accountTO, logicalViewName);
+
+		return responseContext;
+
+	}
+}

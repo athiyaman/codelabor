@@ -1,0 +1,88 @@
+Example 6.14 Servlet Front Strategy 
+public class FrontController extends HttpServlet {
+  // Initializes the servlet.
+  public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+  }
+
+  // Destroys the servlet.
+  public void destroy() { }
+
+  /** Processes requests for both HTTP  
+    * <code>GET</code> and <code>POST</code> methods.
+    * @param request servlet request
+    * @param response servlet response
+    */
+  protected void processRequest(HttpServletRequest request,
+      HttpServletResponse response) throws ServletException,
+      java.io.IOException {
+
+    String page;
+    /**ApplicationResources provides a simple API 
+     * for retrieving constants and other 
+     * preconfigured values**/
+    ApplicationResources resource = ApplicationResources.getInstance();
+    try {
+      // create Context Object
+      RequestContext requestContext = 
+          new RequestContext(request, response);
+
+      // invoke request-processing components to handle
+      // incoming request
+      ApplicationController applicationController = new
+          ApplicationControllerImpl();
+      ResponseContext responseContext =
+          applicationController.handleRequest(requestContext);
+ 
+       // invoke response-processing components to
+       // handle response logic
+       applicationController.handleResponse(
+           requestContext, responseContext);
+    } catch (Exception e) {
+      LogManager.logMessage("FrontController:exception : " +
+          e.getMessage());
+      request.setAttribute(resource.getMessageAttr(), 
+          "Exception occurred : " + e.getMessage());
+      page = resource.getErrorPage(e);
+      // dispatch control to site-unavailable view
+      dispatch(request, response, page);
+    }
+  }
+
+  /** Handles the HTTP <code>GET</code> method.
+    * @param request servlet request
+    * @param response servlet response
+    */
+  protected void doGet(HttpServletRequest request, 
+      HttpServletResponse response) throws ServletException,
+      java.io.IOException {
+
+    processRequest(request, response);
+  }
+
+  /** Handles the HTTP <code>POST</code> method.
+    * @param request servlet request
+    * @param response servlet response
+    */
+  protected void doPost(HttpServletRequest request, 
+      HttpServletResponse response) 
+      throws ServletException, java.io.IOException {
+
+    processRequest(request, response);
+  }
+
+  protected void dispatch(HttpServletRequest request,
+      HttpServletResponse response, String page) 
+      throws javax.servlet.ServletException, java.io.IOException {
+
+    RequestDispatcher dispatcher = this.getServletContext().
+        getRequestDispatcher(page);
+    dispatcher.forward(request, response);
+  }
+
+  /** Returns a short description of the servlet	 */
+  public String getServletInfo() {
+    return "Front Controller Pattern" + 
+    " Servlet Front Strategy Example";
+  }
+}

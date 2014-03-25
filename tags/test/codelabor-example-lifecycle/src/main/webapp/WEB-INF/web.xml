@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <description>Lifecycle Servlet</description>
+    <display-name>LifecycleServlet</display-name>
+    <servlet-name>LifecycleServlet</servlet-name>
+    <servlet-class>org.codelabor.example.lifecycle.web.servlet.LifecycleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LifecycleServlet</servlet-name>
+    <url-pattern>/example/servlet/LifecycleServlet</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>LifecycleFilter</display-name>
+    <filter-name>LifecycleFilter</filter-name>
+    <filter-class>org.codelabor.example.lifecycle.web.filter.LifecycleFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LifecycleFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <listener-class>org.codelabor.example.lifecycle.web.listener.LifecycleServletRequestListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.codelabor.example.lifecycle.web.listener.LifecycleServletContextListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.codelabor.example.lifecycle.web.listener.LifecycleSessionListener</listener-class>
+  </listener>
+  <session-config>
+  	<session-timeout>1</session-timeout></session-config>
+</web-app>

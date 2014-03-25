@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+	</form-beans>
+	<action-mappings>
+		<action path="/example/encryption/xecure/requestByGetMethod" 
+			forward="example.encryption.xecure.request.get.definition" />
+		<action path="/example/encryption/xecure/requestByPostMethod" 
+			forward="example.encryption.xecure.request.post.definition" />
+		<action path="/example/encryption/xecure/requestByScript" 
+			forward="example.encryption.xecure.request.script.definition" />
+		<action path="/example/encryption/xecure/response" 
+			forward="example.encryption.xecure.response.definition" />
+		<action path="/example/encryption/xecure/seed" 
+			forward="example.encryption.xecure.data.seed.definition" />
+		<action path="/example/encryption/xecure/hash" 
+			forward="example.encryption.xecure.data.hash.definition" />
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+before: ${flashVars}
+after: ${fn:escapeXml(flashVars)}

@@ -1,0 +1,40 @@
+Example 7.36 	Entity Inherits Transfer Object Strategy – Transfer Object Class
+
+// This is the transfer object class inherited by the
+// entity bean
+public class ContactTO  implements java.io.Serializable { 
+
+	// public members
+	public String firstName;
+	public String lastName; 
+	public String address;
+
+	// default constructor
+	public ContactTO() {}
+
+	// constructor accepting all values
+	public ContactTO(String firstName, String lastName,
+			String address) {
+		init(firstName, lastName, address);
+	}
+
+	// constructor to create a new TO based 
+	// using an existing TO instance
+	public ContactTO(ContactTO contact) {
+		init(contact.firstName, contact.lastName,
+			contact.address);
+	}
+
+	// method to set all the values
+	public void init(String firstName, String lastName, 
+			String address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+	} 
+
+	// create a new transfer object 
+	public ContactTO getData() { 
+		return new ContactTO(this);
+	} 
+}

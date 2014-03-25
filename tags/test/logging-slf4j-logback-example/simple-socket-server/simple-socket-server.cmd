@@ -1,0 +1,1 @@
+java -classpath C:/Users/bomber/.m2/repository/ch/qos/logback/logback-classic/1.0.6/logback-classic-1.0.6.jar;C:/Users/bomber/.m2/repository/ch/qos/logback/logback-core/1.0.6/logback-core-1.0.6.jar;C:/Users/bomber/.m2/repository/org/slf4j/slf4j-api/1.6.5/slf4j-api-1.6.5.jar ch.qos.logback.classic.net.SimpleSocketServer 9000 logback.xml

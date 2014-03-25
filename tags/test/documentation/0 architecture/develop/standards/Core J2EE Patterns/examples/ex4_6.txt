@@ -1,0 +1,47 @@
+Example 4.6 JSP with Scriptlet Code Extracted
+
+<%@ taglib uri="/WEB-INF/corepatternstaglibrary.tld" 
+    prefix="corepatterns" %>
+<html>
+<head><title>Employee List</title></head>
+<body>
+
+<corepatterns:employeeAdapter />
+
+<h3><center>List of employees in 
+  <corepatterns:department attribute="id"/> 
+  department - Using Custom Tag Helper Strategy </h3>
+
+<table border="1" >
+    <tr>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Designation </th>
+        <th> Employee Id </th>
+        <th> Tax Deductibles </th>
+        <th> Performance Remarks </th>
+        <th> Yearly Salary</th>
+    </tr>
+    <corepatterns:employeelist id="employeelist_key">
+    <tr>
+      <td><corepatterns:employee 
+            attribute="FirstName"/></td>
+      <td><corepatterns:employee 
+            attribute="LastName"/></td> 
+      <td><corepatterns:employee
+            attribute="Designation"/> </td>
+        <td><corepatterns:employee 
+            attribute="Id"/></td> 
+        <td><corepatterns:employee 
+            attribute="NoOfDeductibles"/></td>
+        <td><corepatterns:employee 
+            attribute="PerformanceRemarks"/></td>
+        <td><corepatterns:employee 
+            attribute="YearlySalary"/></td>
+        <td>
+     </tr>
+    </corepatterns:employeelist>
+</table>
+
+</body>
+</html>

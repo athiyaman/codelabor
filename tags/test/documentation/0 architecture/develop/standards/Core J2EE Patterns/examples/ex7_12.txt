@@ -1,0 +1,19 @@
+Example 7.12 	Implementing Session Façade – Home Interface
+
+package corepatterns.apps.psa.ejb;
+
+import javax.ejb.EJBHome;
+import java.rmi.RemoteException;
+import corepatterns.apps.psa.core.ResourceException;
+import javax.ejb.*;
+
+public interface ProjectResourceManagerHome 
+extends EJBHome {
+    
+    public ProjectResourceManager create() 
+    throws RemoteException,CreateException;
+
+    public ProjectResourceManager create(String resourceId,
+        String projectId, ...) 
+    throws RemoteException,CreateException;
+}

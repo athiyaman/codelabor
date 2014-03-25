@@ -1,0 +1,36 @@
+Example 8.33 	ProjectImpl Class
+// ProjectImpl.java
+
+package com.corej2eepatterns.business.impl;
+
+import com.corej2eepatterns.business.hr.Project;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class ProjectImpl implements Project {
+	String name;
+	Set employees = new HashSet();
+
+	/** Creates a new instance of ProjectImpl */
+	ProjectImpl(String name) {
+		this.name = name;
+	}
+
+	public Set getEmployees() {
+		return Collections.unmodifiableSet(employees);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	boolean addEmployee(EmployeeImpl employee) {
+		return employees.add(employee);
+	}
+
+	boolean removeEmployee(EmployeeImpl employee) {
+		return employees.remove(employee);
+	}
+}

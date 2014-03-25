@@ -1,0 +1,97 @@
+Example 8.47 	CompanyWebService and CompanyWebServiceBroker
+import java.rmi.RemoteException;
+
+public interface CompanyWebService extends javax.ejb.EJBObject {
+	public void createCompany(
+			String companyId, String companyName )
+			throws RemoteException;
+
+	public void addCompanyDivision(String companyId,
+			String divisionId, String divisionName )
+			throws RemoteException;
+
+	public void addEmployee(String companyId, String employeeId,
+			String lastName, String firstName )
+			throws RemoteException;
+
+	public void assignEmployeeToDivision(String companyId,
+			String divisionId, String employeeId )
+            throws RemoteException;
+}
+
+// CompanyWebServiceBroker
+import javax.ejb.SessionContext;
+import javax.ejb.EJBException;
+import javax.ejb.CreateException;
+
+public class CompanyWebServiceBroker
+		implements javax.ejb.SessionBean {
+	public void setSessionContext(SessionContext sessionContext)
+			throws EJBException {    }
+
+	public void ejbRemove() throws EJBException {    }
+	public void ejbActivate() throws EJBException {    }
+	public void ejbPassivate() throws EJBException {    }
+	public void ejbCreate() throws CreateException {    }
+
+	private CompanyFacadeHome getCompanyHome()
+			throws ServiceLocatorException {
+		CompanyFacadeHome home = (CompanyFacadeHome)
+				ServiceLocator.getInstance().getLocalHome(
+						"CompanyFacade");
+		return home;
+	}
+
+	public void createCompany(
+			String companyId, String companyName ) {
+		try {
+			CompanyFacadeHome home = getCompanyHome();
+			CompanyFacade cf = home.create();
+			cf.createCompany( companyId, companyName );
+		} catch (CreateException e) {
+		} catch (ServiceLocatorException e) {
+		}
+	}
+
+	public void addCompanyDivision(String companyId,
+			String divisionId, String divisionName ) {
+		try {
+			CompanyFacadeHome home = getCompanyHome();
+			CompanyFacade cf = home.create( companyId );
+			cf.addDivision( divisionId, divisionName );
+		} catch (ServiceLocatorException e) {
+		} catch (CreateException e) {
+		}
+	}
+
+	public void addEmployee(String companyId, String employeeId,
+			String lastName, String firstName ) {
+		try {
+			CompanyFacadeHome home = getCompanyHome();
+			CompanyFacade cf = home.create( companyId );
+			cf.addEmployee(employeeId, lastName, firstName);
+		} catch (ServiceLocatorException e) {
+		} catch (CreateException e) {
+		}
+	}
+
+	private EmployeeFacadeHome getEmployeeHome() 
+			throws ServiceLocatorException {
+		EmployeeFacadeHome home = (EmployeeFacadeHome)
+				ServiceLocator.getInstance().getLocalHome(
+						"EmployeeFacade");
+		return home;
+	}
+
+	public void assignEmployeeToDivision(String companyId,
+			String divisionId, String employeeId ) {
+		try {
+			EmployeeFacadeHome home = getEmployeeHome();
+			EmployeeFacade ef =
+					home.create( companyId, employeeId );
+			ef.assignToDivision( divisionId );
+		} catch (ServiceLocatorException e) {
+		} catch (CreateException e) {
+		}
+	}
+}

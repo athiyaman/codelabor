@@ -1,0 +1,31 @@
+Example 6.19 ApplicationControllerImpl
+public class ApplicationControllerImpl implements 
+    ApplicationController {
+
+  public void initialize() {
+    commandMapper = CommandMapper.getInstance();
+  }
+
+  public ResponseContext handleRequest(RequestContext requestContext) {
+    ResponseContext responseContext = null;
+    try {
+      // validate request parameters
+      requestContext.validate();
+
+      // Translate command name into Command abstraction
+      String commandName = requestContext.getCommandName();
+      Command command = commandMapper.getCommand(commandName);
+
+      // Invoke Command
+      responseContext = command.execute(requestContext);
+
+      // Identify View Name
+      CommandMap  mapEntry = commandMapper.getCommandMap(commandName);
+      String viewName = mapEntry.getViewName();
+      responseContext.setLogicalViewName(viewName);
+    } catch (ValidatorException e1) {
+      // Handle Exception
+    }
+    return responseContext;
+  }
+. . .

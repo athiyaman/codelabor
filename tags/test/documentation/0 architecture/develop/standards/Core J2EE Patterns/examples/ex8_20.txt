@@ -1,0 +1,149 @@
+Example 8.20 public interface Persistable {
+}
+
+
+public class Employee implements Persistable {
+    protected String id;
+    protected String firstName;
+    protected String lastName;
+    protected String ss;
+    protected float salary;
+    protected String divisionId;
+
+    public Employee( String id ) {
+        this.id = id;
+    }
+
+    public Employee(String id,
+                    String lastName,
+                    String firstName,
+                    String ss,
+                    float salary,
+                    String divisionId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.ss = ss;
+        this.salary = salary;
+        this.divisionId = divisionId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+…
+} 
+	EmployeeStateManager Class
+public class EmployeeStateManager implements StateManager {
+	private final int ROW_LEVEL_CACHING = 1;
+	private final int FIELD_LEVEL_CACHING = 2;
+
+	int cachingType = ROW_LEVEL_CACHING;
+	boolean isNew;
+	private Employee employee;
+	private PersistenceManager pm;
+
+	public EmployeeStateManager(PersistenceManager pm,
+			Employee employee, boolean isNew ) {
+		this.pm = pm;
+		this.employee = employee;
+		this.isNew = isNew;
+	}
+
+	public void flush() {
+		if (pm.isDirty(employee)) {
+			EmployeeTO to =
+					new EmployeeTO(employee.id, employee.lastName,
+							employee.firstName, employee.ss,
+							employee.salary, employee.divisionId);
+
+			EmployeeStoreManager storeManager =
+					new EmployeeStoreManager();
+			if (isNew) {
+				storeManager.storeNew(to);
+				isNew = false;
+			} else {
+				storeManager.update(to);
+			}
+			pm.resetDirty(employee);
+		}
+	}
+
+	public void load() {
+		EmployeeStoreManager storeManager =
+				new EmployeeStoreManager();
+		EmployeeTO to = storeManager.load(employee.id);
+		updateEmployee(to);
+	}
+
+	public void load(int field) {
+		if (fieldNeedsReloading(field)) {
+			EmployeeStoreManager storeManager =
+					new EmployeeStoreManager();
+			if (cachingType == FIELD_LEVEL_CACHING) {
+				//Object o =
+				//		storeManager.loadField(employee.id, field);
+				// updateEmployee( field, o );
+			} else {
+				EmployeeTO to = storeManager.load(employee.id);
+				updateEmployee(to);
+			}
+		}
+	}
+
+	private boolean fieldNeedsReloading(int field) {
+		// Caching and valid data rule apply here
+		// data can be cached at the field or the row level
+
+		switch (field) {
+			case EmployeeStateDelegate.LAST_NAME:
+				if (employee.lastName == null)
+					return true;
+				break;
+			case EmployeeStateDelegate.FIRST_NAME:
+				if (employee.firstName == null)
+					return true;
+					break;
+			case EmployeeStateDelegate.DIVISION_ID:
+				String did = employee.divisionId;
+				if (did == null || did.indexOf("99-") == -1)
+					return true;
+				break;
+			case EmployeeStateDelegate.SS:
+				if (employee.ss == null)
+					return true;
+				break;
+			case EmployeeStateDelegate.SALARY:
+				if (employee.salary == 0.0)
+					return true;
+				break;
+			}
+		return false;
+	}
+
+	private void updateEmployee(EmployeeTO to) {
+		employee.id = to.id;
+		employee.lastName = to.lastName;
+		employee.firstName = to.firstName;
+		employee.ss = to.ss;
+		employee.salary = to.salary;
+		employee.divisionId = to.divisionId;
+		isNew = false;
+	}
+
+	public boolean needsLoading() {
+		if (pm.needLoading(employee))
+			return true;
+		else
+			return false;
+	}
+}

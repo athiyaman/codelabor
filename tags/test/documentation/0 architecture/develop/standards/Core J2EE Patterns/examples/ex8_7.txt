@@ -1,0 +1,35 @@
+Example 8.7 CustomerDAO.java: Creating the ReadOnlyRowSet
+package com.corej2eepatterns.dao;
+
+// imports
+
+public class CustomerDAO {
+	. . .  
+
+	// Create the ReadOnlyRowSet using the 
+	// ResultSet from query execution
+	public RowSet findCustomersRORS(CustomerTO criteria, 
+			int startAtRow, int howManyRows)
+			throws DAOException {
+
+		Connection con = getConnection();
+		javax.sql.RowSet rowSet = null;
+		String searchSQLString = getSearchSQLString(criteria);
+
+		try {
+			con = getConnection();
+			java.sql.Statement stmt = con.createStatement(. . .);
+			java.sql.ResultSet rs =
+					stmt.executeQuery(searchSQLString);
+			rowSet = new ReadOnlyRowSet();
+			rowSet.populate(rs, startAtRow, howManyRows);
+		} catch (SQLException anException) {
+			// handle exception…
+		} finally {
+			con.close();
+		}
+		return rowSet;
+	}
+
+	. . .  
+}

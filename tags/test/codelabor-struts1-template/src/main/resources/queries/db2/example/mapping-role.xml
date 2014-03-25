@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<table-mapping>
+		<table 
+			name="EXAMPLE_ROLE" 
+			class="org.codelabor.example.dtos.RoleDTO">
+			<field-mapping>
+				<dbms-column>ROLE_ID</dbms-column>
+				<class-attribute>roleId</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>DESCRIPTION</dbms-column>
+				<class-attribute>description</class-attribute>
+			</field-mapping>
+			<primary-key>
+				<dbms-column>ROLE_ID</dbms-column>
+			</primary-key>
+		</table>
+	</table-mapping>
+	<queries>
+		
+		<!-- delete -->
+		<query id="example.delete.role" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.role */
+				FROM 
+					EXAMPLE_ROLE
+				WHERE
+					ROLE_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>		
+		<query id="example.delete.role.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.role.list */
+				FROM 
+					EXAMPLE_ROLE
+				]]>
+			</statement>
+		</query>	
+		
+		<!-- select -->
+		<query id="example.select.role" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.role */
+					ROLE_ID,
+					DESCRIPTION
+				FROM 
+					EXAMPLE_ROLE
+				WHERE 
+					ROLE_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<result class="org.codelabor.example.dtos.RoleDTO">
+				<result-mapping column="ROLE_ID" attribute="roleId"/>
+				<result-mapping column="DESCRIPTION" attribute="description"/>
+			</result>			
+		</query>
+		<query id="example.select.role.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.role.list */
+					ROLE_ID,
+					DESCRIPTION						
+				FROM 
+					EXAMPLE_ROLE
+				]]>
+			</statement>
+			<result class="org.codelabor.example.dtos.RoleDTO">
+				<result-mapping column="ROLE_ID" attribute="roleId"/>
+				<result-mapping column="DESCRIPTION" attribute="description"/>
+			</result>			
+		</query>
+	</queries>
+</queryservice>

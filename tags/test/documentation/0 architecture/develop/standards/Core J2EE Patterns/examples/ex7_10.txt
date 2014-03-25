@@ -1,0 +1,247 @@
+Example 7.10 	Implementing Session Façade – Session Bean
+
+package corepatterns.apps.psa.ejb;
+
+import java.util.*;
+import java.rmi.RemoteException;
+import javax.ejb.*;
+import javax.naming.*;
+import corepatterns.apps.psa.core.*;
+import corepatterns.util.ServiceLocator;
+import corepatterns.util.ServiceLocatorException;
+
+// Note: all try/catch details not shown for brevity.
+
+public class ProjectResourceManagerSession
+	implements SessionBean {
+
+	private SessionContext context;
+
+	// Remote references for the entity Beans 
+	// encapsulated by this facade
+	private Resource resourceEntity = null;
+	private Project projectEntity = null;
+	...
+
+	// default create
+	public void ejbCreate() throws CreateException { }
+
+	// create method to create this facade and to establish
+	// connections to the required entity beans using primary
+	// key values
+	public void ejbCreate(String resourceId, String projectId,
+		...)
+	throws CreateException, ResourceException {
+
+		try {
+			// locate and connect to entity beans
+			connectToEntities(resourceId, projectId, ...);
+		} catch (...) {
+			// Handle exceptions
+		}
+	}
+
+	// method to connect the session facade to its 
+	// entity beans using the primary key values
+	private void connectToEntities (String resourceId,
+		String projectId)
+	throws ResourceException {
+		resourceEntity = getResourceEntity(resourceId);
+		projectEntity = getProjectEntity(projectId);
+		...
+	}
+
+	// method to reconnect the session facade to a different
+	// set of entity beans using primary key values
+	public resetEntities(String resourceId, String projectId,
+		 ...)
+	throws PSAException {
+
+		connectToEntities(resourceId, projectId, ...);
+	}
+
+	// private method to get Home for Resource
+	private ResourceHome getResourceHome()
+	throws ServiceLocatorException {
+		return ServiceLocator.getInstance().getLocalHome(
+			"ResourceEntity", ResourceHome.class);
+	}
+
+	// private method to get Home for Project
+	private ProjectHome getProjectHome()
+	throws ServiceLocatorException {
+		return ServiceLocator.getInstance().getLocalHome(
+			"ProjectEntity", ProjectHome.class);	
+	}
+
+	// private method to get Resource entity
+	private Resource getResourceEntity(String resourceId) 	
+	throws ResourceException {
+		try {
+			ResourceHome home = getResourceHome();
+			return (Resource) home.findByPrimaryKey(resourceId);
+		} catch (...) {
+			// Handle exceptions
+		}
+	}
+
+	// private method to get Project entity
+	private Project getProjectEntity(String projectId)
+	throws ProjectException {
+		// similar to getResourceEntity
+		...
+	}
+
+	// Method to encapsulate workflow related to assigning a
+	// resource to a project. It deals with Project and
+	// Resource Entity beans
+	public void assignResourceToProject(int numHours)
+	throws PSAException {
+
+		try {
+			if ((projectEntity == null) ||
+				 (resourceEntity == null)) {
+				// SessionFacade not connected to entities
+				throw new PSAException(...);
+			}
+
+			// Get Resource data
+			ResourceTO resourceTO = 
+				resourceEntity.getResourceData();
+
+			// Get Project data
+			ProjectTO projectTO =projectEntity.getProjectData();
+
+			// first add Resource to Project
+			projectEntity.addResource(resourceTO);
+
+			// Create a new Commitment for the Project
+			CommitmentTO commitment = new CommitmentTO(...);
+
+			// add the commitment to the Resource
+			projectEntity.addCommitment(commitment);
+
+		} catch (...) {
+			// Handle exceptions
+		}
+	}
+
+	// Similarly implement other business methods to
+	// facilitate various use cases/interactions
+	public void unassignResourceFromProject()
+	throws PSAException {
+		...
+	}
+
+	// Methods working with ResourceEntity
+	public ResourceTO getResourceData()
+	throws ResourceException {
+		...
+	}
+
+	// Update Resource Entity Bean
+	public void setResourceData(ResourceTO resource) 
+	throws ResourceException {
+		...
+	}
+
+	// Create new Resource Entity bean
+	public ResourceTO createNewResource(ResourceTO resource)
+	throws ResourceException {
+		...
+	}
+
+	// Methods for managing resource’s blockout time
+	public void addBlockoutTime(Collection blockoutTime) 
+	throws RemoteException,BlockoutTimeException {
+		...
+	}
+	
+	public void updateBlockoutTime(Collection blockoutTime)
+	throws RemoteException, BlockoutTimeException {
+		...
+	}
+	
+	public Collection getResourceCommitments() 
+	throws RemoteException, ResourceException {
+		...
+	}
+
+	// Methods working with ProjectEntity
+	public ProjectTO getProjectData()
+	throws ProjectException {
+		...
+	}
+
+	// Update Project Entity Bean
+	public void setProjectData(ProjectTO project) 
+	throws ProjectException {
+		...
+	}
+
+	// Create new Project Entity bean
+	public ProjectTO createNewProject(ProjectTO project)
+	throws ProjectException {
+		...
+	}
+
+	...
+
+	// Other session facade method examples
+
+	// This proxies a call to a Transfer Object Assembler
+	// to obtain a composite transfer object.
+	// See Transfer Object Assembler pattern.
+	public ProjectCTO getProjectDetailsData()
+	throws PSAException {
+		try {
+			ProjectTOAHome projectTOAHome = (ProjectTOAHome)
+				ServiceLocator.getInstance().getRemoteHome(
+					"ProjectTOA", ProjectTOAHome.class);
+
+			// Transfer Object Assembler session bean
+			ProjectTOA projectTOA =  projectTOAHome.create(...);
+			return projectTOA.getData(...);
+		} catch (...) {
+
+				// Handle / throw exceptions
+		}
+	}
+
+	// These method proxies a call to a ValueListHandler to get
+	// a list of projects. See Value List Handler pattern.
+	public Collection getProjectsList(Date start, Date end)
+	throws PSAException {
+		try {
+			ProjectListHandlerHome projectVLHHome = 
+				(ProjectVLHHome)
+					ServiceLocator.getInstance().getRemoteHome(
+						"ProjectListHandler", ProjectVLHHome.class);
+
+			// Value List Handler session bean
+			ProjectListHandler projectListHandler = 
+				projectVLHHome.create();
+			return projectListHandler.getProjects(start, end);
+		} catch (...) {
+				// Handle / throw exceptions
+		}
+	}
+
+	...
+
+	public void ejbActivate() {
+		...
+	}
+
+	public void ejbPassivate() {
+		context = null;
+	}
+
+	public void setSessionContext(SessionContext ctx) {
+		   this.context = ctx;
+	}
+
+	public void ejbRemove() {
+		...
+	}
+}

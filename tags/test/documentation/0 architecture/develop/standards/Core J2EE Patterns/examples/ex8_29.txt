@@ -1,0 +1,55 @@
+Example 8.29 	FactoryImpl Class
+// FactoryImpl.java
+
+package com.corej2eepatterns.business.impl;
+
+import com.corej2eepatterns.business.hr.*;
+import javax.jdo.PersistenceManager;
+
+/**
+ * @author  Craig Russell
+ */
+public class FactoryImpl implements Factory {
+	PersistenceManager pm;
+
+	/** Creates a new instance of FactoryImpl */
+	public FactoryImpl(PersistenceManager pm) {
+		this.pm = pm;
+	}
+
+	PersistenceManager getPersistenceManager() {
+		return pm;
+	}
+
+	public Department createDepartment(String name) {
+		return new DepartmentImpl(name);
+	}
+
+	public FullTimeEmployee createFullTimeEmployee(
+			long id, String firstName, String lastName) {
+		return new FullTimeEmployeeImpl(
+				id, firstName, lastName);
+	}
+
+	public PartTimeEmployee createPartTimeEmployee(
+			long id, String firstName, String lastName) {
+		return new PartTimeEmployeeImpl(
+				id, firstName, lastName);
+	}
+
+	public Project createProject(String name) {
+		return new ProjectImpl(name);
+	}
+
+	public Queries getQueries() {
+		return new QueriesImpl(this);
+	}
+
+	public void persistObjects(Object[] objects) {
+		pm.makePersistentAll(objects);
+	}
+
+	public void persistObject(Object object) {
+		pm.makePersistent(object);
+	}
+}

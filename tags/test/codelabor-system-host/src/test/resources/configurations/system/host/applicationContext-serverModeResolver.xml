@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="serverModeResolver"
+		class="org.codelabor.system.host.services.ServerModeResolverImpl">
+		<property name="hostMap">
+			<map>
+				<!-- does not work
+				<entry key="127.0.0.1" value="LOCAL"/>
+				-->
+				<entry key="100.100.100.1" value="DEVELOPMENT"/>
+				<entry key="100.100.100.2" value="DEVELOPMENT"/>
+				<entry key="100.100.110.1" value="STAGING"/>
+				<entry key="100.100.110.2" value="STAGING"/>
+				<entry key="100.100.120.1" value="PRODUCTION"/>
+				<entry key="100.100.120.2" value="PRODUCTION"/>
+				<entry key="development01" value="DEVELOPMENT"/>
+				<entry key="development02" value="DEVELOPMENT"/>
+				<entry key="staging01" value="STAGING"/>
+				<entry key="staging02" value="STAGING"/>
+				<entry key="production01" value="PRODUCTION"/>
+				<entry key="production02" value="PRODUCTION"/>
+			</map>
+		</property>
+	</bean>
+</beans>

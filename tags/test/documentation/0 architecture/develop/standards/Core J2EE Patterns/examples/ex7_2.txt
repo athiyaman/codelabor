@@ -1,0 +1,45 @@
+Example 7.2  Remote Interface for ResourceSession
+// imports
+...
+public interface ResourceSession extends EJBObject {
+	
+	public ResourceTO setCurrentResource(String resourceId)
+	throws RemoteException, ResourceException;
+	
+	public ResourceTO getResourceDetails() 
+	throws RemoteException, ResourceException;
+
+	public void setResourceDetails(ResourceTO resource) 
+	throws RemoteException, ResourceException;
+	
+	public void addResource(ResourceTO resource) 
+	throws RemoteException, ResourceException;
+	
+	public void removeResource() 
+	throws RemoteException, ResourceException;
+	
+	// methods for managing blockout time by the resource
+	public void addBlockoutTime(Collection blockoutTime)
+	throws RemoteException, BlockoutTimeException;
+	
+	public void updateBlockoutTime(Collection blockoutTime) 
+	throws RemoteException, BlockoutTimeException;
+	
+	public void removeBlockoutTime(	Collection blockoutTime) 
+	throws RemoteException, BlockoutTimeException;
+	
+	public void removeAllBlockoutTime() 
+	throws RemoteException, BlockoutTimeException;
+	
+	// methods for resource skillsets time by the resource
+	public void addSkillSets(Collection skillSet) 
+	throws RemoteException, SkillSetException;
+	
+	public void updateSkillSets(Collection skillSet) 
+	throws RemoteException, SkillSetException;
+	
+	public void removeSkillSet(Collection skillSet) 
+	throws RemoteException, SkillSetException;
+
+	...
+}

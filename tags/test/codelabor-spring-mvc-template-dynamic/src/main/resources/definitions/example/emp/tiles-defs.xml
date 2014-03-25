@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="example.emp.create.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create.jsp"/>
+	</definition>
+	<definition name="example.emp.list.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/list.jsp"/>
+	</definition>
+	<definition name="example.emp.read.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/read.jsp"/>
+	</definition>
+	<definition name="example.emp.update.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/update.jsp"/>
+	</definition>
+	<definition name="example.emp.create.step1.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step1.jsp"/>
+	</definition>
+	<definition name="example.emp.create.step2.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step2.jsp"/>
+	</definition>
+	<definition name="example.emp.create.step3.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-step3.jsp"/>
+	</definition>
+	<definition name="example.emp.create.cancel.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-cancel.jsp"/>
+	</definition>
+	<definition name="example.emp.create.confirm.definition" extends="example.definition">
+    	<put-attribute name="body"   value="/WEB-INF/jsp/example/emp/create-confirm.jsp"/>
+	</definition>
+</tiles-definitions>

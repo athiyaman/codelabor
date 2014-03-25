@@ -1,0 +1,15 @@
+비즈니스 로직 식별
+DTO 개발
+Service Interface 개발
+
+도메인 (비즈니스) 객체 식별
+DTO 개발
+Manager Interface 개발
+
+도메인 데이터 출처 확인
+DAO / Adapter Interface 개발
+
+
+데이터 제약 식별
+Validator 개발
+

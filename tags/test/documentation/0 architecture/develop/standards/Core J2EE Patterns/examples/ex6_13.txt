@@ -1,0 +1,14 @@
+Example 6.13 Logging Filter
+public class LoggingFilter extends TemplateFilter {
+  public void doPreProcessing(ServletRequest req, ServletResponse res) {
+    //do some preprocessing here, such as logging some information about
+    // the request before it’s been handled.
+  }
+
+  public void doPostProcessing(ServletRequest req, ServletResponse res){
+    // do some post-processing here, such as logging some information
+    // about the request and response after the request has been handled
+    // and the response generated.
+  }
+}
+  

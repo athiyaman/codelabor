@@ -1,0 +1,51 @@
+Example 9.4	ActionMapper Code
+package ActionAdapter;
+
+import Core.HireEmployeeConstants;
+import java.util.Properties;
+
+public class ActionMapper {
+  String workflowName = "HireEmployee";
+  String mapFile;
+
+  public ActionMapper(String mapFile) {
+    this.mapFile = mapFile;
+  }
+
+  public CommandData getCommandData(String action,
+      String workflowProcessId, String workItemId) {
+    // Get real commandString from mapFile using Action
+    String commandString = ""; 
+    // Get properties from mapFile for Action
+    Properties properties = null; 
+    CommandData data = null;
+    if(commandString.equals(
+        HireEmployeeConstants.START_WORKFLOW)) {
+      data = new WorkflowCommandData(workflowName,
+          workflowProcessId, HireEmployeeConstants.
+          START_WORKFLOW_TYPE);
+    } else if (commandString.equals(
+        HireEmployeeConstants.STOP_WORKFLOW)) {
+      data = new WorkflowCommandData(workflowName,
+          workflowProcessId, HireEmployeeConstants.
+          STOP_WORKFLOW_TYPE);
+    } else if(commandString.equals(
+        HireEmployeeConstants.PAUSE_WORKFLOW)) {
+      data = new WorkflowCommandData(workflowName,
+          workflowProcessId, HireEmployeeConstants.
+          PAUSE_WORKFLOW_TYPE);
+    } else if(commandString.equals(
+        HireEmployeeConstants.ACQUIRE_WORKITEM)) {
+      data = new WorkItemCommandData(workItemId,
+          HireEmployeeConstants.ACQUIRE_WORKITEM_TYPE);
+    } else if(commandString.equals(
+        HireEmployeeConstants.ABORT_WORKITEM)) {
+      data = new WorkItemCommandData(workItemId,
+        HireEmployeeConstants.ABORT_WORKITEM_TYPE);
+    } else {
+      data = new WorkItemCommandData(workItemId,
+        HireEmployeeConstants.COMMIT_WORKITEM_TYPE);
+    }
+      return data;
+  }
+}

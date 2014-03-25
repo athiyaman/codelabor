@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="crudForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="java.lang.String[]" />
+			<form-property name="field1" type="java.lang.String"
+				initial="" />
+			<form-property name="field2" type="java.lang.String"
+				initial="" />
+		</form-bean>	
+	</form-beans>
+	<action-mappings>
+		<action path="/example/crud"
+			type="org.codelabor.example.crud.struts.actions.CrudAction" scope="request"
+			parameter="method" name="crudForm" validate="false">
+			<forward name="prepareCreate" path="example.crud.create.definition" />
+			<forward name="processCreate" path="/example/crud.do?method=list" redirect="true"/>
+			<forward name="read" path="example.crud.read.definition" />
+			<forward name="list" path="example.crud.list.definition" />
+			<forward name="prepareUpdate" path="example.crud.update.definition" />
+			<forward name="processUpdate" path="/example/crud.do?method=list" redirect="true"/>
+			<forward name="delete" path="/example/crud.do?method=list" redirect="true"/>
+		</action>
+	</action-mappings>
+	<message-resources 
+		parameter="messages.example.crud.label" key="example.crud.label"/>
+</struts-config>

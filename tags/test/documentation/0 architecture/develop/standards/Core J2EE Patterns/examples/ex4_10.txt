@@ -1,0 +1,32 @@
+Example 4.10 Logic Extracted Into Helper Classes
+
+<html>
+<head><title>Employee List - Refactored </title>
+</head>
+<body>
+
+<h3> <center>List of employees</h3>
+
+<corepatterns:employeeAdapter />
+
+<table border="1" >
+    <tr>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Designation </th>
+    </tr>
+
+<corepatterns:employeelist id="employeelist" 
+    match="FirstName, LastName">
+<tr>
+
+    <td><corepatterns:employee attribute= "FirstName" 
+        case="Upper" /> </td>
+    <td><corepatterns:employee attribute= "LastName" 
+        case="Upper" /></td> 
+    <td><corepatterns:employee attribute= "Designation" /> 
+       </td>
+    <td>
+ </tr>
+</corepatterns:employeelist>
+</table>

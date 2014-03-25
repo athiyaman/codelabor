@@ -1,0 +1,47 @@
+Example 6.3 MultipartEncodeFilter – Standard Filter Strategy
+public class MultipartEncodeFilter extends BaseEncodeFilter {
+  public MultipartEncodeFilter() { }
+  public void doFilter(
+      javax.servlet.ServletRequest servletRequest,
+          javax.servlet.ServletResponse servletResponse,
+          javax.servlet.FilterChain filterChain)
+          throws java.io.IOException,
+          javax.servlet.ServletException {
+
+    String contentType = servletRequest.getContentType();
+    // Only filter this request if it is multipart 
+    // encoding                
+    if (contentType.startsWith("multipart/form-data")) {
+      try {
+        String uploadFolder = getFilterConfig().
+            getInitParameter("UploadFolder");
+        if (uploadFolder == null)
+          uploadFolder = ".";
+        /** The MultipartRequest class is: 
+          * Copyright (C) 2001 by Jason Hunter 
+          * <jhunter@servlets.com>. All rights reserved.
+        **/
+        MultipartRequest multi = new MultipartRequest(
+            servletRequest, uploadFolder, 1 * 1024 * 1024 );
+        Enumeration params = multi.getParameterNames();
+        while (params.hasMoreElements()) {
+          String name = (String)params.nextElement();
+          String value = multi.getParameter(name);
+          servletRequest.setAttribute(name, value);
+        }
+        Enumeration files = multi.getFileNames();
+        while (files.hasMoreElements()) {
+          String name = (String)files.nextElement();
+          String filename = multi.getFilesystemName(name);
+          String type = multi.getContentType(name);
+          File f = multi.getFile(name);
+          // At this point, do something with the 
+          // file, as necessary
+        }
+      } catch (IOException e) {
+        LogManager.logMessage("error reading or saving file"+ e);
+      }
+    } // end if
+    filterChain.doFilter(servletRequest, servletResponse);
+  } // end method doFilter()
+}

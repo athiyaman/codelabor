@@ -1,0 +1,48 @@
+Example 8.9 CustomerDAO.java: Creating the RowSetWrapperList
+package com.corej2eepatterns.dao;
+
+// imports
+
+public class CustomerDAO {
+	. . .  
+
+	public List findCustomersRL(
+			CustomerTO cust, int startAtRow, int howManyRows) 
+			throws Exception{
+		// create the search SQL string 
+		String searchSQLString = getSearchSQLString(cust);
+
+		// execute the search
+		return executeSearch(searchSQLString,    
+				StartAtRow, howManyRows);
+	}
+
+	private List executeSearch(
+			String searchSQLString, int startAtRow,
+			int howManyRows)
+			throws Exception {
+
+		RowSetWrapperList results = null;
+		try {
+			RowSet rowSet = getRORowSet(searchSQLString, 
+					int startAtRow,
+					int howManyRows);
+
+			results = new RowSetWrapperList (rowSet);
+		} catch (Exception ex) {
+			throw new Exception(ex);
+		} 
+
+		return results;
+	}
+
+	private String getSearchSQLString(CustomerTO cust) {
+		// convenience method to create and return
+		// a “SELECT” SQL statement as a String, incorporating
+		// non-null values in the supplied CustomerTO transfer
+		// object into the WHERE clause
+	}
+
+	. . .
+
+}

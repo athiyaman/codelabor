@@ -1,0 +1,16 @@
+Example 7.41 	ResourceTO Class
+
+public class ResourceTO implements java.io.Serializable {
+	public String resourceId;
+	public String resourceName;
+	public String resourceEmail;
+	...
+	
+	public ResourceTO (String resourceId, String resourceName,
+			String resourceEmail, ...) {
+		this.resourceId = resourceId;
+		this.resourceName = resourceName;
+		this.resourceEmail = resourceEmail;
+		...
+	}
+}

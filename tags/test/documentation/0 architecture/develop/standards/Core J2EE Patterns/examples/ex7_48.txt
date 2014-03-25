@@ -1,0 +1,76 @@
+Example 7.48 ProjectDAO Class
+
+package com.corej2eepatterns.dao;
+
+// imports
+
+public class ProjectDAO {
+	final private String tableName = "PROJECT";
+
+	// select statement uses fields
+	final private String fields = "project_id, name," +
+			"project_manager_id, start_date, end_date, " + 
+			" started, completed, accepted, acceptedDate," + 
+			" customer_id, description, status";
+
+	// the methods relevant to the ValueListHandler
+	// are shown here.
+	// See Data Access Object pattern for other details.
+	...
+	private List findProjects(ProjectTO projCriteria) 
+	throws SQLException {
+
+		Statement stmt= null;
+		List list = null;
+		Connection con = getConnection();
+		StringBuffer selectStatement = new StringBuffer();
+		selectStatement.append("SELECT " + fields + " FROM " +
+			tableName + "where 1=1");
+
+		// append additional conditions to where clause
+		// depending on the values specified in 
+		// projCriteria
+
+		if (projCriteria.projectId != null) {
+			selectStatement.append (" AND PROJECT_ID = '" + 
+				projCriteria.projectId + "'");
+		}
+		// check and add other fields to where clause
+		...
+		
+		try {
+			stmt = con.prepareStatement(selectStatement);
+			stmt.setString(1, resourceID);
+			ResultSet rs = stmt.executeQuery();
+			list = createResultsList(rs);
+			stmt.close();
+		}
+		finally {
+			con.close();
+		}
+		return list;
+	}
+
+	private List createResultsList(ResultSet rs) 
+	throws SQLException {
+		ArrayList list = new ArrayList();
+		while (rs.next()) {
+			int i = 1;
+			ProjectTO proj = new ProjectTO(rs.getString(i++));
+			proj.projectName = rs.getString(i++);
+			proj.managerId = rs.getString(i++);
+			proj.startDate = rs.getDate(i++);
+			proj.endDate = rs.getDate(i++);
+			proj.started = rs.getBoolean(i++);
+			proj.completed = rs.getBoolean(i++);
+			proj.accepted = rs.getBoolean(i++);
+			proj.acceptedDate = rs.getDate(i++);
+			proj.customerId = rs.getString(i++);
+			proj.projectDescription = rs.getString(i++);
+			proj.projectStatus = rs.getString(i++);
+			list.add(proj);
+		}
+		return list;
+	}
+	...
+}

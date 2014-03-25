@@ -1,0 +1,11 @@
+Example 7.37 Entity Inherits Transfer Object Strategy – Entity Bean Class
+
+public class ContactEntity extends ContactTO 
+implements javax.ejb.EntityBean { 
+	...
+	// the client calls the getData method
+	// on the ContactEntity bean instance.
+	// getData() is inherited from the transfer object
+	// and returns the ContactTO transfer object
+	...
+}

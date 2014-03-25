@@ -1,0 +1,19 @@
+Example 8.38  	Employee Class
+// Employee.java
+package com.corej2eepatterns.business.hr;
+
+import java.util.Set;
+
+/**
+ * @author  Craig Russell
+ */
+public interface Employee {
+	long getId();
+	String getFirstName();
+	String getLastName();
+	Department getDepartment();
+	void setDepartment(Department department);
+	Set getProjects();
+	boolean addProject(Project project);
+	boolean removeProject(Project project);
+}

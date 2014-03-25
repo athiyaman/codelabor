@@ -1,0 +1,24 @@
+Example 8.15 	Service Activator client: OrderDispatcherFacade.java
+// imports. . .
+public class OrderDispatcherFacade 
+	implements javax.ejb.SessionBean {
+	. . .
+	// business method to create new Order
+	public int createOrder(...) throws OrderException {
+
+	// create new business order entity bean
+	. . .
+
+	// successfully created Order. send Order to
+	// asynchronous backend processing 
+	OrderSenderAppService orderSender = 
+			new OrderSenderAppService();
+	orderSenderAppService.sendOrder(order);
+
+	// close the sender, if done...
+	orderSenderAppService.close();
+
+	// other processing
+	. . .
+	}
+} 

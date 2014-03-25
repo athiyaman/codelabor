@@ -1,0 +1,43 @@
+Example 8.5 CustomerDAO.java: Transfer Object Collection Strategy
+package com.corej2eepatterns.dao;
+
+// imports
+
+public class CustomerDAO {
+. . .  
+
+	// Create a list of Transfer Objects and return it
+	public List findCustomers(CustomerTO criteria)    
+			throws DAOException {
+
+		Connection con = getConnection();
+		ResultSet rs = null;
+		ArrayList custList = new ArrayList();
+		String searchSQLString = getSearchSQLString(criteria);
+
+		try {
+			con = getConnection();
+			java.sql.Statement stmt =
+					con.createStatement(. . . );.
+			rs = stmt.executeQuery(searchSQLString);
+			while(rs.next()) {
+				//create the transfer object using data from rs
+				cust = new CustomerTO();
+				cust.setId(rs.getString(1));
+				cust.setName(rs.getString(2));
+				. . . 
+
+				// add the TO to the list
+				custList.add(cust);
+			}
+		} catch (Exception e) {
+			// handle exception
+		} finally {
+			// close connections
+		}
+		return custList;
+	}
+
+	. . .  
+
+}

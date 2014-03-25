@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="example.banking.transfer.create.enterTransferInformation.definition"
+		extends="example.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/banking/transfer/create/enterTransferInformation.jsp"/>
+	</definition>
+	<definition name="example.banking.transfer.create.enterSecurityCardNo.definition"
+		extends="example.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/banking/transfer/create/enterSecurityCardNo.jsp"/>
+	</definition>
+	<definition name="example.banking.transfer.create.enterOTPCode.definition"
+		extends="example.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/banking/transfer/create/enterOTPCode.jsp"/>
+	</definition>
+	<definition name="example.banking.transfer.create.transferResult.definition"
+		extends="example.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/banking/transfer/create/transferResult.jsp"/>
+	</definition>
+	<definition name="example.banking.bank.unavailable.bank.list.definition"
+		extends="example.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/banking/bank/unavailableBankList.jsp"/>
+	</definition>
+	<definition name="example.banking.account.frequent.used.account.listdefinition"
+		extends="example.definition">
+    	<put-attribute name="body"
+    		value="/WEB-INF/jsp/example/banking/account/frequentUsedAccountList.jsp"/>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,45 @@
+Example 7.44 	Abstract ValueListHandler Base Class
+
+package com.corej2eepatterns.vlh;
+
+// imports
+
+public abstract class ValueListHandler {
+
+    List valueList;
+    ...
+
+    // you only need to implement this method
+    public abstract void executeSearch(Object criteria);
+
+    ...
+
+    protected void setList(List valueList) {
+        this.valueList = valueList;
+    }
+
+    public List getNextElements(
+            int startPosition, int endPosition) {
+        return valueList.subList(startPosition, endPosition);
+    }
+
+    public List getPreviousElements(
+            int startPosition, int endPosition) {
+        return valueList.subList(startPosition, endPosition);
+    }
+
+    public Object getValue(int index) {
+        return valueList.get(index);
+    }
+
+    public int size() {
+      return valueList.size();
+    }
+
+    // if using multiple value lists
+    // provide methods that accept a list id as an argument
+    // e.g. public List getPreviousElements(int listId, 
+    // int startPosition, int endPosition), and so on
+
+    ...
+}

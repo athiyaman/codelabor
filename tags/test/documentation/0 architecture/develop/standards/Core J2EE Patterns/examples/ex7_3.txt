@@ -1,0 +1,39 @@
+Example 7.3 	ServiceLocator.java: Implementing a Service Locator
+package com.corej2eepatterns.servicelocator;
+
+// imports
+public class ServiceLocator {
+
+    private InitialContext initialContext;
+    private Map cache;
+
+    private static ServiceLocator _instance;
+
+    static {
+        try {
+            _instance = new ServiceLocator();
+        } catch (ServiceLocatorException se) {
+            System.err.println(se);
+            se.printStackTrace(System.err);
+        }
+    }
+
+    private ServiceLocator() throws ServiceLocatorException {
+        try {
+            initialContext = new InitialContext();
+            cache = Collections.
+                synchronizedMap(new HashMap());
+        } catch (NamingException ne) {
+            throw new ServiceLocatorException(ne);
+        } catch (Exception e) {
+            throw new ServiceLocatorException(e);
+        }
+    }
+
+    static public ServiceLocator getInstance() {
+        return _instance;
+    }
+
+    // implement lookup methods here
+    . . .
+}

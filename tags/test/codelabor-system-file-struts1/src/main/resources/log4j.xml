@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- system -->
+	<appender
+    	name="console"
+    	class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+        </layout>
+    </appender>
+	<appender
+		name="defaultDailyRollingFile"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/logs/anyframe.log"/>
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+	    </layout>
+	</appender>
+	<appender
+		name="codelaborDailyRollingFile"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/logs/codelabor.log"/>
+		<param name="DatePattern" value=".yyyy-MM-dd"/>
+	    <layout class="org.apache.log4j.PatternLayout">
+	        <param name="ConversionPattern" value="%d %5p [%c] %m%n" />
+	    </layout>
+	</appender>
+
+    <!-- apache -->
+    <logger name="org.apache" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="console"/>
+		<appender-ref ref="defaultDailyRollingFile"/>
+    </logger>
+    <logger name="org.apache.log4j.jmx" additivity="false">
+        <level value="info"/>
+        <appender-ref ref="console"/>
+		<appender-ref ref="defaultDailyRollingFile"/>
+    </logger>
+
+    <!-- spring -->
+	<logger name="org.springframework" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="defaultDailyRollingFile"/>
+	</logger>
+
+	<!-- anyframe -->
+	<logger name="anyframe" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="defaultDailyRollingFile"/>
+	</logger>
+
+	<!-- jdbc -->
+	<logger name="jdbc" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="defaultDailyRollingFile"/>
+	</logger>
+
+	<!-- codelabor -->
+	<logger name="org.codelabor" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="codelaborDailyRollingFile"/>
+	</logger>
+
+    <root>
+        <level value="debug"/>
+		<appender-ref ref="console"/>
+		<appender-ref ref="defaultDailyRollingFile"/>
+    </root>
+</log4j:configuration>

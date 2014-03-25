@@ -1,0 +1,13 @@
+Example 6.39 	ActionServlet Code Example
+// Front Controller
+public class ActionServlet extends HttpServlet {
+
+  protected void process(HttpServletRequest request, 
+      HttpServletResponse response) {
+
+    // Invoke ApplicationController for command & view management
+    getRequestProcessor(getModuleConfig(request)).
+        process(request,response);
+  }
+
+}

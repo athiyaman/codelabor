@@ -1,0 +1,34 @@
+Example 6.23 Context Object POJO Generation Using XDoclet
+/**
+  * It is an example of how to use the XDoclet tags to generate POJO 
+  * Context Object  from 
+  * Entity Class definition.
+  *
+  * @ejb.finder
+  *    role-name="Manager"
+  *    signature="Collection findAll()"
+  *    transaction-type="NotSupported"
+  *
+  * @ejb.transaction
+  *    type="Required"
+  * 
+  * @ejb.pk
+  *    generate="true"
+  *
+  * @ejb.data-object
+  *    name="{0}TO"
+  *    equals="true"
+  *
+  * @ejb.persistence
+  *    table-name="employee"
+  *
+  * @struts.form
+  *    name="Context"
+  *    include-all="true"
+  *
+  */
+// Entity Bean class
+public abstract class EmployeeBean  implements EntityBean {
+  private EntityContext ctx;
+  . . .
+}

@@ -1,0 +1,65 @@
+Example 8.26 	EmployeeStateDelegate Class
+public class EmployeeStateDelegate extends Employee {
+	static final int LAST_NAME = 1;
+	static final int FIRST_NAME = 2;
+	static final int SS = 3;
+	static final int SALARY = 4;
+	static final int DIVISION_ID = 5;
+
+	private EmployeeStateManager stateManager;
+
+	public EmployeeStateDelegate(String id, String lastName,
+			String firstName, String ss, float salary,
+			String divisionId) {
+		super(id, lastName, firstName, ss, salary, divisionId);
+	}
+
+	public EmployeeStateDelegate(Employee e) {
+		super(e.id, e.lastName, e.firstName,
+				e.ss, e.salary, e.divisionId);
+	}
+
+	public EmployeeStateDelegate(String employeeId) {
+		super(employeeId);
+	}
+
+	public EmployeeStateDelegate(String employeeId,
+			EmployeeStateManager stateManager) {
+		super(employeeId);
+		this.stateManager = stateManager;
+	}
+
+	public void setStateManager(
+			EmployeeStateManager stateManager) {
+		this.stateManager = stateManager;
+	}
+
+	public String getFirstName() {
+		stateManager.load(FIRST_NAME);
+		return firstName;
+	}
+
+	public String getDivisionId() {
+		stateManager.load(DIVISION_ID);
+		return divisionId;
+	}
+
+	public String getLastName() {
+		stateManager.load(LAST_NAME);
+		return lastName;
+	}
+
+	public String getSS() {
+		stateManager.load(SS);
+		return ss;
+	}
+
+	public float getSalary() {
+		stateManager.load(SALARY);
+		return salary;
+	}
+
+	public EmployeeStateManager getStateManager() {
+		return stateManager;
+	}
+}

@@ -1,0 +1,35 @@
+Example 9.9 	WorkflowCommandFactory Code
+package ActionAdapter;
+
+public class WorkflowCommandFactory {
+  final String ACTION_MAP = "ActionMapper.xml";
+  ActionMapper map;
+
+  static private WorkflowCommandFactory me = 
+      new WorkflowCommandFactory();
+
+  protected WorkflowCommandFactory() { }
+
+  public static WorkflowCommandFactory getInstance() {
+    return me;
+  }
+
+  public WorkflowCommand createCommand(String userId,
+      String workflowProcessId, String workItemId,
+      String action) {
+
+    ActionMapper mapper = new ActionMapper(ACTION_MAP);
+
+    CommandData commandData =
+        mapper.getCommandData(action,
+        workflowProcessId, workItemId);
+
+    if (commandData.getClass() == WorkflowCommandData.class) {
+      return new WorkflowProcessCommand(userId, commandData);
+    } else if (
+        commandData.getClass() == WorkItemCommandData.class) {
+      return new WorkItemCommand(userId, commandData);
+    }
+    return null;
+  }
+}

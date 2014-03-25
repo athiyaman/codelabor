@@ -1,0 +1,21 @@
+Example 7.22 			Business Object: ContactInfoBO.java
+
+public class ContactInfoBO {
+    // ContactInfoData is a Data Object
+    private ContactInfoData contactInfoData;
+
+    public ContactInfoBO(ContactInfoData contactInfoData) {
+        // validate ContactInfoData values
+        . . . 
+        // copy contact info data to this object
+        this.contactInfoData = contactInfoData;
+    }
+
+    // Method to return address data 
+    public AddressData getAddressData () {
+        return contactInfoData.getAddressData();
+    }
+
+    // business methods for ContactInfoBO
+    . . .
+}

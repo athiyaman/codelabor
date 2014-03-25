@@ -1,0 +1,7 @@
+Example 8.49 	JAX-RPC Web Service Client Code
+Context ctx = new InitialContext();
+CompanyWebService service = (CompanyWebService)
+		ctx.lookup("java:comp/env/service/CompanyWebService");
+CompanyWebServiceProvider provider = 
+		service.getCompanyWebServiceProviderPort();
+provider.createCompany("1001", "Joes Company" );

@@ -1,0 +1,47 @@
+Example 7.24 Implementing Lazy Loading strategy
+
+	...
+	public Collection getSkillSetsData() {
+	throws SkillSetException {
+		checkSkillSetLoad();
+		return skillSets;
+	}
+
+	private void checkSkillSetLoad() 
+	throws SkillSetException {
+		try {
+			// Lazy Load strategy...Load on demand
+			if (skillSets == null)
+				skillSets =
+					getSkillSetDAO().findAllSkills(resourceId);
+		} catch (Exception exception) {
+			// No skills, throw an exception 
+			throw new SkillSetException(...);
+		}
+	}
+
+	...
+
+	public void ejbLoad() {
+		try {
+			// load the resource info from
+			ResourceDAO resourceDAO = new ResourceDAO();
+			setResourceData(
+				resourceDAO.findResource(employeeId));
+			
+			// If the lazy loaded objects are already
+			// loaded, they need to be reloaded.
+			// If there are not loaded, do not load them
+			// here...lazy load will load them later.
+			if (skillSets != null) {
+				reloadSkillSets();
+			}
+			if (blockOutTimes != null) {
+				reloadBlockOutTimes();
+			}
+			...
+			throw new EJBException("Reason:"+...);
+		}
+	}
+	
+	...

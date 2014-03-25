@@ -1,0 +1,39 @@
+Example 8.37 	DepartmentImpl Class
+// DepartmentImpl.java
+package com.corej2eepatterns.business.impl;
+
+import com.corej2eepatterns.business.hr.Department;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * @author  Craig Russell
+ */
+public class DepartmentImpl implements Department {
+
+	String name;
+	Set employees = new HashSet();
+
+	/** Creates a new instance of DepartmentImpl */
+	DepartmentImpl(String name) {
+		this.name = name;
+	}
+
+	public Set getEmployees() {
+		return Collections.unmodifiableSet(employees);
+	}
+
+	boolean addEmployee(EmployeeImpl employee) {
+		return employees.add(employee);
+	}
+
+	boolean removeEmployee(EmployeeImpl employee) {
+		return employees.remove(employee);
+	}
+
+	public String getName() {
+		return name;
+	}
+}

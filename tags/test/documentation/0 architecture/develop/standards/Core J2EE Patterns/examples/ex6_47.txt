@@ -1,0 +1,48 @@
+Example 6.47 	Navigation and Flow Control strategy
+// Application Controller with flow control
+
+public class ApplicationControllerImpl 
+    implements ApplicationController {
+
+  public ResponseContext handleRequest(Map requestContextMap) {
+    ResponseContext responseContext = null;
+    try {
+
+      // Identify requested Order-processing operation 
+      // from ContextObject
+      String orderEvent =  getOrderEvent(requestContextMap);
+      String orderState =  getOrderStatus(requestContextMap);
+
+      // Create Command based on business Event and current State
+      CommandAndViewFactory factory =
+          CommandAndViewFactory.getInstance();
+      CommandViewHandle result = factory.getCommand(
+          orderEvent, orderState);
+
+      // Instantiate Command from Indirect Handle
+      Command command =
+          (Command)result.getCommandHandle().newInstance();
+
+      // Execute Business-tier Service
+      responseContext = command.execute(requestContextMap);
+
+      // set view name
+      responseContext.setLogicalViewName(result.getViewName());
+    } catch(Exception e) {
+      // Handle Exception
+    }
+    return responseContext;
+  }
+  . . .
+  private String getOrderStatus(Map requestContext) {
+    String id = ((String[])requestContext.
+        get(OrderStatus.STATUS_PARAM))[0];
+    return id;
+  }
+  
+  private String getOrderEvent(Map requestContext) {
+    String orderEvent = ((String[])requestContext.
+        get(Constants.REQ_OPCODE))[0];
+    return orderEvent;
+  }
+}

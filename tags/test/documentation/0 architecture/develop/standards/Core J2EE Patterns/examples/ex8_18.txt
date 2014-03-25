@@ -1,0 +1,56 @@
+Example 8.18 	EmployeeApplicationService Code
+import javax.transaction.*;
+
+public class EmployeeApplicationService {
+	public String createEmployee(String lastName,
+			String firstName, String ss, float salary,
+			String jobClassification, String geography) {
+		String id = null;
+		String divisionId = null;
+
+		// Create new id
+		divisionId =
+				getDivisionId(jobClassification, geography);
+
+		// Create Employe
+		Employee e = new Employee(
+				id, lastName, firstName, ss, salary, divisionId);
+
+		PersistenceManagerFactory factory =
+				PersistenceManagerFactory.getInstance();
+		PersistenceManager manager =
+				factory.getPersistenceManager();
+		try {
+			manager.begin();
+			e = (Employee) manager.persistNew(e);
+			manager.commit();
+		} catch (SystemException e1) {
+		} catch (NotSupportedException e1) {
+		} catch (HeuristicRollbackException e1) {
+		} catch (RollbackException e1) {
+		} catch (HeuristicMixedException e1) {
+		}
+		return id;
+	}
+
+	public void setEmployeeSalary(String id, float salary) {
+		PersistenceManagerFactory factory =
+				PersistenceManagerFactory.getInstance();
+		PersistenceManager manager =
+				factory.getPersistenceManager();
+		Employee e = manager.getEmployee(id);
+		if (e != null) {
+			e.setSalary(salary);
+		}
+		try {
+			manager.begin();
+			e = (Employee) manager.persist(e);
+			manager.commit();
+		} catch (SystemException e1) {
+		} catch (NotSupportedException e1) {
+		} catch (HeuristicRollbackException e1) {
+		} catch (RollbackException e1) {
+		} catch (HeuristicMixedException e1) {
+		}
+	}
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<table-mapping>
+		<table 
+			name="EXAMPLE_USER" 
+			class="org.codelabor.example.dtos.UserDTO">
+			<field-mapping>
+				<dbms-column>USER_ID</dbms-column>
+				<class-attribute>userId</class-attribute>
+			</field-mapping>
+			<field-mapping>
+				<dbms-column>USER_PASSWORD</dbms-column>
+				<class-attribute>userPassword</class-attribute>
+			</field-mapping>
+			<primary-key>
+				<dbms-column>USER_ID</dbms-column>
+			</primary-key>
+		</table>
+	</table-mapping>
+	<queries>
+		
+		<!-- delete -->
+		<query id="example.delete.user" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.user */
+				FROM 
+					EXAMPLE_USER
+				WHERE
+					USER_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>		
+		<query id="example.delete.user.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.user.list */
+				FROM 
+					EXAMPLE_USER
+				]]>
+			</statement>
+		</query>	
+		
+		<!-- select -->
+		<query id="example.select.user" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.user */
+					USER_ID,
+					USER_PASSWORD
+				FROM 
+					EXAMPLE_USER
+				WHERE 
+					USER_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<result class="org.codelabor.example.dtos.UserDTO">
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="USER_PASSWORD" attribute="userPassword"/>
+			</result>			
+		</query>
+		<query id="example.select.user.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.user.list */
+					USER_ID,
+					USER_PASSWORD						
+				FROM 
+					EXAMPLE_USER
+				]]>
+			</statement>
+			<result class="org.codelabor.example.dtos.UserDTO">
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="USER_PASSWORD" attribute="userPassword"/>
+			</result>			
+		</query>
+	</queries>
+</queryservice>

@@ -1,0 +1,47 @@
+Example 4.4 Check For a Valid Token
+
+/**
+* Return <code>true</code> if there is a transaction 
+* token stored in the user's current session, and 
+* the value submitted as a request request parameter 
+* with this action matches it. 
+* 
+* Returns <code>false</code>
+* under any of the following circumstances:
+* <ul>
+* <li>No session associated with this request</li>
+* <li>No transaction token saved in the session</li>
+* <li>No transaction token included as a request 
+* parameter</li>
+* <li>The included transaction token value does not
+*     match the transaction token in the user's
+*     session</li>
+* </ul>
+*
+* @param request The servlet request we are processing
+*/
+
+protected boolean isTokenValid(HttpServletRequest request) {
+
+    // Retrieve the saved transaction token from our
+    // session
+    HttpSession session = request.getSession(false);
+    if (session == null)
+        return (false);
+    String saved = (String) 
+        session.getAttribute(TRANSACTION_TOKEN_KEY);
+    if (saved == null)
+        return (false);
+    // Retrieve the transaction token included in this
+    // request
+
+    String token = (String) 
+        request.getParameter(Constants.TOKEN_KEY);
+    if (token == null)
+        return (false);
+
+    // Do the values match?
+    return (saved.equals(token));
+
+}
+Copyright (c) 1999 The Apache Software Foundation. All rights reserved.

@@ -1,0 +1,28 @@
+Example 9.3 	HireEmployeeConstants Code
+package Core;
+
+public class HireEmployeeConstants {
+  final public static int START_WORKFLOW_TYPE = 1;
+  final public static int STOP_WORKFLOW_TYPE = 2;
+  final public static int PAUSE_WORKFLOW_TYPE = 3;
+
+  final public static int ACQUIRE_WORKITEM_TYPE = 4;
+  final public static int COMMIT_WORKITEM_TYPE = 5;
+  final public static int ABORT_WORKITEM_TYPE = 6;
+
+  final public static String START_WORKFLOW = "StartWorkflow";
+  final public static String STOP_WORKFLOW = "StopWorkflow";
+  final public static String PAUSE_WORKFLOW = "PauseWorkflow";
+
+  final public static String ACQUIRE_WORKITEM =
+      "AcquireWorkItem";
+  final public static String COMMIT_WORKITEM =
+      "CommitWorkItem";
+  final public static String ABORT_WORKITEM = "AbortWorkItem";
+  final public static String CANDIDATE_CREATED =
+      "CandidateCreated";
+  final public static String CANDIDATE_REVIEWED =
+      "CandidateReviewed";
+  final public static String CANDIDATE_INTERVIEWED =
+      "CandidateInterviewed";
+}

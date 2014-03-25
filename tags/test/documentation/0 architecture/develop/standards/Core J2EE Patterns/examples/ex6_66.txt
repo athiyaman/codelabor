@@ -1,0 +1,15 @@
+Example 6.66 Section Subview – banner.jsp
+<table width="100%" bgcolor="#C0C0C0">
+<tr align="left" valign="middle">
+	<td width="100%">
+
+	<TABLE ALIGN="left" BORDER=1 WIDTH="100%">
+	<TR ALIGN="left" VALIGN="middle">
+		<TD>Logo</TD>
+		<TD><center>Sun Java Center</TD>
+	</TR>
+	</TABLE>
+
+	</td>
+</tr>
+</table>

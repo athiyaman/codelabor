@@ -1,0 +1,22 @@
+Example 8.28 Factory Class
+// Factory.java
+
+package com.corej2eepatterns.business.hr;
+
+/**
+ * @author  Craig Russell
+ */
+public interface Factory {
+
+	PartTimeEmployee createPartTimeEmployee(
+			long id, String firstName, String lastName);
+
+	FullTimeEmployee createFullTimeEmployee(
+			long id, String firstName, String lastName);
+
+	Department createDepartment(String name);
+	Project createProject(String name);
+	Queries getQueries();
+	void persistObject(Object object);
+	void persistObjects(Object[] objects);
+}

@@ -1,0 +1,13 @@
+Example 9.14 	WorkMapper Code
+package WorkAdapter;
+
+public class WorkMapper {
+  public WorkMapper(String map) { }
+
+  public String getWorkPageRef(String workMapFile,
+      String action, String workflowName, String workItemName,
+      String userRole) {
+    // Lookup up WorkPage in the workMapFile
+    return null;
+  }
+}

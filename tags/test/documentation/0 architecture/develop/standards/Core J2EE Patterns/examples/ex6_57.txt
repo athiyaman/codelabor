@@ -1,0 +1,7 @@
+Example 6.57 Using Tag File and EL, example.jsp
+<%-- example.jsp --%>
+<%-- Using a tag file with the EL--%>
+
+  <%@ taglib prefix="tag" tagdir="/web-INF/tags/" %>
+
+  <tag:buildtable products="${products}"/> 

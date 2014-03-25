@@ -1,0 +1,12 @@
+Example 8.30 	Queries Interface
+// Queries class
+package com.corej2eepatterns.business.hr;
+
+/**
+ * @author  Craig Russell
+ */
+public interface Queries {
+	Department getDepartment(String name);
+	Employee getEmployee(long id);
+	Project getProject(String name);
+}

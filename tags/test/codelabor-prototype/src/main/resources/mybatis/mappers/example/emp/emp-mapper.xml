@@ -1,0 +1,151 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="example.emp">
+	<select id="getNumberOfRow" parameterType="empSearchConditionDto"
+		resultType="int">
+		SELECT /* getNumberOfRow */
+		COUNT(*)
+		FROM
+		EMP
+		<where>
+			<if test="job != null and job != ''">
+				JOB = #{job}
+			</if>
+			<if test="salFrom != null">
+				<![CDATA[
+				AND SAL >= #{salFrom}
+				]]>
+			</if>
+			<if test="salTo != null">
+				<![CDATA[
+				AND SAL <= #{salTo}
+				]]>
+			</if>
+		</where>
+	</select>
+	<select id="selectEmpListByDeptNo" resultType="empDto">
+		SELECT /*
+		selectEmpListByDeptNo */
+		EMPNO, ENAME, DEPTNO, JOB, MGR, HIREDATE, COMM, SAL
+		FROM
+		EMP
+		WHERE
+		DEPTNO = #{deptNo}
+	</select>
+	<select id="selectEmp" resultType="empDto">
+		SELECT /* selectEmp */
+		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR,
+		E2.ENAME AS MGRNAME, E.HIREDATE, E.COMM, E.SAL
+		FROM
+		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		E1.MGR = E2.EMPNO
+		WHERE E.EMPNO = E1.EMPNO AND E.EMPNO = #{empNo}
+	</select>
+	<select id="selectEmpList" resultType="empDto">
+		SELECT /* selectEmpList */
+		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR,
+		E2.ENAME AS MGRNAME, E.HIREDATE, E.COMM, E.SAL
+		FROM
+		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		E1.MGR = E2.EMPNO
+		WHERE E.EMPNO = E1.EMPNO
+	</select>
+	<select id="selectEmpListByCondition" parameterType="empSearchConditionDto"
+		resultType="empDto">
+		SELECT /* selectEmpListByCondition */
+		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR, E2.ENAME AS
+		MGRNAME, E.HIREDATE, E.COMM, E.SAL
+		FROM
+		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		E1.MGR = E2.EMPNO
+		<where>
+			<if test="job != null and job != ''">
+				E.JOB = #{job}
+			</if>
+			<if test="salFrom != null">
+				<![CDATA[
+				AND E.SAL >= #{salFrom}
+				]]>
+			</if>
+			<if test="salTo != null">
+				<![CDATA[
+				AND E.SAL <= #{salTo}
+				]]>
+			</if>
+			AND E.EMPNO = E1.EMPNO
+		</where>
+	</select>
+	<select id="selectEmpListByConditionWithPagination" parameterType="empSearchConditionDto"
+		resultType="empDto">
+		SELECT /* selectEmpWithPagination */
+			EMPNO, ENAME, DEPTNO, DEPTNAME, JOB, MGR, MGRNAME, HIREDATE, COMM, SAL
+		FROM
+			(
+			SELECT EMPNO, ENAME, DEPTNO, DEPTNAME, JOB, MGR, MGRNAME, HIREDATE, COMM, SAL, ROWNUM AS SUB_ROWNUM
+			FROM
+				(
+				SELECT
+					E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR, E2.ENAME AS MGRNAME, E.HIREDATE, E.COMM, E.SAL
+				FROM
+					EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON E1.MGR = E2.EMPNO
+				<where>
+					<if test="job != null and job != ''">
+						E.JOB = #{job}
+					</if>
+					<if test="salFrom != null">
+						<![CDATA[
+						AND E.SAL >= #{salFrom}
+						]]>
+					</if>
+					<if test="salTo != null">
+						<![CDATA[
+						AND E.SAL <= #{salTo}
+						]]>
+					</if>
+					AND E.EMPNO = E1.EMPNO
+				</where>
+				ORDER BY EMPNO ASC
+				)
+			WHERE <![CDATA[ ROWNUM <= ]]> #{pageNo} * #{maxRowPerPage}
+			)
+		WHERE
+			<![CDATA[ SUB_ROWNUM >= ]]> #{pageNo} * #{maxRowPerPage} - #{maxRowPerPage} + 1
+	</select>
+
+
+	<!-- insert -->
+	<insert id="insertEmp" parameterType="empDto">
+		INSERT /* insertEmp */ INTO
+		EMP (
+		EMPNO, ENAME, DEPTNO, JOB, MGR, HIREDATE, COMM, SAL
+		) VALUES (
+		#{empNo}, #{ename}, #{deptNo, jdbcType=NUMERIC}, #{job},
+		#{mgr, jdbcType=NUMERIC}, #{hireDate, jdbcType=DATE}, #{comm,
+		jdbcType=NUMERIC}, #{sal, jdbcType=NUMERIC}
+		)
+	</insert>
+
+	<!-- update -->
+	<update id="updateEmp" parameterType="empDto">
+		UPDATE /* updateEmp */ EMP
+		SET
+		ENAME = #{ename, jdbcType=VARCHAR},
+		DEPTNO = #{deptNo, jdbcType=NUMERIC},
+		JOB = #{job, jdbcType=VARCHAR},
+		MGR = #{mgr, jdbcType=NUMERIC},
+		HIREDATE = #{hireDate, jdbcType=DATE},
+		COMM = #{comm, jdbcType=NUMERIC},
+		SAL = #{sal, jdbcType=NUMERIC}
+		WHERE
+		EMPNO = #{empNo}
+	</update>
+
+	<!-- delete -->
+	<delete id="deleteEmp" parameterType="int">
+		DELETE /* deleteEmp */
+		FROM
+		EMP
+		WHERE
+		EMPNO = #{empNo}
+	</delete>
+</mapper>

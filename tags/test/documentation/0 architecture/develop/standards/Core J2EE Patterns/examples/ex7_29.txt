@@ -1,0 +1,19 @@
+Example 7.29 	Implementing the Transfer Object Pattern – Transfer Object Class
+
+// Transfer Object to hold the details for Project
+public class ProjectTO implements java.io.Serializable {
+    public String projectId;
+    public String projectName;
+    public String managerId;
+    public String customerId;
+    public Date startDate;
+    public Date endDate;
+    public boolean started;
+    public boolean completed;
+    public boolean accepted;
+    public Date acceptedDate;
+    public String projectDescription;
+    public String projectStatus;
+
+    // transfer object constructors...
+}

@@ -1,0 +1,36 @@
+Example 6.20 RequestContextFactory
+// POJO ContextObject Factory
+public class RequestContextFactory {
+  public RequestContext createRequestContext(ServletRequest request) {
+
+    RequestContext requestContext = null;
+    try {
+      // Identify command string from request object
+      String commandId = getCommandId(request);
+      // Identify POJO RequestContext Class for the given Command, 
+      // using CommandMap
+      CommandMapper commandMapper = CommandMapper.getInstance();
+      CommandMap  mapEntry = commandMapper.getCommandMap(commandId);
+      Class requestContextClass = mapEntry.getContextObjectClass();
+
+      // Instantiate POJO
+      requestContext  = (RequestContext)
+          requestContextClass.newInstance();
+
+      // Set Protcol-specific Request object
+      requestContext.initialize(request);
+    } catch(java.lang.InstantiationException e) { 
+      // Handle Exception
+    } catch(java.lang.IllegalAccessException e) { }
+    return requestContext;
+  }
+
+  private String getCommandId(ServletRequest request) {
+    String commandId = null;
+    if ( request instanceof HttpServletRequest) {
+      String pathInfo = ((HttpServletRequest)request).getPathInfo();
+      commandId =  pathInfo.substring(1);   // skip the leading '/'
+    }
+    return commandId;
+  }
+}

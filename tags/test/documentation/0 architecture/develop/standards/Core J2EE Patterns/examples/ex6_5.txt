@@ -1,0 +1,17 @@
+Example 6.5 Implementing a Filter – Debugging Filter
+public class DebuggingFilter implements Processor {
+  private Processor nextProcessor;
+
+  public DebuggingFilter(Processor nextProcessor) {
+    this.nextProcessor = nextProcessor;
+  }
+
+  public void execute(ServletRequest request, 
+      ServletResponse response)
+      throws IOException, ServletException {
+    // Do some filter processing here, such as 
+    // displaying request parameters
+    
+    nextProcessor.execute(request, response);
+  }
+}

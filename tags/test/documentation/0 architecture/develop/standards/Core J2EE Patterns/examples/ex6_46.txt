@@ -1,0 +1,24 @@
+Example 6.46 TransformerHelper
+class TransformHelper {
+
+  public void transform(ServletRequest request, 
+      ServletResponse response, Reader xmlReader, 
+      InputStream xslStream) {
+
+    try  {
+      // SAXParserFactory
+      SAXParserFactory parserFactory = SAXParserFactory.newInstance();
+      SAXParser parser = parserFactory.newSAXParser();
+      Source xmlSource = new StreamSource(xmlReader);
+      Source xslSource = new StreamSource(xslStream);
+      Result outputTarget = new StreamResult(response.getWriter());
+
+      Transformer transformer = TransformerFactory.newInstance().
+          newTransformer(xslSource);
+
+      transformer.transform(xmlSource, outputTarget);
+    } catch(Exception e) {
+      // Handle Exception
+    }
+  }
+}

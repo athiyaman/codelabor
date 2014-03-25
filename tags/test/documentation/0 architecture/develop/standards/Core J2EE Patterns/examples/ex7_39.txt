@@ -1,0 +1,22 @@
+Example 7.39 	TaskResourceTO Class
+
+public class TaskResourceTO implements java.io.Serializable {
+	public String projectId;
+	public String taskId;
+	public String name;
+	public String description;
+	public Date startDate;
+	public Date endDate;
+	public ResourceTO assignedResource;
+	...
+
+	public TaskResourceTO(String projectId, String taskId,
+			String name, String description, Date startDate,
+			Date endDate, ResourceTO assignedResource) {
+		this.projectId = projectId;
+		this.taskId = taskId;
+		...
+		this.assignedResource = assignedResource;
+	}
+	...
+}

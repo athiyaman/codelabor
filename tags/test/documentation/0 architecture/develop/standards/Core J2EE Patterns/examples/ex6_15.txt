@@ -1,0 +1,52 @@
+Example 6.15 JSP Front Strategy 
+<%@page contentType="text/html"%>
+<%@ page import="corepatterns.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+
+<html>
+<head><title>JSP Front Controller</title></head>
+<body>
+
+<h3><center> Employee Profile </h3>
+
+<%
+  /** Control logic goes here...
+    * At some point in code block we retrieve employee information,
+    * encapsulate it within a value object and place this bean in
+    * request scope with the key "employee". This code was omitted.
+    * We either dispatch to another JSP at this point or simply allow
+    * the remaining portions of scriptlet code to execute
+   **/
+%>
+<jsp:useBean id="employee" scope="request"
+    class="corepatterns.util.EmployeeTO"/>
+<FORM method=POST >
+<table width="60%">
+<tr>
+  <td> First Name : </td>
+  <td> <input type="text" name="<%=Constants.FLD_FIRSTNAME%>" 
+      value="<c:out value='${employee.firstName}'/>">
+  </td>
+</tr>
+
+<tr>
+  <td>  Last Name : </td>
+  <td> <input type="text" name="<%=Constants.FLD_LASTNAME%>"  
+      value="<c:out value='${employee.lastName}'/>">
+  </td>
+</tr>
+<tr>
+  <td> Employee ID : </td>
+  <td> <input type="text" name="<%=Constants.FLD_EMPID%>" 
+      value="<c:out value='${employee.id}'/>">
+  </td>
+</tr>
+<tr>
+  <td> <input type="submit" name="employee_profile"> </td>
+  <td> </td>
+</tr>
+</table>
+</FORM>
+
+</body>
+</html>

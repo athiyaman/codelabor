@@ -1,0 +1,36 @@
+Example 8.25 	Transaction Class
+import javax.ejb.SessionContext;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.transaction.*;
+
+public class Transaction {
+	UserTransaction txn;
+
+	public void setSessionContext( SessionContext ctx ) {
+		ctx.getUserTransaction();
+	}
+	public Transaction() {
+		InitialContext ic = null;
+		try {
+			ic = new InitialContext();
+			txn = (UserTransaction)ic.lookup(
+					"java:comp/UserTransaction");
+		} catch (NamingException e) {
+		}
+	}
+	public void begin()
+			throws SystemException, NotSupportedException {
+		txn.begin();
+	}
+
+	public void commit()
+			throws SystemException, HeuristicRollbackException,
+			RollbackException, HeuristicMixedException {
+		txn.commit();
+	}
+
+	public void rollback() throws SystemException {
+		txn.rollback();
+	}
+}

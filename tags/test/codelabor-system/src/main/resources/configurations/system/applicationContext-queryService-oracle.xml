@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:config="http://www.anyframejava.org/schema/service"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.anyframejava.org/schema/service http://www.anyframejava.org/schema/service/anyframe-core-service-2.0.xsd">
+
+	<bean id="oracleQueryService" 
+		class="anyframe.core.query.impl.QueryServiceImpl">
+		<property name="jdbcTemplate">
+			<ref bean="oraclePagingJdbcTemplate"/>
+		</property>		
+		<property name="sqlRepository">
+			<ref bean="oracleSqlLoader"/>
+		</property>	
+		<property name="lobHandler">
+			<ref bean="oracleLobHandler"/>
+		</property>
+		<property name="pagingSQLGenerator" 
+			ref="oraclePagingSQLGenerator"/>
+	</bean>	
+	
+	<bean id="oraclePagingJdbcTemplate" 
+		class="anyframe.core.query.impl.jdbc.PagingJdbcTemplate">
+	  	<constructor-arg ref="oracleDataSource"/>
+	</bean>
+	
+	<bean id="oraclePagingSQLGenerator" 
+		class="anyframe.core.query.impl.jdbc.generator.OraclePagingSQLGenerator"/>
+	 
+	<bean id="oracleSqlLoader" 
+		class="anyframe.core.query.impl.config.loader.SQLLoader">
+		<config:configuration>
+	        <filename>classpath*:queries/oracle/**/mapping-*.xml</filename>
+	   	    <nullcheck type="VARCHAR" default-value=""/> 
+		</config:configuration>					
+	</bean>	
+
+</beans>

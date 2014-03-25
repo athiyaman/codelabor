@@ -1,0 +1,35 @@
+Example 6.35 	Auto-populating ContextObject: ProjectRegistrationRequestContext
+// Specialized Context Object
+public class ProjectRegistrationRequestContext extends RequestContext {
+  public String getProjectDescription() {
+    return projectDescription;
+  }
+
+  public void setProjectDescription(String projectDescription) {
+    this.projectDescription = projectDescription;
+  }
+
+  public String getProjectManager() {
+    return projectManager;
+  }
+
+  public void setProjectManager(String projectManager) {
+    this.projectManager = projectManager;
+  }
+
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public boolean validate() {
+    return true;
+  }
+
+  private String projectName;
+  private String projectDescription;
+  private String projectManager;
+}

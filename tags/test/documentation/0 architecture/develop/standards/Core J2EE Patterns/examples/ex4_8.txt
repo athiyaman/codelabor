@@ -1,0 +1,11 @@
+Example 4.8 Reduced Coupling Between a Domain Object and HttpServletRequest object
+
+// Domain Object not coupled with HttpServletRequest 
+public class Customer
+{ 
+  public Customer ( String first, String last )
+  { 
+    firstName = first;
+    lastName = last;
+  }
+}

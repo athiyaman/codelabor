@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE queryservice PUBLIC "-//ANYFRAME//DTD QUERYSERVICE//EN"
+"http://www.anyframejava.org/dtd/anyframe-core-query-mapping-3.1.dtd">
+<queryservice>
+	<queries>
+		<!-- insert -->
+		<query id="example.insert.user.role.map" isDynamic="false">
+			<statement>
+				<![CDATA[
+				INSERT /* example.insert.user.role.map */
+				INTO EXAMPLE_USER_ROLE_MAP (
+					USER_ID, ROLE_ID
+				) VALUES (
+					?, ?
+				)
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+		</query>	
+		<!-- delete -->
+		<query id="example.delete.user.role.map" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.user.role.map */
+				FROM 
+					EXAMPLE_USER_ROLE_MAP
+				WHERE
+					USER_ID = ? AND ROLE_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+			<param type="VARCHAR"/>
+		</query>		
+		<query id="example.delete.user.role.map.list.by.user.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.user.role.map.list.by.user.id */
+				FROM 
+					EXAMPLE_USER_ROLE_MAP
+				WHERE
+					USER_ID = ?
+				]]>
+			</statement>
+			<param type="VARCHAR"/>
+		</query>			
+		<query id="example.delete.user.role.map.role.map.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				DELETE /* example.delete.user.role.map.role.map.list */
+				FROM 
+					EXAMPLE_USER_ROLE_MAP
+				]]>
+			</statement>
+		</query>	
+		
+		<!-- select -->
+		<query id="example.select.user.role.map.by.user.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.user.role.map.by.user.id */
+					USER_ID,
+					ROLE_ID
+				FROM 
+					EXAMPLE_USER_ROLE_MAP
+				WHERE 
+					USER_ID = ?
+				]]>
+			</statement>
+			<param type="INTEGER"/>
+			<result class="org.codelabor.example.dtos.UserDTO">
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="ROLE_ID" attribute="roleId"/>
+			</result>			
+		</query>
+		<query id="example.select.user.role.map.by.role.id" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.user.role.map.by.role.id */
+					USER_ID,
+					ROLE_ID
+				FROM 
+					EXAMPLE_USER_ROLE_MAP
+				WHERE 
+					ROLE_ID = ?
+				]]>
+			</statement>
+			<param type="INTEGER"/>
+			<result class="org.codelabor.example.dtos.UserDTO">
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="ROLE_ID" attribute="roleId"/>
+			</result>			
+		</query>		
+		<query id="example.select.user.role.map.role.map.list" isDynamic="false">
+			<statement>
+				<![CDATA[
+				SELECT /* example.select.user.role.map.role.map.list */
+					USER_ID,
+					ROLE_ID						
+				FROM 
+					EXAMPLE_USER_ROLE_MAP
+				]]>
+			</statement>
+			<result class="org.codelabor.example.dtos.UserDTO">
+				<result-mapping column="USER_ID" attribute="userId"/>
+				<result-mapping column="ROLE_ID" attribute="roleId"/>
+			</result>			
+		</query>
+	</queries>
+</queryservice>

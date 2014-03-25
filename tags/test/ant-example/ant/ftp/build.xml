@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ftp" default="upload" basedir=".">
+	<description>Samsung Card Lease Project</description>
+	<!-- properties -->
+	<property file="${basedir}/build.properties" />
+
+	<!-- check info -->
+	<echo level="info" message="os name: ${os.name}" />
+	<echo level="info" message="os arch: ${os.arch}" />
+	<echo level="info" message="os version: ${os.version}" />
+	<echo level="info" message="ant version: ${ant.version}" />
+
+	<target name="upload">
+		<!-- ftp -->
+		<echo level="info" message="FTP web applicaion" />
+		<ftp server="${development.was.server.ftp.ip}"
+			port="${development.was.server.ftp.port}"
+			remotedir="${development.was.server.ftp.remotedir}"
+			userid="${development.was.server.ftp.userid}"
+			password="${development.was.server.ftp.password}"
+			binary="true">
+			<fileset dir="${basedir}/upload">
+				<include name="**/*.txt" />
+			</fileset>
+		</ftp>
+		<ftp server="${development.was.server.ftp.ip}"
+			port="${development.was.server.ftp.port}"
+			remotedir="${development.was.server.ftp.remotedir}"
+			userid="${development.was.server.ftp.userid}"
+			password="${development.was.server.ftp.password}"
+			binary="true">
+			<fileset dir="${basedir}/upload">
+				<include name="**/*.gif" />
+			</fileset>
+		</ftp>
+	</target>
+
+	<target name="download">
+	</target>
+
+</project>
+

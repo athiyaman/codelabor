@@ -1,0 +1,4 @@
+Example 6.67 Role-based Content
+<region:render template='portal.jsp'>
+	<region:put section='banner' content='banner.jsp' role='customer'/>
+</region:render>

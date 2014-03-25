@@ -1,0 +1,16 @@
+Example 6.22 POJO Request Context Creation Using DynaActionForm
+<struts-config>
+  <form-beans>
+    <form-bean  name="projectRegistrationForm"
+        type="org.apache.struts.action.DynaActionForm">
+      <form-property name="projectName" type="java.lang.String"/>
+      <form-property name="projectDescription"
+          type="java.lang.String"/>
+      <form-property name="idCustomer" type="java.lang.String"/>
+      <form-property name="projectManager" type="java.lang.String"/>
+      <form-property name="startDate" type="java.util.Date"/>
+      <form-property name="endDate" type="java.util.Date"/>
+      <form-property name="emailAlias" type="java.lang.String"/>
+    </form-bean>
+  . . . 
+</struts-config>

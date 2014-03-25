@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>codelabor-struts1-template</display-name>
+	
+	<!-- Spring support -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/**/applicationContext*.xml</param-value>
+	</context-param>
+	
+	<!-- Sniff filter -->
+	<filter>
+		<filter-name>sniffFilter</filter-name>
+		<filter-class>org.codelabor.system.filters.SniffFilter</filter-class>
+	</filter>	
+	<filter-mapping>
+		<filter-name>sniffFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Anyframe Monitoring Tool Listener -->	
+	<filter>
+	    <filter-name>infrared</filter-name>
+	    <filter-class>net.sf.infrared.aspects.servlet.InfraREDServletFilter</filter-class>
+	</filter>    
+	<filter-mapping>
+	    <filter-name>infrared</filter-name>
+	    <url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	<!-- Spring support -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Login Http Session Listener -->
+	<listener>
+		<listener-class>org.codelabor.system.listeners.LoginHttpSessionListener</listener-class>
+	</listener>	
+	
+	<!-- Anyframe Monitoring Tool Listener -->
+	<listener>
+		<listener-class>net.sf.infrared.agent.setup.InfraREDServletContextListener</listener-class>
+	</listener>		
+
+	<servlet>
+	    <servlet-name>action</servlet-name>
+			<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+	    <init-param>
+	      	<param-name>config</param-name>
+	      	<param-value>/WEB-INF/configurations/struts-config.xml,
+	      	/WEB-INF/configurations/example/struts-config.xml,
+	      	/WEB-INF/configurations/system/struts-config.xml,
+	      	/WEB-INF/configurations/admin/struts-config.xml</param-value>
+	    </init-param>	    
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		  <servlet-name>action</servlet-name>
+		  <url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	
+ 	<error-page>
+		<error-code>404</error-code>
+		<location>/system/httpStatus404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/system/httpStatus500.jsp</location>
+	</error-page>
+</web-app>

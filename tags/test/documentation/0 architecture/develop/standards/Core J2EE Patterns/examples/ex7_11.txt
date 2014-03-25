@@ -1,0 +1,61 @@
+Example 7.11 	Implementing Session Façade – Remote Interface
+
+package corepatterns.apps.psa.ejb;
+
+import java.rmi.RemoteException;
+import javax.ejb.*;
+import corepatterns.apps.psa.core.*;
+
+// Note: all try/catch details not shown for brevity.
+
+public interface ProjectResourceManager extends EJBObject {
+
+	public resetEntities(String resourceId, String projectId,
+		...)
+	throws RemoteException, ResourceException ;
+
+	public void assignResourceToProject(int numHours)
+	throws RemoteException, ResourceException ;
+
+	public void unassignResourceFromProject()
+	throws RemoteException, ResourceException ;
+
+	...
+
+	public ResourceTO getResourceData()
+	throws RemoteException, ResourceException ;
+
+	public void setResourceData(ResourceTO resource) 
+	throws RemoteException, ResourceException ;
+
+	public ResourceTO createNewResource(ResourceTO resource)
+	throws ResourceException ;
+
+	public void addBlockoutTime(Collection blockoutTime) 
+	throws RemoteException,BlockoutTimeException ;
+	
+	public void updateBlockoutTime(Collection blockoutTime) 
+	throws RemoteException,BlockoutTimeException ;
+	
+	public Collection getResourceCommitments() 
+	throws RemoteException, ResourceException;
+
+	public ProjectTO getProjectData()
+	throws RemoteException, ProjectException ;
+	
+	public void setProjectData(ProjectTO project) 
+	throws RemoteException, ProjectException ;
+
+	public ProjectTO createNewProject(ProjectTO project)
+	throws RemoteException, ProjectException ;
+
+	...
+
+	public ProjectCTO getProjectDetailsData()
+	throws RemoteException, PSAException ;
+
+	public Collection getProjectsList(Date start, Date end)
+	throws RemoteException, PSAException ;
+
+	...
+}

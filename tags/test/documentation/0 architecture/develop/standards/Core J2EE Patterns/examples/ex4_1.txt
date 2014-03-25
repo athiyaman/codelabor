@@ -1,0 +1,11 @@
+Example 4.1 Introduce a Controller – JSP Structure
+
+<HTML>
+<BODY>
+<control:grant_access/>
+.
+.
+.
+
+</BODY>
+</HTML>

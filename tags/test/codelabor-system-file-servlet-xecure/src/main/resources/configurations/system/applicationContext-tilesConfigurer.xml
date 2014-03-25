@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- for Spring 3.0.0.M4 -->
+	<!--
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/classes/definitions/**/tiles-defs.xml</value>
+			</list>
+		</property>
+	</bean>
+	-->
+
+	<!-- for Spring 3.0.0.M3, 2.5.x -->
+	<bean id="tilesConfigurer"
+		class="com.x.web.tiles2.SpringTilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/classes/definitions/**/tiles-defs.xml</value>
+			</list>
+		</property>
+	</bean>
+</beans>

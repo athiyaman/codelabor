@@ -1,0 +1,87 @@
+Example 6.53 Controller-Based View Manager Strategy 
+public class EmployeeListServlet extends HttpServlet {
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+	}
+
+	public void destroy() 	{ 	}
+
+	/** Processes requests for both HTTP  
+	 * <code>GET</code> and <code>POST</code> methods.
+	 * @param request servlet request
+	 * @param response servlet response
+	 */
+	protected void processRequest(
+			HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, java.io.IOException {
+		String title = "Controller-based View Strategy";
+		try {
+			response.setContentType("text/html");
+			java.io.PrintWriter out = response.getWriter();
+			out.println("<html><title>"+title+"</title>");
+			out.println("<body>");
+			out.println("<h2><center>Employees List</h2>");
+			EmployeeDelegate delegate = new EmployeeDelegate();
+			/** ApplicationResources provides a simple API for
+			 *  retrieving constants and other preconfigured values **/
+			Iterator employees = delegate.getEmployees( 
+				ApplicationResources.getInstance().getAllDepartments());
+			out.println("<table border=2>");
+			out.println("<tr><th>First Name</th>" + 
+				"<th>Last Name</th>" + 
+				"<th>Designation</th><th>Id</th></tr>");
+			while (employees.hasNext()) {
+				out.println("<tr>");
+				EmployeeTO emp = (EmployeeTO)employees.next();
+				out.println("<td>" + emp.getFirstName() + "</td>");
+				out.println("<td>" + emp.getLastName() + "</td>");
+				out.println("<td>" + emp.getDesignation() + "</td>");
+				out.println("<td>" + emp.getId() + "</td>");
+				out.println("</tr>");
+			}
+			out.println("</table>");
+			out.println("<br><br>");
+			out.println("</body>");
+			out.println("</html>");
+			out.close();
+		}
+		catch (Exception e) {
+			LogManager.logMessage("Handle this exception”, 
+				e.getMessage() );
+		}
+	}
+
+	/** Handles the HTTP <code>GET</code> method.
+	 *  @param request servlet request
+	 *  @param response servlet response
+	 */
+	protected void doGet(HttpServletRequest request, 
+			HttpServletResponse response)
+			throws ServletException, java.io.IOException {
+        processRequest(request, response);
+	}
+
+	/** Handles the HTTP <code>POST</code> method.
+	  * @param request servlet request
+	  * @param response servlet response
+	  */
+	protected void doPost(HttpServletRequest request, 
+			HttpServletResponse response)
+			throws ServletException, java.io.IOException {
+		processRequest(request, response);
+	}
+
+	/** Returns a short description of the servlet. */
+	public String getServletInfo() {
+		return "Example of Servlet View. " + "JSP View is preferable.";
+	}
+
+	/** dispatcher method **/
+	protected void dispatch(HttpServletRequest request, 
+			HttpServletResponse response, String page) 
+			throws javax.servlet.ServletException, java.io.IOException {
+		RequestDispatcher dispatcher = 
+			getServletContext().getRequestDispatcher(page);
+		dispatcher.forward(request, response);
+	}
+}

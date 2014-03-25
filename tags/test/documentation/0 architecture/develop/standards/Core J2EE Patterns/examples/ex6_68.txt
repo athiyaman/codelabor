@@ -1,0 +1,12 @@
+Example 6.68 Nested Regions
+<region:define id='BANNER' template='twoColumns.jsp'>
+    <region:put section='logo' content='logo.jsp'/>
+
+    <region:put section='advertisement' content='advertisement.jsp'/>
+</region:define>
+...
+<region:define id="PORTAL" template='portal.jsp'>
+    <region:put section='banner' content='BANNER'/>
+  ...
+    <region:put section='footer' content='footer.jsp'/>
+</region:render>

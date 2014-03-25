@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleRemotingTcpUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/remoting/tcp/send.do" value-ref="exampleRemotingTcpSendController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+ 		id="exampleRemotingTcpSendController"
+		class="org.codelabor.example.remoting.tcp.spring.controllers.SendController">
+		<property name="socketAdapterService" ref="exampleRemotingTcpSimpleSocketAdapterService"/>
+		<property name="commandName" value="sendForm"/>
+		<property name="commandClass" value="org.codelabor.example.remoting.tcp.dtos.MessageDTO"/>
+		<property name="formView" value="example.remoting.tcp.send.definition"/>
+		<property name="successView" value="example.remoting.tcp.receive.definition"/>
+		<property name="message" value="00000932SKSFSAAA001001R10000100UA IUS271703730909091714392102000IUS271703730909091714392102                                0S 00000000000127.0.0.1              1DITEAI1_SC2009090917141006                                                                                                                                       IUSIUS0 SAAA001001R                             101 01501100ep133정준호              1    0                    00   20090818                                                                                                                                                                                                                                                                                                                                                                                   000000                                                                       000000        2009010120090909        " />
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+Example 6.1 Base Filter – Standard Filter Strategy
+public class BaseEncodeFilter implements javax.servlet.Filter {
+
+  private javax.servlet.FilterConfig filterConfig;
+
+  public void doFilter(
+      javax.servlet.ServletRequest servletRequest,
+          javax.servlet.ServletResponse servletResponse,
+          javax.servlet.FilterChain filterChain) 
+          throws java.io.IOException,
+          javax.servlet.ServletException {
+
+    filterChain.doFilter(servletRequest, servletResponse);
+  }
+    
+  protected javax.servlet.FilterConfig getFilterConfig() {
+    return filterConfig;
+  } 
+  
+  public void destroy() { }
+    
+  public void init(javax.servlet.FilterConfig filterConfig)
+      throws javax.servlet.ServletException {
+    this.filterConfig = filterConfig;
+  }
+ 
+}

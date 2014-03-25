@@ -1,0 +1,37 @@
+Example 9.16 WorkPageRef Code
+package WorkAdapter;
+
+public class WorkPageRef {
+  String workPageRef;
+  String userId;
+  String workflowProcessId;
+  String workItemId;
+
+  public WorkPageRef() { }
+
+  public WorkPageRef(String workPageRef, String userId, 
+      String workflowProcessId, String workItemId) {
+    this.workPageRef = workPageRef;
+    this.userId = userId;
+    this.workflowProcessId = workflowProcessId;
+    this.workItemId = workItemId;
+  }
+
+  public String getURL() {
+    StringBuffer s = new StringBuffer(workPageRef);
+    s.append("?UserId=");
+    s.append(userId);
+
+    if (workflowProcessId != null && workItemId != null) {
+      s.append("?");
+    }
+    if (workflowProcessId != null) {
+      s.append("&WorkflowProcesId=").
+      append(workflowProcessId);
+    }
+    if (workItemId != null) {
+      s.append("&WorkItemId=").append(workItemId);
+    }
+    return s.toString();
+  }
+}

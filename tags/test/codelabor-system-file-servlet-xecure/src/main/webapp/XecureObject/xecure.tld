@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+
+<tlibversion>1.0</tlibversion>
+<jspversion>1.1</jspversion>
+<shortname>xecure</shortname>
+<info> XecureWeb Crypto Library </info>
+
+
+<tag>
+	<name>enc</name>
+	<tagclass>xecure.servlet.jsp.XecureJspTag</tagclass>
+	<bodycontent>JSP</bodycontent>
+	<attribute>
+		<name>xecobj</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+
+</taglib>

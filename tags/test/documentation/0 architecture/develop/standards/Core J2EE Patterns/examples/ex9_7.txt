@@ -1,0 +1,67 @@
+Example 9.7 	ReviewInfoTO, InterviewInfoTO and WorkflowContext Code
+package ActionAdapter;
+
+import java.io.Serializable;
+
+public class ReviewInfoTO implements Serializable {
+  private String notes;
+  private int rating;
+
+  public ReviewInfoTO( String notes, int rating ) {
+    this.notes = notes;
+    this.rating = rating;
+  }
+  public String getNotes() {
+    return notes;
+  }
+  public int getRating() {
+    return rating;
+  }
+}
+
+
+package ActionAdapter;
+
+import java.io.Serializable;
+
+public class InterviewInfoTO implements Serializable {
+  private String notes;
+  private int rating;
+
+  public InterviewInfoTO( String notes, int rating ) {
+    this.notes = notes;
+    this.rating = rating;
+  }
+  public String getNotes() {
+    return notes;
+  }
+  public int getRating() {
+    return rating;
+  }
+}
+
+
+package ActionAdapter;
+
+public class WorkflowContext {
+  String workflowName;
+  String workflowProcessId;
+  String workItemId;
+
+  public WorkflowContext(String workflowName,
+      String workflowProcessId, String workItemId) {
+    this.workflowName = workflowName;
+    this.workflowProcessId = workflowProcessId;
+    this.workItemId = workItemId;
+  }
+
+  public String getWorkflowName() {
+    return workflowName;
+  }
+  public String getWorkflowProcessId() {
+    return workflowProcessId;
+  }
+  public String getWorkItemId() {
+    return workItemId;
+  }
+}

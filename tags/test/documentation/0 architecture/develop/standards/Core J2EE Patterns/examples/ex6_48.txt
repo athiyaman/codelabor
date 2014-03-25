@@ -1,0 +1,117 @@
+Example 6.48 	CommandAndViewFactory
+// Command and View Dual-Factory creates Command and View
+// instances based on current application state and requested operation
+public class CommandAndViewFactory {
+  private static CommandAndViewFactory ourInstance;
+
+  public synchronized static CommandAndViewFactory getInstance() {
+    if (ourInstance == null) {
+      ourInstance = new CommandAndViewFactory();
+    }
+    return ourInstance;
+  }
+
+  private CommandAndViewFactory() {
+    commandviewMap = CommandViewMap.getInstance();
+  }
+
+  public CommandViewHandle getCommand(String event, String state) {
+    CommandViewHandle handle =
+        commandviewMap.getCommandViewHandle(event, state);
+    return handle;
+  }
+
+  public String getView(String event, String state) {
+    return commandviewMap.
+        getCommandViewHandle(event, state).getViewName();
+  }
+
+  CommandViewMap commandviewMap;
+}
+
+class CommandViewMap {
+
+  private static CommandViewMap ourInstance;
+
+    public synchronized static CommandViewMap getInstance() {
+      if (ourInstance == null) {
+        ourInstance = new CommandViewMap();
+      }
+      return ourInstance;
+    }
+
+  private CommandViewMap() {
+    initialize();
+  }
+
+  // Initialize map for all valid state and event combinations
+  private void initialize() {
+    addEventStateEntry(
+        OrderEvents.EnterOrder, OrderStatus.ORDER_NEW,
+        PlaceOrderCommand.class,
+        "/jsp/ApplicationController/OrderPlaced");
+
+    addEventStateEntry(OrderEvents.ApproveOrder,
+        OrderStatus.ORDER_PLACED, ApproveOrderCommand.class,
+        "/jsp/ApplicationController/OrderApproved");
+
+    addEventStateEntry(OrderEvents.DeclineOrder,
+        OrderStatus.ORDER_PLACED,
+        DeclineOrderCommand.class,
+        "/jsp/ApplicationController/OrderDeclined");
+
+    addEventStateEntry(OrderEvents.TerminateOrder,
+        OrderStatus.ORDER_PLACED, TerminateOrderCommand.class,
+        "/jsp/ApplicationController/OrderTerminated");
+
+    addEventStateEntry(OrderEvents.ShipOrder,
+        OrderStatus.ORDER_APPROVED, TerminateOrderCommand.class,
+        "/jsp/ApplicationController/OrderShipped");
+
+    addEventStateEntry(OrderEvents.TerminateOrder, 
+        OrderStatus.ORDER_APPROVED,  TerminateOrderCommand.class,
+        "/jsp/ApplicationController/OrderTerminated");
+
+    addEventStateEntry(OrderEvents.TerminateOrder, 
+        OrderStatus.ORDER_DECLINED, TerminateOrderCommand.class, 
+        "/jsp/ApplicationController/OrderTerminated");
+    . . .
+  }
+
+  void addEventStateEntry(String event, Object state, 
+      Class domainCommand, String viewName) {
+    CommandViewHandle newResponse = 
+        new CommandViewHandle(domainCommand, viewName);
+    if ( !events.containsKey(event))
+      events.put(event, new HashMap());
+    getEventMap(event).put(state, newResponse);
+  }
+
+  private Map getEventMap(String key ) {
+    return (Map)events.get(key);
+  }
+
+  public CommandViewHandle getCommandViewHandle(
+      String operation, String state) {
+    return (CommandViewHandle)getEventMap(operation).get(state);
+  }
+  private Map events = new HashMap();
+}
+
+class CommandViewHandle {
+  public CommandViewHandle(Class domainCommand, String viewName) {
+    this.domainCommand = domainCommand;
+    this.viewName = viewName;
+  }
+
+  public Class getCommandHandle() {
+    return domainCommand;
+  }
+
+  public String getViewName() {
+    return viewName;
+  }
+
+  private Class domainCommand;
+  private String viewName;
+}

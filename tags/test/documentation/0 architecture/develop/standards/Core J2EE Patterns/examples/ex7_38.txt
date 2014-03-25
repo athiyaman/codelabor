@@ -1,0 +1,9 @@
+Example 7.38 	Composite Transfer Object Class
+
+public class ProjectDetailsData
+implements java.io.Serializable {
+	public ProjectTO projectData;
+	public ProjectManagerTO projectManagerData;
+	public Collection listOfTasks;
+	...
+}

@@ -1,0 +1,35 @@
+Example 7.47 ValueListIterator implementation: ProjectsListIterator
+
+package com.corej2eepatterns.vlh;
+
+// imports
+
+// typically, this is implemented as an inner class of the
+// custom Value List you implement. In this example,
+// ProjectListIterator can be implemented as an inner class of
+// ProjectsList. Shown here as a separate class for example
+// purposes.
+
+public class ProjectsListIterator implements ValueListIterator
+{
+    private List projectsList;
+    private int currentIndex = -1;
+    private int size = 0;
+
+    public ProjectsListIterator(List projectsList) {
+        this.projectsList = projectsList;
+        size = projectsList.size();
+        currentIndex=0;
+    }
+
+    // implement other methods
+    public boolean hasNext() { ... }
+    public Object next() { ... }
+    public boolean hasPrevious() { ... }
+    public Object previous() { ... }
+    public int nextIndex() { ... }
+    public int previousIndex() { ... }
+    public void remove() { ... }
+    public void set(Object o) {...}
+    public void add(Object o) { ... }
+}

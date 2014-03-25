@@ -1,0 +1,37 @@
+Example 7.31 Implementing the Updatable Transfer Object Strategy
+
+...
+public class ProjectEntity implements EntityBean {
+	private EntityContext context;
+	...
+
+	// attributes and other methods as in 
+	// Example 7.4 on page 331 
+	...
+
+	// method to set entity values with a transfer object
+	public void setProjectData(ProjectTO updatedProj) {
+		mergeProjectData(updatedProj);
+	}
+
+	// method to merge values from the transfer object 
+	// into the entity bean attributes
+	private void mergeProjectData(ProjectTO updatedProj) {
+		// version control check may be necessary here 
+		// before merging changes in order to 
+		// prevent losing updates by other clients
+		projectId = updatedProj.projectId;
+		projectName = updatedProj.projectName;
+		managerId = updatedProj.managerId;
+		startDate = updatedProj.startDate;
+		endDate = updatedProj.endDate;
+		customerId = updatedProj.customerId;
+		projectDescription = updatedProj.projectDescription;
+		projectStatus = updatedProj.projectStatus;
+		started = updatedProj.started;
+		completed = updatedProj.completed;
+		accepted = updatedProj.accepted;
+		closed = updatedProj.closed;
+	}
+	...
+}

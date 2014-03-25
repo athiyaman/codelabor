@@ -1,0 +1,15 @@
+Example 6.62  Composite View With Runtime Content Inclusion
+<table border=1 valign="top" cellpadding="2%" width="100%">
+    <tr>
+        <td><jsp:include page="news/worldnews.jsp" flush="true"/> </td>
+    </tr>
+    <tr>
+        <td><jsp:include page="news/countrynews.jsp" flush="true"/></td>
+    </tr>
+    <tr>
+        <td><jsp:include page="news/customnews.jsp" flush="true"/> </td>
+    </tr>
+    <tr>
+        <td><jsp:include page="news/astronomy.jsp" flush="true"/> </td>
+    </tr>
+</table>

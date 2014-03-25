@@ -1,0 +1,45 @@
+Example 6.25 Validation support in Request Context Object
+// Base RequestContext class provides validation scaffolding
+public class RequestContext {
+  public RequestContext (ServletRequest request) {
+    setRequest(request);
+  }
+
+  public ValidatorResults validate() throws ValidatorException {
+    try {
+      InputStream inputStream =
+          Thread.currentThread().getContextClassLoader().
+          getResourceAsStream(getValidationResourceName());
+      // Create an instance of ValidatorResources to initialize from an
+      // xml file
+      ValidatorResources resources = new ValidatorResources();
+      ValidatorResourcesInitializer.initialize(resources, inputStream);
+
+      // Construct validator based onloaded resources and form name
+      Validator validator = new Validator(resources,
+          getValidationFormName());
+
+      // add the name bean to the validator as a resource
+      // for the validations to be performed on.
+      validator.addResource(Validator.BEAN_KEY, this);
+
+      // Validation
+      ValidatorResults validatorResultsAggregate = null;
+      validatorResultsAggregate = validator.validate();
+
+      // Perform generic validation error handling, if any
+      return validatorResultsAggregate;
+    } catch (IOException e) {
+      // Handle Exception
+    }
+    return null;
+  }
+
+  . . .
+
+  public void setRequest(ServletRequest request) {
+    this.request = request;
+  }
+
+  private ServletRequest request;
+}

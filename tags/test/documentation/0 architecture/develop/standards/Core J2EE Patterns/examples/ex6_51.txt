@@ -1,0 +1,73 @@
+Example 6.51 JAX-RPC Message-Handler Strategy
+import javax.xml.rpc.handler.Handler;
+import javax.xml.rpc.handler.soap.SOAPMessageContext;
+import javax.xml.soap.SOAPMessage;
+. . .
+import org.apache.xml.security.signature.XMLSignature;
+import org.apache.xpath.CachedXPathAPI;
+import org.apache.xml.security.utils.Constants;
+
+public class AuthenticationHandler extends GenericHandler
+    implements Handler {
+
+  private String DSIG_NS = “xmlns:ds”;
+  private String DSIG_SIGNATURE_SEARCH_EXPR = “//ds:Signature”;
+  String BaseURI = “http://xml-security”;
+
+  public AuthenticationHandler() { }
+
+  public void init(HandlerInfo config) {
+    org.apache.xml.security.Init.init();
+  }
+       
+  public boolean handleRequest (MessageContext context) {
+    try {
+      SOAPMessageContext soapMessageContext =
+          (SOAPMessageContext) context;
+      SOAPMessage soapMessage = soapMessageContext.getMessage();
+      Source source = soapMessage.getSOAPPart().getContent();
+
+      // get Document from Source
+      Document signedDoc = getDocument(source);
+
+      // XPath expression evaluator
+      CachedXPathAPI xPath = new CachedXPathAPI();
+
+      // namespace Node is used for resolving namespace prefixes
+      // in the following xpath search
+      Element nsctx = signedDoc.createElement(“nsctx”);
+      nsctx.setAttribute(DSIG_NS, Constants.SignatureSpecNS);
+      
+      // Use XPath expression to find the Signature Element
+      Element signatureElem =
+          (Element)xPath.selectSingleNode(
+          signedDoc, DSIG_SIGNATURE_SEARCH_EXPR, nsctx);
+
+      // check to make sure that the document claims to have been signed
+      if (signatureElem == null) {
+        // Handle Missing Signature scenario
+        System.out.println(“The document is not signed”);
+        return false;
+      }
+
+      // Verify Signature
+      XMLSignature signature = new XMLSignature(signatureElem, BaseURI);
+      boolean verify = signature.checkSignatureValue(
+          signature.getKeyInfo().getPublicKey());
+
+      // Audit Verification Message
+      System.out.println("The signature is" + (verify ? " ": " not ") +
+          "valid”);
+
+      return verify;
+    } catch(Exception e) {
+      // Handle Exception
+    }
+    return false;
+  }
+
+  public boolean handleResponse(MessageContext context) {
+    return true;
+  }
+  . . .
+}

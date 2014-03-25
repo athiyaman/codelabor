@@ -1,0 +1,105 @@
+Example 6.50 WebServiceApplicationController
+// Application Controller implementation to handle Web Service Request
+class WebServiceApplicationController implements ApplicationController {
+
+  HandlerChain handlerChain;
+
+  public WebServiceApplicationController() { }
+
+  public void init() {
+    handlerChain = new HandlerChain();
+    handlerChain.addHandler(new AuditHandler());
+    handlerChain.addHandler(new AuthenticationHandler());
+  }
+
+  public ResponseContext handleRequest(RequestContext requestContext) {
+    ResponseContext responseContext = null;
+    try {
+      SOAPRequestContext soapRequestContext = 
+          (SOAPRequestContext)requestContext;
+
+      // create a SOAPMessage from incoming HTTP stream
+      SOAPMessage soapMessage = soapRequestContext.getSOAPMessage();
+
+      // pre-process SOAPMessage by Message Handlers
+      handlerChain.handleRequest(soapMessage);
+
+      // Identify Command Name from protocol-specific request
+      String commandName = soapRequestContext.getCommandName();
+
+      // resolve command name to Command Object
+      CommandFactory commandFactory = CommandFactory.getInstance();
+      Command command = commandFactory.getCommand(commandName);
+
+      // Invoke Command using a CommandProcessor               
+      CommandProcessor commandProcessor = new CommandProcessor();
+      Object result = commandProcessor.invoke(command, requestContext);
+
+      // Create Response context based on Command results
+      responseContext = ResponseContextFactory.getInstance().
+          createResponseContext(result, null);
+    } catch(java.lang.InstantiationException e) {
+      // Handle Exception
+    } catch(java.lang.IllegalAccessException e ) {
+      // Handle Exception
+    }
+    return responseContext;
+  }
+
+  public void handleResponse(
+    RequestContext requestContext, ResponseContext responseContext) {
+    try {
+
+      // create response SOAPResponse message from
+      // previously-obtained Command result
+      SOAPMessage soapMessage = null;
+      Object payload = responseContext.getData();
+
+      soapMessage = SOAPHttpFacade.createSOAPMessage(payload);
+      if (soapMessage != null) {
+        // post-process Response Message by SOAP Message Handlers
+        handlerChain.handleResponse(soapMessage);
+
+        // Need to saveChanges because we're going to use the
+        // MimeHeaders to set HTTP response information. These
+        // MimeHeaders are generated as part of the save.
+
+        if (soapMessage.saveRequired()) {
+          soapMessage.saveChanges();
+        }
+
+        HttpServletResponse response = (HttpServletResponse)
+        responseContext.getResponse();
+        response.setStatus(HttpServletResponse.SC_OK);
+
+        SOAPHttpFacade.putHeaders(
+            soapMessage.getMimeHeaders(), response);
+        writeResponse(
+            (HttpServletResponse)responseContext.
+                getResponse(), soapMessage);
+      }
+    } catch (SOAPException e) {
+      // Handle Exception
+    }
+  }
+
+  public void destroy() { }
+
+  private void writeResponse(
+      HttpServletResponse response, SOAPMessage soapResponse) {
+    try {
+      // Write out the message on the response stream.
+      response.setContentType("text/xml"); // SOAP 1.1 Message
+      OutputStream outputStream = response.getOutputStream();
+      soapResponse.writeTo(outputStream);
+      outputStream.flush();                
+    } catch(SOAPException e) {
+      // Handle Exception
+      response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    } catch(java.io.IOException e) {
+      // Handle Exception
+      response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+    }
+  }
+  . . .
+}

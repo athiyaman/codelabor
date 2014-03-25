@@ -1,0 +1,11 @@
+Example 7.18	OrderTO
+
+import java.util.Date;
+
+public class OrderTO implements java.io.Serializable {
+    public String companyId;
+    public String accountId;
+    public String orderId;
+    public LineItemTO[] lineItems;
+    public Date   orderDate;
+}

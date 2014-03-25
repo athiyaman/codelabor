@@ -1,0 +1,47 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=ks_c_5601-1987">
+<head>
+<script language='javascript' src='xecureweb_3.js'></script>
+</head>
+<body>
+
+<Script Language='JavaScript'>
+
+if (navigator.appName == 'Netscape') {
+
+  var XecureMime = navigator.mimeTypes["application/x-SoftForum-XecSSL40"];
+  if (XecureMime) {   // Xecure PlugIn 이 이미 설치되어 있는 경우
+	if ( isNewPlugin(XecureMime.enabledPlugin.description) == false) {
+		if (navigator.userAgent.indexOf("Mozilla/4") == 0)  // Netscape 4.0 up. Using SmartUpdate
+			downloadNow();
+	}
+	else {
+		document.writeln('<EMBED type="application/x-SoftForum-XecSSL40" hidden=true name="XecureWeb">');
+	}
+   }
+   else {     // Xecure PlugIn 이 설치되어 있지 않은 경우
+		if (navigator.userAgent.indexOf("Mozilla/4") == 0)  // Netscape 4.0 up. Using SmartUpdate
+			downloadNow();
+   }
+}
+else {
+    document.writeln('<OBJECT ID="XecureWeb" CLASSID="CLSID:7E9FDB80-5316-11D4-B02C-00C04F0CD404"');
+    document.writeln('        CODEBASE="/XecureObject/xw40_install.cab#Version=4,0,2,0"');
+    document.writeln('        >');
+    document.writeln('</OBJECT>');
+}
+
+function Process_XecureError() 
+{
+	alert('XecureWeb SSL 클라이언트 컨트롤/플러그인이 설치되어 있지 않습니다. 컨트롤을 설치하십시오.');
+	top.location.href='/XecureDemo/index.html' ;
+}
+
+
+</Script>
+
+<form name='xecure'><input type=hidden name='p'></form>
+<img src="XecureWeb.jpg">
+
+</body>
+</html>

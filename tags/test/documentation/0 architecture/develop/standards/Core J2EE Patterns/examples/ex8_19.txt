@@ -1,0 +1,90 @@
+Example 8.19 import javax.transaction.*;
+
+public class EmployeeApplicationService {
+    public String createEmployee(String lastName,
+                                 String firstName,
+                                 String ss,
+                                 float salary,
+                                 String jobClassification,
+                                 String geography) {
+        String id = null;
+        String divisionId = null;
+
+        // Biz Logic
+
+        // Create new id
+        // id = getNewId();
+
+        // divisionId = getDivisionId( jobClassification );
+
+        // Create Employe
+        Employee e = new Employee(id, lastName, firstName, ss, salary, divisionId);
+
+        PersistenceManagerFactory factory = PersistenceManagerFactory.getInstance();
+        PersistenceManager manager = factory.lookupPersistenceManager();
+        try {
+            manager.begin();
+            manager.persist(e);
+            manager.commit();
+        } catch (SystemException e1) {
+        } catch (NotSupportedException e1) {
+        } catch (HeuristicRollbackException e1) {
+        } catch (RollbackException e1) {
+        } catch (HeuristicMixedException e1) {
+        }
+        return id;
+    }
+} 
+	Persistable Interface and Employee Class
+public interface Persistable {
+}
+
+public class Employee implements Persistable {
+	protected String id;
+	protected String firstName;
+	protected String lastName;
+	protected String ss;
+	protected float salary;
+	protected String divisionId;
+
+	public Employee(String id) {
+		this.id = id;
+	}
+
+	public Employee(String id, String lastName,
+			String firstName, String ss, float salary,
+			String divisionId) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.ss = ss;
+		this.salary = salary;
+		this.divisionId = divisionId;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setSalary(float salary) {
+		this.salary = salary;
+	}
+
+	public void setDivisionId(String divisionId) {
+		this.divisionId = divisionId;
+	}
+
+	public void setSS(String ss) {
+		this.ss = ss;
+	}
+
+	. . .
+}

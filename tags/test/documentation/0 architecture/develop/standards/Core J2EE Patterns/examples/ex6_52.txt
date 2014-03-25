@@ -1,0 +1,17 @@
+Example 6.52 Template-Based View Strategy 
+<jsp:useBean id="welcomeHelper" scope="request"
+ class="corepatterns.util.WelcomeHelper" />
+
+<HTML>
+<BODY bgcolor="FFFFFF">
+<c:if test = "${welcomeHelper.nameExists == true}">
+<center><H3> Welcome <b>
+<c:out value='${welcomeHelper.name}'/>
+</b><br><br> </H3></center>
+</c:if>
+
+
+<H4><center>Glad you are visiting our site!</center></H4>
+
+</BODY>
+</HTML>

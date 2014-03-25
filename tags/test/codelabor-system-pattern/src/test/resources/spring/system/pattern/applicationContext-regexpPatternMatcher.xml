@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean id="regexPatternMatcher" class="org.codelabor.system.pattern.service.RegexPatternMatcherImpl">
+		<property name="includesPatternList">
+			<description>
+				or 1=1--			
+				' or 1=1--
+				" or 1=1--
+				' or 'a'='a
+				" or "a"="a
+				') or ('a'='a
+				' or password like '%
+			</description>		
+			<util:list id="regexpIncludesPatternList">
+				<value>(?s)(?i).*or\s+(.*)\s*=\s*\1\s*--.*</value>			
+				<value>(?s)(?i).*'\s+or\s+(.*)\s*=\s*\1\s*--.*</value>
+				<value>(?s)(?i).*"\s+or\s+(.*)\s*=\s*\1\s*--.*</value>
+				<value>(?s)(?i).*'\s+or\s+'(.*)'\s*=\s*'\1.*</value>
+				<value>(?s)(?i).*"\s+or\s+"(.*)"\s*=\s*"\1.*</value>
+				<value>(?s)(?i).*'\)\s+or\s+\('(.*)'\s*=\s*'\1.*</value>
+				<value>(?s)(?i).*'\s+or\s+(password)\s+(like)\s+'%.*</value>
+			</util:list>		
+		</property>
+		<property name="excludesPatternList">
+			<description>
+				' or 1=1--
+			</description>		
+			<util:list>
+				<value>(?s)(?i).*'\s+or\s+(.*)\s*=\s*\1\s*--.*</value>
+			</util:list>		
+		</property>
+	</bean>
+</beans>

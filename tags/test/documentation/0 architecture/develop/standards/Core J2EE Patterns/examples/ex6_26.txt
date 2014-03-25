@@ -1,0 +1,55 @@
+Example 6.26 		Specialized Request Context Provide Specialized Context 
+Validations
+public class ProjectRegistrationRequestContext extends RequestContext {
+
+  public ProjectRegistrationRequestContext(HttpServletRequest request) {
+    super(request);
+    initialize(request);
+  }
+  public ProjectRegistrationRequestContext() { }
+
+  public void initialize(ServletRequest request) {
+    setRequest(request);
+    setProjectName(request.getParameter("projectName"));
+    setProjectDescription(request.getParameter("projectdescription"));
+    setIdCustomer(request.getParameter("customerid"));
+    setProjectManager(request.getParameter("projectmanager"));
+    setStartDate(request.getParameter("startdate"));
+    setStartDate(request.getParameter("enddate"));
+    setEmailAlias(request.getParameter("emailalias"));
+  }
+
+  . . .
+
+  // Specialized Context Validation
+  public ValidatorResults validate() {
+    ValidatorResults validatorResultsAggregate = null;
+    try {
+      validatorResultsAggregate = super.validate();
+      ValidatorResult validatorResult = validatorResultsAggregate. 
+          getValidatorResult("projectName");
+      if ( validatorResult.isValid("required") == false ) {
+        // handle Missing Project Name 
+      }
+
+      validatorResult = validatorResultsAggregate.
+          getValidatorResult("projectDescription");
+      if ( validatorResult.isValid("required") == false ) {
+        // handle missing Project Description
+      }
+
+      validatorResult = validatorResultsAggregate.
+          getValidatorResult("emailAlias");
+      if ( validatorResult.isValid("email") == false ) {
+        // handle Invalid email id error
+      }
+    } catch (ValidatorException e) {
+      // Handle Exception
+    }
+    return validatorResults;
+  }
+
+  public String getValidationFormName() {
+    return "ProjectRegistrationForm";
+  }
+}

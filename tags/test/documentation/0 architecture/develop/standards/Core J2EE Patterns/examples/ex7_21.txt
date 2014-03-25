@@ -1,0 +1,29 @@
+Example 7.21 Business Object: CustomerBO.java
+
+public class CustomerBO {
+    // CustomerData is a Data Object
+    private CustomerData customerData;
+
+    // ContactInfoBO is a dependent Business Object
+    private ContactInfoBO contactInfoBO;
+
+    public CustomerBO(CustomerData customerData) {
+        // validate CustomerData values
+        . . .
+        // copy customer data to this object
+        this.customerData = customerData;
+    }
+
+    public ContactInfoBO getContactInfoBO () {
+        // if ContactInfoBO is not created, get data from 
+        // customer data and wrap it with the 
+        // ContactInfoBO wrapper
+        if (contactInfoBO == null)
+            contactInfoBO = new ContactInfoBO(
+            customerData.getContactInfoData());
+        return contactInfoBO;
+    }
+
+    // business methods for CustomerBO
+    . . . 
+}

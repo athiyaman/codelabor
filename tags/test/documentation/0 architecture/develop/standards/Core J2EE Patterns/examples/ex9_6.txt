@@ -1,0 +1,61 @@
+Example 9.6 	CommandData, WorkflowCommandData and WorkItemCommandData Code
+package ActionAdapter;
+
+abstract public class CommandData {
+
+  protected int commandType;
+
+  protected CommandData(int commandType) {
+    this.commandType = commandType;
+  }
+
+  public int getCommandType() {
+    return commandType;
+  }
+}
+
+package ActionAdapter;
+public class WorkflowCommandData extends CommandData {
+  private String workflowName;
+  private String workflowProcessId;
+
+  public WorkflowCommandData(String workflowName, 
+      String workflowProcessId, int commandType) {
+    super(commandType);
+    this.workflowName = workflowName;
+    this.workflowProcessId = workflowProcessId;
+  }
+
+  public void setWorkflowName(String workflowName) {
+    this.workflowName = workflowName;
+  }
+
+  public void setWorkflowProcessid(String workflowProcessId) {
+    this.workflowProcessId = workflowProcessId;
+  }
+
+  public String getWorkflowProcessId() {
+    return workflowProcessId;
+  }
+
+  public String getWorkflowName() {
+    return workflowName;
+  }
+}
+
+
+package ActionAdapter;
+
+public class WorkItemCommandData extends CommandData {
+  private String workItemId;
+
+  public WorkItemCommandData(String workItemId,
+      int commandType) {
+    super(commandType);
+    this.workItemId = workItemId;
+  }
+
+  public String getWorkItemId() {
+    return workItemId;
+  }
+}

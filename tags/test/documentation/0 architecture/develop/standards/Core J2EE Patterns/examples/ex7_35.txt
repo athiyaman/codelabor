@@ -1,0 +1,35 @@
+Example 7.35  	Multiple Transfer Objects Strategy – Entity Bean Client 
+	...
+	private ResourceEntity resourceEntity;
+	private static final Class homeClazz =
+		corepatterns.apps.psa.ejb.ResourceEntityHome.class;
+	...
+
+	try {
+		ResourceEntityHome home = (ResourceEntityHome)
+			ServiceLocator.getInstance().getLocalHome(
+				"Resource", homeClazz);
+		resourceEntity = home.findByPrimaryKey(resourceId);
+	} catch (ServiceLocatorException ex) {
+		// Translate Service Locator exception into
+		// application exception
+		throw new ResourceException(...);
+	} catch (FinderException ex) {
+		// Translate the entity bean finder exception into
+		// application exception
+		throw new ResourceException(...);
+	} catch (RemoteException ex) {
+		// Translate the Remote exception into application
+		// exception
+		throw new ResourceException(...);
+	}
+	...
+
+	// retrieve basic Resource data 
+	ResourceTO to = resourceEntity.getResourceData();
+	...
+
+	// retrieve detailed Resource data
+	ResourceDetailsTO dto =
+		resourceEntity.getResourceDetailsData();
+	...

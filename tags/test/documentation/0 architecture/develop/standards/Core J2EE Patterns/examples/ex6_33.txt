@@ -1,0 +1,24 @@
+Example 6.33 Auto-populating ContextObject: RequestContextFactory
+// Context Object Factory
+public class RequestContextFactory {
+
+  . . .
+
+  public RequestContext createRequestContext(Class contextClass,
+      ServletRequest request) {
+    RequestContext requestContext = null;
+    try  {
+      // Instantiate ContextObject Class
+      requestContext = (RequestContext) contextClass.newInstance();
+                        
+      // Using Introspection, populate the values of ContextObject from 
+      // request instance
+      AutoPopulateRequestContext.populateBean(requestContext, request);
+    } catch(java.lang.InstantiationException e) { 
+      // Handle Exception
+    } catch(java.lang.IllegalAccessException e) {
+      // Handle Exception
+    }
+    return requestContext;
+  }
+}

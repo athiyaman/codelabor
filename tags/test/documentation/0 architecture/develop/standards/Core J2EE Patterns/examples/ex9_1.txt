@@ -1,0 +1,52 @@
+Example 9.1 	CandidateFacadeSession Code
+package ActionAdapter;
+import javax.ejb.EJBException;
+import javax.ejb.SessionContext;
+import java.rmi.RemoteException;
+
+public class CandidateFacadeSession implements
+    javax.ejb.SessionBean {
+  public void createCandidate(CandidateTO to)
+      throws CandidateException {
+    CandidateAppService as = new CandidateAppService();
+    as.createCandidate(to.getId(),
+    to.getLname(),
+    to.getFname(),
+    to.getStreet(),
+    to.getCity(),
+    to.getState(),
+    to.getZip(),
+    new WorkflowContext(
+        to.getWorkflowName(), to.getWorkflowProcessId(),
+        to.getWorkItemId()) );
+  }
+
+  public void submitReview(CandidateTO to, 
+      ReviewInfoTO rto ) {
+    CandidateAppService as = new CandidateAppService();
+    as.submitReview(to.getId(), rto,
+    new WorkflowContext(
+        to.getWorkflowName(), to.getWorkflowProcessId(),
+        to.getWorkItemId() ) );
+  }
+
+  public void submitInterview(CandidateTO to,
+      InterviewInfoTO ito) throws CandidateException {
+    CandidateAppService as = new CandidateAppService();
+    as.submitInterview(to.getId(), ito,
+    new WorkflowContext(
+        to.getWorkflowName(), to.getWorkflowProcessId(),
+        to.getWorkItemId() ) );
+  }
+  public void setSessionContext(SessionContext sessionContext)
+      throws EJBException, RemoteException { }
+
+  public void ejbRemove() throws EJBException, 
+      RemoteException { }
+
+  public void ejbActivate() throws EJBException,
+      RemoteException { }
+
+  public void ejbPassivate() throws EJBException,
+      RemoteException { }
+} 

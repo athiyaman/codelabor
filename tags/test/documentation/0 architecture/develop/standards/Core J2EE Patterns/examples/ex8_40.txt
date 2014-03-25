@@ -1,0 +1,34 @@
+Example 8.40 	PurchaseOrder XML File
+<?xml version="1.0" encoding="UTF-8"?>
+
+<purchaseOrder orderDate="2003-01-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="po2.xsd">
+	<shipTo>
+		<name>Jo Miller</name>
+		<street>Grand View Drive</street>
+		<city>Bethesda</city>
+		<state>MD</state>
+		<zip>20816</zip>
+	</shipTo>
+	<billTo>
+		<name>Jane Miller</name>
+		<street>Grand View Drive</street>
+		<city>Bethesda</city>
+		<state>MD</state> 
+		<zip>20816</zip>
+	</billTo>
+	<Items>
+		<id>101</id>
+		<name>Core J2EE Patterns</name>
+		<price>59.99</price>
+	</Items>
+	<Items>
+		<id>102</id>
+		<name>Enterprise Patterns</name>
+		<price>59.99</price>
+	</Items>
+	<Items>
+		<id>103</id>
+		<name>WebService Patterns</name>
+		<price>59.99</price>
+	</Items>
+</purchaseOrder>

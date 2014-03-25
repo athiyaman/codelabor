@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<mvc:view-controller path="/system/error/error.do" view-name="system.error.error.definition" />
+	<mvc:view-controller path="/system/error/httpStatusCode401.do" view-name="system.error.http.status.code.401.definition" />
+	<mvc:view-controller path="/system/error/httpStatusCode403.do" view-name="system.error.http.status.code.403.definition" />
+	<mvc:view-controller path="/system/error/httpStatusCode404.do" view-name="system.error.http.status.code.404.definition" />
+	<mvc:view-controller path="/system/error/httpStatusCode500.do" view-name="system.error.http.status.code.500.definition" />
+
+</beans>

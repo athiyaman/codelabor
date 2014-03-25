@@ -1,0 +1,9 @@
+Âü°í: 
+http://java.sun.com/blueprints/patterns/catalog.html
+http://java.sun.com/blueprints/corej2eepatterns/Patterns/index.html
+
+[DAO]
+http://java.sun.com/blueprints/patterns/DAO.html
+
+[TO]
+http://java.sun.com/blueprints/patterns/TransferObject.html

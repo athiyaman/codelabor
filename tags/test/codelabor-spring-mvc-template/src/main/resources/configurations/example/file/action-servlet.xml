@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		id="exampleFileUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"
+		parent="defaultUrlMapping">
+		<property name="mappings">
+			<map>
+				<entry key="/example/file/spring-mvc/listFile.do"
+					value-ref="exampleFileSpringMvcFileListController"/>
+				<entry key="/example/file/xecure/listFile.do"
+					value-ref="exampleFileXecureFileListController"/>
+				<entry key="/system/file/uploadFile.do"
+					value-ref="exampleFileFileUploadController"/>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="exampleFileSpringMvcFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.springMvc.listFile.definition"/>
+	</bean>
+	<bean
+		id="exampleFileXecureFileListController"
+		class="anyframe.web.springmvc.controller.ForwardController">
+		<property name="viewName" value="example.file.xecure.listFile.definition"/>
+	</bean>
+	<bean
+		id="exampleFileFileUploadController"
+		class="org.codelabor.system.file.spring.controllers.FileUploadController">
+		<property name="commandClass" value="org.codelabor.system.spring.commands.Post"/>
+		<property name="formView" value="example.file.springMvc.listFile.definition"/>
+		<property name="successView" value="example.file.springMvc.listFile.definition"/>
+	</bean>
+</beans>

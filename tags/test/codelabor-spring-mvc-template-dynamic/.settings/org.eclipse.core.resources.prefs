@@ -1,0 +1,10 @@
+#Mon Aug 31 19:18:58 KST 2009
+eclipse.preferences.version=1
+encoding//WebContent/RexServer/rexfiles/deptListXml.rex=UTF-8
+encoding//WebContent/RexServer/rexfiles/empDeptListDb.rex=UTF-8
+encoding//WebContent/RexServer/rexfiles/empDeptListJson.rex=UTF-8
+encoding//WebContent/RexServer/rexfiles/empDeptListXml.rex=UTF-8
+encoding//WebContent/RexServer/rexfiles/empDeptListXml2.rex=EUC-KR
+encoding//WebContent/RexServer/rexfiles/empListDb.rex=UTF-8
+encoding//WebContent/RexServer/rexfiles/empListJson.rex=UTF-8
+encoding//WebContent/RexServer/rexfiles/empListXml.rex=UTF-8

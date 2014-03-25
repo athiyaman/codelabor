@@ -1,0 +1,17 @@
+Example 9.15  HireEmployeeWorkMap.xml File
+<WorkMap>
+  <WorkflowEvent Type="AcquireWorkItem">
+    <WorkItem>
+      <Name>SubmitReview</Name>
+      <UserRole>HR Reviewer</UserRole>
+      <WorkPage>HireEmployee/CandidateReview.jsp</WorkPage>
+    </WorkItem>
+  </WorkflowEvent>
+  <WorkflowEvent Type="AcquireWorkItem">
+    <WorkItem>
+      <Name>SubmitInterview</Name>
+      <UserRole>Peer Reviewer</UserRole>
+      <WorkPage>HireEmployee/CandidateInterview.jsp</WorkPage>
+    </WorkItem>
+  </WorkflowEvent>
+</WorkMap>

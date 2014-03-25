@@ -1,0 +1,10 @@
+Example 7.28 	Creating the Composite Transfer Object
+
+...
+public ResourceCompositeTO getResourceDetailsData() {
+	ResourceCompositeTO compositeTO =
+		new ResourceCompositeTO (getResourceData(),
+				getSkillsData(), getBlockOutTimesData());
+	return compositeTO;
+}
+...

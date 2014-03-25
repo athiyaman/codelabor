@@ -1,0 +1,14 @@
+Example 8.34 	FullTimeEmployee Class
+// FullTimeEmployee.java
+
+package com.corej2eepatterns.business.hr;
+
+import java.math.BigDecimal;
+
+/**
+ * @author  Craig Russell
+ */
+public interface FullTimeEmployee extends Employee {
+	BigDecimal getSalary();
+	void setSalary(BigDecimal salary);
+}

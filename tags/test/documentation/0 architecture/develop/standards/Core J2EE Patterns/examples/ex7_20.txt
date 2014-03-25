@@ -1,0 +1,10 @@
+Example 7.20 	LineItemTO
+
+import java.util.Date;
+
+public class LineItemTO implements java.io.Serializable {
+    public String productId;
+    public float  price;
+    public int    quantity;
+    public Date   deliveryDate;
+}

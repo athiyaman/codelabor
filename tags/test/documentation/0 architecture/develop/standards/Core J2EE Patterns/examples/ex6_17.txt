@@ -1,0 +1,26 @@
+Example 6.17 Request Context Map Strategy
+public class FrontController extends HttpServlet {
+. . .
+  private void processRequest(HttpServletRequest request, 
+      HttpServletResponse response) throws ServletException,
+          java.io.IOException {
+
+    // create RequestContext object using Map Strategy
+    Map requestContextMap = new HashMap(request.getParameterMap());
+    Dispatcher dispatcher = new Dispatcher(request, response);
+    requestContextMap.put("dispatcher", dispatcher);
+
+    // Create ApplicationController instance
+    ApplicationController applicationController = 
+        new ApplicationControllerImpl();
+
+    // Request processing
+    ResponseContext responseContext =
+        applicationController.handleRequest(requestContextMap);
+
+    // Response processing
+    applicationController.handleResponse(requestContextMap,
+        responseContext);
+  }
+  . . .
+}

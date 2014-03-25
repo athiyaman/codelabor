@@ -1,0 +1,59 @@
+Example 8.24 	TransactionManager Class
+import javax.transaction.*;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class TransactionManager {
+	static TransactionManager me = null;
+
+	private LinkedList persistenceManagers = new LinkedList();
+
+	class PManager {
+		Thread thread;
+		PersistenceManager manager;
+
+		PManager(Thread thread, PersistenceManager manager) {
+			this.thread = thread;
+			this.manager = manager;
+		}
+
+		boolean equals(
+				Thread thread, PersistenceManager manager) {
+			if (this.thread == thread &&
+					this.manager == manager) {
+				return true;
+			}
+			return false;
+		}
+	}
+
+	public synchronized static
+			TransactionManager getInstance() {
+		if (me == null) {
+			me = new TransactionManager();
+		}
+		return me;
+	}
+
+	private TransactionManager() {
+	}
+
+	public Transaction getTransaction() {
+		return new Transaction();
+	}
+
+	public void register(PersistenceManager manager) {
+		. . .
+	}
+
+	public void notifyCommit(Thread t)
+			throws SystemException, HeuristicRollbackException,
+			NotSupportedException, RollbackException,
+			HeuristicMixedException {
+		Iterator i = persistenceManagers.iterator();
+		while (i.hasNext()) {
+			. . .
+			pm.manager.commit();
+		}
+	}
+}

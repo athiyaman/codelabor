@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="signForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="plainMessage" type="java.lang.String" />
+			<form-property name="signedMessage" type="java.lang.String" />
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action path="/example/sign/xecure/list"
+			type="org.codelabor.example.sign.xecure.struts.actions.ListAction">
+			<forward name="success" path="example.sign.xecure.list.definition" />
+		</action>
+		<action path="/example/sign/xecure/crl/prepareCreate" forward="example.sign.xecure.crl.create.definition" />
+		<action path="/example/sign/xecure/crl/processCreate"
+			type="org.codelabor.example.sign.xecure.crl.struts.actions.ProcessCreateAction"
+			name="signForm">
+			<forward name="success" path="/example/sign/xecure/list.do" redirect="true" />
+		</action>
+		<action path="/example/sign/xecure/ocsp/prepareCreate" forward="example.sign.xecure.ocsp.create.definition" />
+		<action path="/example/sign/xecure/ocsp/processCreate"
+			type="org.codelabor.example.sign.xecure.ocsp.struts.actions.ProcessCreateAction"
+			name="signForm">
+			<forward name="success" path="/example/sign/xecure/list.do" redirect="true" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

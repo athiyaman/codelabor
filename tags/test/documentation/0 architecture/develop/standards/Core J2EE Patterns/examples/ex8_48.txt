@@ -1,0 +1,81 @@
+Example 8.48 	CompanyWebService.wsdl
+<?xml version="1.0" encoding="UTF-8"?>
+. . .
+
+    <wsdl:message name="createCompanyRequest">
+        <wsdl:part name="CompanyId" type="xsd:string"/>
+        <wsdl:part name="CompanyName" type="xsd:string"/>
+    </wsdl:message>
+    <wsdl:message name="addEmployeeRequest">
+         <wsdl:part name="CompanyId" type="xsd:string"/>
+         <wsdl:part name="EmployeeId" type="xsd:string"/>
+         <wsdl:part name="LastName" type="xsd:string"/>
+         <wsdl:part name="FirstName" type="xsd:string"/>
+    </wsdl:message>
+    <wsdl:message name="addCompanyDivisionRequest">
+         <wsdl:part name="CompanyId" type="xsd:string"/>
+         <wsdl:part name="DivisionId" type="xsd:string"/>
+         <wsdl:part name="DivisionName" type="xsd:string"/>
+    </wsdl:message>
+    <wsdl:message name="assignEmployeeToDivisionRequest">
+            <wsdl:part name="CompanyId" type="xsd:string"/>
+            <wsdl:part name="DivisionId" type="xsd:string"/>
+            <wsdl:part name="EmployeeId" type="xsd:string"/>
+    </wsdl:message>
+
+    <wsdl:message name="addEmployeeResponse">
+    </wsdl:message>
+
+    <wsdl:message name="createCompanyResponse">
+    </wsdl:message>
+
+    <wsdl:message name="addCompanyDivisionResponse">
+    </wsdl:message>
+
+    <wsdl:message name="assignEmployeeToDivisionResponse">
+    </wsdl:message>
+
+    . . .
+
+    </wsdl:portType>
+
+    <wsdl:binding name="CompanyWebServiceSoapServiceBinding"
+            type="impl:CompanyWebServiceBroker ">
+        <wsdlsoap:binding style="rpc" transport=
+                "http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createCompany">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="createCompanyRequest">
+                <wsdlsoap:body use="encoded" encodingStyle=
+                	"http://schemas.xmlsoap.org/soap/encoding/"
+                	namespace="http://DefaultNamespace"/>
+            </wsdl:input>
+            <wsdl:output name="createCompanyResponse">
+                <wsdlsoap:body use="encoded"
+                   encodingStyle=
+                    "http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://DefaultNamespace"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="addCompanyDivision">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="addCompanyDivisionRequest">
+                <wsdlsoap:body use="encoded"
+                    encodingStyle=
+                     "http://schemas.xmlsoap.org/soap/encoding/"
+                     namespace="http://DefaultNamespace"/>
+            </wsdl:input>
+
+      . . .
+     
+    <wsdl:service name=" CompanyWebService">
+        <wsdl:port name=" CompanyWebServicePort "
+                binding=
+                 "impl: CompanyWebServiceBrokerSoapBinding">
+            <wsdlsoap:address location=
+                    "http://localhost:8080/CompanyWebService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

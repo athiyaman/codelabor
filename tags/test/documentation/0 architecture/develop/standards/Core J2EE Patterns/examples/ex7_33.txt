@@ -1,0 +1,17 @@
+Example 7.33  	Multiple Transfer Objects Strategy – ResourceDetailsTO
+
+// ResourceDetailsTO This class holds detailed 
+// information about resource
+public class ResourceDetailsTO
+implements java.io.Serializable {
+    public String resourceId;
+    public String lastName;
+    public String firstName;
+    public String department;
+    public String grade;
+
+    // other data...
+    public Collection commitments;
+    public Collection blockoutTimes;
+    public Collection skillSets;
+}

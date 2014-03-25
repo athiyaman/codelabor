@@ -1,0 +1,36 @@
+Example 6.30 Security Context Propagation Using LoginContext
+public class FrontController extends HttpServlet {
+
+  . . .
+  protected void process(HttpServletRequest request,
+      HttpServletResponse response) throws java.io.IOException {
+
+    // create Context Object from request
+    RequestContext requestContext =
+        RequestContextFactory.getInstance().
+        createRequestContext(request);
+    // Authenticate using JAAS framework
+    // Get Authentication Credentials
+    String username = requestContext.getStringParameter("UserName");
+    String password = requestContext.getStringParameter("Password");
+    try {
+      // LoginContext is a factory class for the underlying pluggable
+      // authentication modules
+      LoginContext loginContext = new LoginContext("AuthLevel1",
+          new AuthCallbackHandler(username, password));
+
+      // authenticate the Subject
+      loginContext.login();
+
+      // get the authenticated Subject
+      Subject subject = loginContext.getSubject();
+
+      // propagate Security Context in session scope
+      HttpSession session = request.getSession();
+      session.setAttribute("SecurityContext", subject);
+    } catch (LoginException le) {
+      // handle exception
+    }
+    . . .
+  }
+}

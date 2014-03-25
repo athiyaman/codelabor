@@ -1,0 +1,13 @@
+Example 7.27 	Implementing the Composite Transfer Object
+
+public class ResourceCompositeTO {
+	private ResourceTO resourceData;
+	private Collection skillSets;
+	private Collection blockOutTimes;
+
+	// transfer object constructors
+	...
+
+	// get and set methods
+	...
+}

@@ -1,0 +1,14 @@
+Example 6.29 	Tag Handler Using JSTL Config
+public class AnnouncementsTag extends TagSupport implements Tag {
+  public int doStartTag() throws JspException {
+
+    String announcements = (String)Config.find(pageContext, 
+        Constants.DISPLAY_ANNOUNCEMENT);
+    if ( "true".equalsIgnoreCase(announcements)) {
+      .  .  .
+ 
+      return EVAL_BODY_INCLUDE;
+    }
+    return SKIP_BODY;
+  }
+}
