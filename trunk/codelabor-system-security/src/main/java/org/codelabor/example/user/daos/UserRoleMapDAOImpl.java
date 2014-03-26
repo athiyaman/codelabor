@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.codelabor.system.daos.BaseDAOImpl;
+import org.codelabor.system.dao.BaseDAOImpl;
 
 /**
  * 사용자 역할 매핑 DAO 구현 클래스
@@ -36,7 +36,7 @@ public class UserRoleMapDAOImpl extends BaseDAOImpl implements UserRoleMapDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.UserRoleMapDAO#map(java.lang.String,
+	 * @see org.codelabor.example.user.dao.UserRoleMapDAO#map(java.lang.String,
 	 * java.lang.String)
 	 */
 	public int map(String userId, String roleId) throws Exception {
@@ -49,7 +49,7 @@ public class UserRoleMapDAOImpl extends BaseDAOImpl implements UserRoleMapDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserRoleMapDAO#selectRoleIdList(java.
+	 * org.codelabor.example.user.dao.UserRoleMapDAO#selectRoleIdList(java.
 	 * lang.String)
 	 */
 	@SuppressWarnings("unchecked")
@@ -71,7 +71,7 @@ public class UserRoleMapDAOImpl extends BaseDAOImpl implements UserRoleMapDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserRoleMapDAO#selectUserIdList(java.
+	 * org.codelabor.example.user.dao.UserRoleMapDAO#selectUserIdList(java.
 	 * lang.String)
 	 */
 	@SuppressWarnings("unchecked")
@@ -93,7 +93,7 @@ public class UserRoleMapDAOImpl extends BaseDAOImpl implements UserRoleMapDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserRoleMapDAO#unmap(java.lang.String,
+	 * org.codelabor.example.user.dao.UserRoleMapDAO#unmap(java.lang.String,
 	 * java.lang.String)
 	 */
 	public int unmap(String userId, String roleId) throws Exception {
@@ -105,7 +105,7 @@ public class UserRoleMapDAOImpl extends BaseDAOImpl implements UserRoleMapDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.UserRoleMapDAO#reset()
+	 * @see org.codelabor.example.user.dao.UserRoleMapDAO#reset()
 	 */
 	public int reset() throws Exception {
 		String query = "example.delete.user.role.map.list";
@@ -117,7 +117,7 @@ public class UserRoleMapDAOImpl extends BaseDAOImpl implements UserRoleMapDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserRoleMapDAO#reset(java.lang.String)
+	 * org.codelabor.example.user.dao.UserRoleMapDAO#reset(java.lang.String)
 	 */
 	public int reset(String userId) throws Exception {
 		String query = "example.delete.user.role.map.list.by.user.id";

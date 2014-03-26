@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.codelabor.example.user.dtos.UserDTO;
-import org.codelabor.system.daos.BaseDAOImpl;
+import org.codelabor.system.dao.BaseDAOImpl;
 
 /**
  * 사용자 DAO 구현 클래스
@@ -18,7 +18,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserDAO#insertUser(org.codelabor.example
+	 * org.codelabor.example.user.dao.UserDAO#insertUser(org.codelabor.example
 	 * .user.dtos.UserDTO)
 	 */
 	public int insertUser(UserDTO userDTO) throws Exception {
@@ -28,7 +28,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.UserDAO#selectUser()
+	 * @see org.codelabor.example.user.dao.UserDAO#selectUser()
 	 */
 	@SuppressWarnings("unchecked")
 	public List<UserDTO> selectUser() throws Exception {
@@ -41,7 +41,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserDAO#selectUserByUserId(java.lang.
+	 * org.codelabor.example.user.dao.UserDAO#selectUserByUserId(java.lang.
 	 * String)
 	 */
 	@SuppressWarnings("unchecked")
@@ -57,7 +57,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.UserDAO#deleteUser(java.lang.String)
+	 * @see org.codelabor.example.user.dao.UserDAO#deleteUser(java.lang.String)
 	 */
 	public int deleteUser(String userId) throws Exception {
 		String query = "example.delete.user";
@@ -68,7 +68,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.UserDAO#deleteUser()
+	 * @see org.codelabor.example.user.dao.UserDAO#deleteUser()
 	 */
 	public int deleteUser() throws Exception {
 		String query = "example.delete.user.list";
@@ -80,7 +80,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.UserDAO#updateUser(org.codelabor.example
+	 * org.codelabor.example.user.dao.UserDAO#updateUser(org.codelabor.example
 	 * .user.dtos.UserDTO)
 	 */
 	public int updateUser(UserDTO userDTO) throws Exception {

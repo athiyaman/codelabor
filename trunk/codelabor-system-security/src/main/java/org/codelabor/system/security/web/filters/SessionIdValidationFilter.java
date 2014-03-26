@@ -30,7 +30,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.codelabor.system.web.RequestConstants;
 import org.codelabor.system.web.filters.BaseFilterImpl;
-import org.codelabor.system.web.utils.RequestUtils;
+import org.codelabor.system.web.util.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

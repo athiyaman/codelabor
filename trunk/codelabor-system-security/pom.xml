@@ -6,7 +6,7 @@
 	<!-- The Basics -->
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-security</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
+	<version>4.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<dependencies>
 		<!-- Java Spec -->
@@ -25,7 +25,15 @@
 			<version>${springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
+		<!-- codelabor -->
+		<dependency>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-web</artifactId>
+			<version>4.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -42,9 +50,9 @@
 	</parent>
 	<properties>
 		<!-- Java Spec -->
-		<java.version>1.6</java.version>
+		<java.version>1.5</java.version>
 		<servlet.version>2.5</servlet.version>
-		
+
 		<!-- Springframework -->
 		<springframework.version>4.0.2.RELEASE</springframework.version>
 		<!-- Others -->

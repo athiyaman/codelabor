@@ -2,7 +2,7 @@ package org.codelabor.example.user.managers;
 
 import java.util.List;
 
-import org.codelabor.example.user.daos.UserDAO;
+import org.codelabor.example.user.dao.UserDAO;
 import org.codelabor.example.user.dtos.UserDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 

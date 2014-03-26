@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.codelabor.example.user.dtos.RoleDTO;
-import org.codelabor.system.daos.BaseDAOImpl;
+import org.codelabor.system.dao.BaseDAOImpl;
 
 /**
  * 역할 DTO 구현 클래스
@@ -35,7 +35,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.RoleDAO#insertRole(org.codelabor.example
+	 * org.codelabor.example.user.dao.RoleDAO#insertRole(org.codelabor.example
 	 * .user.dtos.RoleDTO)
 	 */
 	public int insertRole(RoleDTO roleDTO) throws Exception {
@@ -45,7 +45,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.RoleDAO#selectRole()
+	 * @see org.codelabor.example.user.dao.RoleDAO#selectRole()
 	 */
 	@SuppressWarnings("unchecked")
 	public List<RoleDTO> selectRole() throws Exception {
@@ -58,7 +58,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.RoleDAO#selectRoleByRoleId(java.lang.
+	 * org.codelabor.example.user.dao.RoleDAO#selectRoleByRoleId(java.lang.
 	 * String)
 	 */
 	@SuppressWarnings("unchecked")
@@ -74,7 +74,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.RoleDAO#deleteRole(java.lang.String)
+	 * @see org.codelabor.example.user.dao.RoleDAO#deleteRole(java.lang.String)
 	 */
 	public int deleteRole(String roleId) throws Exception {
 		String query = "example.delete.role";
@@ -85,7 +85,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.example.user.daos.RoleDAO#deleteRole()
+	 * @see org.codelabor.example.user.dao.RoleDAO#deleteRole()
 	 */
 	public int deleteRole() throws Exception {
 		String query = "example.delete.role.list";
@@ -97,7 +97,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.RoleDAO#updateRole(org.codelabor.example
+	 * org.codelabor.example.user.dao.RoleDAO#updateRole(org.codelabor.example
 	 * .user.dtos.RoleDTO)
 	 */
 	public int updateRole(RoleDTO roleDTO) throws Exception {
@@ -108,7 +108,7 @@ public class RoleDAOImpl extends BaseDAOImpl implements RoleDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.example.user.daos.RoleDAO#selectRoleByUserId(java.lang.
+	 * org.codelabor.example.user.dao.RoleDAO#selectRoleByUserId(java.lang.
 	 * String)
 	 */
 	@SuppressWarnings("unchecked")

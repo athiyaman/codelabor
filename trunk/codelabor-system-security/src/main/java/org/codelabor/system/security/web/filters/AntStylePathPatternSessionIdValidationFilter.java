@@ -17,7 +17,7 @@
 
 package org.codelabor.system.security.web.filters;
 
-import org.codelabor.system.web.utils.URIPatternMatcherUtils;
+import org.codelabor.system.web.util.URIPatternMatcherUtils;
 
 /**
  * Ant 패스 패턴을 적용한 세션 확인 필터

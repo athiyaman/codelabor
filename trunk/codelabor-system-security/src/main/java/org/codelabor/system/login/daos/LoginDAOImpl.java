@@ -23,7 +23,7 @@ package org.codelabor.system.login.daos;
 import java.util.Collection;
 import java.util.List;
 
-import org.codelabor.system.daos.BaseDAOImpl;
+import org.codelabor.system.dao.BaseDAOImpl;
 import org.codelabor.system.login.dtos.LoginDTO;
 
 /**
@@ -38,7 +38,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.daos.LoginDAO#insertLogin(org.codelabor.system
+	 * org.codelabor.system.login.dao.LoginDAO#insertLogin(org.codelabor.system
 	 * .login.dtos.LoginDTO)
 	 */
 	public int insertLogin(LoginDTO loginDTO) throws Exception {
@@ -52,7 +52,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.daos.LoginDAO#selectLogin(org.codelabor.system
+	 * org.codelabor.system.login.dao.LoginDAO#selectLogin(org.codelabor.system
 	 * .login.dtos.LoginDTO)
 	 */
 	@SuppressWarnings("unchecked")
@@ -69,7 +69,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.daos.LoginDAO#selectLoginByLastLogoutUserId
+	 * org.codelabor.system.login.dao.LoginDAO#selectLoginByLastLogoutUserId
 	 * (org.codelabor.system.login.dtos.LoginDTO)
 	 */
 	@SuppressWarnings("unchecked")
@@ -86,7 +86,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.login.daos.LoginDAO#selectLogin()
+	 * @see org.codelabor.system.login.dao.LoginDAO#selectLogin()
 	 */
 	@SuppressWarnings("unchecked")
 	public List<LoginDTO> selectLogin() throws Exception {
@@ -99,7 +99,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.daos.LoginDAO#updateLogin(org.codelabor.system
+	 * org.codelabor.system.login.dao.LoginDAO#updateLogin(org.codelabor.system
 	 * .login.dtos.LoginDTO)
 	 */
 	public int updateLogin(LoginDTO loginDTO) throws Exception {
