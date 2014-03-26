@@ -21,3 +21,4 @@
 
 4.0.1
 	codelabor-system-web 업그레이드 (4.0.3)
+	DomainAwareAuthenticationSuccessHandler, LogbackMappedDiagnosticContextFilter 이관 받음

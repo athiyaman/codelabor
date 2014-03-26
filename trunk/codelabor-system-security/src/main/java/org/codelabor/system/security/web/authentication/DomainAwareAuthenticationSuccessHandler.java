@@ -35,7 +35,7 @@ import org.springframework.util.StringUtils;
  *
  */
 public class DomainAwareAuthenticationSuccessHandler extends
-SavedRequestAwareAuthenticationSuccessHandler {
+		SavedRequestAwareAuthenticationSuccessHandler {
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(DomainAwareAuthenticationSuccessHandler.class);
