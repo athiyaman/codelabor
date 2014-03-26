@@ -9,7 +9,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.codelabor.system.web.filters.BaseFilterImpl;
+import org.codelabor.system.web.filter.BaseFilterImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +30,7 @@ public abstract class AbstractAuthenticationFilter extends BaseFilterImpl {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @seeorg.codelabor.system.web.filters.BaseFilterImpl#init(javax.servlet.
+	 * @seeorg.codelabor.system.web.filter.BaseFilterImpl#init(javax.servlet.
 	 * FilterConfig)
 	 */
 	@Override
@@ -41,7 +41,7 @@ public abstract class AbstractAuthenticationFilter extends BaseFilterImpl {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.web.filters.BaseFilterImpl#postprocessFilterChain
+	 * org.codelabor.system.web.filter.BaseFilterImpl#postprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
 	@Override
@@ -53,7 +53,7 @@ public abstract class AbstractAuthenticationFilter extends BaseFilterImpl {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.web.filters.BaseFilterImpl#preprocessFilterChain
+	 * org.codelabor.system.web.filter.BaseFilterImpl#preprocessFilterChain
 	 * (javax.servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
 	@Override

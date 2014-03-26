@@ -27,16 +27,16 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.codelabor.system.web.RequestConstants;
-import org.codelabor.system.web.filters.BaseFilterImpl;
+import org.codelabor.system.web.filter.BaseFilterImpl;
 import org.codelabor.system.web.util.RequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * 세션 확인 필터</br> 세션이 유효하지 않으면 정해진 페이지로 리다이렉트 시킨다.
- * 
+ *
  * @author Shin Sangjae
  * @deprecated 2.0.2부터 SessionValidationFilter로 대체
  */
@@ -56,7 +56,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.BaseFilterImpl#init(javax.servlet.FilterConfig
 	 * )
@@ -74,7 +74,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
 	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
@@ -116,7 +116,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.BaseFilterImpl#postprocessFilterChain(javax
 	 * .servlet.ServletRequest, javax.servlet.ServletResponse)

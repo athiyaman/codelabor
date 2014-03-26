@@ -28,8 +28,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
-import org.codelabor.system.web.filters.SelectiveFilter;
+import org.apache.commons.lang3.StringUtils;
+import org.codelabor.system.web.filter.SelectiveFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
