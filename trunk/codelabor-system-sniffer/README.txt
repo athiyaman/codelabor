@@ -19,3 +19,6 @@
 	Eclipse Source > format, sort members 실행
 	org.codelabor.system.access 패키지 제거 (AccessLog Service 기능을 logger 활용으로 유도)
 	org.codelabor.system.sniffer.advice 패키지 제거 (org.codelabor.system.sniffer.aspect 활용으로 유도)
+
+4.0.1
+	pom.xml 정리
