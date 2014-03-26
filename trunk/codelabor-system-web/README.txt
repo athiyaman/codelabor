@@ -43,5 +43,6 @@
 	Logger 교체 (log4j -> logback)
 
 4.0.1
-	tld 파일 추가
+	tld 파일 추가, tld url 보완
 	TextPaginationTag 제거
+
