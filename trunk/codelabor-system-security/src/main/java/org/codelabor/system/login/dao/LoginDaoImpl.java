@@ -23,20 +23,20 @@ package org.codelabor.system.login.dao;
 import java.util.Collection;
 import java.util.List;
 
-import org.codelabor.system.dao.BaseDAOImpl;
+import org.codelabor.system.dao.BaseDaoImpl;
 import org.codelabor.system.login.dto.LoginDto;
 
 /**
  * 로그인 DAO 구현 클래스
- * 
+ *
  * @author Shin Sangjae
- * 
+ *
  */
-public class LoginDaoImpl extends BaseDAOImpl implements LoginDao {
+public class LoginDaoImpl extends BaseDaoImpl implements LoginDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDao#insertLogin(org.codelabor.system
 	 * .login.dto.LoginDTO)
@@ -50,7 +50,7 @@ public class LoginDaoImpl extends BaseDAOImpl implements LoginDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDao#selectLogin(org.codelabor.system
 	 * .login.dto.LoginDTO)
@@ -67,7 +67,7 @@ public class LoginDaoImpl extends BaseDAOImpl implements LoginDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDao#selectLoginByLastLogoutUserId
 	 * (org.codelabor.system.login.dto.LoginDto)
@@ -85,7 +85,7 @@ public class LoginDaoImpl extends BaseDAOImpl implements LoginDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.codelabor.system.login.dao.LoginDao#selectLogin()
 	 */
 	@SuppressWarnings("unchecked")
@@ -97,7 +97,7 @@ public class LoginDaoImpl extends BaseDAOImpl implements LoginDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDao#updateLogin(org.codelabor.system
 	 * .login.dto.LoginDTO)
