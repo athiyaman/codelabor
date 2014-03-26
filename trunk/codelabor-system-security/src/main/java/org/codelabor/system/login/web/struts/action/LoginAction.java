@@ -1,4 +1,4 @@
-package org.codelabor.system.login.web.struts.actions;
+package org.codelabor.system.login.web.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,19 +12,19 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.web.SessionConstants;
-import org.codelabor.system.web.struts.actions.BaseDispatchAction;
+import org.codelabor.system.web.struts.action.BaseDispatchAction;
 
 /**
  * 로그인 액션
- * 
+ *
  * @author Shin Sangjae
- * 
+ *
  */
 public abstract class LoginAction extends BaseDispatchAction {
 
 	/**
 	 * 로그인한다.
-	 * 
+	 *
 	 * @param mapping
 	 *            매핑
 	 * @param form
@@ -81,7 +81,7 @@ public abstract class LoginAction extends BaseDispatchAction {
 
 	/**
 	 * 로그아웃한다.
-	 * 
+	 *
 	 * @param mapping
 	 *            매핑
 	 * @param form
@@ -104,7 +104,7 @@ public abstract class LoginAction extends BaseDispatchAction {
 
 	/**
 	 * 로그인 페이지로 포워딩한다.
-	 * 
+	 *
 	 * @param mapping
 	 *            매핑
 	 * @param form
@@ -125,7 +125,7 @@ public abstract class LoginAction extends BaseDispatchAction {
 
 	/**
 	 * 인증 여부를 확인한다.
-	 * 
+	 *
 	 * @param userId
 	 *            사용자 Id
 	 * @param password

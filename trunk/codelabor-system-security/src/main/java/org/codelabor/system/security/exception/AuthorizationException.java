@@ -18,11 +18,11 @@ package org.codelabor.system.security.exception;
 
 /**
  * 인가 오류 예외
- * 
+ *
  * @author "Shin Sangjae"
- * 
+ *
  */
-public class AuthorizationException extends Exception {
+public class AuthorizationException extends RuntimeException {
 
 	/**
 	 * 시리얼 버전 UID
@@ -37,7 +37,7 @@ public class AuthorizationException extends Exception {
 
 	/**
 	 * 생성자
-	 * 
+	 *
 	 * @param message
 	 *            메시지
 	 */
@@ -47,7 +47,7 @@ public class AuthorizationException extends Exception {
 
 	/**
 	 * 생성자
-	 * 
+	 *
 	 * @param cause
 	 *            원인
 	 */
@@ -57,7 +57,7 @@ public class AuthorizationException extends Exception {
 
 	/**
 	 * 생성자
-	 * 
+	 *
 	 * @param message
 	 *            메시지
 	 * @param cause
