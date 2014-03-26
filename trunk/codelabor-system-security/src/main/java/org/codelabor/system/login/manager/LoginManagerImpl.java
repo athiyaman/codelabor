@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.managers;
+package org.codelabor.system.login.manager;
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.managers.LoginManager#login(org.codelabor.
+	 * org.codelabor.system.login.manager.LoginManager#login(org.codelabor.
 	 * system.login.dto.LoginDTO)
 	 */
 	public void login(LoginDTO loginDTO) throws Exception {
@@ -70,7 +70,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.managers.LoginManager#logout(org.codelabor
+	 * org.codelabor.system.login.manager.LoginManager#logout(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
 	public void logout(LoginDTO loginDTO) throws Exception {
@@ -80,7 +80,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.login.managers.LoginManager#selectLogin()
+	 * @see org.codelabor.system.login.manager.LoginManager#selectLogin()
 	 */
 	public List<LoginDTO> selectLogin() throws Exception {
 		return loginDAO.selectLogin();
@@ -90,7 +90,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.managers.LoginManager#selectLogin(org.codelabor
+	 * org.codelabor.system.login.manager.LoginManager#selectLogin(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {

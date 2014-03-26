@@ -14,30 +14,57 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.codelabor.system.security.web.filters;
-
-import org.codelabor.system.web.util.URIPatternMatcherUtils;
+package org.codelabor.system.security.exception;
 
 /**
- * Ant 패스 패턴을 적용한 세션 확인 필터
+ * 인가 오류 예외
  * 
- * @author Shin Sangjae
- * @deprecated 2.0.2부터 AntStylePathPatternSessionValidationFilter로 대체
+ * @author "Shin Sangjae"
+ * 
  */
-@Deprecated
-public class AntStylePathPatternSessionIdValidationFilter extends
-		SelectiveSessionIdValidationFilter {
+public class AuthorizationException extends Exception {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.filters.SelectiveFilter#isFilterRequired(java.lang
-	 * .String)
+	/**
+	 * 시리얼 버전 UID
 	 */
-	public boolean isFilterRequired(String requestURI) {
-		return URIPatternMatcherUtils.matchByAntStylePathPattern(
-				includePatterns, excludePatterns, requestURI);
+	private static final long serialVersionUID = 362049416003714606L;
+
+	/**
+	 * 생성자
+	 */
+	public AuthorizationException() {
 	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param message
+	 *            메시지
+	 */
+	public AuthorizationException(String message) {
+		super(message);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param cause
+	 *            원인
+	 */
+	public AuthorizationException(Throwable cause) {
+		super(cause);
+	}
+
+	/**
+	 * 생성자
+	 * 
+	 * @param message
+	 *            메시지
+	 * @param cause
+	 *            원인
+	 */
+	public AuthorizationException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
 }

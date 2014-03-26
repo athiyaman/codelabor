@@ -28,7 +28,7 @@ import org.codelabor.system.anyframe.utils.MessageUtils;
 import org.codelabor.system.dto.MessageDTO;
 import org.codelabor.system.listeners.BaseListener;
 import org.codelabor.system.login.dto.LoginDTO;
-import org.codelabor.system.login.services.LoginService;
+import org.codelabor.system.login.service.LoginService;
 import org.codelabor.system.web.SessionConstants;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;

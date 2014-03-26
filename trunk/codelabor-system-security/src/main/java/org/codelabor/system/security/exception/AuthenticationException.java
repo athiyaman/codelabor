@@ -14,25 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.security.exceptions;
+package org.codelabor.system.security.exception;
 
 /**
- * 인가 오류 예외
+ * 인증 오류 예외
  * 
  * @author "Shin Sangjae"
  * 
  */
-public class AuthorizationException extends Exception {
+public class AuthenticationException extends Exception {
 
 	/**
 	 * 시리얼 버전 UID
 	 */
-	private static final long serialVersionUID = 362049416003714606L;
+	private static final long serialVersionUID = 924196417145549685L;
 
 	/**
 	 * 생성자
 	 */
-	public AuthorizationException() {
+	public AuthenticationException() {
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class AuthorizationException extends Exception {
 	 * @param message
 	 *            메시지
 	 */
-	public AuthorizationException(String message) {
+	public AuthenticationException(String message) {
 		super(message);
 	}
 
@@ -51,7 +51,7 @@ public class AuthorizationException extends Exception {
 	 * @param cause
 	 *            원인
 	 */
-	public AuthorizationException(Throwable cause) {
+	public AuthenticationException(Throwable cause) {
 		super(cause);
 	}
 
@@ -63,7 +63,7 @@ public class AuthorizationException extends Exception {
 	 * @param cause
 	 *            원인
 	 */
-	public AuthorizationException(String message, Throwable cause) {
+	public AuthenticationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.security.web.filters;
+package org.codelabor.system.security.web.filter;
 
 import javax.servlet.ServletRequest;
 

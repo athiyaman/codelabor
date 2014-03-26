@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.services;
+package org.codelabor.system.login.service;
 
 import java.util.List;
 
 import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
 import org.codelabor.system.login.dto.LoginDTO;
-import org.codelabor.system.login.managers.LoginManager;
+import org.codelabor.system.login.manager.LoginManager;
 import org.codelabor.system.services.BaseServiceImpl;
 
 /**
@@ -61,7 +61,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.services.LoginService#login(org.codelabor.
+	 * org.codelabor.system.login.service.LoginService#login(org.codelabor.
 	 * system.login.dto.LoginDTO)
 	 */
 	public void login(LoginDTO loginDTO) throws Exception {
@@ -82,7 +82,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.services.LoginService#logout(org.codelabor
+	 * org.codelabor.system.login.service.LoginService#logout(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
 	public void logout(LoginDTO loginDTO) throws Exception {
@@ -102,7 +102,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.login.services.LoginService#selectLogin()
+	 * @see org.codelabor.system.login.service.LoginService#selectLogin()
 	 */
 	public List<LoginDTO> selectLogin() throws Exception {
 		List<LoginDTO> loginList;
@@ -124,7 +124,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.services.LoginService#selectLogin(org.codelabor
+	 * org.codelabor.system.login.service.LoginService#selectLogin(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.security.web.filters;
+package org.codelabor.system.security.web.filter;
 
 import java.io.IOException;
 
@@ -38,16 +38,15 @@ import org.slf4j.LoggerFactory;
  * 세션 확인 필터</br> 세션이 유효하지 않으면 정해진 페이지로 리다이렉트 시킨다.
  *
  * @author Shin Sangjae
- * @deprecated 2.0.2부터 SessionValidationFilter로 대체
+ *
  */
-@Deprecated
-public class SessionIdValidationFilter extends BaseFilterImpl {
+public abstract class SessionValidationFilter extends BaseFilterImpl {
 
 	/**
 	 * 로거
 	 */
 	private final Logger logger = LoggerFactory
-			.getLogger(SessionIdValidationFilter.class);
+			.getLogger(SessionValidationFilter.class);
 
 	/**
 	 * 리다이렉트 URL</br> 세션이 유효하지 않을 때 리다이렉트될 URL
@@ -75,9 +74,9 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see
-	 * org.codelabor.system.filters.BaseFilterImpl#preprocessFilterChain(javax
-	 * .servlet.ServletRequest, javax.servlet.ServletResponse)
+	 * @seeorg.codelabor.system.security.web.filters.SessionIdValidationFilter#
+	 * preprocessFilterChain(javax.servlet.ServletRequest,
+	 * javax.servlet.ServletResponse)
 	 */
 	@Override
 	public void preprocessFilterChain(ServletRequest request,
@@ -96,7 +95,7 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 						isRequestedSessionIdValid);
 
 		if (StringUtils.isNotBlank(requestedSessionId)
-				&& isRequestedSessionIdValid) {
+				&& isRequestedSessionIdValid && isSessionValid(request)) {
 			logger.debug("session id is valid: {}", requestedSessionId);
 		} else {
 			logger.error("session id is invalid: {}", requestedSessionId);
@@ -125,4 +124,14 @@ public class SessionIdValidationFilter extends BaseFilterImpl {
 	public void postprocessFilterChain(ServletRequest request,
 			ServletResponse response) throws IOException, ServletException {
 	}
+
+	/**
+	 * 세션 유효 여부를 확인한다.
+	 *
+	 * @param request
+	 *            요청
+	 * @return 세션 유효 여부
+	 */
+	abstract boolean isSessionValid(ServletRequest request);
+
 }

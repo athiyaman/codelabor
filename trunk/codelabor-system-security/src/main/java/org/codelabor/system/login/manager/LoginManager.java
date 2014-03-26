@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.managers;
+package org.codelabor.system.login.manager;
 
 import java.util.List;
 

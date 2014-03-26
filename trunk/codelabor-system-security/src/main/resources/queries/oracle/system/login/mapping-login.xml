@@ -42,7 +42,7 @@
 				FROM LOGIN
 				]]>
 			</statement>
-			<result class="org.codelabor.system.login.dtos.LoginDTO">
+			<result class="org.codelabor.system.login.dto.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
@@ -67,7 +67,7 @@
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-			<result class="org.codelabor.system.login.dtos.LoginDTO">
+			<result class="org.codelabor.system.login.dto.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>
@@ -93,7 +93,7 @@
 				]]>
 			</statement>
 			<param type="VARCHAR"/>
-			<result class="org.codelabor.system.login.dtos.LoginDTO">
+			<result class="org.codelabor.system.login.dto.LoginDTO">
 				<result-mapping column="SESSION_ID" attribute="sessionId"/>
 				<result-mapping column="USER_ID" attribute="userId"/>
 				<result-mapping column="IP_ADDRESS" attribute="ipAddress"/>

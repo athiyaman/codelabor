@@ -5,7 +5,7 @@
 
 	<bean 
 		id="loginService" 
-		class="org.codelabor.system.login.services.LoginServiceImpl"
+		class="org.codelabor.system.login.service.LoginServiceImpl"
 		parent="baseService">
 		<property name="loginManager" ref="loginManager"/>
 	</bean>	

@@ -15,52 +15,46 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.services;
+package org.codelabor.system.login.dao;
 
 import java.util.List;
 
 import org.codelabor.system.login.dto.LoginDTO;
 
 /**
- * 로그인 서비스 인터페이스
+ * 로그인 DAO
  * 
  * @author Shin Sangjae
  * 
  */
-public interface LoginService {
+public interface LoginDAO {
 	/**
-	 * 로그인한다.
+	 * 로그인 정보를 등록한다.
 	 * 
 	 * @param loginDTO
 	 *            로그인 정보 DTO
+	 * @return 등록 건수
 	 * @throws Exception
 	 *             예외
 	 */
-	public void login(LoginDTO loginDTO) throws Exception;
+	public int insertLogin(LoginDTO loginDTO) throws Exception;
 
 	/**
-	 * 로그아웃한다.
+	 * 로그인 정보를 수정한다.
 	 * 
 	 * @param loginDTO
 	 *            로그인 정보 DTO
+	 * @return 수정 건수
 	 * @throws Exception
 	 *             예외
 	 */
-	public void logout(LoginDTO loginDTO) throws Exception;
-
-	/**
-	 * 로그인 정보를 가져온다.
-	 * 
-	 * @return 로그인 정보 DTO List
-	 * @throws Exception
-	 *             예외
-	 */
-	public List<LoginDTO> selectLogin() throws Exception;
+	public int updateLogin(LoginDTO loginDTO) throws Exception;
 
 	/**
 	 * 로그인 정보를 가져온다.
 	 * 
 	 * @param loginDTO
+	 *            로그인 정보 DTO
 	 * @return 로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
@@ -68,13 +62,22 @@ public interface LoginService {
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception;
 
 	/**
-	 * 마지막 로그아웃한 로그인 정보를 가져온다.
+	 * 마지막에 로그아웃한 로그인 정보를 가져온다.
 	 * 
 	 * @param loginDTO
+	 *            로그인 정보 DTO
 	 * @return 로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception;
+
+	/**
+	 * 로그인 정보를 가져온다.
+	 * 
+	 * @return 로그인 정보 DTO List
+	 * @throws Exception
+	 */
+	public List<LoginDTO> selectLogin() throws Exception;
 }

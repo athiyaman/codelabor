@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.security.web.filters;
+package org.codelabor.system.security.web.filter;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -37,12 +37,13 @@ import org.slf4j.LoggerFactory;
  * 선택적 세션 확인 필터
  * 
  * @author Shin Sangjae
- * 
+ * @deprecated 2.0.2부터 SelectiveSessionValidationFilter로 대체
  */
-public abstract class SelectiveSessionValidationFilter extends
-		SessionValidationFilter implements SelectiveFilter {
+@Deprecated
+public abstract class SelectiveSessionIdValidationFilter extends
+		SessionIdValidationFilter implements SelectiveFilter {
 	private final Logger logger = LoggerFactory
-			.getLogger(SelectiveSessionValidationFilter.class);
+			.getLogger(SelectiveSessionIdValidationFilter.class);
 
 	/**
 	 * 예외 패턴의 리스트

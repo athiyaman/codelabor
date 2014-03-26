@@ -5,12 +5,12 @@
 	
 	<bean 
 		id="loginDAO" 
-		class="org.codelabor.system.login.daos.LoginDAOImpl"
+		class="org.codelabor.system.login.dao.LoginDAOImpl"
 		parent="baseDAO">
 	</bean>
 	<bean 
 		id="loginManager" 
-		class="org.codelabor.system.login.managers.LoginManagerImpl"
+		class="org.codelabor.system.login.manager.LoginManagerImpl"
 		parent="baseManager">
 		<property name="loginDAO" ref="loginDAO"/>
 	</bean>

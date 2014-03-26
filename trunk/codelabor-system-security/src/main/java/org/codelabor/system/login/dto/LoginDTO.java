@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.dtos;
+package org.codelabor.system.login.dto;
 
 import java.sql.Timestamp;
 

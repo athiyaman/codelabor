@@ -18,7 +18,7 @@ ed with
  * limitations under the License.
  */
 
-package org.codelabor.system.login.daos;
+package org.codelabor.system.login.dao;
 
 import java.util.Collection;
 import java.util.List;
