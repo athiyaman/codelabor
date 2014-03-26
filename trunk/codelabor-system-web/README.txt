@@ -50,5 +50,6 @@
 
 4.0.3
 	codelabor-system-core 업그레이드 (4.0.1)
+	org.codelabor.system.security 패키지 이관 (codelabor-system-security)
 
 
