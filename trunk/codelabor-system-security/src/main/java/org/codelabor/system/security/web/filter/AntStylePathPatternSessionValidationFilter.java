@@ -23,16 +23,16 @@ import org.codelabor.system.web.util.URIPatternMatcherUtils;
 
 /**
  * Ant 패스 패턴을 적용한 세션 확인 필터
- * 
+ *
  * @author Shin Sangjae
- * 
+ *
  */
 public class AntStylePathPatternSessionValidationFilter extends
 		SelectiveSessionValidationFilter {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.SelectiveFilter#isFilterRequired(java.lang
 	 * .String)
@@ -44,13 +44,12 @@ public class AntStylePathPatternSessionValidationFilter extends
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @seeorg.codelabor.system.security.web.filters.SessionValidationFilter#
 	 * isSessionValid(javax.servlet.ServletRequest)
 	 */
 	@Override
 	boolean isSessionValid(ServletRequest request) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 }
