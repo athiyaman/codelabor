@@ -66,8 +66,20 @@ public class RequestUtils {
 	 * @param request
 	 *            요청
 	 * @return 기타 정보 DTO
+	 * @deprecated Use {@link #getEtcDto(ServletRequest)} instead
 	 */
 	public static EtcDto getEtcDTO(ServletRequest request) {
+		return getEtcDto(request);
+	}
+
+	/**
+	 * 기타 정보 DTO를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 기타 정보 DTO
+	 */
+	public static EtcDto getEtcDto(ServletRequest request) {
 		EtcDto etcDto = new EtcDto();
 		etcDto.setCharacterEncoding(request.getCharacterEncoding());
 		etcDto.setContentLength(request.getContentLength());
@@ -110,8 +122,20 @@ public class RequestUtils {
 	 * @param request
 	 *            요청
 	 * @return 로컬 정보 DTO
+	 * @deprecated Use {@link #getLocalDto(ServletRequest)} instead
 	 */
 	public static LocalDto getLocalDTO(ServletRequest request) {
+		return getLocalDto(request);
+	}
+
+	/**
+	 * 로컬 정보 DTO를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 로컬 정보 DTO
+	 */
+	public static LocalDto getLocalDto(ServletRequest request) {
 		LocalDto localDto = new LocalDto();
 		localDto.setLocalName(request.getLocalName());
 		localDto.setLocalAddress(request.getLocalAddr());
@@ -170,8 +194,20 @@ public class RequestUtils {
 	 * @param request
 	 *            요청
 	 * @return 리모트 정보 DTO
+	 * @deprecated Use {@link #getRemoteDto(ServletRequest)} instead
 	 */
 	public static RemoteDto getRemoteDTO(ServletRequest request) {
+		return getRemoteDto(request);
+	}
+
+	/**
+	 * 리모트 정보 DTO를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 리모트 정보 DTO
+	 */
+	public static RemoteDto getRemoteDto(ServletRequest request) {
 		RemoteDto remoteDto = new RemoteDto();
 		remoteDto.setRemoteHost(request.getRemoteHost());
 		remoteDto.setRemoteAddress(request.getRemoteAddr());
@@ -187,8 +223,23 @@ public class RequestUtils {
 	 * @return 서버 정보 DTO
 	 * @throws Exception
 	 *             예외
+	 * @deprecated Use {@link #getServerDto(ServletRequest)} instead
 	 */
 	public static ServerDto getServerDTO(ServletRequest request)
+			throws Exception {
+				return getServerDto(request);
+			}
+
+	/**
+	 * 서버 정보 DTO를 가져온다.
+	 * 
+	 * @param request
+	 *            요청
+	 * @return 서버 정보 DTO
+	 * @throws Exception
+	 *             예외
+	 */
+	public static ServerDto getServerDto(ServletRequest request)
 			throws Exception {
 		ServerDto serverDto = new ServerDto();
 		serverDto.setName(request.getServerName());
