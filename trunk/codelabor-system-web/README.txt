@@ -44,3 +44,4 @@
 
 4.0.1
 	tld 파일 추가
+	TextPaginationTag 제거
