@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.web.SessionConstants;
 import org.codelabor.system.web.struts.actions.BaseDispatchAction;
 
@@ -65,13 +65,13 @@ public abstract class LoginAction extends BaseDispatchAction {
 		}
 
 		// session object
-		LoginDTO loginDTO = new LoginDTO();
-		loginDTO.setUserId(userId);
-		loginDTO.setIpAddress(request.getRemoteAddr());
+		LoginDto loginDto = new LoginDto();
+		loginDto.setUserId(userId);
+		loginDto.setIpAddress(request.getRemoteAddr());
 
 		// set attribute
 		HttpSession session = request.getSession();
-		session.setAttribute(SessionConstants.SESSION_LOGIN_INFO, loginDTO);
+		session.setAttribute(SessionConstants.SESSION_LOGIN_INFO, loginDto);
 
 		// log
 		logger.debug("session login info {}", session

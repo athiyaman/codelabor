@@ -1,4 +1,4 @@
-package org.codelabor.system.login.web.filters;
+package org.codelabor.system.login.web.filter;
 
 import java.io.IOException;
 

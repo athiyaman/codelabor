@@ -19,7 +19,7 @@ package org.codelabor.system.login.dao;
 
 import java.util.List;
 
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 
 /**
  * 로그인 DAO
@@ -27,50 +27,50 @@ import org.codelabor.system.login.dto.LoginDTO;
  * @author Shin Sangjae
  * 
  */
-public interface LoginDAO {
+public interface LoginDao {
 	/**
 	 * 로그인 정보를 등록한다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 *            로그인 정보 DTO
 	 * @return 등록 건수
 	 * @throws Exception
 	 *             예외
 	 */
-	public int insertLogin(LoginDTO loginDTO) throws Exception;
+	public int insertLogin(LoginDto loginDto) throws Exception;
 
 	/**
 	 * 로그인 정보를 수정한다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 *            로그인 정보 DTO
 	 * @return 수정 건수
 	 * @throws Exception
 	 *             예외
 	 */
-	public int updateLogin(LoginDTO loginDTO) throws Exception;
+	public int updateLogin(LoginDto loginDto) throws Exception;
 
 	/**
 	 * 로그인 정보를 가져온다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 *            로그인 정보 DTO
 	 * @return 로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception;
+	public LoginDto selectLogin(LoginDto loginDto) throws Exception;
 
 	/**
 	 * 마지막에 로그아웃한 로그인 정보를 가져온다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 *            로그인 정보 DTO
 	 * @return 로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
+	public LoginDto selectLoginByLastLogoutUserId(LoginDto loginDto)
 			throws Exception;
 
 	/**
@@ -79,5 +79,5 @@ public interface LoginDAO {
 	 * @return 로그인 정보 DTO List
 	 * @throws Exception
 	 */
-	public List<LoginDTO> selectLogin() throws Exception;
+	public List<LoginDto> selectLogin() throws Exception;
 }

@@ -25,7 +25,7 @@ import java.sql.Timestamp;
  * @author Shin Sangjae
  * 
  */
-public class LoginDTO {
+public class LoginDto {
 
 	/**
 	 * 세션 Id
@@ -159,7 +159,7 @@ public class LoginDTO {
 
 		StringBuilder retValue = new StringBuilder();
 
-		retValue.append("LoginDTO ( ").append(super.toString()).append(TAB)
+		retValue.append("LoginDto ( ").append(super.toString()).append(TAB)
 				.append("sessionId = ").append(this.sessionId).append(TAB)
 				.append("userId = ").append(this.userId).append(TAB).append(
 						"ipAddress = ").append(this.ipAddress).append(TAB)

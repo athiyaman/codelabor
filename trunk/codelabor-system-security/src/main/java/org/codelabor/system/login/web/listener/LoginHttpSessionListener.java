@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.login.web.listeners;
+package org.codelabor.system.login.web.listener;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionActivationListener;
@@ -27,7 +27,7 @@ import javax.servlet.http.HttpSessionListener;
 import org.codelabor.system.anyframe.utils.MessageUtils;
 import org.codelabor.system.dto.MessageDTO;
 import org.codelabor.system.listeners.BaseListener;
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.login.service.LoginService;
 import org.codelabor.system.web.SessionConstants;
 import org.springframework.web.context.WebApplicationContext;
@@ -66,14 +66,14 @@ public class LoginHttpSessionListener extends BaseListener implements
 
 		if (event.getName().equals(SessionConstants.SESSION_LOGIN_INFO)) {
 			HttpSession session = event.getSession();
-			LoginDTO loginDTO = (LoginDTO) session
+			LoginDto loginDto = (LoginDto) session
 					.getAttribute(SessionConstants.SESSION_LOGIN_INFO);
-			loginDTO.setSessionId(session.getId());
+			loginDto.setSessionId(session.getId());
 			try {
-				loginService.login(loginDTO);
-				loginDTO = loginService.selectLogin(loginDTO);
+				loginService.login(loginDto);
+				loginDto = loginService.selectLogin(loginDto);
 				session.setAttribute(SessionConstants.SESSION_LOGIN_INFO,
-						loginDTO);
+						loginDto);
 			} catch (Exception e) {
 				e.printStackTrace();
 				MessageDTO messageDTO = MessageUtils.exceptionToMessageDTO(e);
@@ -105,10 +105,10 @@ public class LoginHttpSessionListener extends BaseListener implements
 		logger.debug("soruce: {}", event.getSource());
 
 		if (event.getName().equals(SessionConstants.SESSION_LOGIN_INFO)) {
-			LoginDTO loginDTO = new LoginDTO();
-			loginDTO.setSessionId(event.getSession().getId());
+			LoginDto loginDto = new LoginDto();
+			loginDto.setSessionId(event.getSession().getId());
 			try {
-				loginService.logout(loginDTO);
+				loginService.logout(loginDto);
 			} catch (Exception e) {
 				e.printStackTrace();
 				MessageDTO messageDTO = MessageUtils.exceptionToMessageDTO(e);

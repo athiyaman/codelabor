@@ -1,10 +1,10 @@
-package org.codelabor.system.login.web.filters;
+package org.codelabor.system.login.web.filter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.web.SessionConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,11 +56,11 @@ public class MockAuthenticationFilter extends AbstractAuthenticationFilter {
 	@Override
 	public void forwardLoginPage(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		LoginDTO loginDTO = new LoginDTO();
-		loginDTO.setUserId("tester");
-		loginDTO.setIpAddress(request.getRemoteAddr());
+		LoginDto loginDto = new LoginDto();
+		loginDto.setUserId("tester");
+		loginDto.setIpAddress(request.getRemoteAddr());
 		request.getSession().setAttribute(SessionConstants.SESSION_LOGIN_INFO,
-				loginDTO);
+				loginDto);
 
 	}
 

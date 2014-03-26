@@ -2,7 +2,7 @@ package org.codelabor.system.login.service;
 
 import java.util.List;
 
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.login.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,42 +48,42 @@ public class LoginServiceTest extends AbstractSingleSpringContextTests {
 	@SuppressWarnings("unchecked")
 	public void testLogin() {
 		// test
-		LoginDTO loginDTO = new LoginDTO();
-		loginDTO
+		LoginDto loginDto = new LoginDto();
+		loginDto
 				.setSessionId("zWHwgqfZALDe1dBzNLFlyO5Hduileijc775DSsWhdQwsdXINuSRkuSXK6pvqn1EI");
-		loginDTO.setUserId("bomber");
-		loginDTO.setIpAddress("127.0.0.1");
+		loginDto.setUserId("bomber");
+		loginDto.setIpAddress("127.0.0.1");
 		try {
 			// login test
-			loginService.login(loginDTO);
+			loginService.login(loginDto);
 
 			// assert
 			String queryId = "system.select.login";
-			Object[] param = new Object[] { loginDTO.getSessionId() };
-			List<LoginDTO> loginDTOList = (List<LoginDTO>) queryService.find(
+			Object[] param = new Object[] { loginDto.getSessionId() };
+			List<LoginDto> loginDTOList = (List<LoginDto>) queryService.find(
 					queryId, param);
-			LoginDTO returnedLoginDTO = loginDTOList.get(0);
+			LoginDto returnedLoginDTO = loginDTOList.get(0);
 			assertNotNull(returnedLoginDTO.getLoginTimestamp());
 			assertNull(returnedLoginDTO.getLogoutTimestamp());
 
 			// logout test
-			loginService.logout(loginDTO);
+			loginService.logout(loginDto);
 
 			// assert
 			queryId = "system.select.login";
-			param = new Object[] { loginDTO.getSessionId() };
-			loginDTOList = (List<LoginDTO>) queryService.find(queryId, param);
+			param = new Object[] { loginDto.getSessionId() };
+			loginDTOList = (List<LoginDto>) queryService.find(queryId, param);
 			returnedLoginDTO = loginDTOList.get(0);
 			assertNotNull(returnedLoginDTO.getLogoutTimestamp());
 
 			// select last login info test
-			loginDTO = loginService.selectLoginByLastLogoutUserId(loginDTO);
+			loginDto = loginService.selectLoginByLastLogoutUserId(loginDto);
 
 			// assert
-			assertNotNull(loginDTO.getLogoutTimestamp());
+			assertNotNull(loginDto.getLogoutTimestamp());
 
 			// log
-			logger.debug("loginDTO {}", loginDTO);
+			logger.debug("loginDTO {}", loginDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

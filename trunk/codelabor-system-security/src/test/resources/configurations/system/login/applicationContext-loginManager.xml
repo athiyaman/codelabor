@@ -5,7 +5,7 @@
 	
 	<bean 
 		id="loginDAO" 
-		class="org.codelabor.system.login.dao.LoginDAOImpl"
+		class="org.codelabor.system.login.dao.LoginDaoImpl"
 		parent="baseDAO">
 	</bean>
 	<bean 

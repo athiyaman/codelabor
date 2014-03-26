@@ -24,7 +24,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.codelabor.system.dao.BaseDAOImpl;
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 
 /**
  * 로그인 DAO 구현 클래스
@@ -32,19 +32,19 @@ import org.codelabor.system.login.dto.LoginDTO;
  * @author Shin Sangjae
  * 
  */
-public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
+public class LoginDaoImpl extends BaseDAOImpl implements LoginDao {
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.dao.LoginDAO#insertLogin(org.codelabor.system
+	 * org.codelabor.system.login.dao.LoginDao#insertLogin(org.codelabor.system
 	 * .login.dto.LoginDTO)
 	 */
-	public int insertLogin(LoginDTO loginDTO) throws Exception {
+	public int insertLogin(LoginDto loginDto) throws Exception {
 		String queryId = "system.insert.login";
-		Object[] param = new Object[] { loginDTO.getSessionId(),
-				loginDTO.getUserId(), loginDTO.getIpAddress() };
+		Object[] param = new Object[] { loginDto.getSessionId(),
+				loginDto.getUserId(), loginDto.getIpAddress() };
 		return this.queryService.create(queryId, param);
 	}
 
@@ -52,59 +52,59 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.dao.LoginDAO#selectLogin(org.codelabor.system
+	 * org.codelabor.system.login.dao.LoginDao#selectLogin(org.codelabor.system
 	 * .login.dto.LoginDTO)
 	 */
 	@SuppressWarnings("unchecked")
-	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
+	public LoginDto selectLogin(LoginDto loginDto) throws Exception {
 		String queryId = "system.select.login";
-		Object[] param = new Object[] { loginDTO.getSessionId() };
-		Collection<LoginDTO> loginCol = queryService.find(queryId, param);
+		Object[] param = new Object[] { loginDto.getSessionId() };
+		Collection<LoginDto> loginCol = queryService.find(queryId, param);
 		if (loginCol == null || loginCol.size() == 0)
 			return null;
-		return (LoginDTO) loginCol.toArray()[0];
+		return (LoginDto) loginCol.toArray()[0];
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.dao.LoginDAO#selectLoginByLastLogoutUserId
-	 * (org.codelabor.system.login.dto.LoginDTO)
+	 * org.codelabor.system.login.dao.LoginDao#selectLoginByLastLogoutUserId
+	 * (org.codelabor.system.login.dto.LoginDto)
 	 */
 	@SuppressWarnings("unchecked")
-	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
+	public LoginDto selectLoginByLastLogoutUserId(LoginDto loginDto)
 			throws Exception {
 		String queryId = "system.select.login.by.last.logout.user.id";
-		Object[] param = new Object[] { loginDTO.getUserId() };
-		Collection<LoginDTO> loginCol = queryService.find(queryId, param);
+		Object[] param = new Object[] { loginDto.getUserId() };
+		Collection<LoginDto> loginCol = queryService.find(queryId, param);
 		if (loginCol == null || loginCol.size() == 0)
 			return null;
-		return (LoginDTO) loginCol.toArray()[0];
+		return (LoginDto) loginCol.toArray()[0];
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.codelabor.system.login.dao.LoginDAO#selectLogin()
+	 * @see org.codelabor.system.login.dao.LoginDao#selectLogin()
 	 */
 	@SuppressWarnings("unchecked")
-	public List<LoginDTO> selectLogin() throws Exception {
+	public List<LoginDto> selectLogin() throws Exception {
 		String queryId = "system.select.login.list";
 		Object[] params = new Object[] {};
-		return (List<LoginDTO>) queryService.find(queryId, params);
+		return (List<LoginDto>) queryService.find(queryId, params);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.codelabor.system.login.dao.LoginDAO#updateLogin(org.codelabor.system
+	 * org.codelabor.system.login.dao.LoginDao#updateLogin(org.codelabor.system
 	 * .login.dto.LoginDTO)
 	 */
-	public int updateLogin(LoginDTO loginDTO) throws Exception {
+	public int updateLogin(LoginDto loginDto) throws Exception {
 		String queryId = "system.update.login";
-		Object[] param = new Object[] { loginDTO.getSessionId() };
+		Object[] param = new Object[] { loginDto.getSessionId() };
 		return this.queryService.create(queryId, param);
 	}
 

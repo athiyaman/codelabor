@@ -19,8 +19,8 @@ package org.codelabor.system.login.manager;
 
 import java.util.List;
 
-import org.codelabor.system.login.dao.LoginDAO;
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dao.LoginDao;
+import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
@@ -34,25 +34,25 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	/**
 	 * 로그인 DAO
 	 */
-	public LoginDAO loginDAO;
+	public LoginDao loginDao;
 
 	/**
 	 * 로그인 DAO를 가져온다.
 	 * 
 	 * @return 로그인 DAO
 	 */
-	public LoginDAO getLoginDAO() {
-		return loginDAO;
+	public LoginDao getLoginDAO() {
+		return loginDao;
 	}
 
 	/**
 	 * 로그인 DAO를 설정한다.
 	 * 
-	 * @param loginDAO
+	 * @param loginDao
 	 *            로그인 DAO
 	 */
-	public void setLoginDAO(LoginDAO loginDAO) {
-		this.loginDAO = loginDAO;
+	public void setLoginDAO(LoginDao loginDao) {
+		this.loginDao = loginDao;
 	}
 
 	/*
@@ -60,10 +60,10 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.manager.LoginManager#login(org.codelabor.
-	 * system.login.dto.LoginDTO)
+	 * system.login.dto.LoginDto)
 	 */
-	public void login(LoginDTO loginDTO) throws Exception {
-		loginDAO.insertLogin(loginDTO);
+	public void login(LoginDto loginDto) throws Exception {
+		loginDao.insertLogin(loginDto);
 	}
 
 	/*
@@ -73,8 +73,8 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * org.codelabor.system.login.manager.LoginManager#logout(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
-	public void logout(LoginDTO loginDTO) throws Exception {
-		loginDAO.updateLogin(loginDTO);
+	public void logout(LoginDto loginDto) throws Exception {
+		loginDao.updateLogin(loginDto);
 	}
 
 	/*
@@ -82,8 +82,8 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * 
 	 * @see org.codelabor.system.login.manager.LoginManager#selectLogin()
 	 */
-	public List<LoginDTO> selectLogin() throws Exception {
-		return loginDAO.selectLogin();
+	public List<LoginDto> selectLogin() throws Exception {
+		return loginDao.selectLogin();
 	}
 
 	/*
@@ -93,18 +93,18 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * org.codelabor.system.login.manager.LoginManager#selectLogin(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
-	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
-		return loginDAO.selectLogin(loginDTO);
+	public LoginDto selectLogin(LoginDto loginDto) throws Exception {
+		return loginDao.selectLogin(loginDto);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @seeorg.codelabor.system.login.managers.LoginManager#
-	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dto.LoginDTO)
+	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dto.LoginDto)
 	 */
-	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
+	public LoginDto selectLoginByLastLogoutUserId(LoginDto loginDto)
 			throws Exception {
-		return loginDAO.selectLoginByLastLogoutUserId(loginDTO);
+		return loginDao.selectLoginByLastLogoutUserId(loginDto);
 	}
 }

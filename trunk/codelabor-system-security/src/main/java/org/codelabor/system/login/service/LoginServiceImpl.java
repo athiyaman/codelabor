@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 import org.codelabor.system.login.manager.LoginManager;
 import org.codelabor.system.services.BaseServiceImpl;
 
@@ -62,11 +62,11 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.service.LoginService#login(org.codelabor.
-	 * system.login.dto.LoginDTO)
+	 * system.login.dto.LoginDto)
 	 */
-	public void login(LoginDTO loginDTO) throws Exception {
+	public void login(LoginDto loginDto) throws Exception {
 		try {
-			loginManager.login(loginDTO);
+			loginManager.login(loginDto);
 		} catch (Exception e) {
 			String messageCode = "ERROR-LOGIN-0000";
 			String messageKey = "error.login";
@@ -85,9 +85,9 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * org.codelabor.system.login.service.LoginService#logout(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
-	public void logout(LoginDTO loginDTO) throws Exception {
+	public void logout(LoginDto loginDto) throws Exception {
 		try {
-			loginManager.logout(loginDTO);
+			loginManager.logout(loginDto);
 		} catch (Exception e) {
 			String messageCode = "ERROR-LOGIN-0001";
 			String messageKey = "error.logout";
@@ -104,8 +104,8 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * 
 	 * @see org.codelabor.system.login.service.LoginService#selectLogin()
 	 */
-	public List<LoginDTO> selectLogin() throws Exception {
-		List<LoginDTO> loginList;
+	public List<LoginDto> selectLogin() throws Exception {
+		List<LoginDto> loginList;
 		try {
 			loginList = loginManager.selectLogin();
 		} catch (Exception e) {
@@ -127,10 +127,10 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * org.codelabor.system.login.service.LoginService#selectLogin(org.codelabor
 	 * .system.login.dto.LoginDTO)
 	 */
-	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
-		LoginDTO returnLoginDTO;
+	public LoginDto selectLogin(LoginDto loginDto) throws Exception {
+		LoginDto returnLoginDTO;
 		try {
-			returnLoginDTO = loginManager.selectLogin(loginDTO);
+			returnLoginDTO = loginManager.selectLogin(loginDto);
 		} catch (Exception e) {
 			String messageCode = "ERROR-LOGIN-0003";
 			String messageKey = "error.select";
@@ -147,14 +147,14 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * (non-Javadoc)
 	 * 
 	 * @seeorg.codelabor.system.login.services.LoginService#
-	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dto.LoginDTO)
+	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dto.LoginDto)
 	 */
-	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
+	public LoginDto selectLoginByLastLogoutUserId(LoginDto loginDto)
 			throws Exception {
-		LoginDTO returnLoginDTO;
+		LoginDto returnLoginDTO;
 		try {
 			returnLoginDTO = loginManager
-					.selectLoginByLastLogoutUserId(loginDTO);
+					.selectLoginByLastLogoutUserId(loginDto);
 		} catch (Exception e) {
 			String messageCode = "ERROR-LOGIN-0004";
 			String messageKey = "error.select";

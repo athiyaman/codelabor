@@ -19,7 +19,7 @@ package org.codelabor.system.login.service;
 
 import java.util.List;
 
-import org.codelabor.system.login.dto.LoginDTO;
+import org.codelabor.system.login.dto.LoginDto;
 
 /**
  * 로그인 서비스 인터페이스
@@ -31,22 +31,22 @@ public interface LoginService {
 	/**
 	 * 로그인한다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 *            로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	public void login(LoginDTO loginDTO) throws Exception;
+	public void login(LoginDto loginDto) throws Exception;
 
 	/**
 	 * 로그아웃한다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 *            로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	public void logout(LoginDTO loginDTO) throws Exception;
+	public void logout(LoginDto loginDto) throws Exception;
 
 	/**
 	 * 로그인 정보를 가져온다.
@@ -55,26 +55,26 @@ public interface LoginService {
 	 * @throws Exception
 	 *             예외
 	 */
-	public List<LoginDTO> selectLogin() throws Exception;
+	public List<LoginDto> selectLogin() throws Exception;
 
 	/**
 	 * 로그인 정보를 가져온다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 * @return 로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception;
+	public LoginDto selectLogin(LoginDto loginDto) throws Exception;
 
 	/**
 	 * 마지막 로그아웃한 로그인 정보를 가져온다.
 	 * 
-	 * @param loginDTO
+	 * @param loginDto
 	 * @return 로그인 정보 DTO
 	 * @throws Exception
 	 *             예외
 	 */
-	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
+	public LoginDto selectLoginByLastLogoutUserId(LoginDto loginDto)
 			throws Exception;
 }
