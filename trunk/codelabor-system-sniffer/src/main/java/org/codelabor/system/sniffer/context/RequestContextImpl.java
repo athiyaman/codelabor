@@ -14,25 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.codelabor.system.access.manager;
-
-import org.codelabor.system.access.dto.AccessLogDto;
+package org.codelabor.system.sniffer.context;
 
 /**
- * 접근 로그 매니저 인터페이스
- * 
- * @author Shin Sangjae
- * 
+ * @author Shin Sang-Jae
+ *
  */
-public interface AccessLogManager {
-	/**
-	 * 접근 로그를 남긴다.
-	 * 
-	 * @param accessLogDto
-	 *            접근 로그 DTO
-	 * @throws Exception
-	 *             예외
-	 */
-	void accessLog(AccessLogDto accessLogDto) throws Exception;
+public class RequestContextImpl implements RequestContext {
+
+	private String requestId = null;
+
+	public String getRequestId() {
+		return requestId;
+	}
+
+	public void setRequestId(String userId) {
+		this.requestId = userId;
+	}
+
 }

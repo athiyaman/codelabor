@@ -14,25 +14,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.codelabor.system.sniffer.aspect;
 
-package org.codelabor.system.access.service;
-
-import org.codelabor.system.access.dto.AccessLogDto;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
 /**
- * 접근 로그 서비스 인터페이스
- * 
- * @author Shin Sangjae
+ * @author Shin Sang-Jae
  * 
  */
-public interface AccessLogService {
-	/**
-	 * 접근 로그를 남긴다.
-	 * 
-	 * @param accessLogDto
-	 *            접근 로그 DTO
-	 * @throws Exception
-	 *             예외
-	 */
-	public void accessLog(AccessLogDto accessLogDto) throws Exception;
+@Aspect
+@Component
+public class SystemArchitecture {
+	@Pointcut("bean(*Controller)")
+	public void inController() {
+	}
+
+	@Pointcut("bean(*Dao)")
+	public void inDao() {
+	}
+
+	@Pointcut("bean(*Manager)")
+	public void inManager() {
+	}
+
+	@Pointcut("bean(*Service)")
+	public void inService() {
+	}
+
 }

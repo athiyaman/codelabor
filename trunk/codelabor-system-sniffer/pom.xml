@@ -42,14 +42,8 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		<!--
-		<dependency>
-			<groupId>ojdbc</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>14</version>
-			<scope>test</scope>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>ojdbc</groupId> <artifactId>ojdbc</artifactId>
+			<version>14</version> <scope>test</scope> </dependency> -->
 		<dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>quartz</artifactId>
@@ -110,59 +104,6 @@
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>copy-dependencies</id>
-							<phase>package</phase>
-							<goals>
-								<goal>copy-dependencies</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.build.directory}/lib</outputDirectory>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>sql-maven-plugin</artifactId>
-					<version>1.4</version>
-					<dependencies>
-						<dependency>
-							<groupId>${jdbc.dependency.groupId}</groupId>
-							<artifactId>${jdbc.dependency.artifactId}</artifactId>
-							<version>${jdbc.dependency.version}</version>
-						</dependency>
-					</dependencies>
-					<configuration>
-						<driver>${jdbc.driverClassName}</driver>
-						<url>${jdbc.url}</url>
-						<settingsKey>database.oracle.codelabor</settingsKey>
-						<skip>${maven.test.skip}</skip>
-					</configuration>
-					<executions>
-						<execution>
-							<phase>process-test-resources</phase>
-							<goals>
-								<goal>execute</goal>
-							</goals>
-							<configuration>
-								<orderFile>ascending</orderFile>
-								<autocommit>true</autocommit>
-								<onError>continue</onError>
-								<fileset>
-									<basedir>${basedir}</basedir>
-									<includes>
-										<include>src/main/sql/${jdbc.database.product}/**/*.sql</include>
-									</includes>
-								</fileset>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>

@@ -15,27 +15,14 @@
  * limitations under the License.
  */
 
-package org.codelabor.system.access.dao;
-
-import org.codelabor.system.access.dto.AccessLogDto;
+package org.codelabor.system.sniffer.context;
 
 /**
- * 접속 로그 DAO 구현 클래스
- * 
- * @author Shin Sangjae
- * 
+ * @author Shin Sang-Jae
+ *
  */
-public class AccessLogDaoImpl extends BaseDaoImpl implements AccessLogDao {
+public interface RequestContext {
+	String getRequestId();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.codelabor.system.access.dao.AccessLogDao#insert(org.codelabor.system
-	 * .access.dtos.AccessLogDTO)
-	 */
-	public int insert(AccessLogDto accessLogDto) throws Exception {
-		accessLogDto.setSeq(idGenerationService.getNextIntegerId());
-		return this.queryService.create(accessLogDto);
-	}
+	void setRequestId(String requestId);
 }
