@@ -28,9 +28,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>opensymphony</groupId>
+			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
-			<version>1.6.3</version>
+			<version>${quartz.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -47,6 +47,9 @@
 
 		<!-- Springframework -->
 		<springframework.version>4.0.2.RELEASE</springframework.version>
+
+		<!-- Quartz -->
+		<quartz.version>2.2.1</quartz.version>
 
 		<!-- Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

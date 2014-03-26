@@ -17,15 +17,16 @@ package org.codelabor.system.sniffer.quartz;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.Trigger;
+import org.quartz.Trigger.CompletedExecutionInstruction;
 import org.quartz.TriggerListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * 스니핑 트리거 리스너
- * 
+ *
  * @author Shin Sangjae
- * 
+ *
  */
 public class SniffingTriggerListener implements TriggerListener {
 
@@ -37,7 +38,7 @@ public class SniffingTriggerListener implements TriggerListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.quartz.TriggerListener#getName()
 	 */
 	public String getName() {
@@ -46,42 +47,51 @@ public class SniffingTriggerListener implements TriggerListener {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.quartz.TriggerListener#triggerComplete(org.quartz.Trigger,
 	 * org.quartz.JobExecutionContext, int)
 	 */
 	public void triggerComplete(Trigger trigger, JobExecutionContext context,
 			int triggerInstructionCode) {
-		logger.debug("jobName: {}", trigger.getJobName());
+		logger.debug("jobKey: {}", trigger.getJobKey());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.quartz.TriggerListener#triggerFired(org.quartz.Trigger,
 	 * org.quartz.JobExecutionContext)
 	 */
 	public void triggerFired(Trigger trigger, JobExecutionContext context) {
-		logger.debug("jobName: {}", trigger.getJobName());
+		logger.debug("jobKey: {}", trigger.getJobKey());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.quartz.TriggerListener#triggerMisfired(org.quartz.Trigger)
 	 */
 	public void triggerMisfired(Trigger trigger) {
-		logger.debug("jobName: {}", trigger.getJobName());
+		logger.debug("jobKey: {}", trigger.getJobKey());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.quartz.TriggerListener#vetoJobExecution(org.quartz.Trigger,
 	 * org.quartz.JobExecutionContext)
 	 */
 	public boolean vetoJobExecution(Trigger trigger, JobExecutionContext context) {
-		logger.debug("jobName: {}", trigger.getJobName());
+		logger.debug("jobKey: {}", trigger.getJobKey());
 		return false;
 	}
+
+	public void triggerComplete(Trigger trigger, JobExecutionContext jobExecutionContext,
+			CompletedExecutionInstruction completedExecutionInstruction) {
+		logger.debug("triggerComplete");
+		logger.debug("trigger: {}", trigger);
+		logger.debug("jobExecutionContext: {}", jobExecutionContext);
+		logger.debug("completedExecutionInstruction: {}", completedExecutionInstruction);
+	}
 }
+
