@@ -2,7 +2,7 @@
  * Licensed to the Apache Software Fimport java.util.Collection;
 import java.util.List;
 
-import org.codelabor.system.dtos.LoginDTO;
+import org.codelabor.system.dto.LoginDTO;
 ed with
  * this work for additional information regarding copyright ownership.
  * The ASF licenses this file to You under the Apache License, Version 2.0
@@ -24,7 +24,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.codelabor.system.dao.BaseDAOImpl;
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 
 /**
  * 로그인 DAO 구현 클래스
@@ -39,7 +39,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDAO#insertLogin(org.codelabor.system
-	 * .login.dtos.LoginDTO)
+	 * .login.dto.LoginDTO)
 	 */
 	public int insertLogin(LoginDTO loginDTO) throws Exception {
 		String queryId = "system.insert.login";
@@ -53,7 +53,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDAO#selectLogin(org.codelabor.system
-	 * .login.dtos.LoginDTO)
+	 * .login.dto.LoginDTO)
 	 */
 	@SuppressWarnings("unchecked")
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
@@ -70,7 +70,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDAO#selectLoginByLastLogoutUserId
-	 * (org.codelabor.system.login.dtos.LoginDTO)
+	 * (org.codelabor.system.login.dto.LoginDTO)
 	 */
 	@SuppressWarnings("unchecked")
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
@@ -100,7 +100,7 @@ public class LoginDAOImpl extends BaseDAOImpl implements LoginDAO {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.dao.LoginDAO#updateLogin(org.codelabor.system
-	 * .login.dtos.LoginDTO)
+	 * .login.dto.LoginDTO)
 	 */
 	public int updateLogin(LoginDTO loginDTO) throws Exception {
 		String queryId = "system.update.login";

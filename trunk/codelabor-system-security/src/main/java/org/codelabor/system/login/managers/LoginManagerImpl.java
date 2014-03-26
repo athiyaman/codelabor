@@ -20,7 +20,7 @@ package org.codelabor.system.login.managers;
 import java.util.List;
 
 import org.codelabor.system.login.dao.LoginDAO;
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 import org.codelabor.system.managers.BaseManagerImpl;
 
 /**
@@ -60,7 +60,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.managers.LoginManager#login(org.codelabor.
-	 * system.login.dtos.LoginDTO)
+	 * system.login.dto.LoginDTO)
 	 */
 	public void login(LoginDTO loginDTO) throws Exception {
 		loginDAO.insertLogin(loginDTO);
@@ -71,7 +71,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.managers.LoginManager#logout(org.codelabor
-	 * .system.login.dtos.LoginDTO)
+	 * .system.login.dto.LoginDTO)
 	 */
 	public void logout(LoginDTO loginDTO) throws Exception {
 		loginDAO.updateLogin(loginDTO);
@@ -91,7 +91,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.managers.LoginManager#selectLogin(org.codelabor
-	 * .system.login.dtos.LoginDTO)
+	 * .system.login.dto.LoginDTO)
 	 */
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
 		return loginDAO.selectLogin(loginDTO);
@@ -101,7 +101,7 @@ public class LoginManagerImpl extends BaseManagerImpl implements LoginManager {
 	 * (non-Javadoc)
 	 * 
 	 * @seeorg.codelabor.system.login.managers.LoginManager#
-	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dtos.LoginDTO)
+	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dto.LoginDTO)
 	 */
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception {

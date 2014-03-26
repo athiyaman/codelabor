@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 import org.codelabor.system.web.SessionConstants;
 import org.codelabor.system.web.struts.actions.BaseDispatchAction;
 

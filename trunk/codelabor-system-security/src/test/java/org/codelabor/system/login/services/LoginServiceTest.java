@@ -2,7 +2,7 @@ package org.codelabor.system.login.services;
 
 import java.util.List;
 
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.AbstractSingleSpringContextTests;

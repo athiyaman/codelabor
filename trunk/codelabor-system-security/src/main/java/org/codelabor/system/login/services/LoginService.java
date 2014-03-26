@@ -19,7 +19,7 @@ package org.codelabor.system.login.services;
 
 import java.util.List;
 
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 
 /**
  * 로그인 서비스 인터페이스

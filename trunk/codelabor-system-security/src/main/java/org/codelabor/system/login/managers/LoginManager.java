@@ -19,7 +19,7 @@ package org.codelabor.system.login.managers;
 
 import java.util.List;
 
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 
 /**
  * 로그인 매니저 인터페이스

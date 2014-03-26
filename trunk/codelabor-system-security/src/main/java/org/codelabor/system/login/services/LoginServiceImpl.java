@@ -21,7 +21,7 @@ import java.util.List;
 
 import org.codelabor.system.anyframe.exceptions.CommonException;
 import org.codelabor.system.anyframe.exceptions.RollbackCommonException;
-import org.codelabor.system.login.dtos.LoginDTO;
+import org.codelabor.system.login.dto.LoginDTO;
 import org.codelabor.system.login.managers.LoginManager;
 import org.codelabor.system.services.BaseServiceImpl;
 
@@ -62,7 +62,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.services.LoginService#login(org.codelabor.
-	 * system.login.dtos.LoginDTO)
+	 * system.login.dto.LoginDTO)
 	 */
 	public void login(LoginDTO loginDTO) throws Exception {
 		try {
@@ -83,7 +83,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.services.LoginService#logout(org.codelabor
-	 * .system.login.dtos.LoginDTO)
+	 * .system.login.dto.LoginDTO)
 	 */
 	public void logout(LoginDTO loginDTO) throws Exception {
 		try {
@@ -125,7 +125,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * 
 	 * @see
 	 * org.codelabor.system.login.services.LoginService#selectLogin(org.codelabor
-	 * .system.login.dtos.LoginDTO)
+	 * .system.login.dto.LoginDTO)
 	 */
 	public LoginDTO selectLogin(LoginDTO loginDTO) throws Exception {
 		LoginDTO returnLoginDTO;
@@ -147,7 +147,7 @@ public class LoginServiceImpl extends BaseServiceImpl implements LoginService {
 	 * (non-Javadoc)
 	 * 
 	 * @seeorg.codelabor.system.login.services.LoginService#
-	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dtos.LoginDTO)
+	 * selectLoginByLastLogoutUserId(org.codelabor.system.login.dto.LoginDTO)
 	 */
 	public LoginDTO selectLoginByLastLogoutUserId(LoginDTO loginDTO)
 			throws Exception {
