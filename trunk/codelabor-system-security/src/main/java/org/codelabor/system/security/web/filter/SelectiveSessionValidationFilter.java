@@ -29,15 +29,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
-import org.codelabor.system.web.filter.SelectiveFilter;
+import org.codelabor.system.web.filter.selective.SelectiveFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * 선택적 세션 확인 필터
- * 
+ *
  * @author Shin Sangjae
- * 
+ *
  */
 public abstract class SelectiveSessionValidationFilter extends
 		SessionValidationFilter implements SelectiveFilter {
@@ -60,7 +60,7 @@ public abstract class SelectiveSessionValidationFilter extends
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.BaseFilterImpl#init(javax.servlet.FilterConfig
 	 * )
@@ -74,7 +74,7 @@ public abstract class SelectiveSessionValidationFilter extends
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.SelectiveFilter#getExcludePatterns(javax
 	 * .servlet.FilterConfig)
@@ -96,7 +96,7 @@ public abstract class SelectiveSessionValidationFilter extends
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.codelabor.system.filters.SelectiveFilter#getIncludePatterns(javax
 	 * .servlet.FilterConfig)
@@ -118,7 +118,7 @@ public abstract class SelectiveSessionValidationFilter extends
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @seeorg.codelabor.system.filters.BaseFilterImpl#doFilter(javax.servlet.
 	 * ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
