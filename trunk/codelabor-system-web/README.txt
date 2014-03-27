@@ -52,4 +52,7 @@
 	codelabor-system-core 업그레이드 (4.0.1)
 	org.codelabor.system.security 패키지 이관 (codelabor-system-security)
 
+4.0.4
+	tld shortname 수정
+
 
