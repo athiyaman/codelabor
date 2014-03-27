@@ -6,7 +6,7 @@
 	<description>CODELABOR Pagination Taglib</description>
 	<display-name>CODELABOR Pagination Taglib</display-name>
 	<tlib-version>1.0</tlib-version>
-	<short-name>codelabor</short-name>
+	<short-name>pagination</short-name>
 	<uri>http://codelabor.org/tags/pagination</uri>
 
 	<tag>

@@ -6,7 +6,7 @@
 	<description>CODELABOR Form Taglib</description>
 	<display-name>CODELABOR Form Taglib</display-name>
 	<tlib-version>1.0</tlib-version>
-	<short-name>codelabor</short-name>
+	<short-name>form</short-name>
 	<uri>http://codelabor.org/tags/form</uri>
 
 	<tag>
