@@ -60,3 +60,4 @@
 	org.codelabor.system.sniffer 이관 (codelabor-system-sniffer)
 
 4.0.2
+	spring message 추가
