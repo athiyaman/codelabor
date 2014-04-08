@@ -22,3 +22,7 @@
 4.0.1
 	codelabor-system-web 업그레이드 (4.0.3)
 	DomainAwareAuthenticationSuccessHandler, LogbackMappedDiagnosticContextFilter 이관 받음
+
+4.0.2
+	LogbackMappedDiagnosticContextFilter 추상화하여 sniffer로 이관
+	SecurityContextLogbackMappedDiagnosticContextFilter 로 구체화
