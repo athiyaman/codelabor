@@ -11,15 +11,16 @@ public class PropertiesServiceImpl implements PropertiesService {
 	private final static Logger logger = LoggerFactory
 			.getLogger(PropertiesServiceImpl.class);
 
-	@Value("${jdbc.driverClassName}")
-	private String jdbcDriverClassName;
-
 	@Value("${webmaster.email}")
 	private String webSiteFeedBackEmailAddress;
 
+	@Value("${jdbc.driverClassName}")
+	private String jdbcDriverClassName;
+
 	@Override
 	public String getFeedbackEmailAddress() {
-		logger.debug("webmaster.email: {}", webSiteFeedBackEmailAddress);
+		logger.debug("webmaster.email: {}",
+				webSiteFeedBackEmailAddress);
 		return webSiteFeedBackEmailAddress;
 	}
 

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isErrorPage="true"%>
-<%@ include file="/WEB-INF/jspf/taglib.jspf" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="log" uri="http://www.slf4j.org/taglib/tld"%>
 <log:error category="jsp" message="status code: ${pageContext.errorData.statusCode}" />
 <log:error category="jsp" message="request uri: ${pageContext.errorData.requestURI}" />
 <log:error category="jsp" message="exception class: ${pageContext.errorData.throwable}" />
@@ -15,7 +18,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Default Error Page (Example) <system:properties key="servlet.container.id" /></title>
+<title>Default Error Page (Example)</title>
 </head>
 <body>
 	<h1>Default Error Page (Example)</h1>

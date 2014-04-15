@@ -44,15 +44,6 @@ public class EmpDto implements Serializable {
 	 */
 	private static final long serialVersionUID = 271957716684152788L;
 
-	@Digits(integer = 7, fraction = 2)
-	protected BigDecimal comm;
-
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	protected String deptName;
-
-	@Max(99)
-	protected Integer deptNo;
-
 	@NotNull
 	@Max(9999)
 	protected Integer empNo;
@@ -61,18 +52,27 @@ public class EmpDto implements Serializable {
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String ename;
 
-	@DateTimeFormat(iso = ISO.DATE)
-	protected Date hireDate;
+	@Max(99)
+	protected Integer deptNo;
+
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	protected String deptName;
 
 	@Length(max = 9)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String job;
+
+	@DateTimeFormat(iso = ISO.DATE)
+	protected Date hireDate;
 
 	@Max(9999)
 	protected Integer mgr;
 
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String mgrName;
+
+	@Digits(integer = 7, fraction = 2)
+	protected BigDecimal comm;
 
 	@Digits(integer = 7, fraction = 2)
 	protected BigDecimal sal;
@@ -386,12 +386,12 @@ public class EmpDto implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("EmpDto [empNo=").append(empNo).append(", ename=")
-				.append(ename).append(", deptNo=").append(deptNo)
-				.append(", deptName=").append(deptName).append(", job=")
-				.append(job).append(", hireDate=").append(hireDate)
-				.append(", mgr=").append(mgr).append(", mgrName=")
-				.append(mgrName).append(", comm=").append(comm)
-				.append(", sal=").append(sal).append(']');
+		.append(ename).append(", deptNo=").append(deptNo)
+		.append(", deptName=").append(deptName).append(", job=")
+		.append(job).append(", hireDate=").append(hireDate)
+		.append(", mgr=").append(mgr).append(", mgrName=")
+		.append(mgrName).append(", comm=").append(comm)
+		.append(", sal=").append(sal).append(']');
 		return builder.toString();
 	}
 }

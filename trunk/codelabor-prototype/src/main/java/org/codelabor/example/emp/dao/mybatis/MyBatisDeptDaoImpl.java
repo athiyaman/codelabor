@@ -28,7 +28,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author Sang Jae Shin
- * 
+ *
  */
 @Repository
 public class MyBatisDeptDaoImpl implements DeptDao {
@@ -41,7 +41,7 @@ public class MyBatisDeptDaoImpl implements DeptDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.codelabor.example.dept.dao.DeptDao#selectDept(java.lang.String)
 	 */
 	@Override
@@ -54,7 +54,7 @@ public class MyBatisDeptDaoImpl implements DeptDao {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.codelabor.example.dept.dao.DeptDao#selectDeptList()
 	 */
 	@Override

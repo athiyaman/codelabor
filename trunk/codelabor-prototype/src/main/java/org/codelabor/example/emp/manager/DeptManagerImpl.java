@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeptManagerImpl implements DeptManager {
 
-	private final static Logger logger = LoggerFactory
-			.getLogger(DeptManagerImpl.class);
 	@Autowired
 	private DeptDao deptDao;
+	private final static Logger logger = LoggerFactory
+			.getLogger(DeptManagerImpl.class);
 
 	@Override
 	public DeptDto selectDept(Integer deptNo) {

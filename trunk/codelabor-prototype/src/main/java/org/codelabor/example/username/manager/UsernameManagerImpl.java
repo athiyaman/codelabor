@@ -8,13 +8,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 public class UsernameManagerImpl implements UsernameManager {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(UsernameManagerImpl.class);
 	@Autowired
 	private UsernameDao usernameDao;
+	private static final Logger logger = LoggerFactory
+			.getLogger(UsernameManagerImpl.class);
 
 	@Override
 	public int insertRegistrationForm(RegistrationFormDto registrationFormDto) {

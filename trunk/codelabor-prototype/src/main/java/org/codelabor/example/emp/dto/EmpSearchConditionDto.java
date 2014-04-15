@@ -18,21 +18,21 @@ public class EmpSearchConditionDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -8775262849710511736L;
 
-	@Length(max = 9)
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	protected String job;
-
-	@Min(1)
-	protected Integer maxRowPerPage = PaginationConstants.MAX_ROW_PER_PAGE;
-
-	@Min(1)
-	protected Integer pageNo = 1;
-
 	@Digits(integer = 7, fraction = 2)
 	protected BigDecimal salFrom;
 
 	@Digits(integer = 7, fraction = 2)
 	protected BigDecimal salTo;
+
+	@Min(1)
+	protected Integer pageNo = 1;
+
+	@Min(1)
+	protected Integer maxRowPerPage = PaginationConstants.MAX_ROW_PER_PAGE;
+
+	@Length(max = 9)
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	protected String job;
 
 	/**
 	 *
@@ -216,9 +216,9 @@ public class EmpSearchConditionDto implements Serializable {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("EmpSearchConditionDto [salFrom=").append(salFrom)
-				.append(", salTo=").append(salTo).append(", pageNo=")
-				.append(pageNo).append(", maxRowPerPage=")
-				.append(maxRowPerPage).append(", job=").append(job).append(']');
+		.append(", salTo=").append(salTo).append(", pageNo=")
+		.append(pageNo).append(", maxRowPerPage=")
+		.append(maxRowPerPage).append(", job=").append(job).append(']');
 		return builder.toString();
 	}
 

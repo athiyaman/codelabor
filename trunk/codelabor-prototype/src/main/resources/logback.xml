@@ -4,12 +4,12 @@
 <!-- Layouts: http://logback/qos/ch/manual/layouts/html -->
 <configuration scan="true" scanPeriod="30 seconds">
 
-	<if condition='isDefined("con.name")'>
+	<if condition='isDefined("servlet.container.id")'>
 		<then>
-			<property name="effective.log.dir" value='${log.dir}/${con.name}/${project.name}' />
+			<property name="effective.log.dir" value='${log.dir}/${servlet.container.id}/${system.id}' />
 		</then>
 		<else>
-			<property name="effective.log.dir" value="${log.dir}/${project.name}" />
+			<property name="effective.log.dir" value="${log.dir}/${system.id}" />
 		</else>
 	</if>
 
@@ -29,7 +29,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n
 			</pattern>
 		</encoder>
 	</appender>
@@ -41,7 +41,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-EXAMPLE"
@@ -52,18 +52,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
-		</encoder>
-	</appender>
-	<appender name="FILE-SUBJECT"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${effective.log.dir}/module/subject.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${effective.log.dir}/module/subject.%d{yyyy-MM-dd}.log</fileNamePattern>
-			<maxHistory>186</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -76,7 +65,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-ERROR-JSP"
@@ -88,7 +77,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-ERROR-CONTROLLER"
@@ -99,7 +88,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -112,7 +101,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -125,7 +114,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -138,14 +127,14 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<!-- default appender -->
 	<appender name="STDOUT-DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-DEFAULT"
@@ -156,7 +145,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteHost} %X{username}] %logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -166,30 +155,38 @@
 	</logger>
 
 	<!-- sql log (myBatis mapper) -->
-	<logger name="common" level="${log.level.sql}">
+	<logger name="common" level="${log.level.sql}" additivity="false">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
-	<logger name="example" level="${log.level.sql}">
+	<logger name="example" level="${log.level.sql}" additivity="false">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
-	<logger name="system" level="${log.level.sql}">
+	<logger name="system" level="${log.level.sql}" additivity="false">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
 
 	<!-- framework log -->
-	<logger name="java.sql" level="${log.level.framework}" />
-	<logger name="org.springframework" level="${log.level.framework}" />
-	<logger name="org.springframework.security" level="${log.level.framework}" />
-	<logger name="org.mybatis" level="${log.level.framework}" />
-	<logger name="org.apache.ibatis" level="${log.level.framework}" />
-	<logger name="ch.qos.logback" level="${log.level.framework}" />
-	<logger name="org.codelabor.system" level="${log.level.framework}" />
-
-	<!-- database -->
-	<logger name="org.springframework.jdbc.datasource" level="${log.level.sql}">
+	<logger name="java.sql" level="${log.level.framework}">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
-	<logger name="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator" level="${log.level.sql}">
+	<logger name="org.springframework" level="${log.level.framework}" />
+	<logger name="org.springframework.security" level="${log.level.framework}" />
+	<logger name="org.mybatis" level="${log.level.framework}">
+		<appender-ref ref="FILE-DATABASE" />
+	</logger>
+	<logger name="org.apache.ibatis" level="${log.level.framework}">
+		<appender-ref ref="FILE-DATABASE" />
+	</logger>
+	<logger name="ch.qos.logback" level="${log.level.framework}" />
+	<logger name="org.codelabor.system" level="${log.level.framework}">
+		<appender-ref ref="FILE-SYSTEM" />
+	</logger>
+
+	<!-- database -->
+	<logger name="org.springframework.jdbc.datasource" level="${log.level.sql}" additivity="false">
+		<appender-ref ref="FILE-DATABASE" />
+	</logger>
+	<logger name="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator" level="${log.level.sql}" additivity="false">
 		<appender-ref ref="FILE-DATABASE" />
 	</logger>
 
@@ -206,18 +203,20 @@
 	</logger>
 
 	<!-- degug log -->
-	<logger name="org.codelabor.system.sniffer.aspect.SniffingAspect" level="${log.level.application}" additivity="false">
+	<logger name="org.codelabor.system.sniffer" level="${log.level.application}" additivity="false">
 		<appender-ref ref="FILE-DEBUG" />
 	</logger>
 
 	<!-- interface log -->
 	<!-- g-pin: org.apache.xml, org.jcp.xml  -->
+	<!--
 	<logger name="com.etri.saml2" level="${log.level.interface}" additivity="false">
 		<appender-ref ref="FILE-INTERFACE-G-PIN" />
 	</logger>
 	<logger name="gov.mogaha.gpin" level="${log.level.interface}" additivity="false">
 		<appender-ref ref="FILE-INTERFACE-G-PIN" />
 	</logger>
+	-->
 
 	<root level="${log.level.root}">
 		<appender-ref ref="STDOUT-DEFAULT" />

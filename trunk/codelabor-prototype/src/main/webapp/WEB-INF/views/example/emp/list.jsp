@@ -4,7 +4,12 @@
 	errorPage="/WEB-INF/views/example/error/defaultErrorPage.jsp"%>
 <%@ page
 	import="org.codelabor.system.web.taglib.PaginationConstants, java.util.regex.Pattern, java.util.regex.Matcher"%>
-<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="pg" uri="http://codelabor.org/tags/pagination"%>
+<%@ taglib prefix="codelaborForm" uri="http://codelabor.org/tags/form"%>
 <!DOCTYPE html>
 <%--
 Author Sang Jae Shin
@@ -12,8 +17,7 @@ Author Sang Jae Shin
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title><spring:message code="title.emp.list" /> <system:properties
-		key="servlet.container.id" /></title>
+<title><spring:message code="title.emp.list" /></title>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/common/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript"
@@ -187,23 +191,23 @@ Author Sang Jae Shin
 	</form:form>
 
 	<!--  pagination -->
-	<pg:pagination numberOfRow="${numberOfRow}">
-		<pg:firstIndex>
-			<spring:message code="alternate.first" />
+	<pg:pagination cssClass="pageArea" numberOfRow="${numberOfRow}">
+		<pg:firstIndex cssClass="btn_prev">
+			<img src="/images/btn/btn_first.png"
+				alt="<spring:message code="alternate.first" />" />
 		</pg:firstIndex>
-		&nbsp;
-		<pg:previousIndex>
-			<spring:message code="alternate.prev" />
+		<pg:previousIndex cssClass="btn_prev">
+			<img src="/images/btn/btn_prev.png"
+				alt="<spring:message code="alternate.prev" />" />
 		</pg:previousIndex>
-		&nbsp;
 		<pg:currentIndex />
-		&nbsp;
-		<pg:nextIndex>
-			<spring:message code="alternate.next" />
+		<pg:nextIndex cssClass="btn_next">
+			<img src="/images/btn/btn_next.png"
+				alt="<spring:message code="alternate.next" />" />
 		</pg:nextIndex>
-		&nbsp;
-		<pg:lastIndex>
-			<spring:message code="alternate.last" />
+		<pg:lastIndex cssClass="btn_next">
+			<img src="/images/btn/btn_last.png"
+				alt="<spring:message code="alternate.last" />" />
 		</pg:lastIndex>
 	</pg:pagination>
 </body>

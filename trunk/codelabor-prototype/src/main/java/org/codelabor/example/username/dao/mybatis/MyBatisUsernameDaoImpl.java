@@ -11,17 +11,19 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 public class MyBatisUsernameDaoImpl implements UsernameDao {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(MyBatisUsernameDaoImpl.class);
+	@Autowired
+	private SqlSessionTemplate sqlSession;
 
 	@Autowired
 	private MessageSource messageSource;
 
-	@Autowired
-	private SqlSessionTemplate sqlSession;
+	private static final Logger logger = LoggerFactory
+			.getLogger(MyBatisUsernameDaoImpl.class);
 
 	@Override
 	public int insertRegistrationForm(RegistrationFormDto registrationFormDto) {

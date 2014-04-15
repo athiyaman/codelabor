@@ -1,3 +1,111 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<script type="text/javascript">
+	//<![CDATA[
+	common.systemValue.contextPath = "${contextPath}";
+
+	//]]>
+</script>
+
+
+
+<!-- 레이어 팝업 시작 -->
+<div id="layerPopupDiv"  style="display:none;z-index:700">
+	<div id="layerPopDim" class="dim" style="z-index:701"></div>
+	<div id="layerPopWrap" class="popWrap" class="dim" style="z-index:702">
+		<!-- 레이어 타이틀 영역 -->
+		<div class="popHader">
+			<h1 id="layerPopTitle"></h1>
+			<a href="#none" class="btnClose"><img src="/images/btn/btn_popClose.png" onclick="common.layerClose()" alt="닫기" /></a>
+		</div>
+
+		<!-- 컨텐츠가 삽입되는 영역 -->
+		<div class="popContents" id="layerPopContents" style="max-height: 440px">
+		</div>
+	</div>
+</div>
+<!-- 레이어 팝업 끝 -->
+
+<!-- 레이어 팝업 시작 -->
+<div id="layerPopupDiv2"  style="display:none;z-index:700">
+	<div id="layerPopDim2" class="dim" style="z-index:701"></div>
+	<div id="layerPopWrap2" class="popWrap" class="dim" style="z-index:702">
+		<!-- 레이어 타이틀 영역 -->
+		<div class="popHader">
+			<h1 id="layerPopTitle2"></h1>
+			<a href="#none" class="btnClose"><img src="/images/btn/btn_popClose.png" onclick="common.layerClose2()" alt="닫기" /></a>
+		</div>
+
+		<!-- 컨텐츠가 삽입되는 영역 -->
+		<div class="popContents" id="layerPopContents2">
+		</div>
+	</div>
+</div>
+<!-- 레이어 팝업 끝 -->
+
+<!-- Submit, load Dim -->
+<div id="layerSumbitDim" class="layerPopupWrap" style="display:none;z-index:900">
+	<div class="dim" style="z-index:901"></div>
+	<div class="popLoading" id="layerSumbitDimLy" style="z-index:902">
+			<p class="imgSt"><img id="layerDimImg" src="" style="" alt ="" /></p>
+	</div>
+</div>
+<!-- Submit, load Dim -->
+
+
+<!-- Submit, load Dim -->
+<div id="layerLoding" class="layerPopupWrap" style="display:none;z-index:900">
+	<div class="popLoading" id="layerLodingLy" style="z-index:902">
+			<p class="imgSt"><img id="layerLodingImg" src="" style="" alt ="" /></p>
+	</div>
+</div>
+<!-- Submit, load Dim -->
+
+
+<!-- layer alert -->
+<div id="layerPopupAlert" style="display:none;z-index:800">
+	<div class="dim" style="z-index:801"></div>
+	<div class="layerAlert" id="layerPopupPopDiv" style="z-index:802">
+		<div class="popHader">
+		</div>
+		<div class="messages" id="layerAlertMessage">
+		</div>
+		<div class="btnArea">
+			<a href="#none" class="btnDefaultTable" id="layerAlertOk"><span>확인</span></a>
+		</div>
+	</div>
+</div>
+<!-- layer alert -->
+
+<!-- layer confirm -->
+<div id="layerPopupConfirm" style="display:none;z-index:800">
+	<div class="dim" style="z-index:801"></div>
+	<div class="layerAlert" id="layerPopupConfirmDiv" style="z-index:802">
+		<div class="popHader">
+
+		</div>
+		<div class="messages" id="layerConfirmtMessage">
+		</div>
+		<div class="btnArea" id="layerConfirmArea">
+			<a href="#none" class="btnDefaultTable" id="layerConfirmOk"><span>확인</span></a>
+			<a href="#none" class="btnSubTable" id="layerConfirmNo"><span><spring:message code="label.cancel" /></span></a>
+		</div>
+	</div>
+</div>
+<!-- layer confirm -->
+
+<!-- layer message Box -->
+<div id="layerPopupMebBox" style="display:none;z-index:800">
+	<div class="dim" style="z-index:801"></div>
+	<div class="layerAlert" id="layerPopupMebDiv" style="z-index:802">
+		<div class="popHader">
+			<h1 id="layerMebtTitle"></h1>
+		</div>
+		<div class="messages" id="layerMebtMessage">
+		</div>
+		<div class="btnArea">
+			<a href="#none" class="btnDefaultTable" id="layerMebOk"><span>확인</span></a>
+		</div>
+	</div>
+</div>
+<!-- layer confirm -->

@@ -8,7 +8,7 @@
 	<security:http pattern="/font/**" security="none" />
 	<security:http pattern="/images/**" security="none" />
 	<security:http pattern="/js/**" security="none" />
-	<security:http pattern="/themes/**" security="none" />
+	<security:http pattern="/theme/**" security="none" />
 
 	<security:http auto-config="true">
 		<!-- do not use default-target-url="/example/authentication/loginSuccess" -->
@@ -30,14 +30,18 @@
 		</security:session-management>
 
 		<!-- authorizing web request -->
+		<security:intercept-url pattern="/logbackStatus"
+			access="ROLE_DEVELOPER" />
+		<security:intercept-url pattern="/example/username/**"
+			access="ROLE_DEVELOPER" />
 		<security:intercept-url pattern="/example/authentication/prepareLogin/**"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/example/**"
-			access="ROLE_DEVELOPER" />
+		<security:intercept-url pattern="/scw/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<security:intercept-url pattern="/stw/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<security:intercept-url pattern="/common/**"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/system/**"
-			access="ROLE_DEVELOPER" />
 		<security:intercept-url pattern="/**"
 			access="IS_AUTHENTICATED_ANONYMOUSLY" />
 	</security:http>
@@ -53,10 +57,27 @@
 		<property name="enableGroups" value="true" />
 	</bean>
 
-	<security:user-service id="userDetailsService">
-		<security:user name="bomber" password="1234qwer"
-			authorities="ROLE_DEVELOPER" />
-	</security:user-service>
+	<!-- <security:user-service id="userDetailsService"> <security:user name="pansuk1.kim"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="sy0419.choi"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="young.rhee"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="j85.lee"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="jaeho.han"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kj1124.lee"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="bomber.shin"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kijong.kim"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kk777.jung"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="jinuke.im"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="metaler"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="bara.jo"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="cj10106.lee"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="freest80"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="ghwlstm83"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="gwe78"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="mj.kim"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="pjw1004"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="rjy1537"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="wwwjjh0"
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> </security:user-service> -->
 
 	<bean
 		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
@@ -78,7 +99,7 @@
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<bean id="jasyptTextEncryptor" class="org.jasypt.util.text.BasicTextEncryptor">
-		<property name="password" value="1234qwer" />
+		<property name="password" value="cnsdsdkastkdatsjddrhs" />
 	</bean>
 
 </beans>

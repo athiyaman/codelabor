@@ -27,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * @author Shin Sang-Jae
- * 
+ *
  */
 @Controller
 @RequestMapping("/example/authentication")
@@ -54,8 +54,8 @@ public class LoginController {
 		logger.debug("loginSuccess");
 
 		// TODO get last access info (time, ip) (or in handler)
-
 		final ModelAndView mav = new ModelAndView();
+
 		// TODO set last access info (time, ip)
 		mav.setViewName("example/authentication/loginSuccess");
 		return mav;

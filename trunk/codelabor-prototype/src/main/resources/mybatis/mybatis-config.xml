@@ -16,4 +16,5 @@
 		<package name="org.codelabor.example.validation.dto" />
 		<package name="org.codelabor.system.dto" />
 	</typeAliases>
+
 </configuration>

@@ -27,7 +27,7 @@ import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 
 /**
  * @author Sang Jae Shin
- * 
+ *
  */
 public class DeptDto implements Serializable {
 
@@ -36,17 +36,17 @@ public class DeptDto implements Serializable {
 	 */
 	private static final long serialVersionUID = -414168757919037127L;
 
-	@NotNull
-	@Max(99)
-	protected Integer deptNo;
+	@Length(max = 13)
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	protected String loc;
 
 	@Length(max = 14)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	protected String dname;
 
-	@Length(max = 13)
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	protected String loc;
+	@NotNull
+	@Max(99)
+	protected Integer deptNo;
 
 	public DeptDto() {
 	}
@@ -61,47 +61,6 @@ public class DeptDto implements Serializable {
 		this.loc = loc;
 		this.dname = dname;
 		this.deptNo = deptno;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (!(obj instanceof DeptDto)) {
-			return false;
-		}
-		DeptDto other = (DeptDto) obj;
-		if (deptNo == null) {
-			if (other.deptNo != null) {
-				return false;
-			}
-		} else if (!deptNo.equals(other.deptNo)) {
-			return false;
-		}
-		if (dname == null) {
-			if (other.dname != null) {
-				return false;
-			}
-		} else if (!dname.equals(other.dname)) {
-			return false;
-		}
-		if (loc == null) {
-			if (other.loc != null) {
-				return false;
-			}
-		} else if (!loc.equals(other.loc)) {
-			return false;
-		}
-		return true;
 	}
 
 	/**
@@ -125,9 +84,7 @@ public class DeptDto implements Serializable {
 		return loc;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -166,15 +123,54 @@ public class DeptDto implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		final StringBuilder builder = new StringBuilder(40);
 		builder.append("DeptDto [loc=").append(loc).append(", dname=")
-				.append(dname).append(", deptNo=").append(deptNo).append(']');
+		.append(dname).append(", deptNo=").append(deptNo).append(']');
 		return builder.toString();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof DeptDto)) {
+			return false;
+		}
+		DeptDto other = (DeptDto) obj;
+		if (deptNo == null) {
+			if (other.deptNo != null) {
+				return false;
+			}
+		} else if (!deptNo.equals(other.deptNo)) {
+			return false;
+		}
+		if (dname == null) {
+			if (other.dname != null) {
+				return false;
+			}
+		} else if (!dname.equals(other.dname)) {
+			return false;
+		}
+		if (loc == null) {
+			if (other.loc != null) {
+				return false;
+			}
+		} else if (!loc.equals(other.loc)) {
+			return false;
+		}
+		return true;
 	}
 
 }

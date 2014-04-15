@@ -22,14 +22,14 @@ public class RegistrationFormDto implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Email
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String email;
-
 	@NotBlank
 	@Length(min = 3, max = 255)
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	private String username;
+
+	@Email
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String email;
 
 	/**
 	 *
@@ -49,7 +49,7 @@ public class RegistrationFormDto implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -97,7 +97,7 @@ public class RegistrationFormDto implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -128,7 +128,7 @@ public class RegistrationFormDto implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

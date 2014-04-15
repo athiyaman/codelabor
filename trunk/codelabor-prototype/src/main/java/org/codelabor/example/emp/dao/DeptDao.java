@@ -22,7 +22,7 @@ import org.codelabor.example.emp.dto.DeptDto;
 
 /**
  * @author Sang Jae Shin
- * 
+ *
  */
 public interface DeptDao {
 	DeptDto selectDept(Integer deptNo);

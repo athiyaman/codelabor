@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/jspf/taglib.jspf" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <%--
 Author Shin Sang-Jae
@@ -9,7 +11,7 @@ Author Shin Sang-Jae
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Function Example <system:properties key="servlet.container.id" /></title>
+<title>Function Example</title>
 </head>
 <body>
 <h1>Function Example</h1>

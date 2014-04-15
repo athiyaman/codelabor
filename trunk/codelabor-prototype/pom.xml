@@ -1,54 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>kr.hs.codelabor</groupId>
+
+	<!-- The Basics -->
+	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-prototype</artifactId>
-	<name>codelabor-prototype</name>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<version>1.0.0-SNAPSHOT</version>
-	<description>Prototype Web Application for CODELABOR</description>
-	<properties>
-		<!-- Java Spec -->
-		<java.version>1.6</java.version>
-		<servlet.version>2.5</servlet.version>
-		<jsp.version>2.1</jsp.version>
-		<jstl.version>1.2</jstl.version>
-
-		<!-- Springframework -->
-		<springframework.version>4.0.2.RELEASE</springframework.version>
-		<springframework.security.version>3.2.0.RELEASE</springframework.security.version>
-
-		<!-- Logging -->
-		<slf4j.version>1.7.5</slf4j.version>
-		<logback.version>1.0.13</logback.version>
-
-		<!-- Others -->
-		<junit.version>4.7</junit.version>
-		<aspectj.version>1.7.4</aspectj.version>
-		<poi.version>3.9</poi.version>
-		<hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
-
-		<!-- Encoding -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<!-- Environment -->
-		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
-	</properties>
 	<dependencies>
-
 		<!-- Java Spec -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.version}</version>
+			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>${jsp.version}</version>
+			<type>jar</type>
 			<scope>provided</scope>
 		</dependency>
 
@@ -201,11 +173,28 @@
 		</dependency>
 
 		<!-- CKFinder -->
+		<!--
 		<dependency>
-			<groupId>net.coobird</groupId>
-			<artifactId>thumbnailator</artifactId>
-			<version>0.4.7</version>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinder</artifactId>
+			<version>2.4.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-FileEditor</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-ImageResize</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-Watermark</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		-->
 
 		<!-- Jackson -->
 		<dependency>
@@ -290,6 +279,11 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
@@ -342,24 +336,24 @@
 			<version>2.6.1</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.7</version>
+		</dependency>
 
 		<!-- G-PIN -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk16</artifactId>
-			<version>1.46</version>
-			<scope>runtime</scope>
-		</dependency>
+		<!-- <dependency> <groupId>org.bouncycastle</groupId> <artifactId>bcprov-jdk16</artifactId>
+			<version>1.46</version> <scope>runtime</scope> </dependency>
 		<dependency>
 			<groupId>castor</groupId>
 			<artifactId>castor</artifactId>
 			<version>1.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.1</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -380,33 +374,93 @@
 			<version>2.11.0</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.santuario</groupId>
-			<artifactId>xmlsec</artifactId>
-			<version>1.4.8</version>
-			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<artifactId>commons-logging</artifactId>
-					<groupId>commons-logging</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		<dependency> <groupId>org.apache.santuario</groupId> <artifactId>xmlsec</artifactId>
+			<version>1.4.8</version> <scope>runtime</scope> <exclusions> <exclusion>
+			<artifactId>commons-logging</artifactId> <groupId>commons-logging</groupId>
+			</exclusion> </exclusions> </dependency> -->
 
 		<!-- 3rd Party from Nexus -->
+		<!-- CKFinder -->
+		<!--
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinder</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-FileEditor</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-ImageResize</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-Watermark</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		-->
+		<!-- G-PIN -->
+		<!--
+		<dependency>
+			<groupId>com.etri</groupId>
+			<artifactId>saml</artifactId>
+			<version>1.4.0.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>gov.mogaha</groupId>
+			<artifactId>gpin-bcprov-jdk14</artifactId>
+			<version>138</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>gov.mogaha</groupId>
+			<artifactId>gpin-sp</artifactId>
+			<version>1.4.0.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>gov.mogaha</groupId>
+			<artifactId>gpin-sp-ext</artifactId>
+			<version>1.4</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>gov.mogaha</groupId>
+			<artifactId>gpin-xml-security</artifactId>
+			<version>1.4.0.2</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>gov.mogaha</groupId>
+			<artifactId>sp-proxy</artifactId>
+			<version>1.4.0.2</version>
+			<scope>compile</scope>
+		</dependency>
+		-->
+
 		<!-- JDBC driver -->
+		<!--
 		<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>6</version>
 			<scope>provided</scope>
 		</dependency>
+		-->
+
 		<!-- SLF4J -->
+		<!--
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-taglib</artifactId>
 			<version>0.1RC</version>
 		</dependency>
+		-->
 
 		<!-- Test -->
 		<dependency>
@@ -416,140 +470,56 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- CODELABOR Library -->
 		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
+			<groupId>org.codelabor</groupId>
+			<artifactId>codelabor-system-security</artifactId>
+			<version>4.0.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>c3p0</artifactId>
+					<groupId>c3p0</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>quartz</artifactId>
+					<groupId>org.quartz-scheduler</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
 	</dependencies>
-	<profiles>
-		<profile>
-			<id>local-windows-tomcat</id>
-			<activation>
-				<os>
-					<family>windows</family>
-				</os>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>javax.servlet</groupId>
-					<artifactId>jstl</artifactId>
-					<version>${jstl.version}</version>
-					<scope>runtime</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.glassfish.web</groupId>
-					<artifactId>jstl-impl</artifactId>
-					<version>${jstl.version}</version>
-					<scope>runtime</scope>
-				</dependency>
-			</dependencies>
-			<build>
-				<filters>
-					<filter>${basedir}/src/main/filters/attachment/local.properties</filter>
-					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
-					<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter>
-					<filter>${basedir}/src/main/filters/log/local.properties</filter>
-					<filter>${basedir}/src/main/filters/servlet-container/tomcat.properties</filter>
-					<filter>${basedir}/src/main/filters/theme/local.properties</filter>
-				</filters>
-			</build>
-		</profile>
-		<profile>
-			<id>local-windows-jeus</id>
-			<dependencies>
-			</dependencies>
-			<build>
-				<filters>
-					<filter>${basedir}/src/main/filters/attachment/local.properties</filter>
-					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
-					<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter>
-					<filter>${basedir}/src/main/filters/log/local.properties</filter>
-					<filter>${basedir}/src/main/filters/servlet-container/jeus.properties</filter>
-					<filter>${basedir}/src/main/filters/theme/local.properties</filter>
-				</filters>
-			</build>
-		</profile>
-		<profile>
-			<id>local-non-windows-tomcat</id>
-			<activation>
-				<os>
-					<family>!windows</family>
-				</os>
-			</activation>
-			<dependencies>
-				<dependency>
-					<groupId>javax.servlet</groupId>
-					<artifactId>jstl</artifactId>
-					<version>${jstl.version}</version>
-					<scope>runtime</scope>
-				</dependency>
-				<dependency>
-					<groupId>org.glassfish.web</groupId>
-					<artifactId>jstl-impl</artifactId>
-					<version>${jstl.version}</version>
-					<scope>runtime</scope>
-				</dependency>
-			</dependencies>
-			<build>
-				<filters>
-					<filter>${basedir}/src/main/filters/attachment/development.properties</filter>
-					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
-					<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter>
-					<filter>${basedir}/src/main/filters/log/development.properties</filter>
-					<filter>${basedir}/src/main/filters/servlet-container/tomcat.properties</filter>
-					<filter>${basedir}/src/main/filters/theme/local.properties</filter>
-				</filters>
-			</build>
-		</profile>
-		<profile>
-			<id>development</id>
-			<dependencies>
-			</dependencies>
-			<build>
-				<filters>
-					<filter>${basedir}/src/main/filters/attachment/development.properties</filter>
-					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
-					<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter>
-					<filter>${basedir}/src/main/filters/log/development.properties</filter>
-					<filter>${basedir}/src/main/filters/servlet-container/jeus.properties</filter>
-					<filter>${basedir}/src/main/filters/theme/development.properties</filter>
-				</filters>
-			</build>
-		</profile>
-		<profile>
-			<id>stage</id>
-			<dependencies>
-			</dependencies>
-			<build>
-				<filters>
-					<filter>${basedir}/src/main/filters/attachment/stage.properties</filter>
-					<filter>${basedir}/src/main/filters/jdbc/stage.properties</filter>
-					<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter>
-					<filter>${basedir}/src/main/filters/log/stage.properties</filter>
-					<filter>${basedir}/src/main/filters/servlet-container/jeus.properties</filter>
-					<filter>${basedir}/src/main/filters/theme/stage.properties</filter>
-				</filters>
-			</build>
-		</profile>
-		<profile>
-			<id>production</id>
-			<dependencies>
-			</dependencies>
-			<build>
-				<filters>
-					<filter>${basedir}/src/main/filters/attachment/production.properties</filter>
-					<filter>${basedir}/src/main/filters/jdbc/production.properties</filter>
-					<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter>
-					<filter>${basedir}/src/main/filters/log/production.properties</filter>
-					<filter>${basedir}/src/main/filters/servlet-container/jeus.properties</filter>
-					<filter>${basedir}/src/main/filters/theme/production.properties</filter>
-				</filters>
-			</build>
-		</profile>
-	</profiles>
+	<properties>
+		<!-- Java Spec -->
+		<java.version>1.6</java.version>
+		<servlet.version>2.5</servlet.version>
+		<jsp.version>2.1</jsp.version>
+		<jstl.version>1.2</jstl.version>
+
+		<!-- Springframework -->
+		<springframework.version>4.0.3.RELEASE</springframework.version>
+		<springframework.security.version>3.2.3.RELEASE</springframework.security.version>
+
+		<!-- Logging -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<logback.version>1.0.13</logback.version>
+
+		<!-- Others -->
+		<junit.version>4.7</junit.version>
+		<aspectj.version>1.7.4</aspectj.version>
+		<poi.version>3.9</poi.version>
+		<hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
+
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Environment -->
+		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
+	</properties>
+
+	<!-- Build Settings -->
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>codelabor-${system.id}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -599,8 +569,17 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
-					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
-					<containerConfigXML>${basedir}/src/main/webapp/WEB-INF/jeus-web-dd.xml</containerConfigXML>
+					<warName>codelabor-${system.id}-${project.version}</warName>
+					<!-- container config xml을 /META-INF 아래에 복사함 jeus web deployment descriptor는
+						/WEB-INF 아래에 있어야 함 web.xml의 filter 처리는 가능하나 maven package 시에만 가능, eclipse에서는
+						동적 filter 불가 <containerConfigXML>${basedir}/src/main/webapp/WEB-INF/jeus-web-dd.xml</containerConfigXML>
+						<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors> <filters>
+						<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter> </filters> -->
+					<webResources>
+						<resource>
+							<directory>configurations/${system.id}</directory>
+						</resource>
+					</webResources>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -800,37 +779,218 @@
 			</plugin>
 		</plugins>
 	</reporting>
-	<scm>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-prototype</developerConnection>
-		<tag>scm:svn:https://codelabor.googlecode.com/svn/tags</tag>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-prototype</connection>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-prototype</url>
-	</scm>
-	<url>https://code.google.com/p/codelabor</url>
-	<issueManagement>
-		<url></url>
-	</issueManagement>
-	<ciManagement>
-		<url></url>
-	</ciManagement>
+
+	<!-- More Project Information -->
+	<name>codelabor-prototype</name>
+	<description>Prototype Web Application for CODELABOR System</description>
+	<url>http://</url>
 	<organization>
-		<url>http://www.codelabor.orgr</url>
 		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
 	</organization>
 	<developers>
 		<developer>
 			<id>bomber.shin</id>
 			<name>Sangjae Shin</name>
-			<organization>CODELABOR</organization>
+			<organization>Samsung SDS</organization>
 			<roles>
 				<role>Software Architect</role>
 			</roles>
 		</developer>
 	</developers>
+
+	<!-- Environment Settings -->
+	<issueManagement>
+		<url>http://</url>
+	</issueManagement>
+	<ciManagement>
+		<url>https://</url>
+	</ciManagement>
+	<scm>
+		<developerConnection>scm:svn:http://</developerConnection>
+		<connection>scm:svn:http://</connection>
+		<url>http://</url>
+	</scm>
+	<repositories>
+	</repositories>
 	<distributionManagement>
 		<site>
-			<id></id>
+			<id>codelabor-prototype-site</id>
 			<url>scp://</url>
 		</site>
+		<repository>
+			<id>ccodelabor-nexus-releases</id>
+			<url>http://</url>
+		</repository>
+		<snapshotRepository>
+			<id>codelabor-nexus-snapshots</id>
+			<url>http://</url>
+		</snapshotRepository>
 	</distributionManagement>
+	<profiles>
+		<profile>
+			<id>local-wtp-windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<properties>
+				<system.id>prototype</system.id>
+				<servlet.container>tomcat</servlet.container>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+					<version>${jstl.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish.web</groupId>
+					<artifactId>jstl-impl</artifactId>
+					<version>${jstl.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/attachment/local.properties</filter>
+					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
+					<filter>${basedir}/src/main/filters/log/local.properties</filter>
+					<filter>${basedir}/src/main/filters/servlet-container/tomcat.properties</filter>
+					<filter>${basedir}/src/main/filters/theme/local.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>local-wtp-mac</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<system.id>prototype</system.id>
+				<servlet.container>tomcat</servlet.container>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+					<version>${jstl.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish.web</groupId>
+					<artifactId>jstl-impl</artifactId>
+					<version>${jstl.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/attachment/development.properties</filter>
+					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
+					<filter>${basedir}/src/main/filters/log/development.properties</filter>
+					<filter>${basedir}/src/main/filters/servlet-container/tomcat.properties</filter>
+					<filter>${basedir}/src/main/filters/theme/local.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>development</id>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/attachment/development.properties</filter>
+					<filter>${basedir}/src/main/filters/jdbc/development.properties</filter>
+					<filter>${basedir}/src/main/filters/log/development.properties</filter>
+					<filter>${basedir}/src/main/filters/theme/development.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>stage</id>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/attachment/stage.properties</filter>
+					<filter>${basedir}/src/main/filters/jdbc/stage.properties</filter>
+					<filter>${basedir}/src/main/filters/log/stage.properties</filter>
+					<filter>${basedir}/src/main/filters/theme/stage.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>production</id>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/attachment/production.properties</filter>
+					<filter>${basedir}/src/main/filters/jdbc/production.properties</filter>
+					<filter>${basedir}/src/main/filters/log/production.properties</filter>
+					<filter>${basedir}/src/main/filters/theme/production.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<!-- servlet container profile -->
+		<profile>
+			<id>jeus</id>
+			<properties>
+				<servlet.container>jeus</servlet.container>
+			</properties>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/servlet-container/jeus.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>tomcat</id>
+			<properties>
+				<servlet.container>tomcat</servlet.container>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>jstl</artifactId>
+					<version>${jstl.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.glassfish.web</groupId>
+					<artifactId>jstl-impl</artifactId>
+					<version>${jstl.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/servlet-container/tomcat.properties</filter>
+				</filters>
+			</build>
+		</profile>
+
+		<!-- system profile -->
+		<profile>
+			<id>int</id>
+			<properties>
+				<system.id>int</system.id>
+			</properties>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/jndi/int.properties</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>ext</id>
+			<properties>
+				<system.id>ext</system.id>
+			</properties>
+			<build>
+				<filters>
+					<filter>${basedir}/src/main/filters/jndi/ext.properties</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
 </project>

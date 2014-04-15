@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+
+
 @Controller
 @RequestMapping(value = "/example/username/registration")
 public class UsernameController {
@@ -24,12 +26,12 @@ public class UsernameController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(UsernameController.class);
 
-	private final String completedViewName = "example/username/registrationCompleted";
-
-	private final String failedViewName = "example/username/registrationFailed";
-	private final String formViewName = "example/username/registrationForm";
 	@Autowired
 	private UsernameService usernameService;
+
+	private final String formViewName = "example/username/registrationForm";
+	private final String completedViewName = "example/username/registrationCompleted";
+	private final String failedViewName = "example/username/registrationFailed";
 
 	@RequestMapping(value = "/registrationUser", method = RequestMethod.GET)
 	public ModelAndView prepareRegistration(ModelAndView mav) {

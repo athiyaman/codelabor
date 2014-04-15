@@ -58,6 +58,61 @@
 				<value>classpath:messages/common/menu</value>
 				<value>classpath:messages/common/messages</value>
 				<value>classpath:messages/common/title</value>
+
+				<!-- scw -->
+				<value>classpath:messages/scw/alternate</value>
+				<value>classpath:messages/scw/button</value>
+				<value>classpath:messages/scw/errors</value>
+				<value>classpath:messages/scw/caption</value>
+				<value>classpath:messages/scw/heading</value>
+				<value>classpath:messages/scw/label</value>
+				<value>classpath:messages/scw/menu</value>
+				<value>classpath:messages/scw/messages</value>
+				<value>classpath:messages/scw/title</value>
+
+				<!-- stw -->
+				<value>classpath:messages/stw/alternate</value>
+				<value>classpath:messages/stw/button</value>
+				<value>classpath:messages/stw/errors</value>
+				<value>classpath:messages/stw/caption</value>
+				<value>classpath:messages/stw/heading</value>
+				<value>classpath:messages/stw/label</value>
+				<value>classpath:messages/stw/menu</value>
+				<value>classpath:messages/stw/messages</value>
+				<value>classpath:messages/stw/title</value>
+
+				<!-- paw -->
+				<value>classpath:messages/paw/alternate</value>
+				<value>classpath:messages/paw/button</value>
+				<value>classpath:messages/paw/errors</value>
+				<value>classpath:messages/paw/caption</value>
+				<value>classpath:messages/paw/heading</value>
+				<value>classpath:messages/paw/label</value>
+				<value>classpath:messages/paw/menu</value>
+				<value>classpath:messages/paw/messages</value>
+				<value>classpath:messages/paw/title</value>
+
+				<!-- pam -->
+				<value>classpath:messages/pam/alternate</value>
+				<value>classpath:messages/pam/button</value>
+				<value>classpath:messages/pam/errors</value>
+				<value>classpath:messages/pam/caption</value>
+				<value>classpath:messages/pam/heading</value>
+				<value>classpath:messages/pam/label</value>
+				<value>classpath:messages/pam/menu</value>
+				<value>classpath:messages/pam/messages</value>
+				<value>classpath:messages/pam/title</value>
+
+				<!-- hpa -->
+				<value>classpath:messages/hpa/alternate</value>
+				<value>classpath:messages/hpa/button</value>
+				<value>classpath:messages/hpa/errors</value>
+				<value>classpath:messages/hpa/caption</value>
+				<value>classpath:messages/hpa/heading</value>
+				<value>classpath:messages/hpa/label</value>
+				<value>classpath:messages/hpa/menu</value>
+				<value>classpath:messages/hpa/messages</value>
+				<value>classpath:messages/hpa/title</value>
 			</list>
 		</property>
 		<property name="cacheSeconds" value="1" />

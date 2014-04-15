@@ -10,8 +10,7 @@ import org.slf4j.LoggerFactory;
 
 public class EmpCellHandler implements CellHandler {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(EmpCellHandler.class);
+	private static final Logger logger = LoggerFactory.getLogger(EmpCellHandler.class);
 
 	@Override
 	public void onCell(Cell cell, CellWalkContext ctx) {
@@ -23,7 +22,7 @@ public class EmpCellHandler implements CellHandler {
 			logger.debug(
 					"cellRef: {} (rowIndex: {}, columnIndex: {}), cellType: blank, value: {}",
 					cellRef.formatAsString(), rowIndex, columnIndex, cell
-							.getRichStringCellValue().toString());
+					.getRichStringCellValue().toString());
 			break;
 		case Cell.CELL_TYPE_BOOLEAN:
 			logger.debug(

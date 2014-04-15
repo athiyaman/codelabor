@@ -10,8 +10,10 @@
 		<!-- pointcut for sub system -->
 		<aop:pointcut expression="execution(* org.codelabor..*.*(..))"
 			id="pointcutForCodelabor" />
+
 		<aop:aspect ref="sniffingAspect">
 			<aop:before method="dumpArguments" pointcut-ref="pointcutForCodelabor" />
+			<aop:before method="dumpArguments" pointcut-ref="pointcutForSubject" />
 			<!-- replaced by exception resolver <aop:after-throwing method="dumpException"
 				throwing="exception" pointcut-ref="pointcutForDebug" /> -->
 			<!-- does not work <aop:around method="dumpElapsedTime" pointcut-ref="pointcutForCodelabor"

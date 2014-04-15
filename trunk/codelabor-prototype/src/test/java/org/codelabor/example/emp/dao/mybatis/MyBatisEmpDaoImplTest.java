@@ -46,6 +46,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MyBatisEmpDaoImplTest {
 
+	@Autowired
+	private MyBatisEmpDaoImpl dao;
 	private static final Logger logger = LoggerFactory
 			.getLogger(MyBatisEmpDaoImplTest.class);
 
@@ -64,9 +66,6 @@ public class MyBatisEmpDaoImplTest {
 	public static void tearDownAfterClass() throws Exception {
 		logger.debug("tearDownAfterClass");
 	}
-
-	@Autowired
-	private MyBatisEmpDaoImpl dao;
 
 	/**
 	 * @throws java.lang.Exception

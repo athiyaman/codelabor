@@ -15,13 +15,40 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @ScriptAssert.List({
-		@ScriptAssert(lang = "javascript", script = "_this.password.equals(_this.passwordConfirm)", message = "{errors.confirm.password.mismatched}"),
-		@ScriptAssert(lang = "javascript", script = "_this.email.equals(_this.emailConfirm)", message = "{errors.confirm.email.mismatched}") })
+	@ScriptAssert(lang = "javascript", script = "_this.password.equals(_this.passwordConfirm)", message = "{errors.confirm.password.mismatched}"),
+	@ScriptAssert(lang = "javascript", script = "_this.email.equals(_this.emailConfirm)", message = "{errors.confirm.email.mismatched}") })
 public class PersonDto {
 
-	@DateTimeFormat(iso = ISO.DATE)
-	@Past
-	private Date birthDate;
+	@NotBlank
+	@Length(min = 3, max = 8)
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String username;
+
+	@NotBlank
+	@Pattern(regexp = "((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~`!@#$%^&*()_+\\-=\\[\\]\\{}|;':\",./<>?\\\\])(?=\\S+$).{5,10})", message = "{errors.password.mismatched}")
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String password;
+
+	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String passwordConfirm;
+
+	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String firstName;
+
+	@NotBlank
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String lastName;
+
+	@NotBlank
+	@Pattern(regexp = "01\\d{1}-\\d{3,4}-\\d{4}")
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String mobilePhone;
+
+	@Pattern(regexp = "0\\d{1,2}-\\d{3,4}-\\d{4}")
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	private String homePhone;
 
 	@NotBlank
 	@Email
@@ -34,40 +61,13 @@ public class PersonDto {
 	private String emailConfirm;
 
 	@NotBlank
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String firstName;
-
-	@Pattern(regexp = "0\\d{1,2}-\\d{3,4}-\\d{4}")
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String homePhone;
-
-	@NotBlank
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String lastName;
-
-	@NotBlank
-	@Pattern(regexp = "01\\d{1}-\\d{3,4}-\\d{4}")
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String mobilePhone;
-
-	@NotBlank
-	@Pattern(regexp = "((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~`!@#$%^&*()_+\\-=\\[\\]\\{}|;':\",./<>?\\\\])(?=\\S+$).{5,10})", message = "{errors.password.mismatched}")
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String password;
-
-	@NotBlank
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String passwordConfirm;
-
-	@NotBlank
-	@Length(min = 3, max = 8)
-	@SafeHtml(whitelistType = WhiteListType.NONE)
-	private String username;
-
-	@NotBlank
 	@Pattern(regexp = "\\d{3}-\\d{3}")
 	@SafeHtml(whitelistType = WhiteListType.NONE)
 	private String zipCode;
+
+	@DateTimeFormat(iso = ISO.DATE)
+	@Past
+	private Date birthDate;
 
 	public PersonDto() {
 	}
@@ -105,7 +105,7 @@ public class PersonDto {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -279,7 +279,7 @@ public class PersonDto {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -400,7 +400,7 @@ public class PersonDto {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

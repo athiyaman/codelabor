@@ -6,5 +6,4 @@
 	<bean id="helloWorldPdfView" class="org.codelabor.example.helloworld.web.view.HelloWorldPdfView" />
 	<bean id="helloWorldExcelView" class="org.codelabor.example.helloworld.web.view.HelloWorldExcelView" />
 	<bean id="empListExcelView" class="org.codelabor.example.emp.web.view.EmpListExcelView" />
-
 </beans>
