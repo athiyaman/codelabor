@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- configuration file for LogBack (slf4J implementation) See here for more 
+<!-- configuration file for LogBack (slf4J implementation) See here for more
 	details: http://gordondickens/com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
 <!-- Layouts: http://logback/qos/ch/manual/layouts/html -->
 <configuration scan="true" scanPeriod="30 seconds">
@@ -30,10 +30,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n
-			</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-COMMON"
@@ -44,9 +41,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-EXAMPLE"
@@ -57,9 +52,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -72,10 +65,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
-		</encoder>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>		</encoder>
 	</appender>
 	<appender name="FILE-ERROR-JSP"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -86,9 +76,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-ERROR-CONTROLLER"
@@ -99,9 +87,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -114,9 +100,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -129,9 +113,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -144,18 +126,13 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
 	<!-- default appender -->
 	<appender name="STDOUT-DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<appender name="FILE-DEFAULT"
@@ -166,9 +143,7 @@
 			<maxHistory>186</maxHistory>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative [%thread] %-5level
-				[%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}]
-				%logger - %msg%n</pattern>
+			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -240,9 +215,9 @@
 
 	<!-- interface log -->
 	<!-- g-pin: org.apache.xml, org.jcp.xml -->
-	<!-- <logger name="com.etri.saml2" level="${log.level.interface}" additivity="false"> 
-		<appender-ref ref="FILE-INTERFACE-G-PIN" /> </logger> <logger name="gov.mogaha.gpin" 
-		level="${log.level.interface}" additivity="false"> <appender-ref ref="FILE-INTERFACE-G-PIN" 
+	<!-- <logger name="com.etri.saml2" level="${log.level.interface}" additivity="false">
+		<appender-ref ref="FILE-INTERFACE-G-PIN" /> </logger> <logger name="gov.mogaha.gpin"
+		level="${log.level.interface}" additivity="false"> <appender-ref ref="FILE-INTERFACE-G-PIN"
 		/> </logger> -->
 
 	<root level="${log.level.root}">
