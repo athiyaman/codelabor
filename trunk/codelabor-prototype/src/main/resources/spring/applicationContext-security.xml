@@ -99,7 +99,7 @@
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<bean id="jasyptTextEncryptor" class="org.jasypt.util.text.BasicTextEncryptor">
-		<property name="password" value="cnsdsdkastkdatsjddrhs" />
+		<property name="password" value="1234qwer" />
 	</bean>
 
 </beans>
