@@ -32,13 +32,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author Sang Jae Shin
- * 
+ *
  */
 @ContextConfiguration(locations = {
 		"file:src/main/resources/spring/applicationContext-root.xml",
 		"file:src/main/resources/spring/applicationContext-myBatis.xml",
 		"file:src/test/resources/spring/applicationContext-dataSource.xml",
-"file:src/main/resources/spring/applicationContext-security.xml" })
+		"file:src/main/resources/spring/applicationContext-security.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class BCryptPasswordEncoderTest {
 
@@ -85,9 +85,15 @@ public class BCryptPasswordEncoderTest {
 	public final void testEncode() {
 		CharSequence rawPassword = "1234qwer";
 		String encodedPassword = passwordEncoder.encode(rawPassword);
-		logger.debug("raw password: {}", rawPassword);
-		logger.debug("encodedPassword: {}", encodedPassword);
-		logger.debug("encodedPassword.length(): {}", encodedPassword.length());
+
+		for (int i = 0; i < 5; i++) {
+			logger.debug("try: {}", i);
+			logger.debug("raw password: {}", rawPassword);
+			logger.debug("encodedPassword: {}", encodedPassword);
+			logger.debug("encodedPassword.length(): {}",
+					encodedPassword.length());
+			logger.debug("");
+		}
 	}
 
 	/**
@@ -99,7 +105,13 @@ public class BCryptPasswordEncoderTest {
 	public final void testMatches() {
 		String rawPassword = "1234qwer";
 		String encodedPassword = "$2a$10$vzDkEmQ0Vc.AJQED7NGiaemoNBRX3oKcYoPMpNBuxr3Zcrkn9JE8S";
-		Assert.assertTrue(passwordEncoder.matches(rawPassword, encodedPassword));
+		for (int i = 0; i < 5; i++) {
+			logger.debug("try: {}", i);
+			boolean isMatched = passwordEncoder.matches(rawPassword,
+					encodedPassword);
+			logger.debug("isMatched: {}", isMatched);
+			Assert.assertTrue(isMatched);
+		}
 	}
 
 }
