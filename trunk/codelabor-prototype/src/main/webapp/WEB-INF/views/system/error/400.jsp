@@ -27,15 +27,15 @@
 	<![endif]-->
 </head>
 <body>
-<div id="errorWrap">
+<div>
 	<header>
-		<h1 class="logo"><a href="#"><img src="/images/common/tit_headerErrorLogo.gif" alt="충남삼성고등학교" /></a></h1>
+		<h1><a href="#"><img src="/images/common/codelabor-logo.png" alt="CODELABOR" /></a></h1>
 	</header>
 
-	<section id="defaultError">
-		<div class="contents">
-			<p class="imgSt"><img src="/images/common/img_defaultError.png" alt="error"></p>
-			<div class="errorBox">
+	<section>
+		<div>
+
+			<div>
 				<h1><spring:message code="heading.error.http.status.code.400" /></h1>
 				<div class="txt">
 					<p><spring:message code="errors.http.status.code.400" htmlEscape="false" /></p>
@@ -51,9 +51,9 @@
 					</ul>
 				</div>
 				<!--
-				<div class="btnArea">
-					<a href="#none" class="btnDefaultForm"><span><spring:message code="button.previous.page" /></span></a>
-					<a href="#none" class="btnSubForm"><span><spring:message code="button.main" /></span></a>
+				<div>
+					<a href="#none"><span><spring:message code="button.previous.page" /></span></a>
+					<a href="#none"><span><spring:message code="button.main" /></span></a>
 				</div>
 				-->
 			</div>
@@ -61,7 +61,7 @@
 	</section>
 
 	<footer>
-		<address>Copyright © CHUNG NAM SAMSUNG ACADEMY. <span>All rights reserved.</span></address>
+		<address>Copyright © CODELABOR. All rights reserved.</address>
 	</footer>
 
 	<sec:authorize access="hasRole('ROLE_DEVELOPER')">

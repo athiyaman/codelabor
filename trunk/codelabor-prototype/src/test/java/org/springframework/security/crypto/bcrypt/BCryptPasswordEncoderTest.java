@@ -67,6 +67,7 @@ public class BCryptPasswordEncoderTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		passwordEncoder = new BCryptPasswordEncoder();
 	}
 
 	/**

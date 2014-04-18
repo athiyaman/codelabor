@@ -58,7 +58,7 @@
 	<!-- logback MDC filter -->
 	<filter>
 		<filter-name>logbackMDCFilter</filter-name>
-		<filter-class>org.codelabor.system.security.web.filter.RequestContextLogbackMappedDiagnosticContextFilter</filter-class>
+		<filter-class>org.codelabor.system.security.web.filter.SecurityContextLogbackMappedDiagnosticContextFilter</filter-class>
 	</filter>
 
 	<filter-mapping>

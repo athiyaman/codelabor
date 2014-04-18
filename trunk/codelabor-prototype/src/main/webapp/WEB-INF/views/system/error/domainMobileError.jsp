@@ -16,14 +16,14 @@
 	<link type="text/css" rel="stylesheet" media="print" href="${contextPath}/css/print.css" />
 </head>
 <body>
-<div id="errorWrap">
+<div>
 	<header>
-		<h1 class="logo"><a href="#"><img src="${contextPath}/images/common/tit_headerErrorLogo.gif" alt="충남삼성고등학교" /></a></h1>
+		<h1><a href="#"><img src="${contextPath}/images/common/codelabor-logo.png" alt="CODELABOR" /></a></h1>
 	</header>
-	<section id="defaultError">
-		<div class="contents">
+	<section>
+		<div>
 			<p class="imgSt"><img src="${contextPath}/images/icon/icon_dontclassreg.png" alt="error"></p>
-			<div class="errorBox">
+			<div>
 				<h1>잘못된 URL로 접속하였습니다.</h1>
 				<div class="txt">
 					<p>자세한 문의사항은 관리자에게<br />연락하시기 바랍니다.</p>
@@ -39,9 +39,9 @@
 					</ul>
 				</div>
 				<!--
-				<div class="btnArea">
-					<a href="#none" class="btnDefaultForm"><span><spring:message code="button.previous.page" /></span></a>
-					<a href="#none" class="btnSubForm"><span><spring:message code="button.main" /></span></a>
+				<div>
+					<a href="#none"><span><spring:message code="button.previous.page" /></span></a>
+					<a href="#none"><span><spring:message code="button.main" /></span></a>
 				</div>
 				-->
 			</div>

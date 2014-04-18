@@ -11,12 +11,12 @@
 	<script type="text/javascript" src="${contextPath}/js/common/common.js"></script>
 </head>
 <body>
-	<section id="error" class="contents">
+	<section id="error">
 		<div class="authErrorArea">
 			<div class="errorImg">
 				<img src="${contextPath}/images/icon/icon_dontclassreg.png" alt="error">
 			</div>
-			<div class="errorBox">
+			<div>
 				<h1>데이터를 조회할 수 없습니다.</h1>
 				<p>
 					자세한 문의사항은 관리자에게 연락하시기 바랍니다.

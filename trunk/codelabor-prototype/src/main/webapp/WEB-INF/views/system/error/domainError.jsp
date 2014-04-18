@@ -12,12 +12,12 @@
 </head>
 <body>
 
-	<section id="error" class="contents">
+	<section id="error">
 		<div class="authErrorArea">
 			<div class="errorImg">
 				<img src="${contextPath}/images/common/img_defaultError.png" alt="error">
 			</div>
-			<div class="errorBox">
+			<div>
 				<h1>잘못된 URL로 접속하였습니다.</h1>
 				<p>
 					자세한 문의사항은 관리자에게<br />연락하시기 바랍니다.
