@@ -77,8 +77,9 @@
 	<h2>Validation</h2>
 	<ul>
 		<li><a
-			href="${pageContext.request.contextPath}/example/validation/registration/registrationUser">validation
-				example</a></li>
+			href="${pageContext.request.contextPath}/example/validation/registration/registrationUser">registration</a></li>
+		<li><a
+			href="${pageContext.request.contextPath}/example/validation/hibernate/safeHtml/post">hibernate safeHtml</a></li>
 	</ul>
 
 	<h2>Username</h2>

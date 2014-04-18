@@ -132,6 +132,7 @@
 
 	<!-- default appender -->
 	<appender name="STDOUT-DEFAULT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
 			<pattern>%date{ISO8601} %-4relative [%thread] %-5level [%X{servletContainerId} %X{requestId} %X{remoteAddr} %X{username}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
