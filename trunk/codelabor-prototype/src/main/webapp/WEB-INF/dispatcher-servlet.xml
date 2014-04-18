@@ -97,7 +97,6 @@
 		</constructor-arg>
 	</bean>
 
-	<mvc:view-controller path="/examcommon" view-name="example/common/index" />
 	<mvc:view-controller path="/example" view-name="example/index" />
 	<mvc:view-controller path="/example/request"
 		view-name="example/request/requestInfo" />
