@@ -5,14 +5,21 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="log" uri="http://www.slf4j.org/taglib/tld"%>
-<log:error category="jsp" message="status code: ${pageContext.errorData.statusCode}" />
-<log:error category="jsp" message="request uri: ${pageContext.errorData.requestURI}" />
-<log:error category="jsp" message="exception class: ${pageContext.errorData.throwable}" />
-<log:error category="jsp" message="exception message: ${pageContext.exception.message}" />
-<log:error category="jsp" message="cause: ${pageContext.errorData.throwable.cause}" />
+<log:error category="jsp"
+	message="status code: ${pageContext.errorData.statusCode}" />
+<log:error category="jsp"
+	message="request uri: ${pageContext.errorData.requestURI}" />
+<log:error category="jsp"
+	message="exception class: ${pageContext.errorData.throwable}" />
+<log:error category="jsp"
+	message="exception message: ${pageContext.exception.message}" />
+<log:error category="jsp"
+	message="cause: ${pageContext.errorData.throwable.cause}" />
 <log:error category="jsp" message="stack trace:" />
-<c:forEach var="stackTraceElement" items="${pageContext.exception.stackTrace}" varStatus="status" >
-	<log:error category="jsp" message="${status.index} ${stackTraceElement}" />
+<c:forEach var="stackTraceElement"
+	items="${pageContext.exception.stackTrace}" varStatus="status">
+	<log:error category="jsp"
+		message="${status.index} ${stackTraceElement}" />
 </c:forEach>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

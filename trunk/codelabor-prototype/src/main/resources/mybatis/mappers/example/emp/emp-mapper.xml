@@ -26,7 +26,8 @@
 	<select id="selectEmpListByDeptNo" resultType="empDto">
 		SELECT /*
 		selectEmpListByDeptNo */
-		EMPNO, ENAME, DEPTNO, JOB, MGR, HIREDATE, COMM, SAL
+		EMPNO, ENAME, DEPTNO, JOB, MGR, HIREDATE,
+		COMM, SAL
 		FROM
 		EMP
 		WHERE
@@ -37,7 +38,8 @@
 		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR,
 		E2.ENAME AS MGRNAME, E.HIREDATE, E.COMM, E.SAL
 		FROM
-		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		EMP E LEFT JOIN DEPT
+		D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
 		E1.MGR = E2.EMPNO
 		WHERE E.EMPNO = E1.EMPNO AND E.EMPNO = #{empNo}
 	</select>
@@ -46,17 +48,21 @@
 		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR,
 		E2.ENAME AS MGRNAME, E.HIREDATE, E.COMM, E.SAL
 		FROM
-		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		EMP E LEFT JOIN DEPT
+		D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
 		E1.MGR = E2.EMPNO
 		WHERE E.EMPNO = E1.EMPNO
 	</select>
 	<select id="selectEmpListByCondition" parameterType="empSearchConditionDto"
 		resultType="empDto">
 		SELECT /* selectEmpListByCondition */
-		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR, E2.ENAME AS
-		MGRNAME, E.HIREDATE, E.COMM, E.SAL
+		E.EMPNO, E.ENAME, E.DEPTNO,
+		D.DNAME AS DEPTNAME, E.JOB, E.MGR, E2.ENAME AS
+		MGRNAME, E.HIREDATE,
+		E.COMM, E.SAL
 		FROM
-		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1
+		LEFT JOIN EMP E2 ON
 		E1.MGR = E2.EMPNO
 		<where>
 			<if test="job != null and job != ''">
@@ -75,41 +81,46 @@
 			AND E.EMPNO = E1.EMPNO
 		</where>
 	</select>
-	<select id="selectEmpListByConditionWithPagination" parameterType="empSearchConditionDto"
-		resultType="empDto">
+	<select id="selectEmpListByConditionWithPagination"
+		parameterType="empSearchConditionDto" resultType="empDto">
 		SELECT /* selectEmpWithPagination */
-			EMPNO, ENAME, DEPTNO, DEPTNAME, JOB, MGR, MGRNAME, HIREDATE, COMM, SAL
+		EMPNO, ENAME, DEPTNO, DEPTNAME, JOB, MGR, MGRNAME, HIREDATE, COMM, SAL
 		FROM
-			(
-			SELECT EMPNO, ENAME, DEPTNO, DEPTNAME, JOB, MGR, MGRNAME, HIREDATE, COMM, SAL, ROWNUM AS SUB_ROWNUM
-			FROM
-				(
-				SELECT
-					E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR, E2.ENAME AS MGRNAME, E.HIREDATE, E.COMM, E.SAL
-				FROM
-					EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON E1.MGR = E2.EMPNO
-				<where>
-					<if test="job != null and job != ''">
-						E.JOB = #{job}
-					</if>
-					<if test="salFrom != null">
+		(
+		SELECT EMPNO, ENAME, DEPTNO, DEPTNAME, JOB, MGR, MGRNAME, HIREDATE, COMM,
+		SAL, ROWNUM AS SUB_ROWNUM
+		FROM
+		(
+		SELECT
+		E.EMPNO, E.ENAME, E.DEPTNO, D.DNAME AS DEPTNAME, E.JOB, E.MGR, E2.ENAME AS
+		MGRNAME, E.HIREDATE, E.COMM, E.SAL
+		FROM
+		EMP E LEFT JOIN DEPT D ON E.DEPTNO = D.DEPTNO, EMP E1 LEFT JOIN EMP E2 ON
+		E1.MGR = E2.EMPNO
+		<where>
+			<if test="job != null and job != ''">
+				E.JOB = #{job}
+			</if>
+			<if test="salFrom != null">
 						<![CDATA[
 						AND E.SAL >= #{salFrom}
 						]]>
-					</if>
-					<if test="salTo != null">
+			</if>
+			<if test="salTo != null">
 						<![CDATA[
 						AND E.SAL <= #{salTo}
 						]]>
-					</if>
-					AND E.EMPNO = E1.EMPNO
-				</where>
-				ORDER BY EMPNO ASC
-				)
-			WHERE <![CDATA[ ROWNUM <= ]]> #{pageNo} * #{maxRowPerPage}
-			)
+			</if>
+			AND E.EMPNO = E1.EMPNO
+		</where>
+		ORDER BY EMPNO ASC
+		)
+		WHERE <![CDATA[ ROWNUM <= ]]>
+		#{pageNo} * #{maxRowPerPage}
+		)
 		WHERE
-			<![CDATA[ SUB_ROWNUM >= ]]> #{pageNo} * #{maxRowPerPage} - #{maxRowPerPage} + 1
+			<![CDATA[ SUB_ROWNUM >= ]]>
+		#{pageNo} * #{maxRowPerPage} - #{maxRowPerPage} + 1
 	</select>
 
 
@@ -120,7 +131,8 @@
 		EMPNO, ENAME, DEPTNO, JOB, MGR, HIREDATE, COMM, SAL
 		) VALUES (
 		#{empNo}, #{ename}, #{deptNo, jdbcType=NUMERIC}, #{job},
-		#{mgr, jdbcType=NUMERIC}, #{hireDate, jdbcType=DATE}, #{comm,
+		#{mgr,
+		jdbcType=NUMERIC}, #{hireDate, jdbcType=DATE}, #{comm,
 		jdbcType=NUMERIC}, #{sal, jdbcType=NUMERIC}
 		)
 	</insert>
@@ -130,11 +142,14 @@
 		UPDATE /* updateEmp */ EMP
 		SET
 		ENAME = #{ename, jdbcType=VARCHAR},
-		DEPTNO = #{deptNo, jdbcType=NUMERIC},
+		DEPTNO = #{deptNo,
+		jdbcType=NUMERIC},
 		JOB = #{job, jdbcType=VARCHAR},
-		MGR = #{mgr, jdbcType=NUMERIC},
+		MGR = #{mgr,
+		jdbcType=NUMERIC},
 		HIREDATE = #{hireDate, jdbcType=DATE},
-		COMM = #{comm, jdbcType=NUMERIC},
+		COMM = #{comm,
+		jdbcType=NUMERIC},
 		SAL = #{sal, jdbcType=NUMERIC}
 		WHERE
 		EMPNO = #{empNo}

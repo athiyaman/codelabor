@@ -16,7 +16,8 @@
 </head>
 <body>
 	<sec:authentication property="principal" var="principal" />
-	principal: ${principal} <br />
+	principal: ${principal}
+	<br />
 	<sec:authorize access="isAuthenticated()">
 		Username: <sec:authentication property="principal.username" />
 	</sec:authorize>

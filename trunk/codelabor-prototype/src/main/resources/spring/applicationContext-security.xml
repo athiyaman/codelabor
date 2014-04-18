@@ -22,8 +22,8 @@
 			logout-success-url="/example/authentication/logoutSuccess" />
 		<security:remember-me data-source-ref="dataSource" />
 		<security:session-management>
-			<!-- TODO make error page contains messages like this: This session has
-				been expired (possibly due to multiple concurrent logins being attempted
+			<!-- TODO make error page contains messages like this: This session has 
+				been expired (possibly due to multiple concurrent logins being attempted 
 				as the same user). -->
 			<security:concurrency-control
 				expired-url="/example/authentication/prepareLogin" />
@@ -57,26 +57,26 @@
 		<property name="enableGroups" value="true" />
 	</bean>
 
-	<!-- <security:user-service id="userDetailsService"> <security:user name="pansuk1.kim"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="sy0419.choi"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="young.rhee"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="j85.lee"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="jaeho.han"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kj1124.lee"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="bomber.shin"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kijong.kim"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kk777.jung"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="jinuke.im"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="metaler"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="bara.jo"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="cj10106.lee"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="freest80"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="ghwlstm83"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="gwe78"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="mj.kim"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="pjw1004"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="rjy1537"
-		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="wwwjjh0"
+	<!-- <security:user-service id="userDetailsService"> <security:user name="pansuk1.kim" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="sy0419.choi" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="young.rhee" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="j85.lee" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="jaeho.han" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kj1124.lee" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="bomber.shin" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kijong.kim" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="kk777.jung" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="jinuke.im" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="metaler" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="bara.jo" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="cj10106.lee" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="freest80" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="ghwlstm83" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="gwe78" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="mj.kim" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="pjw1004" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="rjy1537" 
+		password="1234qwer" authorities="ROLE_DEVELOPER" /> <security:user name="wwwjjh0" 
 		password="1234qwer" authorities="ROLE_DEVELOPER" /> </security:user-service> -->
 
 	<bean

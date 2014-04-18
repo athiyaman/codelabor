@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
@@ -25,7 +25,9 @@ author Shin Sang-Jae
 		<legend>
 			<spring:message code="label.login" />
 		</legend>
-		<form action="${pageContext.request.contextPath}/example/authentication/login" method="post" autocomplete="off">
+		<form
+			action="${pageContext.request.contextPath}/example/authentication/login"
+			method="post" autocomplete="off">
 			<table>
 				<tr>
 					<th><label for="username"><spring:message
@@ -40,14 +42,13 @@ author Shin Sang-Jae
 				<tr>
 					<th><label for="j_remember"><spring:message
 								code="label.rememberMe" /></label></th>
-					<td><input type="checkbox" id="j_remember" name="_spring_security_remember_me" /></td>
+					<td><input type="checkbox" id="j_remember"
+						name="_spring_security_remember_me" /></td>
 				</tr>
 				<tr>
-					<td colspan="2">
-						<input type="hidden"
+					<td colspan="2"><input type="hidden"
 						name="${_csrf.parameterName}" value="${_csrf.token}" /> <input
-						type="submit" value="<spring:message code="button.submit"/>" />
-						<input
+						type="submit" value="<spring:message code="button.submit"/>" /> <input
 						type="reset" value="<spring:message code="button.reset"/>" /></td>
 				</tr>
 			</table>

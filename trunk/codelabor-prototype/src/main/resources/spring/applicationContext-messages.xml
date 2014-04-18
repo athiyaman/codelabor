@@ -11,7 +11,7 @@
 				<!-- spring security -->
 				<value>classpath:org/springframework/security/messages</value>
 
-				<!-- hibernate validator  -->
+				<!-- hibernate validator -->
 				<value>classpath:org/hibernate/validator/ValidMessages</value>
 
 				<!-- example -->

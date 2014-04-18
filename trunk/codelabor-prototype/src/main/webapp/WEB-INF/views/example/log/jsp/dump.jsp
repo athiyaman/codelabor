@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/jspf/taglib.jspf" %>
+<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
 <html>
 <body>
 	<h2>Page</h2>

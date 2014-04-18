@@ -2,12 +2,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="example.emp.dao.DeptDao">
 	<select id="selectDept" resultType="deptDto">
-		SELECT /* selectDept */ LOC, DNAME, DEPTNO
+		SELECT /* selectDept */ LOC,
+		DNAME, DEPTNO
 		FROM DEPT
 		WHERE DEPTNO = #{deptNo}
 	</select>
 	<select id="selectDeptList" resultType="deptDto">
-		SELECT /* selectDeptList */ LOC, DNAME, DEPTNO
+		SELECT /* selectDeptList
+		*/ LOC, DNAME, DEPTNO
 		FROM DEPT
 	</select>
 </mapper>

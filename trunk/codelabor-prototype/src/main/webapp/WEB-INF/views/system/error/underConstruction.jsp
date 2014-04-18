@@ -5,26 +5,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="log" uri="http://www.slf4j.org/taglib/tld"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
 <!doctype html>
 <html lang="ko">
 <head>
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
-	<title><spring:message code="title.error" /></title>
 	<meta name="title" content="<spring:message code="title.error" />">
-	<meta name="description" content="">
-	<script type="text/javascript" src="${contextPath}/js/common/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="${contextPath}/js/common/common.js" ></script>
-	<link type="text/css" rel="stylesheet" media="screen" href="${contextPath}/css/error.css" />
-	<link type="text/css" rel="stylesheet" media="print" href="${contextPath}/css/print.css" />
-	<!--[if lt IE 9]>
-		<script type="text/javascript" src="${contextPath}/js/common/html5shiv.js"></script>
-	<![endif]-->
-	<!--[if lt IE 9]>
-			<script type="text/javascript" src="${contextPath}/js/common/respond.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 <div>
@@ -34,7 +19,7 @@
 
 	<section>
 		<div>
-				<p class="imgSt"><img src="${contextPath}/images/common/under_construction.jpg" alt="under construction"></p>
+				<p class="imgSt"><img src="${pageContext.request.contextPath}/images/common/under-construction.png" alt="under construction"></p>
 			<div>
 				<h1><spring:message code="heading.underConstruction" /></h1>
 				<div class="txt">

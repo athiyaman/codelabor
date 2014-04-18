@@ -1,6 +1,15 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+encoding//src/main/webapp/system/error/400.html=UTF-8
+encoding//src/main/webapp/system/error/401.html=UTF-8
+encoding//src/main/webapp/system/error/403.html=UTF-8
+encoding//src/main/webapp/system/error/404.html=UTF-8
+encoding//src/main/webapp/system/error/405.html=UTF-8
+encoding//src/main/webapp/system/error/408.html=UTF-8
+encoding//src/main/webapp/system/error/500.html=UTF-8
+encoding//src/main/webapp/system/error/503.html=UTF-8
+encoding//src/main/webapp/system/error/underConstruction.html=UTF-8
 encoding//src/test/java=UTF-8
 encoding//src/test/resources=UTF-8
 encoding/<project>=UTF-8

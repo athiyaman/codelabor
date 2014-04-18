@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- The Basics -->
@@ -173,28 +174,13 @@
 		</dependency>
 
 		<!-- CKFinder -->
-		<!--
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinder</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-FileEditor</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-ImageResize</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-Watermark</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>com.ckfinder</groupId> <artifactId>CKFinder</artifactId> 
+			<version>2.4.1</version> </dependency> <dependency> <groupId>com.ckfinder</groupId> 
+			<artifactId>CKFinderPlugin-FileEditor</artifactId> <version>2.4.1</version> 
+			</dependency> <dependency> <groupId>com.ckfinder</groupId> <artifactId>CKFinderPlugin-ImageResize</artifactId> 
+			<version>2.4.1</version> </dependency> <dependency> <groupId>com.ckfinder</groupId> 
+			<artifactId>CKFinderPlugin-Watermark</artifactId> <version>2.4.1</version> 
+			</dependency> -->
 
 		<!-- Jackson -->
 		<dependency>
@@ -348,119 +334,48 @@
 		</dependency>
 
 		<!-- G-PIN -->
-		<!-- <dependency> <groupId>org.bouncycastle</groupId> <artifactId>bcprov-jdk16</artifactId>
-			<version>1.46</version> <scope>runtime</scope> </dependency>
-		<dependency>
-			<groupId>castor</groupId>
-			<artifactId>castor</artifactId>
-			<version>1.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>xalan</groupId>
-			<artifactId>xalan</artifactId>
-			<version>2.7.1</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>2.11.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency> <groupId>org.apache.santuario</groupId> <artifactId>xmlsec</artifactId>
-			<version>1.4.8</version> <scope>runtime</scope> <exclusions> <exclusion>
-			<artifactId>commons-logging</artifactId> <groupId>commons-logging</groupId>
+		<!-- <dependency> <groupId>org.bouncycastle</groupId> <artifactId>bcprov-jdk16</artifactId> 
+			<version>1.46</version> <scope>runtime</scope> </dependency> <dependency> 
+			<groupId>castor</groupId> <artifactId>castor</artifactId> <version>1.0</version> 
+			<scope>runtime</scope> </dependency> <dependency> <groupId>commons-lang</groupId> 
+			<artifactId>commons-lang</artifactId> <version>2.6</version> <scope>runtime</scope> 
+			</dependency> <dependency> <groupId>xalan</groupId> <artifactId>xalan</artifactId> 
+			<version>2.7.1</version> <scope>runtime</scope> </dependency> <dependency> 
+			<groupId>xerces</groupId> <artifactId>xercesImpl</artifactId> <version>2.11.0</version> 
+			<scope>runtime</scope> </dependency> <dependency> <groupId>org.apache.santuario</groupId> 
+			<artifactId>xmlsec</artifactId> <version>1.4.8</version> <scope>runtime</scope> 
+			<exclusions> <exclusion> <artifactId>commons-logging</artifactId> <groupId>commons-logging</groupId> 
 			</exclusion> </exclusions> </dependency> -->
 
 		<!-- 3rd Party from Nexus -->
 		<!-- CKFinder -->
-		<!--
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinder</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-FileEditor</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-ImageResize</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ckfinder</groupId>
-			<artifactId>CKFinderPlugin-Watermark</artifactId>
-			<version>2.4.1</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>com.ckfinder</groupId> <artifactId>CKFinder</artifactId> 
+			<version>2.4.1</version> </dependency> <dependency> <groupId>com.ckfinder</groupId> 
+			<artifactId>CKFinderPlugin-FileEditor</artifactId> <version>2.4.1</version> 
+			</dependency> <dependency> <groupId>com.ckfinder</groupId> <artifactId>CKFinderPlugin-ImageResize</artifactId> 
+			<version>2.4.1</version> </dependency> <dependency> <groupId>com.ckfinder</groupId> 
+			<artifactId>CKFinderPlugin-Watermark</artifactId> <version>2.4.1</version> 
+			</dependency> -->
 		<!-- G-PIN -->
-		<!--
-		<dependency>
-			<groupId>com.etri</groupId>
-			<artifactId>saml</artifactId>
-			<version>1.4.0.2</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>gpin-bcprov-jdk14</artifactId>
-			<version>138</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>gpin-sp</artifactId>
-			<version>1.4.0.2</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>gpin-sp-ext</artifactId>
-			<version>1.4</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>gpin-xml-security</artifactId>
-			<version>1.4.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>gov.mogaha</groupId>
-			<artifactId>sp-proxy</artifactId>
-			<version>1.4.0.2</version>
-			<scope>compile</scope>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>com.etri</groupId> <artifactId>saml</artifactId> 
+			<version>1.4.0.2</version> <scope>runtime</scope> </dependency> <dependency> 
+			<groupId>gov.mogaha</groupId> <artifactId>gpin-bcprov-jdk14</artifactId> 
+			<version>138</version> <scope>compile</scope> </dependency> <dependency> 
+			<groupId>gov.mogaha</groupId> <artifactId>gpin-sp</artifactId> <version>1.4.0.2</version> 
+			<scope>runtime</scope> </dependency> <dependency> <groupId>gov.mogaha</groupId> 
+			<artifactId>gpin-sp-ext</artifactId> <version>1.4</version> <scope>runtime</scope> 
+			</dependency> <dependency> <groupId>gov.mogaha</groupId> <artifactId>gpin-xml-security</artifactId> 
+			<version>1.4.0.2</version> <scope>compile</scope> </dependency> <dependency> 
+			<groupId>gov.mogaha</groupId> <artifactId>sp-proxy</artifactId> <version>1.4.0.2</version> 
+			<scope>compile</scope> </dependency> -->
 
 		<!-- JDBC driver -->
-		<!--
-		<dependency>
-			<groupId>ojdbc</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>6</version>
-			<scope>provided</scope>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>ojdbc</groupId> <artifactId>ojdbc</artifactId> 
+			<version>6</version> <scope>provided</scope> </dependency> -->
 
 		<!-- SLF4J -->
-		<!--
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-taglib</artifactId>
-			<version>0.1RC</version>
-		</dependency>
-		-->
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-taglib</artifactId> 
+			<version>0.1RC</version> </dependency> -->
 
 		<!-- Test -->
 		<dependency>
@@ -570,10 +485,10 @@
 				<version>2.4</version>
 				<configuration>
 					<warName>codelabor-${system.id}-${project.version}</warName>
-					<!-- container config xml을 /META-INF 아래에 복사함 jeus web deployment descriptor는
-						/WEB-INF 아래에 있어야 함 web.xml의 filter 처리는 가능하나 maven package 시에만 가능, eclipse에서는
-						동적 filter 불가 <containerConfigXML>${basedir}/src/main/webapp/WEB-INF/jeus-web-dd.xml</containerConfigXML>
-						<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors> <filters>
+					<!-- container config xml을 /META-INF 아래에 복사함 jeus web deployment descriptor는 
+						/WEB-INF 아래에 있어야 함 web.xml의 filter 처리는 가능하나 maven package 시에만 가능, eclipse에서는 
+						동적 filter 불가 <containerConfigXML>${basedir}/src/main/webapp/WEB-INF/jeus-web-dd.xml</containerConfigXML> 
+						<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors> <filters> 
 						<filter>${basedir}/src/main/filters/jndi/prototype.properties</filter> </filters> -->
 					<webResources>
 						<resource>

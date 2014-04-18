@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jeus-web-dd xmlns="http://www.tmaxsoft.com/xml/ns/jeus">
-        <context-path>/</context-path>
-        <auto-reload>
-            <enable-reload>false</enable-reload>
-            <check-on-demand>false</check-on-demand>
-        </auto-reload>
-        <res-ref>
-        	<jndi-info>
-        		<ref-name>jdbc/prototypeDs</ref-name>
-        		<export-name>jdbc/testDs</export-name>
-        	</jndi-info>
-        </res-ref>
+	<context-path>/</context-path>
+	<auto-reload>
+		<enable-reload>false</enable-reload>
+		<check-on-demand>false</check-on-demand>
+	</auto-reload>
+	<res-ref>
+		<jndi-info>
+			<ref-name>jdbc/prototypeDs</ref-name>
+			<export-name>jdbc/testDs</export-name>
+		</jndi-info>
+	</res-ref>
 </jeus-web-dd>

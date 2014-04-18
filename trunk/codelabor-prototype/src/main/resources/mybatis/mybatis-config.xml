@@ -5,9 +5,7 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 		<!-- affected row count 값을 사용하지 않는 경우에만 활성화 할 것, 반영 건수가 틀리게 나오므로 주의 -->
-		<!--
-		<setting name="defaultExecutorType" value="BATCH"/>
-		-->
+		<!-- <setting name="defaultExecutorType" value="BATCH"/> -->
 	</settings>
 	<typeAliases>
 		<package name="org.codelabor.example.emp.dto" />

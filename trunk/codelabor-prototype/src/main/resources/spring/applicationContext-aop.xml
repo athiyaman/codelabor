@@ -13,11 +13,11 @@
 
 		<aop:aspect ref="sniffingAspect">
 			<aop:before method="dumpArguments" pointcut-ref="pointcutForCodelabor" />
-			<!-- replaced by exception resolver <aop:after-throwing method="dumpException"
+			<!-- replaced by exception resolver <aop:after-throwing method="dumpException" 
 				throwing="exception" pointcut-ref="pointcutForDebug" /> -->
-			<!-- does not work <aop:around method="dumpElapsedTime" pointcut-ref="pointcutForCodelabor"
+			<!-- does not work <aop:around method="dumpElapsedTime" pointcut-ref="pointcutForCodelabor" 
 				/> -->
-			<!-- does not work <aop:after-returning method="dumpReturn" returning="returnObject"
+			<!-- does not work <aop:after-returning method="dumpReturn" returning="returnObject" 
 				pointcut-ref="pointcutForCodelabor" /> -->
 		</aop:aspect>
 

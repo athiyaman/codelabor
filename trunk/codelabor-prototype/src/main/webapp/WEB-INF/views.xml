@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="helloWorldPdfView" class="org.codelabor.example.helloworld.web.view.HelloWorldPdfView" />
-	<bean id="helloWorldExcelView" class="org.codelabor.example.helloworld.web.view.HelloWorldExcelView" />
+	<bean id="helloWorldPdfView"
+		class="org.codelabor.example.helloworld.web.view.HelloWorldPdfView" />
+	<bean id="helloWorldExcelView"
+		class="org.codelabor.example.helloworld.web.view.HelloWorldExcelView" />
 	<bean id="empListExcelView" class="org.codelabor.example.emp.web.view.EmpListExcelView" />
 </beans>
