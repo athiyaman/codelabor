@@ -18,7 +18,9 @@ package org.codelabor.example.validation.hibernate.safeHtml.web.controller;
 
 import javax.validation.Valid;
 
-import org.codelabor.example.validation.hibernate.safeHtml.dto.HtmlContentsDto;
+import org.codelabor.example.validation.hibernate.safeHtml.dto.HtmlContents1Dto;
+import org.codelabor.example.validation.hibernate.safeHtml.dto.HtmlContents2Dto;
+import org.codelabor.example.validation.hibernate.safeHtml.dto.HtmlContents3Dto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -42,15 +44,19 @@ public class HtmlContentsController {
 	public ModelAndView preparePost(ModelAndView mav) {
 		logger.debug("preparePost");
 		mav.setViewName(FORM_VIEW_NAME);
-		mav.addObject("htmlContentsDto", new HtmlContentsDto());
+		mav.addObject("htmlContents1Dto", new HtmlContents1Dto());
+		mav.addObject("htmlContents2Dto", new HtmlContents2Dto());
+		mav.addObject("htmlContents3Dto", new HtmlContents3Dto());
 		return mav;
 	}
 
 	@RequestMapping(value = "/post", method = RequestMethod.POST)
-	public String performPost(@Valid HtmlContentsDto htmlContentsDto,
+	public String performPost(@Valid HtmlContents1Dto htmlContents1Dto, @Valid HtmlContents2Dto htmlContents2Dto, @Valid HtmlContents3Dto htmlContents3Dto,
 			BindingResult result) {
 		logger.debug("performPost");
-		logger.debug("htmlContentsDto: {}", htmlContentsDto);
+		logger.debug("htmlContents1Dto: {}", htmlContents1Dto);
+		logger.debug("htmlContents2Dto: {}", htmlContents2Dto);
+		logger.debug("htmlContents3Dto: {}", htmlContents3Dto);
 		if (result.hasErrors()) {
 			for (ObjectError error : result.getAllErrors()) {
 				logger.error("error: {}", error.getDefaultMessage());

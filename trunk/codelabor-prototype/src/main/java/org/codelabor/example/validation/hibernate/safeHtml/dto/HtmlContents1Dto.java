@@ -26,7 +26,7 @@ import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
  * @author Shin Sang-Jae
  *
  */
-public class HtmlContentsDto implements Serializable {
+public class HtmlContents1Dto implements Serializable {
 	/**
 	 *
 	 */
