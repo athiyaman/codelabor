@@ -45,9 +45,27 @@ public class HibernateValidatorTest {
 	@Test
 	public final void testSafehtmlWhitelistNone() throws Exception {
 		SafeHtmlWhitelistNoneDto safeHtmlWhitelistNoneDto = new SafeHtmlWhitelistNoneDto();
-		safeHtmlWhitelistNoneDto.setStringData1("<td>1234qwer</td>");
-
+		safeHtmlWhitelistNoneDto.setStringData1("<div>1234qwer</div>");
 		Set<ConstraintViolation<SafeHtmlWhitelistNoneDto>> constraintViolations = validator
+				.validate(safeHtmlWhitelistNoneDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}",
+					violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}",
+					violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}",
+					violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(1, constraintViolations.size());
+
+		safeHtmlWhitelistNoneDto.setStringData1("<td>1234qwer</td>");
+		constraintViolations = validator
 				.validate(safeHtmlWhitelistNoneDto);
 		logger.error("violation count: {}", constraintViolations.size());
 
