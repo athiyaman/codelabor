@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sangjae
- * 
+ *
  */
 public class StringUtilsTest {
 	/**
@@ -65,5 +65,12 @@ public class StringUtilsTest {
 		String text = "%%!";
 		String searchString = "%";
 		Assert.assertEquals(true, StringUtils.contains(text, searchString));
+	}
+
+	@Test
+	public void testContainsIgnoreCase() {
+		String text = "ABCD";
+		String searchString = "a";
+		Assert.assertEquals(true, StringUtils.containsIgnoreCase(text, searchString));
 	}
 }
