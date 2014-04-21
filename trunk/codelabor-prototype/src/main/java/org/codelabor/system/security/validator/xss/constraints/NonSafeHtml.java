@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.validator.xss.constraints;
+package org.codelabor.system.security.validator.xss.constraints;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
@@ -30,8 +30,8 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import org.codelabor.system.validator.xss.internal.constraintvalidators.NonSafeHtmlStringListValidator;
-import org.codelabor.system.validator.xss.internal.constraintvalidators.NonSafeHtmlValidator;
+import org.codelabor.system.security.validator.xss.internal.constraintvalidators.NonSafeHtmlStringListValidator;
+import org.codelabor.system.security.validator.xss.internal.constraintvalidators.NonSafeHtmlValidator;
 
 /**
  * @author Shin Sang-Jae

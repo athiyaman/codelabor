@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.validator.xss;
+package org.codelabor.system.security.validator.xss;
 
 import java.util.ArrayList;
 import java.util.List;

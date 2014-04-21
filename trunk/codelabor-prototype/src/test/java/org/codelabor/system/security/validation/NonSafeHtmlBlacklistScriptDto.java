@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.example.validation.hibernate.safeHtml.dto;
+package org.codelabor.system.security.validation;
 
 import java.io.Serializable;
 import java.util.List;
 
-import org.codelabor.system.validator.xss.constraints.NonSafeHtml;
-import org.codelabor.system.validator.xss.constraints.NonSafeHtml.BlackListType;
+import org.codelabor.system.security.validator.xss.constraints.NonSafeHtml;
+import org.codelabor.system.security.validator.xss.constraints.NonSafeHtml.BlackListType;
 
 /**
  * @author Shin Sang-Jae

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.validator.xss.internal.constraintvalidators;
+package org.codelabor.system.security.validator.xss.internal.constraintvalidators;
 
 import java.util.List;
 
@@ -23,8 +23,8 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.codelabor.system.validator.xss.Blacklist;
-import org.codelabor.system.validator.xss.constraints.NonSafeHtml;
+import org.codelabor.system.security.validator.xss.Blacklist;
+import org.codelabor.system.security.validator.xss.constraints.NonSafeHtml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

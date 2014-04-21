@@ -1,13 +1,15 @@
-package javax.validation;
+package org.codelabor.system.security.validation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+
 import junit.framework.Assert;
 
-import org.codelabor.example.validation.hibernate.safeHtml.dto.NonSafeHtmlBlacklistScriptDto;
-import org.codelabor.example.validation.hibernate.safeHtml.dto.SafeHtmlWhitelistNoneDto;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
