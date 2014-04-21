@@ -14,28 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.codelabor.system.validator.html.internal.constraintvalidators;
+package org.codelabor.system.validator.xss.internal.constraintvalidators;
 
 import java.util.List;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.codelabor.system.validator.html.constraints.NonSafeHtml;
 import org.codelabor.system.validator.xss.Blacklist;
+import org.codelabor.system.validator.xss.constraints.NonSafeHtml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * @author Shin Sang-Jae
  */
-public class NonSafeHtmlStringListValidator implements
-		ConstraintValidator<NonSafeHtml, List<String>> {
+public class NonSafeHtmlValidator implements
+		ConstraintValidator<NonSafeHtml, CharSequence> {
 	private List<String> blacklist = null;
-	private Logger logger = LoggerFactory
-			.getLogger(NonSafeHtmlStringListValidator.class);
+	private Logger logger = LoggerFactory.getLogger(NonSafeHtmlValidator.class);
 
 	public void initialize(NonSafeHtml nonSafeHtmlAnnotation) {
 		logger.debug("blacklist type: {}",
@@ -66,25 +64,14 @@ public class NonSafeHtmlStringListValidator implements
 		logger.debug("blacklist: {}", blacklist);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see javax.validation.ConstraintValidator#isValid(java.lang.Object,
-	 * javax.validation.ConstraintValidatorContext)
-	 */
-	@Override
-	public boolean isValid(List<String> list, ConstraintValidatorContext context) {
-		if (CollectionUtils.isNotEmpty(list)) {
-			for (String value : list) {
-				if (StringUtils.isNotBlank(value)) {
-					for (String blacklistPattern : blacklist) {
-						logger.debug("value: {}, blacklistPattern: {}", value,
-								blacklistPattern);
-						if (StringUtils.containsIgnoreCase(value,
-								blacklistPattern)) {
-							return false;
-						}
-					}
+	public boolean isValid(CharSequence value,
+			ConstraintValidatorContext context) {
+		if (StringUtils.isNotBlank(value)) {
+			for (String blacklistPattern : blacklist) {
+				logger.debug("value: {}, blacklistPattern: {}", value,
+						blacklistPattern);
+				if (StringUtils.containsIgnoreCase(value, blacklistPattern)) {
+					return false;
 				}
 			}
 		}
