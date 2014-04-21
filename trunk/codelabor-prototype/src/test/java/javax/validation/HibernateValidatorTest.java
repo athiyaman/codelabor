@@ -7,6 +7,8 @@ import java.util.Set;
 import junit.framework.Assert;
 
 import org.codelabor.example.validation.hibernate.safeHtml.dto.SafeHtmlWhitelistNoneDto;
+import org.codelabor.example.validation.hibernate.safeHtml.dto.SafeHtmlWhitelistRelexedAdditionalTagsDto;
+import org.codelabor.example.validation.hibernate.safeHtml.dto.SafeHtmlWhitelistRelexedDto;
 import org.codelabor.example.validation.hibernate.safeHtml.dto.StringListDto;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -57,6 +59,82 @@ public class HibernateValidatorTest {
 			logger.error("message: {}", violation.getMessage());
 		}
 		Assert.assertEquals(1, constraintViolations.size());
+	}
+
+	@Test
+	public final void testSafehtmlWhitelistRelexed() throws Exception {
+		SafeHtmlWhitelistRelexedDto safeHtmlWhitelistRelexedDto = new SafeHtmlWhitelistRelexedDto();
+		safeHtmlWhitelistRelexedDto.setStringData1("<div>1234qwer</div>");
+
+		Set<ConstraintViolation<SafeHtmlWhitelistRelexedDto>> constraintViolations = validator
+				.validate(safeHtmlWhitelistRelexedDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}", violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}", violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(1, constraintViolations.size());
+
+		safeHtmlWhitelistRelexedDto.setStringData1("<span>1234qwer</span>");
+
+		constraintViolations = validator
+				.validate(safeHtmlWhitelistRelexedDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}", violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}", violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(1, constraintViolations.size());
+	}
+
+	@Test
+	public final void testSafehtmlWhitelistRelexedAdditionalTags() throws Exception {
+		SafeHtmlWhitelistRelexedAdditionalTagsDto safeHtmlWhitelistRelexedAdditionalTagsDto = new SafeHtmlWhitelistRelexedAdditionalTagsDto();
+		safeHtmlWhitelistRelexedAdditionalTagsDto.setStringData1("<div>1234qwer</div>");
+
+		Set<ConstraintViolation<SafeHtmlWhitelistRelexedAdditionalTagsDto>> constraintViolations = validator
+				.validate(safeHtmlWhitelistRelexedAdditionalTagsDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}", violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}", violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(0, constraintViolations.size());
+
+		safeHtmlWhitelistRelexedAdditionalTagsDto.setStringData1("<span>1234qwer</span>");
+
+		constraintViolations = validator
+				.validate(safeHtmlWhitelistRelexedAdditionalTagsDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}", violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}", violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(0, constraintViolations.size());
 	}
 
 
