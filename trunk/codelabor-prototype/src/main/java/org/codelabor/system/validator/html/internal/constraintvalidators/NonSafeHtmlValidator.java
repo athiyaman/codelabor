@@ -16,13 +16,13 @@
  */
 package org.codelabor.system.validator.html.internal.constraintvalidators;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 import org.apache.commons.lang3.StringUtils;
+import org.codelabor.system.validator.html.Blacklist;
 import org.codelabor.system.validator.html.constraints.NonSafeHtml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,38 +32,33 @@ import org.slf4j.LoggerFactory;
  */
 public class NonSafeHtmlValidator implements
 		ConstraintValidator<NonSafeHtml, CharSequence> {
-	private List<String> blacklist = new ArrayList<String>();
+	private List<String> blacklist = null;
 	private Logger logger = LoggerFactory.getLogger(NonSafeHtmlValidator.class);
 
 	public void initialize(NonSafeHtml nonSafeHtmlAnnotation) {
 		logger.debug("blacklist type: {}",
 				nonSafeHtmlAnnotation.blacklistType());
 		switch (nonSafeHtmlAnnotation.blacklistType()) {
-		case NONE:
-			break;
 		case ANCHOR:
-			blacklist.add("<a ");
+			blacklist = Blacklist.anchor();
 		case SCRIPT:
-			blacklist.add("<script");
+			blacklist = Blacklist.script();
 			break;
 		case FORM:
-			blacklist.add("<form");
-			blacklist.add("<spring:form");
+			blacklist = Blacklist.form();
 			break;
 		case SCRIPT_FORM:
-			blacklist.add("<script");
-			blacklist.add("<form");
-			blacklist.add("<spring:form");
+			blacklist = Blacklist.scriptForm();
 			break;
 		case ANCHOR_SCRIPT_FORM:
-			blacklist.add("<a ");
-			blacklist.add("<script");
-			blacklist.add("<form");
-			blacklist.add("<spring:form");
+			blacklist = Blacklist.anchorScriptForm();
 			break;
 		case ALL_TAG:
-			blacklist.add("<");
-			blacklist.add(">");
+			blacklist = Blacklist.allTag();
+			break;
+		case NONE:
+		default:
+			blacklist = Blacklist.none();
 			break;
 		}
 		logger.debug("blacklist: {}", blacklist);
