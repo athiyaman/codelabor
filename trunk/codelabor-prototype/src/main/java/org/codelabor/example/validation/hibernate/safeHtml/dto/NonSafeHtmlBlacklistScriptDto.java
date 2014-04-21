@@ -19,8 +19,8 @@ package org.codelabor.example.validation.hibernate.safeHtml.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import org.codelabor.system.validator.html.constraints.NonSafeHtml;
-import org.codelabor.system.validator.html.constraints.NonSafeHtml.BlackListType;
+import org.codelabor.system.validator.xss.constraints.NonSafeHtml;
+import org.codelabor.system.validator.xss.constraints.NonSafeHtml.BlackListType;
 
 /**
  * @author Shin Sang-Jae
