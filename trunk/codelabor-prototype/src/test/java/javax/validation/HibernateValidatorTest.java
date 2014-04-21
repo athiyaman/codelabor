@@ -1,8 +1,6 @@
 package javax.validation;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -31,8 +29,6 @@ public class HibernateValidatorTest {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	}
-
-	private PersonDto personDto = null;
 
 	@Before
 	public void setUp() throws Exception {
