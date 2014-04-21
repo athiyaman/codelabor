@@ -19,6 +19,7 @@ package org.codelabor.example.validation.hibernate.safeHtml.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 
@@ -31,6 +32,10 @@ public class HtmlContents1Dto implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = 6647701364182929674L;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 	/**
 	 *
@@ -65,58 +70,78 @@ public class HtmlContents1Dto implements Serializable {
 	/**
 	 *
 	 */
+
+	@NotEmpty
 	private List<String> stringListData;
+
+	public HtmlContents1Dto() {
+	}
+
+	/**
+	 * @param stringData1
+	 * @param stringData2
+	 * @param stringData3
+	 * @param stringData4
+	 * @param stringData5
+	 * @param stringListData
+	 */
+	public HtmlContents1Dto(String stringData1, String stringData2,
+			String stringData3, String stringData4, String stringData5,
+			List<String> stringListData) {
+		this.stringData1 = stringData1;
+		this.stringData2 = stringData2;
+		this.stringData3 = stringData3;
+		this.stringData4 = stringData4;
+		this.stringData5 = stringData5;
+		this.stringListData = stringListData;
+	}
 
 	public String getStringData1() {
 		return stringData1;
-	}
-
-	public void setStringData1(String stringData1) {
-		this.stringData1 = stringData1;
 	}
 
 	public String getStringData2() {
 		return stringData2;
 	}
 
-	public void setStringData2(String stringData2) {
-		this.stringData2 = stringData2;
-	}
-
 	public String getStringData3() {
 		return stringData3;
-	}
-
-	public void setStringData3(String stringData3) {
-		this.stringData3 = stringData3;
 	}
 
 	public String getStringData4() {
 		return stringData4;
 	}
 
-	public void setStringData4(String stringData4) {
-		this.stringData4 = stringData4;
-	}
-
 	public String getStringData5() {
 		return stringData5;
-	}
-
-	public void setStringData5(String stringData5) {
-		this.stringData5 = stringData5;
 	}
 
 	public List<String> getStringListData() {
 		return stringListData;
 	}
 
-	public void setStringListData(List<String> stringListData) {
-		this.stringListData = stringListData;
+	public void setStringData1(String stringData1) {
+		this.stringData1 = stringData1;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public void setStringData2(String stringData2) {
+		this.stringData2 = stringData2;
+	}
+
+	public void setStringData3(String stringData3) {
+		this.stringData3 = stringData3;
+	}
+
+	public void setStringData4(String stringData4) {
+		this.stringData4 = stringData4;
+	}
+
+	public void setStringData5(String stringData5) {
+		this.stringData5 = stringData5;
+	}
+
+	public void setStringListData(List<String> stringListData) {
+		this.stringListData = stringListData;
 	}
 
 

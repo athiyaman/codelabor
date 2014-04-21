@@ -25,18 +25,15 @@ import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
  * @author Shin Sang-Jae
  *
  */
-public class SafeHtmlWhitelistNoneDto implements Serializable {
-
-
+public class SafeHtmlWhitelistBasicDto implements Serializable {
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 452811399327066527L;
-
+	private static final long serialVersionUID = 5191032161960040710L;
 	/**
 	 *
 	 */
-	@SafeHtml(whitelistType=WhiteListType.NONE)
+	@SafeHtml(whitelistType=WhiteListType.BASIC)
 	private String stringData1;
 
 	public String getStringData1() {
