@@ -6,8 +6,8 @@ import java.util.Set;
 
 import junit.framework.Assert;
 
-import org.codelabor.example.validation.hibernate.safeHtml.dto.HtmlContents1Dto;
 import org.codelabor.example.validation.hibernate.safeHtml.dto.SafeHtmlWhitelistNoneDto;
+import org.codelabor.example.validation.hibernate.safeHtml.dto.StringListDto;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -61,20 +61,15 @@ public class HibernateValidatorTest {
 
 
 	@Test
-	public final void testSafehtml1() throws Exception {
-		HtmlContents1Dto htmlContents1Dto = new HtmlContents1Dto();
-		htmlContents1Dto.setStringData1("<h1>heading1</h1>");
-		htmlContents1Dto.setStringData2("<h1>heading1</h1>");
-		htmlContents1Dto.setStringData3("<h1>heading1</h1>");
-		htmlContents1Dto.setStringData4("<h1>heading1</h1>");
-		htmlContents1Dto.setStringData5("<h1>heading1</h1>");
+	public final void testNotEmpty1() throws Exception {
+		StringListDto stringListDto = new StringListDto();
 
 		List<String> stringListData = new ArrayList<String>();
-		//stringListData.add("<h1>heading1</h1>");
-		htmlContents1Dto.setStringListData(stringListData);
+		stringListData.add("<h1>heading1</h1>");
+		stringListDto.setStringListData(stringListData);
 
-		Set<ConstraintViolation<HtmlContents1Dto>> constraintViolations = validator
-				.validate(htmlContents1Dto);
+		Set<ConstraintViolation<StringListDto>> constraintViolations = validator
+				.validate(stringListDto);
 		logger.error("violation count: {}", constraintViolations.size());
 
 		for (ConstraintViolation<?> violation : constraintViolations) {
@@ -86,7 +81,53 @@ public class HibernateValidatorTest {
 			logger.error("invalidValue: {}", violation.getInvalidValue());
 			logger.error("message: {}", violation.getMessage());
 		}
-		Assert.assertEquals(4, constraintViolations.size());
+		Assert.assertEquals(0, constraintViolations.size());
+	}
+
+	@Test
+	public final void testNotEmpty2() throws Exception {
+		StringListDto stringListDto = new StringListDto();
+
+		List<String> stringListData = new ArrayList<String>();
+		stringListDto.setStringListData(stringListData);
+
+		Set<ConstraintViolation<StringListDto>> constraintViolations = validator
+				.validate(stringListDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}", violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}", violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(1, constraintViolations.size());
+	}
+
+	@Test
+	public final void testNotEmpty3() throws Exception {
+		StringListDto stringListDto = new StringListDto();
+
+		List<String> stringListData = null;
+		stringListDto.setStringListData(stringListData);
+
+		Set<ConstraintViolation<StringListDto>> constraintViolations = validator
+				.validate(stringListDto);
+		logger.error("violation count: {}", constraintViolations.size());
+
+		for (ConstraintViolation<?> violation : constraintViolations) {
+			logger.error("");
+			logger.error("executableParameters: {}", violation.getExecutableParameters());
+			logger.error("executableReturnValue: {}", violation.getExecutableReturnValue());
+			logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+			logger.error("propertyPath: {}", violation.getPropertyPath());
+			logger.error("invalidValue: {}", violation.getInvalidValue());
+			logger.error("message: {}", violation.getMessage());
+		}
+		Assert.assertEquals(1, constraintViolations.size());
 	}
 
 
