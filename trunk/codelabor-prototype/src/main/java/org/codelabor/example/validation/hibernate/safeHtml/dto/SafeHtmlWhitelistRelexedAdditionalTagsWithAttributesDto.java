@@ -25,16 +25,17 @@ import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
  * @author Shin Sang-Jae
  *
  */
-public class SafeHtmlWhitelistRelexedAdditionalTagsDto implements Serializable {
+public class SafeHtmlWhitelistRelexedAdditionalTagsWithAttributesDto implements
+		Serializable {
 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 6030361619583633998L;
+	private static final long serialVersionUID = -553118745117141325L;
 	/**
 	 *
 	 */
-	@SafeHtml(whitelistType=WhiteListType.RELAXED, additionalTags={"span"})
+	@SafeHtml(whitelistType = WhiteListType.RELAXED, additionalTagsWithAttributes = { @SafeHtml.Tag(name = "span", attributes = { "class" }) })
 	private String stringData1;
 
 	public String getStringData1() {
