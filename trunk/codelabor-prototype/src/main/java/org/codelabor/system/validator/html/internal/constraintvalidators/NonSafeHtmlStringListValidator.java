@@ -23,8 +23,8 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.codelabor.system.validator.html.Blacklist;
 import org.codelabor.system.validator.html.constraints.NonSafeHtml;
+import org.codelabor.system.validator.xss.Blacklist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
