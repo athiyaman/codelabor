@@ -6,7 +6,6 @@ import java.util.Set;
 
 import junit.framework.Assert;
 
-import org.codelabor.example.validation.dto.PersonDto;
 import org.codelabor.example.validation.hibernate.safeHtml.dto.HtmlContents1Dto;
 import org.codelabor.example.validation.hibernate.safeHtml.dto.SafeHtmlWhitelistNoneDto;
 import org.junit.After;
