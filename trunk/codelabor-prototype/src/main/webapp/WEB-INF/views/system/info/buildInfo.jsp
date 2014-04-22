@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><spring:message code="title.buildInfo" /></title>
+<title><spring:message code="title.buildInfo" /> <system:properties key="servlet.container.id" /></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="robots" content="noindex, nofollow" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

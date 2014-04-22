@@ -9,7 +9,7 @@ Author Shin Sang-Jae
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Function Example</title>
+<title>Function Example <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 	<h1>Function Example</h1>

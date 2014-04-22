@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <!-- Registration Form -->
 <title><spring:message
-		code="title.example.validation.registration" /></title>
+		code="title.example.validation.registration" /> <system:properties key="servlet.container.id" /></title>
 <meta name="robots" content="noindex, nofollow" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />

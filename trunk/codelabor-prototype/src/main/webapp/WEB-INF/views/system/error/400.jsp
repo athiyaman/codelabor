@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<title><spring:message code="title.error" /></title>
+<title><spring:message code="title.error" /> <system:properties key="servlet.container.id" /></title>
 <meta name="title" content="<spring:message code="title.error" />">
 </head>
 <body>

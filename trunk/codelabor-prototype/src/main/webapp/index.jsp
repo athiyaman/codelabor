@@ -15,7 +15,7 @@
 				<link rel="icon"
 					href="${pageContext.request.contextPath}/favicon.ico"
 					type="image/x-icon" />
-				<title>Index</title>
+				<title>Index <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 	<h1>Index</h1>

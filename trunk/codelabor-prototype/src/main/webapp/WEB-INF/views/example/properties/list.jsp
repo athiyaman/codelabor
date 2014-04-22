@@ -9,7 +9,7 @@ Author Shin Sang-Jae
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Properties Example</title>
+<title>Properties Example <system:properties key="servlet.container.id" /></title>
 </head>
 <body>
 	<h1>Properties Example</h1>
