@@ -5,7 +5,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="log" uri="http://www.slf4j.org/taglib/tld"%>
 <%@ taglib prefix="pg" uri="/WEB-INF/tlds/pagination.tld"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="system" uri="http://codelabor.org/tags/system"%>
