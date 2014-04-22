@@ -8,4 +8,6 @@
 		<property name="validationMessageSource" ref="messageSource" />
 	</bean>
 
+	<bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+
 </beans>
