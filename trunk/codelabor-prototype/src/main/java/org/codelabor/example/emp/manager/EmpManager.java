@@ -2,9 +2,13 @@ package org.codelabor.example.emp.manager;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.codelabor.example.emp.dto.EmpDto;
 import org.codelabor.example.emp.dto.EmpSearchConditionDto;
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 public interface EmpManager {
 
 	int deleteEmp(Integer empNo);
@@ -17,7 +21,7 @@ public interface EmpManager {
 	 */
 	Integer getNumberOfRow(EmpSearchConditionDto empSearchConditionDto);
 
-	int insertEmp(EmpDto empDto);
+	int insertEmp(@Valid EmpDto empDto);
 
 	int insertEmpList(List<EmpDto> empDtoList);
 

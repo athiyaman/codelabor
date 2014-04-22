@@ -19,6 +19,10 @@ package org.codelabor.example.emp.manager;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 
 import org.codelabor.example.emp.dto.EmpDto;
 import org.junit.After;
@@ -43,7 +47,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"file:src/main/resources/spring/applicationContext-myBatis.xml",
 		"file:src/test/resources/spring/applicationContext-dataSource.xml",
 		"file:src/main/resources/spring/applicationContext-security.xml",
-		"file:src/main/resources/spring/applicationContext-validator.xml"})
+		"file:src/main/resources/spring/applicationContext-validator.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class EmpManagerImplTest {
 
@@ -103,6 +107,34 @@ public class EmpManagerImplTest {
 		Assert.assertEquals(1, affectedRowCount);
 	}
 
+	@Test(expected = ConstraintViolationException.class)
+	public final void testMethodValidation() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+
+		EmpDto empDto = new EmpDto();
+		empDto.setEname("Bomber");
+		empDto.setJob("SA");
+		empDto.setMgr(7839);
+		calendar.set(2001, 2, 1, 12, 00, 00);
+		empDto.setHireDate(Calendar.getInstance().getTime());
+		empDto.setSal(new BigDecimal("5000.0"));
+		empDto.setComm(new BigDecimal("100.0"));
+		empDto.setDeptNo(20);
+		try {
+			manager.insertEmp(empDto);
+		} catch (ConstraintViolationException e) {
+			Set<ConstraintViolation<?>> violationSet = e.getConstraintViolations();
+			for (ConstraintViolation<?> violation :violationSet) {
+				logger.error("propertyPath: {}", violation.getPropertyPath());
+				logger.error("invalidValue: {}", violation.getInvalidValue());
+				logger.error("message: {}", violation.getMessage());
+				logger.error("constraintDescriptor: {}", violation.getConstraintDescriptor());
+
+			}
+		}
+	}
+
 	/**
 	 * Test method for
 	 * {@link org.codelabor.example.emp.dao.mybatis.EmpManagerImpl#insertEmp(org.codelabor.example.emp.dto.EmpDto)}
@@ -114,7 +146,7 @@ public class EmpManagerImplTest {
 		calendar.clear();
 
 		EmpDto empDto = new EmpDto();
-		//empDto.setEmpNo(1000);
+		empDto.setEmpNo(1000);
 		empDto.setEname("Bomber");
 		empDto.setJob("SA");
 		empDto.setMgr(7839);
