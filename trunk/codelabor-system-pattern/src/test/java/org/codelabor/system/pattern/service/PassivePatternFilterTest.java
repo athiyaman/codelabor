@@ -21,6 +21,7 @@ import static org.junit.Assert.assertEquals;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.codelabor.system.pattern.exception.PatternMatchException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -52,8 +53,8 @@ public class PassivePatternFilterTest {
 	@Named("passivePatternFilter")
 	PatternFilter passivePatternFilter;
 
-	@Test
-	public void testReplaceString() {
+	@Test(expected = PatternMatchException.class)
+	public void testDetectString() {
 		String targetString = "' or 1=1--";
 		String expectedString = "' or 1=1--";
 		String resultingString = passivePatternFilter.filter(targetString);
