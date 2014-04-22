@@ -5,7 +5,7 @@
 	<!-- The Basics -->
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-pattern</artifactId>
-	<version>4.0.0-SNAPSHOT</version>
+	<version>4.0.0</version>
 	<packaging>jar</packaging>
 	<dependencies>
 		<!-- Java Spec -->
@@ -208,9 +208,9 @@
 
 	<!-- Environment Settings -->
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-pattern</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-pattern</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-pattern</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-pattern-4.0.0</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-pattern-4.0.0</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-pattern-4.0.0</url>
 	</scm>
 	<repositories>
 		<repository>
