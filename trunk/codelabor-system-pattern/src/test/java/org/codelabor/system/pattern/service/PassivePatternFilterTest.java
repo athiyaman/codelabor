@@ -28,15 +28,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * 수동적 패턴 필터 테스트 클래스
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/**/applicationContext*.xml")
@@ -55,7 +54,6 @@ public class PassivePatternFilterTest {
 	PatternFilter passivePatternFilter;
 
 	@Test
-	@ExpectedException(PatternMatchException.class)
 	public void testReplaceString() {
 		String targetString = "' or 1=1--";
 		String expectedString = "' or 1=1--";
