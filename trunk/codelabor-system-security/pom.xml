@@ -5,7 +5,7 @@
 	<!-- The Basics -->
 	<groupId>org.codelabor</groupId>
 	<artifactId>codelabor-system-security</artifactId>
-	<version>4.0.2-SNAPSHOT</version>
+	<version>4.0.2</version>
 	<packaging>jar</packaging>
 	<dependencies>
 		<!-- Java Spec -->
@@ -183,8 +183,8 @@
 
 	<!-- Environment Settings -->
 	<scm>
-		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</connection>
-		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</developerConnection>
-		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-security/</url>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/tags/codelabor-system-security-4.0.2</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/tags/codelabor-system-security-4.0.2</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/tags/codelabor-system-security-4.0.2</url>
 	</scm>
 </project>
