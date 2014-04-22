@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 @Service
-@Validated
 public class EmpManagerImpl implements EmpManager {
 
 	@Autowired
@@ -48,7 +47,7 @@ public class EmpManagerImpl implements EmpManager {
 	}
 
 	@Override
-	public int insertEmp(@Valid EmpDto empDto) {
+	public int insertEmp(EmpDto empDto) {
 		logger.debug("insertEmp");
 		return empDao.insertEmp(empDto);
 	}
