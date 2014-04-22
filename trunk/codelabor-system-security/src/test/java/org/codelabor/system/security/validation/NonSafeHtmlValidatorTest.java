@@ -10,6 +10,7 @@ import javax.validation.Validator;
 
 import junit.framework.Assert;
 
+import org.codelabor.system.security.validation.dto.NonSafeHtmlBlacklistScriptDto;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
