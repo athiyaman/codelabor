@@ -395,7 +395,7 @@
 		<dependency>
 			<groupId>org.codelabor</groupId>
 			<artifactId>codelabor-system-security</artifactId>
-			<version>4.0.1</version>
+			<version>4.0.2</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>c3p0</artifactId>
