@@ -370,12 +370,14 @@
 			<scope>compile</scope> </dependency> -->
 
 		<!-- JDBC driver -->
+		<!--
 		<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>6</version>
 			<scope>provided</scope>
 		</dependency>
+		-->
 
 		<!-- SLF4J -->
 		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-taglib</artifactId>
