@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.6.0.201104111100-PATCH]]></pluginVersion>
+	<pluginVersion><![CDATA[3.4.0.201310051539-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
@@ -9,20 +9,9 @@
 	<configs>
 		<config>src/test/resources/spring/system/pattern/applicationContext-activePatternFilter.xml</config>
 		<config>src/test/resources/spring/system/pattern/applicationContext-antStylePatternMatcher.xml</config>
-		<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-antStylePatternMatcher.xml</config>
-		<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-antStylePatternMatcher.xml</config>
 		<config>src/test/resources/spring/system/pattern/applicationContext-regexPatternReplacer.xml</config>
-		<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-regexPatternReplacer.xml</config>
-		<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-regexPatternReplacer.xml</config>
-		<config>src/test/resources/spring/system/pattern/applicationContext-regexpPatternMatcher.xml</config>
-		<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-regexpPatternMatcher.xml</config>
-		<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-regexpPatternMatcher.xml</config>
 		<config>src/test/resources/spring/system/pattern/applicationContext-simplePatternMatcher.xml</config>
-		<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-simplePatternMatcher.xml</config>
-		<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-simplePatternMatcher.xml</config>
 		<config>src/test/resources/spring/system/pattern/applicationContext-simplePatternReplacer.xml</config>
-		<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-simplePatternReplacer.xml</config>
-		<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-simplePatternReplacer.xml</config>
 		<config>src/test/resources/spring/system/pattern/applicationContext-passivePatternFilter.xml</config>
 	</configs>
 	<configSets>
@@ -34,21 +23,12 @@
 				<config>src/test/resources/spring/system/pattern/applicationContext-activePatternFilter.xml</config>
 				<config>src/test/resources/spring/system/pattern/applicationContext-antStylePatternMatcher.xml</config>
 				<config>src/test/resources/spring/system/pattern/applicationContext-regexPatternReplacer.xml</config>
-				<config>src/test/resources/spring/system/pattern/applicationContext-regexpPatternMatcher.xml</config>
 				<config>src/test/resources/spring/system/pattern/applicationContext-simplePatternMatcher.xml</config>
 				<config>src/test/resources/spring/system/pattern/applicationContext-simplePatternReplacer.xml</config>
-				<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-antStylePatternMatcher.xml</config>
-				<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-regexPatternReplacer.xml</config>
-				<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-regexpPatternMatcher.xml</config>
-				<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-simplePatternMatcher.xml</config>
-				<config>target/checkout/src/test/resources/spring/system/pattern/applicationContext-simplePatternReplacer.xml</config>
-				<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-antStylePatternMatcher.xml</config>
-				<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-regexPatternReplacer.xml</config>
-				<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-regexpPatternMatcher.xml</config>
-				<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-simplePatternMatcher.xml</config>
-				<config>target/checkout/target/test-classes/spring/system/pattern/applicationContext-simplePatternReplacer.xml</config>
 				<config>src/test/resources/spring/system/pattern/applicationContext-passivePatternFilter.xml</config>
 			</configs>
+			<profiles>
+			</profiles>
 		</configSet>
 	</configSets>
 </beansProjectDescription>
