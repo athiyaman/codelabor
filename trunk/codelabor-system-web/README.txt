@@ -54,5 +54,6 @@
 
 4.0.4
 	tld shortname 수정
+	deprecate 된 method 제거
 
 

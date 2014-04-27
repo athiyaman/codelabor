@@ -66,18 +66,6 @@ public class RequestUtils {
 	 * @param request
 	 *            요청
 	 * @return 기타 정보 DTO
-	 * @deprecated Use {@link #getEtcDto(ServletRequest)} instead
-	 */
-	public static EtcDto getEtcDTO(ServletRequest request) {
-		return getEtcDto(request);
-	}
-
-	/**
-	 * 기타 정보 DTO를 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return 기타 정보 DTO
 	 */
 	public static EtcDto getEtcDto(ServletRequest request) {
 		EtcDto etcDto = new EtcDto();
@@ -114,18 +102,6 @@ public class RequestUtils {
 		attribMap.put("isRequestedSessionIdFromURL",
 				httpServletRequest.isRequestedSessionIdFromURL());
 		return attribMap;
-	}
-
-	/**
-	 * 로컬 정보 DTO를 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return 로컬 정보 DTO
-	 * @deprecated Use {@link #getLocalDto(ServletRequest)} instead
-	 */
-	public static LocalDto getLocalDTO(ServletRequest request) {
-		return getLocalDto(request);
 	}
 
 	/**
@@ -194,18 +170,6 @@ public class RequestUtils {
 	 * @param request
 	 *            요청
 	 * @return 리모트 정보 DTO
-	 * @deprecated Use {@link #getRemoteDto(ServletRequest)} instead
-	 */
-	public static RemoteDto getRemoteDTO(ServletRequest request) {
-		return getRemoteDto(request);
-	}
-
-	/**
-	 * 리모트 정보 DTO를 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return 리모트 정보 DTO
 	 */
 	public static RemoteDto getRemoteDto(ServletRequest request) {
 		RemoteDto remoteDto = new RemoteDto();
@@ -214,21 +178,6 @@ public class RequestUtils {
 		remoteDto.setRemotePort(request.getRemotePort());
 		return remoteDto;
 	}
-
-	/**
-	 * 서버 정보 DTO를 가져온다.
-	 * 
-	 * @param request
-	 *            요청
-	 * @return 서버 정보 DTO
-	 * @throws Exception
-	 *             예외
-	 * @deprecated Use {@link #getServerDto(ServletRequest)} instead
-	 */
-	public static ServerDto getServerDTO(ServletRequest request)
-			throws Exception {
-				return getServerDto(request);
-			}
 
 	/**
 	 * 서버 정보 DTO를 가져온다.
