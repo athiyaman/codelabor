@@ -36,14 +36,14 @@ import org.codelabor.system.web.dto.ServerDto;
 
 /**
  * 요청 유틸
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class RequestUtils {
 	/**
 	 * 요청 속성 Map을 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 요청 속성 Map
@@ -62,7 +62,7 @@ public class RequestUtils {
 
 	/**
 	 * 기타 정보 DTO를 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 기타 정보 DTO
@@ -80,7 +80,7 @@ public class RequestUtils {
 
 	/**
 	 * HttpServletRequest 정보 Map을 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return HttpServletRequest 정보 Map
@@ -106,7 +106,7 @@ public class RequestUtils {
 
 	/**
 	 * 로컬 정보 DTO를 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 로컬 정보 DTO
@@ -121,7 +121,7 @@ public class RequestUtils {
 
 	/**
 	 * 로케일 정보 List를 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 로케일 정보 List
@@ -139,7 +139,7 @@ public class RequestUtils {
 
 	/**
 	 * 요청 파라미터 Map을 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 요청 파리미터 Map
@@ -166,7 +166,7 @@ public class RequestUtils {
 
 	/**
 	 * 리모트 정보 DTO를 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 리모트 정보 DTO
@@ -181,7 +181,7 @@ public class RequestUtils {
 
 	/**
 	 * 서버 정보 DTO를 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 서버 정보 DTO
@@ -198,7 +198,7 @@ public class RequestUtils {
 
 	/**
 	 * 세션 정보 Map을 가져온다.
-	 * 
+	 *
 	 * @param request
 	 *            요청
 	 * @return 세션 정보 Map
@@ -214,5 +214,25 @@ public class RequestUtils {
 			attribMap.put(attribName, attribObject);
 		}
 		return attribMap;
+	}
+
+	/**
+	 * 요청받은 url 문자열 중, schema 부터 context path 까지의 문자열을 리턴한다.
+	 * 예를 들어 http://localhost:8080/example/index.jsp 가 Doc Root 아래의 인덱스 페치지라고 가정할 경우,
+	 * http://localhost:8080/example 와 같은 문아열을 리턴한다.
+	 * 이 때, 80 포트는 생략된다.
+	 * @param request
+	 * @return 요청 받은 url 중 schema 부너 context path 까지의 문자열
+	 */
+	public static String getRequestUrlToContextPath(HttpServletRequest request) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(request.getScheme()).append("://");
+		sb.append(request.getServerName());
+		int serverPort = request.getServerPort();
+		if (serverPort != 80) {
+			sb.append(":").append(serverPort);
+		}
+		sb.append(request.getContextPath());
+		return sb.toString();
 	}
 }
