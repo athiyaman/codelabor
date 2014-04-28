@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>CODELABOR Pagination Taglib</description>
+	<display-name>CODELABOR Pagination Taglib</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>pagination</short-name>
+	<uri>http://codelabor.org/tags/pagination</uri>
+
+	<tag>
+		<description>Pagination</description>
+		<name>pagination</name>
+		<tag-class>org.codelabor.system.web.taglib.PaginationTag</tag-class>
+		<body-content>scriptless</body-content>
+
+		<!-- input data -->
+		<attribute>
+			<name>numberOfRow</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- configuration -->
+		<attribute>
+			<name>maxRowPerPage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>maxIndexPerPage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- param name -->
+		<attribute>
+			<name>pageNoParamName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>maxRowPerPageParamName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- cssClass -->
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>First Index</description>
+		<name>firstIndex</name>
+		<tag-class>org.codelabor.system.web.taglib.FirstIndexTag</tag-class>
+		<body-content>scriptless</body-content>
+
+		<!-- cssClass -->
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- onclick -->
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Previous Index</description>
+		<name>previousIndex</name>
+		<tag-class>org.codelabor.system.web.taglib.PreviousIndexTag
+		</tag-class>
+		<body-content>scriptless</body-content>
+
+		<!-- cssClass -->
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- onclick -->
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Current Index</description>
+		<name>currentIndex</name>
+		<tag-class>org.codelabor.system.web.taglib.CurrentIndexTag</tag-class>
+		<body-content>scriptless</body-content>
+
+		<!-- cssClass -->
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- onclick -->
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Next Index</description>
+		<name>nextIndex</name>
+		<tag-class>org.codelabor.system.web.taglib.NextIndexTag</tag-class>
+		<body-content>scriptless</body-content>
+
+		<!-- cssClass -->
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- onclick -->
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>Last Index</description>
+		<name>lastIndex</name>
+		<tag-class>org.codelabor.system.web.taglib.LastIndexTag</tag-class>
+		<body-content>scriptless</body-content>
+
+		<!-- cssClass -->
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<!-- onclick -->
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>
