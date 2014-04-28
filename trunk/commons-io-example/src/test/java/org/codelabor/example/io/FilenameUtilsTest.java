@@ -54,4 +54,12 @@ public class FilenameUtilsTest {
 		assertEquals("txt", extension);
 	}
 
+	@Test
+	public void testGetFullpath() {
+		String name = "c:/temp";
+		String fullPath = FilenameUtils.getFullPath(name);
+		logger.debug("fullPath: {}", fullPath);
+		assertEquals("c:/", fullPath);
+	}
+
 }
