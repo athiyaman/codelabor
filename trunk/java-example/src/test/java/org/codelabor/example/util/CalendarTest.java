@@ -2,6 +2,7 @@ package org.codelabor.example.util;
 
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Map;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -45,6 +46,22 @@ public class CalendarTest extends TestCase {
 
 		displayName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.KOREAN);
 		logger.debug("displayName: {}", displayName);
+	}
+
+	public void testGetDisplayNames() {
+		Calendar calendar = Calendar.getInstance();
+		Map<String, Integer> displayNameMap = null;
+		displayNameMap = calendar.getDisplayNames(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.ENGLISH);
+		logger.debug("displayNameMap: {}", displayNameMap);
+
+		displayNameMap = calendar.getDisplayNames(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.ENGLISH);
+		logger.debug("displayName: {}", displayNameMap);
+
+		displayNameMap = calendar.getDisplayNames(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.KOREAN);
+		logger.debug("displayName: {}", displayNameMap);
+
+		displayNameMap = calendar.getDisplayNames(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.KOREAN);
+		logger.debug("displayName: {}", displayNameMap);
 	}
 
 }
