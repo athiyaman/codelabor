@@ -1,6 +1,7 @@
 package org.codelabor.example.util;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -30,4 +31,21 @@ public class CalendarTest extends TestCase {
 
 	}
 
+	public void testGetDisplayName() {
+		Calendar calendar = Calendar.getInstance();
+		String displayName = null;
+		displayName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.ENGLISH);
+		logger.debug("displayName: {}", displayName);
+
+		displayName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.ENGLISH);
+		logger.debug("displayName: {}", displayName);
+
+		displayName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.KOREAN);
+		logger.debug("displayName: {}", displayName);
+
+		displayName = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.KOREAN);
+		logger.debug("displayName: {}", displayName);
+	}
+
 }
+
