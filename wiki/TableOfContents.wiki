@@ -1,5 +1,7 @@
  * [Dev Infra / Environment]
    * [Application 개발 관련 SW 소개]
+
+[NamingAndConventionRulesJavaPackage]
 ----
  * [CodelaborSystemFile File Manager]
  * [codelaborCommonsCalendar Calendar Service]
