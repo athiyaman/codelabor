@@ -10,6 +10,7 @@
       * [Application_Dev_SW_Introduction 어플리케이션 개발 관련 SW 소개]
   * [Application_Dev_Environemnt 개발 환경 관련]
     * [Middleware_Setup_Strategy 미들웨어 구성 전략]
+    * [SCM_Strategy 소스 형상관리 전략]
     * [CI_Strategy 빌드 / 배포 전략]
     * [Installation_Guide 설치 가이드]
     * [Configuration_Guide 설정 가이드]
