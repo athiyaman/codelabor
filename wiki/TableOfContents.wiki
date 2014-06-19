@@ -1,4 +1,5 @@
-----
+=== Data Architecture ===
+=== Technical Architecture ===
 === Software Architecture ===
   * [Dev_Environment 개발 환경 관련]
     * [Dev_SW 개발 지원 SW 관련]
@@ -30,4 +31,3 @@
     * [Reusable_Artifact 재사용 모듈]
     * [Dev_Guide 개발 가이드]
   * [References 참고 자료]
-----
