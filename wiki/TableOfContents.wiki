@@ -1,7 +1,7 @@
 === Data Architecture ===
 === Technical Architecture ===
 === Software Architecture ===
-  * [Dev_Environment 개발 환경 관련]
+  * [Dev_Environment 개발 지원 환경 관련]
     * [Dev_SW 개발 지원 SW 관련]
       * [Dev_Infra_SW_Introduction 개발 지원 SW 소개]
       * [Dev_Infra_SW_Relation 개발 지원 SW 간의 관계]
@@ -19,6 +19,8 @@
     * [Dev_Environment_Setup 개발 환경 구성]
       * [Installation_Guide 설치 가이드]
       * [Configuration_Guide 설정 가이드]
+  * [Team_Building 팀 빌딩 / 역할 분장 관련]
+  * [Requirement 요구분석 관련]
   * [Design 설계 관련]
     * [Design_Strategy 설계 전략]
     * [Design_Standard 설계 표준]
