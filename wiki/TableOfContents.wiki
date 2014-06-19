@@ -9,10 +9,11 @@
     * 어플리케이션 개발 관련
       * [Application_Dev_SW_Introduction 어플리케이션 개발 관련 SW 소개]
   * 개발 환경 관련
-    * [IDE_Project_Strategy IDE 개발 프로젝트 구성 전략]
+    * [Middleware_Setup_Strategy 미들웨어 구성 전략]
     * [CI_Strategy 빌드 / 배포 전략]
     * [Installation_Guide 설치 가이드]
     * [Configuration_Guide 설정 가이드]
+    * [IDE_Project_Strategy IDE 개발 프로젝트 구성 전략]
 
   * 설계 및 개발 관련
     * [Design_Strategy 설계 전략]
@@ -21,3 +22,4 @@
     * [Dev_Standard 개발 표준]
     * [Dev_Guide 개발 가이드]
 ----
+  * [References 참고 자료]
