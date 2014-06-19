@@ -1,5 +1,5 @@
 ----
-  * [Dev_Infra_Environment Dev Infra / Environment]
+  * [Dev_Infra_Environment 개발 인프라 / 환경]
     * 개발 인프라 관련
       * [Dev_Infra_SW_Introduction 개발 인프라 관련 SW 소개]
       * [Dev_Infra_SW_Relation 개발 인프라 관련 SW 간의 관계]
