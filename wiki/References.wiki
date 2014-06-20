@@ -9,10 +9,6 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 == Design Pattern 관련 ==
 == Java Spec 관련 ==
   * [JSE_New_Features_and_Enhancements JSE New Features and Enhancements]
-  * [http://docs.oracle.com/javase/1.5.0/docs/relnotes/features.html Java SE 5]
-  * [http://www.oracle.com/technetwork/java/javase/features-141434.html Java SE 6]
-  * [http://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html Java SE 7]
-  * [http://www.oracle.com/technetwork/java/javase/8-whats-new-2157071.html Java SE 8]
 == Library 관련 ==
 == Framework 관련 ==
 === Bean Validation 관련 ===
