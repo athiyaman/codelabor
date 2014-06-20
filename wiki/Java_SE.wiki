@@ -1,3 +1,4 @@
-= Java_SE =
-
+= Java SE =
+=== API ===
+=== Features and Enhancements ===
   * [JSE_New_Features_and_Enhancements JSE New Features and Enhancements]
