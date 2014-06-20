@@ -1,0 +1,18 @@
+= Java EE =
+
+=== API ===
+
+Java EE 버전별 API 문서는 아래와 같다.
+
+  * [http://docs.oracle.com/javaee/7/api/ Java EE 7]
+  * [http://docs.oracle.com/javaee/6/api/ Java EE 6]
+  * [http://docs.oracle.com/javaee/5/api/ Java EE 5]
+  * [http://docs.oracle.com/javaee/1.4/api/ J2EE 1.4]
+
+=== Technologies ===
+
+Java EE 버전별 지원되는 기술을 확인하여 대상 시스템의 WAS에서 구현 가능 여부를 확인한다. 
+
+  * [http://www.oracle.com/technetwork/java/javaee/tech/index.html Java EE 7]
+  * [http://www.oracle.com/technetwork/java/javaee/tech/javaee6technologies-1955512.html Java EE 6]
+  * [http://www.oracle.com/technetwork/java/javaee/tech/javaee5-jsp-135162.html Java EE 5]
