@@ -9,7 +9,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [Java_SE Java SE]
   * [Java_EE Java EE]
 == Web Application Server 관련 ==
-  * [JEE_Compatibility JEE Compatibility]
+  * [Java_EE_Compatibility Java EE Compatibility]
 == Library 관련 ==
 == Framework 관련 ==
 === Bean Validation 관련 ===
