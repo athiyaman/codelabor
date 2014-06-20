@@ -15,9 +15,9 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [Java_EE_Compatibility Java EE Compatibility]
 
 == Framework 관련 ==
-  * [Spring_Framework Spring Framework]
-  * [Spring_Security Spring Security]
-  * [Hibernate_Bean_Valildator Hibernate Bean Valildator]
+  * [http://projects.spring.io/spring-framework/ Spring Framework]
+  * [http://projects.spring.io/spring-security/ Spring Security]
+  * [http://hibernate.org/validator/ Hibernate Bean Valildator]
 
 == Library 관련 ==
   * [http://commons.apache.org/ Apache Commons]
