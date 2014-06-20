@@ -2,6 +2,15 @@
 == 개발 전략 ==
 == 개발 표준 ==
 == 개발 가이드 ==
+  * [Dev_Guide_Logging Logging]
+  * [Dev_Guide_Exception Exception]
+  * [Dev_Guide_Utilization Utilization]
+  * [Dev_Guide_Validation Validation]
+  * [Dev_Guide_Transaction Transaction]
+  * [Dev_Guide_Authentication Authentication]
+  * [Dev_Guide_Authorization Authorization]
+  * [Dev_Guide_Pagination Pagination]
+
 == 개발 참고 자료 ==
   * [Bean_Validation_Constraints Bean Validation Constraints]
   * [http://mybatis.github.io/mybatis-3/sqlmap-xml.html MyBatis Mapper XML Files]
