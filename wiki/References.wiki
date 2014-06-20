@@ -11,7 +11,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 == Architecture 관련 ==
 
 == Design Pattern 관련 ==
-
+  * [http://www.oracle.com/technetwork/java/catalog-137601.html J2EE Patterns Catalog]
 ----
 
 == Java Spec 관련 ==
