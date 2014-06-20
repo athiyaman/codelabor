@@ -7,4 +7,4 @@ Java SE 버전별 특징을 파악하여 대상 시스템의 환경에 의도한
   * [http://www.oracle.com/technetwork/java/javase/8-whats-new-2157071.html Java SE 8]
   * [http://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html Java SE 7]
   * [http://www.oracle.com/technetwork/java/javase/features-141434.html Java SE 6]
-  * [http://docs.oracle.com/javase/1.5.0/docs/relnotes/features.html Java SE 5]
+  * [http://docs.oracle.com/javase/1.5.0/docs/relnotes/features.html J2SE 1.5.0]
