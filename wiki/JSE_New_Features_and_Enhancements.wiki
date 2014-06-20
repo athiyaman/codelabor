@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Java SE 버전 별 특징
 
 = JSE New Features and Enhancements =
 
