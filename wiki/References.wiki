@@ -8,7 +8,8 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 == Naming Conventions 관련 ==
 == Design Pattern 관련 ==
 == Java Spec 관련 ==
-  * [JSE_New_Features_and_Enhancements JSE New Features and Enhancements]
+  * [Java_SE Java SE]
+  * [Java_SE Java EE]
 == Library 관련 ==
 == Framework 관련 ==
 === Bean Validation 관련 ===
