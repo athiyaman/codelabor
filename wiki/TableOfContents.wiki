@@ -39,3 +39,7 @@
     * [개발 환경 관련 참고 자료]
     * [분석/설계 관련 참고 자료]
 === UI / UX ===
+----
+== Deliverables ==
+  * [Project_Templates Project Templates]
+  * [Reusable_Components Reusable Components]
