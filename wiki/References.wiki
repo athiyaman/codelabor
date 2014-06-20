@@ -47,6 +47,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 적용된 Application Framework들은 아래와 같다.
   * [http://projects.spring.io/spring-security/ Spring Security]
   * [http://projects.spring.io/spring-framework/ Spring Framework]
+  * [http://springsource.tistory.com/13 Spring Framework @Controller #2 - 파라미터와 리턴 타입의 종류 (개인 Blog)]
   * [http://hibernate.org/validator/ Hibernate Bean Valildator]
   * [http://mybatis.github.io/mybatis-3/index.html MyBatis]
 
