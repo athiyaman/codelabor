@@ -20,9 +20,9 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [Hibernate_Bean_Valildator Hibernate Bean Valildator]
 
 == Library 관련 ==
-  * [Apache_Commons Apache Commons]
-  * [SLF4J SLF4J]
-  * [Guava Guava]
+  * [http://commons.apache.org/ Apache Commons]
+  * [http://www.slf4j.org/index.html SLF4J]
+  * [https://code.google.com/p/guava-libraries/ Guava]
 
 == HTML5 관련 ==
   * [http://mightydigital.com/top-5-html5-compatibility-charts-web-mobile-developers/ HTML5 Compatibility Charts for Web and Mobile Developers]
