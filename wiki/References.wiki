@@ -9,6 +9,8 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [http://help.adobe.com/ko_KR/dreamweaver/cs/using/WSc78c5058ca073340dcda9110b1f693f21-7ebfa.html Dreamweaver에서 형상관리 하기]
 
 == CI(Continouus Integration) 관련 ==
+=== PMD 관련 ===
+  * [http://pmd.sourceforge.net/pmd-5.0.5/rules/index.html PMD 5.0.5 Ruleset]
 
 ----
 
