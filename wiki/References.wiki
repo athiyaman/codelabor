@@ -10,6 +10,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes Lanuguages (ISO 639-1)]
 
 == Naming Conventions 관련 ==
+명명법과 코딩 표준의 근간이 되는 원문은 아래 내용을 참고한다.
   * [http://www.oracle.com/technetwork/java/index-135089.html Code Conventions for the Java Programming Language]
   * [http://www.oracle.com/technetwork/java/namingconventions-139351.html J2EE Application, Module, and Component Names]
 
