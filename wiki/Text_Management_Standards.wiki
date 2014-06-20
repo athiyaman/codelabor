@@ -10,4 +10,5 @@
 파일 시스템 상에서 파일 형태로 입출력되는 문서는 아래와 같이 관리한다.
 
 ||*관리 시스템*||*대상 문서*||
-||Google Code Subversion||초안 자료||
+||Google Code Subversion||미정||
+||File Server (FTP)||미정||
