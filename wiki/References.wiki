@@ -4,6 +4,13 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 
 ----
 
+== SCM(Software Configuration Management) 관련 ==
+  * [http://help.adobe.com/ko_KR/dreamweaver/cs/using/WSc78c5058ca073340dcda9110b1f693f21-7ebfa.html Dreamweaver]
+
+== CI(Continouus Integration) 관련 ==
+
+----
+
 == Standard 관련 ==
 다국어/국제화를 고려한 개발 시, 대상 국가에 대한 로케일 코드 정보를 모른다면 아래 내용을 참고한다.
   * [http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 Countries (ISO 3166-1 alpha-2)]
