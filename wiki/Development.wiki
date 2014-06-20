@@ -3,3 +3,4 @@
 == 개발 가이드 ==
 == 개발 참고 자료 ==
   * [Bean_Validation_Constraints Bean Validation Constraints]
+  * [http://mybatis.github.io/mybatis-3/sqlmap-xml.html MyBatis Mapper XML Files]
