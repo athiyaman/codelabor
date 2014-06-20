@@ -1,4 +1,4 @@
 =Reusable Components=
 
-  * [codelaborSystemFile]
+  * [CodelaborSystemFile]
   * [codelaborCommonsCalendar]
