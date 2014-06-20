@@ -1,5 +1,3 @@
-#summary One-sentence summary of this page.
-
 = References =
 
 CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
@@ -9,12 +7,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 == Design Pattern 관련 ==
 == Java Spec 관련 ==
   * [Java_SE Java SE]
-  * [Java_SE Java EE]
+  * [Java_EE Java EE]
 == Library 관련 ==
 == Framework 관련 ==
 === Bean Validation 관련 ===
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
