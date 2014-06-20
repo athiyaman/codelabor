@@ -22,19 +22,22 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 ----
 
 == Java Spec 관련 ==
-구현하고자 하는 기능이 해당 버전, 스펙에서 가능한지 아래 내용을 참고한다.
+구현하고자 하는 기능이 해당 플랫폼의 버전, 스펙에서 사용 가능한지 아래 내용을 참고한다.
   * [Java_SE Java SE]
   * [Java_EE Java EE]
 
 == Java Web Application Server 관련 ==
+구현하고자 하는 기능이 해당 WAS의 버전, 스펙에서 사용 가능한지 아래 내용을 참고한다.
   * [Java_EE_Compatibility Java EE Compatibility]
 
 == Java Application Framework 관련 ==
+적용된 Application Framework들은 아래와 같다.
   * [http://projects.spring.io/spring-framework/ Spring Framework]
   * [http://projects.spring.io/spring-security/ Spring Security]
   * [http://hibernate.org/validator/ Hibernate Bean Valildator]
 
 == Java Library 관련 ==
+적용된 Library들은 아래와 같다.
   * [http://commons.apache.org/ Apache Commons]
   * [http://www.slf4j.org/index.html SLF4J]
   * [https://code.google.com/p/guava-libraries/ Guava]
@@ -42,4 +45,5 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 ----
 
 == HTML5 관련 ==
+구현하고자 하는 기능이 해당 브라우저의 버전, 스펙에서 사용 가능한지 아래 내용을 참고한다.
   * [http://mightydigital.com/top-5-html5-compatibility-charts-web-mobile-developers/ HTML5 Compatibility Charts for Web and Mobile Developers]
