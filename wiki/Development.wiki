@@ -1,6 +1,8 @@
 = 개발 =
+== 개발 전략 ==
 == 개발 표준 ==
 == 개발 가이드 ==
 == 개발 참고 자료 ==
   * [Bean_Validation_Constraints Bean Validation Constraints]
   * [http://mybatis.github.io/mybatis-3/sqlmap-xml.html MyBatis Mapper XML Files]
+  * [http://docs.oracle.com/javase/1.5.0/docs/guide/jdbc/getstart/mapping.html Mapping SQL and Java Types]
