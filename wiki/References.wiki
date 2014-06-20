@@ -2,7 +2,6 @@
 
 CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 
-== HTML5 관련 ==
 
 == Naming Conventions 관련 ==
 
@@ -24,3 +23,5 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [Apache_Commons Apache Commons]
   * [SLF4J SLF4J]
   * [Guava Guava]
+
+== HTML5 관련 ==
