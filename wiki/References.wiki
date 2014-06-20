@@ -4,7 +4,11 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 
 ----
 
+== Standard 관련 ==
+
 == Naming Conventions 관련 ==
+
+== Architecture 관련 ==
 
 == Design Pattern 관련 ==
 
