@@ -83,3 +83,8 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 == HTML5 관련 ==
 구현하고자 하는 기능이 해당 브라우저의 버전, 스펙에서 사용 가능한지 아래 내용을 참고한다.
   * [http://mightydigital.com/top-5-html5-compatibility-charts-web-mobile-developers/ HTML5 Compatibility Charts for Web and Mobile Developers]
+
+----
+
+== External Integration 관련 ==
+  * [http://www.g-pin.go.kr:8080/jsp/G-PIN_Client/bodyIntro1-1.jsp G-PIN 연계 가이드]
