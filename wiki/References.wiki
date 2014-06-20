@@ -2,27 +2,32 @@
 
 CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 
+----
 
 == Naming Conventions 관련 ==
 
 == Design Pattern 관련 ==
 
+----
+
 == Java Spec 관련 ==
   * [Java_SE Java SE]
   * [Java_EE Java EE]
 
-== Web Application Server 관련 ==
+== Java Web Application Server 관련 ==
   * [Java_EE_Compatibility Java EE Compatibility]
 
-== Framework 관련 ==
+== Java Application Framework 관련 ==
   * [http://projects.spring.io/spring-framework/ Spring Framework]
   * [http://projects.spring.io/spring-security/ Spring Security]
   * [http://hibernate.org/validator/ Hibernate Bean Valildator]
 
-== Library 관련 ==
+== Java Library 관련 ==
   * [http://commons.apache.org/ Apache Commons]
   * [http://www.slf4j.org/index.html SLF4J]
   * [https://code.google.com/p/guava-libraries/ Guava]
+
+----
 
 == HTML5 관련 ==
   * [http://mightydigital.com/top-5-html5-compatibility-charts-web-mobile-developers/ HTML5 Compatibility Charts for Web and Mobile Developers]
