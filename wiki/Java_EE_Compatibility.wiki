@@ -8,3 +8,4 @@
 
 === Jeus 버전 자료 ==
   * [http://technet.tmax.co.kr/kr/edocs/jeus/60/introduction/chapter_What_is_JEUS.html#sect_JEUS_Edition JEUS 6]
+  * [http://technet.tmax.co.kr/kr/edocs/jeus/70/introduction/chapter_What_is_JEUS.html#sect_JEUS_Edition JEUS 7]
