@@ -4,12 +4,12 @@
   * [http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html Java EE Compatibility]
   * [http://en.wikipedia.org/wiki/Comparison_of_application_servers#Java Comparison of application servers (Java)]
 
-=== Tomcat 버전 자료 ==
+=== Tomcat 버전 자료 ===
   * [http://tomcat.apache.org/whichversion.html Apache Tomcat Versions]
 
-=== WebLogic 버전 자료 ==
+=== WebLogic 버전 자료 ===
   * [http://en.wikipedia.org/wiki/Oracle_WebLogic_Server#Standards_support_by_version Standards support by version]
 
-=== Jeus 버전 자료 ==
+=== Jeus 버전 자료 ===
   * [http://technet.tmax.co.kr/kr/edocs/jeus/60/introduction/chapter_What_is_JEUS.html#sect_JEUS_Edition JEUS 6]
   * [http://technet.tmax.co.kr/kr/edocs/jeus/70/introduction/chapter_What_is_JEUS.html#sect_JEUS_Edition JEUS 7]
