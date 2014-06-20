@@ -2,6 +2,7 @@
 
 === Java EE 버전별 WAS 제품 및 버전 자료 ===
   * [http://www.oracle.com/technetwork/java/javaee/overview/compatibility-jsp-136984.html Java EE Compatibility]
+  * [http://en.wikipedia.org/wiki/Comparison_of_application_servers#Java Comparison of application servers (Java)]
 
 === Tomcat 버전 자료 ==
   * [http://tomcat.apache.org/whichversion.html Apache Tomcat Versions]
