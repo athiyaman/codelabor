@@ -25,3 +25,4 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [Guava Guava]
 
 == HTML5 관련 ==
+  * [http://mightydigital.com/top-5-html5-compatibility-charts-web-mobile-developers/ HTML5 Compatibility Charts for Web and Mobile Developers]
