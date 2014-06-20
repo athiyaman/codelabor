@@ -35,6 +35,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [http://projects.spring.io/spring-framework/ Spring Framework]
   * [http://projects.spring.io/spring-security/ Spring Security]
   * [http://hibernate.org/validator/ Hibernate Bean Valildator]
+  * [http://mybatis.github.io/mybatis-3/index.html MyBatis]
 
 == Java Library 관련 ==
 적용된 Library들은 아래와 같다.
