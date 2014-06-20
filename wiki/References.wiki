@@ -17,7 +17,9 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 한글 맞춤법은 아래 사이트에서 확인한다.
   * [http://www.korean.go.kr/09_new/dic/rule/rule01.jsp 국립국어원 한글 맞춤법]
   * [http://speller.cs.pusan.ac.kr/ 한국어 맞춤법/문법 검사기 (웹 브라우저, 개인용)]
-  * [https://play.google.com/store/apps/details?id=com.nodaji.koreanspeller 한국어 맞춤법/문법 검사기 (안드로이드 앱)]
+  * [https://play.google.com/store/apps/details?id=com.nodaji.koreanspeller 한국어 맞춤법/문법 검사기 (Android App)]
+  * [http://fallroot.github.io/dandy/ 한국어 맞춤법/문법 검사기 (Mac OS X Mountain Lion)]
+  * [https://github.com/EBvi/dandy 한국어 맞춤법/문법 검사기 (Mac OS X mavericks)]
 
 한글 띄어쓰기는 아래 사이트에서 점검하도록 한다.
   * [http://s.lab.naver.com/autospacing/ 네이버랩 한글 자동 띄어쓰기]
