@@ -51,6 +51,9 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 구현하고자 하는 기능이 해당 WAS의 버전, 스펙에서 사용 가능한지 아래 내용을 참고한다.
   * [Java_EE_Compatibility Java EE Compatibility]
 
+=== JEUS 관련 ==
+  * [http://technet.tmax.co.kr/kr/edocs/jeus/60/xml-reference/webcontainer_jeus-web-dd.xml_xml_configuration_reference.html JEUS 6 jeus-web-dd.xml 설정]
+
 == Java Application Framework 관련 ==
 적용된 Application Framework들은 아래와 같다.
   * [http://projects.spring.io/spring-security/ Spring Security]
