@@ -7,7 +7,7 @@
 === Tomcat 버전 자료 ===
   * [http://tomcat.apache.org/whichversion.html Apache Tomcat Versions]
 
-=== WebLogic 버전 자료 ===
+=== [http://www.oracle.com/technetwork/middleware/weblogic/overview/index.html WebLogic] 버전 자료 ===
   * [http://en.wikipedia.org/wiki/Oracle_WebLogic_Server#Standards_support_by_version Standards support by version]
 
 === Jeus 버전 자료 ===
