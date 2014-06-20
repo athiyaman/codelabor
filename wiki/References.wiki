@@ -5,6 +5,8 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 ----
 
 == Standard 관련 ==
+  * [http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2 (Countries)]
+  * [http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes ISO 639-1 (Lanuguages)]
 
 == Naming Conventions 관련 ==
   * [http://www.oracle.com/technetwork/java/index-135089.html Code Conventions for the Java Programming Language]
