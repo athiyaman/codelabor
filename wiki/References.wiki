@@ -44,9 +44,9 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 
 필요한 라이브러리를 버전별로 다운로드 받고 싶다면 아래 사이트를 참고한다.
   * [http://search.maven.org/ Maven Central Repository (Artifact Search Engine)]
-  * [http://www.findjar.com/index.x findJAR.com (JAR search engine)]
 
 필요한 클래스가 어느 라이브러리에 포함되어 있는지 알고 싶다면 아래 사이트를 참고한다.
+  * [http://www.findjar.com/index.x findJAR.com (JAR search engine)]
 
 ----
 
