@@ -78,6 +78,7 @@
         * [Dev_Strategy_Utilization History, Utilization]
         * [Dev_Strategy_Internationalization Internationalization]
       * [Dev_Standard 개발 표준]
+        * [Naming_And_Convention_Rules_Java_Package Java Package 명명 표준]
       * [Reusable_Artifact 재사용 모듈]
         * [Reusable_Artifact_Open_Source_CODELABOR Open Source Library (CODELABOR)]
         * [Reusable_Artifact_Open_Source_3rd_Party Open Source Library (3rd Party)]
