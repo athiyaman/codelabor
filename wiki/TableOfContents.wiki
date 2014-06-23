@@ -4,6 +4,8 @@
       * [Binary_Data_Management_Standards 바이너리 파일 관리 기준]
   * Data Architecture
   * Technical Architecture
+    * H/w List
+    * S/W List
     * User / Group List
     * Port List
     * Application Installation Directory
