@@ -1,6 +1,4 @@
-=Reusable Library=
-==Open Source 3rd Party==
-
+=Reusable Artifact (Open Source 3rd Party)=
 ===Apache Commons===
   * [http://commons.apache.org/ 공식 사이트]
   * [https://codelabor.googlecode.com/svn/trunk/commons-beanutils-example commons-beanutils 예제 프로젝트]
