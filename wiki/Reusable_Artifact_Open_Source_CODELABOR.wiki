@@ -1,4 +1,3 @@
-
-
+=Reusable Artifact (CODELABOR)=
   * [CODELABOR_System_File File Manager]
   * [CODELABOR_Common_Calendar Calendar Service]
