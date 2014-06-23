@@ -1,0 +1,3 @@
+==Text Overflow (Ellipsis)==
+
+* [http://www.w3schools.com/cssref/css3_pr_text-overflow.asp text-overflow Property (w3school)]
