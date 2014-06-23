@@ -38,6 +38,7 @@
       * [Design_Strategy 설계 전략]
       * [Design_Standard 설계 표준]
     * [Test 테스트 관련]
+      * [Test_Rules 테스트 규칙]
       * [Test_Strategy 테스트 전략]
       * [Test_Guide 테스트 가이드]
     * [Development 개발 관련]
