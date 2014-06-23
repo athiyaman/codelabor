@@ -54,7 +54,7 @@
           * [UI_Style_Error_Client_Side 클라이언트 측 에러]
         * Form
           * [UI_Style_Info_Form_Field_Required 필수 입력 항목]
-          * [UI_Style_Info_Form_Field_Enabled 입력 항목 활성화/비활성화]
+          * [UI_Style_Info_Form_Field_Access_Control 입력 항목 접근 제어]
           * [UI_Style_Info_Form_Field_Validation_Rule 입력 폼 필드 검증 규칙 정보]
           * [UI_Style_Error_Form 입력 폼 검증 에러]
           * [UI_Style_Error_Form_Field 입력 폼 특정 필드 검증 에러]
