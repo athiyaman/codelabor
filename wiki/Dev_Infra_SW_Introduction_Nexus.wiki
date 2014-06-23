@@ -5,8 +5,8 @@ Sonatype Nexus를 사용할 경우 자체 Artifact의 Repository를 구축할 �
 현재 Maven Central도 Sonatype Nexus를 사용 중이다.
 
 대체 가능 제품으로는 아래와 같은 것이 있다.
-  * Apache Archiva
-  * Artifactory
+  * [http://archiva.apache.org/ Apache Archiva]
+  * [http://www.jfrog.com/home/v_artifactory_opensource_overview JFlog Artifactory]
 
 
 Nexus와 관련된 정보는 아래와 같다.
