@@ -54,6 +54,7 @@
         * [SCM_Strategy 소스 형상관리 전략]
         * [CI_Strategy 빌드 / 배포 전략]
         * [IDE_Project_Strategy IDE 개발 프로젝트 구성 전략]
+        * [Web_Application_Type_List Web Application 유형 목록]
       * [Dev_Environment_Setup 개발 환경 구성]
         * [Installation_Guide 설치 가이드]
         * [Configuration_Guide 설정 가이드]
