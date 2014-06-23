@@ -46,18 +46,18 @@
         * Text
           * Align
           * Word Wrap
-          * Ellipsis
+          * [UI_Style_Text_Text_Overflow Text Overflow (Ellipsis)]
+        * Label
+        * Button
+        * Info/Warn/Error/Debug
+          * [UI_Style_Error_Server_Side 서버 측 에러]
+          * [UI_Style_Error_Client_Side 클라이언트 측 에러]
         * Form
           * [UI_Style_Info_Form_Field_Required 필수 입력 항목]
           * [UI_Style_Info_Form_Field_Enabled 입력 항목 활성화/비활성화]
-          * [UI_Style_Info_Validation_Rule 입력 폼 필드 검증 규칙 정보]
+          * [UI_Style_Info_Form_Field_Validation_Rule 입력 폼 필드 검증 규칙 정보]
           * [UI_Style_Error_Form 입력 폼 검증 에러]
           * [UI_Style_Error_Form_Field 입력 폼 특정 필드 검증 에러]
-        * Error
-          * [UI_Style_Error_Server_Side 서버 측 에러]
-          * [UI_Style_Error_Client_Side 클라이언트 측 에러]
-        * Label
-        * Button
   * Deliverables
     * [Project_Templates Project Templates]
     * [Reusable_Components Reusable Components]
