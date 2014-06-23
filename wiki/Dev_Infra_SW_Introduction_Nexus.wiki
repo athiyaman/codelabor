@@ -12,4 +12,4 @@ Sonatype Nexus를 사용할 경우 자체 Artifact의 Repository를 구축할 �
 Nexus와 관련된 정보는 아래와 같다.
 
   * [http://www.sonatype.org/nexus 공식 홈페이지]
-  * [http://www.youtube.com/watch?v=4ixkpScdpRw&hd=1&width=720&height=405&iframe=true&__utma=246996102.537685347.1384955200.1384955200.1384955200.1&__utmb=246996102.2.10.1384955200&__utmc=246996102&__utmx=-&__utmz=246996102.1384955200.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)&__utmv=-&__utmk=45230375 Nexus 소개 동영상]
+  * [http://www.youtube.com/watch?v=4ixkpScdpRw&hd=1&width=720&height=405&iframe=true&__utma=246996102.537685347.1384955200.1384955200.1384955200.1&__utmb=246996102.2.10.1384955200&__utmc=246996102&__utmx=-&__utmz=246996102.1384955200.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)&__utmv=-&__utmk=45230375 Nexus 소개 동영상 (Youtube)]
