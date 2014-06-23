@@ -85,8 +85,6 @@
       * [Dev_Guide 개발 가이드]
     * [Production 운영 관련]
     * [References 참고 자료]
-      * [개발 환경 관련 참고 자료]
-      * [분석/설계 관련 참고 자료]
   * UI / UX
     * UI 개발 관련
       * Style 가이드
