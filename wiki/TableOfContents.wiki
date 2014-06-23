@@ -32,6 +32,8 @@
         * [Installation_Guide 설치 가이드]
         * [Configuration_Guide 설정 가이드]
     * [Team_Building 팀 빌딩 / 역할 분장 관련]
+      * [Team_Building_Rules 팀 빌딩 / 역할 분장 규칙]
+      * [Team_Building_Strategy 팀 빌딩 / 역할 분장 전략]
     * [Requirement 요구분석 관련]
     * [Design 설계 관련]
       * [Design_Rules 설계 규칙]
