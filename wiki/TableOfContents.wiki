@@ -34,7 +34,7 @@
         * [SW_List_Dev_Support S/W 개발 지원 시스템 목록]
           * [SW_Introduction_Subversion SCM (Subversion)]
           * [SW_Introduction_Hudson CI Server (Jenkins)]
-          * [Dev_Infra_SW_Introduction_Nexus Artifact Repository (Nexus)]
+          * [SW_Introduction_Nexus Artifact Repository (Nexus)]
           * [SW_Introduction_OpenLDAP LDAP (OpenLDAP)]
           * [SW_Introduction_Mentis Bug Tracker (Mentis)]
           * [SW_Introduction_Review_Board Code Review (Review Board)]
