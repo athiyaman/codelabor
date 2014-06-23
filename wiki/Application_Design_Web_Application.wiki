@@ -1,4 +1,4 @@
-=Web Application 구성 전략\
+=Web Application 구성 전략=
 ==SSO 사용 여부에 따른 구성 전략==
 
 SSO 사용 여부에 따라 다음과 같이 다른 구성 전략을 가져갈 수 있다.
