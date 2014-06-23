@@ -104,3 +104,6 @@ org.codelabor.system.file.service 파일 관리 Service 관련 패키지
 org.codelabor.system.file.util 파일 관리 Utility 관련 패키지
 org.codelabor.system.file.web 파일 관리 Web 관련 패키지
 }}}
+
+= 상황별 패키지 구조 정의 =
+기 정의된 패키지 구조에서 상황에 따라 아래와 같은 확장, 변형이 가능하다.
