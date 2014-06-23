@@ -18,7 +18,7 @@ Risk는 조기에 탐지, 진압한다.
 기술 구조는 Black Box가 아닌 White Box로 투명하게 오픈한다.
   * 기술 의존도 집중으로 인한 이슈 발생 시 병목 방지를 위해 접근성이 높은 기술 구조를 사용한다.
   * Framework을 불필요하게 Black Box화, Customizing 하지 않는다.
-  * IDE Plug  *in을 불필요하게 Black Box화, Customizing 하지 않는다.
+  * IDE Plug-in을 불필요하게 Black Box화, Customizing 하지 않는다.
   * 특정 기술 및 제품에 대해서는 공식 Reference, Manual, Guide 문서만으로도 개발 및 운영이 가능하게 한다.
   * 특정 기술 및 제품에 의존하지 않는 공통 개발 부문은 최대한 오픈 소스를 활용한다.
   * 단, 배포 및 관리를 위해 모듈별 소스의 별도 Project 구성 및 Packaging을 한다.
