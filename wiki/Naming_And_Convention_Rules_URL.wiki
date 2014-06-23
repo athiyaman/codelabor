@@ -7,7 +7,7 @@
 
 형상 관리 서버의 URL은 아래와 같이 정의한다.
 
-  * ["https://codelabor.googlecode.com/svn/trunk/documentation/1 project-startup/configuration-management-plan/scm-repository-list.xlsx" SCM Repository List]
+  * [https://codelabor.googlecode.com/svn/trunk/documentation/1%20project-startup/configuration-management-plan/scm-repository-list.xlsx SCM Repository List]
 
 ||Repository Name||Base Line 관리 여부||URL||Description||채택 여부||
 ||documents||X||https://<scm server>/svn/<project code>/documents/public||공용 문서 관리 (인수 대상 Deliverable 산출물 포함)||O||
