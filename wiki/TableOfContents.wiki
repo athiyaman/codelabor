@@ -25,7 +25,7 @@
             * [SW_Introduction_FindBug FindBug]
         * [SW_List_Test S/W 테스트 Tool 목록]
             * [SW_Introduction_JMeter Performance Test (JMeter)]
-        * [SW_List_Dev_Infra S/W 개발 인프라 시스템 목록]
+        * [SW_List_Middleware Middleware SW 목록]
             * [SW_Introduction_Apache_Httpd Web Application (Apache Httpd)]
             * [SW_Introduction_Apache_Tomcat Web Application Server (Apache Tomcat)]
         * [SW_List_Dev_Support S/W 개발 지원 시스템 목록]
