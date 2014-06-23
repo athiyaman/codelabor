@@ -3,6 +3,10 @@
       * [Text_Management_Standards 문서 관리 기준]
       * [Binary_Data_Management_Standards 바이너리 파일 관리 기준]
   * Data Architecture
+    * [Database_Design 설계 관련]
+      * [Database_Design_Rules 설계 규칙]
+      * [Database_Design_Strategy 설계 전략]
+      * [Database_Design_Standard 설계 표준]
   * Technical Architecture
     * H/w List
     * S/W List
@@ -35,10 +39,10 @@
       * [Team_Building_Rules 팀 빌딩 / 역할 분장 규칙]
       * [Team_Building_Strategy 팀 빌딩 / 역할 분장 전략]
     * [Requirement 요구분석 관련]
-    * [Design 설계 관련]
-      * [Design_Rules 설계 규칙]
-      * [Design_Strategy 설계 전략]
-      * [Design_Standard 설계 표준]
+    * [Application_Design 설계 관련]
+      * [Application_Design_Rules 설계 규칙]
+      * [Application_Design_Strategy 설계 전략]
+      * [Application_Design_Standard 설계 표준]
     * [Test 테스트 관련]
       * [Test_Rules 테스트 규칙]
       * [Test_Strategy 테스트 전략]
