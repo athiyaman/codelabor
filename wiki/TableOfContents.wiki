@@ -8,8 +8,7 @@
       * [Database_Design_Strategy 설계 전략]
       * [Database_Design_Standard 설계 표준]
   * Technical Architecture
-    * H/w List
-    * S/W List
+    * [HW_List H/W List]
     * User / Group List
     * Port List
     * Application Installation Directory
@@ -17,7 +16,7 @@
     * Log Directory
     * Backup Schedule
   * Software Architecture
-    * [SW_List SW 목록]
+    * [SW_List S/W List]
         * [SW_List_Dev S/W 개발 Tool 목록]
             * [SW_Introduction_STS IDE (STS)]
             * [SW_Introduction_IDE_Plugin IDE Plugins]
@@ -34,13 +33,13 @@
           * [Dev_Infra_SW_Introduction_Client_Side Client Side]
 
           * [Dev_Infra_SW_Introduction_Server_Side Server Side]
-            * [Dev_Infra_SW_Introduction_Subversion SCM (Subversion)]
-            * [Dev_Infra_SW_Introduction_Hudson CI Server (Jenkins)]
+            * [SW_Introduction_Subversion SCM (Subversion)]
+            * [SW_Introduction_Hudson CI Server (Jenkins)]
             * [Dev_Infra_SW_Introduction_Nexus Artifact Repository (Nexus)]
-            * [Dev_Infra_SW_Introduction_OpenLDAP LDAP (OpenLDAP)]
-            * [Dev_Infra_SW_Introduction_Mentis Bug Tracker (Mentis)]
-            * [Dev_Infra_SW_Introduction_Review_Board Code Review (Review Board)]
-            * [Dev_Infra_SW_Introduction_Test_Link Test Management (Test Link)]
+            * [SW_Introduction_OpenLDAP LDAP (OpenLDAP)]
+            * [SW_Introduction_Mentis Bug Tracker (Mentis)]
+            * [SW_Introduction_Review_Board Code Review (Review Board)]
+            * [SW_Introduction_Test_Link Test Management (Test Link)]
         * [Dev_Infra_SW_Relation 개발 지원 SW 간의 관계]
     * [Dev_Environment 개발 지원 환경 관련]
       * [Dev_Infra_SW 개발 지원 SW 관련]
