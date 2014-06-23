@@ -6,6 +6,7 @@
     * [Database_Design 설계 관련]
       * [Database_Design_Principles 설계 원칙]
       * [Database_Design_Strategy 설계 전략]
+        * [Database_Design_Strategy_Nomalization Nomalization vs. Denomalization]
       * [Database_Design_Standard 설계 표준]
   * Technical Architecture
     * [HW_List H/W List]
