@@ -92,3 +92,7 @@ TBD
 
 == External Integration 관련 ==
   * [http://www.g-pin.go.kr:8080/jsp/G-PIN_Client/bodyIntro1-1.jsp G-PIN 연계 가이드]
+
+----
+==Release Schedule==
+  * [https://wiki.ubuntu.com/Releases Ubuntu Linux]
