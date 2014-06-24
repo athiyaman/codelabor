@@ -9,7 +9,9 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [http://help.adobe.com/ko_KR/dreamweaver/cs/using/WSc78c5058ca073340dcda9110b1f693f21-7ebfa.html Dreamweaver에서 형상관리 하기]
 
 == CI(Continouus Integration) 관련 ==
+TBD
 == Source code Static Analysis 관련 ==
+TBD
 === PMD 관련 ===
   * [http://pmd.sourceforge.net/pmd-5.0.5/rules/index.html PMD 5.0.5 Rulesets]
   * [http://findbugs.sourceforge.net/bugDescriptions.html#AT_OPERATION_SEQUENCE_ON_CONCURRENT_ABSTRACTION FindBug 2.0.3 Bug Descriptions]
@@ -41,6 +43,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
   * [https://twitter.com//urimal365 국립국어원 Twitter]
 
 == Architecture 관련 ==
+TBD
 
 == Design Pattern 관련 ==
 디자인 패턴에 대한 설명은 아래 내용을 참고한다.
