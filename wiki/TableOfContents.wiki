@@ -12,7 +12,7 @@
     * [HW_List H/W List]
     * User / Group List
     * Port List
-    * [Naming_And_Conventions_Rules_Directory_Web_Application_Server Web Application Sesrver Directory Layout]
+    * [Naming_And_Conventions_Rules_Directory_Web_Server Web  Server Directory Layout]
     * Log Directory
     * Backup Schedule
   * Software Architecture
