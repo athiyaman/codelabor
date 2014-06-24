@@ -39,7 +39,7 @@ Eclipse 내장 Formatter의 포맷 형식과 Java Conventions 의 포맷 형식�
  
 Eclipse (built-in)
 <pre>
-<code class="xml">
+<code language="xml">
 <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="tab"/>             
 <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="mixed"/>
 </code>
@@ -47,7 +47,7 @@ Eclipse (built-in)
  
 Java Conventions (built-in)
 <pre>
-<code class="xml">
+<code language="xml">
 <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="4"/>                
 <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="8"/>
 </code>
