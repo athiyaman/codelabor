@@ -1,6 +1,6 @@
 =Spring Framework Encoding=
 
-== CharacterEncodingFilter ==
+==CharacterEncodingFilter==
 
 Spring Framework의 Encoding은 기본적으로 ISO-8859-1로 되어 있으므로
 아래와 같이 CharacterEncodingFilter를 사용하여 UTF-8로 인코딩이 가능하도록 설정한다.
