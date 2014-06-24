@@ -1,4 +1,4 @@
-=Developer Guide Encoding Spring Framework webxml=
+=Developer Guide Encoding Spring Framework web.xml=
 
 Spring Framework의 Encoding은 기본적으로 ISO-8859-1로 되어 있으므로
 아래와 같이 CharacterEncodingFilter를 사용하여 UTF-8로 인코딩이 가능하도록 설정한다.
@@ -7,6 +7,8 @@ Spring Framework의 Encoding은 기본적으로 ISO-8859-1로 되어 있으므�
 filter-name이 일치하는지 반드시 확인하도록 한다.
 
 web.xml에서 아래와 같이 filter 설정을 추가한다.
+
+===web.xml===
 
 {{{
 <!-- encoding filter -->
