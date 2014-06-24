@@ -9,7 +9,7 @@
 
   * <scm server> : SCM 서버 도메인 / IP 주소
   * <project code> : 프로젝트 코드
-  * [https://codelabor.googlecode.com/svn/trunk/documentation/1%20project-startup/configuration-management-plan/scm-repository-list.xlsx SCM Repository List 원본 파일]
+  * [https://codelabor.googlecode.com/svn/trunk/documentation/1%20project-startup/configuration-management-plan/scm-repository-list.xlsx SCM Repository List 엑셀 파일]
 
 ||Repository Name||Base Line 관리 여부||URL||Description||채택 여부||
 ||documents||X||https://<scm server>/svn/<project code>/documents/public||공용 문서 관리 (인수 대상 Deliverable 산출물 포함)||O||
