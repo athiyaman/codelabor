@@ -79,6 +79,7 @@
             * [Naming_And_Conventions_Rules_Directory Directory Layout]
               * [Naming_And_Conventions_Rules_Directory_Web_Application Web Application Directory Layout]
               * [Naming_And_Conventions_Rules_Directory_Maven Maven Directory Layout]
+              * [Naming_And_Conventions_Rules_Directory_Java Java Directory Layout]
           * [Code_Conventions 코드 컨벤션]
             * [Code_Conventions_Java Java 코드 컨벤션]
             * [Code_Conventions_Java_Script Java Script 코드 컨벤션]
