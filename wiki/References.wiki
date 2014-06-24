@@ -96,3 +96,4 @@ TBD
 ----
 ==Release Schedule==
   * [https://wiki.ubuntu.com/Releases Ubuntu Linux]
+  * [https://issuetracker.springsource.com/browse/STS#selectedTab=com.atlassian.jira.plugin.system.project%3Aversions-panel STS]
