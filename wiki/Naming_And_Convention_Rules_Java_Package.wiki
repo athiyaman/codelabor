@@ -37,21 +37,21 @@ J2EE 코딩 컨벤션
 Eclipse (혹은 STS)의 내장 Formatter를 사용하여 개발자로 하여금 Formatting을 하기 위한 불필요한 공수를 줄여주도록 한다.
 Eclipse 내장 Formatter의 포맷 형식과 Java Conventions 의 포맷 형식에는 아래와 같은 차이가 있다.
  
-Eclipse (built-in)
-<pre>
+====Eclipse (built-in)====
+
 <code language="xml">
 <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="tab"/>             
 <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="mixed"/>
 </code>
-</pre>
+
  
-Java Conventions (built-in)
-<pre>
+====Java Conventions (built-in)====
+
 <code language="xml">
 <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="4"/>                
 <setting id="org.eclipse.jdt.core.formatter.tabulation.size" value="8"/>
 </code>
-</pre>
+
 
 ==4 순위: 개발 Framework 의존적 명명법 및 관례==
 
@@ -73,12 +73,9 @@ TBD
 
 아래의 경우 두 단어 이상의 합성어라고 하더라도 대문자를 사용하지 않는다.
 가독성이 떨어질 경우 하이픈(-)으로 구분할 수 있다.
-
   * Directory
   * Java Package
   * URL (단, 가장 뒷부분은 허용)
-
-
 
 위 우선 순위에 따라 크게 아래와 같은 분류로 패키지 명명법을 구분한다.
   * [Naming_And_Convention_Rules_Java_Package_Basic 패키지 기본 명명법]
