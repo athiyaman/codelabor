@@ -11,7 +11,7 @@ Connector 설정에 아래 내용을 추가한다.
   * useBodyEncodingForURI="true"
   * URIEncoding="UTF-8"
 
-STS 기준으로 server.xml 에 등록되는 형태는 아래와 같다.
+Tomcat 기준으로 server.xml 에 등록되는 형태는 아래와 같다.
 
 ===server.xml===
 {{{
