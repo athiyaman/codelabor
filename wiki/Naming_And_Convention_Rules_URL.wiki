@@ -7,6 +7,8 @@
 
 형상 관리 서버의 URL은 아래와 같이 정의한다.
 
+  * <scm server> : SCM 서버 도메인 / IP 주소
+  * <project code> : 프로젝트 코드
   * [https://codelabor.googlecode.com/svn/trunk/documentation/1%20project-startup/configuration-management-plan/scm-repository-list.xlsx SCM Repository List 원본 파일]
 
 ||Repository Name||Base Line 관리 여부||URL||Description||채택 여부||
