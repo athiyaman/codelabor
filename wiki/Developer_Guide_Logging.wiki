@@ -64,4 +64,4 @@ logger.debug("로깅할 내용: {}, {}", 파라미터1, 파라미터2);
 
 ==Logback 설정==
 
-* 참고 자료: http://logback.qos.ch/manual/layouts.html
+  * [http://logback.qos.ch/manual/layouts.html 관련 문서]
