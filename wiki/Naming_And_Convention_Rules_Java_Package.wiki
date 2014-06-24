@@ -1,5 +1,0 @@
-=Java Package 명명법=
-
-크게 아래와 같은 분류로 패키지 명명법을 구분한다.
-  * [Naming_And_Convention_Rules_Java_Package_Basic 패키지 기본 명명법]
-  * [Naming_And_Convention_Rules_Java_Package_Custom 패키지 커스텀 명명법]
