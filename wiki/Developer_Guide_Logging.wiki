@@ -32,10 +32,10 @@ jcl-over-slf4j 라이브러리를 필요로 합니다. (현재는 Spring Framewo
 ==Import 구분==
 
 아래와 같이 import 합니다.
-<pre><code>
+{{{
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-</code></pre>
+}}}
 
 ==Logger 생성 및 실행==
 
@@ -54,10 +54,10 @@ logger.debug("로깅할 내용: {}, {}", 파라미터1, 파라미터2);
 *주의*
 아래와 같은 용도로는 Logging을 금지합니다.
 
-* 단순한 method 호출
-* method 호출 소요 시간 표시
-* method에 전달된 parameter 내용
-* method가 return할 값
+  * 단순한 method 호출
+  * method 호출 소요 시간 표시
+  * method에 전달된 parameter 내용
+  * method가 return할 값
 
 위 출력용도로는 개별적으로 Logging 하지 마십시오.
 공통에서 일괄적으로 AOP로 적용 시켜 필요에 따라 on/off 할 예정입니다.
