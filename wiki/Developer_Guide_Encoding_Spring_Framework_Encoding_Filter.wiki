@@ -8,7 +8,7 @@ filter-name이 일치하는지 반드시 확인하도록 한다.
 
 web.xml에서 아래와 같이 filter 설정을 추가한다.
 
-<code language='xml'>
+{{{
 	<!-- encoding filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>  
@@ -25,4 +25,4 @@ web.xml에서 아래와 같이 filter 설정을 추가한다.
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-</code>
+}}}
