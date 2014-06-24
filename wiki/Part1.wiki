@@ -1,0 +1,17 @@
+  * 관리 기준 / 정책
+    * [Deliverables_Management_Standards 산출물 관리 기준]
+      * [Text_Management_Standards 문서 관리 기준]
+      * [Binary_Data_Management_Standards 바이너리 파일 관리 기준]
+  * Data Architecture
+    * [Database_Design 설계 관련]
+      * [Database_Design_Principles 설계 원칙]
+      * [Database_Design_Strategy 설계 전략]
+        * [Database_Design_Strategy_Nomalization Nomalization vs. Denomalization]
+      * [Database_Design_Standard 설계 표준]
+  * Technical Architecture
+    * [HW_List H/W List]
+    * User / Group List
+    * Port List
+    * [Naming_And_Conventions_Rules_Directory_Web_Server Web  Server Directory Layout]
+    * Log Directory
+    * Backup Schedule
