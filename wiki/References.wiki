@@ -25,7 +25,7 @@ CODELABOR 프로젝트에서 참고한 각종 자료들은 아래와 같다.
 명명법과 코딩 표준의 근간이 되는 원문은 아래 내용을 참고한다.
   * [http://www.oracle.com/technetwork/java/index-135089.html Code Conventions for the Java Programming Language]
   * [http://www.oracle.com/technetwork/java/namingconventions-139351.html J2EE Application, Module, and Component Names]
-  * [http://www.oracle.com/technetwork/articles/javase/code-convention-138726.html JSP]
+  * [http://www.oracle.com/technetwork/articles/javase/code-convention-138726.html Code Conventions for the JavaServer Pages Technology Version 1.x Language]
 
 한글 맞춤법은 아래 사이트에서 확인한다.
   * [http://www.korean.go.kr/09_new/dic/rule/rule01.jsp 국립국어원 한글 맞춤법 규정]
