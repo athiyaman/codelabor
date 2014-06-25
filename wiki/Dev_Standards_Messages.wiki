@@ -53,17 +53,12 @@ Spring Framework 내장 Message를 기본적으로 사용합니다.
 ||heading||_en||.properties||페이지 제목||화면 정의서의 페이지 제목 참고||
 ||label||_en||.properties||입력 폼의 레이블명||화면 정의서의 폼 참고||
 ||button||_en||.properties||버튼 표시명||버튼 표준 문서 참고||
-||messages||_en||.properties||확인, 경고, 에러 메시지, 윈도우 상태바 표시 메시지
-||메시지 표준 문서 참고||
-||caption||_en||.properties||이미지, 표의 캡션명||일반적인 웹 화면인 경우는 생략
-됨||
-||title||_ko||.properties||윈도우 제목||화면 정의서의 대표 화면명 (화면 ID) 참고
-||
+||messages||_en||.properties||확인, 경고, 에러 메시지, 윈도우 상태바 표시 메시지||메시지 표준 문서 참고||
+||caption||_en||.properties||이미지, 표의 캡션명||일반적인 웹 화면인 경우는 생략됨||
+||title||_ko||.properties||윈도우 제목||화면 정의서의 대표 화면명 (화면 ID) 참고||
 ||menu||_ko||.properties||메뉴명||메뉴는 별도의 DBMS 상에 구현 가능||
 ||heading||_ko||.properties||페이지 제목||화면 정의서의 페이지 제목 참고||
 ||label||_ko||.properties||입력 폼의 레이블명||화면 정의서의 폼 참고||
 ||button||_ko||.properties||버튼 표시명||버튼 표준 문서 참고||
-||messages||_ko||.properties||확인, 경고, 에러 메시지, 윈도우 상태바 표시 메시지
-||메시지 표준 문서 참고||
-||caption||_en||.properties||이미지, 표의 캡션명||일반적인 웹 화면인 경우는 생략
-됨||
+||messages||_ko||.properties||확인, 경고, 에러 메시지, 윈도우 상태바 표시 메시지||메시지 표준 문서 참고||
+||caption||_en||.properties||이미지, 표의 캡션명||일반적인 웹 화면인 경우는 생략됨||
