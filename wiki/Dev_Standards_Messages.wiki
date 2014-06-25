@@ -1,0 +1,42 @@
+=Message 표준=
+
+Message 표준은  업무 특화, 업무 공통, 시스템 공통 메시지로 분류합니다.
+업무 특화 메시지는 고객 관점에서의 용어를 사용하여 정의하고
+업무 공통 메시지는 여러 업무 간 공통적으로 사용가능한 일반화된 메시지를 별도 분류합니다.
+시스템 공통 메시지는 개발자, 유지보수자 관점의 용어를 사용합니다.
+
+==업무 특화 Message 표준==
+
+TBD: 화면 정의서 작성 완료 후, 정제될 예정
+
+==업무 공통 Message 표준==
+
+TBD: 화면 정의서 작성 완료 후, 정제될 예정
+
+==시스템 공통 Message 표준==
+
+*Security 관련 Message 표준*
+
+Spring Security 내장 Message를 기본적으로 사용합니다.
+화면 출력된 메시지가 부자연스러운 경우, 커스텀 가능합니다.
+
+  * [http://www.mkyong.com/spring-security/display-custom-error-message-in-spring-security/ 관련 글]
+
+===영문 메시지===
+{{{
+TBD
+}}}
+
+===한글 메시지===
+{{{
+TBD
+}}}
+
+*Validation 관련 Message 표준*
+
+Spring Framework, Hibernate Validator 내장 Message를 기본적으로 사용합니다.
+
+*그 외 Message 표준*
+
+Spring Framework 내장 Message를 기본적으로 사용합니다.
+화면 출력된 메시지가 부자연스러운 경우, 커스텀 가능합니다.
