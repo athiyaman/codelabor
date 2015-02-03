@@ -1,6 +1,6 @@
   * [Part1 Part1]
   * Software Architecture
-    * [SW_List S/W List]
+    * [SW_List S/W List] 
         * [SW_List_Dev S/W 개발 Tool 목록]
             * [SW_Introduction_STS IDE (STS)]
             * [SW_Introduction_IDE_Plugin IDE Plugins]
