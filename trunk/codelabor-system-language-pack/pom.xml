@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- The Basics -->
+	<groupId>org.codelabor</groupId>
+	<artifactId>codelabor-system-language-pack</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<dependencies>
+	</dependencies>
+	<parent>
+		<artifactId>oss-parent</artifactId>
+		<groupId>org.sonatype.oss</groupId>
+		<version>7</version>
+	</parent>
+	<properties>
+		<!-- Java Spec -->
+		<java.version>1.5</java.version>
+
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<!-- Build Settings -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-enforcer-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<goal>enforce</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<detectLinks>true</detectLinks>
+					<links>
+						<link>http://commons.apache.org/io/apidocs/</link>
+					</links>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- More Project Information -->
+	<name>codelabor-system-language-pack</name>
+	<description>codelabor system core</description>
+	<url>http://codelabor.googlecode.com</url>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	<organization>
+		<name>CODELABOR</name>
+		<url>http://codelabor.org</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>bomber</id>
+			<name>Shin Sang-Jae</name>
+			<email>codelabor@gmail.com</email>
+			<url>http://codelabor.org</url>
+			<organization>CODELABOR</organization>
+			<organizationUrl>http://codelabor.org</organizationUrl>
+			<timezone>+9</timezone>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<!-- Environment Settings -->
+	<scm>
+		<connection>scm:svn:http://codelabor.googlecode.com/svn/trunk/codelabor-system-language-pack</connection>
+		<developerConnection>scm:svn:https://codelabor.googlecode.com/svn/trunk/codelabor-system-language-pack</developerConnection>
+		<url>http://codelabor.googlecode.com/svn/trunk/codelabor-system-language-pack</url>
+	</scm>
+	<repositories>
+		<repository>
+			<id>sonatype-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>
